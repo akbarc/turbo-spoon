@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from database.sql_server import db
+from utils.excise_tax import calculate_excise_tax
 
 st.set_page_config(page_title="Executive Dashboard", page_icon="📊", layout="wide")
 
@@ -131,29 +132,23 @@ with st.spinner("Loading metrics..."):
             metrics['TotalItemsSold'] = item_metrics['TotalItemsSold'].iloc[0]
             metrics['GrossProfitBeforeExcise'] = item_metrics['GrossProfitBeforeExcise'].iloc[0]
 
-        # Try to get excise tax (may timeout on large date ranges)
+        # Calculate excise tax using fast Item-based approach (avoids slow PUExciseEntry queries)
         metrics['TotalExcisePaid'] = 0
         metrics['ExciseTaxAvailable'] = False
 
-        try:
-            # Excise tax PAID to state - with shorter timeout
-            excise_query = f"""
-            SELECT
-                SUM(PriceC * Quantity) as TotalExcisePaid
-            FROM PUExciseEntry WITH (NOLOCK)
-            WHERE TransactionTime >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
-              AND TransactionTime <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
-              AND SubDescription3 IN ('LT10PAID', 'SL10PAID', 'LC23PAID', 'LC25PAID', 'VO07PAID', 'VD07PAID', 'VC05PAID')
-            """
+        # Use the new fast calculation method
+        excise_tax, error_msg = calculate_excise_tax(
+            db,
+            start_date.strftime('%Y-%m-%d %H:%M:%S'),
+            end_date.strftime('%Y-%m-%d %H:%M:%S')
+        )
 
-            excise_metrics = db.execute_query(excise_query)
-
-            if not excise_metrics.empty and excise_metrics['TotalExcisePaid'].iloc[0]:
-                metrics['TotalExcisePaid'] = excise_metrics['TotalExcisePaid'].iloc[0]
-                metrics['ExciseTaxAvailable'] = True
-        except Exception as e:
-            # Excise tax query timed out or failed - continue without it
-            st.warning("⚠️ Excise tax data unavailable (query timeout). Showing profit before excise tax.")
+        if excise_tax is not None:
+            metrics['TotalExcisePaid'] = excise_tax
+            metrics['ExciseTaxAvailable'] = True
+        else:
+            # Excise tax calculation failed - continue without it
+            st.warning(f"⚠️ Excise tax data unavailable: {error_msg}")
 
         # Calculate gross profit (subtract excise tax if available)
         metrics['GrossProfit'] = metrics['GrossProfitBeforeExcise'] - metrics['TotalExcisePaid']
@@ -217,8 +212,7 @@ with st.spinner("Loading metrics..."):
                 st.metric(
                     "Excise Tax (Paid)" + ("" if excise_available else " *"),
                     f"${excise_tax:,.2f}",
-                    help="Total excise tax paid to state (tobacco, cigars, vapors)" +
-                         ("" if excise_available else " - Query timed out, showing $0")
+                    help="Total excise tax paid to state (tobacco, cigars, vapors). Calculated from Item SubDescription3 codes."
                 )
 
                 items_per_trans = items_sold / total_trans if total_trans > 0 else 0
@@ -239,10 +233,10 @@ with st.spinner("Loading metrics..."):
                 """)
             else:
                 st.warning("""
-                **⚠️ Note:** Excise tax data temporarily unavailable (large date range).
+                **⚠️ Note:** Excise tax data temporarily unavailable.
                 Gross Profit shown is **before** excise tax deduction.
 
-                For accurate profit with excise tax, try a smaller date range (e.g., Last 7 Days, This Week).
+                This may indicate missing SubDescription3 tax codes on some items.
                 """)
 
             # Sales Trend
