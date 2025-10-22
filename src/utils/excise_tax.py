@@ -90,6 +90,61 @@ def calculate_excise_tax(db_connection, start_date: str, end_date: str) -> Tuple
         return None, error_msg
 
 
+def calculate_excise_collected(db_connection, start_date: str, end_date: str) -> Tuple[Optional[float], Optional[str]]:
+    """
+    Calculate total excise tax collected from customers for a date range.
+
+    This is the COLL codes (collected from customers), not PAID codes (paid to state).
+
+    Args:
+        db_connection: Database connection context manager
+        start_date: Start date (YYYY-MM-DD HH:MM:SS)
+        end_date: End date (YYYY-MM-DD HH:MM:SS)
+
+    Returns:
+        Tuple of (total_excise_collected, error_message)
+        - If successful: (float_amount, None)
+        - If failed: (None, error_string)
+    """
+    query = f"""
+    SELECT
+        i.SubDescription3,
+        te.Cost,
+        te.Quantity
+    FROM [Transaction] t WITH (NOLOCK)
+    INNER JOIN TransactionEntry te WITH (NOLOCK)
+        ON t.TransactionNumber = te.TransactionNumber
+    INNER JOIN Item i WITH (NOLOCK)
+        ON te.ItemID = i.ID
+    WHERE t.Time >= '{start_date}'
+      AND t.Time <= '{end_date}'
+      AND i.SubDescription3 IS NOT NULL
+      AND i.SubDescription3 LIKE '%COLL'
+    """
+
+    try:
+        with db_connection.get_connection() as conn:
+            df = pd.read_sql(query, conn)
+
+        if df.empty:
+            return 0.0, None
+
+        # Calculate excise tax in Python
+        def calc_tax(row):
+            code = row['SubDescription3']
+            rate = EXCISE_TAX_RATES.get(code, 0.0)
+            return row['Cost'] * row['Quantity'] * rate
+
+        df['ExciseTax'] = df.apply(calc_tax, axis=1)
+        total_excise = df['ExciseTax'].sum()
+
+        return total_excise, None
+
+    except Exception as e:
+        error_msg = f"Excise tax collected calculation failed: {str(e)}"
+        return None, error_msg
+
+
 def get_excise_breakdown(db_connection, start_date: str, end_date: str) -> Tuple[Optional[pd.DataFrame], Optional[str]]:
     """
     Get detailed breakdown of excise tax by category.

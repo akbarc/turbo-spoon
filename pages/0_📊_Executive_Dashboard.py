@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from database.sql_server import db
-from utils.excise_tax import calculate_excise_tax
+from utils.excise_tax import calculate_excise_tax, calculate_excise_collected
 
 st.set_page_config(page_title="Executive Dashboard", page_icon="📊", layout="wide")
 
@@ -134,9 +134,10 @@ with st.spinner("Loading metrics..."):
 
         # Calculate excise tax using fast Item-based approach (avoids slow PUExciseEntry queries)
         metrics['TotalExcisePaid'] = 0
+        metrics['TotalExciseCollected'] = 0
         metrics['ExciseTaxAvailable'] = False
 
-        # Use the new fast calculation method
+        # Calculate excise tax PAID to state
         excise_tax, error_msg = calculate_excise_tax(
             db,
             start_date.strftime('%Y-%m-%d %H:%M:%S'),
@@ -149,6 +150,16 @@ with st.spinner("Loading metrics..."):
         else:
             # Excise tax calculation failed - continue without it
             st.warning(f"⚠️ Excise tax data unavailable: {error_msg}")
+
+        # Calculate excise tax COLLECTED from customers
+        excise_collected, coll_error = calculate_excise_collected(
+            db,
+            start_date.strftime('%Y-%m-%d %H:%M:%S'),
+            end_date.strftime('%Y-%m-%d %H:%M:%S')
+        )
+
+        if excise_collected is not None:
+            metrics['TotalExciseCollected'] = excise_collected
 
         # Calculate gross profit (subtract excise tax if available)
         metrics['GrossProfit'] = metrics['GrossProfitBeforeExcise'] - metrics['TotalExcisePaid']
@@ -215,11 +226,11 @@ with st.spinner("Loading metrics..."):
                     help="Total excise tax paid to state (tobacco, cigars, vapors). Calculated from Item SubDescription3 codes."
                 )
 
-                items_per_trans = items_sold / total_trans if total_trans > 0 else 0
+                excise_collected = metrics['TotalExciseCollected'].iloc[0] or 0
                 st.metric(
-                    "Items/Transaction",
-                    f"{items_per_trans:.1f}",
-                    help="Average items per transaction"
+                    "Excise Tax (Collected)",
+                    f"${excise_collected:,.2f}",
+                    help="Total excise tax collected from customers"
                 )
 
             # Calculation note
