@@ -200,46 +200,6 @@ with st.spinner("Loading metrics..."):
                     help="Average items per transaction"
                 )
 
-            # Excise Tax Summary
-            st.markdown("---")
-            st.subheader("💰 Excise Tax Summary")
-
-            excise_query = f"""
-            SELECT
-                SUM(LOOSETOBACCO) as LooseTobacco,
-                SUM(SMOKELESS) as Smokeless,
-                SUM(LARGECIGARS) as LargeCigars,
-                SUM(LITTLECIGARS) as LittleCigars,
-                SUM(VAPORSOPEN) as VaporsOpen,
-                SUM(VAPORSDEVICE) as VaporsDevice,
-                SUM(VAPORSCLOSED) as VaporsClosed,
-                SUM(TOTALEXCISECOLLECT) as TotalCollected
-            FROM VIEWEXCISETAXCOLLECT
-            WHERE Date >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
-              AND Date <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
-            """
-
-            excise = db.execute_query(excise_query)
-
-            if not excise.empty:
-                col1, col2, col3, col4 = st.columns(4)
-
-                with col1:
-                    total_excise = excise['TotalCollected'].iloc[0] or 0
-                    st.metric("Total Excise Collected", f"${total_excise:,.2f}")
-
-                with col2:
-                    loose_tobacco = excise['LooseTobacco'].iloc[0] or 0
-                    st.metric("Loose Tobacco", f"${loose_tobacco:,.2f}")
-
-                with col3:
-                    smokeless = excise['Smokeless'].iloc[0] or 0
-                    st.metric("Smokeless", f"${smokeless:,.2f}")
-
-                with col4:
-                    cigars = (excise['LargeCigars'].iloc[0] or 0) + (excise['LittleCigars'].iloc[0] or 0)
-                    st.metric("Cigars (All)", f"${cigars:,.2f}")
-
             # Sales Trend
             st.markdown("---")
             st.subheader("📈 Sales Trend")
