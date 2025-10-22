@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from database.sql_server_pyodbc import db
+from database.sql_server import db
 
 st.set_page_config(page_title="Executive Dashboard", page_icon="📊", layout="wide")
 
