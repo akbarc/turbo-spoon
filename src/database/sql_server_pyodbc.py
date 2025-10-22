@@ -26,6 +26,7 @@ class SQLServerConnection:
         conn = None
         try:
             # Connection string for SQL Server 2000/older versions
+            # Disable encryption and certificate validation for legacy servers
             conn_str = (
                 f'DRIVER={{ODBC Driver 17 for SQL Server}};'
                 f'SERVER={self.server};'
@@ -33,6 +34,8 @@ class SQLServerConnection:
                 f'UID={self.user};'
                 f'PWD={self.password};'
                 f'Timeout={self.timeout};'
+                f'Encrypt=no;'
+                f'TrustServerCertificate=yes;'
             )
             conn = pyodbc.connect(conn_str, timeout=self.timeout)
             yield conn
