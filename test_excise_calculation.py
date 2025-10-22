@@ -1,7 +1,8 @@
 """
-Test script to verify the new fast excise tax calculation.
+Test script to verify excise tax calculation accuracy.
 
-This compares the old (slow) PUExciseEntry approach with the new (fast) Item-based approach.
+This tests the PUExciseEntry-based calculation using PriceC field (actual tax amount).
+Compares against known September 2024 numbers to verify accuracy.
 """
 
 import os

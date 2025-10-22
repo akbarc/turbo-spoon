@@ -1,45 +1,27 @@
 """
-Fast excise tax calculation using Item.SubDescription3 instead of slow PUExciseEntry queries.
+Excise tax calculation using PUExciseEntry table.
 
-This module calculates excise tax paid to the state by:
-1. Querying Transaction → TransactionEntry → Item (fast, with date filter)
-2. Using Item.SubDescription3 to identify taxable products
-3. Calculating tax in Python: Cost * Quantity * Tax Rate
+This module calculates excise tax by querying the PUExciseEntry table directly.
+The PriceC field contains the actual excise tax amount (already calculated).
 
-This is 100x faster than querying the PUExciseEntry table.
+Key fields in PUExciseEntry:
+- PriceC: The actual excise tax amount per unit
+- Quantity: Number of units sold
+- SubDescription3: Tax category code (e.g., LC23PAID, VD07COLL)
+- TransactionTime: Date/time of transaction (use for filtering)
+
+Total excise tax = SUM(PriceC * Quantity)
 """
 
 import pandas as pd
 from typing import Tuple, Optional
 
 
-# Excise tax rates encoded in SubDescription3 codes
-# Format: {code: rate_decimal}
-# PAID suffix = tax paid to government (what we want for gross profit)
-EXCISE_TAX_RATES = {
-    'LT10PAID': 0.10,   # Loose Tobacco 10%
-    'LT10COLL': 0.10,   # Loose Tobacco 10% collected
-    'SL10PAID': 0.10,   # Smokeless 10%
-    'SL10COLL': 0.10,   # Smokeless 10% collected
-    'LC23PAID': 0.23,   # Large Cigars 23%
-    'LC23COLL': 0.23,   # Large Cigars 23% collected
-    'LC25PAID': 0.25,   # Little Cigars 25%
-    'LC25COLL': 0.25,   # Little Cigars 25% collected
-    'VO07PAID': 0.07,   # Vapors Open 7%
-    'VO07COLL': 0.07,   # Vapors Open 7% collected
-    'VD07PAID': 0.07,   # Vape Device 7%
-    'VD07COLL': 0.07,   # Vape Device 7% collected
-    'VC05PAID': 0.05,   # Vapors Closed 5%
-    'VC05COLL': 0.05,   # Vapors Closed 5% collected
-}
-
-
 def calculate_excise_tax(db_connection, start_date: str, end_date: str) -> Tuple[Optional[float], Optional[str]]:
     """
     Calculate total excise tax paid to state for a date range.
 
-    Uses fast query approach: Transaction → TransactionEntry → Item
-    Calculates tax in Python based on Item.SubDescription3 codes.
+    Queries PUExciseEntry table directly and uses PriceC field (actual tax amount).
 
     Args:
         db_connection: Database connection context manager
@@ -52,38 +34,22 @@ def calculate_excise_tax(db_connection, start_date: str, end_date: str) -> Tuple
         - If failed: (None, error_string)
     """
     query = f"""
-    SELECT
-        i.SubDescription3,
-        te.Cost,
-        te.Quantity
-    FROM [Transaction] t WITH (NOLOCK)
-    INNER JOIN TransactionEntry te WITH (NOLOCK)
-        ON t.TransactionNumber = te.TransactionNumber
-    INNER JOIN Item i WITH (NOLOCK)
-        ON te.ItemID = i.ID
-    WHERE t.Time >= '{start_date}'
-      AND t.Time <= '{end_date}'
-      AND i.SubDescription3 IS NOT NULL
-      AND i.SubDescription3 LIKE '%PAID'
+    SELECT SUM(PriceC * Quantity) as TotalExcisePaid
+    FROM PUExciseEntry WITH (NOLOCK)
+    WHERE TransactionTime >= '{start_date}'
+      AND TransactionTime <= '{end_date}'
+      AND SubDescription3 LIKE '%PAID'
     """
 
     try:
         with db_connection.get_connection() as conn:
             df = pd.read_sql(query, conn)
 
-        if df.empty:
+        if df.empty or df['TotalExcisePaid'].iloc[0] is None:
             return 0.0, None
 
-        # Calculate excise tax in Python
-        def calc_tax(row):
-            code = row['SubDescription3']
-            rate = EXCISE_TAX_RATES.get(code, 0.0)
-            return row['Cost'] * row['Quantity'] * rate
-
-        df['ExciseTax'] = df.apply(calc_tax, axis=1)
-        total_excise = df['ExciseTax'].sum()
-
-        return total_excise, None
+        total_excise = df['TotalExcisePaid'].iloc[0]
+        return float(total_excise), None
 
     except Exception as e:
         error_msg = f"Excise tax calculation failed: {str(e)}"
@@ -94,7 +60,7 @@ def calculate_excise_collected(db_connection, start_date: str, end_date: str) ->
     """
     Calculate total excise tax collected from customers for a date range.
 
-    This is the COLL codes (collected from customers), not PAID codes (paid to state).
+    Queries PUExciseEntry table for COLL codes (collected from customers).
 
     Args:
         db_connection: Database connection context manager
@@ -107,45 +73,29 @@ def calculate_excise_collected(db_connection, start_date: str, end_date: str) ->
         - If failed: (None, error_string)
     """
     query = f"""
-    SELECT
-        i.SubDescription3,
-        te.Cost,
-        te.Quantity
-    FROM [Transaction] t WITH (NOLOCK)
-    INNER JOIN TransactionEntry te WITH (NOLOCK)
-        ON t.TransactionNumber = te.TransactionNumber
-    INNER JOIN Item i WITH (NOLOCK)
-        ON te.ItemID = i.ID
-    WHERE t.Time >= '{start_date}'
-      AND t.Time <= '{end_date}'
-      AND i.SubDescription3 IS NOT NULL
-      AND i.SubDescription3 LIKE '%COLL'
+    SELECT SUM(PriceC * Quantity) as TotalExciseCollected
+    FROM PUExciseEntry WITH (NOLOCK)
+    WHERE TransactionTime >= '{start_date}'
+      AND TransactionTime <= '{end_date}'
+      AND SubDescription3 LIKE '%COLL'
     """
 
     try:
         with db_connection.get_connection() as conn:
             df = pd.read_sql(query, conn)
 
-        if df.empty:
+        if df.empty or df['TotalExciseCollected'].iloc[0] is None:
             return 0.0, None
 
-        # Calculate excise tax in Python
-        def calc_tax(row):
-            code = row['SubDescription3']
-            rate = EXCISE_TAX_RATES.get(code, 0.0)
-            return row['Cost'] * row['Quantity'] * rate
-
-        df['ExciseTax'] = df.apply(calc_tax, axis=1)
-        total_excise = df['ExciseTax'].sum()
-
-        return total_excise, None
+        total_excise = df['TotalExciseCollected'].iloc[0]
+        return float(total_excise), None
 
     except Exception as e:
         error_msg = f"Excise tax collected calculation failed: {str(e)}"
         return None, error_msg
 
 
-def get_excise_breakdown(db_connection, start_date: str, end_date: str) -> Tuple[Optional[pd.DataFrame], Optional[str]]:
+def get_excise_breakdown(db_connection, start_date: str, end_date: str, tax_type: str = 'PAID') -> Tuple[Optional[pd.DataFrame], Optional[str]]:
     """
     Get detailed breakdown of excise tax by category.
 
@@ -153,27 +103,24 @@ def get_excise_breakdown(db_connection, start_date: str, end_date: str) -> Tuple
         db_connection: Database connection context manager
         start_date: Start date (YYYY-MM-DD HH:MM:SS)
         end_date: End date (YYYY-MM-DD HH:MM:SS)
+        tax_type: 'PAID' or 'COLL' (default: 'PAID')
 
     Returns:
         Tuple of (DataFrame, error_message)
-        - If successful: (DataFrame with columns: Category, TotalExcise, TransactionCount, None)
+        - If successful: (DataFrame with columns: Category, TotalExcise, EntryCount, None)
         - If failed: (None, error_string)
     """
     query = f"""
     SELECT
-        i.SubDescription3,
-        te.Cost,
-        te.Quantity,
-        t.TransactionNumber
-    FROM [Transaction] t WITH (NOLOCK)
-    INNER JOIN TransactionEntry te WITH (NOLOCK)
-        ON t.TransactionNumber = te.TransactionNumber
-    INNER JOIN Item i WITH (NOLOCK)
-        ON te.ItemID = i.ID
-    WHERE t.Time >= '{start_date}'
-      AND t.Time <= '{end_date}'
-      AND i.SubDescription3 IS NOT NULL
-      AND i.SubDescription3 LIKE '%PAID'
+        SubDescription3,
+        COUNT(*) as EntryCount,
+        SUM(PriceC * Quantity) as TotalExcise
+    FROM PUExciseEntry WITH (NOLOCK)
+    WHERE TransactionTime >= '{start_date}'
+      AND TransactionTime <= '{end_date}'
+      AND SubDescription3 LIKE '%{tax_type}'
+    GROUP BY SubDescription3
+    ORDER BY TotalExcise DESC
     """
 
     try:
@@ -181,26 +128,10 @@ def get_excise_breakdown(db_connection, start_date: str, end_date: str) -> Tuple
             df = pd.read_sql(query, conn)
 
         if df.empty:
-            return pd.DataFrame(columns=['Category', 'TotalExcise', 'TransactionCount']), None
+            return pd.DataFrame(columns=['Category', 'TotalExcise', 'EntryCount']), None
 
-        # Calculate excise tax per row
-        def calc_tax(row):
-            code = row['SubDescription3']
-            rate = EXCISE_TAX_RATES.get(code, 0.0)
-            return row['Cost'] * row['Quantity'] * rate
-
-        df['ExciseTax'] = df.apply(calc_tax, axis=1)
-
-        # Group by category
-        breakdown = df.groupby('SubDescription3').agg({
-            'ExciseTax': 'sum',
-            'TransactionNumber': 'nunique'
-        }).reset_index()
-
-        breakdown.columns = ['Category', 'TotalExcise', 'TransactionCount']
-        breakdown = breakdown.sort_values('TotalExcise', ascending=False)
-
-        return breakdown, None
+        df.columns = ['Category', 'EntryCount', 'TotalExcise']
+        return df, None
 
     except Exception as e:
         error_msg = f"Excise breakdown failed: {str(e)}"
