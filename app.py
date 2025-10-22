@@ -38,18 +38,24 @@ st.markdown("""
 def test_connections():
     """Test database connections on startup."""
     if 'connections_tested' not in st.session_state:
-        with st.spinner("Testing database connections..."):
-            success, message = db.test_connection()
-            if success:
-                st.session_state.sql_server_connected = True
-                st.sidebar.success("✅ SQL Server connected")
-            else:
-                st.session_state.sql_server_connected = False
-                st.sidebar.error(f"❌ SQL Server: {message}")
+        # Overlay DB is always available (SQLite)
+        st.session_state.overlay_db_connected = True
+        st.sidebar.success("✅ Overlay DB ready")
 
-            # Overlay DB is always available (SQLite)
-            st.session_state.overlay_db_connected = True
-            st.sidebar.success("✅ Overlay DB ready")
+        # SQL Server connection test with timeout handling
+        try:
+            with st.spinner("Testing SQL Server connection..."):
+                success, message = db.test_connection()
+                if success:
+                    st.session_state.sql_server_connected = True
+                    st.sidebar.success("✅ SQL Server connected")
+                else:
+                    st.session_state.sql_server_connected = False
+                    st.sidebar.warning(f"⚠️ SQL Server: {message}")
+        except Exception as e:
+            st.session_state.sql_server_connected = False
+            st.sidebar.error(f"❌ SQL Server connection failed: {str(e)}")
+            st.sidebar.info("💡 You can still use overlay features. Check your connection settings in .env")
 
         st.session_state.connections_tested = True
 
