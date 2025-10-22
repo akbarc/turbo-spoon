@@ -122,19 +122,8 @@ with st.spinner("Loading metrics..."):
           AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
         """
 
-        # Excise tax PAID to state (optimized direct query)
-        excise_query = f"""
-        SELECT
-            SUM(PriceC * Quantity) as TotalExcisePaid
-        FROM PUExciseEntry
-        WHERE TransactionTime >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
-          AND TransactionTime <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
-          AND SubDescription3 LIKE '%PAID'
-        """
-
         trans_metrics = db.execute_query(transaction_query)
         item_metrics = db.execute_query(lineitem_query)
-        excise_metrics = db.execute_query(excise_query)
 
         # Combine results
         metrics = trans_metrics.copy()
@@ -142,12 +131,31 @@ with st.spinner("Loading metrics..."):
             metrics['TotalItemsSold'] = item_metrics['TotalItemsSold'].iloc[0]
             metrics['GrossProfitBeforeExcise'] = item_metrics['GrossProfitBeforeExcise'].iloc[0]
 
-        if not excise_metrics.empty:
-            metrics['TotalExcisePaid'] = excise_metrics['TotalExcisePaid'].iloc[0] or 0
-        else:
-            metrics['TotalExcisePaid'] = 0
+        # Try to get excise tax (may timeout on large date ranges)
+        metrics['TotalExcisePaid'] = 0
+        metrics['ExciseTaxAvailable'] = False
 
-        # Calculate true gross profit (subtract excise tax paid)
+        try:
+            # Excise tax PAID to state - with shorter timeout
+            excise_query = f"""
+            SELECT
+                SUM(PriceC * Quantity) as TotalExcisePaid
+            FROM PUExciseEntry WITH (NOLOCK)
+            WHERE TransactionTime >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
+              AND TransactionTime <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
+              AND SubDescription3 IN ('LT10PAID', 'SL10PAID', 'LC23PAID', 'LC25PAID', 'VO07PAID', 'VD07PAID', 'VC05PAID')
+            """
+
+            excise_metrics = db.execute_query(excise_query)
+
+            if not excise_metrics.empty and excise_metrics['TotalExcisePaid'].iloc[0]:
+                metrics['TotalExcisePaid'] = excise_metrics['TotalExcisePaid'].iloc[0]
+                metrics['ExciseTaxAvailable'] = True
+        except Exception as e:
+            # Excise tax query timed out or failed - continue without it
+            st.warning("⚠️ Excise tax data unavailable (query timeout). Showing profit before excise tax.")
+
+        # Calculate gross profit (subtract excise tax if available)
         metrics['GrossProfit'] = metrics['GrossProfitBeforeExcise'] - metrics['TotalExcisePaid']
 
         if not metrics.empty and metrics['TotalTransactions'].iloc[0] > 0:
@@ -205,10 +213,12 @@ with st.spinner("Loading metrics..."):
 
             with col4:
                 excise_tax = metrics['TotalExcisePaid'].iloc[0] or 0
+                excise_available = metrics['ExciseTaxAvailable'].iloc[0]
                 st.metric(
-                    "Excise Tax (Paid)",
+                    "Excise Tax (Paid)" + ("" if excise_available else " *"),
                     f"${excise_tax:,.2f}",
-                    help="Total excise tax paid to state (tobacco, cigars, vapors)"
+                    help="Total excise tax paid to state (tobacco, cigars, vapors)" +
+                         ("" if excise_available else " - Query timed out, showing $0")
                 )
 
                 items_per_trans = items_sold / total_trans if total_trans > 0 else 0
@@ -219,12 +229,21 @@ with st.spinner("Loading metrics..."):
                 )
 
             # Calculation note
-            st.info("""
-            **📝 Note:** Gross Profit is calculated as: **Revenue - Cost of Goods Sold (COGS) - Excise Tax Paid to State**
+            excise_available = metrics['ExciseTaxAvailable'].iloc[0]
+            if excise_available:
+                st.info("""
+                **📝 Note:** Gross Profit is calculated as: **Revenue - Cost of Goods Sold (COGS) - Excise Tax Paid to State**
 
-            Excise tax paid includes all tobacco, cigar, and vapor product taxes remitted to the government.
-            This provides the true profitability after all direct product costs and regulatory taxes.
-            """)
+                Excise tax paid includes all tobacco, cigar, and vapor product taxes remitted to the government.
+                This provides the true profitability after all direct product costs and regulatory taxes.
+                """)
+            else:
+                st.warning("""
+                **⚠️ Note:** Excise tax data temporarily unavailable (large date range).
+                Gross Profit shown is **before** excise tax deduction.
+
+                For accurate profit with excise tax, try a smaller date range (e.g., Last 7 Days, This Week).
+                """)
 
             # Sales Trend
             st.markdown("---")
