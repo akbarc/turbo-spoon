@@ -105,32 +105,50 @@ with st.spinner("Loading metrics..."):
             COUNT(DISTINCT TransactionNumber) as TotalTransactions,
             COUNT(DISTINCT CustomerID) as UniqueCustomers,
             SUM(Total) as TotalSales,
-            SUM(SalesTax) as TotalSalesTax,
             AVG(Total) as AvgTransactionValue
         FROM [Transaction]
         WHERE Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
           AND Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
         """
 
-        # Line item metrics (for quantities and profit)
+        # Line item metrics (for quantities and profit BEFORE excise tax)
         lineitem_query = f"""
         SELECT
             SUM(te.Quantity) as TotalItemsSold,
-            SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit
+            SUM((te.Price - te.Cost) * te.Quantity) as GrossProfitBeforeExcise
         FROM TransactionEntry te
         INNER JOIN [Transaction] t ON te.TransactionNumber = t.TransactionNumber AND te.StoreID = t.StoreID
         WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
           AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
         """
 
+        # Excise tax PAID to state (optimized direct query)
+        excise_query = f"""
+        SELECT
+            SUM(PriceC * Quantity) as TotalExcisePaid
+        FROM PUExciseEntry
+        WHERE TransactionTime >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
+          AND TransactionTime <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
+          AND SubDescription3 LIKE '%PAID'
+        """
+
         trans_metrics = db.execute_query(transaction_query)
         item_metrics = db.execute_query(lineitem_query)
+        excise_metrics = db.execute_query(excise_query)
 
         # Combine results
         metrics = trans_metrics.copy()
         if not item_metrics.empty:
             metrics['TotalItemsSold'] = item_metrics['TotalItemsSold'].iloc[0]
-            metrics['GrossProfit'] = item_metrics['GrossProfit'].iloc[0]
+            metrics['GrossProfitBeforeExcise'] = item_metrics['GrossProfitBeforeExcise'].iloc[0]
+
+        if not excise_metrics.empty:
+            metrics['TotalExcisePaid'] = excise_metrics['TotalExcisePaid'].iloc[0] or 0
+        else:
+            metrics['TotalExcisePaid'] = 0
+
+        # Calculate true gross profit (subtract excise tax paid)
+        metrics['GrossProfit'] = metrics['GrossProfitBeforeExcise'] - metrics['TotalExcisePaid']
 
         if not metrics.empty and metrics['TotalTransactions'].iloc[0] > 0:
             # Display key metrics
@@ -152,7 +170,7 @@ with st.spinner("Loading metrics..."):
                     "Gross Profit",
                     f"${gross_profit:,.2f}",
                     delta=f"{margin:.1f}% margin",
-                    help="Total profit (Revenue - COGS)"
+                    help="Revenue - COGS - Excise Tax Paid to State"
                 )
 
             with col2:
@@ -186,11 +204,11 @@ with st.spinner("Loading metrics..."):
                 )
 
             with col4:
-                sales_tax = metrics['TotalSalesTax'].iloc[0] or 0
+                excise_tax = metrics['TotalExcisePaid'].iloc[0] or 0
                 st.metric(
-                    "Sales Tax",
-                    f"${sales_tax:,.2f}",
-                    help="Total sales tax collected"
+                    "Excise Tax (Paid)",
+                    f"${excise_tax:,.2f}",
+                    help="Total excise tax paid to state (tobacco, cigars, vapors)"
                 )
 
                 items_per_trans = items_sold / total_trans if total_trans > 0 else 0
@@ -199,6 +217,14 @@ with st.spinner("Loading metrics..."):
                     f"{items_per_trans:.1f}",
                     help="Average items per transaction"
                 )
+
+            # Calculation note
+            st.info("""
+            **📝 Note:** Gross Profit is calculated as: **Revenue - Cost of Goods Sold (COGS) - Excise Tax Paid to State**
+
+            Excise tax paid includes all tobacco, cigar, and vapor product taxes remitted to the government.
+            This provides the true profitability after all direct product costs and regulatory taxes.
+            """)
 
             # Sales Trend
             st.markdown("---")
