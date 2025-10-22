@@ -99,23 +99,38 @@ st.markdown("---")
 # Load data
 with st.spinner("Loading metrics..."):
     try:
-        # Key metrics query
-        metrics_query = f"""
+        # Transaction-level metrics (no joins to avoid multiplication)
+        transaction_query = f"""
         SELECT
-            COUNT(DISTINCT t.TransactionNumber) as TotalTransactions,
-            COUNT(DISTINCT t.CustomerID) as UniqueCustomers,
-            SUM(t.Total) as TotalSales,
-            SUM(t.SalesTax) as TotalSalesTax,
-            AVG(t.Total) as AvgTransactionValue,
+            COUNT(DISTINCT TransactionNumber) as TotalTransactions,
+            COUNT(DISTINCT CustomerID) as UniqueCustomers,
+            SUM(Total) as TotalSales,
+            SUM(SalesTax) as TotalSalesTax,
+            AVG(Total) as AvgTransactionValue
+        FROM [Transaction]
+        WHERE Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
+          AND Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
+        """
+
+        # Line item metrics (for quantities and profit)
+        lineitem_query = f"""
+        SELECT
             SUM(te.Quantity) as TotalItemsSold,
             SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit
-        FROM [Transaction] t
-        LEFT JOIN TransactionEntry te ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
+        FROM TransactionEntry te
+        INNER JOIN [Transaction] t ON te.TransactionNumber = t.TransactionNumber AND te.StoreID = t.StoreID
         WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
           AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
         """
 
-        metrics = db.execute_query(metrics_query)
+        trans_metrics = db.execute_query(transaction_query)
+        item_metrics = db.execute_query(lineitem_query)
+
+        # Combine results
+        metrics = trans_metrics.copy()
+        if not item_metrics.empty:
+            metrics['TotalItemsSold'] = item_metrics['TotalItemsSold'].iloc[0]
+            metrics['GrossProfit'] = item_metrics['GrossProfit'].iloc[0]
 
         if not metrics.empty and metrics['TotalTransactions'].iloc[0] > 0:
             # Display key metrics
