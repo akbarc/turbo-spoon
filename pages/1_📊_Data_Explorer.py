@@ -6,7 +6,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from database.sql_server_pyodbc import db
+from database.sql_server import db
 
 st.set_page_config(page_title="Data Explorer", page_icon="📊", layout="wide")
 
