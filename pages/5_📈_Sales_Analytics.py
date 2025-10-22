@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from database.sql_server import db
+from database.sql_server_pyodbc import db
 from database.overlay_db import overlay_db
 from utils.data_processing import (
     calculate_time_based_metrics,

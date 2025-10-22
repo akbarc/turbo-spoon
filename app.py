@@ -6,7 +6,7 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
-from database.sql_server import db
+from database.sql_server_pyodbc import db
 from database.overlay_db import overlay_db
 
 # Page configuration
