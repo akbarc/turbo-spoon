@@ -33,27 +33,47 @@ def calculate_excise_tax(db_connection, start_date: str, end_date: str) -> Tuple
         - If successful: (float_amount, None)
         - If failed: (None, error_string)
     """
+    # Add index hints for better performance
     query = f"""
     SELECT SUM(PriceC * Quantity) as TotalExcisePaid
-    FROM PUExciseEntry WITH (NOLOCK)
+    FROM PUExciseEntry WITH (NOLOCK, INDEX(0))
     WHERE TransactionTime >= '{start_date}'
       AND TransactionTime <= '{end_date}'
       AND SubDescription3 LIKE '%PAID'
     """
 
-    try:
-        with db_connection.get_connection() as conn:
-            df = pd.read_sql(query, conn)
+    max_retries = 2
+    retry_delay = 1  # seconds
 
-        if df.empty or df['TotalExcisePaid'].iloc[0] is None:
-            return 0.0, None
+    for attempt in range(max_retries):
+        try:
+            with db_connection.get_connection() as conn:
+                df = pd.read_sql(query, conn)
 
-        total_excise = df['TotalExcisePaid'].iloc[0]
-        return float(total_excise), None
+            if df.empty or df['TotalExcisePaid'].iloc[0] is None:
+                return 0.0, None
 
-    except Exception as e:
-        error_msg = f"Excise tax calculation failed: {str(e)}"
-        return None, error_msg
+            total_excise = df['TotalExcisePaid'].iloc[0]
+            return float(total_excise), None
+
+        except Exception as e:
+            error_str = str(e)
+
+            # Check if it's a timeout or connection error
+            if 'timeout' in error_str.lower() or 'dead' in error_str.lower():
+                if attempt < max_retries - 1:
+                    # Retry on timeout
+                    import time
+                    time.sleep(retry_delay)
+                    continue
+                else:
+                    # Last attempt failed
+                    return None, "Query timeout - try a smaller date range or check database connection"
+            else:
+                # Non-timeout error, don't retry
+                return None, f"Query failed: {error_str}"
+
+    return None, "Query failed after retries"
 
 
 def calculate_excise_collected(db_connection, start_date: str, end_date: str) -> Tuple[Optional[float], Optional[str]]:
@@ -72,27 +92,47 @@ def calculate_excise_collected(db_connection, start_date: str, end_date: str) ->
         - If successful: (float_amount, None)
         - If failed: (None, error_string)
     """
+    # Add index hints for better performance
     query = f"""
     SELECT SUM(PriceC * Quantity) as TotalExciseCollected
-    FROM PUExciseEntry WITH (NOLOCK)
+    FROM PUExciseEntry WITH (NOLOCK, INDEX(0))
     WHERE TransactionTime >= '{start_date}'
       AND TransactionTime <= '{end_date}'
       AND SubDescription3 LIKE '%COLL'
     """
 
-    try:
-        with db_connection.get_connection() as conn:
-            df = pd.read_sql(query, conn)
+    max_retries = 2
+    retry_delay = 1  # seconds
 
-        if df.empty or df['TotalExciseCollected'].iloc[0] is None:
-            return 0.0, None
+    for attempt in range(max_retries):
+        try:
+            with db_connection.get_connection() as conn:
+                df = pd.read_sql(query, conn)
 
-        total_excise = df['TotalExciseCollected'].iloc[0]
-        return float(total_excise), None
+            if df.empty or df['TotalExciseCollected'].iloc[0] is None:
+                return 0.0, None
 
-    except Exception as e:
-        error_msg = f"Excise tax collected calculation failed: {str(e)}"
-        return None, error_msg
+            total_excise = df['TotalExciseCollected'].iloc[0]
+            return float(total_excise), None
+
+        except Exception as e:
+            error_str = str(e)
+
+            # Check if it's a timeout or connection error
+            if 'timeout' in error_str.lower() or 'dead' in error_str.lower():
+                if attempt < max_retries - 1:
+                    # Retry on timeout
+                    import time
+                    time.sleep(retry_delay)
+                    continue
+                else:
+                    # Last attempt failed
+                    return None, "Query timeout - try a smaller date range or check database connection"
+            else:
+                # Non-timeout error, don't retry
+                return None, f"Query failed: {error_str}"
+
+    return None, "Query failed after retries"
 
 
 def get_excise_breakdown(db_connection, start_date: str, end_date: str, tax_type: str = 'PAID') -> Tuple[Optional[pd.DataFrame], Optional[str]]:
