@@ -132,26 +132,22 @@ with st.spinner("Loading metrics..."):
             metrics['TotalItemsSold'] = item_metrics['TotalItemsSold'].iloc[0]
             metrics['GrossProfitBeforeExcise'] = item_metrics['GrossProfitBeforeExcise'].iloc[0]
 
-        # Calculate excise tax using fast Item-based approach (avoids slow PUExciseEntry queries)
+        # Calculate excise tax using PUExciseEntry table
         metrics['TotalExcisePaid'] = 0
         metrics['TotalExciseCollected'] = 0
         metrics['ExciseTaxAvailable'] = False
 
-        # Calculate excise tax PAID to state
-        excise_tax, error_msg = calculate_excise_tax(
+        # Calculate excise tax PAID to suppliers (already in COGS, for reference only)
+        excise_paid, paid_error = calculate_excise_tax(
             db,
             start_date.strftime('%Y-%m-%d %H:%M:%S'),
             end_date.strftime('%Y-%m-%d %H:%M:%S')
         )
 
-        if excise_tax is not None:
-            metrics['TotalExcisePaid'] = excise_tax
-            metrics['ExciseTaxAvailable'] = True
-        else:
-            # Excise tax calculation failed - continue without it
-            st.warning(f"⚠️ Excise tax data unavailable: {error_msg}")
+        if excise_paid is not None:
+            metrics['TotalExcisePaid'] = excise_paid
 
-        # Calculate excise tax COLLECTED from customers
+        # Calculate excise tax COLLECTED from customers (must send to state)
         excise_collected, coll_error = calculate_excise_collected(
             db,
             start_date.strftime('%Y-%m-%d %H:%M:%S'),
@@ -160,9 +156,14 @@ with st.spinner("Loading metrics..."):
 
         if excise_collected is not None:
             metrics['TotalExciseCollected'] = excise_collected
+            metrics['ExciseTaxAvailable'] = True
+        else:
+            # Excise tax calculation failed - continue without it
+            st.warning(f"⚠️ Excise tax data unavailable: {coll_error}")
 
-        # Calculate gross profit (subtract excise tax if available)
-        metrics['GrossProfit'] = metrics['GrossProfitBeforeExcise'] - metrics['TotalExcisePaid']
+        # Calculate gross profit (subtract excise tax COLLECTED - what we owe to state)
+        # Note: Excise PAID is already in COGS (paid to suppliers)
+        metrics['GrossProfit'] = metrics['GrossProfitBeforeExcise'] - metrics['TotalExciseCollected']
 
         if not metrics.empty and metrics['TotalTransactions'].iloc[0] > 0:
             # Display key metrics
@@ -237,10 +238,12 @@ with st.spinner("Loading metrics..."):
             excise_available = metrics['ExciseTaxAvailable'].iloc[0]
             if excise_available:
                 st.info("""
-                **📝 Note:** Gross Profit is calculated as: **Revenue - Cost of Goods Sold (COGS) - Excise Tax Paid to State**
+                **📝 Note:** Gross Profit is calculated as: **Revenue - COGS - Excise Tax Collected**
 
-                Excise tax paid includes all tobacco, cigar, and vapor product taxes remitted to the government.
-                This provides the true profitability after all direct product costs and regulatory taxes.
+                - **Excise Tax PAID**: Already included in COGS (what we paid suppliers)
+                - **Excise Tax COLLECTED**: What we collected from customers and must remit to the state
+
+                True profitability accounts for the excise tax we owe to the state after making sales.
                 """)
             else:
                 st.warning("""

@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from database.sql_server import db
-from utils.excise_tax import calculate_excise_tax
+from utils.excise_tax import calculate_excise_tax, calculate_excise_collected
 
 st.set_page_config(page_title="Profitability Analysis", page_icon="💰", layout="wide")
 
@@ -122,15 +122,16 @@ with st.spinner("Analyzing profitability..."):
             gross_profit = overall['GrossProfit'].iloc[0]
             gross_margin = (gross_profit / revenue * 100) if revenue > 0 else 0
 
-            # Get excise tax
-            excise_paid, _ = calculate_excise_tax(
+            # Get excise tax COLLECTED (what we owe to state)
+            # Note: PAID is already in COGS
+            excise_collected, _ = calculate_excise_collected(
                 db,
                 start_date.strftime('%Y-%m-%d %H:%M:%S'),
                 end_date.strftime('%Y-%m-%d %H:%M:%S')
             )
-            excise_paid = excise_paid or 0
+            excise_collected = excise_collected or 0
 
-            net_profit = gross_profit - excise_paid
+            net_profit = gross_profit - excise_collected
             net_margin = (net_profit / revenue * 100) if revenue > 0 else 0
 
             # Display overall metrics
@@ -161,7 +162,7 @@ with st.spinner("Analyzing profitability..."):
                     "Net Profit",
                     f"${net_profit:,.2f}",
                     delta=f"{net_margin:.1f}% margin",
-                    help="Gross Profit - Excise Tax Paid"
+                    help="Gross Profit - Excise Tax Collected (owed to state)"
                 )
 
             with col3:
@@ -171,9 +172,9 @@ with st.spinner("Analyzing profitability..."):
                     help="Gross Profit / Revenue"
                 )
                 st.metric(
-                    "Excise Tax Paid",
-                    f"${excise_paid:,.2f}",
-                    help="Tax paid to state"
+                    "Excise Tax Collected",
+                    f"${excise_collected:,.2f}",
+                    help="Tax collected from customers (must remit to state)"
                 )
 
             with col4:
@@ -211,11 +212,11 @@ with st.spinner("Analyzing profitability..."):
                     textposition='auto'
                 ),
                 go.Bar(
-                    name='Excise Tax',
+                    name='Excise Tax (Collected)',
                     x=['Overall'],
-                    y=[excise_paid],
+                    y=[excise_collected],
                     marker_color='orange',
-                    text=[f'${excise_paid:,.0f}'],
+                    text=[f'${excise_collected:,.0f}'],
                     textposition='auto'
                 ),
                 go.Bar(
