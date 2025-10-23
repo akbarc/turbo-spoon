@@ -306,11 +306,20 @@ with st.spinner("Loading metrics..."):
                     COUNT(DISTINCT t.TransactionNumber) as Transactions,
                     SUM(te.Quantity) as QuantitySold,
                     SUM(te.Price * te.Quantity) as Sales,
-                    SUM((te.Price - te.Cost) * te.Quantity) as Profit
-                FROM [Transaction] t
-                JOIN TransactionEntry te ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
-                JOIN Item i ON te.ItemID = i.ID
-                JOIN Category c ON i.CategoryID = c.ID
+                    SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit,
+                    ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
+                        THEN pue.PriceC * pue.Quantity
+                        ELSE 0 END), 0) as ExciseTax
+                FROM [Transaction] t WITH (NOLOCK)
+                JOIN TransactionEntry te WITH (NOLOCK)
+                    ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
+                JOIN Item i WITH (NOLOCK)
+                    ON te.ItemID = i.ID
+                JOIN Category c WITH (NOLOCK)
+                    ON i.CategoryID = c.ID
+                LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
+                    ON t.TransactionNumber = pue.TransactionNumber
+                    AND te.ItemID = pue.ItemID
                 WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
                   AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
                 GROUP BY c.Name
@@ -320,12 +329,19 @@ with st.spinner("Loading metrics..."):
                 categories = db.execute_query(category_query)
 
                 if not categories.empty:
+                    # Calculate net profit
+                    categories['NetProfit'] = categories['GrossProfit'] - categories['ExciseTax']
+                    categories['NetMargin%'] = (categories['NetProfit'] / categories['Sales'] * 100).fillna(0)
+
                     st.dataframe(
                         categories.style.format({
                             'Transactions': '{:,}',
                             'QuantitySold': '{:,.0f}',
                             'Sales': '${:,.2f}',
-                            'Profit': '${:,.2f}'
+                            'GrossProfit': '${:,.2f}',
+                            'ExciseTax': '${:,.2f}',
+                            'NetProfit': '${:,.2f}',
+                            'NetMargin%': '{:.1f}%'
                         }),
                         use_container_width=True,
                         height=400
@@ -340,10 +356,18 @@ with st.spinner("Loading metrics..."):
                     i.ItemLookupCode as SKU,
                     SUM(te.Quantity) as QuantitySold,
                     SUM(te.Price * te.Quantity) as Sales,
-                    SUM((te.Price - te.Cost) * te.Quantity) as Profit
-                FROM [Transaction] t
-                JOIN TransactionEntry te ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
-                JOIN Item i ON te.ItemID = i.ID
+                    SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit,
+                    ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
+                        THEN pue.PriceC * pue.Quantity
+                        ELSE 0 END), 0) as ExciseTax
+                FROM [Transaction] t WITH (NOLOCK)
+                JOIN TransactionEntry te WITH (NOLOCK)
+                    ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
+                JOIN Item i WITH (NOLOCK)
+                    ON te.ItemID = i.ID
+                LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
+                    ON t.TransactionNumber = pue.TransactionNumber
+                    AND te.ItemID = pue.ItemID
                 WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
                   AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
                 GROUP BY i.Description, i.ItemLookupCode
@@ -353,11 +377,18 @@ with st.spinner("Loading metrics..."):
                 products = db.execute_query(product_query)
 
                 if not products.empty:
+                    # Calculate net profit
+                    products['NetProfit'] = products['GrossProfit'] - products['ExciseTax']
+                    products['NetMargin%'] = (products['NetProfit'] / products['Sales'] * 100).fillna(0)
+
                     st.dataframe(
                         products.style.format({
                             'QuantitySold': '{:,.0f}',
                             'Sales': '${:,.2f}',
-                            'Profit': '${:,.2f}'
+                            'GrossProfit': '${:,.2f}',
+                            'ExciseTax': '${:,.2f}',
+                            'NetProfit': '${:,.2f}',
+                            'NetMargin%': '{:.1f}%'
                         }),
                         use_container_width=True,
                         height=400

@@ -250,8 +250,10 @@ with st.spinner("Analyzing profitability..."):
                 SUM(te.Quantity) as UnitsSold,
                 SUM(te.Price * te.Quantity) as Revenue,
                 SUM(te.Cost * te.Quantity) as Cost,
-                SUM((te.Price - te.Cost) * te.Quantity) as Profit,
-                AVG((te.Price - te.Cost) / NULLIF(te.Price, 0) * 100) as AvgMargin
+                SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit,
+                ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
+                    THEN pue.PriceC * pue.Quantity
+                    ELSE 0 END), 0) as ExciseTax
             FROM [Transaction] t WITH (NOLOCK)
             INNER JOIN TransactionEntry te WITH (NOLOCK)
                 ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
@@ -259,17 +261,22 @@ with st.spinner("Analyzing profitability..."):
                 ON te.ItemID = i.ID
             INNER JOIN Category c WITH (NOLOCK)
                 ON i.CategoryID = c.ID
+            LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
+                ON t.TransactionNumber = pue.TransactionNumber
+                AND te.ItemID = pue.ItemID
             WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
               AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
             GROUP BY c.Name
-            ORDER BY Profit DESC
+            ORDER BY GrossProfit DESC
             """
 
             categories = db.execute_query(category_query)
 
             if not categories.empty:
-                # Add calculated margin column
-                categories['Margin%'] = (categories['Profit'] / categories['Revenue'] * 100).fillna(0)
+                # Calculate net profit and margins
+                categories['NetProfit'] = categories['GrossProfit'] - categories['ExciseTax']
+                categories['GrossMargin%'] = (categories['GrossProfit'] / categories['Revenue'] * 100).fillna(0)
+                categories['NetMargin%'] = (categories['NetProfit'] / categories['Revenue'] * 100).fillna(0)
 
                 col1, col2 = st.columns([2, 1])
 
@@ -281,10 +288,12 @@ with st.spinner("Analyzing profitability..."):
                             'UnitsSold': '{:,.0f}',
                             'Revenue': '${:,.2f}',
                             'Cost': '${:,.2f}',
-                            'Profit': '${:,.2f}',
-                            'AvgMargin': '{:.1f}%',
-                            'Margin%': '{:.1f}%'
-                        }).background_gradient(subset=['Margin%'], cmap='RdYlGn', vmin=0, vmax=50),
+                            'GrossProfit': '${:,.2f}',
+                            'ExciseTax': '${:,.2f}',
+                            'NetProfit': '${:,.2f}',
+                            'GrossMargin%': '{:.1f}%',
+                            'NetMargin%': '{:.1f}%'
+                        }).background_gradient(subset=['NetMargin%'], cmap='RdYlGn', vmin=0, vmax=50),
                         use_container_width=True,
                         height=400
                     )
@@ -293,13 +302,13 @@ with st.spinner("Analyzing profitability..."):
                     # Margin by category chart
                     fig = px.bar(
                         categories.head(10),
-                        x='Margin%',
+                        x='NetMargin%',
                         y='Category',
                         orientation='h',
-                        title="Top 10 Categories by Margin %",
-                        color='Margin%',
+                        title="Top 10 Categories by Net Margin %",
+                        color='NetMargin%',
                         color_continuous_scale='RdYlGn',
-                        labels={'Margin%': 'Margin %'}
+                        labels={'NetMargin%': 'Net Margin %'}
                     )
                     fig.update_layout(height=400, showlegend=False)
                     st.plotly_chart(fig, use_container_width=True)
@@ -316,7 +325,10 @@ with st.spinner("Analyzing profitability..."):
                 SUM(te.Quantity) as UnitsSold,
                 SUM(te.Price * te.Quantity) as Revenue,
                 SUM(te.Cost * te.Quantity) as Cost,
-                SUM((te.Price - te.Cost) * te.Quantity) as Profit,
+                SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit,
+                ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
+                    THEN pue.PriceC * pue.Quantity
+                    ELSE 0 END), 0) as ExciseTax,
                 AVG(te.Price) as AvgPrice,
                 AVG(te.Cost) as AvgCost
             FROM [Transaction] t WITH (NOLOCK)
@@ -326,17 +338,22 @@ with st.spinner("Analyzing profitability..."):
                 ON te.ItemID = i.ID
             INNER JOIN Category c WITH (NOLOCK)
                 ON i.CategoryID = c.ID
+            LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
+                ON t.TransactionNumber = pue.TransactionNumber
+                AND te.ItemID = pue.ItemID
             WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
               AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
             GROUP BY i.Description, i.ItemLookupCode, c.Name
-            ORDER BY Profit DESC
+            ORDER BY GrossProfit DESC
             """
 
             top_products = db.execute_query(product_query)
 
             if not top_products.empty:
-                # Calculate margin %
-                top_products['Margin%'] = ((top_products['Profit'] / top_products['Revenue']) * 100).fillna(0)
+                # Calculate net profit and margins
+                top_products['NetProfit'] = top_products['GrossProfit'] - top_products['ExciseTax']
+                top_products['GrossMargin%'] = ((top_products['GrossProfit'] / top_products['Revenue']) * 100).fillna(0)
+                top_products['NetMargin%'] = ((top_products['NetProfit'] / top_products['Revenue']) * 100).fillna(0)
                 top_products['Markup%'] = (((top_products['AvgPrice'] - top_products['AvgCost']) / top_products['AvgCost']) * 100).fillna(0)
 
                 st.dataframe(
@@ -344,12 +361,15 @@ with st.spinner("Analyzing profitability..."):
                         'UnitsSold': '{:,.0f}',
                         'Revenue': '${:,.2f}',
                         'Cost': '${:,.2f}',
-                        'Profit': '${:,.2f}',
+                        'GrossProfit': '${:,.2f}',
+                        'ExciseTax': '${:,.2f}',
+                        'NetProfit': '${:,.2f}',
                         'AvgPrice': '${:,.2f}',
                         'AvgCost': '${:,.2f}',
-                        'Margin%': '{:.1f}%',
+                        'GrossMargin%': '{:.1f}%',
+                        'NetMargin%': '{:.1f}%',
                         'Markup%': '{:.1f}%'
-                    }).background_gradient(subset=['Margin%'], cmap='RdYlGn', vmin=0, vmax=50),
+                    }).background_gradient(subset=['NetMargin%'], cmap='RdYlGn', vmin=0, vmax=50),
                     use_container_width=True,
                     height=500
                 )
@@ -366,7 +386,10 @@ with st.spinner("Analyzing profitability..."):
                 SUM(te.Quantity) as UnitsSold,
                 SUM(te.Price * te.Quantity) as Revenue,
                 SUM(te.Cost * te.Quantity) as Cost,
-                SUM((te.Price - te.Cost) * te.Quantity) as Profit,
+                SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit,
+                ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
+                    THEN pue.PriceC * pue.Quantity
+                    ELSE 0 END), 0) as ExciseTax,
                 AVG(te.Price) as AvgPrice,
                 AVG(te.Cost) as AvgCost
             FROM [Transaction] t WITH (NOLOCK)
@@ -376,33 +399,41 @@ with st.spinner("Analyzing profitability..."):
                 ON te.ItemID = i.ID
             INNER JOIN Category c WITH (NOLOCK)
                 ON i.CategoryID = c.ID
+            LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
+                ON t.TransactionNumber = pue.TransactionNumber
+                AND te.ItemID = pue.ItemID
             WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
               AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
             GROUP BY i.Description, i.ItemLookupCode, c.Name
             HAVING SUM(te.Quantity) > 5
-            ORDER BY (SUM((te.Price - te.Cost) * te.Quantity) / NULLIF(SUM(te.Price * te.Quantity), 0)) ASC
+            ORDER BY ((SUM((te.Price - te.Cost) * te.Quantity) - ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL' THEN pue.PriceC * pue.Quantity ELSE 0 END), 0)) / NULLIF(SUM(te.Price * te.Quantity), 0)) ASC
             """
 
             loss_leaders = db.execute_query(loss_leader_query)
 
             if not loss_leaders.empty:
-                # Calculate margin %
-                loss_leaders['Margin%'] = ((loss_leaders['Profit'] / loss_leaders['Revenue']) * 100).fillna(0)
+                # Calculate net profit and margins
+                loss_leaders['NetProfit'] = loss_leaders['GrossProfit'] - loss_leaders['ExciseTax']
+                loss_leaders['GrossMargin%'] = ((loss_leaders['GrossProfit'] / loss_leaders['Revenue']) * 100).fillna(0)
+                loss_leaders['NetMargin%'] = ((loss_leaders['NetProfit'] / loss_leaders['Revenue']) * 100).fillna(0)
                 loss_leaders['Markup%'] = (((loss_leaders['AvgPrice'] - loss_leaders['AvgCost']) / loss_leaders['AvgCost']) * 100).fillna(0)
 
-                st.warning("These products have the lowest profit margins but decent sales volume. Consider price increases or promotions to improve profitability.")
+                st.warning("These products have the lowest NET profit margins but decent sales volume. Consider price increases or promotions to improve profitability.")
 
                 st.dataframe(
                     loss_leaders.style.format({
                         'UnitsSold': '{:,.0f}',
                         'Revenue': '${:,.2f}',
                         'Cost': '${:,.2f}',
-                        'Profit': '${:,.2f}',
+                        'GrossProfit': '${:,.2f}',
+                        'ExciseTax': '${:,.2f}',
+                        'NetProfit': '${:,.2f}',
                         'AvgPrice': '${:,.2f}',
                         'AvgCost': '${:,.2f}',
-                        'Margin%': '{:.1f}%',
+                        'GrossMargin%': '{:.1f}%',
+                        'NetMargin%': '{:.1f}%',
                         'Markup%': '{:.1f}%'
-                    }).background_gradient(subset=['Margin%'], cmap='RdYlGn_r', vmin=0, vmax=50),
+                    }).background_gradient(subset=['NetMargin%'], cmap='RdYlGn_r', vmin=0, vmax=50),
                     use_container_width=True,
                     height=400
                 )
