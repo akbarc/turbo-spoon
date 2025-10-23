@@ -1,6 +1,6 @@
 Flask==2.3.3
 Flask-CORS==4.0.0
 Flask-Caching==2.1.0
-pymssql==2.2.8
+pyodbc>=4.0.39
 python-dotenv==1.0.0
 pandas==2.0.3

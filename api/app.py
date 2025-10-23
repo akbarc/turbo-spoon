@@ -14,7 +14,18 @@ from flask_caching import Cache
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from database.sql_server import db
+# Try pyodbc first (works better on macOS), fall back to pymssql
+try:
+    from database.sql_server_pyodbc import db
+    print("✅ Using pyodbc for database connection")
+except ImportError:
+    try:
+        from database.sql_server import db
+        print("✅ Using pymssql for database connection")
+    except ImportError:
+        print("❌ ERROR: Neither pyodbc nor pymssql is available!")
+        print("   Install one of: pip install pyodbc  OR  pip install pymssql")
+        sys.exit(1)
 
 # Initialize Flask app
 app = Flask(__name__)

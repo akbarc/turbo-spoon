@@ -10,11 +10,7 @@ from flask import Blueprint, jsonify, request
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "src"))
 
-# Try pyodbc first (works better on macOS), fall back to pymssql
-try:
-    from database.sql_server_pyodbc import db
-except ImportError:
-    from database.sql_server import db
+from database.sql_server import db
 from utils.excise_tax import calculate_excise_collected
 from api.utils.date_utils import parse_period, format_date_for_sql
 
