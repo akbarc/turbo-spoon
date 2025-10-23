@@ -1,15 +1,29 @@
 # GAWDB Analytics Dashboard
 
-A comprehensive analytics dashboard for the GAWDB SQL Server database, built with Streamlit. This dashboard provides deep insights into your data with custom overlay features that don't modify the source database.
+A comprehensive analytics platform for the GAWDB SQL Server database, featuring both an interactive Streamlit dashboard and a REST API for programmatic access.
+
+## Components
+
+1. **Streamlit Dashboard** - Interactive web UI for data exploration and analysis
+2. **REST API** - RESTful API endpoints for integrations and automation
 
 ## Features
 
-- **📊 Data Explorer**: Browse tables, run custom SQL queries, and explore your database
-- **🏷️ Product Categories**: Create custom product categorizations without modifying source data
-- **👥 Customer Groups**: Segment customers for targeted analysis
-- **💰 Excise Tax Analysis**: Configure and calculate excise taxes on products and categories
-- **📈 Sales Analytics**: Deep dive into sales metrics, trends, and customer behavior
-- **🔒 Read-Only Source**: All overlays stored in local SQLite database, source DB remains untouched
+### Streamlit Dashboard
+- **📊 Executive Dashboard**: KPIs, sales trends, top categories/products
+- **💰 Profitability Analysis**: Profit margins, cost analysis, category breakdown
+- **🚬 Excise Tax Reporting**: Tax compliance, PAID/COLLECTED breakdown
+- **🏷️ Product Categories**: Custom product categorizations
+- **👥 Customer Groups**: Customer segmentation
+- **🔒 Read-Only Source**: All overlays stored in local SQLite database
+
+### REST API
+- **Business Overview APIs**: Executive summary, sales performance, sales trends
+- **Excise Tax APIs**: Comprehensive tax reporting and compliance
+- **Profitability APIs**: Profit analysis, top products, loss leaders
+- **Health Monitoring**: Health check and status endpoints
+- **Flexible Date Ranges**: Predefined periods or custom date ranges
+- **CORS Support**: Cross-origin requests enabled
 
 ## Quick Start
 
@@ -38,12 +52,21 @@ cp .env.example .env
 # Edit .env with your database credentials
 ```
 
-4. Run the dashboard:
+4. Run the Streamlit dashboard:
 ```bash
 streamlit run app.py
 ```
 
 The dashboard will open in your browser at `http://localhost:8501`
+
+5. (Optional) Run the REST API:
+```bash
+./start_api.sh
+```
+
+The API will be available at `http://localhost:5000`
+
+See `api/README.md` for detailed API documentation.
 
 ## Configuration
 
