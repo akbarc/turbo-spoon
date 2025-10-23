@@ -23,27 +23,11 @@ fi
 echo "🔧 Activating virtual environment..."
 source venv/bin/activate
 
-# Install/upgrade dependencies
+# Install/upgrade dependencies (use MAIN requirements.txt that works with Streamlit)
 echo "📦 Installing dependencies..."
 pip install -q --upgrade pip
+pip install -q -r requirements.txt
 pip install -q -r api/requirements.txt
-
-# Test database connection
-echo
-echo "🔌 Testing database connection..."
-python src/database/test_connection.py
-
-if [ $? -ne 0 ]; then
-    echo
-    echo "⚠️  Database connection test failed!"
-    echo "API will start but database features may not work."
-    echo
-    read -p "Continue anyway? (y/n) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
-    fi
-fi
 
 # Start API
 echo

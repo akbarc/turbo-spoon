@@ -1,6 +1,11 @@
+# API-specific dependencies
 Flask==2.3.3
 Flask-CORS==4.0.0
 Flask-Caching==2.1.0
+
+# Database and data processing (MUST match main requirements.txt)
 pyodbc>=4.0.39
-python-dotenv==1.0.0
-pandas==2.0.3
+pandas==2.2.0
+python-dotenv==1.0.1
+plotly==5.18.0
+sqlalchemy==2.0.25
