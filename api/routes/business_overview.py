@@ -17,7 +17,7 @@ try:
 except ImportError:
     from database.sql_server import db
 from utils.excise_tax import calculate_excise_tax, calculate_excise_collected
-from api.utils.date_utils import parse_period, get_comparison_period, format_date_for_sql
+from utils.date_utils import parse_period, get_comparison_period, format_date_for_sql
 
 business_bp = Blueprint('business_overview', __name__)
 

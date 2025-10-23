@@ -16,7 +16,7 @@ try:
 except ImportError:
     from database.sql_server import db
 from utils.excise_tax import calculate_excise_tax, calculate_excise_collected, get_excise_breakdown
-from api.utils.date_utils import parse_period, format_date_for_sql
+from utils.date_utils import parse_period, format_date_for_sql
 
 excise_bp = Blueprint('excise_tax', __name__)
 
