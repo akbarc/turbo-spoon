@@ -261,10 +261,8 @@ with st.spinner("Loading metrics..."):
             SELECT
                 CAST(t.Time as DATE) as SalesDate,
                 COUNT(DISTINCT t.TransactionNumber) as Transactions,
-                SUM(t.Total) as DailySales,
-                SUM((te.Price - te.Cost) * te.Quantity) as DailyProfit
-            FROM [Transaction] t
-            LEFT JOIN TransactionEntry te ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
+                SUM(t.Total) as DailySales
+            FROM [Transaction] t WITH (NOLOCK)
             WHERE t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
               AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
             GROUP BY CAST(t.Time as DATE)
