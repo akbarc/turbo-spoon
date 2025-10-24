@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System Dashboard - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #1a202c;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header .subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .nav-tab {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: #64748b;
+        }
+
+        .nav-tab:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .nav-tab.active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .loading i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #3b82f6;
+        }
+
+        .error {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .success {
+            background: #d1fae5;
+            border: 1px solid #6ee7b7;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            color: #1e40af;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .info-box h4 {
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .info-box ul {
+            margin: 0.5rem 0 0 1.5rem;
+            padding: 0;
+        }
+
+        .info-box li {
+            margin: 0.25rem 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #6b7280;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .back-button:hover {
+            background: #4b5563;
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1>
+                    <i class="fas fa-cash-register"></i>
+                    POS System Dashboard
+                </h1>
+                <div class="subtitle">Generate Receipts, Run Reports, and Search Transactions</div>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <a href="/" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Main Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('receipts')">
+                <i class="fas fa-receipt"></i> Generate Receipts
+            </button>
+            <button class="nav-tab" onclick="switchTab('reports')">
+                <i class="fas fa-chart-bar"></i> Run Reports
+            </button>
+            <button class="nav-tab" onclick="switchTab('search')">
+                <i class="fas fa-search"></i> Search Transactions
+            </button>
+        </div>
+
+        <!-- Generate Receipts Tab -->
+        <div id="receipts-tab" class="tab-content active">
+            <div class="info-box" style="margin-bottom: 1.5rem;">
+                <h4><i class="fas fa-info-circle"></i> Receipt Generation</h4>
+                <p style="margin: 0;">Enter any transaction number to generate a receipt. Use "Generate Receipt (JSON)" to preview in this page, or "Generate Full-Page Receipt" to print.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-receipt"></i> Generate POS Receipts
+                </div>
+                <div class="card-body">
+                    <div style="margin-bottom: 1rem;">
+                        <label for="transaction-number" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Transaction Number:</label>
+                        <input type="number" id="transaction-number" placeholder="Enter transaction number" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="receipt-template" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Receipt Template:</label>
+                        <select id="receipt-template" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <option value="1">Full Page Receipt (Standard POS Format)</option>
+                            <option value="2">TEST Receipt (Alternative Format)</option>
+                        </select>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem;">
+                        <button onclick="generateReceipt()" style="background: #3b82f6; color: white; padding: 0.75rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; flex: 1;">
+                            <i class="fas fa-receipt"></i> Generate Receipt (JSON)
+                        </button>
+                        <button onclick="generateReceiptHTML()" style="background: #10b981; color: white; padding: 0.75rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; flex: 1;">
+                            <i class="fas fa-print"></i> Generate Full-Page Receipt
+                        </button>
+                    </div>
+                    
+                    <div id="receipt-result" style="display: none;">
+                        <div class="card" style="background: #f8fafc;">
+                            <div class="card-header" style="background: #1f2937;">
+                                <i class="fas fa-receipt"></i> Generated Receipt
+                            </div>
+                            <div class="card-body">
+                                <div id="receipt-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="receipt-error" class="error" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Run Reports Tab -->
+        <div id="reports-tab" class="tab-content">
+            <div class="info-box" style="margin-bottom: 1.5rem;">
+                <h4><i class="fas fa-info-circle"></i> Quick Tips</h4>
+                <ul style="margin-bottom: 0;">
+                    <li><strong>Date Range:</strong> Smaller date ranges (1-30 days) will load faster</li>
+                    <li><strong>Export Options:</strong> Run a report first, then use CSV/Excel export buttons</li>
+                    <li><strong>Best Reports:</strong> Daily Sales Summary and Register Analysis are the fastest</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar"></i> Run POS Reports
+                </div>
+                <div class="card-body">
+                    <!-- Report Filters -->
+                    <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Report Type:</label>
+                            <select id="report-type" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                                <optgroup label="🏪 POS DAILY REPORTS">
+                                    <option value="daily_sales_pos">📊 Daily Sales Summary (POS Table)</option>
+                                    <option value="register_analysis">📈 Register Analysis</option>
+                                </optgroup>
+                                <optgroup label="📊 SALES REPORTS">
+                                    <option value="daily_sales">📅 Daily Sales Detail</option>
+                                    <option value="sales_by_category">🏷️ Sales by Category</option>
+                                    <option value="sales_by_item">🏆 Top Selling Items</option>
+                                    <option value="customer_sales">👥 Sales by Customer</option>
+                                    <option value="category_sales">📈 Category Sales Analysis</option>
+                                    <option value="item_sales">🛍️ Item Sales Analysis</option>
+                                    <option value="hourly_sales">⏰ Hourly Sales Breakdown</option>
+                                    <option value="sales_by_department">🏢 Sales by Department</option>
+                                    <option value="top_items">🏆 Top Items Report</option>
+                                    <option value="top_customers">👑 Top Customers Report</option>
+                                </optgroup>
+                                <optgroup label="🚬 EXCISE TAX REPORTS">
+                                    <option value="excise_simple">📊 Excise Tax Transactions</option>
+                                    <option value="pu_excise_summary">📈 Daily Excise Tax Summary</option>
+                                    <option value="excise_by_category">🏷️ Excise Tax by Category</option>
+                                    <option value="excise_transactions">📋 Excise Transaction Details</option>
+                                    <option value="daily_excise">📅 Daily Excise Totals</option>
+                                </optgroup>
+                                <optgroup label="💰 FINANCIAL REPORTS">
+                                    <option value="payment_methods">💳 Payment Methods</option>
+                                    <option value="ar_aging">📊 AR Aging Analysis</option>
+                                    <option value="ar_history">📜 AR Payment History</option>
+                                    <option value="inventory_valuation">💎 Inventory Valuation</option>
+                                    <option value="profit_analysis">💰 Profit Analysis by Category</option>
+                                </optgroup>
+                                <optgroup label="👨‍💼 EMPLOYEE REPORTS">
+                                    <option value="cashier_performance">👨‍💼 Cashier Performance</option>
+                                </optgroup>
+                                <optgroup label="👥 CUSTOMER REPORTS">
+                                    <option value="customer_labels">🏷️ Customer List/Labels</option>
+                                </optgroup>
+                                <optgroup label="💳 TRANSACTION REPORTS">
+                                    <option value="transaction_detail">📋 Transaction Details</option>
+                                    <option value="return_report">↩️ Returns Report</option>
+                                    <option value="void_report">❌ Void Transactions</option>
+                                    <option value="discount_report">💸 Discounts Applied</option>
+                                    <option value="tender_types_detail">💳 Tender Types Detail</option>
+                                </optgroup>
+                                <optgroup label="💰 TAX & CASH REPORTS">
+                                    <option value="tax_summary">📊 Tax Summary Report</option>
+                                    <option value="cash_drawer_report">💰 Cash Drawer Report</option>
+                                </optgroup>
+                                <optgroup label="📦 INVENTORY REPORTS">
+                                    <option value="inventory_list">📋 Complete Inventory List</option>
+                                    <option value="reorder_report">🔄 Reorder Report</option>
+                                    <option value="physical_count_worksheet">📝 Physical Count Worksheet</option>
+                                </optgroup>
+                                <optgroup label="🔍 SYSTEM & AUDIT REPORTS">
+                                    <option value="audit_log">📋 System Audit Log</option>
+                                    <option value="daily_sales_table">📊 Daily Sales Table (Pre-calculated)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Start Date:</label>
+                            <input type="date" id="report-start-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">End Date:</label>
+                            <input type="date" id="report-end-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <button onclick="runReport()" style="background: #10b981; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-play"></i> Run Report
+                        </button>
+                        <button onclick="exportReport('csv')" style="background: #f59e0b; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-file-csv"></i> Export CSV
+                        </button>
+                        <button onclick="exportReport('excel')" style="background: #059669; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-file-excel"></i> Export Excel
+                        </button>
+                    </div>
+                    
+                    <div id="report-loading" class="loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Running report...
+                    </div>
+                    <div id="report-results" style="display: none;"></div>
+                    <div id="report-error" class="error" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Transactions Tab -->
+        <div id="search-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-search"></i> Search Transactions
+                </div>
+                <div class="card-body">
+                    <!-- Search Filters -->
+                    <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Search Term:</label>
+                            <input type="text" id="search-term" placeholder="Customer name, reference, comment..." style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Min Amount:</label>
+                            <input type="number" id="search-min-amount" placeholder="0.00" step="0.01" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Max Amount:</label>
+                            <input type="number" id="search-max-amount" placeholder="999999.99" step="0.01" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Date From:</label>
+                            <input type="date" id="search-start-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Date To:</label>
+                            <input type="date" id="search-end-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Customer ID:</label>
+                            <input type="number" id="search-customer-id" placeholder="Customer ID" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                    </div>
+
+                    <!-- Pagination Controls -->
+                    <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1.5rem;">
+                        <h4 style="margin: 0 0 0.75rem 0; font-weight: 600; color: #1a202c;">
+                            <i class="fas fa-list"></i> Pagination Options
+                        </h4>
+                        <div class="grid grid-3" style="gap: 1rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Records Per Page:</label>
+                                <select id="search-page-size" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;" onchange="updatePaginationInfo('search')">
+                                    <option value="25">25 records</option>
+                                    <option value="50">50 records</option>
+                                    <option value="100" selected>100 records</option>
+                                    <option value="500">500 records</option>
+                                    <option value="1000">1,000 records</option>
+                                    <option value="ALL">ALL records</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Page Number:</label>
+                                <input type="number" id="search-page-number" value="1" min="1" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;" onchange="updatePaginationInfo('search')">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Offset (Advanced):</label>
+                                <input type="number" id="search-offset" value="0" min="0" step="1" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;" readonly>
+                            </div>
+                        </div>
+                        <div id="search-pagination-info" style="margin-top: 0.75rem; padding: 0.5rem; background: #dbeafe; border-radius: 6px; color: #1e40af; font-size: 0.9rem; text-align: center;">
+                            <i class="fas fa-info-circle"></i> Showing records 1-100
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <button onclick="searchTransactions()" style="flex: 1; background: #3b82f6; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-search"></i> Search Transactions
+                        </button>
+                        <button onclick="clearSearchForm()" style="background: #6b7280; color: white; padding: 0.75rem 1rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-times"></i> Clear
+                        </button>
+                    </div>
+
+                    <div id="search-loading" class="loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Searching transactions...
+                    </div>
+                    <div id="search-results" style="display: none;"></div>
+                    <div id="search-error" class="error" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Generate receipt for transaction
+        function generateReceipt() {
+            const transactionNumber = document.getElementById('transaction-number').value;
+            const templateId = document.getElementById('receipt-template').value;
+            const resultDiv = document.getElementById('receipt-result');
+            const contentDiv = document.getElementById('receipt-content');
+            const errorDiv = document.getElementById('receipt-error');
+
+            // Validate inputs
+            if (!transactionNumber || transactionNumber <= 0) {
+                errorDiv.innerHTML = '⚠️ Please enter a valid transaction number';
+                errorDiv.style.display = 'block';
+                resultDiv.style.display = 'none';
+                return;
+            }
+
+            errorDiv.style.display = 'none';
+            resultDiv.style.display = 'none';
+
+            // Show loading state
+            contentDiv.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Generating receipt...</div>';
+            resultDiv.style.display = 'block';
+
+            fetch(`/api/pos/generate-receipt/${transactionNumber}/${templateId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success && data.data) {
+                        const transaction = data.data.transaction;
+                        const items = data.data.items;
+                        
+                        // Use EXACT POS receipt format from XML template
+                        const businessName = data.data.business_name || 'GEORGIA WHOLESALE';
+                        const storeAddress = data.data.store_address || '2935-A NORTH DECATUR ROAD';
+                        const storeCity = data.data.store_city || 'DECATUR, GA 30033';
+                        const storePhone = data.data.store_phone || '404-292-4899';
+                        const footerMessages = data.data.footer_messages || [];
+                        const receiptDate = new Date(transaction.Time);
+                        
+                        // EXACT POS Receipt Format (based on XML template analysis)
+                        let receiptHtml = `
+                            <div style="font-family: 'Courier New', monospace; background: white; padding: 0.5rem; border: 1px solid #ccc; width: 350px; margin: 0 auto; font-size: 10px; line-height: 1.1;">
+                                <!-- EXACT POS HEADER -->
+                                <div style="text-align: center; margin-bottom: 0.5rem;">
+                                    <div style="font-weight: bold; font-size: 12px;">${businessName}</div>
+                                    <div style="font-size: 9px;">${storeAddress}</div>
+                                    <div style="font-size: 9px;">${storeCity}</div>
+                                    <div style="font-size: 9px;">Phone: ${storePhone}</div>
+                                </div>
+                                
+                                <!-- Transaction Info (POS Style) -->
+                                <div style="border-top: 1px solid #000; border-bottom: 1px solid #000; padding: 0.2rem 0; margin: 0.3rem 0; font-size: 9px;">
+                                    <div>Trans: ${transaction.TransactionNumber}    Date: ${receiptDate.toLocaleDateString()}</div>
+                                    <div>Time: ${receiptDate.toLocaleTimeString()}    Batch: ${transaction.BatchNumber || 'N/A'}</div>
+                                    <div>Customer: ${(transaction.CustomerName || 'Walk-in Customer').substring(0, 30)}</div>
+                                </div>
+                                
+                                <!-- Items Section (POS Table Format) -->
+                                <div style="margin: 0.3rem 0; font-size: 9px;">
+                        `;
+                        
+                        // Format items EXACTLY like POS receipt (based on XML template)
+                        items.forEach(item => {
+                            const description = (item.Description || 'Unknown Item').substring(0, 28); // POS line width
+                            const qty = parseFloat(item.Quantity);
+                            const price = parseFloat(item.Price);
+                            const total = parseFloat(item.LineTotal);
+                            
+                            receiptHtml += `
+                                <div style="margin-bottom: 0.1rem;">
+                                    <div>${description}</div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>${qty.toFixed(2)} @ ${price.toFixed(2)}</span>
+                                        <span>${total.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        
+                        const subtotal = parseFloat(transaction.Total) - parseFloat(transaction.SalesTax);
+                        const tax = parseFloat(transaction.SalesTax);
+                        const total = parseFloat(transaction.Total);
+                        
+                        receiptHtml += `
+                                </div>
+                                
+                                <!-- POS Totals Section -->
+                                <div style="border-top: 1px solid #000; padding-top: 0.2rem; margin-top: 0.3rem; font-size: 9px;">
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>SUBTOTAL</span>
+                                        <span>${subtotal.toFixed(2)}</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>TAX</span>
+                                        <span>${tax.toFixed(2)}</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-weight: bold; border-top: 1px solid #000; padding-top: 0.2rem; margin-top: 0.2rem;">
+                                        <span>TOTAL</span>
+                                        <span>${total.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- POS Footer (Exact Format from XML Template) -->
+                                <div style="text-align: center; margin-top: 0.5rem; font-size: 8px; border-top: 1px solid #000; padding-top: 0.3rem;">
+                        `;
+                        
+                        // Add footer messages from POS template
+                        footerMessages.forEach(message => {
+                            if (message && message !== 'X_____________________________________________') {
+                                receiptHtml += `<div style="margin-bottom: 0.2rem;">${message}</div>`;
+                            }
+                        });
+                        
+                        receiptHtml += `
+                                    <div style="margin-top: 0.3rem;">${businessName}</div>
+                                    <div>${storePhone}</div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        contentDiv.innerHTML = receiptHtml;
+                        resultDiv.style.display = 'block';
+                    } else {
+                        resultDiv.style.display = 'none';
+                        let errorMsg = '❌ Failed to generate receipt';
+                        if (data.error) {
+                            if (data.error.includes('not found')) {
+                                errorMsg = `⚠️ Transaction #${transactionNumber} not found. Please verify the transaction number.`;
+                            } else {
+                                errorMsg = '❌ ' + data.error;
+                            }
+                        }
+                        errorDiv.innerHTML = errorMsg;
+                        errorDiv.style.display = 'block';
+                    }
+                })
+                .catch(err => {
+                    resultDiv.style.display = 'none';
+                    let errorMsg = '❌ Error generating receipt: ';
+                    if (err.message.includes('Failed to fetch')) {
+                        errorMsg += 'Unable to connect to server. Please check your connection.';
+                    } else if (err.message.includes('404')) {
+                        errorMsg = `⚠️ Transaction #${transactionNumber} not found. Please verify the transaction number.`;
+                    } else {
+                        errorMsg += err.message;
+                    }
+                    errorDiv.innerHTML = errorMsg;
+                    errorDiv.style.display = 'block';
+                });
+        }
+        
+        // Run POS report
+        function runReport() {
+            const reportType = document.getElementById('report-type').value;
+            const startDate = document.getElementById('report-start-date').value;
+            const endDate = document.getElementById('report-end-date').value;
+            const loading = document.getElementById('report-loading');
+            const results = document.getElementById('report-results');
+            const error = document.getElementById('report-error');
+
+            // Validate inputs
+            if (!reportType) {
+                error.innerHTML = '⚠️ Please select a report type';
+                error.style.display = 'block';
+                return;
+            }
+
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            error.style.display = 'none';
+
+            let url = `/api/pos/run-report?type=${reportType}`;
+            if (startDate) url += `&start_date=${startDate}`;
+            if (endDate) url += `&end_date=${endDate}`;
+
+            // Set a timeout for slow queries
+            const timeoutId = setTimeout(() => {
+                loading.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running report... This may take a moment for large date ranges.';
+            }, 3000);
+
+            fetch(url)
+                .then(response => {
+                    clearTimeout(timeoutId);
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    loading.style.display = 'none';
+                    loading.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running report...';
+
+                    if (data.error) {
+                        error.innerHTML = '❌ Report Error: ' + data.error;
+                        error.style.display = 'block';
+                    } else if (data.success && data.data && data.data.length > 0) {
+                        results.innerHTML = renderReportResults(data);
+                        results.style.display = 'block';
+                    } else if (data.success && data.data) {
+                        results.innerHTML = '<div class="empty-state"><i class="fas fa-chart-bar"></i><h3>No Data Found</h3><p>No data found for the selected date range. Try expanding your date range or selecting a different report.</p></div>';
+                        results.style.display = 'block';
+                    } else {
+                        error.innerHTML = '⚠️ Unexpected response format from server';
+                        error.style.display = 'block';
+                    }
+                })
+                .catch(err => {
+                    clearTimeout(timeoutId);
+                    loading.style.display = 'none';
+                    loading.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running report...';
+
+                    let errorMessage = '❌ Error running report: ';
+                    if (err.message.includes('Failed to fetch')) {
+                        errorMessage += 'Unable to connect to server. Please check your connection.';
+                    } else if (err.message.includes('500')) {
+                        errorMessage += 'Server error. The report may have encountered a database issue.';
+                    } else {
+                        errorMessage += err.message;
+                    }
+
+                    error.innerHTML = errorMessage;
+                    error.style.display = 'block';
+                });
+        }
+        
+        // Render report results
+        function renderReportResults(data) {
+            let html = `
+                <div class="card" style="background: #f8fafc;">
+                    <div class="card-header" style="background: #1f2937;">
+                        <i class="fas fa-chart-line"></i> ${data.report_type.replace('_', ' ').toUpperCase()} REPORT
+                        <span style="float: right; font-size: 0.9rem;">Rows: ${data.row_count}</span>
+                    </div>
+                    <div class="card-body">
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: #e5e7eb;">
+            `;
+            
+            // Generate table headers
+            if (data.data.length > 0) {
+                Object.keys(data.data[0]).forEach(key => {
+                    html += `<th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">${key.replace(/([A-Z])/g, ' $1').trim()}</th>`;
+                });
+            }
+            
+            html += `
+                                    </tr>
+                                </thead>
+                                <tbody>
+            `;
+            
+            // Generate table rows
+            data.data.forEach((row, index) => {
+                html += `<tr style="${index % 2 === 0 ? 'background: white;' : 'background: #f9fafb;'}">`;
+                Object.values(row).forEach(value => {
+                    // Format values
+                    let displayValue = value;
+                    if (typeof value === 'number') {
+                        if (value > 100) {
+                            displayValue = '$' + value.toFixed(2);
+                        } else {
+                            displayValue = value.toFixed(4);
+                        }
+                    } else if (typeof value === 'string') {
+                        if (value.includes('T') && value.includes('-')) {
+                            // Date formatting
+                            try {
+                                displayValue = new Date(value).toLocaleDateString();
+                            } catch (e) {
+                                displayValue = value;
+                            }
+                        } else if (value === null || value === 'null') {
+                            displayValue = 'N/A';
+                        } else {
+                            displayValue = value;
+                        }
+                    }
+                    html += `<td style="padding: 0.75rem; border: 1px solid #d1d5db;">${displayValue || 'N/A'}</td>`;
+                });
+                html += '</tr>';
+            });
+            
+            html += `
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        // Export report
+        function exportReport(format) {
+            const reportType = document.getElementById('report-type').value;
+            const startDate = document.getElementById('report-start-date').value;
+            const endDate = document.getElementById('report-end-date').value;
+            const error = document.getElementById('report-error');
+
+            // Validate inputs
+            if (!reportType) {
+                error.innerHTML = '⚠️ Please select a report type before exporting';
+                error.style.display = 'block';
+                return;
+            }
+
+            error.style.display = 'none';
+
+            let url = `/api/pos/export-report?type=${reportType}&format=${format}`;
+            if (startDate) url += `&start_date=${startDate}`;
+            if (endDate) url += `&end_date=${endDate}`;
+
+            const exportWindow = window.open(url, '_blank');
+
+            if (!exportWindow) {
+                error.innerHTML = '⚠️ Pop-up blocked. Please allow pop-ups for this site to download exports.';
+                error.style.display = 'block';
+            }
+        }
+        
+        // Update pagination info display
+        function updatePaginationInfo(prefix) {
+            const pageSize = document.getElementById(`${prefix}-page-size`).value;
+            const pageNumber = parseInt(document.getElementById(`${prefix}-page-number`).value) || 1;
+            const offsetInput = document.getElementById(`${prefix}-offset`);
+            const infoDiv = document.getElementById(`${prefix}-pagination-info`);
+
+            if (pageSize === 'ALL') {
+                offsetInput.value = 0;
+                infoDiv.innerHTML = '<i class="fas fa-info-circle"></i> Showing ALL records (Warning: May be slow for large datasets)';
+                infoDiv.style.background = '#fef3c7';
+                infoDiv.style.color = '#92400e';
+            } else {
+                const size = parseInt(pageSize);
+                const offset = (pageNumber - 1) * size;
+                offsetInput.value = offset;
+                const startRecord = offset + 1;
+                const endRecord = offset + size;
+                infoDiv.innerHTML = `<i class="fas fa-info-circle"></i> Showing records ${startRecord.toLocaleString()} - ${endRecord.toLocaleString()}`;
+                infoDiv.style.background = '#dbeafe';
+                infoDiv.style.color = '#1e40af';
+            }
+        }
+
+        // Clear search form
+        function clearSearchForm() {
+            document.getElementById('search-term').value = '';
+            document.getElementById('search-min-amount').value = '';
+            document.getElementById('search-max-amount').value = '';
+            document.getElementById('search-start-date').value = '';
+            document.getElementById('search-end-date').value = '';
+            document.getElementById('search-customer-id').value = '';
+            document.getElementById('search-page-size').value = '100';
+            document.getElementById('search-page-number').value = '1';
+            updatePaginationInfo('search');
+            document.getElementById('search-results').style.display = 'none';
+            document.getElementById('search-error').style.display = 'none';
+        }
+
+        // Go to specific page
+        function goToPage(page, prefix) {
+            document.getElementById(`${prefix}-page-number`).value = page;
+            updatePaginationInfo(prefix);
+            if (prefix === 'search') {
+                searchTransactions();
+            }
+        }
+
+        // Search transactions
+        function searchTransactions() {
+            const searchTerm = document.getElementById('search-term').value;
+            const minAmount = document.getElementById('search-min-amount').value;
+            const maxAmount = document.getElementById('search-max-amount').value;
+            const startDate = document.getElementById('search-start-date').value;
+            const endDate = document.getElementById('search-end-date').value;
+            const customerId = document.getElementById('search-customer-id').value;
+
+            const loading = document.getElementById('search-loading');
+            const results = document.getElementById('search-results');
+            const error = document.getElementById('search-error');
+
+            // Get pagination parameters
+            const pageSize = document.getElementById('search-page-size').value;
+            const pageNumber = parseInt(document.getElementById('search-page-number').value) || 1;
+            const offset = parseInt(document.getElementById('search-offset').value) || 0;
+
+            // Validate at least one search criterion
+            if (!searchTerm && !minAmount && !maxAmount && !startDate && !endDate && !customerId) {
+                error.innerHTML = '⚠️ Please enter at least one search criterion';
+                error.style.display = 'block';
+                return;
+            }
+
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            error.style.display = 'none';
+
+            let url = '/api/pos/search-transactions?';
+            const params = [];
+
+            if (searchTerm) params.push(`search=${encodeURIComponent(searchTerm)}`);
+            if (minAmount) params.push(`min_amount=${minAmount}`);
+            if (maxAmount) params.push(`max_amount=${maxAmount}`);
+            if (startDate) params.push(`start_date=${startDate}`);
+            if (endDate) params.push(`end_date=${endDate}`);
+            if (customerId) params.push(`customer_id=${customerId}`);
+
+            // Add pagination parameters
+            if (pageSize === 'ALL') {
+                params.push('limit=999999');
+            } else {
+                params.push(`limit=${pageSize}`);
+                params.push(`offset=${offset}`);
+            }
+
+            url += params.join('&');
+
+            // Set timeout for slow queries
+            const timeoutId = setTimeout(() => {
+                loading.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching... This may take a moment for large date ranges.';
+            }, 3000);
+
+            fetch(url)
+                .then(response => {
+                    clearTimeout(timeoutId);
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    loading.style.display = 'none';
+                    loading.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching transactions...';
+
+                    if (data.error) {
+                        error.innerHTML = '❌ Search Error: ' + data.error;
+                        error.style.display = 'block';
+                    } else if (data.success && data.data && data.data.length > 0) {
+                        let html = `
+                            <div class="card" style="background: #f8fafc;">
+                                <div class="card-header" style="background: #1f2937;">
+                                    <i class="fas fa-list"></i> TRANSACTION SEARCH RESULTS
+                                    <span style="float: right; font-size: 0.9rem;">Found: ${data.row_count} transactions</span>
+                                </div>
+                                <div class="card-body">
+                                    <div style="overflow-x: auto;">
+                                        <table style="width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr style="background: #e5e7eb;">
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Transaction #</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Date</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Customer</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Total</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Tax</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                        `;
+                        
+                        data.data.forEach((transaction, index) => {
+                            html += `
+                                <tr style="${index % 2 === 0 ? 'background: white;' : 'background: #f9fafb;'}">
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">${transaction.TransactionNumber}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">${new Date(transaction.Time).toLocaleDateString()}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">${transaction.CustomerName || 'Walk-in'}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">$${parseFloat(transaction.Total).toFixed(2)}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">$${parseFloat(transaction.SalesTax).toFixed(2)}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">
+                                        <button onclick="generateReceiptForTransaction(${transaction.TransactionNumber})" 
+                                                style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                                            <i class="fas fa-receipt"></i> Receipt
+                                        </button>
+                                        <button onclick="viewTransactionDetails(${transaction.TransactionNumber})" 
+                                                style="background: #3b82f6; color: white; padding: 0.25rem 0.5rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-left: 0.25rem;">
+                                            <i class="fas fa-eye"></i> Details
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
+                        });
+                        
+                        html += `
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- Pagination Navigation -->
+                                    <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #e5e7eb;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                                            <div style="color: #64748b; font-size: 0.9rem;">
+                                                <i class="fas fa-info-circle"></i>
+                                                Showing ${offset + 1} - ${offset + data.row_count} of page ${pageNumber}
+                                                ${pageSize === 'ALL' ? '(ALL records)' : ''}
+                                            </div>
+                                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                                <button onclick="goToPage(${pageNumber - 1}, 'search')"
+                                                        ${pageNumber <= 1 ? 'disabled' : ''}
+                                                        style="background: ${pageNumber <= 1 ? '#d1d5db' : '#3b82f6'}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: ${pageNumber <= 1 ? 'not-allowed' : 'pointer'};">
+                                                    <i class="fas fa-chevron-left"></i> Previous
+                                                </button>
+                                                <span style="padding: 0 1rem; font-weight: 600; color: #1a202c;">Page ${pageNumber}</span>
+                                                <button onclick="goToPage(${pageNumber + 1}, 'search')"
+                                                        ${data.row_count < parseInt(pageSize) ? 'disabled' : ''}
+                                                        style="background: ${data.row_count < parseInt(pageSize) ? '#d1d5db' : '#3b82f6'}; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: ${data.row_count < parseInt(pageSize) ? 'not-allowed' : 'pointer'};">
+                                                    Next <i class="fas fa-chevron-right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                        results.innerHTML = html;
+                        results.style.display = 'block';
+                    } else if (data.success && data.data) {
+                        results.innerHTML = '<div class="empty-state"><i class="fas fa-search"></i><h3>No Transactions Found</h3><p>No transactions match your search criteria. Try expanding your date range or adjusting your filters.</p></div>';
+                        results.style.display = 'block';
+                    } else {
+                        error.innerHTML = '⚠️ Unexpected response format from server';
+                        error.style.display = 'block';
+                    }
+                })
+                .catch(err => {
+                    clearTimeout(timeoutId);
+                    loading.style.display = 'none';
+                    loading.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching transactions...';
+
+                    let errorMsg = '❌ Error searching transactions: ';
+                    if (err.message.includes('Failed to fetch')) {
+                        errorMsg += 'Unable to connect to server. Please check your connection.';
+                    } else if (err.message.includes('500')) {
+                        errorMsg += 'Server error. The search may have encountered a database issue.';
+                    } else {
+                        errorMsg += err.message;
+                    }
+
+                    error.innerHTML = errorMsg;
+                    error.style.display = 'block';
+                });
+        }
+        
+        // Generate HTML receipt using proper RMS template
+        function generateReceiptHTML() {
+            const transactionNumber = document.getElementById('transaction-number').value;
+            const templateId = document.getElementById('receipt-template').value;
+            const errorDiv = document.getElementById('receipt-error');
+
+            if (!transactionNumber || transactionNumber <= 0) {
+                errorDiv.innerHTML = '⚠️ Please enter a valid transaction number';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            errorDiv.style.display = 'none';
+
+            // Open the HTML receipt in a new window
+            const url = `/api/pos/generate-receipt-html/${transactionNumber}/${templateId}`;
+            const receiptWindow = window.open(url, '_blank', 'width=400,height=600,scrollbars=yes,resizable=yes');
+
+            if (!receiptWindow) {
+                errorDiv.innerHTML = '⚠️ Pop-up blocked. Please allow pop-ups for this site to view receipts.';
+                errorDiv.style.display = 'block';
+            }
+        }
+        
+        // Generate receipt for specific transaction (from search results)
+        function generateReceiptForTransaction(transactionNumber) {
+            document.getElementById('transaction-number').value = transactionNumber;
+            switchTab('receipts');
+            setTimeout(() => generateReceipt(), 100);
+        }
+        
+        // View transaction details
+        function viewTransactionDetails(transactionNumber) {
+            window.open(`/api/transaction/${transactionNumber}/details`, '_blank');
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            const lastWeek = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            
+            document.getElementById('report-start-date').value = lastWeek;
+            document.getElementById('report-end-date').value = today;
+            document.getElementById('search-start-date').value = lastWeek;
+            document.getElementById('search-end-date').value = today;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: STAR IMPORTERS AND WHOLESALERS
+# Generated: 2025-09-06 16:56:21
+# Total Items: 3
+# Total Quantity: 183.0
+# Estimated Value: $4,588.09
+# Critical Items: 1
+# Urgent Items: 1
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+CRITICAL,853272008249,TETON 6 GREEN 100 BOX 10CT,CIGARETTE,0,0.0,8.1,74,$25.07,$1855.18,INCREASING,$125.32,22
+URGENT,853272008188,TETON 6 RED BOX 100 10CT,CIGARETTE,4,0.7,6.1,56,$25.07,$1404.20,STABLE,$113.96,2
+LOW,853272008126,TETON 18 RED BOX 10CT,CIGARETTE,22,3.7,5.9,53,$25.07,$1328.71,INCREASING,$96.04,22

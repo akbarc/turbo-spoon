@@ -1,0 +1,7 @@
+# Wholesale vs Retail Customer Analysis
+# Generated: 2025-08-16 19:24:53
+# Records: 2
+# 
+customer_type,customer_count,avg_transaction_value,total_sales,avg_transactions_per_customer
+Wholesale,412,2347.3484,16815734.3400,18
+Business,157,256.9604,369999.4500,7

@@ -1,0 +1,20 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: STAR IMPORTERS AND WHOLESALERS
+# Generated: 2025-08-18 12:17:13
+# Total Items: 4
+# Total Quantity: 165.0
+# Estimated Value: $4,882.36
+# Critical Items: 0
+# Urgent Items: 2
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+URGENT,853272008249,TETON 6 GREEN 100 BOX 10CT,CIGARETTE,6,0.9,6.5,59,$24.61,$1452.18,INCREASING,$88.88,3
+URGENT,814057400719,SHIELD MENTHOL GREEN BOX,CIGARETTE,4,1.5,2.8,25,$40.33,$1008.13,INCREASING,$25.08,3
+LOW,708926562311,WILDHORSE GOLD 100 BOX 10CT,CIGARETTE,9,2.6,3.5,32,$38.00,$1216.00,STABLE,$83.72,82
+LOW,853272008126,TETON 18 RED BOX 10CT,CIGARETTE,17,3.2,5.4,49,$24.61,$1206.05,INCREASING,$70.52,3

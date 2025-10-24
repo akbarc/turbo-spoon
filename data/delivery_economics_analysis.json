@@ -1,0 +1,697 @@
+{
+  "analysis_metadata": {
+    "timestamp": "2025-09-08T17:18:56.657738",
+    "analyzer_version": "1.0",
+    "data_sources": [
+      "strategic_data_extraction",
+      "customer_segmentation",
+      "georgia_market_research"
+    ]
+  },
+  "executive_summary": {
+    "current_avg_order_value": 3439.6236,
+    "contribution_margin_rate": 0.1,
+    "optimal_delivery_radius_miles": 50,
+    "route_optimization_savings_annual": 36050.0,
+    "total_expansion_opportunities": 4
+  },
+  "contribution_margin_analysis": {
+    "total_revenue": 1263077959.07,
+    "gross_profit": 277877151.0,
+    "contribution_margin": 126307795.91,
+    "contribution_margin_rate": 0.1,
+    "avg_transaction_value": 3439.6236,
+    "avg_revenue_per_customer": 1874002.91,
+    "transactions_per_customer": 25.44
+  },
+  "delivery_radius_optimization": {
+    "radius_analysis": {
+      "10": {
+        "delivery_cost": 70.14,
+        "delivery_cost_pct": 0.0204,
+        "net_contribution": 273.82,
+        "net_margin_rate": 0.0796,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "20": {
+        "delivery_cost": 107.02,
+        "delivery_cost_pct": 0.0311,
+        "net_contribution": 236.94,
+        "net_margin_rate": 0.0689,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "30": {
+        "delivery_cost": 143.91,
+        "delivery_cost_pct": 0.0418,
+        "net_contribution": 200.05,
+        "net_margin_rate": 0.0582,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "40": {
+        "delivery_cost": 180.79,
+        "delivery_cost_pct": 0.0526,
+        "net_contribution": 163.17,
+        "net_margin_rate": 0.0474,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "50": {
+        "delivery_cost": 217.68,
+        "delivery_cost_pct": 0.0633,
+        "net_contribution": 126.28,
+        "net_margin_rate": 0.0367,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "60": {
+        "delivery_cost": 254.56,
+        "delivery_cost_pct": 0.074,
+        "net_contribution": 89.4,
+        "net_margin_rate": 0.026,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "70": {
+        "delivery_cost": 291.45,
+        "delivery_cost_pct": 0.0847,
+        "net_contribution": 52.51,
+        "net_margin_rate": 0.0153,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "80": {
+        "delivery_cost": 328.34,
+        "delivery_cost_pct": 0.0955,
+        "net_contribution": 15.62,
+        "net_margin_rate": 0.0045,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "90": {
+        "delivery_cost": 365.22,
+        "delivery_cost_pct": 0.1062,
+        "net_contribution": -21.26,
+        "net_margin_rate": -0.0062,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "100": {
+        "delivery_cost": 402.11,
+        "delivery_cost_pct": 0.1169,
+        "net_contribution": -58.15,
+        "net_margin_rate": -0.0169,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "110": {
+        "delivery_cost": 438.99,
+        "delivery_cost_pct": 0.1276,
+        "net_contribution": -95.03,
+        "net_margin_rate": -0.0276,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "120": {
+        "delivery_cost": 475.88,
+        "delivery_cost_pct": 0.1384,
+        "net_contribution": -131.92,
+        "net_margin_rate": -0.0384,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "130": {
+        "delivery_cost": 512.76,
+        "delivery_cost_pct": 0.1491,
+        "net_contribution": -168.8,
+        "net_margin_rate": -0.0491,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "140": {
+        "delivery_cost": 549.65,
+        "delivery_cost_pct": 0.1598,
+        "net_contribution": -205.69,
+        "net_margin_rate": -0.0598,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "150": {
+        "delivery_cost": 586.54,
+        "delivery_cost_pct": 0.1705,
+        "net_contribution": -242.58,
+        "net_margin_rate": -0.0705,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "160": {
+        "delivery_cost": 623.42,
+        "delivery_cost_pct": 0.1812,
+        "net_contribution": -279.46,
+        "net_margin_rate": -0.0812,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "170": {
+        "delivery_cost": 660.31,
+        "delivery_cost_pct": 0.192,
+        "net_contribution": -316.35,
+        "net_margin_rate": -0.092,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "180": {
+        "delivery_cost": 697.19,
+        "delivery_cost_pct": 0.2027,
+        "net_contribution": -353.23,
+        "net_margin_rate": -0.1027,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "190": {
+        "delivery_cost": 734.08,
+        "delivery_cost_pct": 0.2134,
+        "net_contribution": -390.12,
+        "net_margin_rate": -0.1134,
+        "profitable": false,
+        "target_achieved": false
+      },
+      "200": {
+        "delivery_cost": 770.96,
+        "delivery_cost_pct": 0.2241,
+        "net_contribution": -427.0,
+        "net_margin_rate": -0.1241,
+        "profitable": false,
+        "target_achieved": false
+      }
+    },
+    "optimal_radius_miles": null,
+    "max_profitable_radius_miles": null,
+    "recommended_radius": 50
+  },
+  "customer_segment_economics": {
+    "At-Risk Loyal": {
+      "customer_count": 557,
+      "avg_order_value": 1376.84,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": 12.22,
+          "profitable": true,
+          "roi_pct": 9.74
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -80.0,
+          "profitable": false,
+          "roi_pct": -36.75
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -172.21,
+          "profitable": false,
+          "roi_pct": -55.57
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -264.43,
+          "profitable": false,
+          "roi_pct": -65.76
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -448.86,
+          "profitable": false,
+          "roi_pct": -76.53
+        }
+      },
+      "priority_level": "High Priority"
+    },
+    "Loyal Customers": {
+      "customer_count": 144,
+      "avg_order_value": 1151.26,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -10.33,
+          "profitable": false,
+          "roi_pct": -8.24
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -102.55,
+          "profitable": false,
+          "roi_pct": -47.11
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -194.76,
+          "profitable": false,
+          "roi_pct": -62.85
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -286.98,
+          "profitable": false,
+          "roi_pct": -71.37
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -471.41,
+          "profitable": false,
+          "roi_pct": -80.37
+        }
+      },
+      "priority_level": "Medium Priority"
+    },
+    "VIP Champions": {
+      "customer_count": 124,
+      "avg_order_value": 1031.13,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -22.35,
+          "profitable": false,
+          "roi_pct": -17.81
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -114.57,
+          "profitable": false,
+          "roi_pct": -52.63
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -206.78,
+          "profitable": false,
+          "roi_pct": -66.73
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -299.0,
+          "profitable": false,
+          "roi_pct": -74.36
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -483.43,
+          "profitable": false,
+          "roi_pct": -82.42
+        }
+      },
+      "priority_level": "Medium Priority"
+    },
+    "New Big Spenders": {
+      "customer_count": 37,
+      "avg_order_value": 4284.35,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": 302.97,
+          "profitable": true,
+          "roi_pct": 241.49
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": 210.75,
+          "profitable": true,
+          "roi_pct": 96.82
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": 118.54,
+          "profitable": true,
+          "roi_pct": 38.25
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": 26.32,
+          "profitable": true,
+          "roi_pct": 6.55
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -158.11,
+          "profitable": false,
+          "roi_pct": -26.96
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "Big Spenders": {
+      "customer_count": 72,
+      "avg_order_value": 3077.55,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": 182.29,
+          "profitable": true,
+          "roi_pct": 145.3
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": 90.07,
+          "profitable": true,
+          "roi_pct": 41.38
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -2.14,
+          "profitable": false,
+          "roi_pct": -0.69
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -94.36,
+          "profitable": false,
+          "roi_pct": -23.46
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -278.79,
+          "profitable": false,
+          "roi_pct": -47.53
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "Lost Big Spenders": {
+      "customer_count": 24,
+      "avg_order_value": 2727.85,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": 147.33,
+          "profitable": true,
+          "roi_pct": 117.43
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": 55.11,
+          "profitable": true,
+          "roi_pct": 25.31
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -37.1,
+          "profitable": false,
+          "roi_pct": -11.97
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -129.32,
+          "profitable": false,
+          "roi_pct": -32.16
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -313.75,
+          "profitable": false,
+          "roi_pct": -53.49
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "At-Risk": {
+      "customer_count": 137,
+      "avg_order_value": 554.39,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -70.02,
+          "profitable": false,
+          "roi_pct": -55.81
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -162.24,
+          "profitable": false,
+          "roi_pct": -74.53
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -254.45,
+          "profitable": false,
+          "roi_pct": -82.11
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -346.67,
+          "profitable": false,
+          "roi_pct": -86.21
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -531.1,
+          "profitable": false,
+          "roi_pct": -90.55
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "Hibernating": {
+      "customer_count": 203,
+      "avg_order_value": 507.86,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -74.67,
+          "profitable": false,
+          "roi_pct": -59.52
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -166.89,
+          "profitable": false,
+          "roi_pct": -76.67
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -259.1,
+          "profitable": false,
+          "roi_pct": -83.61
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -351.32,
+          "profitable": false,
+          "roi_pct": -87.37
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -535.75,
+          "profitable": false,
+          "roi_pct": -91.34
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "Potential Loyalists": {
+      "customer_count": 232,
+      "avg_order_value": 337.59,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -91.7,
+          "profitable": false,
+          "roi_pct": -73.09
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -183.92,
+          "profitable": false,
+          "roi_pct": -84.49
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -276.13,
+          "profitable": false,
+          "roi_pct": -89.11
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -368.35,
+          "profitable": false,
+          "roi_pct": -91.6
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -552.78,
+          "profitable": false,
+          "roi_pct": -94.24
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "New Customers": {
+      "customer_count": 566,
+      "avg_order_value": 740.86,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -51.37,
+          "profitable": false,
+          "roi_pct": -40.95
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -143.59,
+          "profitable": false,
+          "roi_pct": -65.97
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -235.8,
+          "profitable": false,
+          "roi_pct": -76.09
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -328.02,
+          "profitable": false,
+          "roi_pct": -81.58
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -512.45,
+          "profitable": false,
+          "roi_pct": -87.37
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "Casual Customers": {
+      "customer_count": 160,
+      "avg_order_value": 644.86,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -60.97,
+          "profitable": false,
+          "roi_pct": -48.6
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -153.19,
+          "profitable": false,
+          "roi_pct": -70.38
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -245.4,
+          "profitable": false,
+          "roi_pct": -79.19
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -337.62,
+          "profitable": false,
+          "roi_pct": -83.96
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -522.05,
+          "profitable": false,
+          "roi_pct": -89.01
+        }
+      },
+      "priority_level": "Low Priority"
+    },
+    "Lost Customers": {
+      "customer_count": 140,
+      "avg_order_value": 703.45,
+      "delivery_scenarios": {
+        "25_miles": {
+          "delivery_cost": 125.46,
+          "net_profit_per_delivery": -55.11,
+          "profitable": false,
+          "roi_pct": -43.93
+        },
+        "50_miles": {
+          "delivery_cost": 217.68,
+          "net_profit_per_delivery": -147.34,
+          "profitable": false,
+          "roi_pct": -67.68
+        },
+        "75_miles": {
+          "delivery_cost": 309.89,
+          "net_profit_per_delivery": -239.54,
+          "profitable": false,
+          "roi_pct": -77.3
+        },
+        "100_miles": {
+          "delivery_cost": 402.11,
+          "net_profit_per_delivery": -331.76,
+          "profitable": false,
+          "roi_pct": -82.51
+        },
+        "150_miles": {
+          "delivery_cost": 586.54,
+          "net_profit_per_delivery": -516.19,
+          "profitable": false,
+          "roi_pct": -88.01
+        }
+      },
+      "priority_level": "Low Priority"
+    }
+  },
+  "geographic_expansion_opportunities": [
+    {
+      "market": "Atlanta Metro Suburbs",
+      "population": "6.3M (57% of state)",
+      "opportunity_type": "Suburban Expansion",
+      "growth_rate": "2.4% YoY",
+      "priority": "High",
+      "recommended_radius": 75,
+      "rationale": "Largest market with sustained growth"
+    },
+    {
+      "market": "North Atlanta Suburbs",
+      "population": "High-income demographic",
+      "opportunity_type": "Premium Market",
+      "growth_rate": "5.2% home price increase",
+      "priority": "High",
+      "recommended_radius": 50,
+      "rationale": "High disposable income, premium convenience focus"
+    },
+    {
+      "market": "Federal Opportunity Zones",
+      "population": "Underserved communities",
+      "opportunity_type": "Tax Incentive Market",
+      "growth_rate": "Government supported",
+      "priority": "Medium",
+      "recommended_radius": 100,
+      "rationale": "Tax advantages for investment, less competition"
+    },
+    {
+      "market": "Rural Georgia",
+      "population": "67 counties losing population",
+      "opportunity_type": "Service Gap Fill",
+      "growth_rate": "Declining",
+      "priority": "Low",
+      "recommended_radius": 150,
+      "rationale": "Less competition but longer delivery routes required"
+    }
+  ],
+  "route_optimization_potential": {
+    "stops_per_optimized_route": 5,
+    "individual_delivery_cost": 257.5,
+    "optimized_route_cost": 113.3,
+    "cost_savings": 144.2,
+    "savings_percentage": 56.0,
+    "annual_savings_potential": 36050.0
+  },
+  "top_recommendations": {
+    "recommended_delivery_radius_miles": 50,
+    "priority_customer_segments": [
+      "At-Risk Loyal"
+    ],
+    "top_expansion_markets": [
+      "Atlanta Metro Suburbs",
+      "North Atlanta Suburbs"
+    ],
+    "estimated_annual_route_savings": 36050.0
+  }
+}

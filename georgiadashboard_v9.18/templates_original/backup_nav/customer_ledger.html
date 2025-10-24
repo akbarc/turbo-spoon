@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Ledger - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            min-height: 100vh;
+            color: #1a202c;
+            display: flex;
+        }
+        
+        /* Sidebar - matching other pages */
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #718096;
+            margin-bottom: 0.5rem;
+            padding: 0 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background: #f7fafc;
+            color: #2d3748;
+            transform: translateX(4px);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 2rem;
+            max-width: calc(100% - 260px);
+            overflow-x: auto;
+        }
+        
+        .page-header {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f7fafc;
+            color: #4a5568;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .btn-secondary:hover {
+            background: #edf2f7;
+        }
+        
+        /* Customer Info */
+        .customer-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .customer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e5e7eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .customer-title-section h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+        
+        .customer-subtitle {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .customer-balance-section {
+            text-align: right;
+        }
+        
+        .balance-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #111827;
+            margin-bottom: 0.25rem;
+        }
+        
+        .balance-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .customer-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .info-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .info-group-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #6b7280;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .info-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .info-value {
+            font-size: 0.875rem;
+            color: #111827;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .summary-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+            border-radius: 0 0 0 40px;
+        }
+        
+        .summary-card.sales { 
+            border-left-color: #10b981; 
+            background: linear-gradient(135deg, #ffffff, #f0fdf4);
+        }
+        .summary-card.payments { 
+            border-left-color: #3b82f6; 
+            background: linear-gradient(135deg, #ffffff, #eff6ff);
+        }
+        .summary-card.balance { 
+            border-left-color: #f59e0b; 
+            background: linear-gradient(135deg, #ffffff, #fffbeb);
+        }
+        .summary-card.adjustments { 
+            border-left-color: #8b5cf6; 
+            background: linear-gradient(135deg, #ffffff, #faf5ff);
+        }
+        
+        .summary-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .summary-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .summary-subtitle {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+        
+        /* Table */
+        .table-container {
+            background: white;
+            border-radius: 1rem;
+            padding: 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: none;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .table-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            max-height: 70vh;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        
+        th {
+            background: #f8fafc;
+            padding: 1rem 0.75rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        td {
+            padding: 1rem 0.75rem;
+            border-bottom: 1px solid #f3f4f6;
+            vertical-align: middle;
+        }
+        
+        tr:hover {
+            background: #f8fafc;
+        }
+        
+        tr.clickable-row {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        tr.clickable-row:hover {
+            background: #eff6ff;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15);
+        }
+        
+        .badge {
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            border: 1px solid;
+        }
+        
+        .badge-sale { 
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0); 
+            color: #065f46; 
+            border-color: #10b981;
+        }
+        .badge-pmt { 
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe); 
+            color: #1e3a8a; 
+            border-color: #3b82f6;
+        }
+        .badge-adj { 
+            background: linear-gradient(135deg, #e9d5ff, #ddd6fe); 
+            color: #581c87; 
+            border-color: #8b5cf6;
+        }
+        .badge-nsf { 
+            background: linear-gradient(135deg, #fecaca, #fca5a5); 
+            color: #7f1d1d; 
+            border-color: #dc2626;
+        }
+        .badge-dc { 
+            background: linear-gradient(135deg, #fed7aa, #fdba74); 
+            color: #92400e; 
+            border-color: #f59e0b;
+        }
+        .badge-return { 
+            background: linear-gradient(135deg, #fef3c7, #fde68a); 
+            color: #78350f; 
+            border-color: #fbbf24;
+        }
+        
+        .amount-positive { color: #22543d; font-weight: 600; }
+        .amount-negative { color: #742a2a; font-weight: 600; }
+        
+        .search-results {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+        
+        .result-item {
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .result-item:hover {
+            background: #f7fafc;
+            border-color: #667eea;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+        }
+        
+        .export-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 2rem auto;
+            padding: 0;
+            border-radius: 1rem;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .modal-header {
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 1rem 1rem 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background 0.2s;
+        }
+        
+        .close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .detail-section {
+            margin-bottom: 2rem;
+        }
+        
+        .detail-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        .detail-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            font-size: 1rem;
+            color: #111827;
+            font-weight: 500;
+        }
+        
+        /* Customer Details Section */
+        .customer-details-section {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .customer-details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1200px) {
+            .customer-details-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .customer-details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .detail-group {
+            background: white;
+            padding: 1.75rem;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .detail-group:hover {
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .detail-group h4 {
+            color: #1f2937;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .detail-group h4 i {
+            color: #3b82f6;
+            font-size: 1rem;
+        }
+        
+        .detail-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f9fafb;
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .detail-label {
+            color: #6b7280;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .detail-value {
+            color: #111827;
+            font-weight: 600;
+            font-size: 1rem;
+            word-break: break-word;
+            line-height: 1.4;
+        }
+        
+        /* Special styling for important values */
+        .detail-value.currency {
+            color: #059669;
+            font-weight: 700;
+        }
+        
+        .detail-value.negative {
+            color: #dc2626;
+        }
+        
+        /* Enhanced Summary Cards */
+        .overview-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+            font-size: 0.8rem;
+        }
+        
+        .metric-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            font-weight: 700;
+            color: #111827;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-chart-line"></i> Georgia Dashboard</h2>
+        </div>
+        
+        <div class="sidebar-nav">
+            <div class="nav-section-title">Main</div>
+            <a href="/" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="/customer-ledger" class="nav-item active">
+                <i class="fas fa-book"></i>
+                <span>Customer Ledger</span>
+            </a>
+            <a href="/ar-dashboard" class="nav-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>AR Management</span>
+            </a>
+            <a href="/ai-assistant" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header">
+            <div class="page-title">Customer Ledger</div>
+            <button class="btn btn-secondary" onclick="location.reload()">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+        </div>
+        
+        <!-- Search Card -->
+        <div class="card">
+            <h3 style="margin-bottom: 1rem; font-size: 1.125rem; font-weight: 600;">Search Customer</h3>
+            <div class="search-box">
+                <input type="text" class="search-input" id="customerSearch" 
+                       placeholder="Enter customer name, account number, or ID...">
+                <button class="btn btn-primary" onclick="searchCustomers()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+        
+        <!-- Customer Info (Hidden Initially) -->
+        <div id="customerInfo" class="customer-info">
+            <div class="customer-header">
+                <div class="customer-title-section">
+                    <h2 id="customerName"></h2>
+                    <div class="customer-subtitle">
+                        <span><i class="fas fa-hashtag"></i> <span id="accountNumber"></span></span>
+                        <span><i class="fas fa-phone"></i> <span id="customerPhone"></span></span>
+                        <span><i class="fas fa-envelope"></i> <span id="customerEmail"></span></span>
+                    </div>
+                </div>
+                <div class="customer-balance-section">
+                    <div class="balance-amount" id="currentBalance"></div>
+                    <div class="balance-label">
+                        Current Balance
+                        <span id="balanceSource" style="display: none; margin-left: 0.5rem; padding: 0.125rem 0.375rem; background: #10b981; color: white; border-radius: 0.25rem; font-size: 0.625rem; font-weight: 600;">VALIDATED</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="customer-details">
+                <!-- Contact Information -->
+                <div class="info-group">
+                    <div class="info-group-title">Contact & Location</div>
+                    <div class="info-item">
+                        <span class="info-label">Address</span>
+                        <span id="addressDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">City, ZIP</span>
+                        <span id="cityZipDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Phone</span>
+                        <span id="phoneDetail" class="info-value">—</span>
+                    </div>
+                </div>
+                
+                <!-- Financial Overview -->
+                <div class="info-group">
+                    <div class="info-group-title">Financial Overview</div>
+                    <div class="info-item">
+                        <span class="info-label">Credit Limit</span>
+                        <span id="creditLimitDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Lifetime Sales</span>
+                        <span id="lifetimeSalesDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Payment</span>
+                        <span id="lastPaymentDetail" class="info-value">—</span>
+                    </div>
+                </div>
+                
+                <!-- Account Details -->
+                <div class="info-group">
+                    <div class="info-group-title">Account Details</div>
+                    <div class="info-item">
+                        <span class="info-label">Customer Since</span>
+                        <span id="customerSinceDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Visit</span>
+                        <span id="lastVisitDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Total Visits</span>
+                        <span id="totalVisitsDetail" class="info-value">—</span>
+                    </div>
+                </div>
+                
+                <!-- Tax & Licensing -->
+                <div class="info-group">
+                    <div class="info-group-title">Tax & Licensing</div>
+                    <div class="info-item">
+                        <span class="info-label">Tax ID/EIN</span>
+                        <span id="taxIdDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tax Exempt</span>
+                        <span id="taxExemptDetail" class="info-value">—</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">License Status</span>
+                        <span id="licenseStatusDetail" class="info-value">—</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Enhanced Summary Cards -->
+        <div id="summaryCards" class="summary-grid">
+            <div class="summary-card sales">
+                <div class="summary-label">
+                    <i class="fas fa-shopping-cart"></i> Sales Overview
+                </div>
+                <div class="summary-value"><span id="totalSales">$0.00</span></div>
+                <div class="summary-subtitle">
+                    <div class="overview-metric">
+                        <span class="metric-label">Transactions:</span>
+                        <span class="metric-value" id="totalTransactions">0</span>
+                    </div>
+                    <div class="overview-metric">
+                        <span class="metric-label">Avg Transaction:</span>
+                        <span class="metric-value" id="avgTransaction">$0.00</span>
+                    </div>
+                    <div class="overview-metric">
+                        <span class="metric-label">Items Sold:</span>
+                        <span class="metric-value" id="totalItems">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-card payments">
+                <div class="summary-label">
+                    <i class="fas fa-credit-card"></i> Payments & Collections
+                </div>
+                <div class="summary-value"><span id="totalPayments">$0.00</span></div>
+                <div class="summary-subtitle">
+                    <div class="overview-metric">
+                        <span class="metric-label">Payment Count:</span>
+                        <span class="metric-value" id="paymentCount">0</span>
+                    </div>
+                    <div class="overview-metric">
+                        <span class="metric-label">Avg Payment:</span>
+                        <span class="metric-value" id="avgPayment">$0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-card balance">
+                <div class="summary-label">
+                    <i class="fas fa-file-invoice-dollar"></i> Current Receivables
+                </div>
+                <div class="summary-value"><span id="activeAR">$0.00</span></div>
+                <div class="summary-subtitle">
+                    <div class="overview-metric">
+                        <span class="metric-label">Active Invoices:</span>
+                        <span class="metric-value" id="activeInvoices">0</span>
+                    </div>
+                    <div class="overview-metric">
+                        <span class="metric-label">Avg Invoice:</span>
+                        <span class="metric-value" id="avgInvoice">$0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-card adjustments">
+                <div class="summary-label">
+                    <i class="fas fa-exclamation-triangle"></i> Fees & Returns
+                </div>
+                <div class="summary-value"><span id="totalFees">$0.00</span></div>
+                <div class="summary-subtitle">
+                    <div class="overview-metric">
+                        <span class="metric-label">NSF Returns:</span>
+                        <span class="metric-value" id="nsfCount">0 ($<span id="nsfAmount">0.00</span>)</span>
+                    </div>
+                    <div class="overview-metric">
+                        <span class="metric-label">NSF Fees:</span>
+                        <span class="metric-value" id="nsfFees">0 ($<span id="nsfFeeAmount">0.00</span>)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Balance Verification Info (Hidden Initially) -->
+        <div id="balanceVerification" class="card" style="display: none; background: linear-gradient(135deg, #f0fff4, #c6f6d5); border-left: 4px solid #22c55e;">
+            <h3 style="margin-bottom: 1rem; font-size: 1rem; font-weight: 600; color: #059669; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-shield-check"></i> Balance Verification Status
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.875rem;">
+                <div>
+                    <strong>Verification Status:</strong> <span id="verificationStatus" style="color: #059669; font-weight: 600;">PASSED</span>
+                </div>
+                <div>
+                    <strong>Confidence Level:</strong> <span id="confidenceLevel" style="color: #059669; font-weight: 600;">100%</span>
+                </div>
+                <div>
+                    <strong>All Methods Agree:</strong> <span id="methodsAgree" style="color: #059669; font-weight: 600;">Yes</span>
+                </div>
+                <div>
+                    <strong>Methodology:</strong> <span style="color: #0d9488; font-weight: 600;">AR History Sum</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ledger Table -->
+        <div id="ledgerSection" class="table-container">
+            <div class="table-header">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div class="table-title">Transaction History</div>
+                    <span id="timelineSource" style="display: none; padding: 0.25rem 0.5rem; background: #f0fff4; color: #059669; border-radius: 0.25rem; font-size: 0.75rem; font-weight: 600;">✓ VALIDATED TIMELINE</span>
+                </div>
+                <div class="export-buttons">
+                    <button class="btn btn-secondary" onclick="exportLedger('csv')">
+                        <i class="fas fa-file-csv"></i> CSV
+                    </button>
+                    <button class="btn btn-success" onclick="exportProfessionalExcel()">
+                        <i class="fas fa-file-excel"></i> Professional Excel
+                    </button>
+                    <button class="btn btn-info" onclick="exportDetailedExcel()">
+                        <i class="fas fa-database"></i> Detailed Excel
+                    </button>
+                </div>
+            </div>
+            <div id="loadingSpinner" class="loading" style="display:none;">
+                <i class="fas fa-spinner fa-spin"></i> Loading transactions...
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">Date</th>
+                            <th style="width: 80px;">Type</th>
+                            <th style="width: 120px;">Reference</th>
+                            <th>Description</th>
+                            <th style="width: 150px;">Comment</th>
+                            <th style="width: 100px;">Payment Type</th>
+                            <th style="text-align: right; width: 100px;">Debit</th>
+                            <th style="text-align: right; width: 100px;">Credit</th>
+                            <th style="text-align: right; width: 120px;">Running Balance</th>
+                            <th style="width: 60px;">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledgerTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Active AR Table -->
+        <div id="activeARSection" class="table-container" style="margin-top: 1.5rem;">
+            <div class="table-header">
+                <div class="table-title">Outstanding Invoices</div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 100px;">Date</th>
+                            <th style="width: 120px;">Invoice</th>
+                            <th style="text-align: right; width: 100px;">Original</th>
+                            <th style="text-align: right; width: 100px;">Balance</th>
+                            <th style="width: 100px;">Age</th>
+                            <th style="width: 60px;">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activeARTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Transaction Detail Modal -->
+        <div id="transactionModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Transaction Details</h2>
+                    <button class="close" onclick="closeTransactionModal()">&times;</button>
+                </div>
+                <div class="modal-body" id="transactionModalBody">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i> Loading details...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let currentCustomerId = null;
+        let currentLedgerData = null;
+        
+        // Number formatting helper functions
+        function formatCurrency(amount) {
+            if (amount === null || amount === undefined) return '$0.00';
+            const num = parseFloat(amount) || 0;
+            return '$' + num.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+        
+        function formatNumber(num) {
+            return new Intl.NumberFormat('en-US').format(num || 0);
+        }
+        
+        function formatDate(dateStr) {
+            if (!dateStr) return '—';
+            return new Date(dateStr).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+        
+        function updateCustomerDetails(customerDetails, overviewMetrics) {
+            // Safely update each field with null checks
+            const updateElement = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.textContent = value || '—';
+                }
+            };
+            
+            if (!customerDetails) {
+                console.warn('No customer details provided to updateCustomerDetails');
+                return;
+            }
+            
+            if (!overviewMetrics) {
+                console.warn('No overview metrics provided to updateCustomerDetails');
+                overviewMetrics = {};
+            }
+            
+            // Get current balance from overview metrics (safely)
+            const currentBalance = overviewMetrics?.balance_data?.current_balance?.authoritative_balance || 0;
+            
+            // Header email
+            updateElement('customerEmail', customerDetails.email || customerDetails.email_address);
+            
+            // Contact & Location
+            updateElement('addressDetail', customerDetails.address);
+            // Combine city and zip
+            const cityZip = [customerDetails.city, customerDetails.zip].filter(Boolean).join(', ');
+            updateElement('cityZipDetail', cityZip);
+            updateElement('phoneDetail', customerDetails.phone);
+            
+            // Financial Overview
+            updateElement('creditLimitDetail', formatCurrency(customerDetails.credit_limit));
+            updateElement('lifetimeSalesDetail', formatCurrency(customerDetails.total_sales_lifetime));
+            updateElement('lastPaymentDetail', formatDate(overviewMetrics?.payments?.last_payment_date));
+            
+            // Account Details
+            const customerSinceDate = overviewMetrics?.tenure?.customer_since || customerDetails.customer_since;
+            if (customerSinceDate) {
+                updateElement('customerSinceDetail', formatDate(customerSinceDate));
+            }
+            updateElement('lastVisitDetail', formatDate(customerDetails.last_visit));
+            updateElement('totalVisitsDetail', formatNumber(customerDetails.total_visits));
+            
+            // Tax & Licensing
+            updateElement('taxIdDetail', customerDetails.tax_number || customerDetails.ein);
+            updateElement('taxExemptDetail', customerDetails.tax_exempt ? 'Yes' : 'No');
+            
+            // Check for any license info
+            const hasLicense = customerDetails.custom_text1 || customerDetails.custom_text2;
+            updateElement('licenseStatusDetail', hasLicense ? 'Active' : 'N/A');
+        }
+        
+        function updateEnhancedSummaryCards(overviewMetrics, currentBalance) {
+            // Safely update each summary card with null checks
+            const updateCard = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = value;
+            };
+            
+            // Safely handle missing overviewMetrics
+            if (!overviewMetrics) {
+                console.warn('No overview metrics provided to updateEnhancedSummaryCards');
+                overviewMetrics = {};
+            }
+            
+            console.log('Updating summary cards with:', overviewMetrics);
+            
+            // Sales metrics - using correct field names
+            const salesMetrics = overviewMetrics?.sales || {};
+            updateCard('totalSales', formatCurrency(Math.abs(salesMetrics.total_sales || 0)));
+            updateCard('totalTransactions', formatNumber(salesMetrics.total_transactions || 0));  // FIXED: was transaction_count
+            updateCard('avgTransaction', formatCurrency(salesMetrics.avg_transaction || 0));
+            updateCard('totalItems', formatNumber(salesMetrics.total_items_sold || 0));
+            
+            // Payment metrics - using correct field names
+            const paymentMetrics = overviewMetrics?.payments || {};
+            updateCard('totalPayments', formatCurrency(Math.abs(paymentMetrics.total_payment_amount || 0)));  // FIXED: was total_payments (count)
+            updateCard('paymentCount', formatNumber(paymentMetrics.total_payments || 0));  // FIXED: count field
+            updateCard('avgPayment', formatCurrency(paymentMetrics.avg_payment || 0));
+            
+            // NSF/Fee metrics - using correct field names
+            const nsfMetrics = overviewMetrics?.fees_and_nsf || {};
+            const totalFees = (nsfMetrics.nsf_fee_amount || 0) + (nsfMetrics.other_fee_amount || 0);
+            updateCard('totalFees', formatCurrency(Math.abs(totalFees)));
+            updateCard('nsfCount', formatNumber(nsfMetrics.nsf_returned_count || 0));
+            updateCard('nsfAmount', formatCurrency(Math.abs(nsfMetrics.nsf_returned_amount || 0)));
+            updateCard('nsfFees', formatNumber(nsfMetrics.nsf_fee_count || 0));
+            updateCard('nsfFeeAmount', formatCurrency(Math.abs(nsfMetrics.nsf_fee_amount || 0)));
+            
+            // AR metrics - using correct field names
+            const arMetrics = overviewMetrics?.receivables || {};  // FIXED: was ar_summary
+            updateCard('activeAR', formatCurrency(currentBalance));
+            updateCard('activeInvoices', formatNumber(arMetrics.active_invoices || 0));
+            updateCard('avgInvoice', formatCurrency(arMetrics.avg_invoice_balance || 0));  // FIXED: was avg_invoice
+        }
+        
+        // Initialize
+        document.getElementById('customerSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchCustomers();
+            }
+        });
+        
+        async function searchCustomers() {
+            const searchTerm = document.getElementById('customerSearch').value.trim();
+            if (!searchTerm) return;
+            
+            try {
+                const response = await fetch(`/api/ledger/customers?search=${encodeURIComponent(searchTerm)}`);
+                const data = await response.json();
+                
+                if (data.success && data.customers.length > 0) {
+                    displaySearchResults(data.customers);
+                } else {
+                    document.getElementById('searchResults').innerHTML = 
+                        '<div style="padding: 1rem; color: #e53e3e;">No customers found</div>';
+                }
+            } catch (error) {
+                console.error('Search error:', error);
+                document.getElementById('searchResults').innerHTML = 
+                    '<div style="padding: 1rem; color: #e53e3e;">Error searching customers</div>';
+            }
+        }
+        
+        function displaySearchResults(customers) {
+            let html = '';
+            customers.forEach(customer => {
+                // Build name display with first/last names if available
+                let nameDisplay = customer.name || customer.company || 'Unknown';
+                let nameDetails = '';
+                
+                if (customer.first_name || customer.last_name) {
+                    const fullName = `${customer.first_name || ''} ${customer.last_name || ''}`.trim();
+                    if (customer.company && fullName && customer.company !== fullName) {
+                        nameDisplay = customer.company;
+                        nameDetails = `Contact: ${fullName}`;
+                    } else if (fullName) {
+                        nameDisplay = fullName;
+                    }
+                }
+                
+                // Build address display
+                let addressDisplay = '';
+                if (customer.address || customer.city || customer.state) {
+                    const addressParts = [
+                        customer.address,
+                        customer.city,
+                        customer.state,
+                        customer.zip
+                    ].filter(part => part && part.trim()).join(', ');
+                    if (addressParts) {
+                        addressDisplay = addressParts;
+                    }
+                }
+                
+                // Build contact info
+                let contactInfo = [];
+                if (customer.phone) contactInfo.push(`📞 ${customer.phone}`);
+                if (customer.email) contactInfo.push(`📧 ${customer.email}`);
+                
+                html += `
+                    <div class="result-item" onclick="selectCustomer(${customer.id})" style="cursor: pointer; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.5rem; background: #fff; transition: all 0.2s;">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; color: #2d3748; margin-bottom: 0.25rem;">
+                                    ${nameDisplay}
+                                </div>
+                                ${nameDetails ? `<div style="font-size: 0.8rem; color: #4a5568; margin-bottom: 0.25rem;">${nameDetails}</div>` : ''}
+                                <div style="font-size: 0.75rem; color: #718096; margin-bottom: 0.25rem;">
+                                    Account: ${customer.account_number || 'N/A'} | ID: ${customer.id}
+                                </div>
+                                ${addressDisplay ? `<div style="font-size: 0.75rem; color: #718096; margin-bottom: 0.25rem;">📍 ${addressDisplay}</div>` : ''}
+                                ${contactInfo.length > 0 ? `<div style="font-size: 0.75rem; color: #718096;">${contactInfo.join(' | ')}</div>` : ''}
+                            </div>
+                            <div style="text-align: right; margin-left: 1rem;">
+                                <div style="font-weight: 600; color: ${customer.balance >= 0 ? '#059669' : '#dc2626'}; font-size: 1rem;">
+                                    $${customer.balance.toFixed(2)}
+                                </div>
+                                ${customer.credit_limit > 0 ? `<div style="font-size: 0.75rem; color: #718096;">Credit: $${customer.credit_limit.toFixed(2)}</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('searchResults').innerHTML = html;
+            
+            // Add hover effects
+            document.querySelectorAll('.result-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#f7fafc';
+                    this.style.borderColor = '#3182ce';
+                    this.style.transform = 'translateY(-1px)';
+                    this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '#fff';
+                    this.style.borderColor = '#e2e8f0';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        }
+        
+        async function selectCustomer(customerId) {
+            currentCustomerId = customerId;
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('loadingSpinner').style.display = 'block';
+            
+            // Show sections
+            document.getElementById('customerInfo').style.display = 'block';
+            document.getElementById('summaryCards').style.display = 'grid';
+            document.getElementById('ledgerSection').style.display = 'block';
+            document.getElementById('activeARSection').style.display = 'block';
+            
+            try {
+                // Load comprehensive customer overview data
+                const [ledgerResponse, overviewResponse] = await Promise.all([
+                    fetch(`/api/ledger/generate/${customerId}`),
+                    fetch(`/api/customer/${customerId}/overview`)
+                ]);
+                
+                const ledgerData = await ledgerResponse.json();
+                const overviewData = await overviewResponse.json();
+                
+                if (ledgerData.success && overviewData.success) {
+                    currentLedgerData = ledgerData.data;
+                    // Enhance ledger data with comprehensive overview information
+                    currentLedgerData.comprehensive_overview = overviewData.data;
+                    displayLedgerData(currentLedgerData);
+                } else {
+                    // Fallback to legacy API if new API fails
+                    if (ledgerData.success) {
+                        currentLedgerData = ledgerData.data;
+                        displayLedgerData(ledgerData.data);
+                    } else {
+                        console.error('API Error:', ledgerData);
+                        alert('Error loading ledger: ' + (ledgerData.error || 'Unknown error'));
+                    }
+                }
+            } catch (error) {
+                console.error('JavaScript Error loading ledger:', error);
+                console.error('Error details:', error.message, error.stack);
+                alert('Error loading ledger: ' + error.message);
+            } finally {
+                document.getElementById('loadingSpinner').style.display = 'none';
+            }
+        }
+        
+        function displayLedgerData(data) {
+            // Check if we have comprehensive overview data
+            const hasOverview = data.comprehensive_overview && data.comprehensive_overview.customer_details;
+            const useValidatedBalance = hasOverview || (data.validated_balance && data.validated_balance.current_balance);
+            
+            // Get the appropriate data sources
+            const customerInfo = hasOverview ? data.comprehensive_overview.customer_details : data.customer_info;
+            const balanceData = hasOverview ? data.comprehensive_overview.balance_data : (data.validated_balance || data);
+            
+            // Safely update customer info with null checks
+            const customerNameEl = document.getElementById('customerName');
+            const accountNumberEl = document.getElementById('accountNumber');
+            const customerPhoneEl = document.getElementById('customerPhone');
+            
+            if (customerNameEl && customerInfo) customerNameEl.textContent = customerInfo.name || 'Unknown Customer';
+            if (accountNumberEl && customerInfo) accountNumberEl.textContent = customerInfo.account_number || 'N/A';
+            if (customerPhoneEl && customerInfo) customerPhoneEl.textContent = customerInfo.phone || 'N/A';
+            
+            // Update comprehensive customer details if available
+            if (hasOverview) {
+                updateCustomerDetails(data.comprehensive_overview.customer_details, data.comprehensive_overview.overview_metrics);
+            }
+            
+            // Use validated balance calculation with proper fallback
+            let currentBalance = 0;
+            if (hasOverview && balanceData.current_balance) {
+                currentBalance = balanceData.current_balance.authoritative_balance;
+            } else if (useValidatedBalance && data.validated_balance && data.validated_balance.current_balance) {
+                currentBalance = data.validated_balance.current_balance.authoritative_balance;
+            } else if (customerInfo) {
+                currentBalance = customerInfo.current_balance || 0;
+            }
+            
+            const currentBalanceEl = document.getElementById('currentBalance');
+            if (currentBalanceEl) {
+                currentBalanceEl.textContent = formatCurrency(currentBalance);
+            }
+            
+            // Show validation indicator with null check
+            const balanceSourceElement = document.getElementById('balanceSource');
+            if (balanceSourceElement) {
+                if (useValidatedBalance || hasOverview) {
+                    balanceSourceElement.style.display = 'inline-block';
+                    balanceSourceElement.textContent = '✓ VALIDATED';
+                    balanceSourceElement.style.background = 'rgba(34, 197, 94, 0.2)';
+                } else {
+                    balanceSourceElement.style.display = 'none';
+                }
+            }
+            
+            // Summary Cards - Enhanced with comprehensive overview data
+            if (hasOverview && data.comprehensive_overview.overview_metrics) {
+                updateEnhancedSummaryCards(data.comprehensive_overview.overview_metrics, currentBalance);
+            } else if (useValidatedBalance && data.validated_balance && data.validated_balance.business_events) {
+                // Fallback to validated balance data
+                const events = data.validated_balance.business_events.summary.event_types;
+                const updateCard = (id, value) => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = formatCurrency(value);
+                };
+                
+                updateCard('totalSales', Math.abs(events.SALE_INVOICE?.total_amount || 0));
+                updateCard('totalPayments', Math.abs(events.PAYMENT_RECEIVED?.total_amount || 0));
+                updateCard('totalFees', Math.abs(events.NSF_FEE?.total_amount || 0) + Math.abs(events.OTHER_FEES?.total_amount || 0));
+                updateCard('activeAR', currentBalance);
+            } else {
+                // Legacy fallback
+                const updateCard = (id, value) => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = formatCurrency(value);
+                };
+                
+                const summary = data.summary || {};
+                updateCard('totalSales', summary.total_sales || 0);
+                updateCard('totalPayments', summary.total_payments || 0);
+                updateCard('activeAR', summary.active_ar_total || 0);
+                updateCard('totalFees', summary.total_adjustments || 0);
+            }
+            
+            // Balance verification is now handled through the comprehensive overview
+            // No need for separate balance verification display since the data is validated
+            
+            // Ledger Table - Use validated timeline if available
+            const tbody = document.getElementById('ledgerTableBody');
+            tbody.innerHTML = '';
+            
+            // Always use ledger data which has tender types
+            // Validated balance is only for verification, not display
+            const transactionData = data.ledger;
+            
+            if (false) {  // Disabled timeline view to show tender types
+                // Show timeline source indicator
+                document.getElementById('timelineSource').style.display = 'inline-block';
+                
+                // Use validated timeline data
+                transactionData.forEach(transaction => {
+                    const row = tbody.insertRow();
+                    const date = new Date(transaction.date).toLocaleDateString();
+                    
+                    // Map event types to transaction types and badge classes
+                    let transactionType, badgeClass;
+                    switch(transaction.event_type) {
+                        case 'SALE_INVOICE':
+                            transactionType = 'SALE';
+                            badgeClass = 'badge-sale';
+                            break;
+                        case 'PAYMENT_RECEIVED':
+                            transactionType = 'PMT';
+                            badgeClass = 'badge-pmt';
+                            break;
+                        case 'ADJUSTMENT':
+                            transactionType = 'ADJ';
+                            badgeClass = 'badge-adj';
+                            break;
+                        case 'NSF_RETURNED_CHECK':
+                            transactionType = 'NSF';
+                            badgeClass = 'badge-nsf';
+                            break;
+                        case 'NSF_FEE':
+                            transactionType = 'NSF-FEE';
+                            badgeClass = 'badge-nsf';
+                            break;
+                        case 'OTHER_FEES':
+                            transactionType = 'FEE';
+                            badgeClass = 'badge-dc';
+                            break;
+                        default:
+                            transactionType = transaction.event_type;
+                            badgeClass = 'badge-sale';
+                    }
+                    
+                    const amount = parseFloat(transaction.amount) || 0;
+                    const debit = amount > 0 ? amount : 0;
+                    const credit = amount < 0 ? Math.abs(amount) : 0;
+                    const balance = parseFloat(transaction.running_balance) || 0;
+                    
+                    // Generate proper reference number
+                    let referenceNumber = '';
+                    const transactionNumber = transaction.transaction_number;
+                    
+                    if (transactionNumber && transactionNumber > 0) {
+                        referenceNumber = `TXN-${transactionNumber}`;
+                    } else {
+                        // For AR History entries, create reference based on event type
+                        switch(transaction.event_type) {
+                            case 'NSF_FEE':
+                            case 'NSF_RETURNED_CHECK':
+                                referenceNumber = `NSF-${Math.abs(amount * 1000)}`;
+                                break;
+                            case 'OTHER_FEES':
+                                referenceNumber = `FEE-${Math.abs(amount * 1000)}`;
+                                break;
+                            case 'ADJUSTMENT':
+                                referenceNumber = `ADJ-${Math.abs(amount * 1000)}`;
+                                break;
+                            default:
+                                referenceNumber = `REF-${Math.abs(amount * 1000)}`;
+                        }
+                    }
+                    
+                    // Make row clickable if it has a transaction number
+                    const clickableClass = transactionNumber && transactionNumber > 0 ? 'clickable-row' : '';
+                    const clickHandler = transactionNumber && transactionNumber > 0 ? 
+                        `onclick="showTransactionDetails(${transactionNumber})"` : '';
+                    
+                    row.className = clickableClass;
+                    if (clickHandler) {
+                        row.setAttribute('onclick', `showTransactionDetails(${transactionNumber})`);
+                    }
+                    
+                    // Extract comment and payment type from description or metadata
+                    let comment = transaction.comment || '';
+                    let paymentType = '';
+                    
+                    if (transaction.event_type === 'PAYMENT_RECEIVED') {
+                        // Try to extract payment type from description
+                        const desc = transaction.description.toLowerCase();
+                        if (desc.includes('cash')) paymentType = 'Cash';
+                        else if (desc.includes('check')) paymentType = 'Check';
+                        else if (desc.includes('credit') || desc.includes('card')) paymentType = 'Credit Card';
+                        else if (desc.includes('ach') || desc.includes('eft')) paymentType = 'ACH/EFT';
+                        else paymentType = 'Payment';
+                        
+                        // Extract check number if available
+                        const checkMatch = transaction.description.match(/#(\d+)/);
+                        if (checkMatch) {
+                            paymentType = `Check #${checkMatch[1]}`;
+                        }
+                    }
+                    
+                    row.innerHTML = `
+                        <td>${date}</td>
+                        <td><span class="badge ${badgeClass}">${transactionType}</span></td>
+                        <td style="font-size: 0.8rem; color: #374151; font-weight: 500;">${referenceNumber}</td>
+                        <td style="color: #111827;">${transaction.description}</td>
+                        <td style="font-size: 0.8rem; color: #6b7280;">${comment}</td>
+                        <td style="font-size: 0.8rem; color: #4b5563; font-weight: 500;">${paymentType}</td>
+                        <td style="text-align: right; color: #065f46; font-weight: 600;">
+                            ${debit > 0 ? formatCurrency(debit) : ''}
+                        </td>
+                        <td style="text-align: right; color: #7f1d1d; font-weight: 600;">
+                            ${credit > 0 ? formatCurrency(credit) : ''}
+                        </td>
+                        <td style="text-align: right; font-weight: 700; color: #111827;">
+                            ${formatCurrency(balance)}
+                        </td>
+                        <td style="text-align: center;">
+                            ${transactionNumber && transactionNumber > 0 ? 
+                                '<button class="btn btn-sm" onclick="showTransactionDetails(' + transactionNumber + ')" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;"><i class="fas fa-eye"></i></button>' : 
+                                '<span style="color: #9ca3af;">—</span>'
+                            }
+                        </td>
+                    `;
+                });
+            } else {
+                // Hide timeline source indicator when using legacy data
+                document.getElementById('timelineSource').style.display = 'none';
+                
+                // Fallback to legacy ledger data
+                data.ledger.forEach(transaction => {
+                    const row = tbody.insertRow();
+                    const date = new Date(transaction.TransactionDate).toLocaleDateString();
+                    
+                    // Map transaction types to badge classes
+                    let badgeClass = 'badge-sale';
+                    if (transaction.TransactionType === 'PAYMENT') badgeClass = 'badge-pmt';
+                    else if (transaction.TransactionType === 'NSF-RETURN') badgeClass = 'badge-return';
+                    else if (transaction.TransactionType && transaction.TransactionType.includes('ADJUSTMENT')) badgeClass = 'badge-adj';
+                    else if (transaction.TransactionType && transaction.TransactionType.includes('NSF')) badgeClass = 'badge-nsf';
+                    else if (transaction.TransactionType === 'CHARGE') badgeClass = 'badge-dc';
+                    else if (transaction.TransactionType === 'FEE') badgeClass = 'badge-fee';
+                    else if (transaction.TransactionType === 'SALE') badgeClass = 'badge-sale';
+                    
+                    const debit = parseFloat(transaction.Debit) || 0;
+                    const credit = parseFloat(transaction.Credit) || 0;
+                    const balance = parseFloat(transaction.RunningBalance) || 0;
+                    
+                    // Get tender type (payment method) and comments
+                    const tenderType = transaction.TenderType || '';
+                    const comment = transaction.Comments || '';
+                    const referenceNumber = transaction.ReferenceNumber || transaction.RefNumber || '';
+                    const description = transaction.StandardDescription || transaction.Description || '';
+                    
+                    row.innerHTML = `
+                        <td>${date}</td>
+                        <td><span class="badge ${badgeClass}">${transaction.TransactionType}</span></td>
+                        <td style="font-size: 0.75rem; color: #718096;">${referenceNumber}</td>
+                        <td>${description}</td>
+                        <td style="font-size: 0.85rem; color: #6b7280;">${comment}</td>
+                        <td style="font-size: 0.85rem; color: #4b5563; font-weight: 500;">${tenderType}</td>
+                        <td style="text-align: right;" class="${debit > 0 ? 'amount-positive' : ''}">
+                            ${debit > 0 ? '$' + debit.toFixed(2) : ''}
+                        </td>
+                        <td style="text-align: right;" class="${credit > 0 ? 'amount-negative' : ''}">
+                            ${credit > 0 ? '$' + credit.toFixed(2) : ''}
+                        </td>
+                        <td style="text-align: right; font-weight: 600;">
+                            $${balance.toFixed(2)}
+                        </td>
+                        <td style="text-align: center;">
+                            ${transaction.SourceTable === 'Transaction' && transaction.SourceID ? 
+                                '<button class="btn btn-sm" onclick="showTransactionDetails(' + transaction.SourceID + ')" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;"><i class="fas fa-eye"></i></button>' : 
+                                '<span style="color: #9ca3af;">—</span>'
+                            }
+                        </td>
+                    `;
+                });
+            }
+            
+            // Active AR Table - Use validated AR breakdown if available
+            const arBody = document.getElementById('activeARTableBody');
+            arBody.innerHTML = '';
+            
+            const arData = (useValidatedBalance && data.validated_balance && data.validated_balance.ar_breakdown && data.validated_balance.ar_breakdown.invoices && data.validated_balance.ar_breakdown.invoices.length > 0) ?
+                data.validated_balance.ar_breakdown.invoices :
+                data.active_ar;
+            
+            arData.forEach(ar => {
+                const row = arBody.insertRow();
+                const date = new Date(ar.Date).toLocaleDateString();
+                
+                const original = parseFloat(ar.OriginalAmount) || 0;
+                const balance = parseFloat(ar.Balance) || 0;
+                const agingCategory = ar.AgingBucket || ar.AgingCategory || 'Current';
+                
+                // Color code aging buckets
+                let agingColor = '#bee3f8'; // Default blue
+                if (agingCategory.includes('90') || agingCategory.includes('120')) {
+                    agingColor = '#fed7d7'; // Red for old
+                } else if (agingCategory.includes('60')) {
+                    agingColor = '#fbb6ce'; // Pink for medium
+                } else if (agingCategory.includes('30')) {
+                    agingColor = '#feebc8'; // Orange for recent
+                }
+                
+                const arId = ar.ID || ar.AR_ID;
+                const transactionNumber = ar.TransactionNumber;
+                
+                // Make the row clickable
+                row.className = 'clickable-row';
+                const clickHandler = transactionNumber ? 
+                    `showTransactionDetails(${transactionNumber})` : 
+                    (arId ? `showARDetails(${arId})` : '');
+                
+                if (clickHandler) {
+                    row.setAttribute('onclick', clickHandler);
+                }
+                
+                row.innerHTML = `
+                    <td>${date}</td>
+                    <td style="font-weight: 500;">${transactionNumber || `AR-${arId}`}</td>
+                    <td style="text-align: right; font-weight: 600;">${formatCurrency(original)}</td>
+                    <td style="text-align: right; font-weight: 700; color: #111827;">${formatCurrency(balance)}</td>
+                    <td><span class="badge" style="background: ${agingColor}; color: #2c5282;">${agingCategory}</span></td>
+                    <td style="text-align: center;">
+                        ${transactionNumber ? 
+                            '<button class="btn btn-sm" onclick="event.stopPropagation(); showTransactionDetails(' + transactionNumber + ')" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;"><i class="fas fa-eye"></i></button>' : 
+                            (arId ? '<button class="btn btn-sm" onclick="event.stopPropagation(); showARDetails(' + arId + ')" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;"><i class="fas fa-file-alt"></i></button>' : '—')
+                        }
+                    </td>
+                `;
+            });
+        }
+        
+        // Modal functions
+        async function showTransactionDetails(transactionNumber) {
+            const modal = document.getElementById('transactionModal');
+            const modalBody = document.getElementById('transactionModalBody');
+            const modalTitle = document.querySelector('.modal-title');
+            
+            modal.style.display = 'block';
+            modalTitle.textContent = `Transaction #${transactionNumber}`;
+            modalBody.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading details...</div>';
+            
+            try {
+                const response = await fetch(`/api/transaction/${transactionNumber}/details`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayTransactionDetails(data.data);
+                } else {
+                    modalBody.innerHTML = `<div style="color: #dc2626; text-align: center;">Error: ${data.error}</div>`;
+                }
+            } catch (error) {
+                modalBody.innerHTML = `<div style="color: #dc2626; text-align: center;">Error loading details: ${error.message}</div>`;
+            }
+        }
+        
+        async function showARDetails(arId) {
+            const modal = document.getElementById('transactionModal');
+            const modalBody = document.getElementById('transactionModalBody');
+            const modalTitle = document.querySelector('.modal-title');
+            
+            modal.style.display = 'block';
+            modalTitle.textContent = `AR Record #${arId}`;
+            modalBody.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading details...</div>';
+            
+            try {
+                const response = await fetch(`/api/ar/${arId}/details`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayARDetails(data.data);
+                } else {
+                    modalBody.innerHTML = `<div style="color: #dc2626; text-align: center;">Error: ${data.error}</div>`;
+                }
+            } catch (error) {
+                modalBody.innerHTML = `<div style="color: #dc2626; text-align: center;">Error loading details: ${error.message}</div>`;
+            }
+        }
+        
+        function closeTransactionModal() {
+            document.getElementById('transactionModal').style.display = 'none';
+        }
+        
+        function displayTransactionDetails(data) {
+            const modalBody = document.getElementById('transactionModalBody');
+            const transaction = data.transaction_info;
+            
+            let html = `
+                <div class="detail-section">
+                    <h3>Transaction Information</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">Transaction Number</div>
+                            <div class="detail-value">#${transaction.transaction_number}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Date & Time</div>
+                            <div class="detail-value">${new Date(transaction.date_time).toLocaleString()}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Customer</div>
+                            <div class="detail-value">${transaction.customer_name}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Total Amount</div>
+                            <div class="detail-value" style="font-size: 1.2rem; font-weight: 700; color: #059669;">$${transaction.total.toFixed(2)}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            if (data.line_items && data.line_items.length > 0) {
+                html += `
+                    <div class="detail-section">
+                        <h3>Line Items</h3>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; font-size: 0.875rem;">
+                                <thead>
+                                    <tr style="background: #f3f4f6;">
+                                        <th style="padding: 0.5rem; text-align: left;">Item</th>
+                                        <th style="padding: 0.5rem; text-align: right;">Qty</th>
+                                        <th style="padding: 0.5rem; text-align: right;">Price</th>
+                                        <th style="padding: 0.5rem; text-align: right;">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                `;
+                
+                data.line_items.forEach(item => {
+                    html += `
+                        <tr>
+                            <td style="padding: 0.5rem;">${item.description}</td>
+                            <td style="padding: 0.5rem; text-align: right;">${item.quantity}</td>
+                            <td style="padding: 0.5rem; text-align: right;">$${item.price.toFixed(2)}</td>
+                            <td style="padding: 0.5rem; text-align: right; font-weight: 600;">$${item.line_total.toFixed(2)}</td>
+                        </tr>
+                    `;
+                });
+                
+                html += `
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            modalBody.innerHTML = html;
+        }
+        
+        function displayARDetails(data) {
+            const modalBody = document.getElementById('transactionModalBody');
+            const ar = data.ar_info;
+            
+            let html = `
+                <div class="detail-section">
+                    <h3>AR Information</h3>
+                    <div class="detail-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">AR ID</div>
+                            <div class="detail-value">#${ar.ar_id}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Date</div>
+                            <div class="detail-value">${new Date(ar.date).toLocaleDateString()}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Customer</div>
+                            <div class="detail-value">${ar.customer_name}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Current Balance</div>
+                            <div class="detail-value" style="font-size: 1.2rem; font-weight: 700; color: #dc2626;">$${ar.current_balance.toFixed(2)}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Days Old</div>
+                            <div class="detail-value">${ar.days_old} days</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            if (data.transaction_details) {
+                html += '<div class="detail-section"><h3>Related Transaction</h3></div>';
+                // Add transaction details here if needed
+            }
+            
+            modalBody.innerHTML = html;
+        }
+        
+        // Export with professional formatting
+        async function exportLedger(format) {
+            if (!currentCustomerId) {
+                alert('Please select a customer first');
+                return;
+            }
+            
+            try {
+                // Create a professional export with summary
+                const exportData = await generateProfessionalExport();
+                
+                if (format === 'csv') {
+                    downloadCSV(exportData);
+                } else {
+                    // For Excel, use the existing endpoint but enhanced
+                    window.location.href = `/api/ledger/export/${currentCustomerId}?format=${format}&professional=true`;
+                }
+            } catch (error) {
+                console.error('Export error:', error);
+                alert('Error generating export: ' + error.message);
+            }
+        }
+        
+        async function generateProfessionalExport() {
+            const data = currentLedgerData;
+            const customer = data.customer_info;
+            const useValidatedData = data.validated_balance;
+            
+            let csvContent = '';
+            
+            // Header section
+            csvContent += `CUSTOMER LEDGER REPORT\n`;
+            csvContent += `Generated: ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}\n`;
+            csvContent += `\n`;
+            
+            // Customer information
+            csvContent += `CUSTOMER INFORMATION\n`;
+            csvContent += `Name:,${customer.name}\n`;
+            csvContent += `Account:,${customer.account_number}\n`;
+            csvContent += `Phone:,${customer.phone || 'N/A'}\n`;
+            csvContent += `\n`;
+            
+            // Summary section
+            csvContent += `ACCOUNT SUMMARY\n`;
+            if (useValidatedData) {
+                const events = useValidatedData.business_events.summary.event_types;
+                csvContent += `Current Balance:,$${useValidatedData.current_balance.authoritative_balance.toFixed(2)}\n`;
+                csvContent += `Total Sales:,$${Math.abs(events.SALE_INVOICE?.total_amount || 0).toFixed(2)}\n`;
+                csvContent += `Total Payments:,$${Math.abs(events.PAYMENT_RECEIVED?.total_amount || 0).toFixed(2)}\n`;
+                csvContent += `Total Adjustments:,$${Math.abs(events.ADJUSTMENT?.total_amount || 0).toFixed(2)}\n`;
+                csvContent += `Verification Status:,VALIDATED (100% Accurate)\n`;
+            } else {
+                csvContent += `Current Balance:,$${customer.current_balance.toFixed(2)}\n`;
+                csvContent += `Total Sales:,$${(data.summary.total_sales || 0).toFixed(2)}\n`;
+                csvContent += `Total Payments:,$${(data.summary.total_payments || 0).toFixed(2)}\n`;
+                csvContent += `Total Adjustments:,$${(data.summary.total_adjustments || 0).toFixed(2)}\n`;
+            }
+            csvContent += `\n`;
+            
+            // Transaction history
+            csvContent += `TRANSACTION HISTORY\n`;
+            csvContent += `Date,Type,Reference,Description,Debit,Credit,Running Balance\n`;
+            
+            // Use validated timeline if available
+            const transactions = useValidatedData ? useValidatedData.balance_timeline.slice().reverse() : data.ledger;
+            
+            transactions.forEach(transaction => {
+                if (useValidatedData) {
+                    const date = new Date(transaction.date).toLocaleDateString();
+                    const amount = parseFloat(transaction.amount) || 0;
+                    const debit = amount > 0 ? amount.toFixed(2) : '';
+                    const credit = amount < 0 ? Math.abs(amount).toFixed(2) : '';
+                    const balance = parseFloat(transaction.running_balance).toFixed(2);
+                    
+                    csvContent += `${date},${transaction.event_type},${transaction.transaction_number || ''},${transaction.description.replace(/,/g, ';')},${debit},${credit},${balance}\n`;
+                } else {
+                    const date = new Date(transaction.TransactionDate).toLocaleDateString();
+                    const debit = parseFloat(transaction.Debit) || 0;
+                    const credit = parseFloat(transaction.Credit) || 0;
+                    const balance = parseFloat(transaction.RunningBalance) || 0;
+                    
+                    csvContent += `${date},${transaction.TransactionType},${transaction.RefNumber || ''},${transaction.Description.replace(/,/g, ';')},${debit > 0 ? debit.toFixed(2) : ''},${credit > 0 ? credit.toFixed(2) : ''},${balance.toFixed(2)}\n`;
+                }
+            });
+            
+            return csvContent;
+        }
+        
+        function downloadCSV(csvContent) {
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `customer_ledger_${currentCustomerId}_${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        
+        // Professional Excel Export
+        function exportProfessionalExcel() {
+            if (!currentCustomerId) {
+                alert('Please select a customer first');
+                return;
+            }
+            
+            // Show loading state
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+            
+            // Download the file
+            window.location.href = `/api/customer/${currentCustomerId}/export/professional`;
+            
+            // Reset button after delay
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 3000);
+        }
+        
+        // Detailed Excel Export
+        function exportDetailedExcel() {
+            if (!currentCustomerId) {
+                alert('Please select a customer first');
+                return;
+            }
+            
+            // Show loading state
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+            btn.disabled = true;
+            
+            // Download the file
+            window.location.href = `/api/customer/${currentCustomerId}/export/detailed`;
+            
+            // Reset button after delay
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 3000);
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('transactionModal');
+            if (event.target === modal) {
+                closeTransactionModal();
+            }
+        }
+    </script>
+</body>
+</html>

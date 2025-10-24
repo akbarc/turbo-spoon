@@ -1,0 +1,23 @@
+# Web Framework (Flask 3.1.1 fixes CVE-2023-30861)
+flask==3.1.1
+flask-cors==5.0.0
+
+# Environment & Configuration
+python-dotenv==1.0.1
+
+# Data Processing (Latest stable versions)
+pandas==2.3.1
+numpy==1.26.4
+
+# Excel Export
+xlsxwriter==3.2.0
+
+# Database (Latest stable versions)
+sqlalchemy==2.0.36
+pymssql==2.3.1
+
+# Security
+werkzeug==3.0.4
+
+# Development Dependencies
+dateutil==2.9.0 

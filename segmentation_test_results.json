@@ -1,0 +1,140 @@
+{
+  "status": "success",
+  "overview": {
+    "summary": {
+      "total_customers": 683,
+      "total_revenue": 32456651.389999997,
+      "avg_customer_value": 47520.719458272324,
+      "total_clv": 109878656.98360144,
+      "avg_gp_percentage": 25.0,
+      "wholesale_count": 683,
+      "retail_count": 0
+    },
+    "segment_distribution": {
+      "At Risk": {
+        "customer_count": 68,
+        "total_revenue": 1397635.79,
+        "avg_gp_pct": 25.0,
+        "total_clv": 1483165.33,
+        "avg_risk_score": 22.11
+      },
+      "Cant Lose Them": {
+        "customer_count": 132,
+        "total_revenue": 1515221.08,
+        "avg_gp_pct": 25.0,
+        "total_clv": 5109659.5,
+        "avg_risk_score": 26.14
+      },
+      "Champions": {
+        "customer_count": 99,
+        "total_revenue": 16662871.43,
+        "avg_gp_pct": 25.0,
+        "total_clv": 74789161.97,
+        "avg_risk_score": 40.23
+      },
+      "Hibernating": {
+        "customer_count": 40,
+        "total_revenue": 480058.5,
+        "avg_gp_pct": 25.0,
+        "total_clv": 335726.97,
+        "avg_risk_score": 32.76
+      },
+      "Lost": {
+        "customer_count": 89,
+        "total_revenue": 197096.22,
+        "avg_gp_pct": 25.0,
+        "total_clv": 219736.58,
+        "avg_risk_score": 31.73
+      },
+      "Loyal Customers": {
+        "customer_count": 152,
+        "total_revenue": 9043832.33,
+        "avg_gp_pct": 25.0,
+        "total_clv": 23963390.42,
+        "avg_risk_score": 32.15
+      },
+      "Potential Loyalists": {
+        "customer_count": 103,
+        "total_revenue": 3159936.04,
+        "avg_gp_pct": 25.0,
+        "total_clv": 3977816.22,
+        "avg_risk_score": 27.34
+      }
+    },
+    "business_type_distribution": {
+      "Wholesale": {
+        "customer_id": 683,
+        "monetary": 32456651.39,
+        "gp_percentage": 25.0
+      }
+    },
+    "customer_class_distribution": {
+      "Basic": {
+        "customer_id": 370,
+        "monetary": 1622838.73,
+        "clv_estimate": 5397.76
+      },
+      "Premium": {
+        "customer_id": 1,
+        "monetary": 61919.36,
+        "clv_estimate": 50661.29
+      },
+      "Standard": {
+        "customer_id": 312,
+        "monetary": 30771893.3,
+        "clv_estimate": 345611.61
+      }
+    },
+    "payment_behavior_distribution": {
+      "Fast Payer": {
+        "customer_id": 45,
+        "AccountBalance": 93610.93
+      },
+      "Normal Payer": {
+        "customer_id": 256,
+        "AccountBalance": 820101.23
+      },
+      "Slow Payer": {
+        "customer_id": 17,
+        "AccountBalance": 87560.96
+      },
+      "Very Slow Payer": {
+        "customer_id": 365,
+        "AccountBalance": 2335478.84
+      }
+    },
+    "product_mix_distribution": {
+      "No Sales": {
+        "customer_id": 17,
+        "monetary": 0.0
+      },
+      "Tobacco Heavy": {
+        "customer_id": 666,
+        "monetary": 32456651.39
+      }
+    },
+    "top_segments_by_value": [
+      "Champions",
+      "Loyal Customers",
+      "Potential Loyalists"
+    ],
+    "at_risk_summary": {
+      "high_risk_count": 0,
+      "high_risk_value": 0.0,
+      "medium_risk_count": 148,
+      "low_risk_count": 535
+    },
+    "segment_colors": {
+      "Champions": "#28a745",
+      "Loyal Customers": "#20c997",
+      "Potential Loyalists": "#17a2b8",
+      "New Customers": "#6c757d",
+      "At Risk": "#ffc107",
+      "Cant Lose Them": "#fd7e14",
+      "Hibernating": "#dc3545",
+      "Lost": "#6c757d"
+    }
+  },
+  "recommendations_count": 8,
+  "at_risk_count": 0
+}

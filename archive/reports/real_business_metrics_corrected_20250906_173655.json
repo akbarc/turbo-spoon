@@ -1,0 +1,247 @@
+{
+  "extraction_timestamp": "2025-09-06T17:36:50.887548",
+  "executive_summary": {
+    "today": {
+      "customers": 28,
+      "sales": 69286.25,
+      "transactions": 38,
+      "avg_transaction": 1823.3223
+    },
+    "week": {
+      "customers": 185,
+      "sales": 900189.16,
+      "transactions": 321
+    },
+    "month": {
+      "customers": 168,
+      "sales": 821674.2,
+      "transactions": 285
+    }
+  },
+  "sales_performance": {
+    "top_products": [],
+    "top_categories": [
+      {
+        "category": "CIGARETTE",
+        "total_qty": 33155.0,
+        "total_revenue": 2724030.2300000065,
+        "product_count": 293,
+        "unique_customers": 233
+      },
+      {
+        "category": "CIGARS",
+        "total_qty": 11740.0,
+        "total_revenue": 321620.9999999892,
+        "product_count": 295,
+        "unique_customers": 249
+      },
+      {
+        "category": "ELECTRONIC CIG",
+        "total_qty": 2169.0,
+        "total_revenue": 105379.87,
+        "product_count": 52,
+        "unique_customers": 142
+      },
+      {
+        "category": "ECIG - PODS",
+        "total_qty": 804.0,
+        "total_revenue": 74357.4,
+        "product_count": 27,
+        "unique_customers": 67
+      },
+      {
+        "category": "VITAMINS",
+        "total_qty": 2214.0,
+        "total_revenue": 74170.44999999998,
+        "product_count": 123,
+        "unique_customers": 166
+      },
+      {
+        "category": "CIGAR GA",
+        "total_qty": 3364.0,
+        "total_revenue": 71753.3600000002,
+        "product_count": 97,
+        "unique_customers": 190
+      },
+      {
+        "category": "KRATOM",
+        "total_qty": 696.0,
+        "total_revenue": 65063.5,
+        "product_count": 18,
+        "unique_customers": 43
+      },
+      {
+        "category": "LT-TAX-COLLECTED",
+        "total_qty": 2068.0,
+        "total_revenue": 56043.019999999946,
+        "product_count": 72,
+        "unique_customers": 178
+      },
+      {
+        "category": "DRINKS",
+        "total_qty": 3097.0,
+        "total_revenue": 55828.039999999986,
+        "product_count": 57,
+        "unique_customers": 164
+      },
+      {
+        "category": "T7 SMOKELESS GA",
+        "total_qty": 1837.0,
+        "total_revenue": 55529.049999999894,
+        "product_count": 102,
+        "unique_customers": 119
+      }
+    ]
+  },
+  "inventory_health": {
+    "low_stock": []
+  },
+  "customer_intelligence": {
+    "summary": {
+      "total_customers": 2844,
+      "customers_with_balance": 230,
+      "total_ar_balance": 3453494.43,
+      "avg_customer_balance": 1214.3088
+    },
+    "top_customers": [
+      {
+        "customer_id": 4026,
+        "customer_name": "KUSHI ALI INC",
+        "current_balance": 137586.0,
+        "total_purchases_30d": 614875.35,
+        "transaction_count_30d": 16,
+        "last_transaction": "2025-09-05T13:34:33",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 4027,
+        "customer_name": "A & K GLOBAL USA LLC/FAIRVIEW",
+        "current_balance": 78726.3,
+        "total_purchases_30d": 369199.2,
+        "transaction_count_30d": 12,
+        "last_transaction": "2025-09-05T13:35:14",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 3990,
+        "customer_name": "FR1 USA LLC",
+        "current_balance": 62438.1,
+        "total_purchases_30d": 286400.85,
+        "transaction_count_30d": 12,
+        "last_transaction": "2025-09-05T13:35:56",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 5145,
+        "customer_name": "PATRIOT PARTY STORE",
+        "current_balance": 38005.8,
+        "total_purchases_30d": 223962.75,
+        "transaction_count_30d": 12,
+        "last_transaction": "2025-09-05T13:36:35",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 4449,
+        "customer_name": "CDP USA LLC",
+        "current_balance": 46722.9,
+        "total_purchases_30d": 151236.15,
+        "transaction_count_30d": 9,
+        "last_transaction": "2025-09-05T13:30:48",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 5302,
+        "customer_name": "TWP1 USA LLC",
+        "current_balance": 9836.4,
+        "total_purchases_30d": 66395.7,
+        "transaction_count_30d": 7,
+        "last_transaction": "2025-09-05T13:32:12",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 4604,
+        "customer_name": "REDAN BP INC",
+        "current_balance": -100.0,
+        "total_purchases_30d": 51553.15,
+        "transaction_count_30d": 8,
+        "last_transaction": "2025-09-04T09:47:06",
+        "risk_level": "Low Risk"
+      },
+      {
+        "customer_id": 4957,
+        "customer_name": "ARISHA SHELL INC",
+        "current_balance": 116074.1,
+        "total_purchases_30d": 46724.22,
+        "transaction_count_30d": 8,
+        "last_transaction": "2025-09-03T18:27:50",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 5331,
+        "customer_name": "SHAGUFTA INVETSMENTS LLC/PACIFIC AVENUE FOOD MART",
+        "current_balance": 63459.15,
+        "total_purchases_30d": 46512.87,
+        "transaction_count_30d": 22,
+        "last_transaction": "2025-09-05T13:16:01",
+        "risk_level": "High Risk"
+      },
+      {
+        "customer_id": 4832,
+        "customer_name": "ARISHA CHEVRON INC",
+        "current_balance": 14057.65,
+        "total_purchases_30d": 46139.68,
+        "transaction_count_30d": 12,
+        "last_transaction": "2025-09-03T18:47:02",
+        "risk_level": "High Risk"
+      }
+    ]
+  },
+  "ar_summary": {
+    "aging": {
+      "total_customers_with_balance": 1646,
+      "total_balance": 3795997.0,
+      "balance_0_100": 16469.67,
+      "balance_100_500": 86983.13,
+      "balance_500_1000": 153838.29,
+      "balance_over_1000": 3538705.91,
+      "count_0_100": 367,
+      "count_100_500": 317,
+      "count_500_1000": 207,
+      "count_over_1000": 755
+    },
+    "high_risk_customers": []
+  },
+  "database_metrics": {
+    "table_counts": [
+      {
+        "table_name": "Customer",
+        "row_count": 2844
+      },
+      {
+        "table_name": "Item",
+        "row_count": 12599
+      },
+      {
+        "table_name": "Transaction",
+        "row_count": 235815
+      },
+      {
+        "table_name": "TransactionEntry",
+        "row_count": 4722704
+      },
+      {
+        "table_name": "AccountReceivable",
+        "row_count": 144959
+      },
+      {
+        "table_name": "Category",
+        "row_count": 83
+      }
+    ],
+    "data_range": {
+      "earliest_transaction": "2012-12-07T12:46:32",
+      "latest_transaction": "2025-09-06T16:58:11",
+      "unique_transaction_days": 4624
+    }
+  }
+}

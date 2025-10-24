@@ -1,0 +1,21 @@
+{
+  "customer": {
+    "id": 5334,
+    "name": "5 STAR FOOD MART LLC/ FOOD MART",
+    "balance": 51328.56
+  },
+  "tender_types": [],
+  "payment_summary": {},
+  "adjustment_summary": {
+    "count": {
+      "Charge/Debit": 16
+    },
+    "sum": {
+      "Charge/Debit": "51328.5600"
+    },
+    "mean": {
+      "Charge/Debit": 3208.035
+    }
+  },
+  "generated_at": "2025-08-18T16:39:51.905371"
+}

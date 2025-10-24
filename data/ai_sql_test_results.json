@@ -1,0 +1,38 @@
+[
+  {
+    "question": "total sales last 30 days",
+    "status": "SUCCESS",
+    "rows": 1,
+    "analysis": "1 results"
+  },
+  {
+    "question": "top 5 customers by sales this month",
+    "status": "SUCCESS",
+    "rows": 0,
+    "analysis": "No data found."
+  },
+  {
+    "question": "sales by category trailing 12 months",
+    "status": "SUCCESS",
+    "rows": 1,
+    "analysis": "1 results"
+  },
+  {
+    "question": "customers with balance over $5000",
+    "status": "SUCCESS",
+    "rows": 0,
+    "analysis": "No data found."
+  },
+  {
+    "question": "best selling products today",
+    "status": "SUCCESS",
+    "rows": 0,
+    "analysis": "No data found."
+  },
+  {
+    "question": "total revenue YTD by month",
+    "status": "SUCCESS",
+    "rows": 9,
+    "analysis": "9 results"
+  }
+]

@@ -1,0 +1,3458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>106d - Comprehensive Business Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #f1f5f9;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid rgba(51, 65, 85, 0.3);
+            padding: 2rem 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 0 2rem 2rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sidebar-header .subtitle {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .nav-section {
+            margin-bottom: 2rem;
+        }
+
+        .nav-section-title {
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0 2rem 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-left-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .nav-item.active {
+            background: rgba(59, 130, 246, 0.15);
+            border-left-color: #3b82f6;
+            color: #3b82f6;
+            font-weight: 500;
+        }
+
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .content-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+        }
+
+        .content-subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .refresh-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .refresh-btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .refresh-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .last-updated {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            display: none;
+        }
+
+        .dashboard-section.active {
+            display: block;
+        }
+
+        /* KPI Cards Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .kpi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .kpi-title {
+            color: #64748b;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .kpi-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-change {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .kpi-change.positive {
+            color: #10b981;
+        }
+
+        .kpi-change.negative {
+            color: #ef4444;
+        }
+
+        .kpi-change.neutral {
+            color: #64748b;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Data Tables */
+        .data-table-card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: rgba(51, 65, 85, 0.5);
+            color: #cbd5e1;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.2);
+            color: #e2e8f0;
+        }
+
+        .data-table tr:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Loading States */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+
+        .loading i {
+            margin-right: 0.5rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Error States */
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .kpi-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Status Indicators */
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .status-online { background: #10b981; }
+        .status-warning { background: #f59e0b; }
+        .status-offline { background: #ef4444; }
+
+        /* Analytics Tabs */
+        .analytics-tabs {
+            margin-top: 1rem;
+        }
+
+        .tab-navigation {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            background: rgba(30, 41, 59, 0.6);
+            color: #cbd5e1;
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .tab-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* GP Controls */
+        .gp-controls select {
+            min-width: 150px;
+        }
+
+        .gp-controls label {
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        /* Priority Badges */
+        .priority-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .priority-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .priority-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fcd34d;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .priority-low {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h1>
+                    <i class="fas fa-chart-line"></i>
+                    106d Dashboard
+                </h1>
+                <div class="subtitle">Comprehensive Business Intelligence</div>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Business Intelligence</div>
+                <a class="nav-item active" onclick="showSection('executive')" id="nav-executive">
+                    <i class="fas fa-crown"></i>
+                    Executive Overview
+                </a>
+                <a class="nav-item" onclick="showSection('sales')" id="nav-sales">
+                    <i class="fas fa-chart-bar"></i>
+                    Sales Analytics
+                </a>
+                <a class="nav-item" onclick="showSection('financial')" id="nav-financial">
+                    <i class="fas fa-dollar-sign"></i>
+                    Financial Management
+                </a>
+                <a class="nav-item" onclick="showSection('operations')" id="nav-operations">
+                    <i class="fas fa-cogs"></i>
+                    Operations Control
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Quick Access</div>
+                <a href="/table-builder" class="nav-item" style="border-left: 3px solid #f59e0b;">
+                    <i class="fas fa-table"></i>
+                    Table Builder
+                </a>
+                <a href="/pos-system" class="nav-item">
+                    <i class="fas fa-cash-register"></i>
+                    POS System
+                </a>
+                <a href="/ar-dashboard" class="nav-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    AR Dashboard
+                </a>
+                <a href="/inventory" class="nav-item">
+                    <i class="fas fa-boxes"></i>
+                    Inventory
+                </a>
+                <a href="/" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    Main Dashboard
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">System Status</div>
+                <div class="nav-item">
+                    <span class="status-indicator status-online"></span>
+                    Database Connected
+                </div>
+                <div class="nav-item">
+                    <span class="status-indicator status-online"></span>
+                    POS System Online
+                </div>
+                <div class="nav-item">
+                    <span class="status-indicator status-online"></span>
+                    AI Assistant Ready
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Executive Overview Section -->
+            <div id="executive-section" class="dashboard-section active">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title">Executive Overview</h2>
+                        <div class="content-subtitle">Real-time business performance and key metrics</div>
+                    </div>
+                    <div class="refresh-controls">
+                        <div class="last-updated" id="last-updated">Last updated: Loading...</div>
+                        <button class="refresh-btn" onclick="refreshExecutiveData()">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Today's Sales</div>
+                            <div class="kpi-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="today-sales">$0</div>
+                        <div class="kpi-change positive" id="sales-change">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Transactions</div>
+                            <div class="kpi-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="transaction-count">0</div>
+                        <div class="kpi-change neutral" id="transaction-change">
+                            <i class="fas fa-minus"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Average Ticket</div>
+                            <div class="kpi-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="avg-ticket">$0</div>
+                        <div class="kpi-change neutral" id="ticket-change">
+                            <i class="fas fa-minus"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Unique Customers</div>
+                            <div class="kpi-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="unique-customers">0</div>
+                        <div class="kpi-change neutral" id="customer-change">
+                            <i class="fas fa-minus"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Excise Tax Collected</div>
+                            <div class="kpi-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="excise-tax">$0</div>
+                        <div class="kpi-change neutral" id="excise-change">
+                            <i class="fas fa-minus"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-header">
+                            <div class="kpi-title">Active Cashiers</div>
+                            <div class="kpi-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                        </div>
+                        <div class="kpi-value" id="active-cashiers">0</div>
+                        <div class="kpi-change neutral" id="cashier-change">
+                            <i class="fas fa-minus"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Sales Trend (Last 7 Days)</div>
+                            <div style="color: #64748b; font-size: 0.875rem;">Daily Revenue</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="sales-trend-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Top Categories Today</div>
+                            <div style="color: #64748b; font-size: 0.875rem;">Revenue Breakdown</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="category-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Payment Methods</div>
+                            <div style="color: #64748b; font-size: 0.875rem;">Transaction Distribution</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="payment-methods-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">Hourly Sales Pattern</div>
+                            <div style="color: #64748b; font-size: 0.875rem;">Today's Activity</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="hourly-sales-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Tables -->
+                <div class="charts-grid">
+                    <div class="data-table-card">
+                        <div class="table-header">
+                            <div class="chart-title">Top Products Today</div>
+                            <div style="color: #64748b; font-size: 0.875rem;" id="top-products-count">Loading...</div>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Category</th>
+                                        <th>Quantity</th>
+                                        <th>Revenue</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="top-products-table">
+                                    <tr><td colspan="4" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading products...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="data-table-card">
+                        <div class="table-header">
+                            <div class="chart-title">Cashier Performance</div>
+                            <div style="color: #64748b; font-size: 0.875rem;" id="cashier-count">Loading...</div>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Cashier</th>
+                                        <th>Transactions</th>
+                                        <th>Sales</th>
+                                        <th>Avg Ticket</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cashier-performance-table">
+                                    <tr><td colspan="4" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading performance...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales Analytics Section - COMPLETELY REBUILT -->
+            <div id="sales-section" class="dashboard-section">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title">Advanced Sales Analytics</h2>
+                        <div class="content-subtitle">Comprehensive analysis with excise tax accuracy and YoY comparisons</div>
+                    </div>
+                    <div class="refresh-controls">
+                        <select id="analytics-timeframe" style="background: rgba(30, 41, 59, 0.8); color: #f1f5f9; border: 1px solid rgba(51, 65, 85, 0.3); padding: 0.5rem; border-radius: 6px; margin-right: 1rem;">
+                            <option value="MTD">Month to Date</option>
+                            <option value="QTD">Quarter to Date</option>
+                            <option value="YTD" selected>Year to Date</option>
+                            <option value="12M">Last 12 Months</option>
+                        </select>
+                        <button class="refresh-btn" onclick="refreshAnalyticsData()">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh All
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Advanced Analytics Tabs -->
+                <div class="analytics-tabs">
+                    <div class="tab-navigation">
+                        <button class="tab-btn active" onclick="showAnalyticsTab('executive')" id="tab-executive">
+                            <i class="fas fa-crown"></i> Executive Summary
+                        </button>
+                        <button class="tab-btn" onclick="showAnalyticsTab('trends')" id="tab-trends">
+                            <i class="fas fa-chart-line"></i> Trends & YoY
+                        </button>
+                        <button class="tab-btn" onclick="showAnalyticsTab('categories')" id="tab-categories">
+                            <i class="fas fa-tags"></i> Categories
+                        </button>
+                        <button class="tab-btn" onclick="showAnalyticsTab('customers')" id="tab-customers">
+                            <i class="fas fa-users"></i> Customers
+                        </button>
+                        <button class="tab-btn" onclick="showAnalyticsTab('products')" id="tab-products">
+                            <i class="fas fa-boxes"></i> Products
+                        </button>
+                        <button class="tab-btn" onclick="showAnalyticsTab('excise')" id="tab-excise">
+                            <i class="fas fa-file-invoice"></i> Excise Impact
+                        </button>
+                    </div>
+
+                    <!-- Executive Summary Tab -->
+                    <div id="executive-tab" class="tab-content active">
+                        <!-- Executive KPI Cards with YoY Comparisons -->
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <div class="kpi-title">Total Revenue</div>
+                                    <div class="kpi-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                </div>
+                                <div class="kpi-value" id="exec-total-revenue">$0</div>
+                                <div class="kpi-change neutral" id="exec-revenue-change">
+                                    <i class="fas fa-minus"></i>
+                                    <span>Loading...</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <div class="kpi-title">True Gross Profit</div>
+                                    <div class="kpi-icon" style="background: linear-gradient(135deg, #3b82f6, #1d4ed8);">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </div>
+                                </div>
+                                <div class="kpi-value" id="exec-gross-profit">$0</div>
+                                <div class="kpi-change neutral" id="exec-gp-change">
+                                    <i class="fas fa-minus"></i>
+                                    <span>Loading...</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <div class="kpi-title">GP Margin</div>
+                                    <div class="kpi-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                </div>
+                                <div class="kpi-value" id="exec-gp-margin">0%</div>
+                                <div class="kpi-change neutral" id="exec-margin-change">
+                                    <i class="fas fa-minus"></i>
+                                    <span>Loading...</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <div class="kpi-title">Excise Tax Impact</div>
+                                    <div class="kpi-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                                        <i class="fas fa-file-invoice"></i>
+                                    </div>
+                                </div>
+                                <div class="kpi-value" id="exec-excise-tax">$0</div>
+                                <div class="kpi-change neutral" id="exec-excise-change">
+                                    <i class="fas fa-minus"></i>
+                                    <span>Loading...</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <div class="kpi-title">Unique Customers</div>
+                                    <div class="kpi-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <div class="kpi-value" id="exec-customers">0</div>
+                                <div class="kpi-change neutral" id="exec-customers-change">
+                                    <i class="fas fa-minus"></i>
+                                    <span>Loading...</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <div class="kpi-title">Avg Transaction</div>
+                                    <div class="kpi-icon" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                </div>
+                                <div class="kpi-value" id="exec-avg-transaction">$0</div>
+                                <div class="kpi-change neutral" id="exec-transaction-change">
+                                    <i class="fas fa-minus"></i>
+                                    <span>Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Executive Charts -->
+                        <div class="charts-grid">
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <div class="chart-title">Revenue vs Gross Profit Trend</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">Monthly performance with excise tax impact</div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="exec-revenue-gp-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <div class="chart-title">Top Categories Performance</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">Revenue and profitability breakdown</div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="exec-categories-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Executive Tables -->
+                        <div class="charts-grid">
+                            <div class="data-table-card">
+                                <div class="table-header">
+                                    <div class="chart-title">Performance Insights</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">AI-powered business insights</div>
+                                </div>
+                                <div style="overflow-x: auto;">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Insight</th>
+                                                <th>Description</th>
+                                                <th>Impact</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="exec-insights-table">
+                                            <tr><td colspan="4" class="loading"><i class="fas fa-spinner fa-spin"></i> Analyzing performance...</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="data-table-card">
+                                <div class="table-header">
+                                    <div class="chart-title">Top Customers</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;" id="exec-customers-count">Loading...</div>
+                                </div>
+                                <div style="overflow-x: auto;">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Customer</th>
+                                                <th>Revenue</th>
+                                                <th>Gross Profit</th>
+                                                <th>Margin</th>
+                                                <th>Transactions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="exec-customers-table">
+                                            <tr><td colspan="5" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading customers...</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trends & YoY Tab -->
+                    <div id="trends-tab" class="tab-content">
+                        <div class="charts-grid">
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <div class="chart-title">Monthly Revenue Comparison</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">Current vs Previous Year</div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="trends-revenue-yoy-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <div class="chart-title">Monthly GP Comparison</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">Gross profit trends with excise tax</div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="trends-gp-yoy-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <div class="chart-title">Margin Trend Analysis</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">GP margin percentage over time</div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="trends-margin-chart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <div class="chart-title">Customer Growth</div>
+                                    <div style="color: #64748b; font-size: 0.875rem;">Monthly customer acquisition</div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="trends-customers-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories Tab -->
+                    <div id="categories-tab" class="tab-content">
+                        <div class="data-table-card">
+                            <div class="table-header">
+                                <div class="chart-title">Category Performance Analysis</div>
+                                <div style="color: #64748b; font-size: 0.875rem;" id="categories-count">Loading...</div>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Revenue</th>
+                                            <th>Base Cost</th>
+                                            <th>Excise Tax</th>
+                                            <th>True Cost</th>
+                                            <th>Gross Profit</th>
+                                            <th>Margin %</th>
+                                            <th>Units</th>
+                                            <th>Transactions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="categories-detailed-table">
+                                        <tr><td colspan="9" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading category analysis...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customers Tab -->
+                    <div id="customers-tab" class="tab-content">
+                        <div class="data-table-card">
+                            <div class="table-header">
+                                <div class="chart-title">Customer Profitability Analysis</div>
+                                <div style="color: #64748b; font-size: 0.875rem;" id="customers-count">Loading...</div>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Customer</th>
+                                            <th>Account #</th>
+                                            <th>Revenue</th>
+                                            <th>True Cost</th>
+                                            <th>Gross Profit</th>
+                                            <th>Margin %</th>
+                                            <th>Transactions</th>
+                                            <th>Avg Transaction</th>
+                                            <th>Last Purchase</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="customers-detailed-table">
+                                        <tr><td colspan="9" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading customer analysis...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Tab -->
+                    <div id="products-tab" class="tab-content">
+                        <div class="data-table-card">
+                            <div class="table-header">
+                                <div class="chart-title">Product Profitability Analysis</div>
+                                <div style="color: #64748b; font-size: 0.875rem;" id="products-count">Loading...</div>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>SKU</th>
+                                            <th>Category</th>
+                                            <th>Revenue</th>
+                                            <th>True Cost</th>
+                                            <th>Gross Profit</th>
+                                            <th>Margin %</th>
+                                            <th>Units</th>
+                                            <th>Avg Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="products-detailed-table">
+                                        <tr><td colspan="9" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading product analysis...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Excise Impact Tab -->
+                    <div id="excise-tab" class="tab-content">
+                        <div class="data-table-card">
+                            <div class="table-header">
+                                <div class="chart-title">Excise Tax Impact Analysis</div>
+                                <div style="color: #64748b; font-size: 0.875rem;">Detailed breakdown by tax type and category</div>
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Excise Type</th>
+                                            <th>Category</th>
+                                            <th>Transactions</th>
+                                            <th>Units</th>
+                                            <th>Revenue</th>
+                                            <th>Excise Tax</th>
+                                            <th>Avg Tax/Unit</th>
+                                            <th>Tax % of Sales</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="excise-impact-table">
+                                        <tr><td colspan="8" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading excise tax analysis...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <!-- Financial Management Section (Placeholder) -->
+            <div id="financial-section" class="dashboard-section">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title">Financial Management</h2>
+                        <div class="content-subtitle">AR, taxes, and financial health monitoring</div>
+                    </div>
+                </div>
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Financial management section coming soon...
+                </div>
+            </div>
+
+            <!-- Operations Control Section (Placeholder) -->
+            <div id="operations-section" class="dashboard-section">
+                <div class="content-header">
+                    <div>
+                        <h2 class="content-title">Operations Control</h2>
+                        <div class="content-subtitle">Inventory, staff, and operational management</div>
+                    </div>
+                </div>
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    Operations control section coming soon...
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Global variables
+        let currentSection = 'executive';
+        let charts = {};
+        let refreshInterval;
+
+        // Navigation
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.dashboard-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(section + '-section').classList.add('active');
+            document.getElementById('nav-' + section).classList.add('active');
+            
+            currentSection = section;
+            
+            // Load section data
+            if (section === 'executive') {
+                loadExecutiveData();
+            } else if (section === 'sales') {
+                loadComprehensiveSalesAnalytics();
+            }
+        }
+
+        // Executive Overview Data Loading
+        async function loadExecutiveData() {
+            try {
+                // Get today's date
+                const today = new Date().toISOString().split('T')[0];
+                
+                // Load KPI data using POS system as source of truth
+                await Promise.all([
+                    loadDailySummary(today),
+                    loadSalesTrend(),
+                    loadTopCategories(today),
+                    loadPaymentMethods(today),
+                    loadHourlySales(today),
+                    loadTopProducts(today),
+                    loadCashierPerformance(today)
+                ]);
+                
+                updateLastUpdated();
+            } catch (error) {
+                console.error('Error loading executive data:', error);
+                showError('Failed to load executive data: ' + error.message);
+            }
+        }
+
+        // Load daily summary KPIs
+        async function loadDailySummary(date) {
+            try {
+                const response = await fetch(`/api/pos/daily-summary?date=${date}`);
+                const data = await response.json();
+                
+                console.log('Daily summary data:', data); // Debug log
+                
+                if (data.success && data.summary) {
+                    // Update KPI cards with real POS data - use correct API structure
+                    const summary = data.summary;
+                    const totalSales = parseFloat(summary.TotalSales || 0);
+                    const transactionCount = parseInt(summary.TransactionCount || 0);
+                    const uniqueCustomers = parseInt(summary.UniqueCustomers || 0);
+                    const totalTax = parseFloat(summary.TotalTax || 0);
+                    const activeCashiers = parseInt(summary.ActiveCashiers || 0);
+                    const avgTransaction = parseFloat(summary.AvgTransaction || 0);
+                    
+                    document.getElementById('today-sales').textContent = 
+                        '$' + totalSales.toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('transaction-count').textContent = 
+                        transactionCount.toLocaleString();
+                    
+                    document.getElementById('unique-customers').textContent = 
+                        uniqueCustomers.toLocaleString();
+                    
+                    // Use the calculated average from the API instead of recalculating
+                    document.getElementById('avg-ticket').textContent = 
+                        '$' + avgTransaction.toFixed(2);
+                    
+                    document.getElementById('excise-tax').textContent = 
+                        '$' + totalTax.toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('active-cashiers').textContent = 
+                        activeCashiers.toString();
+                        
+                    // Update change indicators to show positive trends
+                    updateChangeIndicators(summary);
+                } else {
+                    console.error('Daily summary API returned error:', data.error);
+                    showError('Failed to load daily summary: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error loading daily summary:', error);
+                showError('Failed to load daily summary: ' + error.message);
+            }
+        }
+
+        // Update change indicators for KPI cards
+        function updateChangeIndicators(summary) {
+            // For now, show neutral indicators since we don't have historical comparison data
+            // In the future, this could compare with yesterday's data
+            const indicators = [
+                { id: 'sales-change', text: 'Today\'s total' },
+                { id: 'transaction-change', text: `${summary.TransactionCount || 0} transactions` },
+                { id: 'ticket-change', text: 'Average per transaction' },
+                { id: 'customer-change', text: `${summary.UniqueCustomers || 0} unique customers` },
+                { id: 'excise-change', text: 'Tax collected today' },
+                { id: 'cashier-change', text: `${summary.ActiveCashiers || 0} cashiers active` }
+            ];
+            
+            indicators.forEach(indicator => {
+                const element = document.getElementById(indicator.id);
+                if (element) {
+                    element.innerHTML = `<i class="fas fa-info-circle"></i><span>${indicator.text}</span>`;
+                    element.className = 'kpi-change neutral';
+                }
+            });
+        }
+
+        // Load 7-day sales trend
+        async function loadSalesTrend() {
+            try {
+                const endDate = new Date();
+                const startDate = new Date();
+                startDate.setDate(startDate.getDate() - 6);
+                
+                const response = await fetch(`/api/pos/run-report?type=daily_sales&start_date=${startDate.toISOString().split('T')[0]}&end_date=${endDate.toISOString().split('T')[0]}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    console.log('Sales trend data:', data.data); // Debug log
+                    const chartData = data.data.map(row => ({
+                        date: new Date(row.SaleDate || row.Date).toLocaleDateString('en-US', {month: 'short', day: 'numeric'}),
+                        sales: parseFloat(row.TotalSales || row.Sales || row.Total || 0)
+                    }));
+                    
+                    createSalesTrendChart(chartData);
+                }
+            } catch (error) {
+                console.error('Error loading sales trend:', error);
+            }
+        }
+
+        // Load top categories
+        async function loadTopCategories(date) {
+            try {
+                // Use the daily summary API which already includes category data
+                const response = await fetch(`/api/pos/daily-summary?date=${date}`);
+                const data = await response.json();
+                
+                if (data.success && data.top_categories && data.top_categories.length > 0) {
+                    console.log('Category data:', data.top_categories); // Debug log
+                    const chartData = data.top_categories.slice(0, 8).map(row => ({
+                        category: row.Category || 'Unknown',
+                        revenue: parseFloat(row.Revenue || 0)
+                    }));
+                    
+                    createCategoryChart(chartData);
+                } else {
+                    // Fallback to the POS report API if daily summary doesn't have categories
+                    const fallbackResponse = await fetch(`/api/pos/run-report?type=category_sales&start_date=${date}&end_date=${date}`);
+                    const fallbackData = await fallbackResponse.json();
+                    
+                    if (fallbackData.success && fallbackData.data.length > 0) {
+                        console.log('Fallback category data:', fallbackData.data); // Debug log
+                        const chartData = fallbackData.data.slice(0, 8).map(row => ({
+                            category: row.Category || row.Name || 'Unknown',
+                            revenue: parseFloat(row.TotalRevenue || row.Revenue || row.Total || 0)
+                        }));
+                        
+                        createCategoryChart(chartData);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading categories:', error);
+            }
+        }
+
+        // Load payment methods
+        async function loadPaymentMethods(date) {
+            try {
+                // Use the daily summary API which already includes payment method data
+                const response = await fetch(`/api/pos/daily-summary?date=${date}`);
+                const data = await response.json();
+                
+                if (data.success && data.payment_methods && data.payment_methods.length > 0) {
+                    console.log('Payment methods data:', data.payment_methods); // Debug log
+                    const chartData = data.payment_methods.map(row => ({
+                        method: row.PaymentMethod || 'Cash',
+                        amount: parseFloat(row.TotalAmount || 0)
+                    }));
+                    
+                    createPaymentMethodsChart(chartData);
+                } else {
+                    // Fallback to the POS report API if daily summary doesn't have payment methods
+                    const fallbackResponse = await fetch(`/api/pos/run-report?type=payment_methods&start_date=${date}&end_date=${date}`);
+                    const fallbackData = await fallbackResponse.json();
+                    
+                    if (fallbackData.success && fallbackData.data.length > 0) {
+                        console.log('Fallback payment methods data:', fallbackData.data); // Debug log
+                        const chartData = fallbackData.data.map(row => ({
+                            method: row.Description || row.TenderType || row.PaymentMethod || 'Cash',
+                            amount: parseFloat(row.TotalAmount || row.Amount || row.Total || 0)
+                        }));
+                        
+                        createPaymentMethodsChart(chartData);
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading payment methods:', error);
+            }
+        }
+
+        // Load hourly sales
+        async function loadHourlySales(date) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=hourly_sales&start_date=${date}&end_date=${date}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const chartData = data.data.map(row => ({
+                        hour: row.Hour + ':00',
+                        sales: parseFloat(row.TotalSales || 0)
+                    }));
+                    
+                    createHourlySalesChart(chartData);
+                }
+            } catch (error) {
+                console.error('Error loading hourly sales:', error);
+            }
+        }
+
+        // Load top products table
+        async function loadTopProducts(date) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=item_sales&start_date=${date}&end_date=${date}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const tableBody = document.getElementById('top-products-table');
+                    const topProducts = data.data.slice(0, 10);
+                    
+                    tableBody.innerHTML = topProducts.map(product => {
+                        const quantity = parseFloat(product.TotalQuantity || product.Quantity || 0);
+                        const revenue = parseFloat(product.TotalRevenue || product.Revenue || product.Total || 0);
+                        return `
+                        <tr>
+                            <td>${product.ItemName || product.Description || 'Unknown'}</td>
+                            <td>${product.Category || product.Name || 'N/A'}</td>
+                            <td>${quantity.toLocaleString()}</td>
+                            <td>$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                        </tr>
+                        `;
+                    }).join('');
+                    
+                    document.getElementById('top-products-count').textContent = `${topProducts.length} of ${data.data.length} items`;
+                }
+            } catch (error) {
+                console.error('Error loading top products:', error);
+            }
+        }
+
+        // Load cashier performance table
+        async function loadCashierPerformance(date) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=cashier_performance&start_date=${date}&end_date=${date}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const tableBody = document.getElementById('cashier-performance-table');
+                    
+                    tableBody.innerHTML = data.data.map(cashier => {
+                        const avgTransaction = parseFloat(cashier.AvgTransaction || 0);
+                        return `
+                        <tr>
+                            <td>${cashier.CashierName || 'Unknown'}</td>
+                            <td>${(parseInt(cashier.TransactionCount) || 0).toLocaleString()}</td>
+                            <td>$${(parseFloat(cashier.TotalSales) || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${avgTransaction.toFixed(2)}</td>
+                        </tr>
+                        `;
+                    }).join('');
+                    
+                    document.getElementById('cashier-count').textContent = `${data.data.length} active cashiers`;
+                }
+            } catch (error) {
+                console.error('Error loading cashier performance:', error);
+            }
+        }
+
+        // ===================================
+        // COMPREHENSIVE SALES ANALYTICS SYSTEM
+        // ===================================
+        
+        // Main Sales Analytics Loader
+        async function loadComprehensiveSalesAnalytics() {
+            // Load the executive summary tab by default
+            showAnalyticsTab('executive');
+        }
+        
+        // Analytics Tab Management
+        function showAnalyticsTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+            
+            // Load tab-specific data
+            const timeframe = document.getElementById('analytics-timeframe').value;
+            
+            switch(tabName) {
+                case 'executive':
+                    loadExecutiveSummaryTab(timeframe);
+                    break;
+                case 'trends':
+                    loadTrendsTab(timeframe);
+                    break;
+                case 'categories':
+                    loadCategoriesTab(timeframe);
+                    break;
+                case 'customers':
+                    loadCustomersTab(timeframe);
+                    break;
+                case 'products':
+                    loadProductsTab(timeframe);
+                    break;
+                case 'excise':
+                    loadExciseTab(timeframe);
+                    break;
+            }
+        }
+        
+        // Executive Summary Tab
+        async function loadExecutiveSummaryTab(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/executive-dashboard?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                console.log('Executive Dashboard Data:', data);
+                
+                if (data && data.summary && !data.error) {
+                    const summary = data.summary;
+                    const changes = data.changes || {};
+                    
+                    // Update KPI cards
+                    document.getElementById('exec-total-revenue').textContent = 
+                        '$' + summary.total_revenue.toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('exec-gross-profit').textContent = 
+                        '$' + summary.true_gross_profit.toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('exec-gp-margin').textContent = 
+                        summary.gp_margin.toFixed(1) + '%';
+                    
+                    document.getElementById('exec-excise-tax').textContent = 
+                        '$' + summary.excise_tax_impact.toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('exec-customers').textContent = 
+                        summary.unique_customers.toLocaleString();
+                    
+                    document.getElementById('exec-avg-transaction').textContent = 
+                        '$' + summary.avg_transaction.toFixed(2);
+                    
+                    // Update change indicators
+                    updateExecutiveChangeIndicators(changes);
+                    
+                    // Load executive charts
+                    if (data.top_categories) {
+                        createExecutiveCategoriesChart(data.top_categories);
+                    }
+                    
+                    // Load executive tables
+                    if (data.top_customers) {
+                        updateExecutiveCustomersTable(data.top_customers);
+                    }
+                    
+                    // Load insights
+                    loadExecutiveInsights(timeframe);
+                    
+                } else {
+                    console.error('Executive dashboard error:', data.error);
+                    showError('Failed to load executive dashboard: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error loading executive summary:', error);
+                showError('Failed to load executive summary: ' + error.message);
+            }
+        }
+        
+        // Trends & YoY Tab
+        async function loadTrendsTab(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/monthly-trends?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                console.log('Monthly Trends Data:', data);
+                
+                if (data && data.current_year && !data.error) {
+                    createTrendsCharts(data);
+                } else {
+                    console.error('Trends data error:', data.error);
+                    showError('Failed to load trends data: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error loading trends:', error);
+                showError('Failed to load trends: ' + error.message);
+            }
+        }
+        
+        // Categories Tab
+        async function loadCategoriesTab(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/categories?timeframe=${timeframe}&limit=25`);
+                const data = await response.json();
+                
+                console.log('Categories Data:', data);
+                
+                if (data && Array.isArray(data) && data.length > 0) {
+                    updateCategoriesTable(data);
+                } else {
+                    document.getElementById('categories-detailed-table').innerHTML = 
+                        '<tr><td colspan="9" style="text-align: center; color: #64748b; padding: 2rem;">No category data available</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading categories:', error);
+                document.getElementById('categories-detailed-table').innerHTML = 
+                    '<tr><td colspan="9" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load categories</td></tr>';
+            }
+        }
+        
+        // Customers Tab
+        async function loadCustomersTab(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/customers?timeframe=${timeframe}&limit=25`);
+                const data = await response.json();
+                
+                console.log('Customers Data:', data);
+                
+                if (data && Array.isArray(data) && data.length > 0) {
+                    updateCustomersTable(data);
+                } else {
+                    document.getElementById('customers-detailed-table').innerHTML = 
+                        '<tr><td colspan="9" style="text-align: center; color: #64748b; padding: 2rem;">No customer data available</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading customers:', error);
+                document.getElementById('customers-detailed-table').innerHTML = 
+                    '<tr><td colspan="9" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load customers</td></tr>';
+            }
+        }
+        
+        // Products Tab
+        async function loadProductsTab(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/products?timeframe=${timeframe}&limit=50`);
+                const data = await response.json();
+                
+                console.log('Products Data:', data);
+                
+                if (data && Array.isArray(data) && data.length > 0) {
+                    updateProductsTable(data);
+                } else {
+                    document.getElementById('products-detailed-table').innerHTML = 
+                        '<tr><td colspan="9" style="text-align: center; color: #64748b; padding: 2rem;">No product data available</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+                document.getElementById('products-detailed-table').innerHTML = 
+                    '<tr><td colspan="9" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load products</td></tr>';
+            }
+        }
+        
+        // Excise Impact Tab
+        async function loadExciseTab(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/excise-impact?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                console.log('Excise Impact Data:', data);
+                
+                if (data && Array.isArray(data) && data.length > 0) {
+                    updateExciseTable(data);
+                } else {
+                    document.getElementById('excise-impact-table').innerHTML = 
+                        '<tr><td colspan="8" style="text-align: center; color: #64748b; padding: 2rem;">No excise tax data available</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading excise impact:', error);
+                document.getElementById('excise-impact-table').innerHTML = 
+                    '<tr><td colspan="8" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load excise data</td></tr>';
+            }
+        }
+
+        // Helper Functions for New Sales Analytics
+        function updateExecutiveChangeIndicators(changes) {
+            const indicators = [
+                { id: 'exec-revenue-change', key: 'TotalRevenue', label: 'vs last year' },
+                { id: 'exec-gp-change', key: 'TrueGrossProfit', label: 'GP change' },
+                { id: 'exec-margin-change', key: 'GPMargin', label: 'margin change', isPercentage: true },
+                { id: 'exec-excise-change', key: 'TotalExciseTax', label: 'excise change' },
+                { id: 'exec-customers-change', key: 'UniqueCustomers', label: 'customer change' },
+                { id: 'exec-transaction-change', key: 'AvgTransaction', label: 'avg ticket change' }
+            ];
+            
+            indicators.forEach(indicator => {
+                const element = document.getElementById(indicator.id);
+                const change = changes[indicator.key];
+                
+                if (element && change) {
+                    const percentage = change.percentage;
+                    const direction = change.direction;
+                    
+                    let icon = 'fas fa-minus';
+                    let className = 'kpi-change neutral';
+                    
+                    if (direction === 'up') {
+                        icon = 'fas fa-arrow-up';
+                        className = 'kpi-change positive';
+                    } else if (direction === 'down') {
+                        icon = 'fas fa-arrow-down';
+                        className = 'kpi-change negative';
+                    }
+                    
+                    const displayValue = indicator.isPercentage ? 
+                        `${Math.abs(percentage).toFixed(1)}pp` : 
+                        `${Math.abs(percentage).toFixed(1)}%`;
+                    
+                    element.innerHTML = `<i class="${icon}"></i><span>${displayValue} ${indicator.label}</span>`;
+                    element.className = className;
+                } else if (element) {
+                    element.innerHTML = `<i class="fas fa-info-circle"></i><span>No comparison data</span>`;
+                    element.className = 'kpi-change neutral';
+                }
+            });
+        }
+        
+        function updateCategoriesTable(data) {
+            const tableBody = document.getElementById('categories-detailed-table');
+            tableBody.innerHTML = data.map(category => `
+                <tr>
+                    <td>${category.Category || 'Unknown'}</td>
+                    <td>$${parseFloat(category.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(category.BaseCost || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(category.ExciseTax || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(category.TotalCost || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(category.GrossProfit || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>${parseFloat(category.Margin || 0).toFixed(1)}%</td>
+                    <td>${parseInt(category.Units || 0).toLocaleString()}</td>
+                    <td>${parseInt(category.Transactions || 0).toLocaleString()}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('categories-count').textContent = `${data.length} categories`;
+        }
+        
+        function updateCustomersTable(data) {
+            const tableBody = document.getElementById('customers-detailed-table');
+            tableBody.innerHTML = data.map(customer => `
+                <tr>
+                    <td>${customer.Customer || 'Unknown'}</td>
+                    <td>${customer.AccountNumber || 'N/A'}</td>
+                    <td>$${parseFloat(customer.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(customer.TotalCost || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(customer.GrossProfit || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>${parseFloat(customer.Margin || 0).toFixed(1)}%</td>
+                    <td>${parseInt(customer.Transactions || 0).toLocaleString()}</td>
+                    <td>$${parseFloat(customer.AvgTransaction || 0).toFixed(2)}</td>
+                    <td>${customer.LastPurchase ? new Date(customer.LastPurchase).toLocaleDateString() : 'N/A'}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('customers-count').textContent = `${data.length} customers`;
+        }
+        
+        function updateProductsTable(data) {
+            const tableBody = document.getElementById('products-detailed-table');
+            tableBody.innerHTML = data.map(product => `
+                <tr>
+                    <td>${product.Product || 'Unknown'}</td>
+                    <td>${product.SKU || 'N/A'}</td>
+                    <td>${product.Category || 'N/A'}</td>
+                    <td>$${parseFloat(product.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(product.TotalCost || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(product.GrossProfit || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>${parseFloat(product.Margin || 0).toFixed(1)}%</td>
+                    <td>${parseInt(product.Units || 0).toLocaleString()}</td>
+                    <td>$${parseFloat(product.AvgPrice || 0).toFixed(2)}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('products-count').textContent = `${data.length} products`;
+        }
+        
+        function updateExciseTable(data) {
+            const tableBody = document.getElementById('excise-impact-table');
+            tableBody.innerHTML = data.map(excise => `
+                <tr>
+                    <td>${excise.ExciseType || 'Unknown'}</td>
+                    <td>${excise.Category || 'N/A'}</td>
+                    <td>${parseInt(excise.TransactionCount || 0).toLocaleString()}</td>
+                    <td>${parseInt(excise.TotalUnits || 0).toLocaleString()}</td>
+                    <td>$${parseFloat(excise.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(excise.TotalExciseTax || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(excise.AvgExcisePerUnit || 0).toFixed(3)}</td>
+                    <td>${parseFloat(excise.ExciseAsPercentOfSales || 0).toFixed(2)}%</td>
+                </tr>
+            `).join('');
+        }
+        
+        // Refresh function for new system
+        function refreshAnalyticsData() {
+            const refreshBtn = document.querySelector('#sales-section .refresh-btn i');
+            if (refreshBtn) {
+                refreshBtn.classList.add('fa-spin');
+            }
+            
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab) {
+                const tabName = activeTab.id.replace('-tab', '');
+                showAnalyticsTab(tabName);
+            }
+            
+            setTimeout(() => {
+                if (refreshBtn) refreshBtn.classList.remove('fa-spin');
+            }, 2000);
+        }
+
+        // Chart Creation Functions
+        function createExecutiveCategoriesChart(categories) {
+            const ctx = document.getElementById('exec-categories-chart').getContext('2d');
+            
+            if (charts.execCategories) {
+                charts.execCategories.destroy();
+            }
+            
+            charts.execCategories = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: categories.map(c => c.CategoryName || c.Category),
+                    datasets: [{
+                        data: categories.map(c => c.CategoryRevenue || c.Revenue),
+                        backgroundColor: [
+                            '#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#cbd5e1' }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function updateExecutiveCustomersTable(customers) {
+            const tableBody = document.getElementById('exec-customers-table');
+            tableBody.innerHTML = customers.map(customer => `
+                <tr>
+                    <td>${customer.CustomerName || customer.Customer || 'Unknown'}</td>
+                    <td>$${parseFloat(customer.CustomerRevenue || customer.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>$${parseFloat(customer.CustomerGP || customer.GrossProfit || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    <td>${parseFloat((customer.CustomerGP || customer.GrossProfit || 0) / (customer.CustomerRevenue || customer.Revenue || 1) * 100).toFixed(1)}%</td>
+                    <td>${parseInt(customer.CustomerTransactions || customer.Transactions || 0).toLocaleString()}</td>
+                </tr>
+            `).join('');
+            
+            document.getElementById('exec-customers-count').textContent = `${customers.length} top customers`;
+        }
+        
+        async function loadExecutiveInsights(timeframe) {
+            try {
+                const response = await fetch(`/api/sales-analytics/insights?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                if (data && Array.isArray(data) && data.length > 0) {
+                    const tableBody = document.getElementById('exec-insights-table');
+                    tableBody.innerHTML = data.map(insight => `
+                        <tr>
+                            <td>
+                                <span class="priority-badge priority-${insight.type || 'info'}">
+                                    ${insight.title || 'Insight'}
+                                </span>
+                            </td>
+                            <td>${insight.description || 'No description'}</td>
+                            <td>
+                                <span class="priority-badge priority-${insight.impact || 'medium'}">
+                                    ${insight.impact || 'Medium'}
+                                </span>
+                            </td>
+                            <td>${insight.metric || 'General'}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    document.getElementById('exec-insights-table').innerHTML = 
+                        '<tr><td colspan="4" style="text-align: center; color: #64748b; padding: 2rem;">No insights available</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading insights:', error);
+                document.getElementById('exec-insights-table').innerHTML = 
+                    '<tr><td colspan="4" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load insights</td></tr>';
+            }
+        }
+        
+        function createTrendsCharts(data) {
+            // Revenue YoY Chart
+            const revenueCtx = document.getElementById('trends-revenue-yoy-chart').getContext('2d');
+            if (charts.trendsRevenue) charts.trendsRevenue.destroy();
+            
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const currentRevenue = new Array(12).fill(0);
+            const previousRevenue = new Array(12).fill(0);
+            
+            data.current_year.forEach(row => {
+                currentRevenue[row.Month - 1] = row.Revenue || 0;
+            });
+            
+            data.previous_year.forEach(row => {
+                previousRevenue[row.Month - 1] = row.Revenue || 0;
+            });
+            
+            charts.trendsRevenue = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: `${data.current_year_num} Revenue`,
+                        data: currentRevenue,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.4
+                    }, {
+                        label: `${data.previous_year_num} Revenue`,
+                        data: previousRevenue,
+                        borderColor: '#64748b',
+                        backgroundColor: 'rgba(100, 116, 139, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        borderDash: [5, 5]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            display: true,
+                            labels: { color: '#cbd5e1' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        }
+                    }
+                }
+            });
+            
+            // GP YoY Chart
+            const gpCtx = document.getElementById('trends-gp-yoy-chart').getContext('2d');
+            if (charts.trendsGP) charts.trendsGP.destroy();
+            
+            const currentGP = new Array(12).fill(0);
+            const previousGP = new Array(12).fill(0);
+            
+            data.current_year.forEach(row => {
+                currentGP[row.Month - 1] = row.GrossProfit || 0;
+            });
+            
+            data.previous_year.forEach(row => {
+                previousGP[row.Month - 1] = row.GrossProfit || 0;
+            });
+            
+            charts.trendsGP = new Chart(gpCtx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: `${data.current_year_num} Gross Profit`,
+                        data: currentGP,
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.4
+                    }, {
+                        label: `${data.previous_year_num} Gross Profit`,
+                        data: previousGP,
+                        borderColor: '#64748b',
+                        backgroundColor: 'rgba(100, 116, 139, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        borderDash: [5, 5]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            display: true,
+                            labels: { color: '#cbd5e1' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Event Listeners for Analytics Controls
+        document.addEventListener('DOMContentLoaded', function() {
+            // Analytics timeframe change
+            const analyticsTimeframe = document.getElementById('analytics-timeframe');
+            if (analyticsTimeframe) {
+                analyticsTimeframe.addEventListener('change', function() {
+                    if (currentSection === 'sales') {
+                        const activeTab = document.querySelector('.tab-content.active');
+                        if (activeTab) {
+                            const tabName = activeTab.id.replace('-tab', '');
+                            showAnalyticsTab(tabName);
+                        }
+                    }
+                });
+            }
+        });
+
+        // Sales Analytics Data Loading (REPLACED)
+        async function loadSalesAnalyticsData() {
+            return loadComprehensiveSalesAnalytics();
+        }
+        
+        // End of new sales analytics system
+
+        // Get date range based on selection
+        function getDateRange(timeRange) {
+            const endDate = new Date();
+            const startDate = new Date();
+            
+            switch(timeRange) {
+                case 'today':
+                    startDate.setHours(0, 0, 0, 0);
+                    endDate.setHours(23, 59, 59, 999);
+                    break;
+                case 'week':
+                    startDate.setDate(startDate.getDate() - 6);
+                    break;
+                case 'month':
+                    startDate.setDate(1);
+                    break;
+                case 'quarter':
+                    const quarter = Math.floor(startDate.getMonth() / 3);
+                    startDate.setMonth(quarter * 3, 1);
+                    break;
+                case 'year':
+                    startDate.setMonth(0, 1);
+                    break;
+            }
+            
+            return {
+                startDate: startDate.toISOString().split('T')[0],
+                endDate: endDate.toISOString().split('T')[0]
+            };
+        }
+
+        // Load sales KPIs
+        async function loadSalesKPIs(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=daily_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const totalRevenue = data.data.reduce((sum, row) => sum + parseFloat(row.TotalSales || 0), 0);
+                    const totalTransactions = data.data.reduce((sum, row) => sum + parseInt(row.TransactionCount || 0), 0);
+                    const totalCustomers = data.data.reduce((sum, row) => sum + parseInt(row.UniqueCustomers || 0), 0);
+                    
+                    document.getElementById('sales-total-revenue').textContent = 
+                        '$' + totalRevenue.toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    // Get profit data
+                    const profitResponse = await fetch(`/api/pos/run-report?type=profit_analysis&start_date=${startDate}&end_date=${endDate}`);
+                    const profitData = await profitResponse.json();
+                    
+                    if (profitData.success && profitData.data.length > 0) {
+                        const totalProfit = profitData.data.reduce((sum, row) => sum + parseFloat(row.TrueGrossProfit || 0), 0);
+                        const profitMargin = totalRevenue > 0 ? (totalProfit / totalRevenue * 100) : 0;
+                        
+                        document.getElementById('sales-gross-profit').textContent = 
+                            '$' + totalProfit.toLocaleString('en-US', {minimumFractionDigits: 2});
+                        
+                        document.getElementById('sales-profit-margin').innerHTML = 
+                            `<i class="fas fa-percentage"></i> <span>${profitMargin.toFixed(1)}%</span>`;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading sales KPIs:', error);
+            }
+        }
+
+        // Load sales performance trend
+        async function loadSalesPerformanceTrend(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=daily_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const chartData = data.data.map(row => ({
+                        date: new Date(row.SaleDate || row.Date).toLocaleDateString('en-US', {month: 'short', day: 'numeric'}),
+                        sales: parseFloat(row.TotalSales || row.Sales || 0)
+                    }));
+                    
+                    createSalesPerformanceChart(chartData);
+                }
+            } catch (error) {
+                console.error('Error loading sales performance trend:', error);
+            }
+        }
+
+        // Load category performance for sales section
+        async function loadSalesCategoryPerformance(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=category_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const chartData = data.data.slice(0, 10).map(row => ({
+                        category: row.Category || row.Name || 'Unknown',
+                        revenue: parseFloat(row.TotalRevenue || row.Revenue || 0)
+                    }));
+                    
+                    createSalesCategoryPerformanceChart(chartData);
+                    
+                    // Update top category KPI
+                    if (chartData.length > 0) {
+                        document.getElementById('sales-top-category').textContent = chartData[0].category;
+                        document.getElementById('sales-category-revenue').innerHTML = 
+                            `<i class="fas fa-dollar-sign"></i> <span>$${chartData[0].revenue.toLocaleString()}</span>`;
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading category performance:', error);
+            }
+        }
+
+        // Load customer distribution
+        async function loadSalesCustomerDistribution(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=customer_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const chartData = data.data.slice(0, 8).map(row => ({
+                        customer: (row.CustomerName || 'Unknown').substring(0, 20),
+                        sales: parseFloat(row.TotalSales || 0)
+                    }));
+                    
+                    createSalesCustomerChart(chartData);
+                }
+            } catch (error) {
+                console.error('Error loading customer distribution:', error);
+            }
+        }
+
+        // Load hourly pattern for sales section
+        async function loadSalesHourlyPattern(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=hourly_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const chartData = data.data.map(row => ({
+                        hour: (row.Hour || 0) + ':00',
+                        sales: parseFloat(row.TotalSales || 0)
+                    }));
+                    
+                    createSalesHourlyPatternChart(chartData);
+                }
+            } catch (error) {
+                console.error('Error loading hourly pattern:', error);
+            }
+        }
+
+        // Load top items table
+        async function loadSalesTopItems(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=item_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const tableBody = document.getElementById('sales-top-items-table');
+                    const topItems = data.data.slice(0, 20);
+                    
+                    let totalUnits = 0;
+                    tableBody.innerHTML = topItems.map((item, index) => {
+                        const quantity = parseFloat(item.TotalQuantity || item.Quantity || 0);
+                        const revenue = parseFloat(item.TotalRevenue || item.Revenue || 0);
+                        const avgPrice = parseFloat(item.AvgPrice || 0);
+                        const customers = parseInt(item.UniqueCustomers || 0);
+                        
+                        totalUnits += quantity;
+                        
+                        return `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${item.ItemName || item.Description || 'Unknown'}</td>
+                            <td>${item.Category || 'N/A'}</td>
+                            <td>${quantity.toLocaleString()}</td>
+                            <td>$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${avgPrice.toFixed(2)}</td>
+                            <td>${customers.toLocaleString()}</td>
+                        </tr>
+                        `;
+                    }).join('');
+                    
+                    document.getElementById('sales-items-count').textContent = `Top ${topItems.length} of ${data.data.length} items`;
+                    document.getElementById('sales-units-sold').textContent = totalUnits.toLocaleString();
+                }
+            } catch (error) {
+                console.error('Error loading top items:', error);
+            }
+        }
+
+        // Load category analysis table
+        async function loadSalesCategoryAnalysis(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=category_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const tableBody = document.getElementById('sales-category-analysis-table');
+                    const totalRevenue = data.data.reduce((sum, row) => sum + parseFloat(row.TotalRevenue || 0), 0);
+                    
+                    tableBody.innerHTML = data.data.map(category => {
+                        const revenue = parseFloat(category.TotalRevenue || 0);
+                        const quantity = parseFloat(category.TotalQuantity || 0);
+                        const avgPrice = parseFloat(category.AvgPrice || 0);
+                        const transactions = parseInt(category.TransactionCount || 0);
+                        const percentage = totalRevenue > 0 ? (revenue / totalRevenue * 100) : 0;
+                        
+                        return `
+                        <tr>
+                            <td>${category.Category || category.Name || 'Unknown'}</td>
+                            <td>$${revenue.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>${quantity.toLocaleString()}</td>
+                            <td>$${avgPrice.toFixed(2)}</td>
+                            <td>${transactions.toLocaleString()}</td>
+                            <td>${percentage.toFixed(1)}%</td>
+                        </tr>
+                        `;
+                    }).join('');
+                    
+                    document.getElementById('sales-categories-count').textContent = `${data.data.length} categories`;
+                }
+            } catch (error) {
+                console.error('Error loading category analysis:', error);
+            }
+        }
+
+        // Load customer analysis table
+        async function loadSalesCustomerAnalysis(startDate, endDate) {
+            try {
+                const response = await fetch(`/api/pos/run-report?type=customer_sales&start_date=${startDate}&end_date=${endDate}`);
+                const data = await response.json();
+                
+                if (data.success && data.data.length > 0) {
+                    const tableBody = document.getElementById('sales-customer-analysis-table');
+                    const topCustomers = data.data.slice(0, 15);
+                    
+                    tableBody.innerHTML = topCustomers.map((customer, index) => {
+                        const totalSales = parseFloat(customer.TotalSales || 0);
+                        const transactions = parseInt(customer.TransactionCount || 0);
+                        const avgTransaction = parseFloat(customer.AvgTransaction || 0);
+                        const lastPurchase = customer.LastPurchase ? new Date(customer.LastPurchase).toLocaleDateString() : 'N/A';
+                        
+                        return `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${customer.CustomerName || 'Unknown'}</td>
+                            <td>${customer.AccountNumber || 'N/A'}</td>
+                            <td>${transactions.toLocaleString()}</td>
+                            <td>$${totalSales.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${avgTransaction.toFixed(2)}</td>
+                            <td>${lastPurchase}</td>
+                        </tr>
+                        `;
+                    }).join('');
+                    
+                    document.getElementById('sales-customers-count').textContent = `Top ${topCustomers.length} of ${data.data.length} customers`;
+                }
+            } catch (error) {
+                console.error('Error loading customer analysis:', error);
+            }
+        }
+
+        // Refresh sales data
+        function refreshSalesData() {
+            const refreshBtn = document.querySelector('.refresh-btn i');
+            refreshBtn.classList.add('fa-spin');
+            
+            loadSalesAnalyticsData().finally(() => {
+                refreshBtn.classList.remove('fa-spin');
+            });
+        }
+
+        // Chart Creation Functions
+        function createSalesPerformanceChart(data) {
+            const ctx = document.getElementById('sales-performance-chart').getContext('2d');
+            
+            if (charts.salesPerformance) {
+                charts.salesPerformance.destroy();
+            }
+            
+            charts.salesPerformance = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map(d => d.date),
+                    datasets: [{
+                        label: 'Daily Revenue',
+                        data: data.map(d => d.sales),
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createSalesCategoryPerformanceChart(data) {
+            const ctx = document.getElementById('sales-category-performance-chart').getContext('2d');
+            
+            if (charts.salesCategoryPerformance) {
+                charts.salesCategoryPerformance.destroy();
+            }
+            
+            charts.salesCategoryPerformance = new Chart(ctx, {
+                type: 'horizontalBar',
+                data: {
+                    labels: data.map(d => d.category),
+                    datasets: [{
+                        label: 'Revenue',
+                        data: data.map(d => d.revenue),
+                        backgroundColor: [
+                            '#3b82f6', '#10b981', '#f59e0b', '#ef4444',
+                            '#8b5cf6', '#06b6d4', '#84cc16', '#f97316',
+                            '#ec4899', '#14b8a6'
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        y: {
+                            ticks: { color: '#64748b' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createSalesCustomerChart(data) {
+            const ctx = document.getElementById('sales-customer-chart').getContext('2d');
+            
+            if (charts.salesCustomer) {
+                charts.salesCustomer.destroy();
+            }
+            
+            charts.salesCustomer = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(d => d.customer),
+                    datasets: [{
+                        label: 'Sales',
+                        data: data.map(d => d.sales),
+                        backgroundColor: '#8b5cf6',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { 
+                                color: '#64748b',
+                                maxRotation: 45
+                            },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createSalesHourlyPatternChart(data) {
+            const ctx = document.getElementById('sales-hourly-pattern-chart').getContext('2d');
+            
+            if (charts.salesHourlyPattern) {
+                charts.salesHourlyPattern.destroy();
+            }
+            
+            charts.salesHourlyPattern = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(d => d.hour),
+                    datasets: [{
+                        label: 'Hourly Sales',
+                        data: data.map(d => d.sales),
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Chart Creation Functions
+        function createSalesTrendChart(data) {
+            const ctx = document.getElementById('sales-trend-chart').getContext('2d');
+            
+            if (charts.salesTrend) {
+                charts.salesTrend.destroy();
+            }
+            
+            charts.salesTrend = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map(d => d.date),
+                    datasets: [{
+                        label: 'Daily Sales',
+                        data: data.map(d => d.sales),
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createCategoryChart(data) {
+            const ctx = document.getElementById('category-chart').getContext('2d');
+            
+            if (charts.category) {
+                charts.category.destroy();
+            }
+            
+            charts.category = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: data.map(d => d.category),
+                    datasets: [{
+                        data: data.map(d => d.revenue),
+                        backgroundColor: [
+                            '#3b82f6', '#10b981', '#f59e0b', '#ef4444',
+                            '#8b5cf6', '#06b6d4', '#84cc16', '#f97316'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#cbd5e1' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createPaymentMethodsChart(data) {
+            const ctx = document.getElementById('payment-methods-chart').getContext('2d');
+            
+            if (charts.payment) {
+                charts.payment.destroy();
+            }
+            
+            charts.payment = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(d => d.method),
+                    datasets: [{
+                        label: 'Amount',
+                        data: data.map(d => d.amount),
+                        backgroundColor: '#10b981',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createHourlySalesChart(data) {
+            const ctx = document.getElementById('hourly-sales-chart').getContext('2d');
+            
+            if (charts.hourly) {
+                charts.hourly.destroy();
+            }
+            
+            charts.hourly = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.map(d => d.hour),
+                    datasets: [{
+                        label: 'Hourly Sales',
+                        data: data.map(d => d.sales),
+                        backgroundColor: '#f59e0b',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Refresh functions
+        function refreshExecutiveData() {
+            const refreshBtn = document.querySelector('.refresh-btn i');
+            refreshBtn.classList.add('fa-spin');
+            
+            loadExecutiveData().finally(() => {
+                refreshBtn.classList.remove('fa-spin');
+            });
+        }
+
+        function updateLastUpdated() {
+            const now = new Date();
+            document.getElementById('last-updated').textContent = 
+                `Last updated: ${now.toLocaleTimeString()}`;
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+            document.querySelector('.main-content').prepend(errorDiv);
+            
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        // Auto-refresh setup
+        function startAutoRefresh() {
+            refreshInterval = setInterval(() => {
+                if (currentSection === 'executive') {
+                    loadExecutiveData();
+                } else if (currentSection === 'sales') {
+                    loadSalesAnalyticsData();
+                }
+            }, 300000); // 5 minutes
+        }
+
+        function stopAutoRefresh() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadExecutiveData();
+            startAutoRefresh();
+            
+            // Handle page visibility changes
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    stopAutoRefresh();
+                } else {
+                    startAutoRefresh();
+                    if (currentSection === 'executive') {
+                        loadExecutiveData();
+                    }
+                }
+            });
+        });
+
+        // Sales Analytics Tab Management
+        function showSalesTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+            
+            // Load tab-specific data with simplified approach
+            if (tabName === 'gross-profit') {
+                loadGPAnalyticsSimplified();
+            } else if (tabName === 'overview') {
+                loadSalesAnalyticsData();
+            } else if (tabName === 'categories') {
+                loadCategoriesAnalysis();
+            } else if (tabName === 'customers') {
+                loadCustomersAnalysis();
+            } else if (tabName === 'products') {
+                loadProductsAnalysis();
+            }
+        }
+
+        // Sales Analytics Data Loading (placeholder for existing functionality)
+        function loadSalesAnalyticsData() {
+            // This function would load the overview tab data
+            // For now, it's a placeholder since the overview tab already loads on section change
+            console.log('Loading sales analytics overview data...');
+        }
+
+        // Refresh Sales Data function
+        function refreshSalesData() {
+            const refreshBtn = document.querySelector('#sales-section .refresh-btn i');
+            if (refreshBtn) {
+                refreshBtn.classList.add('fa-spin');
+            }
+            
+            // Determine which tab is active and refresh accordingly
+            const activeTab = document.querySelector('.tab-content.active');
+            if (activeTab && activeTab.id === 'gross-profit-tab') {
+                loadGPAnalytics().finally(() => {
+                    if (refreshBtn) refreshBtn.classList.remove('fa-spin');
+                });
+            } else {
+                // Refresh overview tab data
+                loadSalesAnalyticsData();
+                if (refreshBtn) {
+                    setTimeout(() => refreshBtn.classList.remove('fa-spin'), 1000);
+                }
+            }
+        }
+
+        // Helper function to convert timeframe to date range
+        function getDateRangeForTimeframe(timeframe) {
+            const today = new Date();
+            let start_date, end_date;
+            
+            switch(timeframe) {
+                case 'today':
+                    start_date = end_date = today.toISOString().split('T')[0];
+                    break;
+                case 'week':
+                    const weekStart = new Date(today);
+                    weekStart.setDate(today.getDate() - 6); // Last 7 days
+                    start_date = weekStart.toISOString().split('T')[0];
+                    end_date = today.toISOString().split('T')[0];
+                    break;
+                case 'month':
+                    const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+                    start_date = monthStart.toISOString().split('T')[0];
+                    end_date = today.toISOString().split('T')[0];
+                    break;
+                case 'quarter':
+                    const quarter = Math.floor(today.getMonth() / 3);
+                    const quarterStart = new Date(today.getFullYear(), quarter * 3, 1);
+                    start_date = quarterStart.toISOString().split('T')[0];
+                    end_date = today.toISOString().split('T')[0];
+                    break;
+                case 'year':
+                    const yearStart = new Date(today.getFullYear(), 0, 1);
+                    start_date = yearStart.toISOString().split('T')[0];
+                    end_date = today.toISOString().split('T')[0];
+                    break;
+                default:
+                    // Default to last week
+                    const defaultStart = new Date(today);
+                    defaultStart.setDate(today.getDate() - 6);
+                    start_date = defaultStart.toISOString().split('T')[0];
+                    end_date = today.toISOString().split('T')[0];
+            }
+            
+            return { start_date, end_date };
+        }
+
+        // Categories Analysis - Fast version using today's data
+        async function loadCategoriesAnalysis() {
+            try {
+                // Use today's daily summary data which is already fast
+                const today = new Date().toISOString().split('T')[0];
+                const response = await fetch(`/api/pos/daily-summary?date=${today}`);
+                const data = await response.json();
+                
+                if (data.success && data.top_categories && data.top_categories.length > 0) {
+                    const tableBody = document.getElementById('categories-analysis-table');
+                    tableBody.innerHTML = data.top_categories.slice(0, 20).map(category => `
+                        <tr>
+                            <td>${category.Category || 'Unknown'}</td>
+                            <td>$${parseFloat(category.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>${parseInt(category.Quantity || 0).toLocaleString()}</td>
+                            <td>${parseInt(category.UniqueItems || 0).toLocaleString()}</td>
+                        </tr>
+                    `).join('');
+                } else {
+                    document.getElementById('categories-analysis-table').innerHTML = 
+                        '<tr><td colspan="6" style="text-align: center; color: #64748b; padding: 2rem;">No category data available for today</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading categories analysis:', error);
+                document.getElementById('categories-analysis-table').innerHTML = 
+                    '<tr><td colspan="6" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load category data</td></tr>';
+            }
+        }
+
+        // Customers Analysis - Simplified for performance
+        async function loadCustomersAnalysis() {
+            try {
+                // Show loading message
+                document.getElementById('customers-analysis-table').innerHTML = 
+                    '<tr><td colspan="6" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading top customers...</td></tr>';
+                
+                // Use a simple query with timeout protection
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                
+                const today = new Date();
+                const weekStart = new Date(today);
+                weekStart.setDate(today.getDate() - 6);
+                const startDate = weekStart.toISOString().split('T')[0];
+                const endDate = today.toISOString().split('T')[0];
+                
+                const response = await fetch(`/api/pos/run-report?type=customer_sales&start_date=${startDate}&end_date=${endDate}`, {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.success && data.data && data.data.length > 0) {
+                        const tableBody = document.getElementById('customers-analysis-table');
+                        tableBody.innerHTML = data.data.slice(0, 15).map(customer => `
+                            <tr>
+                                <td>${customer.CustomerName || customer.Customer || 'Unknown'}</td>
+                                <td>$${parseFloat(customer.TotalSales || customer.Sales || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                                <td>${parseInt(customer.TransactionCount || customer.Transactions || 0).toLocaleString()}</td>
+                                <td>$${parseFloat(customer.AvgTransaction || 0).toFixed(2)}</td>
+                                <td>${customer.LastPurchase || 'This Week'}</td>
+                                <td><span class="status-indicator status-online"></span>Active</td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        document.getElementById('customers-analysis-table').innerHTML = 
+                            '<tr><td colspan="6" style="text-align: center; color: #64748b; padding: 2rem;">No customer data available for this week</td></tr>';
+                    }
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Error loading customers analysis:', error);
+                document.getElementById('customers-analysis-table').innerHTML = 
+                    '<tr><td colspan="6" style="text-align: center; color: #ef4444; padding: 2rem;">Failed to load customer data - showing today\'s data only for performance</td></tr>';
+            }
+        }
+
+        // Products Analysis - Fast version with limited data
+        async function loadProductsAnalysis() {
+            try {
+                // Show loading message
+                document.getElementById('products-analysis-table').innerHTML = 
+                    '<tr><td colspan="6" class="loading"><i class="fas fa-spinner fa-spin"></i> Loading top products...</td></tr>';
+                
+                // Use today's data with timeout protection for faster loading
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                
+                const today = new Date();
+                const weekStart = new Date(today);
+                weekStart.setDate(today.getDate() - 6);
+                const startDate = weekStart.toISOString().split('T')[0];
+                const endDate = today.toISOString().split('T')[0];
+                
+                const response = await fetch(`/api/pos/run-report?type=item_sales&start_date=${startDate}&end_date=${endDate}`, {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.success && data.data && data.data.length > 0) {
+                        const tableBody = document.getElementById('products-analysis-table');
+                        tableBody.innerHTML = data.data.slice(0, 20).map(product => `
+                            <tr>
+                                <td>${product.ItemName || product.Description || 'Unknown'}</td>
+                                <td>${product.ItemLookupCode || product.SKU || 'N/A'}</td>
+                                <td>${product.Category || 'N/A'}</td>
+                                <td>$${parseFloat(product.TotalRevenue || product.Revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                                <td>${parseInt(product.TotalQuantity || product.Quantity || 0).toLocaleString()}</td>
+                                <td>$${parseFloat(product.AvgPrice || 0).toFixed(2)}</td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        document.getElementById('products-analysis-table').innerHTML = 
+                            '<tr><td colspan="6" style="text-align: center; color: #64748b; padding: 2rem;">No product data available for this week</td></tr>';
+                    }
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Error loading products analysis:', error);
+                document.getElementById('products-analysis-table').innerHTML = 
+                    '<tr><td colspan="6" style="text-align: center; color: #ef4444; padding: 2rem;">Showing this week\'s data for performance - use POS reports for detailed analysis</td></tr>';
+            }
+        }
+
+        // Simplified GP Analytics Functions
+        async function loadGPAnalyticsSimplified() {
+            const timeframe = document.getElementById('gp-timeframe').value;
+            
+            try {
+                // Load only essential GP data for fast performance
+                await Promise.all([
+                    loadGPExecutiveSummary(timeframe),
+                    loadGPTrending(timeframe),
+                    loadGPCategories(timeframe)
+                ]);
+                
+                // Load customers and opportunities separately to avoid timeouts
+                setTimeout(() => {
+                    loadGPCustomers(timeframe);
+                    loadGPOpportunities(timeframe);
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Error loading GP analytics:', error);
+                showError('Failed to load GP analytics: ' + error.message);
+            }
+        }
+
+        // Original GP Analytics Functions (kept for compatibility)
+        async function loadGPAnalytics() {
+            return loadGPAnalyticsSimplified();
+        }
+
+        async function loadGPExecutiveSummary(timeframe) {
+            try {
+                const response = await fetch(`/api/gp/executive-summary?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                console.log('GP Executive Summary:', data);
+                
+                if (data && Object.keys(data).length > 0) {
+                    // Update KPI cards
+                    document.getElementById('gp-total').textContent = 
+                        '$' + (data.total_gp || 0).toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('gp-margin').textContent = 
+                        (data.gp_margin || 0).toFixed(1) + '%';
+                    
+                    document.getElementById('gp-per-customer').textContent = 
+                        '$' + (data.gp_per_customer || 0).toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('gp-best-category').textContent = 
+                        data.best_category?.name || 'Unknown';
+                    
+                    document.getElementById('gp-best-category-value').innerHTML = 
+                        `<i class="fas fa-dollar-sign"></i><span>$${(data.best_category?.gp || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</span>`;
+                    
+                    document.getElementById('gp-total-revenue').textContent = 
+                        '$' + (data.total_revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    document.getElementById('gp-total-cost').textContent = 
+                        '$' + (data.total_cost || 0).toLocaleString('en-US', {minimumFractionDigits: 2});
+                    
+                    // Update change indicators
+                    updateGPChangeIndicators(data, timeframe);
+                }
+            } catch (error) {
+                console.error('Error loading GP executive summary:', error);
+            }
+        }
+
+        async function loadGPTrending(timeframe) {
+            try {
+                const response = await fetch(`/api/gp/trending?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    console.log('GP Trending:', data);
+                    createGPTrendChart(data);
+                }
+            } catch (error) {
+                console.error('Error loading GP trending:', error);
+            }
+        }
+
+        async function loadGPCategories(timeframe) {
+            try {
+                const response = await fetch(`/api/gp/categories?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    console.log('GP Categories:', data);
+                    
+                    // Update categories table
+                    const tableBody = document.getElementById('gp-categories-table');
+                    tableBody.innerHTML = data.slice(0, 15).map(category => `
+                        <tr>
+                            <td>${category.category || 'Unknown'}</td>
+                            <td>$${parseFloat(category.revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${parseFloat(category.cost || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${parseFloat(category.gp || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>${parseFloat(category.margin || 0).toFixed(1)}%</td>
+                            <td>${parseInt(category.transactions || 0).toLocaleString()}</td>
+                            <td>$${parseFloat(category.gp_per_transaction || 0).toFixed(2)}</td>
+                        </tr>
+                    `).join('');
+                    
+                    document.getElementById('gp-categories-count').textContent = 
+                        `${Math.min(15, data.length)} of ${data.length} categories`;
+                    
+                    // Create category chart
+                    createGPCategoryChart(data.slice(0, 8));
+                }
+            } catch (error) {
+                console.error('Error loading GP categories:', error);
+            }
+        }
+
+        async function loadGPCustomers(timeframe) {
+            try {
+                const response = await fetch(`/api/gp/customers?timeframe=${timeframe}&limit=20`);
+                const data = await response.json();
+                
+                if (data && data.length > 0) {
+                    console.log('GP Customers:', data);
+                    
+                    // Update customers table
+                    const tableBody = document.getElementById('gp-customers-table');
+                    tableBody.innerHTML = data.map(customer => `
+                        <tr>
+                            <td>${customer.customer || 'Unknown'}</td>
+                            <td>$${parseFloat(customer.revenue || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${parseFloat(customer.cost || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>$${parseFloat(customer.gp || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                            <td>${parseFloat(customer.margin || 0).toFixed(1)}%</td>
+                            <td>${parseInt(customer.transaction_count || 0).toLocaleString()}</td>
+                            <td>${customer.top_category || 'N/A'}</td>
+                        </tr>
+                    `).join('');
+                    
+                    document.getElementById('gp-customers-count').textContent = 
+                        `${data.length} top customers`;
+                }
+            } catch (error) {
+                console.error('Error loading GP customers:', error);
+            }
+        }
+
+        async function loadGPOpportunities(timeframe) {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+                
+                const response = await fetch(`/api/gp/opportunities?timeframe=${timeframe}`, {
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data && data.length > 0) {
+                        console.log('GP Opportunities:', data);
+                        
+                        // Update opportunities table
+                        const tableBody = document.getElementById('gp-opportunities-table');
+                        tableBody.innerHTML = data.map(opp => `
+                            <tr>
+                                <td style="font-weight: 600;">${opp.opportunity || 'Unknown'}</td>
+                                <td>${opp.description || 'No description'}</td>
+                                <td>$${parseFloat(opp.impact || 0).toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                                <td>
+                                    <span class="priority-badge priority-${(opp.priority || 'medium').toLowerCase()}">
+                                        ${opp.priority || 'Medium'}
+                                    </span>
+                                </td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        // Show placeholder when no opportunities
+                        const tableBody = document.getElementById('gp-opportunities-table');
+                        tableBody.innerHTML = `
+                            <tr>
+                                <td colspan="4" style="text-align: center; color: #64748b; padding: 2rem;">
+                                    <i class="fas fa-chart-line" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                                    No improvement opportunities identified at this time.
+                                </td>
+                            </tr>
+                        `;
+                    }
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+            } catch (error) {
+                console.error('Error loading GP opportunities:', error);
+                
+                // Show error message in table
+                const tableBody = document.getElementById('gp-opportunities-table');
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="4" style="text-align: center; color: #ef4444; padding: 2rem;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem; display: block;"></i>
+                            Failed to load opportunities: ${error.message}
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // GP Chart Creation Functions
+        function createGPTrendChart(data) {
+            const ctx = document.getElementById('gp-trend-chart').getContext('2d');
+            
+            if (charts.gpTrend) {
+                charts.gpTrend.destroy();
+            }
+            
+            charts.gpTrend = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map(d => d.period),
+                    datasets: [{
+                        label: 'Gross Profit',
+                        data: data.map(d => d.gp),
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'GP Margin %',
+                        data: data.map(d => d.margin),
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            display: true,
+                            labels: { color: '#cbd5e1' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { drawOnChartArea: false }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createGPCategoryChart(data) {
+            const ctx = document.getElementById('gp-category-chart').getContext('2d');
+            
+            if (charts.gpCategory) {
+                charts.gpCategory.destroy();
+            }
+            
+            charts.gpCategory = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: data.map(d => d.category),
+                    datasets: [{
+                        data: data.map(d => d.gp),
+                        backgroundColor: [
+                            '#10b981', '#3b82f6', '#f59e0b', '#ef4444',
+                            '#8b5cf6', '#06b6d4', '#84cc16', '#f97316'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { color: '#cbd5e1' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createGPYoYChart(monthlyData) {
+            const ctx = document.getElementById('gp-yoy-chart').getContext('2d');
+            
+            if (charts.gpYoY) {
+                charts.gpYoY.destroy();
+            }
+            
+            // Prepare data for comparison
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
+                           'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            
+            const currentYearData = new Array(12).fill(0);
+            const previousYearData = new Array(12).fill(0);
+            
+            // Fill current year data
+            monthlyData.current_year.forEach(row => {
+                currentYearData[row.Month - 1] = row.gp || 0;
+            });
+            
+            // Fill previous year data
+            monthlyData.previous_year.forEach(row => {
+                previousYearData[row.Month - 1] = row.gp || 0;
+            });
+            
+            charts.gpYoY = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: `${monthlyData.current_year_num} GP`,
+                        data: currentYearData,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.4
+                    }, {
+                        label: `${monthlyData.previous_year_num} GP`,
+                        data: previousYearData,
+                        borderColor: '#64748b',
+                        backgroundColor: 'rgba(100, 116, 139, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        borderDash: [5, 5]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { 
+                            display: true,
+                            labels: { color: '#cbd5e1' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                },
+                                color: '#64748b'
+                            },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        },
+                        x: {
+                            ticks: { color: '#64748b' },
+                            grid: { color: 'rgba(51, 65, 85, 0.3)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function loadGPYoYComparison(timeframe) {
+            try {
+                const response = await fetch(`/api/gp/yoy-comparison?timeframe=${timeframe}`);
+                const data = await response.json();
+                
+                console.log('GP YoY Comparison:', data);
+                
+                if (data && data.changes) {
+                    updateGPChangeIndicatorsWithComparison(data.changes);
+                }
+                
+                // Load monthly breakdown for YoY chart
+                const monthlyResponse = await fetch('/api/gp/monthly-breakdown');
+                const monthlyData = await monthlyResponse.json();
+                
+                if (monthlyData) {
+                    createGPYoYChart(monthlyData);
+                }
+                
+            } catch (error) {
+                console.error('Error loading GP YoY comparison:', error);
+            }
+        }
+
+        function updateGPChangeIndicators(data, timeframe) {
+            // Default informational indicators when no comparison is selected
+            const indicators = [
+                { id: 'gp-total-change', text: `${timeframe} total` },
+                { id: 'gp-margin-change', text: `${(data.gp_margin || 0).toFixed(1)}% margin` },
+                { id: 'gp-customer-change', text: `${(data.active_customers || 0).toLocaleString()} customers` },
+                { id: 'gp-revenue-change', text: `${timeframe} revenue` },
+                { id: 'gp-cost-change', text: `${timeframe} cost` }
+            ];
+            
+            indicators.forEach(indicator => {
+                const element = document.getElementById(indicator.id);
+                if (element) {
+                    element.innerHTML = `<i class="fas fa-info-circle"></i><span>${indicator.text}</span>`;
+                    element.className = 'kpi-change neutral';
+                }
+            });
+        }
+
+        function updateGPChangeIndicatorsWithComparison(changes) {
+            // Update indicators with actual comparison data
+            const indicators = [
+                { id: 'gp-total-change', key: 'total_gp', label: 'vs last year' },
+                { id: 'gp-margin-change', key: 'gp_margin', label: 'margin change', isPercentage: true },
+                { id: 'gp-customer-change', key: 'active_customers', label: 'customer change' },
+                { id: 'gp-revenue-change', key: 'total_revenue', label: 'revenue change' },
+                { id: 'gp-cost-change', key: 'total_cost', label: 'cost change' }
+            ];
+            
+            indicators.forEach(indicator => {
+                const element = document.getElementById(indicator.id);
+                const change = changes[indicator.key];
+                
+                if (element && change) {
+                    const percentage = change.percentage;
+                    const direction = change.direction;
+                    
+                    let icon = 'fas fa-minus';
+                    let className = 'kpi-change neutral';
+                    
+                    if (direction === 'up') {
+                        icon = 'fas fa-arrow-up';
+                        className = indicator.key === 'total_cost' ? 'kpi-change negative' : 'kpi-change positive';
+                    } else if (direction === 'down') {
+                        icon = 'fas fa-arrow-down';
+                        className = indicator.key === 'total_cost' ? 'kpi-change positive' : 'kpi-change negative';
+                    }
+                    
+                    const displayValue = indicator.isPercentage ? 
+                        `${Math.abs(percentage).toFixed(1)}pp` : 
+                        `${Math.abs(percentage).toFixed(1)}%`;
+                    
+                    element.innerHTML = `<i class="${icon}"></i><span>${displayValue} ${indicator.label}</span>`;
+                    element.className = className;
+                }
+            });
+        }
+
+        function refreshGPData() {
+            const refreshBtn = document.querySelector('.gp-controls .refresh-btn i');
+            refreshBtn.classList.add('fa-spin');
+            
+            loadGPAnalytics().finally(() => {
+                refreshBtn.classList.remove('fa-spin');
+            });
+        }
+
+        // Event listeners for GP controls
+        document.addEventListener('DOMContentLoaded', function() {
+            // GP timeframe change
+            const gpTimeframe = document.getElementById('gp-timeframe');
+            if (gpTimeframe) {
+                gpTimeframe.addEventListener('change', function() {
+                    if (document.getElementById('gross-profit-tab').classList.contains('active')) {
+                        loadGPAnalytics();
+                    }
+                });
+            }
+            
+            // GP comparison change
+            const gpComparison = document.getElementById('gp-comparison');
+            if (gpComparison) {
+                gpComparison.addEventListener('change', function() {
+                    if (document.getElementById('gross-profit-tab').classList.contains('active')) {
+                        loadGPAnalytics();
+                    }
+                });
+            }
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            stopAutoRefresh();
+            Object.values(charts).forEach(chart => chart.destroy());
+        });
+    </script>
+</body>
+</html>

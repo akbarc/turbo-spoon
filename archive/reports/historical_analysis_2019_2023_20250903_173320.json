@@ -1,0 +1,4263 @@
+{
+  "report_date": "2025-09-03T17:31:56.695218",
+  "analysis_period": "2019-01-01 to 2023-12-31",
+  "yearly_growth": {
+    "revenue_growth": {
+      "yearly_data": [],
+      "cagr_revenue": 0,
+      "total_growth": 0
+    },
+    "customer_growth": {
+      "cohort_analysis": [],
+      "yearly_activity": []
+    },
+    "transaction_metrics": [
+      {
+        "Year": 2019,
+        "TotalTransactions": 21632,
+        "AvgTransactionValue": "1125.9430",
+        "MinTransaction": "-34650.0000",
+        "MaxTransaction": "102816.0000",
+        "StdDevTransaction": 2460.9464553491102,
+        "AvgItemsPerTransaction": 18,
+        "AvgUniqueItemsPerTransaction": 18
+      },
+      {
+        "Year": 2020,
+        "TotalTransactions": 23163,
+        "AvgTransactionValue": "1109.7766",
+        "MinTransaction": "-100656.5000",
+        "MaxTransaction": "85453.5000",
+        "StdDevTransaction": 2230.68225207305,
+        "AvgItemsPerTransaction": 20,
+        "AvgUniqueItemsPerTransaction": 20
+      },
+      {
+        "Year": 2021,
+        "TotalTransactions": 26044,
+        "AvgTransactionValue": "1448.0775",
+        "MinTransaction": "-14461.8000",
+        "MaxTransaction": "60000.0000",
+        "StdDevTransaction": 2124.1704851581535,
+        "AvgItemsPerTransaction": 21,
+        "AvgUniqueItemsPerTransaction": 21
+      },
+      {
+        "Year": 2022,
+        "TotalTransactions": 22814,
+        "AvgTransactionValue": "1569.1714",
+        "MinTransaction": "-69101.1600",
+        "MaxTransaction": "150552.0000",
+        "StdDevTransaction": 3432.8088401415202,
+        "AvgItemsPerTransaction": 21,
+        "AvgUniqueItemsPerTransaction": 21
+      },
+      {
+        "Year": 2023,
+        "TotalTransactions": 19915,
+        "AvgTransactionValue": "1712.8695",
+        "MinTransaction": "-65328.0000",
+        "MaxTransaction": "298873.8700",
+        "StdDevTransaction": 3639.183508958865,
+        "AvgItemsPerTransaction": 22,
+        "AvgUniqueItemsPerTransaction": 22
+      }
+    ]
+  },
+  "customer_evolution": {
+    "acquisition": [
+      {
+        "Year": 2019,
+        "Month": 1,
+        "NewCustomers": 365,
+        "AvgFirstYearValue": "52675.3750",
+        "TotalFirstYearValue": "19226511.9000"
+      },
+      {
+        "Year": 2019,
+        "Month": 2,
+        "NewCustomers": 67,
+        "AvgFirstYearValue": "15820.0086",
+        "TotalFirstYearValue": "1059940.5800"
+      },
+      {
+        "Year": 2019,
+        "Month": 3,
+        "NewCustomers": 50,
+        "AvgFirstYearValue": "34295.8032",
+        "TotalFirstYearValue": "1714790.1600"
+      },
+      {
+        "Year": 2019,
+        "Month": 4,
+        "NewCustomers": 42,
+        "AvgFirstYearValue": "24090.0695",
+        "TotalFirstYearValue": "1011782.9200"
+      },
+      {
+        "Year": 2019,
+        "Month": 5,
+        "NewCustomers": 35,
+        "AvgFirstYearValue": "22476.0617",
+        "TotalFirstYearValue": "786662.1600"
+      },
+      {
+        "Year": 2019,
+        "Month": 6,
+        "NewCustomers": 26,
+        "AvgFirstYearValue": "7827.4096",
+        "TotalFirstYearValue": "203512.6500"
+      },
+      {
+        "Year": 2019,
+        "Month": 7,
+        "NewCustomers": 22,
+        "AvgFirstYearValue": "18488.9613",
+        "TotalFirstYearValue": "406757.1500"
+      },
+      {
+        "Year": 2019,
+        "Month": 8,
+        "NewCustomers": 22,
+        "AvgFirstYearValue": "16241.3822",
+        "TotalFirstYearValue": "357310.4100"
+      },
+      {
+        "Year": 2019,
+        "Month": 9,
+        "NewCustomers": 22,
+        "AvgFirstYearValue": "32782.4536",
+        "TotalFirstYearValue": "721213.9800"
+      },
+      {
+        "Year": 2019,
+        "Month": 10,
+        "NewCustomers": 15,
+        "AvgFirstYearValue": "38906.4220",
+        "TotalFirstYearValue": "583596.3300"
+      },
+      {
+        "Year": 2019,
+        "Month": 11,
+        "NewCustomers": 7,
+        "AvgFirstYearValue": "36918.0085",
+        "TotalFirstYearValue": "258426.0600"
+      },
+      {
+        "Year": 2019,
+        "Month": 12,
+        "NewCustomers": 12,
+        "AvgFirstYearValue": "17093.0783",
+        "TotalFirstYearValue": "205116.9400"
+      },
+      {
+        "Year": 2020,
+        "Month": 1,
+        "NewCustomers": 15,
+        "AvgFirstYearValue": "30742.9226",
+        "TotalFirstYearValue": "461143.8400"
+      },
+      {
+        "Year": 2020,
+        "Month": 2,
+        "NewCustomers": 17,
+        "AvgFirstYearValue": "37707.3541",
+        "TotalFirstYearValue": "641025.0200"
+      },
+      {
+        "Year": 2020,
+        "Month": 3,
+        "NewCustomers": 13,
+        "AvgFirstYearValue": "16717.3138",
+        "TotalFirstYearValue": "217325.0800"
+      },
+      {
+        "Year": 2020,
+        "Month": 4,
+        "NewCustomers": 24,
+        "AvgFirstYearValue": "32798.0383",
+        "TotalFirstYearValue": "787152.9200"
+      },
+      {
+        "Year": 2020,
+        "Month": 5,
+        "NewCustomers": 28,
+        "AvgFirstYearValue": "24491.9171",
+        "TotalFirstYearValue": "685773.6800"
+      },
+      {
+        "Year": 2020,
+        "Month": 6,
+        "NewCustomers": 27,
+        "AvgFirstYearValue": "39715.1296",
+        "TotalFirstYearValue": "1072308.5000"
+      },
+      {
+        "Year": 2020,
+        "Month": 7,
+        "NewCustomers": 29,
+        "AvgFirstYearValue": "42650.7603",
+        "TotalFirstYearValue": "1236872.0500"
+      },
+      {
+        "Year": 2020,
+        "Month": 8,
+        "NewCustomers": 25,
+        "AvgFirstYearValue": "29512.9360",
+        "TotalFirstYearValue": "737823.4000"
+      },
+      {
+        "Year": 2020,
+        "Month": 9,
+        "NewCustomers": 33,
+        "AvgFirstYearValue": "19236.3975",
+        "TotalFirstYearValue": "634801.1200"
+      },
+      {
+        "Year": 2020,
+        "Month": 10,
+        "NewCustomers": 23,
+        "AvgFirstYearValue": "24392.0382",
+        "TotalFirstYearValue": "561016.8800"
+      },
+      {
+        "Year": 2020,
+        "Month": 11,
+        "NewCustomers": 21,
+        "AvgFirstYearValue": "26488.5119",
+        "TotalFirstYearValue": "556258.7500"
+      },
+      {
+        "Year": 2020,
+        "Month": 12,
+        "NewCustomers": 22,
+        "AvgFirstYearValue": "41612.2668",
+        "TotalFirstYearValue": "915469.8700"
+      },
+      {
+        "Year": 2021,
+        "Month": 1,
+        "NewCustomers": 18,
+        "AvgFirstYearValue": "14374.3344",
+        "TotalFirstYearValue": "258738.0200"
+      },
+      {
+        "Year": 2021,
+        "Month": 2,
+        "NewCustomers": 20,
+        "AvgFirstYearValue": "27875.6540",
+        "TotalFirstYearValue": "557513.0800"
+      },
+      {
+        "Year": 2021,
+        "Month": 3,
+        "NewCustomers": 15,
+        "AvgFirstYearValue": "30006.0326",
+        "TotalFirstYearValue": "450090.4900"
+      },
+      {
+        "Year": 2021,
+        "Month": 4,
+        "NewCustomers": 21,
+        "AvgFirstYearValue": "33693.1385",
+        "TotalFirstYearValue": "707555.9100"
+      },
+      {
+        "Year": 2021,
+        "Month": 5,
+        "NewCustomers": 23,
+        "AvgFirstYearValue": "30399.9682",
+        "TotalFirstYearValue": "699199.2700"
+      },
+      {
+        "Year": 2021,
+        "Month": 6,
+        "NewCustomers": 27,
+        "AvgFirstYearValue": "43921.0300",
+        "TotalFirstYearValue": "1185867.8100"
+      },
+      {
+        "Year": 2021,
+        "Month": 7,
+        "NewCustomers": 17,
+        "AvgFirstYearValue": "26642.7682",
+        "TotalFirstYearValue": "452927.0600"
+      },
+      {
+        "Year": 2021,
+        "Month": 8,
+        "NewCustomers": 26,
+        "AvgFirstYearValue": "21937.4915",
+        "TotalFirstYearValue": "570374.7800"
+      },
+      {
+        "Year": 2021,
+        "Month": 9,
+        "NewCustomers": 22,
+        "AvgFirstYearValue": "57850.9259",
+        "TotalFirstYearValue": "1272720.3700"
+      },
+      {
+        "Year": 2021,
+        "Month": 10,
+        "NewCustomers": 15,
+        "AvgFirstYearValue": "42704.2406",
+        "TotalFirstYearValue": "640563.6100"
+      },
+      {
+        "Year": 2021,
+        "Month": 11,
+        "NewCustomers": 17,
+        "AvgFirstYearValue": "23442.0076",
+        "TotalFirstYearValue": "398514.1300"
+      },
+      {
+        "Year": 2021,
+        "Month": 12,
+        "NewCustomers": 24,
+        "AvgFirstYearValue": "34679.5029",
+        "TotalFirstYearValue": "832308.0700"
+      },
+      {
+        "Year": 2022,
+        "Month": 1,
+        "NewCustomers": 17,
+        "AvgFirstYearValue": "22518.0200",
+        "TotalFirstYearValue": "382806.3400"
+      },
+      {
+        "Year": 2022,
+        "Month": 2,
+        "NewCustomers": 15,
+        "AvgFirstYearValue": "29122.3866",
+        "TotalFirstYearValue": "436835.8000"
+      },
+      {
+        "Year": 2022,
+        "Month": 3,
+        "NewCustomers": 17,
+        "AvgFirstYearValue": "33473.0394",
+        "TotalFirstYearValue": "569041.6700"
+      },
+      {
+        "Year": 2022,
+        "Month": 4,
+        "NewCustomers": 18,
+        "AvgFirstYearValue": "93501.2338",
+        "TotalFirstYearValue": "1683022.2100"
+      },
+      {
+        "Year": 2022,
+        "Month": 5,
+        "NewCustomers": 15,
+        "AvgFirstYearValue": "56543.8246",
+        "TotalFirstYearValue": "848157.3700"
+      },
+      {
+        "Year": 2022,
+        "Month": 6,
+        "NewCustomers": 11,
+        "AvgFirstYearValue": "29017.7372",
+        "TotalFirstYearValue": "319195.1100"
+      },
+      {
+        "Year": 2022,
+        "Month": 7,
+        "NewCustomers": 14,
+        "AvgFirstYearValue": "25565.1085",
+        "TotalFirstYearValue": "357911.5200"
+      },
+      {
+        "Year": 2022,
+        "Month": 8,
+        "NewCustomers": 18,
+        "AvgFirstYearValue": "37514.6527",
+        "TotalFirstYearValue": "675263.7500"
+      },
+      {
+        "Year": 2022,
+        "Month": 9,
+        "NewCustomers": 17,
+        "AvgFirstYearValue": "40146.5488",
+        "TotalFirstYearValue": "682491.3300"
+      },
+      {
+        "Year": 2022,
+        "Month": 10,
+        "NewCustomers": 8,
+        "AvgFirstYearValue": "28218.3850",
+        "TotalFirstYearValue": "225747.0800"
+      },
+      {
+        "Year": 2022,
+        "Month": 11,
+        "NewCustomers": 12,
+        "AvgFirstYearValue": "75043.9400",
+        "TotalFirstYearValue": "900527.2800"
+      },
+      {
+        "Year": 2022,
+        "Month": 12,
+        "NewCustomers": 12,
+        "AvgFirstYearValue": "48361.3266",
+        "TotalFirstYearValue": "580335.9200"
+      },
+      {
+        "Year": 2023,
+        "Month": 1,
+        "NewCustomers": 11,
+        "AvgFirstYearValue": "16648.5209",
+        "TotalFirstYearValue": "183133.7300"
+      },
+      {
+        "Year": 2023,
+        "Month": 2,
+        "NewCustomers": 6,
+        "AvgFirstYearValue": "32151.2816",
+        "TotalFirstYearValue": "192907.6900"
+      },
+      {
+        "Year": 2023,
+        "Month": 3,
+        "NewCustomers": 18,
+        "AvgFirstYearValue": "35799.9094",
+        "TotalFirstYearValue": "644398.3700"
+      },
+      {
+        "Year": 2023,
+        "Month": 4,
+        "NewCustomers": 8,
+        "AvgFirstYearValue": "44404.8087",
+        "TotalFirstYearValue": "355238.4700"
+      },
+      {
+        "Year": 2023,
+        "Month": 5,
+        "NewCustomers": 7,
+        "AvgFirstYearValue": "84728.8428",
+        "TotalFirstYearValue": "593101.9000"
+      },
+      {
+        "Year": 2023,
+        "Month": 6,
+        "NewCustomers": 14,
+        "AvgFirstYearValue": "25115.9892",
+        "TotalFirstYearValue": "351623.8500"
+      },
+      {
+        "Year": 2023,
+        "Month": 7,
+        "NewCustomers": 20,
+        "AvgFirstYearValue": "31789.8215",
+        "TotalFirstYearValue": "635796.4300"
+      },
+      {
+        "Year": 2023,
+        "Month": 8,
+        "NewCustomers": 10,
+        "AvgFirstYearValue": "20511.8970",
+        "TotalFirstYearValue": "205118.9700"
+      },
+      {
+        "Year": 2023,
+        "Month": 9,
+        "NewCustomers": 16,
+        "AvgFirstYearValue": "18210.6318",
+        "TotalFirstYearValue": "291370.1100"
+      },
+      {
+        "Year": 2023,
+        "Month": 10,
+        "NewCustomers": 14,
+        "AvgFirstYearValue": "29789.3392",
+        "TotalFirstYearValue": "417050.7500"
+      },
+      {
+        "Year": 2023,
+        "Month": 11,
+        "NewCustomers": 12,
+        "AvgFirstYearValue": "20698.2925",
+        "TotalFirstYearValue": "248379.5100"
+      },
+      {
+        "Year": 2023,
+        "Month": 12,
+        "NewCustomers": 10,
+        "AvgFirstYearValue": "22790.9240",
+        "TotalFirstYearValue": "227909.2400"
+      }
+    ],
+    "lifetime_value": [
+      {
+        "CohortYear": 2019,
+        "Customers": 685,
+        "AvgLTV": "151474.9378",
+        "MinLTV": "0.0000",
+        "MaxLTV": "2534403.8400",
+        "TotalCohortValue": "103760332.4400",
+        "AvgTransactions": 114,
+        "AvgLifetimeMonths": 35,
+        "AvgMonthlyValue": "3560.6275"
+      },
+      {
+        "CohortYear": 2020,
+        "Customers": 277,
+        "AvgLTV": "84033.3473",
+        "MinLTV": "79.9400",
+        "MaxLTV": "1613502.0800",
+        "TotalCohortValue": "23277237.2100",
+        "AvgTransactions": 59,
+        "AvgLifetimeMonths": 21,
+        "AvgMonthlyValue": "2862.4655"
+      },
+      {
+        "CohortYear": 2021,
+        "Customers": 245,
+        "AvgLTV": "66825.1326",
+        "MinLTV": "-27.9900",
+        "MaxLTV": "754927.4900",
+        "TotalCohortValue": "16372157.5100",
+        "AvgTransactions": 40,
+        "AvgLifetimeMonths": 14,
+        "AvgMonthlyValue": "3941.8683"
+      },
+      {
+        "CohortYear": 2022,
+        "Customers": 174,
+        "AvgLTV": "60094.7879",
+        "MinLTV": "0.0000",
+        "MaxLTV": "895527.5000",
+        "TotalCohortValue": "10456493.1100",
+        "AvgTransactions": 32,
+        "AvgLifetimeMonths": 9,
+        "AvgMonthlyValue": "4331.6613"
+      },
+      {
+        "CohortYear": 2023,
+        "Customers": 146,
+        "AvgLTV": "19758.1331",
+        "MinLTV": "-1000.0000",
+        "MaxLTV": "227942.4700",
+        "TotalCohortValue": "2884687.4400",
+        "AvgTransactions": 11,
+        "AvgLifetimeMonths": 4,
+        "AvgMonthlyValue": "4005.1738"
+      }
+    ],
+    "segment_migration": [
+      {
+        "Year": 2019,
+        "Segment": "Platinum",
+        "CustomerCount": 126,
+        "SegmentRevenue": "18272569.3200",
+        "AvgCustomerRevenue": "145020.3914",
+        "AvgTransactions": 100
+      },
+      {
+        "Year": 2019,
+        "Segment": "Gold",
+        "CustomerCount": 90,
+        "SegmentRevenue": "3212150.0300",
+        "AvgCustomerRevenue": "35690.5558",
+        "AvgTransactions": 40
+      },
+      {
+        "Year": 2019,
+        "Segment": "Silver",
+        "CustomerCount": 114,
+        "SegmentRevenue": "1867892.7200",
+        "AvgCustomerRevenue": "16385.0238",
+        "AvgTransactions": 24
+      },
+      {
+        "Year": 2019,
+        "Segment": "Bronze",
+        "CustomerCount": 77,
+        "SegmentRevenue": "566388.4900",
+        "AvgCustomerRevenue": "7355.6946",
+        "AvgTransactions": 13
+      },
+      {
+        "Year": 2019,
+        "Segment": "Standard",
+        "CustomerCount": 306,
+        "SegmentRevenue": "437398.7000",
+        "AvgCustomerRevenue": "1429.4075",
+        "AvgTransactions": 4
+      },
+      {
+        "Year": 2020,
+        "Segment": "Platinum",
+        "CustomerCount": 143,
+        "SegmentRevenue": "18934072.4200",
+        "AvgCustomerRevenue": "132406.1008",
+        "AvgTransactions": 93
+      },
+      {
+        "Year": 2020,
+        "Segment": "Gold",
+        "CustomerCount": 97,
+        "SegmentRevenue": "3552162.4500",
+        "AvgCustomerRevenue": "36620.2314",
+        "AvgTransactions": 42
+      },
+      {
+        "Year": 2020,
+        "Segment": "Silver",
+        "CustomerCount": 132,
+        "SegmentRevenue": "2110732.5000",
+        "AvgCustomerRevenue": "15990.3977",
+        "AvgTransactions": 22
+      },
+      {
+        "Year": 2020,
+        "Segment": "Bronze",
+        "CustomerCount": 91,
+        "SegmentRevenue": "664391.4200",
+        "AvgCustomerRevenue": "7301.0046",
+        "AvgTransactions": 13
+      },
+      {
+        "Year": 2020,
+        "Segment": "Standard",
+        "CustomerCount": 338,
+        "SegmentRevenue": "444397.0000",
+        "AvgCustomerRevenue": "1314.7840",
+        "AvgTransactions": 4
+      },
+      {
+        "Year": 2021,
+        "Segment": "Platinum",
+        "CustomerCount": 218,
+        "SegmentRevenue": "29977560.0800",
+        "AvgCustomerRevenue": "137511.7434",
+        "AvgTransactions": 78
+      },
+      {
+        "Year": 2021,
+        "Segment": "Gold",
+        "CustomerCount": 126,
+        "SegmentRevenue": "4507942.2800",
+        "AvgCustomerRevenue": "35777.3196",
+        "AvgTransactions": 37
+      },
+      {
+        "Year": 2021,
+        "Segment": "Silver",
+        "CustomerCount": 131,
+        "SegmentRevenue": "2186723.5600",
+        "AvgCustomerRevenue": "16692.5462",
+        "AvgTransactions": 18
+      },
+      {
+        "Year": 2021,
+        "Segment": "Bronze",
+        "CustomerCount": 83,
+        "SegmentRevenue": "583982.1900",
+        "AvgCustomerRevenue": "7035.9300",
+        "AvgTransactions": 8
+      },
+      {
+        "Year": 2021,
+        "Segment": "Standard",
+        "CustomerCount": 290,
+        "SegmentRevenue": "457524.8100",
+        "AvgCustomerRevenue": "1577.6717",
+        "AvgTransactions": 3
+      },
+      {
+        "Year": 2022,
+        "Segment": "Platinum",
+        "CustomerCount": 205,
+        "SegmentRevenue": "27665850.1300",
+        "AvgCustomerRevenue": "134955.3664",
+        "AvgTransactions": 68
+      },
+      {
+        "Year": 2022,
+        "Segment": "Gold",
+        "CustomerCount": 123,
+        "SegmentRevenue": "4516638.4100",
+        "AvgCustomerRevenue": "36720.6374",
+        "AvgTransactions": 35
+      },
+      {
+        "Year": 2022,
+        "Segment": "Silver",
+        "CustomerCount": 151,
+        "SegmentRevenue": "2488090.8700",
+        "AvgCustomerRevenue": "16477.4229",
+        "AvgTransactions": 17
+      },
+      {
+        "Year": 2022,
+        "Segment": "Bronze",
+        "CustomerCount": 101,
+        "SegmentRevenue": "728707.8900",
+        "AvgCustomerRevenue": "7214.9296",
+        "AvgTransactions": 10
+      },
+      {
+        "Year": 2022,
+        "Segment": "Standard",
+        "CustomerCount": 269,
+        "SegmentRevenue": "399790.1200",
+        "AvgCustomerRevenue": "1486.2086",
+        "AvgTransactions": 3
+      },
+      {
+        "Year": 2023,
+        "Segment": "Platinum",
+        "CustomerCount": 199,
+        "SegmentRevenue": "26954082.5100",
+        "AvgCustomerRevenue": "135447.6508",
+        "AvgTransactions": 61
+      },
+      {
+        "Year": 2023,
+        "Segment": "Gold",
+        "CustomerCount": 122,
+        "SegmentRevenue": "4322925.4600",
+        "AvgCustomerRevenue": "35433.8152",
+        "AvgTransactions": 32
+      },
+      {
+        "Year": 2023,
+        "Segment": "Silver",
+        "CustomerCount": 108,
+        "SegmentRevenue": "1859417.4600",
+        "AvgCustomerRevenue": "17216.8283",
+        "AvgTransactions": 20
+      },
+      {
+        "Year": 2023,
+        "Segment": "Bronze",
+        "CustomerCount": 78,
+        "SegmentRevenue": "590910.9200",
+        "AvgCustomerRevenue": "7575.7810",
+        "AvgTransactions": 9
+      },
+      {
+        "Year": 2023,
+        "Segment": "Standard",
+        "CustomerCount": 241,
+        "SegmentRevenue": "384461.2500",
+        "AvgCustomerRevenue": "1595.2748",
+        "AvgTransactions": 3
+      }
+    ]
+  },
+  "category_trends": {
+    "category_growth": {
+      "category_performance": [
+        {
+          "Year": 2019,
+          "Category": "CIGARETTE",
+          "Transactions": 11391,
+          "UnitsSold": 194031.0,
+          "Revenue": 10315041.420003025,
+          "GrossProfit": 149300.7898999649,
+          "AvgPrice": "51.1866"
+        },
+        {
+          "Year": 2019,
+          "Category": "CIGARS",
+          "Transactions": 12991,
+          "UnitsSold": 303610.0,
+          "Revenue": 6321446.660014327,
+          "GrossProfit": 74537.82122598068,
+          "AvgPrice": "21.0452"
+        },
+        {
+          "Year": 2019,
+          "Category": "Uncategorized",
+          "Transactions": 10098,
+          "UnitsSold": 293652.5,
+          "Revenue": 2431362.027600213,
+          "GrossProfit": 214410.49999999526,
+          "AvgPrice": "10.6580"
+        },
+        {
+          "Year": 2019,
+          "Category": "DRINKS",
+          "Transactions": 5496,
+          "UnitsSold": 43913.0,
+          "Revenue": 824393.7699998962,
+          "GrossProfit": 75566.77450000051,
+          "AvgPrice": "20.7228"
+        },
+        {
+          "Year": 2019,
+          "Category": "ECIG - PODS",
+          "Transactions": 1231,
+          "UnitsSold": 57371.0,
+          "Revenue": 555945.3100000005,
+          "GrossProfit": 19279.6099999999,
+          "AvgPrice": "10.7277"
+        },
+        {
+          "Year": 2019,
+          "Category": "VITAMINS",
+          "Transactions": 2102,
+          "UnitsSold": 34812.0,
+          "Revenue": 515915.9909999803,
+          "GrossProfit": 25077.4147000002,
+          "AvgPrice": "19.3231"
+        },
+        {
+          "Year": 2019,
+          "Category": "CIGAR GA",
+          "Transactions": 6505,
+          "UnitsSold": 24820.0,
+          "Revenue": 501944.95999991876,
+          "GrossProfit": 97900.09000000426,
+          "AvgPrice": "20.0270"
+        },
+        {
+          "Year": 2019,
+          "Category": "T7 SMOKELESS GA",
+          "Transactions": 3848,
+          "UnitsSold": 18203.0,
+          "Revenue": 375618.12999998947,
+          "GrossProfit": 13569.521300000006,
+          "AvgPrice": "23.8691"
+        },
+        {
+          "Year": 2019,
+          "Category": "BLUNT WRAP",
+          "Transactions": 4915,
+          "UnitsSold": 33964.0,
+          "Revenue": 259857.31999999454,
+          "GrossProfit": 29830.38530000178,
+          "AvgPrice": "8.3729"
+        },
+        {
+          "Year": 2019,
+          "Category": "CANDYS",
+          "Transactions": 3399,
+          "UnitsSold": 23209.0,
+          "Revenue": 235229.8999999738,
+          "GrossProfit": 29111.591900000025,
+          "AvgPrice": "16.1932"
+        },
+        {
+          "Year": 2019,
+          "Category": "MEDICINE",
+          "Transactions": 2924,
+          "UnitsSold": 16132.0,
+          "Revenue": 202382.23999999496,
+          "GrossProfit": 20215.087100000317,
+          "AvgPrice": "13.4423"
+        },
+        {
+          "Year": 2019,
+          "Category": "NOVELTY ITEMS",
+          "Transactions": 2134,
+          "UnitsSold": 18653.0,
+          "Revenue": 179850.45000000086,
+          "GrossProfit": 26004.47970000006,
+          "AvgPrice": "9.4663"
+        },
+        {
+          "Year": 2019,
+          "Category": "LT-TAX PAID",
+          "Transactions": 2702,
+          "UnitsSold": 15185.0,
+          "Revenue": 174648.82999999984,
+          "GrossProfit": 23100.46470000035,
+          "AvgPrice": "26.2263"
+        },
+        {
+          "Year": 2019,
+          "Category": "SHOPPING BAGS",
+          "Transactions": 2610,
+          "UnitsSold": 17265.0,
+          "Revenue": 144766.18000000113,
+          "GrossProfit": 44348.27000000042,
+          "AvgPrice": "8.4568"
+        },
+        {
+          "Year": 2019,
+          "Category": "LIGHTERS",
+          "Transactions": 2294,
+          "UnitsSold": 8076.0,
+          "Revenue": 143196.40000000055,
+          "GrossProfit": 19677.059600000128,
+          "AvgPrice": "23.7278"
+        },
+        {
+          "Year": 2019,
+          "Category": "CIG ROLLING PAPER",
+          "Transactions": 2732,
+          "UnitsSold": 4692.0,
+          "Revenue": 141663.5100000039,
+          "GrossProfit": 19130.981500000235,
+          "AvgPrice": "31.8771"
+        },
+        {
+          "Year": 2019,
+          "Category": "PHONE CARDS",
+          "Transactions": 1056,
+          "UnitsSold": 27665.0,
+          "Revenue": 120527.61999999998,
+          "GrossProfit": 8756.002200000037,
+          "AvgPrice": "4.5117"
+        },
+        {
+          "Year": 2019,
+          "Category": "AUTOMOTIVE",
+          "Transactions": 2053,
+          "UnitsSold": 15897.0,
+          "Revenue": 107305.29360000239,
+          "GrossProfit": 17596.002600000073,
+          "AvgPrice": "10.7466"
+        },
+        {
+          "Year": 2019,
+          "Category": "LIT CIGARS 003251",
+          "Transactions": 1090,
+          "UnitsSold": 2591.0,
+          "Revenue": 104193.91000000217,
+          "GrossProfit": 6245.389999999913,
+          "AvgPrice": "57.2555"
+        },
+        {
+          "Year": 2019,
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 744,
+          "UnitsSold": 3198.0,
+          "Revenue": 103664.06000000119,
+          "GrossProfit": 9675.461999999936,
+          "AvgPrice": "37.5604"
+        },
+        {
+          "Year": 2019,
+          "Category": "WATER",
+          "Transactions": 2371,
+          "UnitsSold": 12636.0,
+          "Revenue": 81303.14000000084,
+          "GrossProfit": 14211.890000000007,
+          "AvgPrice": "8.7592"
+        },
+        {
+          "Year": 2019,
+          "Category": "FOOD",
+          "Transactions": 2310,
+          "UnitsSold": 15554.0,
+          "Revenue": 72571.22999999998,
+          "GrossProfit": 11220.477299999908,
+          "AvgPrice": "8.8932"
+        },
+        {
+          "Year": 2019,
+          "Category": "CONDOMS",
+          "Transactions": 1877,
+          "UnitsSold": 6109.0,
+          "Revenue": 57126.27000000011,
+          "GrossProfit": 7589.709999999968,
+          "AvgPrice": "9.6580"
+        },
+        {
+          "Year": 2019,
+          "Category": "AIR FRESHENER",
+          "Transactions": 1156,
+          "UnitsSold": 23438.0,
+          "Revenue": 53647.440000000126,
+          "GrossProfit": 7547.030000000001,
+          "AvgPrice": "3.3546"
+        },
+        {
+          "Year": 2019,
+          "Category": "STATIONARY",
+          "Transactions": 948,
+          "UnitsSold": 3763.0,
+          "Revenue": 53334.19999999982,
+          "GrossProfit": 14205.025699999955,
+          "AvgPrice": "21.6087"
+        },
+        {
+          "Year": 2019,
+          "Category": "HOUSEHOLD GOODS",
+          "Transactions": 2068,
+          "UnitsSold": 9493.0,
+          "Revenue": 43163.20990000026,
+          "GrossProfit": 10250.916299999968,
+          "AvgPrice": "9.7575"
+        },
+        {
+          "Year": 2019,
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 379,
+          "UnitsSold": 1575.0,
+          "Revenue": 35006.84000000001,
+          "GrossProfit": 6011.63999999997,
+          "AvgPrice": "25.6423"
+        },
+        {
+          "Year": 2019,
+          "Category": "GUMS/CHICLETS",
+          "Transactions": 1075,
+          "UnitsSold": 3142.0,
+          "Revenue": 28347.860000001307,
+          "GrossProfit": 4009.8375000001233,
+          "AvgPrice": "9.0502"
+        },
+        {
+          "Year": 2019,
+          "Category": "CBD/HEMP",
+          "Transactions": 117,
+          "UnitsSold": 481.0,
+          "Revenue": 25872.950000000055,
+          "GrossProfit": 3143.549999999991,
+          "AvgPrice": "53.0501"
+        },
+        {
+          "Year": 2019,
+          "Category": "MISC",
+          "Transactions": 1006,
+          "UnitsSold": 6610.0,
+          "Revenue": 24297.11000000015,
+          "GrossProfit": -22297.827599999808,
+          "AvgPrice": "17.2418"
+        },
+        {
+          "Year": 2019,
+          "Category": "GLOVES & T SHIRTS",
+          "Transactions": 713,
+          "UnitsSold": 9601.0,
+          "Revenue": 23452.52,
+          "GrossProfit": 3140.0034999999953,
+          "AvgPrice": "2.9566"
+        },
+        {
+          "Year": 2019,
+          "Category": "COOKIES",
+          "Transactions": 995,
+          "UnitsSold": 3552.0,
+          "Revenue": 16320.539999999864,
+          "GrossProfit": 3411.5862999999617,
+          "AvgPrice": "5.4020"
+        },
+        {
+          "Year": 2019,
+          "Category": "KITCHEN & TOILET",
+          "Transactions": 919,
+          "UnitsSold": 4648.0,
+          "Revenue": 15503.439999999877,
+          "GrossProfit": 3675.6499999999705,
+          "AvgPrice": "7.5209"
+        },
+        {
+          "Year": 2019,
+          "Category": "BATTERY",
+          "Transactions": 544,
+          "UnitsSold": 6064.0,
+          "Revenue": 14509.459999999946,
+          "GrossProfit": 4042.0040999999947,
+          "AvgPrice": "2.5291"
+        },
+        {
+          "Year": 2019,
+          "Category": "COSMETICS & BEAUTY",
+          "Transactions": 1045,
+          "UnitsSold": 7332.0,
+          "Revenue": 13249.119999999923,
+          "GrossProfit": 3588.4060999999824,
+          "AvgPrice": "2.3949"
+        },
+        {
+          "Year": 2019,
+          "Category": "CLEANING PRODUCTS",
+          "Transactions": 806,
+          "UnitsSold": 6646.0,
+          "Revenue": 11075.59939999992,
+          "GrossProfit": 3309.234800000003,
+          "AvgPrice": "2.5159"
+        },
+        {
+          "Year": 2019,
+          "Category": "INCENSE",
+          "Transactions": 323,
+          "UnitsSold": 2004.0,
+          "Revenue": 10429.54999999997,
+          "GrossProfit": 3028.939999999993,
+          "AvgPrice": "11.0031"
+        },
+        {
+          "Year": 2019,
+          "Category": "HARDWARE",
+          "Transactions": 589,
+          "UnitsSold": 3781.0,
+          "Revenue": 6531.6299999999555,
+          "GrossProfit": 2154.5152000000026,
+          "AvgPrice": "1.8422"
+        },
+        {
+          "Year": 2019,
+          "Category": "PLAYING CARDS",
+          "Transactions": 180,
+          "UnitsSold": 299.0,
+          "Revenue": 4121.6199999999835,
+          "GrossProfit": 472.3600000000003,
+          "AvgPrice": "13.2184"
+        },
+        {
+          "Year": 2019,
+          "Category": "CELLUAR ACCESSORIES",
+          "Transactions": 125,
+          "UnitsSold": 143.0,
+          "Revenue": 3560.799999999992,
+          "GrossProfit": 1057.5500000000004,
+          "AvgPrice": "26.3583"
+        },
+        {
+          "Year": 2019,
+          "Category": "KIDS STUFF",
+          "Transactions": 156,
+          "UnitsSold": 478.0,
+          "Revenue": 1898.1300000000017,
+          "GrossProfit": 405.42,
+          "AvgPrice": "4.7388"
+        },
+        {
+          "Year": 2019,
+          "Category": "TOB 003211",
+          "Transactions": 49,
+          "UnitsSold": 82.0,
+          "Revenue": 804.4300000000004,
+          "GrossProfit": 121.98000000000009,
+          "AvgPrice": "9.8566"
+        },
+        {
+          "Year": 2019,
+          "Category": "CANDLES",
+          "Transactions": 39,
+          "UnitsSold": 69.0,
+          "Revenue": 412.83000000000004,
+          "GrossProfit": 102.33,
+          "AvgPrice": "5.9776"
+        },
+        {
+          "Year": 2019,
+          "Category": "KRATOM",
+          "Transactions": 10,
+          "UnitsSold": 85.0,
+          "Revenue": 336.7,
+          "GrossProfit": 70.95000000000003,
+          "AvgPrice": "4.0640"
+        },
+        {
+          "Year": 2019,
+          "Category": "TOYS",
+          "Transactions": 40,
+          "UnitsSold": 45.0,
+          "Revenue": 224.1000000000001,
+          "GrossProfit": 66.60900000000001,
+          "AvgPrice": "4.9812"
+        },
+        {
+          "Year": 2019,
+          "Category": "CLEAM",
+          "Transactions": 48,
+          "UnitsSold": 188.0,
+          "Revenue": 184.92999999999992,
+          "GrossProfit": 15.729999999999984,
+          "AvgPrice": "0.9831"
+        },
+        {
+          "Year": 2019,
+          "Category": "PERFUMES",
+          "Transactions": 9,
+          "UnitsSold": 41.0,
+          "Revenue": 84.77,
+          "GrossProfit": 28.395000000000017,
+          "AvgPrice": "2.3811"
+        },
+        {
+          "Year": 2019,
+          "Category": "LT-NON-GA/ROL UR OWN",
+          "Transactions": 4,
+          "UnitsSold": 11.0,
+          "Revenue": 54.89,
+          "GrossProfit": 19.14,
+          "AvgPrice": "4.9900"
+        },
+        {
+          "Year": 2020,
+          "Category": "CIGARETTE",
+          "Transactions": 11418,
+          "UnitsSold": 196694.0,
+          "Revenue": 10942277.540004516,
+          "GrossProfit": 238430.64000000418,
+          "AvgPrice": "54.1710"
+        },
+        {
+          "Year": 2020,
+          "Category": "CIGARS",
+          "Transactions": 15590,
+          "UnitsSold": 289367.0,
+          "Revenue": 6204106.000021135,
+          "GrossProfit": 430582.15328219684,
+          "AvgPrice": "21.6613"
+        },
+        {
+          "Year": 2020,
+          "Category": "Uncategorized",
+          "Transactions": 9954,
+          "UnitsSold": 165783.3323,
+          "Revenue": 1417627.0540767708,
+          "GrossProfit": 174082.22959200176,
+          "AvgPrice": "16.4415"
+        },
+        {
+          "Year": 2020,
+          "Category": "ECIG - PODS",
+          "Transactions": 1513,
+          "UnitsSold": 144023.0,
+          "Revenue": 1395705.8799999934,
+          "GrossProfit": 41551.63000000036,
+          "AvgPrice": "10.4551"
+        },
+        {
+          "Year": 2020,
+          "Category": "DRINKS",
+          "Transactions": 6304,
+          "UnitsSold": 48498.0,
+          "Revenue": 1004724.969999855,
+          "GrossProfit": 101273.8280000008,
+          "AvgPrice": "21.8905"
+        },
+        {
+          "Year": 2020,
+          "Category": "CIGAR GA",
+          "Transactions": 8633,
+          "UnitsSold": 35765.0,
+          "Revenue": 715979.2899998267,
+          "GrossProfit": 163872.93999999916,
+          "AvgPrice": "19.4184"
+        },
+        {
+          "Year": 2020,
+          "Category": "T7 SMOKELESS GA",
+          "Transactions": 3845,
+          "UnitsSold": 19403.0,
+          "Revenue": 432367.14999998844,
+          "GrossProfit": 13759.82309999984,
+          "AvgPrice": "26.0966"
+        },
+        {
+          "Year": 2020,
+          "Category": "CANDYS",
+          "Transactions": 4592,
+          "UnitsSold": 51027.0,
+          "Revenue": 342472.19999995007,
+          "GrossProfit": 39159.24449999952,
+          "AvgPrice": "15.3469"
+        },
+        {
+          "Year": 2020,
+          "Category": "BLUNT WRAP",
+          "Transactions": 6075,
+          "UnitsSold": 40250.0,
+          "Revenue": 318481.0599999645,
+          "GrossProfit": 21549.548800002256,
+          "AvgPrice": "9.1621"
+        },
+        {
+          "Year": 2020,
+          "Category": "LT-TAX PAID",
+          "Transactions": 4477,
+          "UnitsSold": 22716.0,
+          "Revenue": 290995.37999998766,
+          "GrossProfit": 38603.11640000188,
+          "AvgPrice": "23.9827"
+        },
+        {
+          "Year": 2020,
+          "Category": "LIGHTERS",
+          "Transactions": 2699,
+          "UnitsSold": 14648.0,
+          "Revenue": 280103.1499999899,
+          "GrossProfit": 25817.69070000109,
+          "AvgPrice": "25.3146"
+        },
+        {
+          "Year": 2020,
+          "Category": "HOUSEHOLD GOODS",
+          "Transactions": 3775,
+          "UnitsSold": 30498.0,
+          "Revenue": 241790.49999999345,
+          "GrossProfit": 50236.14529999997,
+          "AvgPrice": "12.6683"
+        },
+        {
+          "Year": 2020,
+          "Category": "CIG ROLLING PAPER",
+          "Transactions": 3709,
+          "UnitsSold": 7556.0,
+          "Revenue": 221419.98999999007,
+          "GrossProfit": 30314.77200000227,
+          "AvgPrice": "31.7088"
+        },
+        {
+          "Year": 2020,
+          "Category": "SHOPPING BAGS",
+          "Transactions": 2427,
+          "UnitsSold": 20656.0,
+          "Revenue": 173534.8000000015,
+          "GrossProfit": 51549.32999999989,
+          "AvgPrice": "8.5099"
+        },
+        {
+          "Year": 2020,
+          "Category": "MEDICINE",
+          "Transactions": 3662,
+          "UnitsSold": 13803.0,
+          "Revenue": 140544.8000000082,
+          "GrossProfit": 22670.19860000076,
+          "AvgPrice": "13.5462"
+        },
+        {
+          "Year": 2020,
+          "Category": "FOOD",
+          "Transactions": 3535,
+          "UnitsSold": 24320.0,
+          "Revenue": 133529.98620000685,
+          "GrossProfit": 22167.27299999988,
+          "AvgPrice": "10.0868"
+        },
+        {
+          "Year": 2020,
+          "Category": "NOVELTY ITEMS",
+          "Transactions": 2622,
+          "UnitsSold": 19713.0,
+          "Revenue": 131911.54000000353,
+          "GrossProfit": 30039.32560000035,
+          "AvgPrice": "11.0074"
+        },
+        {
+          "Year": 2020,
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 968,
+          "UnitsSold": 9455.0,
+          "Revenue": 129049.04000000014,
+          "GrossProfit": 653.7899999999543,
+          "AvgPrice": "32.9987"
+        },
+        {
+          "Year": 2020,
+          "Category": "AUTOMOTIVE",
+          "Transactions": 2267,
+          "UnitsSold": 17940.0,
+          "Revenue": 126409.15740000423,
+          "GrossProfit": 24890.007800000003,
+          "AvgPrice": "9.7398"
+        },
+        {
+          "Year": 2020,
+          "Category": "VITAMINS",
+          "Transactions": 2069,
+          "UnitsSold": 12258.0,
+          "Revenue": 112455.80750000801,
+          "GrossProfit": -5032.889000000242,
+          "AvgPrice": "17.9079"
+        },
+        {
+          "Year": 2020,
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 865,
+          "UnitsSold": 3300.0,
+          "Revenue": 106850.9500000013,
+          "GrossProfit": 6572.72800000002,
+          "AvgPrice": "33.0972"
+        },
+        {
+          "Year": 2020,
+          "Category": "PHONE CARDS",
+          "Transactions": 840,
+          "UnitsSold": 21881.0,
+          "Revenue": 106488.95,
+          "GrossProfit": 8205.260000000024,
+          "AvgPrice": "4.9537"
+        },
+        {
+          "Year": 2020,
+          "Category": "WATER",
+          "Transactions": 2544,
+          "UnitsSold": 12771.0,
+          "Revenue": 98114.40000000145,
+          "GrossProfit": 22954.95000000044,
+          "AvgPrice": "11.0275"
+        },
+        {
+          "Year": 2020,
+          "Category": "LIT CIGARS 003251",
+          "Transactions": 1095,
+          "UnitsSold": 1518.0,
+          "Revenue": 86068.32000000082,
+          "GrossProfit": 6912.639999999896,
+          "AvgPrice": "58.3026"
+        },
+        {
+          "Year": 2020,
+          "Category": "AIR FRESHENER",
+          "Transactions": 1352,
+          "UnitsSold": 33612.0,
+          "Revenue": 77891.97999999998,
+          "GrossProfit": 9235.900000000009,
+          "AvgPrice": "3.6160"
+        },
+        {
+          "Year": 2020,
+          "Category": "CONDOMS",
+          "Transactions": 1994,
+          "UnitsSold": 6286.0,
+          "Revenue": 61820.70000000017,
+          "GrossProfit": 7195.639999999855,
+          "AvgPrice": "10.0514"
+        },
+        {
+          "Year": 2020,
+          "Category": "STATIONARY",
+          "Transactions": 1148,
+          "UnitsSold": 3931.0,
+          "Revenue": 58425.049999999545,
+          "GrossProfit": 17326.058300000022,
+          "AvgPrice": "21.4652"
+        },
+        {
+          "Year": 2020,
+          "Category": "MISC",
+          "Transactions": 1351,
+          "UnitsSold": 3934.0,
+          "Revenue": 52579.78999999976,
+          "GrossProfit": 9912.796499999913,
+          "AvgPrice": "22.9307"
+        },
+        {
+          "Year": 2020,
+          "Category": "GLOVES & T SHIRTS",
+          "Transactions": 964,
+          "UnitsSold": 18242.0,
+          "Revenue": 51821.24959999998,
+          "GrossProfit": 13152.927400000044,
+          "AvgPrice": "3.1340"
+        },
+        {
+          "Year": 2020,
+          "Category": "COSMETICS & BEAUTY",
+          "Transactions": 1515,
+          "UnitsSold": 14951.0,
+          "Revenue": 38294.98750000029,
+          "GrossProfit": 8827.150899999946,
+          "AvgPrice": "2.6021"
+        },
+        {
+          "Year": 2020,
+          "Category": "CLEANING PRODUCTS",
+          "Transactions": 1533,
+          "UnitsSold": 10546.0,
+          "Revenue": 33242.650000000365,
+          "GrossProfit": 9564.15449999998,
+          "AvgPrice": "4.8357"
+        },
+        {
+          "Year": 2020,
+          "Category": "KITCHEN & TOILET",
+          "Transactions": 1544,
+          "UnitsSold": 15683.0,
+          "Revenue": 30825.498800000027,
+          "GrossProfit": 8589.458799999944,
+          "AvgPrice": "4.8387"
+        },
+        {
+          "Year": 2020,
+          "Category": "CELLUAR ACCESSORIES",
+          "Transactions": 652,
+          "UnitsSold": 1144.0,
+          "Revenue": 30438.41000000035,
+          "GrossProfit": 7367.929999999902,
+          "AvgPrice": "28.6813"
+        },
+        {
+          "Year": 2020,
+          "Category": "GUMS/CHICLETS",
+          "Transactions": 990,
+          "UnitsSold": 2738.0,
+          "Revenue": 24482.050000000836,
+          "GrossProfit": 2998.3199999999997,
+          "AvgPrice": "9.0013"
+        },
+        {
+          "Year": 2020,
+          "Category": "BATTERY",
+          "Transactions": 738,
+          "UnitsSold": 9165.0,
+          "Revenue": 23774.56999999995,
+          "GrossProfit": 5587.762499999986,
+          "AvgPrice": "3.0630"
+        },
+        {
+          "Year": 2020,
+          "Category": "COOKIES",
+          "Transactions": 1122,
+          "UnitsSold": 4262.0,
+          "Revenue": 18758.58000000008,
+          "GrossProfit": 3604.0233000000126,
+          "AvgPrice": "5.5076"
+        },
+        {
+          "Year": 2020,
+          "Category": "INCENSE",
+          "Transactions": 411,
+          "UnitsSold": 3314.0,
+          "Revenue": 17186.73999999997,
+          "GrossProfit": 4923.929999999981,
+          "AvgPrice": "11.4284"
+        },
+        {
+          "Year": 2020,
+          "Category": "CBD/HEMP",
+          "Transactions": 103,
+          "UnitsSold": 1361.0,
+          "Revenue": 11077.679999999984,
+          "GrossProfit": 3311.1600000000003,
+          "AvgPrice": "17.2370"
+        },
+        {
+          "Year": 2020,
+          "Category": "PLAYING CARDS",
+          "Transactions": 229,
+          "UnitsSold": 503.0,
+          "Revenue": 7665.399999999969,
+          "GrossProfit": 1079.0100000000018,
+          "AvgPrice": "14.4857"
+        },
+        {
+          "Year": 2020,
+          "Category": "HARDWARE",
+          "Transactions": 694,
+          "UnitsSold": 4006.0,
+          "Revenue": 7031.849999999954,
+          "GrossProfit": 2411.7959999999994,
+          "AvgPrice": "1.9074"
+        },
+        {
+          "Year": 2020,
+          "Category": "KIDS STUFF",
+          "Transactions": 364,
+          "UnitsSold": 1910.0,
+          "Revenue": 4969.73999999997,
+          "GrossProfit": 1393.5713000000035,
+          "AvgPrice": "3.9142"
+        },
+        {
+          "Year": 2020,
+          "Category": "CANDLES",
+          "Transactions": 64,
+          "UnitsSold": 113.0,
+          "Revenue": 722.1000000000004,
+          "GrossProfit": 169.29899999999998,
+          "AvgPrice": "6.3492"
+        },
+        {
+          "Year": 2020,
+          "Category": "TOB 003211",
+          "Transactions": 26,
+          "UnitsSold": 55.0,
+          "Revenue": 544.6500000000002,
+          "GrossProfit": 83.70000000000005,
+          "AvgPrice": "9.8364"
+        },
+        {
+          "Year": 2020,
+          "Category": "TOYS",
+          "Transactions": 80,
+          "UnitsSold": 95.0,
+          "Revenue": 473.20000000000033,
+          "GrossProfit": 140.71900000000002,
+          "AvgPrice": "4.9825"
+        },
+        {
+          "Year": 2020,
+          "Category": "CLEAM",
+          "Transactions": 81,
+          "UnitsSold": 303.0,
+          "Revenue": 339.5900000000002,
+          "GrossProfit": 52.089999999999996,
+          "AvgPrice": "1.1174"
+        },
+        {
+          "Year": 2020,
+          "Category": "KRATOM",
+          "Transactions": 10,
+          "UnitsSold": 19.0,
+          "Revenue": 63.75,
+          "GrossProfit": 15.30000000000001,
+          "AvgPrice": "3.2370"
+        },
+        {
+          "Year": 2020,
+          "Category": "TOB 003212",
+          "Transactions": 3,
+          "UnitsSold": 6.0,
+          "Revenue": 62.94,
+          "GrossProfit": 12.599999999999998,
+          "AvgPrice": "10.4900"
+        },
+        {
+          "Year": 2020,
+          "Category": "LT-NON-GA/ROL UR OWN",
+          "Transactions": 4,
+          "UnitsSold": 7.0,
+          "Revenue": 43.93000000000001,
+          "GrossProfit": 12.18,
+          "AvgPrice": "5.5900"
+        },
+        {
+          "Year": 2020,
+          "Category": "PERFUMES",
+          "Transactions": 3,
+          "UnitsSold": 9.0,
+          "Revenue": 26.910000000000004,
+          "GrossProfit": 14.535000000000002,
+          "AvgPrice": "2.9900"
+        },
+        {
+          "Year": 2020,
+          "Category": "CLEKIT",
+          "Transactions": 1,
+          "UnitsSold": 1.0,
+          "Revenue": 0.0,
+          "GrossProfit": -0.5,
+          "AvgPrice": "0.0000"
+        },
+        {
+          "Year": 2021,
+          "Category": "CIGARETTE",
+          "Transactions": 12637,
+          "UnitsSold": 237069.0,
+          "Revenue": 13875718.740006782,
+          "GrossProfit": 419003.52999993006,
+          "AvgPrice": "57.3405"
+        },
+        {
+          "Year": 2021,
+          "Category": "CIGARS",
+          "Transactions": 16624,
+          "UnitsSold": 375350.0,
+          "Revenue": 8523608.500024352,
+          "GrossProfit": 639270.5620029917,
+          "AvgPrice": "23.3930"
+        },
+        {
+          "Year": 2021,
+          "Category": "ECIG - PODS",
+          "Transactions": 2199,
+          "UnitsSold": 194600.0,
+          "Revenue": 1943443.6004000201,
+          "GrossProfit": 75869.44039999878,
+          "AvgPrice": "19.2097"
+        },
+        {
+          "Year": 2021,
+          "Category": "Uncategorized",
+          "Transactions": 10882,
+          "UnitsSold": 163157.0,
+          "Revenue": 1833675.5743997728,
+          "GrossProfit": 202584.36079999563,
+          "AvgPrice": "24.0041"
+        },
+        {
+          "Year": 2021,
+          "Category": "DRINKS",
+          "Transactions": 7842,
+          "UnitsSold": 72596.0,
+          "Revenue": 1535454.8699996916,
+          "GrossProfit": 156723.326200002,
+          "AvgPrice": "23.4778"
+        },
+        {
+          "Year": 2021,
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 4780,
+          "UnitsSold": 29543.0,
+          "Revenue": 1528104.129999996,
+          "GrossProfit": 173681.12700000042,
+          "AvgPrice": "55.5334"
+        },
+        {
+          "Year": 2021,
+          "Category": "CIGAR GA",
+          "Transactions": 9636,
+          "UnitsSold": 59412.0,
+          "Revenue": 1311564.5899997305,
+          "GrossProfit": 273154.7250000148,
+          "AvgPrice": "20.8611"
+        },
+        {
+          "Year": 2021,
+          "Category": "VITAMINS",
+          "Transactions": 3950,
+          "UnitsSold": 39518.0,
+          "Revenue": 824161.6799999524,
+          "GrossProfit": 27605.459300001738,
+          "AvgPrice": "40.6046"
+        },
+        {
+          "Year": 2021,
+          "Category": "LT-TAX PAID",
+          "Transactions": 5910,
+          "UnitsSold": 36290.0,
+          "Revenue": 786943.3599999052,
+          "GrossProfit": 82386.53600000194,
+          "AvgPrice": "27.0843"
+        },
+        {
+          "Year": 2021,
+          "Category": "T7 SMOKELESS GA",
+          "Transactions": 4583,
+          "UnitsSold": 23676.0,
+          "Revenue": 575276.9299999771,
+          "GrossProfit": 17816.353099999775,
+          "AvgPrice": "28.8611"
+        },
+        {
+          "Year": 2021,
+          "Category": "CANDYS",
+          "Transactions": 5854,
+          "UnitsSold": 109289.0,
+          "Revenue": 550017.0099998864,
+          "GrossProfit": 73608.26340000154,
+          "AvgPrice": "14.4188"
+        },
+        {
+          "Year": 2021,
+          "Category": "BLUNT WRAP",
+          "Transactions": 6784,
+          "UnitsSold": 50500.0,
+          "Revenue": 415578.1999999203,
+          "GrossProfit": 35586.06420000221,
+          "AvgPrice": "9.4742"
+        },
+        {
+          "Year": 2021,
+          "Category": "LIGHTERS",
+          "Transactions": 3749,
+          "UnitsSold": 23182.0,
+          "Revenue": 330714.8199999845,
+          "GrossProfit": 38236.35500000092,
+          "AvgPrice": "26.9820"
+        },
+        {
+          "Year": 2021,
+          "Category": "CIG ROLLING PAPER",
+          "Transactions": 4924,
+          "UnitsSold": 10720.0,
+          "Revenue": 328374.6799999673,
+          "GrossProfit": 51176.31899999833,
+          "AvgPrice": "33.3929"
+        },
+        {
+          "Year": 2021,
+          "Category": "JBR",
+          "Transactions": 1258,
+          "UnitsSold": 5987.0,
+          "Revenue": 283615.84,
+          "GrossProfit": 30621.240000000034,
+          "AvgPrice": "54.0901"
+        },
+        {
+          "Year": 2021,
+          "Category": "NOVELTY ITEMS",
+          "Transactions": 4116,
+          "UnitsSold": 31625.0,
+          "Revenue": 257046.84319999928,
+          "GrossProfit": 51784.244699999435,
+          "AvgPrice": "14.5065"
+        },
+        {
+          "Year": 2021,
+          "Category": "ECIG - DISP D8",
+          "Transactions": 878,
+          "UnitsSold": 3252.0,
+          "Revenue": 252794.48999999996,
+          "GrossProfit": 30604.93000000005,
+          "AvgPrice": "83.6387"
+        },
+        {
+          "Year": 2021,
+          "Category": "AUTOMOTIVE",
+          "Transactions": 3262,
+          "UnitsSold": 25642.5,
+          "Revenue": 245833.621499999,
+          "GrossProfit": 48720.74089999877,
+          "AvgPrice": "12.6374"
+        },
+        {
+          "Year": 2021,
+          "Category": "MEDICINE",
+          "Transactions": 5163,
+          "UnitsSold": 23233.0,
+          "Revenue": 243783.07999998133,
+          "GrossProfit": 43717.2047999998,
+          "AvgPrice": "13.5735"
+        },
+        {
+          "Year": 2021,
+          "Category": "SHOPPING BAGS",
+          "Transactions": 3320,
+          "UnitsSold": 24518.0,
+          "Revenue": 230526.9000000032,
+          "GrossProfit": 58033.88999999896,
+          "AvgPrice": "8.6857"
+        },
+        {
+          "Year": 2021,
+          "Category": "CBD/HEMP",
+          "Transactions": 1366,
+          "UnitsSold": 15980.0,
+          "Revenue": 201997.97999999957,
+          "GrossProfit": 35727.16000000009,
+          "AvgPrice": "21.8463"
+        },
+        {
+          "Year": 2021,
+          "Category": "FOOD",
+          "Transactions": 4338,
+          "UnitsSold": 36390.0,
+          "Revenue": 200120.1520999958,
+          "GrossProfit": 35785.03899999966,
+          "AvgPrice": "10.8202"
+        },
+        {
+          "Year": 2021,
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 1904,
+          "UnitsSold": 6894.0,
+          "Revenue": 156838.58000000045,
+          "GrossProfit": 10041.952000000096,
+          "AvgPrice": "22.6748"
+        },
+        {
+          "Year": 2021,
+          "Category": "WATER",
+          "Transactions": 3294,
+          "UnitsSold": 20996.0,
+          "Revenue": 154536.87000000066,
+          "GrossProfit": 28533.410000000673,
+          "AvgPrice": "12.1336"
+        },
+        {
+          "Year": 2021,
+          "Category": "LIT CIGARS 003251",
+          "Transactions": 1606,
+          "UnitsSold": 2492.0,
+          "Revenue": 142383.18000000247,
+          "GrossProfit": 10214.850000000188,
+          "AvgPrice": "58.3775"
+        },
+        {
+          "Year": 2021,
+          "Category": "HOUSEHOLD GOODS",
+          "Transactions": 4520,
+          "UnitsSold": 30734.0,
+          "Revenue": 130615.4900000041,
+          "GrossProfit": 35812.041999999994,
+          "AvgPrice": "10.7382"
+        },
+        {
+          "Year": 2021,
+          "Category": "AIR FRESHENER",
+          "Transactions": 1655,
+          "UnitsSold": 45825.0,
+          "Revenue": 105561.24000000031,
+          "GrossProfit": 15868.820000000014,
+          "AvgPrice": "3.8317"
+        },
+        {
+          "Year": 2021,
+          "Category": "PHONE CARDS",
+          "Transactions": 735,
+          "UnitsSold": 21131.0,
+          "Revenue": 104221.75000000001,
+          "GrossProfit": 8106.445200000009,
+          "AvgPrice": "5.0288"
+        },
+        {
+          "Year": 2021,
+          "Category": "GLOVES & T SHIRTS",
+          "Transactions": 1261,
+          "UnitsSold": 34055.0,
+          "Revenue": 93837.71600000028,
+          "GrossProfit": 18835.346600000106,
+          "AvgPrice": "3.5510"
+        },
+        {
+          "Year": 2021,
+          "Category": "CONDOMS",
+          "Transactions": 2462,
+          "UnitsSold": 8660.0,
+          "Revenue": 87624.77000000175,
+          "GrossProfit": 10080.14000000027,
+          "AvgPrice": "10.4188"
+        },
+        {
+          "Year": 2021,
+          "Category": "CELLUAR ACCESSORIES",
+          "Transactions": 1451,
+          "UnitsSold": 3106.0,
+          "Revenue": 73877.29000000053,
+          "GrossProfit": 18759.620000000043,
+          "AvgPrice": "28.5850"
+        },
+        {
+          "Year": 2021,
+          "Category": "STATIONARY",
+          "Transactions": 1471,
+          "UnitsSold": 4284.0,
+          "Revenue": 62861.46999999947,
+          "GrossProfit": 24435.324000000368,
+          "AvgPrice": "24.6586"
+        },
+        {
+          "Year": 2021,
+          "Category": "ECIG - PODS D8",
+          "Transactions": 382,
+          "UnitsSold": 2186.0,
+          "Revenue": 60075.47000000001,
+          "GrossProfit": 8346.279999999997,
+          "AvgPrice": "38.7587"
+        },
+        {
+          "Year": 2021,
+          "Category": "KITCHEN & TOILET",
+          "Transactions": 1748,
+          "UnitsSold": 27720.0,
+          "Revenue": 42321.54240000004,
+          "GrossProfit": 3900.5723999999545,
+          "AvgPrice": "6.5627"
+        },
+        {
+          "Year": 2021,
+          "Category": "COSMETICS & BEAUTY",
+          "Transactions": 2175,
+          "UnitsSold": 20383.0,
+          "Revenue": 36079.35500000056,
+          "GrossProfit": 9482.09749999998,
+          "AvgPrice": "3.0912"
+        },
+        {
+          "Year": 2021,
+          "Category": "BATTERY",
+          "Transactions": 971,
+          "UnitsSold": 12429.0,
+          "Revenue": 34475.71000000003,
+          "GrossProfit": 8758.944999999994,
+          "AvgPrice": "3.7420"
+        },
+        {
+          "Year": 2021,
+          "Category": "GUMS/CHICLETS",
+          "Transactions": 1039,
+          "UnitsSold": 3203.0,
+          "Revenue": 30551.120000001745,
+          "GrossProfit": 4645.989100000038,
+          "AvgPrice": "9.5615"
+        },
+        {
+          "Year": 2021,
+          "Category": "CLEANING PRODUCTS",
+          "Transactions": 1406,
+          "UnitsSold": 11984.0,
+          "Revenue": 27074.33000000015,
+          "GrossProfit": 5644.914399999957,
+          "AvgPrice": "3.8539"
+        },
+        {
+          "Year": 2021,
+          "Category": "COOKIES",
+          "Transactions": 1298,
+          "UnitsSold": 5959.0,
+          "Revenue": 25121.04000000054,
+          "GrossProfit": 4759.999500000027,
+          "AvgPrice": "5.7845"
+        },
+        {
+          "Year": 2021,
+          "Category": "INCENSE",
+          "Transactions": 491,
+          "UnitsSold": 3048.0,
+          "Revenue": 18381.87000000001,
+          "GrossProfit": 5594.1499999999605,
+          "AvgPrice": "14.0816"
+        },
+        {
+          "Year": 2021,
+          "Category": "HARDWARE",
+          "Transactions": 991,
+          "UnitsSold": 5976.0,
+          "Revenue": 13589.09999999983,
+          "GrossProfit": 4389.018099999992,
+          "AvgPrice": "2.4243"
+        },
+        {
+          "Year": 2021,
+          "Category": "MISC",
+          "Transactions": 1646,
+          "UnitsSold": 10279.0,
+          "Revenue": 12278.090000000066,
+          "GrossProfit": -30179.199500005237,
+          "AvgPrice": "32.2342"
+        },
+        {
+          "Year": 2021,
+          "Category": "NICOTINE POUCHES",
+          "Transactions": 143,
+          "UnitsSold": 534.0,
+          "Revenue": 9533.739999999969,
+          "GrossProfit": 1076.6799999999973,
+          "AvgPrice": "17.8180"
+        },
+        {
+          "Year": 2021,
+          "Category": "PLAYING CARDS",
+          "Transactions": 291,
+          "UnitsSold": 403.0,
+          "Revenue": 6234.389999999963,
+          "GrossProfit": 1020.9800000000023,
+          "AvgPrice": "15.7151"
+        },
+        {
+          "Year": 2021,
+          "Category": "KIDS STUFF",
+          "Transactions": 378,
+          "UnitsSold": 1456.0,
+          "Revenue": 4867.189999999966,
+          "GrossProfit": 1429.9057000000068,
+          "AvgPrice": "4.3065"
+        },
+        {
+          "Year": 2021,
+          "Category": "CANDLES",
+          "Transactions": 55,
+          "UnitsSold": 99.0,
+          "Revenue": 592.7100000000004,
+          "GrossProfit": 147.21000000000004,
+          "AvgPrice": "5.9878"
+        },
+        {
+          "Year": 2021,
+          "Category": "TOYS",
+          "Transactions": 86,
+          "UnitsSold": 99.0,
+          "Revenue": 542.8700000000006,
+          "GrossProfit": 167.6343999999998,
+          "AvgPrice": "5.5005"
+        },
+        {
+          "Year": 2021,
+          "Category": "KRATOM",
+          "Transactions": 26,
+          "UnitsSold": 152.0,
+          "Revenue": 445.13000000000005,
+          "GrossProfit": 57.530000000000044,
+          "AvgPrice": "2.9642"
+        },
+        {
+          "Year": 2021,
+          "Category": "CLEAM",
+          "Transactions": 88,
+          "UnitsSold": 309.0,
+          "Revenue": 400.89000000000016,
+          "GrossProfit": 90.64000000000001,
+          "AvgPrice": "1.2948"
+        },
+        {
+          "Year": 2021,
+          "Category": "TOB 003212",
+          "Transactions": 9,
+          "UnitsSold": 18.0,
+          "Revenue": 188.82000000000002,
+          "GrossProfit": 37.79999999999999,
+          "AvgPrice": "10.4900"
+        },
+        {
+          "Year": 2021,
+          "Category": "LT-NON-GA/ROL UR OWN",
+          "Transactions": 10,
+          "UnitsSold": 22.0,
+          "Revenue": 157.78,
+          "GrossProfit": 38.28,
+          "AvgPrice": "7.1328"
+        },
+        {
+          "Year": 2021,
+          "Category": "TOB 003211",
+          "Transactions": 1,
+          "UnitsSold": 4.0,
+          "Revenue": 59.96,
+          "GrossProfit": 9.96,
+          "AvgPrice": "14.9900"
+        },
+        {
+          "Year": 2021,
+          "Category": "PERFUMES",
+          "Transactions": 2,
+          "UnitsSold": 16.0,
+          "Revenue": 47.540000000000006,
+          "GrossProfit": 25.540000000000003,
+          "AvgPrice": "2.9750"
+        },
+        {
+          "Year": 2022,
+          "Category": "CIGARETTE",
+          "Transactions": 11142,
+          "UnitsSold": 177628.0,
+          "Revenue": 11252281.780001132,
+          "GrossProfit": 443132.300000062,
+          "AvgPrice": "62.2781"
+        },
+        {
+          "Year": 2022,
+          "Category": "CIGARS",
+          "Transactions": 14126,
+          "UnitsSold": 408578.0,
+          "Revenue": 8458509.860019574,
+          "GrossProfit": 590256.2176160301,
+          "AvgPrice": "22.1593"
+        },
+        {
+          "Year": 2022,
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 6009,
+          "UnitsSold": 49264.0,
+          "Revenue": 2754929.800000002,
+          "GrossProfit": 244415.88110000093,
+          "AvgPrice": "58.2880"
+        },
+        {
+          "Year": 2022,
+          "Category": "CIGAR GA",
+          "Transactions": 8612,
+          "UnitsSold": 76234.0,
+          "Revenue": 1928533.7799996769,
+          "GrossProfit": 377418.73569996963,
+          "AvgPrice": "22.7076"
+        },
+        {
+          "Year": 2022,
+          "Category": "ECIG - PODS",
+          "Transactions": 2056,
+          "UnitsSold": 156856.0,
+          "Revenue": 1712831.469999987,
+          "GrossProfit": 104253.65999999703,
+          "AvgPrice": "31.3565"
+        },
+        {
+          "Year": 2022,
+          "Category": "DRINKS",
+          "Transactions": 6310,
+          "UnitsSold": 55465.0,
+          "Revenue": 1288086.229999779,
+          "GrossProfit": 149562.32679999873,
+          "AvgPrice": "26.2008"
+        },
+        {
+          "Year": 2022,
+          "Category": "LT-TAX PAID",
+          "Transactions": 6003,
+          "UnitsSold": 46896.0,
+          "Revenue": 1181326.9599998742,
+          "GrossProfit": 114565.71100000347,
+          "AvgPrice": "28.3901"
+        },
+        {
+          "Year": 2022,
+          "Category": "VITAMINS",
+          "Transactions": 5095,
+          "UnitsSold": 31364.0,
+          "Revenue": 1102638.859999945,
+          "GrossProfit": 110371.31000000179,
+          "AvgPrice": "49.2741"
+        },
+        {
+          "Year": 2022,
+          "Category": "T7 SMOKELESS GA",
+          "Transactions": 4369,
+          "UnitsSold": 27555.0,
+          "Revenue": 708229.3699999603,
+          "GrossProfit": 25861.205999999947,
+          "AvgPrice": "30.4678"
+        },
+        {
+          "Year": 2022,
+          "Category": "CANDYS",
+          "Transactions": 5519,
+          "UnitsSold": 120759.0,
+          "Revenue": 681187.2799998444,
+          "GrossProfit": 124391.01700000821,
+          "AvgPrice": "15.9120"
+        },
+        {
+          "Year": 2022,
+          "Category": "ECIG - DISP D8",
+          "Transactions": 1032,
+          "UnitsSold": 4537.0,
+          "Revenue": 422914.25999999995,
+          "GrossProfit": 48377.119200000096,
+          "AvgPrice": "95.6907"
+        },
+        {
+          "Year": 2022,
+          "Category": "CIG ROLLING PAPER",
+          "Transactions": 4584,
+          "UnitsSold": 10738.0,
+          "Revenue": 364356.5099999653,
+          "GrossProfit": 76365.90340000046,
+          "AvgPrice": "35.4263"
+        },
+        {
+          "Year": 2022,
+          "Category": "BLUNT WRAP",
+          "Transactions": 5840,
+          "UnitsSold": 40824.0,
+          "Revenue": 340022.3699999535,
+          "GrossProfit": 35945.427700002896,
+          "AvgPrice": "9.4227"
+        },
+        {
+          "Year": 2022,
+          "Category": "NOVELTY ITEMS",
+          "Transactions": 4008,
+          "UnitsSold": 28508.5,
+          "Revenue": 323315.0699999939,
+          "GrossProfit": 49964.4909999996,
+          "AvgPrice": "18.8163"
+        },
+        {
+          "Year": 2022,
+          "Category": "LIGHTERS",
+          "Transactions": 3480,
+          "UnitsSold": 21390.0,
+          "Revenue": 309713.7499999837,
+          "GrossProfit": 49236.20499999895,
+          "AvgPrice": "28.5339"
+        },
+        {
+          "Year": 2022,
+          "Category": "AUTOMOTIVE",
+          "Transactions": 2808,
+          "UnitsSold": 22404.0,
+          "Revenue": 285689.9431999948,
+          "GrossProfit": 59329.97550000036,
+          "AvgPrice": "15.8121"
+        },
+        {
+          "Year": 2022,
+          "Category": "SHOPPING BAGS",
+          "Transactions": 3312,
+          "UnitsSold": 24168.0,
+          "Revenue": 265405.60000000434,
+          "GrossProfit": 59430.719999999994,
+          "AvgPrice": "9.9055"
+        },
+        {
+          "Year": 2022,
+          "Category": "FOOD",
+          "Transactions": 3910,
+          "UnitsSold": 44106.0,
+          "Revenue": 237794.45999999088,
+          "GrossProfit": 40884.670599999314,
+          "AvgPrice": "11.8603"
+        },
+        {
+          "Year": 2022,
+          "Category": "MEDICINE",
+          "Transactions": 4798,
+          "UnitsSold": 28102.0,
+          "Revenue": 228961.159999984,
+          "GrossProfit": 48923.00799999883,
+          "AvgPrice": "13.4237"
+        },
+        {
+          "Year": 2022,
+          "Category": "CBD/HEMP",
+          "Transactions": 1434,
+          "UnitsSold": 15515.0,
+          "Revenue": 199421.9499999998,
+          "GrossProfit": 33336.5155000001,
+          "AvgPrice": "22.9655"
+        },
+        {
+          "Year": 2022,
+          "Category": "Uncategorized",
+          "Transactions": 4440,
+          "UnitsSold": 42501.0,
+          "Revenue": 182173.78479999816,
+          "GrossProfit": 30343.034500000467,
+          "AvgPrice": "13.2299"
+        },
+        {
+          "Year": 2022,
+          "Category": "WATER",
+          "Transactions": 2511,
+          "UnitsSold": 17094.0,
+          "Revenue": 145703.10000000088,
+          "GrossProfit": 35323.310000000296,
+          "AvgPrice": "14.1236"
+        },
+        {
+          "Year": 2022,
+          "Category": "LIT CIGARS 003251",
+          "Transactions": 1532,
+          "UnitsSold": 2416.0,
+          "Revenue": 141972.6600000022,
+          "GrossProfit": 13189.980000000025,
+          "AvgPrice": "60.1354"
+        },
+        {
+          "Year": 2022,
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 1535,
+          "UnitsSold": 4626.0,
+          "Revenue": 119964.5400000018,
+          "GrossProfit": 10064.992000000098,
+          "AvgPrice": "25.7826"
+        },
+        {
+          "Year": 2022,
+          "Category": "HOUSEHOLD GOODS",
+          "Transactions": 3665,
+          "UnitsSold": 22014.0,
+          "Revenue": 116116.77000000297,
+          "GrossProfit": 40789.3360000007,
+          "AvgPrice": "10.7981"
+        },
+        {
+          "Year": 2022,
+          "Category": "AIR FRESHENER",
+          "Transactions": 1528,
+          "UnitsSold": 41190.0,
+          "Revenue": 96122.53000000013,
+          "GrossProfit": 17576.330000000005,
+          "AvgPrice": "3.9985"
+        },
+        {
+          "Year": 2022,
+          "Category": "GLOVES & T SHIRTS",
+          "Transactions": 1104,
+          "UnitsSold": 27870.0,
+          "Revenue": 91901.28000000029,
+          "GrossProfit": 15547.061699999957,
+          "AvgPrice": "4.7214"
+        },
+        {
+          "Year": 2022,
+          "Category": "NICOTINE POUCHES",
+          "Transactions": 953,
+          "UnitsSold": 4639.0,
+          "Revenue": 88268.67000000007,
+          "GrossProfit": 9954.61500000009,
+          "AvgPrice": "19.0960"
+        },
+        {
+          "Year": 2022,
+          "Category": "PHONE CARDS",
+          "Transactions": 532,
+          "UnitsSold": 15827.0,
+          "Revenue": 84494.70000000001,
+          "GrossProfit": 6336.140000000014,
+          "AvgPrice": "5.4271"
+        },
+        {
+          "Year": 2022,
+          "Category": "STATIONARY",
+          "Transactions": 1534,
+          "UnitsSold": 4235.0,
+          "Revenue": 79819.06000000155,
+          "GrossProfit": 28426.21520000037,
+          "AvgPrice": "30.7715"
+        },
+        {
+          "Year": 2022,
+          "Category": "CELLUAR ACCESSORIES",
+          "Transactions": 1372,
+          "UnitsSold": 2715.0,
+          "Revenue": 78403.10000000028,
+          "GrossProfit": 18802.469999999987,
+          "AvgPrice": "32.8925"
+        },
+        {
+          "Year": 2022,
+          "Category": "CONDOMS",
+          "Transactions": 2192,
+          "UnitsSold": 6833.0,
+          "Revenue": 75511.34000000144,
+          "GrossProfit": 13108.440000000133,
+          "AvgPrice": "11.1511"
+        },
+        {
+          "Year": 2022,
+          "Category": "MISC",
+          "Transactions": 2121,
+          "UnitsSold": 3516.4,
+          "Revenue": 68538.71000000004,
+          "GrossProfit": -10628.027600000158,
+          "AvgPrice": "26.2069"
+        },
+        {
+          "Year": 2022,
+          "Category": "JBR",
+          "Transactions": 204,
+          "UnitsSold": 1385.0,
+          "Revenue": 56893.8,
+          "GrossProfit": 6940.119,
+          "AvgPrice": "48.2383"
+        },
+        {
+          "Year": 2022,
+          "Category": "COSMETICS & BEAUTY",
+          "Transactions": 2127,
+          "UnitsSold": 24127.0,
+          "Revenue": 46429.13000000081,
+          "GrossProfit": 15046.947100000036,
+          "AvgPrice": "2.4448"
+        },
+        {
+          "Year": 2022,
+          "Category": "ECIG - PODS D8",
+          "Transactions": 255,
+          "UnitsSold": 1319.0,
+          "Revenue": 45943.18,
+          "GrossProfit": 6436.7300000000005,
+          "AvgPrice": "49.7970"
+        },
+        {
+          "Year": 2022,
+          "Category": "COOKIES",
+          "Transactions": 1498,
+          "UnitsSold": 9271.0,
+          "Revenue": 43119.01000000023,
+          "GrossProfit": 8465.290899999985,
+          "AvgPrice": "7.3589"
+        },
+        {
+          "Year": 2022,
+          "Category": "GUMS/CHICLETS",
+          "Transactions": 1123,
+          "UnitsSold": 3745.0,
+          "Revenue": 42786.81000000064,
+          "GrossProfit": 7958.051999999837,
+          "AvgPrice": "11.4707"
+        },
+        {
+          "Year": 2022,
+          "Category": "KITCHEN & TOILET",
+          "Transactions": 1472,
+          "UnitsSold": 12005.0,
+          "Revenue": 37400.67000000022,
+          "GrossProfit": 10975.560699999996,
+          "AvgPrice": "9.3436"
+        },
+        {
+          "Year": 2022,
+          "Category": "BATTERY",
+          "Transactions": 790,
+          "UnitsSold": 10223.0,
+          "Revenue": 35445.14000000016,
+          "GrossProfit": 11721.902999999988,
+          "AvgPrice": "4.8585"
+        },
+        {
+          "Year": 2022,
+          "Category": "CLEANING PRODUCTS",
+          "Transactions": 1442,
+          "UnitsSold": 13248.0,
+          "Revenue": 32959.74000000008,
+          "GrossProfit": 13150.659499999892,
+          "AvgPrice": "3.7264"
+        },
+        {
+          "Year": 2022,
+          "Category": "INCENSE",
+          "Transactions": 421,
+          "UnitsSold": 2761.0,
+          "Revenue": 18185.47000000006,
+          "GrossProfit": 5151.1399999999885,
+          "AvgPrice": "19.0279"
+        },
+        {
+          "Year": 2022,
+          "Category": "HARDWARE",
+          "Transactions": 766,
+          "UnitsSold": 4070.0,
+          "Revenue": 11500.399999999892,
+          "GrossProfit": 4402.861699999993,
+          "AvgPrice": "2.9132"
+        },
+        {
+          "Year": 2022,
+          "Category": "PLAYING CARDS",
+          "Transactions": 256,
+          "UnitsSold": 348.0,
+          "Revenue": 6223.939999999963,
+          "GrossProfit": 1366.13,
+          "AvgPrice": "17.9777"
+        },
+        {
+          "Year": 2022,
+          "Category": "KIDS STUFF",
+          "Transactions": 357,
+          "UnitsSold": 1224.0,
+          "Revenue": 3891.2599999999766,
+          "GrossProfit": 1371.6900000000035,
+          "AvgPrice": "4.1140"
+        },
+        {
+          "Year": 2022,
+          "Category": "TOYS",
+          "Transactions": 100,
+          "UnitsSold": 125.0,
+          "Revenue": 1557.260000000001,
+          "GrossProfit": 526.1800000000002,
+          "AvgPrice": "11.5440"
+        },
+        {
+          "Year": 2022,
+          "Category": "PERFUMES",
+          "Transactions": 21,
+          "UnitsSold": 416.0,
+          "Revenue": 889.3000000000003,
+          "GrossProfit": 317.30000000000007,
+          "AvgPrice": "2.2875"
+        },
+        {
+          "Year": 2022,
+          "Category": "KRATOM",
+          "Transactions": 18,
+          "UnitsSold": 110.0,
+          "Revenue": 327.59999999999997,
+          "GrossProfit": 36.50000000000003,
+          "AvgPrice": "2.9705"
+        },
+        {
+          "Year": 2022,
+          "Category": "CLEAM",
+          "Transactions": 27,
+          "UnitsSold": 116.0,
+          "Revenue": 161.23999999999998,
+          "GrossProfit": 39.439999999999976,
+          "AvgPrice": "1.3900"
+        },
+        {
+          "Year": 2022,
+          "Category": "CANDLES",
+          "Transactions": 8,
+          "UnitsSold": 30.0,
+          "Revenue": 141.7,
+          "GrossProfit": 35.81999999999999,
+          "AvgPrice": "10.9900"
+        },
+        {
+          "Year": 2022,
+          "Category": "LT-NON-GA/ROL UR OWN",
+          "Transactions": 5,
+          "UnitsSold": 12.0,
+          "Revenue": 80.88000000000001,
+          "GrossProfit": 20.880000000000003,
+          "AvgPrice": "6.8650"
+        },
+        {
+          "Year": 2022,
+          "Category": "CLEKIT",
+          "Transactions": 1,
+          "UnitsSold": 465.0,
+          "Revenue": 0.0,
+          "GrossProfit": -232.5,
+          "AvgPrice": "0.0000"
+        },
+        {
+          "Year": 2023,
+          "Category": "CIGARETTE",
+          "Transactions": 10094,
+          "UnitsSold": 177160.0,
+          "Revenue": 11758955.380003236,
+          "GrossProfit": 557805.1500000803,
+          "AvgPrice": "65.9827"
+        },
+        {
+          "Year": 2023,
+          "Category": "CIGARS",
+          "Transactions": 11895,
+          "UnitsSold": 278330.0,
+          "Revenue": 5903535.44000969,
+          "GrossProfit": 309954.4779681635,
+          "AvgPrice": "23.0606"
+        },
+        {
+          "Year": 2023,
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 5699,
+          "UnitsSold": 56335.0,
+          "Revenue": 3191989.389999996,
+          "GrossProfit": 262572.7008000022,
+          "AvgPrice": "61.1125"
+        },
+        {
+          "Year": 2023,
+          "Category": "ECIG - PODS",
+          "Transactions": 1999,
+          "UnitsSold": 20361.0,
+          "Revenue": 1622132.509999969,
+          "GrossProfit": 101364.10000000124,
+          "AvgPrice": "81.4360"
+        },
+        {
+          "Year": 2023,
+          "Category": "LT-TAX PAID",
+          "Transactions": 6290,
+          "UnitsSold": 52832.0,
+          "Revenue": 1467202.629999838,
+          "GrossProfit": 197517.53259999913,
+          "AvgPrice": "32.4431"
+        },
+        {
+          "Year": 2023,
+          "Category": "CIGAR GA",
+          "Transactions": 7892,
+          "UnitsSold": 63135.0,
+          "Revenue": 1451229.1899997147,
+          "GrossProfit": 246181.67499999405,
+          "AvgPrice": "22.9148"
+        },
+        {
+          "Year": 2023,
+          "Category": "VITAMINS",
+          "Transactions": 5669,
+          "UnitsSold": 35169.0,
+          "Revenue": 1423590.9399999522,
+          "GrossProfit": 113148.3720000035,
+          "AvgPrice": "56.6937"
+        },
+        {
+          "Year": 2023,
+          "Category": "DRINKS",
+          "Transactions": 4829,
+          "UnitsSold": 45114.0,
+          "Revenue": 1010039.2999998776,
+          "GrossProfit": 130394.9300000024,
+          "AvgPrice": "26.8875"
+        },
+        {
+          "Year": 2023,
+          "Category": "T7 SMOKELESS GA",
+          "Transactions": 4143,
+          "UnitsSold": 27589.0,
+          "Revenue": 753966.8699999049,
+          "GrossProfit": 37662.73119999936,
+          "AvgPrice": "32.1531"
+        },
+        {
+          "Year": 2023,
+          "Category": "CANDYS",
+          "Transactions": 4490,
+          "UnitsSold": 94852.0,
+          "Revenue": 644818.469999845,
+          "GrossProfit": 127194.58070000829,
+          "AvgPrice": "17.0467"
+        },
+        {
+          "Year": 2023,
+          "Category": "ECIG - DISP D8",
+          "Transactions": 1127,
+          "UnitsSold": 5305.0,
+          "Revenue": 431779.45,
+          "GrossProfit": 51944.56799999999,
+          "AvgPrice": "83.0095"
+        },
+        {
+          "Year": 2023,
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 2628,
+          "UnitsSold": 9287.0,
+          "Revenue": 375412.34999997943,
+          "GrossProfit": 90470.98725000002,
+          "AvgPrice": "42.5135"
+        },
+        {
+          "Year": 2023,
+          "Category": "FOOD",
+          "Transactions": 4349,
+          "UnitsSold": 71185.0,
+          "Revenue": 352369.04999995994,
+          "GrossProfit": 62344.988699997,
+          "AvgPrice": "11.2913"
+        },
+        {
+          "Year": 2023,
+          "Category": "NOVELTY ITEMS",
+          "Transactions": 3759,
+          "UnitsSold": 24899.0,
+          "Revenue": 335098.2399999932,
+          "GrossProfit": 53675.11270000006,
+          "AvgPrice": "20.5415"
+        },
+        {
+          "Year": 2023,
+          "Category": "CIG ROLLING PAPER",
+          "Transactions": 4107,
+          "UnitsSold": 9906.0,
+          "Revenue": 318268.9799999686,
+          "GrossProfit": 71408.93060000095,
+          "AvgPrice": "35.0979"
+        },
+        {
+          "Year": 2023,
+          "Category": "LIGHTERS",
+          "Transactions": 3136,
+          "UnitsSold": 16087.0,
+          "Revenue": 285407.8799999897,
+          "GrossProfit": 38613.810000000056,
+          "AvgPrice": "28.5159"
+        },
+        {
+          "Year": 2023,
+          "Category": "BLUNT WRAP",
+          "Transactions": 5131,
+          "UnitsSold": 33696.0,
+          "Revenue": 282942.2499999867,
+          "GrossProfit": 34079.06130000366,
+          "AvgPrice": "9.1491"
+        },
+        {
+          "Year": 2023,
+          "Category": "AUTOMOTIVE",
+          "Transactions": 2481,
+          "UnitsSold": 18506.0,
+          "Revenue": 274427.57919999445,
+          "GrossProfit": 63600.06419999982,
+          "AvgPrice": "19.3967"
+        },
+        {
+          "Year": 2023,
+          "Category": "CBD/HEMP",
+          "Transactions": 1585,
+          "UnitsSold": 12356.0,
+          "Revenue": 247175.91000000006,
+          "GrossProfit": 40018.06530000007,
+          "AvgPrice": "36.1379"
+        },
+        {
+          "Year": 2023,
+          "Category": "SHOPPING BAGS",
+          "Transactions": 2932,
+          "UnitsSold": 20571.0,
+          "Revenue": 232176.73000000388,
+          "GrossProfit": 66961.34999999986,
+          "AvgPrice": "10.2552"
+        },
+        {
+          "Year": 2023,
+          "Category": "MEDICINE",
+          "Transactions": 4228,
+          "UnitsSold": 25642.0,
+          "Revenue": 211307.6699999863,
+          "GrossProfit": 39014.88250000153,
+          "AvgPrice": "14.1609"
+        },
+        {
+          "Year": 2023,
+          "Category": "NICOTINE POUCHES",
+          "Transactions": 1763,
+          "UnitsSold": 9560.0,
+          "Revenue": 185498.389999998,
+          "GrossProfit": 18149.90000000065,
+          "AvgPrice": "19.4100"
+        },
+        {
+          "Year": 2023,
+          "Category": "AIR FRESHENER",
+          "Transactions": 1581,
+          "UnitsSold": 47519.0,
+          "Revenue": 126644.64999999976,
+          "GrossProfit": 26123.11000000011,
+          "AvgPrice": "5.2723"
+        },
+        {
+          "Year": 2023,
+          "Category": "HOUSEHOLD GOODS",
+          "Transactions": 3256,
+          "UnitsSold": 20362.0,
+          "Revenue": 119780.7600000038,
+          "GrossProfit": 41079.52370000003,
+          "AvgPrice": "13.4635"
+        },
+        {
+          "Year": 2023,
+          "Category": "WATER",
+          "Transactions": 1573,
+          "UnitsSold": 11425.0,
+          "Revenue": 119192.97050000193,
+          "GrossProfit": 28294.90050000018,
+          "AvgPrice": "18.5445"
+        },
+        {
+          "Year": 2023,
+          "Category": "LIT CIGARS 003251",
+          "Transactions": 1256,
+          "UnitsSold": 1950.0,
+          "Revenue": 117041.30000000267,
+          "GrossProfit": 14161.789999999784,
+          "AvgPrice": "60.9137"
+        },
+        {
+          "Year": 2023,
+          "Category": "MISC",
+          "Transactions": 1715,
+          "UnitsSold": 6657.0,
+          "Revenue": 106345.50200000069,
+          "GrossProfit": 9835.132699999944,
+          "AvgPrice": "20.7614"
+        },
+        {
+          "Year": 2023,
+          "Category": "GUMS/CHICLETS",
+          "Transactions": 1766,
+          "UnitsSold": 7417.0,
+          "Revenue": 104665.96000000973,
+          "GrossProfit": 21697.126999999873,
+          "AvgPrice": "14.1375"
+        },
+        {
+          "Year": 2023,
+          "Category": "STATIONARY",
+          "Transactions": 1424,
+          "UnitsSold": 3761.0,
+          "Revenue": 84341.92000000029,
+          "GrossProfit": 33532.40820000068,
+          "AvgPrice": "32.3136"
+        },
+        {
+          "Year": 2023,
+          "Category": "GLOVES & T SHIRTS",
+          "Transactions": 887,
+          "UnitsSold": 25324.0,
+          "Revenue": 81482.38000000009,
+          "GrossProfit": 9931.977900000002,
+          "AvgPrice": "3.6269"
+        },
+        {
+          "Year": 2023,
+          "Category": "CONDOMS",
+          "Transactions": 2014,
+          "UnitsSold": 6221.0,
+          "Revenue": 71997.65999999992,
+          "GrossProfit": 13072.490000000422,
+          "AvgPrice": "11.6777"
+        },
+        {
+          "Year": 2023,
+          "Category": "CELLUAR ACCESSORIES",
+          "Transactions": 1234,
+          "UnitsSold": 2485.0,
+          "Revenue": 68553.92999999947,
+          "GrossProfit": 16618.509999999733,
+          "AvgPrice": "29.7733"
+        },
+        {
+          "Year": 2023,
+          "Category": "Uncategorized",
+          "Transactions": 1602,
+          "UnitsSold": 9993.0,
+          "Revenue": 57556.789999999484,
+          "GrossProfit": 12138.27479999997,
+          "AvgPrice": "13.9551"
+        },
+        {
+          "Year": 2023,
+          "Category": "COOKIES",
+          "Transactions": 1396,
+          "UnitsSold": 8689.0,
+          "Revenue": 52829.939999999246,
+          "GrossProfit": 10117.622199999969,
+          "AvgPrice": "9.3493"
+        },
+        {
+          "Year": 2023,
+          "Category": "PHONE CARDS",
+          "Transactions": 361,
+          "UnitsSold": 8243.0,
+          "Revenue": 47554.5,
+          "GrossProfit": 3360.52,
+          "AvgPrice": "5.8698"
+        },
+        {
+          "Year": 2023,
+          "Category": "COSMETICS & BEAUTY",
+          "Transactions": 1852,
+          "UnitsSold": 19755.0,
+          "Revenue": 41383.76000000025,
+          "GrossProfit": 12821.385300000036,
+          "AvgPrice": "2.8421"
+        },
+        {
+          "Year": 2023,
+          "Category": "CLEANING PRODUCTS",
+          "Transactions": 1355,
+          "UnitsSold": 12621.0,
+          "Revenue": 34656.630000000194,
+          "GrossProfit": 13737.530299999959,
+          "AvgPrice": "4.2271"
+        },
+        {
+          "Year": 2023,
+          "Category": "BATTERY",
+          "Transactions": 640,
+          "UnitsSold": 8351.0,
+          "Revenue": 33188.510000000184,
+          "GrossProfit": 10592.613399999986,
+          "AvgPrice": "7.9109"
+        },
+        {
+          "Year": 2023,
+          "Category": "ECIG - PODS D8",
+          "Transactions": 152,
+          "UnitsSold": 812.0,
+          "Revenue": 23286.670000000006,
+          "GrossProfit": 4561.07,
+          "AvgPrice": "42.5730"
+        },
+        {
+          "Year": 2023,
+          "Category": "KITCHEN & TOILET",
+          "Transactions": 1062,
+          "UnitsSold": 8095.0,
+          "Revenue": 22172.09000000016,
+          "GrossProfit": 7535.729899999947,
+          "AvgPrice": "7.0064"
+        },
+        {
+          "Year": 2023,
+          "Category": "INCENSE",
+          "Transactions": 467,
+          "UnitsSold": 2836.0,
+          "Revenue": 16116.989999999916,
+          "GrossProfit": 4301.359999999992,
+          "AvgPrice": "11.0205"
+        },
+        {
+          "Year": 2023,
+          "Category": "HARDWARE",
+          "Transactions": 520,
+          "UnitsSold": 2936.0,
+          "Revenue": 7419.519999999947,
+          "GrossProfit": 2911.2270999999987,
+          "AvgPrice": "2.7207"
+        },
+        {
+          "Year": 2023,
+          "Category": "JBR",
+          "Transactions": 26,
+          "UnitsSold": 90.0,
+          "Revenue": 4968.0,
+          "GrossProfit": 622.0759999999999,
+          "AvgPrice": "73.8333"
+        },
+        {
+          "Year": 2023,
+          "Category": "KIDS STUFF",
+          "Transactions": 246,
+          "UnitsSold": 915.0,
+          "Revenue": 3704.1599999999808,
+          "GrossProfit": 1316.3455999999996,
+          "AvgPrice": "5.6440"
+        },
+        {
+          "Year": 2023,
+          "Category": "PLAYING CARDS",
+          "Transactions": 164,
+          "UnitsSold": 198.0,
+          "Revenue": 3445.0199999999877,
+          "GrossProfit": 821.4800000000008,
+          "AvgPrice": "17.2327"
+        },
+        {
+          "Year": 2023,
+          "Category": "CANDLES",
+          "Transactions": 62,
+          "UnitsSold": 561.0,
+          "Revenue": 852.1900000000003,
+          "GrossProfit": 296.88289999999995,
+          "AvgPrice": "3.3164"
+        },
+        {
+          "Year": 2023,
+          "Category": "TOYS",
+          "Transactions": 61,
+          "UnitsSold": 70.0,
+          "Revenue": 779.3300000000004,
+          "GrossProfit": 240.89000000000004,
+          "AvgPrice": "10.6471"
+        },
+        {
+          "Year": 2023,
+          "Category": "PERFUMES",
+          "Transactions": 29,
+          "UnitsSold": 243.0,
+          "Revenue": 606.2600000000001,
+          "GrossProfit": 272.1350000000001,
+          "AvgPrice": "2.4503"
+        },
+        {
+          "Year": 2023,
+          "Category": "AIR SCENTS",
+          "Transactions": 5,
+          "UnitsSold": 80.0,
+          "Revenue": 159.20000000000002,
+          "GrossProfit": 47.2,
+          "AvgPrice": "1.9900"
+        },
+        {
+          "Year": 2023,
+          "Category": "LT-NON-GA/ROL UR OWN",
+          "Transactions": 7,
+          "UnitsSold": 16.0,
+          "Revenue": 112.83999999999999,
+          "GrossProfit": 27.84000000000001,
+          "AvgPrice": "6.8990"
+        },
+        {
+          "Year": 2023,
+          "Category": "KRATOM",
+          "Transactions": 4,
+          "UnitsSold": 14.0,
+          "Revenue": 41.86,
+          "GrossProfit": 3.360000000000003,
+          "AvgPrice": "2.9900"
+        },
+        {
+          "Year": 2023,
+          "Category": "ENTERTAINMENT",
+          "Transactions": 2,
+          "UnitsSold": 4.0,
+          "Revenue": 15.96,
+          "GrossProfit": 9.360000000000001,
+          "AvgPrice": "3.9900"
+        }
+      ],
+      "top_category_growth": []
+    },
+    "product_lifecycle": [
+      {
+        "IntroductionYear": 2019,
+        "NewProductsIntroduced": 3813,
+        "AvgProductRevenue": 32462.14237251468,
+        "TotalNewProductRevenue": 123778148.86639848,
+        "AvgProductLifeDays": 1259
+      },
+      {
+        "IntroductionYear": 2020,
+        "NewProductsIntroduced": 1058,
+        "AvgProductRevenue": 7009.282844990561,
+        "TotalNewProductRevenue": 7415821.250000014,
+        "AvgProductLifeDays": 685
+      },
+      {
+        "IntroductionYear": 2021,
+        "NewProductsIntroduced": 1319,
+        "AvgProductRevenue": 7997.749802880988,
+        "TotalNewProductRevenue": 10549031.990000023,
+        "AvgProductLifeDays": 502
+      },
+      {
+        "IntroductionYear": 2022,
+        "NewProductsIntroduced": 1510,
+        "AvgProductRevenue": 3854.994079470214,
+        "TotalNewProductRevenue": 5821041.060000023,
+        "AvgProductLifeDays": 322
+      },
+      {
+        "IntroductionYear": 2023,
+        "NewProductsIntroduced": 1369,
+        "AvgProductRevenue": 3066.942929145372,
+        "TotalNewProductRevenue": 4198644.870000014,
+        "AvgProductLifeDays": 135
+      }
+    ]
+  },
+  "seasonal_analysis": {
+    "monthly_patterns": {
+      "monthly_data": [
+        {
+          "Year": 2019,
+          "Month": 1,
+          "MonthName": "January",
+          "UniqueCustomers": 383,
+          "Transactions": 1941,
+          "Revenue": "2179095.3000",
+          "AvgTransaction": "1122.6663",
+          "ActiveDays": 31,
+          "RevenuePerDay": "70293.3967"
+        },
+        {
+          "Year": 2019,
+          "Month": 2,
+          "MonthName": "February",
+          "UniqueCustomers": 365,
+          "Transactions": 1663,
+          "Revenue": "1757414.0500",
+          "AvgTransaction": "1056.7733",
+          "ActiveDays": 28,
+          "RevenuePerDay": "62764.7875"
+        },
+        {
+          "Year": 2019,
+          "Month": 3,
+          "MonthName": "March",
+          "UniqueCustomers": 370,
+          "Transactions": 1920,
+          "Revenue": "2058875.5600",
+          "AvgTransaction": "1072.3310",
+          "ActiveDays": 31,
+          "RevenuePerDay": "66415.3406"
+        },
+        {
+          "Year": 2019,
+          "Month": 4,
+          "MonthName": "April",
+          "UniqueCustomers": 364,
+          "Transactions": 2039,
+          "Revenue": "2490579.3400",
+          "AvgTransaction": "1221.4709",
+          "ActiveDays": 30,
+          "RevenuePerDay": "83019.3113"
+        },
+        {
+          "Year": 2019,
+          "Month": 5,
+          "MonthName": "May",
+          "UniqueCustomers": 364,
+          "Transactions": 1988,
+          "Revenue": "2269700.2400",
+          "AvgTransaction": "1141.7003",
+          "ActiveDays": 31,
+          "RevenuePerDay": "73216.1367"
+        },
+        {
+          "Year": 2019,
+          "Month": 6,
+          "MonthName": "June",
+          "UniqueCustomers": 358,
+          "Transactions": 1738,
+          "Revenue": "2055698.8100",
+          "AvgTransaction": "1182.7956",
+          "ActiveDays": 30,
+          "RevenuePerDay": "68523.2936"
+        },
+        {
+          "Year": 2019,
+          "Month": 7,
+          "MonthName": "July",
+          "UniqueCustomers": 357,
+          "Transactions": 1901,
+          "Revenue": "2120248.2900",
+          "AvgTransaction": "1115.3331",
+          "ActiveDays": 31,
+          "RevenuePerDay": "68395.1061"
+        },
+        {
+          "Year": 2019,
+          "Month": 8,
+          "MonthName": "August",
+          "UniqueCustomers": 343,
+          "Transactions": 1776,
+          "Revenue": "1842227.4600",
+          "AvgTransaction": "1037.2902",
+          "ActiveDays": 31,
+          "RevenuePerDay": "59426.6922"
+        },
+        {
+          "Year": 2019,
+          "Month": 9,
+          "MonthName": "September",
+          "UniqueCustomers": 339,
+          "Transactions": 1722,
+          "Revenue": "1782921.4800",
+          "AvgTransaction": "1035.3783",
+          "ActiveDays": 30,
+          "RevenuePerDay": "59430.7160"
+        },
+        {
+          "Year": 2019,
+          "Month": 10,
+          "MonthName": "October",
+          "UniqueCustomers": 353,
+          "Transactions": 1735,
+          "Revenue": "2019440.4900",
+          "AvgTransaction": "1163.9426",
+          "ActiveDays": 31,
+          "RevenuePerDay": "65143.2416"
+        },
+        {
+          "Year": 2019,
+          "Month": 11,
+          "MonthName": "November",
+          "UniqueCustomers": 336,
+          "Transactions": 1632,
+          "Revenue": "1851958.5000",
+          "AvgTransaction": "1134.7784",
+          "ActiveDays": 29,
+          "RevenuePerDay": "63860.6379"
+        },
+        {
+          "Year": 2019,
+          "Month": 12,
+          "MonthName": "December",
+          "UniqueCustomers": 332,
+          "Transactions": 1590,
+          "Revenue": "1928239.7400",
+          "AvgTransaction": "1212.7293",
+          "ActiveDays": 30,
+          "RevenuePerDay": "64274.6580"
+        },
+        {
+          "Year": 2020,
+          "Month": 1,
+          "MonthName": "January",
+          "UniqueCustomers": 337,
+          "Transactions": 1608,
+          "Revenue": "1709102.5000",
+          "AvgTransaction": "1062.8746",
+          "ActiveDays": 31,
+          "RevenuePerDay": "55132.3387"
+        },
+        {
+          "Year": 2020,
+          "Month": 2,
+          "MonthName": "February",
+          "UniqueCustomers": 325,
+          "Transactions": 1500,
+          "Revenue": "1665608.8200",
+          "AvgTransaction": "1110.4058",
+          "ActiveDays": 29,
+          "RevenuePerDay": "57434.7868"
+        },
+        {
+          "Year": 2020,
+          "Month": 3,
+          "MonthName": "March",
+          "UniqueCustomers": 335,
+          "Transactions": 2059,
+          "Revenue": "2243330.0800",
+          "AvgTransaction": "1089.5240",
+          "ActiveDays": 31,
+          "RevenuePerDay": "72365.4864"
+        },
+        {
+          "Year": 2020,
+          "Month": 4,
+          "MonthName": "April",
+          "UniqueCustomers": 303,
+          "Transactions": 1260,
+          "Revenue": "1705971.4000",
+          "AvgTransaction": "1353.9455",
+          "ActiveDays": 23,
+          "RevenuePerDay": "74172.6695"
+        },
+        {
+          "Year": 2020,
+          "Month": 5,
+          "MonthName": "May",
+          "UniqueCustomers": 397,
+          "Transactions": 2323,
+          "Revenue": "2281600.3000",
+          "AvgTransaction": "982.1783",
+          "ActiveDays": 31,
+          "RevenuePerDay": "73600.0096"
+        },
+        {
+          "Year": 2020,
+          "Month": 6,
+          "MonthName": "June",
+          "UniqueCustomers": 428,
+          "Transactions": 2370,
+          "Revenue": "2335037.7100",
+          "AvgTransaction": "985.2479",
+          "ActiveDays": 30,
+          "RevenuePerDay": "77834.5903"
+        },
+        {
+          "Year": 2020,
+          "Month": 7,
+          "MonthName": "July",
+          "UniqueCustomers": 422,
+          "Transactions": 2266,
+          "Revenue": "2339416.0100",
+          "AvgTransaction": "1032.3989",
+          "ActiveDays": 31,
+          "RevenuePerDay": "75465.0325"
+        },
+        {
+          "Year": 2020,
+          "Month": 8,
+          "MonthName": "August",
+          "UniqueCustomers": 423,
+          "Transactions": 2083,
+          "Revenue": "2196503.1400",
+          "AvgTransaction": "1054.4902",
+          "ActiveDays": 31,
+          "RevenuePerDay": "70854.9400"
+        },
+        {
+          "Year": 2020,
+          "Month": 9,
+          "MonthName": "September",
+          "UniqueCustomers": 421,
+          "Transactions": 1966,
+          "Revenue": "2190779.5900",
+          "AvgTransaction": "1114.3334",
+          "ActiveDays": 30,
+          "RevenuePerDay": "73025.9863"
+        },
+        {
+          "Year": 2020,
+          "Month": 10,
+          "MonthName": "October",
+          "UniqueCustomers": 415,
+          "Transactions": 1954,
+          "Revenue": "2249391.8700",
+          "AvgTransaction": "1151.1729",
+          "ActiveDays": 31,
+          "RevenuePerDay": "72561.0280"
+        },
+        {
+          "Year": 2020,
+          "Month": 11,
+          "MonthName": "November",
+          "UniqueCustomers": 432,
+          "Transactions": 1857,
+          "Revenue": "2275607.1600",
+          "AvgTransaction": "1225.4211",
+          "ActiveDays": 29,
+          "RevenuePerDay": "78469.2124"
+        },
+        {
+          "Year": 2020,
+          "Month": 12,
+          "MonthName": "December",
+          "UniqueCustomers": 422,
+          "Transactions": 1928,
+          "Revenue": "2513407.2100",
+          "AvgTransaction": "1303.6344",
+          "ActiveDays": 30,
+          "RevenuePerDay": "83780.2403"
+        },
+        {
+          "Year": 2021,
+          "Month": 1,
+          "MonthName": "January",
+          "UniqueCustomers": 415,
+          "Transactions": 2059,
+          "Revenue": "2633241.9700",
+          "AvgTransaction": "1278.8936",
+          "ActiveDays": 31,
+          "RevenuePerDay": "84943.2893"
+        },
+        {
+          "Year": 2021,
+          "Month": 2,
+          "MonthName": "February",
+          "UniqueCustomers": 394,
+          "Transactions": 1794,
+          "Revenue": "2344931.3000",
+          "AvgTransaction": "1307.0965",
+          "ActiveDays": 28,
+          "RevenuePerDay": "83747.5464"
+        },
+        {
+          "Year": 2021,
+          "Month": 3,
+          "MonthName": "March",
+          "UniqueCustomers": 429,
+          "Transactions": 2383,
+          "Revenue": "3326054.3000",
+          "AvgTransaction": "1395.7424",
+          "ActiveDays": 31,
+          "RevenuePerDay": "107292.0741"
+        },
+        {
+          "Year": 2021,
+          "Month": 4,
+          "MonthName": "April",
+          "UniqueCustomers": 461,
+          "Transactions": 2392,
+          "Revenue": "3477557.8300",
+          "AvgTransaction": "1453.8285",
+          "ActiveDays": 30,
+          "RevenuePerDay": "115918.5943"
+        },
+        {
+          "Year": 2021,
+          "Month": 5,
+          "MonthName": "May",
+          "UniqueCustomers": 447,
+          "Transactions": 2276,
+          "Revenue": "3390609.0500",
+          "AvgTransaction": "1489.7227",
+          "ActiveDays": 31,
+          "RevenuePerDay": "109374.4854"
+        },
+        {
+          "Year": 2021,
+          "Month": 6,
+          "MonthName": "June",
+          "UniqueCustomers": 479,
+          "Transactions": 2381,
+          "Revenue": "3542552.8900",
+          "AvgTransaction": "1487.8424",
+          "ActiveDays": 30,
+          "RevenuePerDay": "118085.0963"
+        },
+        {
+          "Year": 2021,
+          "Month": 7,
+          "MonthName": "July",
+          "UniqueCustomers": 474,
+          "Transactions": 2255,
+          "Revenue": "3244313.5100",
+          "AvgTransaction": "1438.7199",
+          "ActiveDays": 31,
+          "RevenuePerDay": "104655.2745"
+        },
+        {
+          "Year": 2021,
+          "Month": 8,
+          "MonthName": "August",
+          "UniqueCustomers": 484,
+          "Transactions": 2282,
+          "Revenue": "3444021.7500",
+          "AvgTransaction": "1509.2119",
+          "ActiveDays": 31,
+          "RevenuePerDay": "111097.4758"
+        },
+        {
+          "Year": 2021,
+          "Month": 9,
+          "MonthName": "September",
+          "UniqueCustomers": 471,
+          "Transactions": 2068,
+          "Revenue": "3005654.0600",
+          "AvgTransaction": "1453.4110",
+          "ActiveDays": 30,
+          "RevenuePerDay": "100188.4686"
+        },
+        {
+          "Year": 2021,
+          "Month": 10,
+          "MonthName": "October",
+          "UniqueCustomers": 482,
+          "Transactions": 2066,
+          "Revenue": "2857502.1500",
+          "AvgTransaction": "1383.1084",
+          "ActiveDays": 31,
+          "RevenuePerDay": "92177.4887"
+        },
+        {
+          "Year": 2021,
+          "Month": 11,
+          "MonthName": "November",
+          "UniqueCustomers": 473,
+          "Transactions": 1979,
+          "Revenue": "2891579.9100",
+          "AvgTransaction": "1461.1318",
+          "ActiveDays": 29,
+          "RevenuePerDay": "99709.6520"
+        },
+        {
+          "Year": 2021,
+          "Month": 12,
+          "MonthName": "December",
+          "UniqueCustomers": 472,
+          "Transactions": 2132,
+          "Revenue": "3555714.2000",
+          "AvgTransaction": "1667.7833",
+          "ActiveDays": 30,
+          "RevenuePerDay": "118523.8066"
+        },
+        {
+          "Year": 2022,
+          "Month": 1,
+          "MonthName": "January",
+          "UniqueCustomers": 493,
+          "Transactions": 2045,
+          "Revenue": "3060456.3000",
+          "AvgTransaction": "1496.5556",
+          "ActiveDays": 31,
+          "RevenuePerDay": "98724.3967"
+        },
+        {
+          "Year": 2022,
+          "Month": 2,
+          "MonthName": "February",
+          "UniqueCustomers": 454,
+          "Transactions": 1768,
+          "Revenue": "2535838.6300",
+          "AvgTransaction": "1434.2978",
+          "ActiveDays": 28,
+          "RevenuePerDay": "90565.6653"
+        },
+        {
+          "Year": 2022,
+          "Month": 3,
+          "MonthName": "March",
+          "UniqueCustomers": 471,
+          "Transactions": 1948,
+          "Revenue": "3135042.6400",
+          "AvgTransaction": "1609.3648",
+          "ActiveDays": 31,
+          "RevenuePerDay": "101130.4077"
+        },
+        {
+          "Year": 2022,
+          "Month": 4,
+          "MonthName": "April",
+          "UniqueCustomers": 469,
+          "Transactions": 1929,
+          "Revenue": "2911520.5400",
+          "AvgTransaction": "1509.3419",
+          "ActiveDays": 30,
+          "RevenuePerDay": "97050.6846"
+        },
+        {
+          "Year": 2022,
+          "Month": 5,
+          "MonthName": "May",
+          "UniqueCustomers": 463,
+          "Transactions": 2014,
+          "Revenue": "3138459.2600",
+          "AvgTransaction": "1558.3213",
+          "ActiveDays": 31,
+          "RevenuePerDay": "101240.6212"
+        },
+        {
+          "Year": 2022,
+          "Month": 6,
+          "MonthName": "June",
+          "UniqueCustomers": 462,
+          "Transactions": 2036,
+          "Revenue": "3311277.6900",
+          "AvgTransaction": "1626.3642",
+          "ActiveDays": 30,
+          "RevenuePerDay": "110375.9230"
+        },
+        {
+          "Year": 2022,
+          "Month": 7,
+          "MonthName": "July",
+          "UniqueCustomers": 456,
+          "Transactions": 1912,
+          "Revenue": "3379505.0500",
+          "AvgTransaction": "1767.5235",
+          "ActiveDays": 31,
+          "RevenuePerDay": "109016.2919"
+        },
+        {
+          "Year": 2022,
+          "Month": 8,
+          "MonthName": "August",
+          "UniqueCustomers": 450,
+          "Transactions": 1934,
+          "Revenue": "3054497.6000",
+          "AvgTransaction": "1579.3679",
+          "ActiveDays": 31,
+          "RevenuePerDay": "98532.1806"
+        },
+        {
+          "Year": 2022,
+          "Month": 9,
+          "MonthName": "September",
+          "UniqueCustomers": 443,
+          "Transactions": 1933,
+          "Revenue": "3040704.7600",
+          "AvgTransaction": "1573.0495",
+          "ActiveDays": 30,
+          "RevenuePerDay": "101356.8253"
+        },
+        {
+          "Year": 2022,
+          "Month": 10,
+          "MonthName": "October",
+          "UniqueCustomers": 443,
+          "Transactions": 1735,
+          "Revenue": "2722045.6200",
+          "AvgTransaction": "1568.9023",
+          "ActiveDays": 31,
+          "RevenuePerDay": "87807.9232"
+        },
+        {
+          "Year": 2022,
+          "Month": 11,
+          "MonthName": "November",
+          "UniqueCustomers": 411,
+          "Transactions": 1763,
+          "Revenue": "2700290.6700",
+          "AvgTransaction": "1531.6453",
+          "ActiveDays": 29,
+          "RevenuePerDay": "93113.4713"
+        },
+        {
+          "Year": 2022,
+          "Month": 12,
+          "MonthName": "December",
+          "UniqueCustomers": 404,
+          "Transactions": 1841,
+          "Revenue": "2809438.6600",
+          "AvgTransaction": "1526.0394",
+          "ActiveDays": 30,
+          "RevenuePerDay": "93647.9553"
+        },
+        {
+          "Year": 2023,
+          "Month": 1,
+          "MonthName": "January",
+          "UniqueCustomers": 414,
+          "Transactions": 1780,
+          "Revenue": "2693097.3200",
+          "AvgTransaction": "1512.9760",
+          "ActiveDays": 31,
+          "RevenuePerDay": "86874.1070"
+        },
+        {
+          "Year": 2023,
+          "Month": 2,
+          "MonthName": "February",
+          "UniqueCustomers": 402,
+          "Transactions": 1507,
+          "Revenue": "2288203.5500",
+          "AvgTransaction": "1518.3832",
+          "ActiveDays": 28,
+          "RevenuePerDay": "81721.5553"
+        },
+        {
+          "Year": 2023,
+          "Month": 3,
+          "MonthName": "March",
+          "UniqueCustomers": 424,
+          "Transactions": 1845,
+          "Revenue": "2869235.2500",
+          "AvgTransaction": "1555.1410",
+          "ActiveDays": 31,
+          "RevenuePerDay": "92555.9758"
+        },
+        {
+          "Year": 2023,
+          "Month": 4,
+          "MonthName": "April",
+          "UniqueCustomers": 415,
+          "Transactions": 1810,
+          "Revenue": "3001530.1700",
+          "AvgTransaction": "1658.3039",
+          "ActiveDays": 30,
+          "RevenuePerDay": "100051.0056"
+        },
+        {
+          "Year": 2023,
+          "Month": 5,
+          "MonthName": "May",
+          "UniqueCustomers": 411,
+          "Transactions": 1776,
+          "Revenue": "3065343.7200",
+          "AvgTransaction": "1725.9818",
+          "ActiveDays": 31,
+          "RevenuePerDay": "98882.0554"
+        },
+        {
+          "Year": 2023,
+          "Month": 6,
+          "MonthName": "June",
+          "UniqueCustomers": 408,
+          "Transactions": 1666,
+          "Revenue": "2887059.1400",
+          "AvgTransaction": "1732.9286",
+          "ActiveDays": 30,
+          "RevenuePerDay": "96235.3046"
+        },
+        {
+          "Year": 2023,
+          "Month": 7,
+          "MonthName": "July",
+          "UniqueCustomers": 409,
+          "Transactions": 1670,
+          "Revenue": "2933246.6200",
+          "AvgTransaction": "1756.4351",
+          "ActiveDays": 31,
+          "RevenuePerDay": "94620.8587"
+        },
+        {
+          "Year": 2023,
+          "Month": 8,
+          "MonthName": "August",
+          "UniqueCustomers": 416,
+          "Transactions": 1664,
+          "Revenue": "2884137.3500",
+          "AvgTransaction": "1733.2556",
+          "ActiveDays": 31,
+          "RevenuePerDay": "93036.6887"
+        },
+        {
+          "Year": 2023,
+          "Month": 9,
+          "MonthName": "September",
+          "UniqueCustomers": 408,
+          "Transactions": 1693,
+          "Revenue": "2816090.6500",
+          "AvgTransaction": "1663.3730",
+          "ActiveDays": 30,
+          "RevenuePerDay": "93869.6883"
+        },
+        {
+          "Year": 2023,
+          "Month": 10,
+          "MonthName": "October",
+          "UniqueCustomers": 409,
+          "Transactions": 1612,
+          "Revenue": "3229555.8600",
+          "AvgTransaction": "2003.4465",
+          "ActiveDays": 31,
+          "RevenuePerDay": "104179.2212"
+        },
+        {
+          "Year": 2023,
+          "Month": 11,
+          "MonthName": "November",
+          "UniqueCustomers": 402,
+          "Transactions": 1521,
+          "Revenue": "2786906.7800",
+          "AvgTransaction": "1832.2858",
+          "ActiveDays": 29,
+          "RevenuePerDay": "96100.2337"
+        },
+        {
+          "Year": 2023,
+          "Month": 12,
+          "MonthName": "December",
+          "UniqueCustomers": 388,
+          "Transactions": 1415,
+          "Revenue": "2657391.1900",
+          "AvgTransaction": "1878.0149",
+          "ActiveDays": 29,
+          "RevenuePerDay": "91634.1789"
+        }
+      ],
+      "seasonal_indices": []
+    },
+    "quarterly_performance": [
+      {
+        "Year": 2019,
+        "Quarter": 1,
+        "QuarterName": "Q1",
+        "UniqueCustomers": 506,
+        "Transactions": 5520,
+        "Revenue": "231253313.7400",
+        "UnitsSold": 311248.0,
+        "GrossProfit": 605041.2510999208,
+        "AvgTransaction": "2129.2671"
+      },
+      {
+        "Year": 2019,
+        "Quarter": 2,
+        "QuarterName": "Q2",
+        "UniqueCustomers": 492,
+        "Transactions": 5760,
+        "Revenue": "249403419.1400",
+        "UnitsSold": 358221.0,
+        "GrossProfit": 598136.1139999045,
+        "AvgTransaction": "2226.0808"
+      },
+      {
+        "Year": 2019,
+        "Quarter": 3,
+        "QuarterName": "Q3",
+        "UniqueCustomers": 467,
+        "Transactions": 5397,
+        "Revenue": "167023486.3700",
+        "UnitsSold": 311805.0,
+        "GrossProfit": 446322.91469991027,
+        "AvgTransaction": "1826.7908"
+      },
+      {
+        "Year": 2019,
+        "Quarter": 4,
+        "QuarterName": "Q4",
+        "UniqueCustomers": 440,
+        "Transactions": 4955,
+        "Revenue": "177426629.9700",
+        "UnitsSold": 303535.5,
+        "GrossProfit": 535102.0545999045,
+        "AvgTransaction": "2008.7701"
+      },
+      {
+        "Year": 2020,
+        "Quarter": 1,
+        "QuarterName": "Q1",
+        "UniqueCustomers": 455,
+        "Transactions": 5164,
+        "Revenue": "178891364.6000",
+        "UnitsSold": 301076.0,
+        "GrossProfit": 553286.9934999415,
+        "AvgTransaction": "1936.7244"
+      },
+      {
+        "Year": 2020,
+        "Quarter": 2,
+        "QuarterName": "Q2",
+        "UniqueCustomers": 516,
+        "Transactions": 5952,
+        "Revenue": "221207681.2900",
+        "UnitsSold": 341428.0,
+        "GrossProfit": 704402.1709999575,
+        "AvgTransaction": "1940.9460"
+      },
+      {
+        "Year": 2020,
+        "Quarter": 3,
+        "QuarterName": "Q3",
+        "UniqueCustomers": 558,
+        "Transactions": 6311,
+        "Revenue": "253477331.9600",
+        "UnitsSold": 367286.0,
+        "GrossProfit": 700981.5770997669,
+        "AvgTransaction": "1903.3830"
+      },
+      {
+        "Year": 2020,
+        "Quarter": 4,
+        "QuarterName": "Q4",
+        "UniqueCustomers": 555,
+        "Transactions": 5736,
+        "Revenue": "319879744.6200",
+        "UnitsSold": 350249.3323,
+        "GrossProfit": 807845.3686918342,
+        "AvgTransaction": "2388.7309"
+      },
+      {
+        "Year": 2021,
+        "Quarter": 1,
+        "QuarterName": "Q1",
+        "UniqueCustomers": 535,
+        "Transactions": 6231,
+        "Revenue": "353854798.6600",
+        "UnitsSold": 428352.5,
+        "GrossProfit": 903467.2904999368,
+        "AvgTransaction": "2566.5830"
+      },
+      {
+        "Year": 2021,
+        "Quarter": 2,
+        "QuarterName": "Q2",
+        "UniqueCustomers": 588,
+        "Transactions": 7045,
+        "Revenue": "435175450.1000",
+        "UnitsSold": 528760.0,
+        "GrossProfit": 1222495.8379996088,
+        "AvgTransaction": "2775.8670"
+      },
+      {
+        "Year": 2021,
+        "Quarter": 3,
+        "QuarterName": "Q3",
+        "UniqueCustomers": 626,
+        "Transactions": 6595,
+        "Revenue": "402496963.6700",
+        "UnitsSold": 462798.0,
+        "GrossProfit": 1101729.4459996924,
+        "AvgTransaction": "2862.8724"
+      },
+      {
+        "Year": 2021,
+        "Quarter": 4,
+        "QuarterName": "Q4",
+        "UniqueCustomers": 621,
+        "Transactions": 6173,
+        "Revenue": "414244014.7300",
+        "UnitsSold": 456075.0,
+        "GrossProfit": 1071789.4147996453,
+        "AvgTransaction": "3015.3152"
+      },
+      {
+        "Year": 2022,
+        "Quarter": 1,
+        "QuarterName": "Q1",
+        "UniqueCustomers": 626,
+        "Transactions": 5752,
+        "Revenue": "372437104.2600",
+        "UnitsSold": 410856.0,
+        "GrossProfit": 1185023.6110997582,
+        "AvgTransaction": "2952.6864"
+      },
+      {
+        "Year": 2022,
+        "Quarter": 2,
+        "QuarterName": "Q2",
+        "UniqueCustomers": 599,
+        "Transactions": 5959,
+        "Revenue": "367486148.6200",
+        "UnitsSold": 465212.0,
+        "GrossProfit": 1198210.9414997587,
+        "AvgTransaction": "2977.7905"
+      },
+      {
+        "Year": 2022,
+        "Quarter": 3,
+        "QuarterName": "Q3",
+        "UniqueCustomers": 584,
+        "Transactions": 5774,
+        "Revenue": "393844384.3300",
+        "UnitsSold": 427328.73,
+        "GrossProfit": 1213757.1993995674,
+        "AvgTransaction": "3156.4113"
+      },
+      {
+        "Year": 2022,
+        "Quarter": 4,
+        "QuarterName": "Q4",
+        "UniqueCustomers": 546,
+        "Transactions": 5329,
+        "Revenue": "391615586.4000",
+        "UnitsSold": 367971.17,
+        "GrossProfit": 992885.5793996949,
+        "AvgTransaction": "3243.1664"
+      },
+      {
+        "Year": 2023,
+        "Quarter": 1,
+        "QuarterName": "Q1",
+        "UniqueCustomers": 531,
+        "Transactions": 5127,
+        "Revenue": "348603981.8300",
+        "UnitsSold": 331199.0,
+        "GrossProfit": 944789.2905997026,
+        "AvgTransaction": "3059.2446"
+      },
+      {
+        "Year": 2023,
+        "Quarter": 2,
+        "QuarterName": "Q2",
+        "UniqueCustomers": 513,
+        "Transactions": 5241,
+        "Revenue": "399029770.9400",
+        "UnitsSold": 357607.0,
+        "GrossProfit": 1133241.4083996222,
+        "AvgTransaction": "3370.1269"
+      },
+      {
+        "Year": 2023,
+        "Quarter": 3,
+        "QuarterName": "Q3",
+        "UniqueCustomers": 534,
+        "Transactions": 5017,
+        "Revenue": "401286156.5200",
+        "UnitsSold": 324058.0,
+        "GrossProfit": 1060058.5688996546,
+        "AvgTransaction": "3543.3343"
+      },
+      {
+        "Year": 2023,
+        "Quarter": 4,
+        "QuarterName": "Q4",
+        "UniqueCustomers": 508,
+        "Transactions": 4530,
+        "Revenue": "384556966.6500",
+        "UnitsSold": 312656.0,
+        "GrossProfit": 947928.4992998065,
+        "AvgTransaction": "3734.9407"
+      }
+    ]
+  },
+  "profitability_trends": {
+    "margin_evolution": [
+      {
+        "Year": 2019,
+        "Revenue": 24356379.291466326,
+        "AdjustedCost": 23348442.540085718,
+        "GrossProfit": 1007936.7514260099,
+        "GrossProfitMargin": "4.14",
+        "CigaretteRevenue": 10315041.420003025,
+        "CigarRevenue": 6321446.660014327,
+        "VapeRevenue": 590952.1500000001
+      },
+      {
+        "Year": 2020,
+        "Revenue": 25705571.91098119,
+        "AdjustedCost": 24027774.022912625,
+        "GrossProfit": 1677797.8881735299,
+        "GrossProfitMargin": "6.53",
+        "CigaretteRevenue": 10942277.540004516,
+        "CigarRevenue": 6204106.000021135,
+        "VapeRevenue": 1524754.919999983
+      },
+      {
+        "Year": 2021,
+        "Revenue": 37713732.5949041,
+        "AdjustedCost": 34901902.847795665,
+        "GrossProfit": 2811829.7472029296,
+        "GrossProfitMargin": "7.46",
+        "CigaretteRevenue": 13875718.740006782,
+        "CigarRevenue": 8523608.500024352,
+        "VapeRevenue": 3784417.6904000808
+      },
+      {
+        "Year": 2022,
+        "Revenue": 35799077.23789471,
+        "AdjustedCost": 32690490.236169368,
+        "GrossProfit": 3108587.00181665,
+        "GrossProfitMargin": "8.68",
+        "CigaretteRevenue": 11252281.780001132,
+        "CigarRevenue": 8458509.860019574,
+        "VapeRevenue": 4936618.710000168
+      },
+      {
+        "Year": 2023,
+        "Revenue": 34110221.851596095,
+        "AdjustedCost": 31096062.008379757,
+        "GrossProfit": 3014159.8433191543,
+        "GrossProfitMargin": "8.84",
+        "CigaretteRevenue": 11758955.380003236,
+        "CigarRevenue": 5903535.44000969,
+        "VapeRevenue": 5269188.020000312
+      }
+    ],
+    "customer_profitability": [
+      {
+        "Year": 2019,
+        "TotalCustomers": 684,
+        "AvgCustomerRevenue": 34848.870395760234,
+        "AvgCustomerProfit": 3112.896283479535,
+        "AvgTransactionsPerCustomer": 30,
+        "HighProfitCustomers": 54,
+        "MediumProfitCustomers": 78,
+        "LowProfitCustomers": 178,
+        "MinimalProfitCustomers": 374,
+        "Top50ConcentrationPercent": 49.875620641654514
+      },
+      {
+        "Year": 2020,
+        "TotalCustomers": 780,
+        "AvgCustomerRevenue": 32665.674572406293,
+        "AvgCustomerProfit": 3519.8763217846104,
+        "AvgTransactionsPerCustomer": 29,
+        "HighProfitCustomers": 80,
+        "MediumProfitCustomers": 96,
+        "LowProfitCustomers": 223,
+        "MinimalProfitCustomers": 381,
+        "Top50ConcentrationPercent": 44.06811951592936
+      },
+      {
+        "Year": 2021,
+        "TotalCustomers": 831,
+        "AvgCustomerRevenue": 45194.970188688174,
+        "AvgCustomerProfit": 4457.566091095072,
+        "AvgTransactionsPerCustomer": 31,
+        "HighProfitCustomers": 136,
+        "MediumProfitCustomers": 127,
+        "LowProfitCustomers": 227,
+        "MinimalProfitCustomers": 341,
+        "Top50ConcentrationPercent": 37.63320285993919
+      },
+      {
+        "Year": 2022,
+        "TotalCustomers": 838,
+        "AvgCustomerRevenue": 42689.30898329358,
+        "AvgCustomerProfit": 5494.599694988061,
+        "AvgTransactionsPerCustomer": 27,
+        "HighProfitCustomers": 139,
+        "MediumProfitCustomers": 117,
+        "LowProfitCustomers": 267,
+        "MinimalProfitCustomers": 315,
+        "Top50ConcentrationPercent": 38.30337900740498
+      },
+      {
+        "Year": 2023,
+        "TotalCustomers": 743,
+        "AvgCustomerRevenue": 45898.53692018835,
+        "AvgCustomerProfit": 5508.351679542391,
+        "AvgTransactionsPerCustomer": 26,
+        "HighProfitCustomers": 134,
+        "MediumProfitCustomers": 110,
+        "LowProfitCustomers": 225,
+        "MinimalProfitCustomers": 274,
+        "Top50ConcentrationPercent": 40.25739485122685
+      }
+    ]
+  },
+  "customer_retention": {
+    "cohort_analysis": {
+      "cohort_activity": [
+        {
+          "CohortYear": 2019,
+          "ActivityYear": 2019,
+          "YearsSinceCohort": 0,
+          "ActiveCustomers": 685,
+          "CohortRevenue": "23836647.3200",
+          "AvgRevenuePerCustomer": "34798.0252"
+        },
+        {
+          "CohortYear": 2019,
+          "ActivityYear": 2020,
+          "YearsSinceCohort": 1,
+          "ActiveCustomers": 503,
+          "CohortRevenue": "21467440.1600",
+          "AvgRevenuePerCustomer": "42678.8074"
+        },
+        {
+          "CohortYear": 2019,
+          "ActivityYear": 2021,
+          "YearsSinceCohort": 2,
+          "ActiveCustomers": 412,
+          "CohortRevenue": "23655006.4400",
+          "AvgRevenuePerCustomer": "57415.0641"
+        },
+        {
+          "CohortYear": 2019,
+          "ActivityYear": 2022,
+          "YearsSinceCohort": 3,
+          "ActiveCustomers": 362,
+          "CohortRevenue": "19968262.6800",
+          "AvgRevenuePerCustomer": "55160.9466"
+        },
+        {
+          "CohortYear": 2019,
+          "ActivityYear": 2023,
+          "YearsSinceCohort": 4,
+          "ActiveCustomers": 295,
+          "CohortRevenue": "14832975.8400",
+          "AvgRevenuePerCustomer": "50281.2740"
+        },
+        {
+          "CohortYear": 2020,
+          "ActivityYear": 2020,
+          "YearsSinceCohort": 0,
+          "ActiveCustomers": 277,
+          "CohortRevenue": "4011969.8900",
+          "AvgRevenuePerCustomer": "14483.6458"
+        },
+        {
+          "CohortYear": 2020,
+          "ActivityYear": 2021,
+          "YearsSinceCohort": 1,
+          "ActiveCustomers": 174,
+          "CohortRevenue": "9040253.2500",
+          "AvgRevenuePerCustomer": "51955.4784"
+        },
+        {
+          "CohortYear": 2020,
+          "ActivityYear": 2022,
+          "YearsSinceCohort": 2,
+          "ActiveCustomers": 143,
+          "CohortRevenue": "5785888.9500",
+          "AvgRevenuePerCustomer": "40460.7618"
+        },
+        {
+          "CohortYear": 2020,
+          "ActivityYear": 2023,
+          "YearsSinceCohort": 3,
+          "ActiveCustomers": 107,
+          "CohortRevenue": "4439125.1200",
+          "AvgRevenuePerCustomer": "41487.1506"
+        },
+        {
+          "CohortYear": 2021,
+          "ActivityYear": 2021,
+          "YearsSinceCohort": 0,
+          "ActiveCustomers": 245,
+          "CohortRevenue": "4861760.8600",
+          "AvgRevenuePerCustomer": "19843.9218"
+        },
+        {
+          "CohortYear": 2021,
+          "ActivityYear": 2022,
+          "YearsSinceCohort": 1,
+          "ActiveCustomers": 160,
+          "CohortRevenue": "5578172.2600",
+          "AvgRevenuePerCustomer": "34863.5766"
+        },
+        {
+          "CohortYear": 2021,
+          "ActivityYear": 2023,
+          "YearsSinceCohort": 2,
+          "ActiveCustomers": 99,
+          "CohortRevenue": "5932224.3900",
+          "AvgRevenuePerCustomer": "59921.4584"
+        },
+        {
+          "CohortYear": 2022,
+          "ActivityYear": 2022,
+          "YearsSinceCohort": 0,
+          "ActiveCustomers": 174,
+          "CohortRevenue": "4441317.2200",
+          "AvgRevenuePerCustomer": "25524.8116"
+        },
+        {
+          "CohortYear": 2022,
+          "ActivityYear": 2023,
+          "YearsSinceCohort": 1,
+          "ActiveCustomers": 97,
+          "CohortRevenue": "6015175.8900",
+          "AvgRevenuePerCustomer": "62012.1225"
+        },
+        {
+          "CohortYear": 2023,
+          "ActivityYear": 2023,
+          "YearsSinceCohort": 0,
+          "ActiveCustomers": 146,
+          "CohortRevenue": "2884687.4400",
+          "AvgRevenuePerCustomer": "19758.1331"
+        }
+      ],
+      "retention_rates": []
+    },
+    "churn_trends": [
+      {
+        "LastActiveYear": 2019,
+        "ChurnedCustomers": 140,
+        "AvgLostRevenue": "9315.6504",
+        "TotalLostRevenue": "1304191.0600",
+        "AvgTransactionsBeforeChurn": 8,
+        "HighValueChurn": 31,
+        "MediumValueChurn": 17,
+        "LowValueChurn": 92
+      },
+      {
+        "LastActiveYear": 2020,
+        "ChurnedCustomers": 195,
+        "AvgLostRevenue": "13055.9597",
+        "TotalLostRevenue": "2545912.1500",
+        "AvgTransactionsBeforeChurn": 14,
+        "HighValueChurn": 56,
+        "MediumValueChurn": 20,
+        "LowValueChurn": 119
+      },
+      {
+        "LastActiveYear": 2021,
+        "ChurnedCustomers": 173,
+        "AvgLostRevenue": "35507.8437",
+        "TotalLostRevenue": "6142856.9700",
+        "AvgTransactionsBeforeChurn": 28,
+        "HighValueChurn": 68,
+        "MediumValueChurn": 19,
+        "LowValueChurn": 86
+      },
+      {
+        "LastActiveYear": 2022,
+        "ChurnedCustomers": 275,
+        "AvgLostRevenue": "41133.0453",
+        "TotalLostRevenue": "11311587.4700",
+        "AvgTransactionsBeforeChurn": 35,
+        "HighValueChurn": 141,
+        "MediumValueChurn": 37,
+        "LowValueChurn": 97
+      }
+    ]
+  }
+}

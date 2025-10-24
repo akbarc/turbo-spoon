@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Wholesale Receipt</title>
+    <style>
+        /* Page Setup - mimics 8.5" x 11" with margins */
+        @page {
+            size: letter;
+            margin: 0.3in;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+        }
+
+        .receipt-page {
+            width: 7.9in; /* 8.5 - 0.3*2 */
+            min-height: 10.4in; /* 11 - 0.3*2 */
+            margin: 0 auto;
+            padding: 0.3in;
+            background: white;
+            box-sizing: border-box;
+        }
+
+        /* Header Styling */
+        .receipt-header {
+            height: 3.5in;
+            border-bottom: 2px solid #000;
+            margin-bottom: 0.2in;
+            position: relative;
+        }
+
+        .store-info h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            margin: 0;
+            text-align: center;
+        }
+
+        .store-address {
+            text-align: center;
+            font-size: 12pt;
+            margin: 10px 0;
+        }
+
+        .transaction-info {
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: right;
+            font-size: 10pt;
+        }
+
+        .license-info {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            font-size: 9pt;
+        }
+
+        /* Customer Section */
+        .customer-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 0.2in 0;
+            font-size: 9pt;
+        }
+
+        .bill-to, .ship-to {
+            width: 48%;
+        }
+
+        .bill-to h3, .ship-to h3 {
+            font-size: 10pt;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+        }
+
+        /* Line Items Table */
+        .line-items {
+            margin: 0.2in 0;
+        }
+
+        #itemsTable {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+        }
+
+        #itemsTable thead {
+            background-color: #FFFF00; /* vbYellow */
+            border: 1px solid #000;
+        }
+
+        #itemsTable th {
+            padding: 5px;
+            text-align: left;
+            border: 1px solid #000;
+            font-weight: bold;
+        }
+
+        #itemsTable td {
+            padding: 5px;
+            border: 1px solid #000;
+        }
+
+        /* Column Widths */
+        .col-line { width: 6%; text-align: right; }
+        .col-desc { width: 40%; text-align: left; }
+        .col-uprice { width: 12%; text-align: right; }
+        .col-pack { width: 12%; text-align: left; }
+        .col-qty { width: 8%; text-align: right; }
+        .col-price { width: 10%; text-align: right; }
+        .col-ext { width: 12%; text-align: right; }
+
+        /* Excise Tax */
+        .excise-tax {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Totals Section */
+        .totals {
+            text-align: right;
+            margin: 0.2in 0;
+            font-size: 10pt;
+        }
+
+        .totals table {
+            margin-left: auto;
+            width: 50%;
+        }
+
+        .totals td {
+            padding: 3px 10px;
+        }
+
+        .totals .total-label {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .totals .total-amount {
+            text-align: right;
+            width: 120px;
+        }
+
+        .total-qty-banner {
+            text-align: center;
+            background-color: #FFFF00;
+            padding: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Payment Section */
+        .payment {
+            margin: 0.2in 0;
+            font-size: 9pt;
+        }
+
+        .payment table {
+            margin-left: auto;
+            width: 50%;
+        }
+
+        .payment td {
+            padding: 3px 10px;
+        }
+
+        /* Footer */
+        .receipt-footer {
+            margin-top: 0.5in;
+            position: relative;
+        }
+
+        .comments {
+            font-size: 9pt;
+            line-height: 1.4;
+            margin-bottom: 0.2in;
+            text-align: center;
+        }
+
+        .bottom-comments {
+            border-top: 1px solid #000;
+            padding-top: 5px;
+            font-size: 8pt;
+            margin-top: 0.2in;
+            text-align: center;
+        }
+
+        .barcode {
+            text-align: center;
+            margin: 0.2in 0;
+            font-family: 'Courier New', monospace;
+            font-size: 24pt;
+        }
+
+        /* Print-specific styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .receipt-page {
+                margin: 0;
+                padding: 0.3in;
+                box-shadow: none;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+
+        /* Helper classes */
+        .text-right { text-align: right; }
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .bold { font-weight: bold; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="receipt-page">
+        <!-- Header Section -->
+        <header class="receipt-header">
+            <div class="store-info">
+                <h1>{{ business_name }}</h1>
+                <div class="store-address">
+                    <div>{{ store_address }}</div>
+                    <div>{{ store_city }}</div>
+                    <div>Phone: {{ store_phone }}</div>
+                </div>
+            </div>
+            <div class="transaction-info">
+                <h2>{{ transaction_type|upper }}</h2>
+                <div>Date: {{ transaction_date }}</div>
+                <div>Time: {{ transaction_time }}</div>
+                <div>Cashier: {{ transaction.get('CashierID', 'N/A') }}</div>
+                <div>Register #: {{ transaction.get('RegisterID', 'N/A') }}</div>
+                <div>Invoice #: {{ transaction.TransactionNumber }}</div>
+                {% if transaction.CustomerName %}
+                <div>Customer: {{ transaction.CustomerName[:30] }}</div>
+                {% endif %}
+            </div>
+            <div class="license-info">
+                <div>TOBACCO LIC#: 0046812</div>
+                <div>RESALE CERT#: 308-045115</div>
+                <div>FEIN #: 46-0768846</div>
+                <div>STATE TAX ID#: 20221911149</div>
+            </div>
+        </header>
+
+        <!-- Customer Info Section -->
+        {% if transaction.CustomerName %}
+        <section class="customer-section">
+            <div class="bill-to">
+                <h3>Bill To:</h3>
+                <div>{{ transaction.CustomerName }}</div>
+                {% if transaction.Address %}
+                <div>{{ transaction.Address }}</div>
+                <div>{{ transaction.City }}, {{ transaction.State }} {{ transaction.Zip }}</div>
+                {% endif %}
+                {% if transaction.PhoneNumber %}
+                <div>{{ transaction.PhoneNumber }}</div>
+                {% endif %}
+            </div>
+            <div class="ship-to">
+                <h3>Ship To:</h3>
+                <div>{{ transaction.CustomerName }}</div>
+                {% if transaction.Address %}
+                <div>{{ transaction.Address }}</div>
+                <div>{{ transaction.City }}, {{ transaction.State }} {{ transaction.Zip }}</div>
+                {% endif %}
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- Line Items Table -->
+        <section class="line-items">
+            <table id="itemsTable">
+                <thead>
+                    <tr>
+                        <th class="col-line">LN.</th>
+                        <th class="col-desc">Description</th>
+                        <th class="col-uprice">U-Price</th>
+                        <th class="col-pack">Pack</th>
+                        <th class="col-qty">Qty</th>
+                        <th class="col-price">Price</th>
+                        <th class="col-ext">Extended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in items %}
+                    <tr>
+                        <td class="text-right">{{ loop.index }}</td>
+                        <td class="text-left">{{ item.Description }}</td>
+                        <td class="text-right">${{ "%.2f"|format(item.Price) }}</td>
+                        <td class="text-left">{{ item.get('Pack', '1 EA') }}</td>
+                        <td class="text-right">{{ "%.0f"|format(item.Quantity) }}</td>
+                        <td class="text-right">${{ "%.2f"|format(item.Price) }}</td>
+                        <td class="text-right">${{ "%.2f"|format(item.LineTotal) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            {% if excise_tax > 0 %}
+            <div class="excise-tax">
+                <div>Georgia Excise Tax Paid ${{ "%.2f"|format(excise_tax) }}</div>
+                <div>Included in This Invoice</div>
+            </div>
+            {% endif %}
+        </section>
+
+        <!-- Totals Section -->
+        <section class="totals">
+            <table>
+                <tr>
+                    <td class="total-label">Sub Total</td>
+                    <td class="total-amount">${{ "%.2f"|format(subtotal) }}</td>
+                </tr>
+                {% if tax > 0 %}
+                <tr>
+                    <td class="total-label">Sales Tax</td>
+                    <td class="total-amount">${{ "%.2f"|format(tax) }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td class="total-label bold">Total</td>
+                    <td class="total-amount bold">${{ "%.2f"|format(total) }}</td>
+                </tr>
+            </table>
+            
+            <div class="total-qty-banner">
+                !!!!! Total {{ total_quantity }} QTY Items !!!!!
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section class="payment">
+            <table>
+                <tr>
+                    <td class="text-right">Account Tendered</td>
+                    <td class="text-right" style="width: 120px;">${{ "%.2f"|format(total) }}</td>
+                </tr>
+                {% if customer_balance %}
+                <tr><td colspan="2">&nbsp;</td></tr>
+                <tr>
+                    <td class="text-right">Previous Balance</td>
+                    <td class="text-right">${{ "%.2f"|format(previous_balance|default(0)) }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right bold">New Balance</td>
+                    <td class="text-right bold">${{ "%.2f"|format(customer_balance) }}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </section>
+
+        <!-- Footer Comments -->
+        <footer class="receipt-footer">
+            <div class="comments">
+                {% for message in footer_messages %}
+                {% if message and message != 'X_____________________________________________' %}
+                <div>{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            
+            <div class="barcode">
+                *{{ transaction.TransactionNumber }}*
+            </div>
+            
+            <div class="bottom-comments">
+                <div>{{ business_name }}</div>
+                <div>{{ store_phone }}</div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

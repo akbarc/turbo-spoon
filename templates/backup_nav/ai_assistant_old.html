@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Dashboard - AI Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            min-height: 100vh;
+            color: #1a202c;
+            font-weight: 400;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* Left Sidebar Navigation */
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+        }
+
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 10px;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-item:hover {
+            background: #f1f5f9;
+            color: #334155;
+            transform: translateX(2px);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+            color: white;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+        }
+
+        .nav-item i {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Main content wrapper */
+        .content-wrapper {
+            flex: 1;
+            margin-left: 260px;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - 260px);
+        }
+
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+        }
+
+        .logo-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .logo h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .logo .subtitle {
+            font-size: 0.875rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: -2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #f1f5f9;
+            color: #334155;
+        }
+
+        .nav-item.active {
+            background: #8b5cf6;
+            color: white;
+        }
+
+        .main-content {
+            max-width: 1600px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            height: calc(100vh - 140px);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .ai-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .ai-header {
+            padding: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        }
+
+        .ai-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .ai-subtitle {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .messages-area {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            max-width: 85%;
+        }
+
+        .message.user {
+            margin-left: auto;
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(45deg, #3b82f6, #2563eb);
+        }
+
+        .message.ai .message-avatar {
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+        }
+
+        .message-content {
+            background: #f8fafc;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .message.user .message-content {
+            background: #3b82f6;
+            color: white;
+            border: none;
+        }
+
+        .message.ai .message-content {
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+
+        .input-area {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .input-field {
+            flex: 1;
+            min-height: 48px;
+            max-height: 120px;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: none;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .input-field:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .send-button {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(45deg, #8b5cf6, #7c3aed);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-button:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .send-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: none;
+            padding: 1rem 1.25rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .sql-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            max-height: 400px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .sticky-header thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .toolbar input[type="text"] {
+            padding: 0.4rem 0.6rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            flex: 1;
+        }
+
+        .toolbar button {
+            padding: 0.4rem 0.7rem;
+            background: #e5e7eb;
+            border: none;
+            border-radius: 6px;
+            color: #374151;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .toolbar button.active {
+            background: #4f46e5;
+            color: #fff;
+        }
+
+        .example-questions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .example-question {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .example-question:hover {
+            background: #8b5cf6;
+            color: white;
+            border-color: #8b5cf6;
+        }
+
+        .welcome-message {
+            text-align: center;
+            color: #64748b;
+            padding: 2rem;
+        }
+
+        .welcome-message h3 {
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+
+            .message {
+                max-width: 95%;
+            }
+
+            .input-area {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div>
+                    <h1>Georgia Dashboard</h1>
+                    <div class="subtitle">Executive Analytics</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar-nav">
+            <a href="/" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="/ai-assistant" class="nav-item active">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </a>
+            <a href="/ar-dashboard" class="nav-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>AR Dashboard</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-wrapper">
+        <div class="header">
+            <div class="header-content">
+                <div class="ai-title">Business Intelligence Assistant</div>
+                <div class="ai-subtitle">Ask questions about your sales, inventory, customers, and financial data in natural language</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+        <div class="ai-container">
+            <div class="ai-header">
+                <div class="ai-title">Business Intelligence Assistant</div>
+                <div class="ai-subtitle">Ask questions about your sales, inventory, customers, and financial data in natural language</div>
+                <div class="example-questions">
+                    <div class="example-question" onclick="askExample('What are my top selling products this month?')">
+                        Top selling products this month
+                    </div>
+                    <div class="example-question" onclick="askExample('Show me customers with the highest AR balances')">
+                        Highest AR balances
+                    </div>
+                    <div class="example-question" onclick="askExample('Which products are running low on inventory?')">
+                        Low inventory alerts
+                    </div>
+                    <div class="example-question" onclick="askExample('What are the sales trends for the last 3 months?')">
+                        Sales trends analysis
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="messages-area" id="messagesArea">
+                    <div class="welcome-message">
+                        <h3>Welcome to your AI Business Assistant</h3>
+                        <p>Ask me anything about your business data. I can help you analyze sales, inventory, customer information, and financial metrics.</p>
+                    </div>
+                </div>
+                
+                <div class="input-area">
+                    <div class="input-container">
+                        <textarea 
+                            id="questionInput" 
+                            class="input-field" 
+                            placeholder="Ask a question about your business data..."
+                            rows="1"></textarea>
+                        <button id="sendButton" class="send-button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messagesArea = document.getElementById('messagesArea');
+        const questionInput = document.getElementById('questionInput');
+        const sendButton = document.getElementById('sendButton');
+
+        // Auto-resize textarea
+        questionInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+        });
+
+        // Send on Enter (but not Shift+Enter)
+        questionInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendQuestion();
+            }
+        });
+
+        sendButton.addEventListener('click', sendQuestion);
+
+        function askExample(question) {
+            questionInput.value = question;
+            sendQuestion();
+        }
+
+        function addMessage(content, isUser = false, isLoading = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'ai'}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.innerHTML = isUser ? '<i class="fas fa-user"></i>' : '<i class="fas fa-robot"></i>';
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            
+            if (isLoading) {
+                messageContent.className += ' loading show';
+                messageContent.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing your question...';
+            } else {
+                messageContent.innerHTML = content;
+            }
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(messageContent);
+            
+            // Remove welcome message if it exists
+            const welcomeMsg = messagesArea.querySelector('.welcome-message');
+            if (welcomeMsg) {
+                welcomeMsg.remove();
+            }
+            
+            messagesArea.appendChild(messageDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+            
+            return messageDiv;
+        }
+
+        async function sendQuestion() {
+            const question = questionInput.value.trim();
+            if (!question) return;
+
+            // Disable input while processing
+            questionInput.disabled = true;
+            sendButton.disabled = true;
+            
+            // Add user message
+            addMessage(question, true);
+            
+            // Add loading message
+            const loadingMsg = addMessage('', false, true);
+            
+            // Clear input
+            questionInput.value = '';
+            questionInput.style.height = 'auto';
+
+            try {
+                const response = await fetch('/api/ai/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ question: question })
+                });
+
+                const data = await response.json();
+                
+                // Remove loading message
+                loadingMsg.remove();
+                
+                if (data.success) {
+                    // Format AI response - use 'analysis' field from backend
+                    let responseContent = data.analysis || data.answer || 'Query executed successfully';
+                    
+                    // Add SQL query if available
+                    if (data.sql_query) {
+                        responseContent += `<div class="sql-result"><strong>SQL Query Used:</strong><br><code>${data.sql_query}</code></div>`;
+                    }
+
+                    // Show context if provided
+                    if (data.context) {
+                        responseContent += `<div style="margin-top: 0.5rem; color: #64748b; font-size: 0.9rem;"><strong>Context:</strong> ${data.context}</div>`;
+                    }
+
+                    // Add data preview if available - use 'results' field from backend
+                    if ((data.results && data.results.length > 0) || (data.data && data.data.length > 0)) {
+                        const resultsData = data.results || data.data;
+                        // Add toolbar
+                        responseContent += `
+                            <div class="toolbar">
+                                <strong>Data Results (${data.display_count || resultsData.length} of ${data.row_count || resultsData.length} rows)</strong>
+                                <input type="text" placeholder="Filter rows..." oninput="filterResults(this)" />
+                                <button onclick="toggleView(this)" data-view="table" class="active">Table</button>
+                                <button onclick="toggleView(this)" data-view="chart">Chart</button>
+                                <button onclick="exportResults('${data.query_id || ''}', 'csv')" style="background: linear-gradient(45deg, #10b981, #059669); color: white;">Export CSV</button>
+                            </div>
+                        `;
+                        
+                        // Add pagination controls
+                        const rowsPerPage = 50;
+                        const totalPages = Math.ceil(resultsData.length / rowsPerPage);
+                        let currentPage = 1;
+                        
+                        responseContent += `
+                            <div id="pagination-controls-${Date.now()}" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin: 1rem 0;">
+                                <button onclick="changePage(this, -1)" style="padding: 0.3rem 0.8rem; background: #4f46e5; color: white; border: none; border-radius: 4px; cursor: pointer;" ${currentPage === 1 ? 'disabled' : ''}>
+                                    ← Previous
+                                </button>
+                                <span>Page <span class="current-page">${currentPage}</span> of ${totalPages}</span>
+                                <button onclick="changePage(this, 1)" style="padding: 0.3rem 0.8rem; background: #4f46e5; color: white; border: none; border-radius: 4px; cursor: pointer;" ${currentPage === totalPages ? 'disabled' : ''}>
+                                    Next →
+                                </button>
+                            </div>
+                        `;
+                        
+                        responseContent += `<div class="sql-result" style="max-height: 500px; overflow: auto; margin-top: 0.5rem;" data-all-results='${JSON.stringify(resultsData)}' data-current-page="1" data-rows-per-page="${rowsPerPage}" data-sort-key="" data-sort-dir="asc">`;
+                        responseContent += '<div class="chart-holder" style="display:none; width:100%;"><canvas></canvas></div>';
+                        const preview = resultsData.slice(0, rowsPerPage);
+                        responseContent += '<table class="sticky-header" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">';
+                        
+                        // Headers
+                        if (preview.length > 0) {
+                            responseContent += '<thead><tr>';
+                            Object.keys(preview[0]).forEach(key => {
+                                responseContent += `<th style="border: 1px solid #e2e8f0; padding: 0.5rem; background: linear-gradient(to bottom, #f8fafc, #f1f5f9); font-weight: 600; text-align: left; color: #334155; cursor:pointer;" onclick="sortTable(this, '${key}')">${key} <span style='opacity:0.5;'>↕</span></th>`;
+                            });
+                            responseContent += '</tr></thead>';
+                            
+                            // Rows with alternating colors
+                            responseContent += '<tbody>';
+                            preview.forEach((row, index) => {
+                                const bgColor = index % 2 === 0 ? '#ffffff' : '#f8fafc';
+                                responseContent += `<tr style="background: ${bgColor}; transition: background 0.2s;" onmouseover="this.style.background='#e0e7ff'" onmouseout="this.style.background='${bgColor}'">`;
+                                Object.values(row).forEach(value => {
+                                    // Format numbers and nulls nicely
+                                    let displayValue = value;
+                                    if (value === null || value === undefined) {
+                                        displayValue = '<span style="color: #94a3b8; font-style: italic;">null</span>';
+                                    } else if (typeof value === 'number') {
+                                        // Default numeric formatting
+                                        displayValue = value.toLocaleString();
+                                    }
+                                    responseContent += `<td style="border: 1px solid #e2e8f0; padding: 0.5rem; color: #475569;">${displayValue}</td>`;
+                                });
+                                responseContent += '</tr>';
+                            });
+                            responseContent += '</tbody>';
+                        }
+                        responseContent += '</table>';
+                        
+                        // Add note if more rows exist
+                        if (data.row_count > preview.length) {
+                            responseContent += `<div style="margin-top: 0.5rem; color: #64748b; font-size: 0.85rem; font-style: italic;">Showing ${preview.length} of ${data.row_count} total rows</div>`;
+                        }
+                        
+                        responseContent += '</div>';
+                    }
+
+                    // Add refine UI
+                    const qid = data.query_id || '';
+                    if (data.sql_query) {
+                        responseContent += `
+                          <div style="margin-top: 1rem; padding-top: 0.5rem; border-top: 1px solid #e5e7eb;">
+                            <div style="margin-bottom: 0.5rem; color:#334155; font-weight:600;">Refine this result</div>
+                            <div style="display:flex; gap:0.5rem;">
+                              <input type="text" placeholder="e.g., change period to YTD and show top 10" style="flex:1; padding:0.5rem; border:1px solid #d1d5db; border-radius:8px;" id="refine-input-${Date.now()}">
+                              <button style="padding:0.5rem 0.9rem; background:#4f46e5; color:#fff; border:none; border-radius:8px; cursor:pointer;" onclick="refineQuery('${qid}', \`${data.sql_query.replace(/`/g,'\\`')}\`, this)">Apply</button>
+                            </div>
+                          </div>
+                        `;
+                    }
+                    
+                    addMessage(responseContent);
+                } else {
+                    addMessage(`I apologize, but I encountered an error: ${data.error || 'Unknown error'}. Please try rephrasing your question.`);
+                }
+            } catch (error) {
+                // Remove loading message
+                loadingMsg.remove();
+                addMessage('I apologize, but I encountered a connection error. Please check your connection and try again.');
+                console.error('Error:', error);
+            }
+
+            // Re-enable input
+            questionInput.disabled = false;
+            sendButton.disabled = false;
+            questionInput.focus();
+        }
+
+        async function refineQuery(queryId, previousSql, btn) {
+            try {
+                const container = btn.closest('.message').querySelector('input[id^="refine-input-"]');
+                const instruction = container ? container.value.trim() : '';
+                if (!instruction) return;
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                const body = { instruction };
+                if (queryId) body.query_id = queryId;
+                else body.previous_sql = previousSql;
+                const resp = await fetch('/api/ai/refine', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+                });
+                const data = await resp.json();
+                if (data && data.success) {
+                    // render as new AI message
+                    let content = data.analysis || 'Refined query executed successfully';
+                    if (data.sql_query) {
+                        content += `<div class="sql-result"><strong>SQL Query Used:</strong><br><code>${data.sql_query}</code></div>`;
+                    }
+                    if ((data.results && data.results.length > 0)) {
+                        content += `<div class="sql-result">Returned ${data.display_count} of ${data.row_count} rows</div>`;
+                    }
+                    addMessage(content, false);
+                } else {
+                    addMessage(`Refine error: ${data.error || 'Unknown'}`);
+                }
+            } catch (e) {
+                console.error(e);
+                addMessage('Connection error during refine');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Apply';
+            }
+        }
+
+        // Helper: format value based on column name
+        function formatValueByKey(key, value) {
+            if (value === null || value === undefined) return '<span style="color:#94a3b8;font-style:italic;">null</span>';
+            if (typeof value === 'number') {
+                const keyLower = key.toLowerCase();
+                const isCurrency = /(revenue|profit|amount|cost|balance|paid|total)/.test(keyLower);
+                return isCurrency ? value.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : value.toLocaleString();
+            }
+            return String(value);
+        }
+
+        // Sorting
+        function sortTable(thEl, key) {
+            const container = thEl.closest('.message').querySelector('.sql-result');
+            const allData = JSON.parse(container.getAttribute('data-all-results') || '[]');
+            if (allData.length === 0) return;
+            let dir = container.getAttribute('data-sort-dir') || 'asc';
+            const currentKey = container.getAttribute('data-sort-key') || '';
+            if (currentKey === key) {
+                dir = dir === 'asc' ? 'desc' : 'asc';
+            } else {
+                dir = 'asc';
+            }
+            container.setAttribute('data-sort-key', key);
+            container.setAttribute('data-sort-dir', dir);
+            allData.sort((a,b) => {
+                const av = a[key]; const bv = b[key];
+                if (av == null && bv == null) return 0;
+                if (av == null) return dir === 'asc' ? -1 : 1;
+                if (bv == null) return dir === 'asc' ? 1 : -1;
+                if (typeof av === 'number' && typeof bv === 'number') return dir === 'asc' ? av-bv : bv-av;
+                return dir === 'asc' ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+            });
+            container.setAttribute('data-all-results', JSON.stringify(allData));
+            // Reset to page 1
+            container.setAttribute('data-current-page', '1');
+            // Rebuild table body
+            rebuildTable(container);
+        }
+
+        function rebuildTable(resultDiv) {
+            const allData = JSON.parse(resultDiv.getAttribute('data-all-results') || '[]');
+            const rowsPerPage = parseInt(resultDiv.getAttribute('data-rows-per-page'));
+            const currentPage = parseInt(resultDiv.getAttribute('data-current-page'));
+            const startIdx = (currentPage - 1) * rowsPerPage;
+            const pageData = allData.slice(startIdx, startIdx + rowsPerPage);
+            const table = resultDiv.querySelector('table');
+            if (!table) return;
+            const keys = pageData.length ? Object.keys(pageData[0]) : (allData.length ? Object.keys(allData[0]) : []);
+            let html = '';
+            if (pageData.length) {
+                html += '<tbody>';
+                pageData.forEach((row, idx) => {
+                    const bgColor = idx % 2 === 0 ? '#ffffff' : '#f8fafc';
+                    html += `<tr style="background:${bgColor};" onmouseover="this.style.background='#e0e7ff'" onmouseout="this.style.background='${bgColor}'">`;
+                    keys.forEach(k => {
+                        html += `<td style="border: 1px solid #e2e8f0; padding: 0.5rem; color: #475569;">${formatValueByKey(k, row[k])}</td>`;
+                    });
+                    html += '</tr>';
+                });
+                html += '</tbody>';
+            } else {
+                html += '<tbody></tbody>';
+            }
+            // Replace tbody
+            const oldTbody = table.querySelector('tbody');
+            if (oldTbody) oldTbody.remove();
+            table.insertAdjacentHTML('beforeend', html);
+        }
+
+        // Filter
+        function filterResults(inputEl) {
+            const container = inputEl.closest('.message').querySelector('.sql-result');
+            const originalAll = JSON.parse(container.getAttribute('data-all-results') || '[]');
+            const q = inputEl.value.trim().toLowerCase();
+            if (!container._original) container._original = originalAll;
+            const src = container._original;
+            const filtered = q ? src.filter(row => Object.values(row).some(v => (v!==null && v!==undefined && String(v).toLowerCase().includes(q)))) : src.slice();
+            container.setAttribute('data-all-results', JSON.stringify(filtered));
+            container.setAttribute('data-current-page', '1');
+            rebuildTable(container);
+        }
+
+        // Chart toggle
+        function toggleView(btn) {
+            const toolbar = btn.closest('.toolbar');
+            const message = btn.closest('.message');
+            const resultDiv = message.querySelector('.sql-result');
+            const chartHolder = resultDiv.querySelector('.chart-holder');
+            const table = resultDiv.querySelector('table');
+            const buttons = toolbar.querySelectorAll('button[data-view]');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const view = btn.getAttribute('data-view');
+            if (view === 'chart') {
+                table.style.display = 'none';
+                chartHolder.style.display = 'block';
+                buildChart(chartHolder, resultDiv);
+            } else {
+                chartHolder.style.display = 'none';
+                table.style.display = 'table';
+            }
+        }
+
+        function buildChart(chartHolder, resultDiv) {
+            const allData = JSON.parse(resultDiv.getAttribute('data-all-results') || '[]');
+            if (!allData.length) return;
+            const keys = Object.keys(allData[0] || {});
+            const dateKey = keys.find(k => /date|time/i.test(k)) || null;
+            // prefer common metrics
+            const preferred = ['total_revenue', 'total_profit', 'revenue', 'profit', 'amount', 'balance', 'total'];
+            let metricKey = preferred.find(k => keys.includes(k));
+            if (!metricKey) metricKey = keys.find(k => typeof allData[0][k] === 'number');
+            if (!dateKey || !metricKey) {
+                chartHolder.innerHTML = '<div style="color:#64748b; padding:0.5rem;">No date series found to chart.</div>';
+                return;
+            }
+            // Aggregate by date
+            const map = new Map();
+            allData.forEach(r => {
+                const d = String(r[dateKey]).slice(0,10);
+                const v = Number(r[metricKey]) || 0;
+                map.set(d, (map.get(d) || 0) + v);
+            });
+            const labels = Array.from(map.keys()).sort();
+            const values = labels.map(l => map.get(l));
+            chartHolder.innerHTML = '<canvas></canvas>';
+            const ctx = chartHolder.querySelector('canvas').getContext('2d');
+            if (chartHolder._chart) chartHolder._chart.destroy();
+            chartHolder._chart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: metricKey, data: values, borderColor: '#4f46e5', backgroundColor: 'rgba(79,70,229,0.1)', fill: true, tension: 0.25 }]},
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { ticks: { callback: (v)=> v.toLocaleString('en-US') }}}}
+            });
+            chartHolder.style.height = '320px';
+        }
+
+        // Export results function - uses backend endpoint for full data
+        function exportResults(queryId, format) {
+            if (!queryId) {
+                // Fallback to exporting visible data if no query ID
+                const lastMessage = messagesArea.querySelector('.message.ai:last-child');
+                if (!lastMessage) return;
+                
+                const resultDiv = lastMessage.querySelector('.sql-result');
+                if (!resultDiv) {
+                    alert('No data to export');
+                    return;
+                }
+                
+                // Get all data from the data attribute
+                const allData = JSON.parse(resultDiv.getAttribute('data-all-results') || '[]');
+                if (allData.length === 0) {
+                    alert('No data to export');
+                    return;
+                }
+                
+                // Convert to CSV
+                let csv = [];
+                
+                // Headers
+                if (allData.length > 0) {
+                    csv.push(Object.keys(allData[0]).map(key => {
+                        // Quote if contains special characters
+                        if (key.includes(',') || key.includes('"') || key.includes('\n')) {
+                            return '"' + key.replace(/"/g, '""') + '"';
+                        }
+                        return key;
+                    }).join(','));
+                }
+                
+                // Data rows
+                allData.forEach(row => {
+                    const rowData = Object.values(row).map(value => {
+                        let text = value !== null && value !== undefined ? String(value) : '';
+                        if (text.includes(',') || text.includes('"') || text.includes('\n')) {
+                            text = '"' + text.replace(/"/g, '""') + '"';
+                        }
+                        return text;
+                    });
+                    csv.push(rowData.join(','));
+                });
+                
+                // Download CSV
+                const csvContent = csv.join('\n');
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', `ai_query_results_${new Date().toISOString().slice(0,10)}.csv`);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } else {
+                // Use backend endpoint for full data export
+                window.location.href = `/api/ai/export/${queryId}`;
+            }
+        }
+        
+        // Pagination function
+        function changePage(button, direction) {
+            const paginationDiv = button.closest('[id^="pagination-controls"]');
+            const resultDiv = paginationDiv.nextElementSibling;
+            const allData = JSON.parse(resultDiv.getAttribute('data-all-results') || '[]');
+            const rowsPerPage = parseInt(resultDiv.getAttribute('data-rows-per-page'));
+            let currentPage = parseInt(resultDiv.getAttribute('data-current-page'));
+            
+            // Update page
+            currentPage += direction;
+            const totalPages = Math.ceil(allData.length / rowsPerPage);
+            
+            if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+            
+            resultDiv.setAttribute('data-current-page', currentPage);
+            
+            // Update pagination controls
+            paginationDiv.querySelector('.current-page').textContent = currentPage;
+            paginationDiv.querySelector('button:first-child').disabled = currentPage === 1;
+            paginationDiv.querySelector('button:last-child').disabled = currentPage === totalPages;
+            
+            // Update table data
+            const startIdx = (currentPage - 1) * rowsPerPage;
+            const endIdx = startIdx + rowsPerPage;
+            const pageData = allData.slice(startIdx, endIdx);
+            
+            // Rebuild table
+            let tableHTML = '<table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">';
+            
+            // Headers
+            if (pageData.length > 0) {
+                tableHTML += '<thead><tr>';
+                Object.keys(pageData[0]).forEach(key => {
+                    tableHTML += `<th style="border: 1px solid #e2e8f0; padding: 0.5rem; background: linear-gradient(to bottom, #f8fafc, #f1f5f9); font-weight: 600; text-align: left; color: #334155;">${key}</th>`;
+                });
+                tableHTML += '</tr></thead>';
+                
+                // Rows
+                tableHTML += '<tbody>';
+                pageData.forEach((row, index) => {
+                    const bgColor = index % 2 === 0 ? '#ffffff' : '#f8fafc';
+                    tableHTML += `<tr style="background: ${bgColor}; transition: background 0.2s;" onmouseover="this.style.background='#e0e7ff'" onmouseout="this.style.background='${bgColor}'">`;
+                    Object.values(row).forEach(value => {
+                        let displayValue = value;
+                        if (value === null || value === undefined) {
+                            displayValue = '<span style="color: #94a3b8; font-style: italic;">null</span>';
+                        } else if (typeof value === 'number') {
+                            displayValue = value.toLocaleString();
+                        }
+                        tableHTML += `<td style="border: 1px solid #e2e8f0; padding: 0.5rem; color: #475569;">${displayValue}</td>`;
+                    });
+                    tableHTML += '</tr>';
+                });
+                tableHTML += '</tbody>';
+            }
+            
+            tableHTML += '</table>';
+            resultDiv.innerHTML = tableHTML;
+        }
+    </script>
+    </div> <!-- Close content-wrapper -->
+</body>
+</html>

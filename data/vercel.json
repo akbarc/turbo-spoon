@@ -1,0 +1,50 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.py"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": "production",
+    "PYTHONPATH": ".",
+    "DB_SERVER": "your-sql-server-host",
+    "DB_PORT": "1433",
+    "DB_USERNAME": "your-database-username",
+    "DB_PASSWORD": "your-database-password",
+    "DB_DATABASE": "your-database-name",
+    "TDS_VERSION": "7.0",
+    "DB_TIMEOUT": "30",
+    "DB_LOGIN_TIMEOUT": "30"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "http://localhost:8080"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+} 

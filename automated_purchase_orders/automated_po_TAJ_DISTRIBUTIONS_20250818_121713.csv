@@ -1,0 +1,22 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: TAJ DISTRIBUTIONS 
+# Generated: 2025-08-18 12:17:13
+# Total Items: 6
+# Total Quantity: 425.0
+# Estimated Value: $4,939.23
+# Critical Items: 1
+# Urgent Items: 2
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+CRITICAL,025900359546,SS LEAF 3/2.49 10CT PCH BRND,CIGARS,-53,-2.1,24.8,223,$10.74,$2394.46,STABLE,$1266.62,5
+URGENT,025900525453,SS 2/$1.19 30/2CT - COOKIE CRM,CIGARS,10,1.6,6.2,57,$10.03,$571.43,STABLE,$297.00,5
+URGENT,031700238677,GAME LEAF 2/1.49 15/2CT DARK,CIGARS,2,0.8,2.6,24,$8.17,$196.00,DECREASING,$99.54,5
+LOW,031700239391,GAME 2/1.29 30/2CT SUMMER BLND,CIGARS,23,3.4,6.8,61,$10.75,$655.75,STABLE,$350.46,5
+LOW,031700237724,WO 2/1.19 30/2CT PLATINUM,CIGARS,19,3.2,5.9,53,$19.89,$1053.97,INCREASING,$286.23,2
+LOW,025900359041,SS LEAF 10/3CT - PEACH BRANDY,CIGARS,2,2.7,0.8,7,$9.66,$67.62,DECREASING,$44.02,5

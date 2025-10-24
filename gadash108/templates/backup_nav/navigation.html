@@ -1,0 +1,38 @@
+<!-- Professional Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Georgia Business Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'executive_dashboard' %}active{% endif %}" href="/">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'customer_ledger_page' %}active{% endif %}" href="/customer-ledger">
+                        <i class="fas fa-users"></i> Customer Ledger
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'ar_dashboard' %}active{% endif %}" href="/ar-dashboard">
+                        <i class="fas fa-file-invoice-dollar"></i> AR Management
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'gp_analysis_page' %}active{% endif %}" href="/gp-analysis">
+                        <i class="fas fa-chart-pie"></i> GP Analysis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'ai_assistant_page' %}active{% endif %}" href="/ai-assistant">
+                        <i class="fas fa-robot"></i> AI Assistant
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

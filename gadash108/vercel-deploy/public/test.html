@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Test Page - Georgia Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .test-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .test-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+        }
+
+        .status.success {
+            background: #10b981;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .status.error {
+            background: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .status.loading {
+            background: #f59e0b;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .test-result {
+            color: #666;
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .timestamp {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Vercel Deployment Test</h1>
+        <p class="subtitle">Georgia Dashboard Infrastructure Check</p>
+
+        <!-- Test 1: Static Files -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="status success" id="status1"></span>
+                Test 1: Static Files
+            </div>
+            <div class="test-result" id="result1">✅ HTML page loaded successfully</div>
+        </div>
+
+        <!-- Test 2: JavaScript -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="status" id="status2"></span>
+                Test 2: JavaScript Execution
+            </div>
+            <div class="test-result" id="result2">⏳ Testing...</div>
+        </div>
+
+        <!-- Test 3: API Endpoint -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="status loading" id="status3"></span>
+                Test 3: API Endpoint
+            </div>
+            <div class="test-result" id="result3">⏳ Testing /api/test endpoint...</div>
+            <button onclick="testAPI()">Retry API Test</button>
+        </div>
+
+        <!-- Test 4: Database (Optional) -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="status" id="status4"></span>
+                Test 4: Database Connection
+            </div>
+            <div class="test-result" id="result4">⏳ Not tested yet</div>
+            <button onclick="testDatabase()" id="dbButton">Test Database Connection</button>
+        </div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <strong>ℹ️ What This Tests:</strong><br>
+            • Static file serving (HTML/CSS/JS)<br>
+            • Serverless function execution<br>
+            • API routing<br>
+            • Database connectivity (optional)
+        </div>
+
+        <div class="timestamp" id="timestamp"></div>
+    </div>
+
+    <script>
+        // Update timestamp
+        document.getElementById('timestamp').textContent =
+            'Page loaded: ' + new Date().toLocaleString();
+
+        // Test 2: JavaScript
+        setTimeout(() => {
+            document.getElementById('status2').className = 'status success';
+            document.getElementById('result2').textContent =
+                '✅ JavaScript is working\n' +
+                'Browser: ' + navigator.userAgent.split('(')[1].split(')')[0] + '\n' +
+                'Time: ' + new Date().toISOString();
+        }, 100);
+
+        // Test 3: API Endpoint
+        async function testAPI() {
+            const status3 = document.getElementById('status3');
+            const result3 = document.getElementById('result3');
+
+            status3.className = 'status loading';
+            result3.textContent = '⏳ Testing API endpoint...';
+
+            try {
+                const response = await fetch('/api/test');
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    status3.className = 'status success';
+                    result3.textContent =
+                        '✅ API endpoint working!\n' +
+                        'Response: ' + JSON.stringify(data, null, 2);
+                } else {
+                    throw new Error('API returned error');
+                }
+            } catch (error) {
+                status3.className = 'status error';
+                result3.textContent =
+                    '❌ API test failed\n' +
+                    'Error: ' + error.message + '\n\n' +
+                    'This is expected if not deployed yet.\n' +
+                    'Deploy to Vercel and try again.';
+            }
+        }
+
+        // Test 4: Database
+        async function testDatabase() {
+            const status4 = document.getElementById('status4');
+            const result4 = document.getElementById('result4');
+            const button = document.getElementById('dbButton');
+
+            status4.className = 'status loading';
+            result4.textContent = '⏳ Testing database connection...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch('/api/health');
+                const data = await response.json();
+
+                if (response.ok && data.status === 'healthy') {
+                    status4.className = 'status success';
+                    result4.textContent =
+                        '✅ Database connected!\n' +
+                        'Database: ' + data.database.database + '\n' +
+                        'Server: ' + data.database.version.substring(0, 50) + '...';
+                } else {
+                    throw new Error(data.error || 'Database unhealthy');
+                }
+            } catch (error) {
+                status4.className = 'status error';
+                result4.textContent =
+                    '❌ Database connection failed\n' +
+                    'Error: ' + error.message + '\n\n' +
+                    'Make sure:\n' +
+                    '1. Environment variables are set in Vercel\n' +
+                    '2. SQL Server is accessible (Tailscale/proxy)\n' +
+                    '3. Credentials are correct';
+            } finally {
+                button.disabled = false;
+            }
+        }
+
+        // Auto-run API test on load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(testAPI, 500);
+        });
+    </script>
+</body>
+</html>

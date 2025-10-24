@@ -1,0 +1,875 @@
+{
+  "generated_at": "2025-09-03 18:55:44",
+  "report_title": "Comprehensive Customer Analysis Report",
+  "sections": {
+    "customer_tiers": {
+      "summary": {
+        "Active": {
+          "ID": 235,
+          "Sales12M": "366366.6400",
+          "GP12M": "54954.996000",
+          "AvgTicket": 866.8689991489362
+        },
+        "Bronze": {
+          "ID": 156,
+          "Sales12M": "1697822.6000",
+          "GP12M": "254673.390000",
+          "AvgTicket": 1124.357216025641
+        },
+        "Gold": {
+          "ID": 85,
+          "Sales12M": "6218829.8900",
+          "GP12M": "932824.483500",
+          "AvgTicket": 3422.7745176470585
+        },
+        "Inactive": {
+          "ID": 2175,
+          "Sales12M": "-5131.1500",
+          "GP12M": "-769.672500",
+          "AvgTicket": 1298.325861529548
+        },
+        "Platinum": {
+          "ID": 84,
+          "Sales12M": "19458879.2500",
+          "GP12M": "2918831.887500",
+          "AvgTicket": 3264.738155952381
+        },
+        "Silver": {
+          "ID": 109,
+          "Sales12M": "3589284.8200",
+          "GP12M": "538392.723000",
+          "AvgTicket": 1451.951866972477
+        }
+      },
+      "total_customers": 2844,
+      "active_customers": 669
+    },
+    "concentration": {
+      "pareto_80_20": {
+        "top_20_percent_customers": 133,
+        "sales_from_top_20_percent": "75.35%",
+        "concentration_level": "Moderate"
+      },
+      "top_customers": [
+        {
+          "CustomerName": "MURAD ALI",
+          "Company": "KUSHI ALI INC",
+          "Sales12M": 1353039.77,
+          "CumulativePercent": 4.32
+        },
+        {
+          "CustomerName": "MURAD ALI",
+          "Company": "A & K GLOBAL USA LLC/FAIRVIEW",
+          "Sales12M": 869480.23,
+          "CumulativePercent": 7.09
+        },
+        {
+          "CustomerName": "MURAD ALI",
+          "Company": "FR1 USA LLC",
+          "Sales12M": 669051.73,
+          "CumulativePercent": 9.23
+        },
+        {
+          "CustomerName": "MALIK KHERANI",
+          "Company": "ARISHA SHELL INC",
+          "Sales12M": 626850.04,
+          "CumulativePercent": 11.23
+        },
+        {
+          "CustomerName": "MALIK KHERANI",
+          "Company": "ARISHA CHEVRON INC",
+          "Sales12M": 566016.22,
+          "CumulativePercent": 13.04
+        },
+        {
+          "CustomerName": "SHAHBAZ SURANI",
+          "Company": "REDAN BP INC",
+          "Sales12M": 556148.64,
+          "CumulativePercent": 14.81
+        },
+        {
+          "CustomerName": "MURAD ALI",
+          "Company": "PATRIOT PARTY STORE",
+          "Sales12M": 541934.85,
+          "CumulativePercent": 16.54
+        },
+        {
+          "CustomerName": "MURAD ALI",
+          "Company": "CDP USA LLC",
+          "Sales12M": 524330.99,
+          "CumulativePercent": 18.21
+        },
+        {
+          "CustomerName": "KARIM JIWANI",
+          "Company": "BOULEVARD CONVENIENCE INC",
+          "Sales12M": 425090.59,
+          "CumulativePercent": 19.57
+        },
+        {
+          "CustomerName": "SHIVAJI  SHINDE",
+          "Company": "STOP & SAVE GROUP LLC",
+          "Sales12M": 417260.79,
+          "CumulativePercent": 20.9
+        }
+      ],
+      "revenue_brackets": {
+        "over_100k": 84,
+        "50k_to_100k": 85,
+        "20k_to_50k": 109,
+        "10k_to_20k": 73,
+        "under_10k": 318
+      }
+    },
+    "customer_groups": [
+      {
+        "CustomerGroup": "Other Retail",
+        "CustomerCount": 364,
+        "TotalSales": "16239871.1300",
+        "TotalTransactions": 8317,
+        "AvgTicket": "1969.8757",
+        "AvgSalesPerCustomer": "44615.0305"
+      },
+      {
+        "CustomerGroup": "Major Gas Chains",
+        "CustomerCount": 143,
+        "TotalSales": "8650010.7500",
+        "TotalTransactions": 4609,
+        "AvgTicket": "1494.2217",
+        "AvgSalesPerCustomer": "60489.5856"
+      },
+      {
+        "CustomerGroup": "Convenience Stores",
+        "CustomerCount": 142,
+        "TotalSales": "6131243.2300",
+        "TotalTransactions": 3951,
+        "AvgTicket": "1310.4653",
+        "AvgSalesPerCustomer": "43177.7692"
+      },
+      {
+        "CustomerGroup": "Smoke Shops",
+        "CustomerCount": 16,
+        "TotalSales": "190339.9000",
+        "TotalTransactions": 171,
+        "AvgTicket": "1067.0156",
+        "AvgSalesPerCustomer": "11896.2437"
+      },
+      {
+        "CustomerGroup": "Liquor Stores",
+        "CustomerCount": 5,
+        "TotalSales": "84551.3800",
+        "TotalTransactions": 82,
+        "AvgTicket": "857.8481",
+        "AvgSalesPerCustomer": "16910.2760"
+      },
+      {
+        "CustomerGroup": "Individual Customers",
+        "CustomerCount": 2,
+        "TotalSales": "19120.8800",
+        "TotalTransactions": 14,
+        "AvgTicket": "1287.6676",
+        "AvgSalesPerCustomer": "9560.4400"
+      },
+      {
+        "CustomerGroup": "Restaurants",
+        "CustomerCount": 3,
+        "TotalSales": "10740.8100",
+        "TotalTransactions": 22,
+        "AvgTicket": "356.3304",
+        "AvgSalesPerCustomer": "3580.2700"
+      },
+      {
+        "CustomerGroup": "Hospitality",
+        "CustomerCount": 1,
+        "TotalSales": "173.9700",
+        "TotalTransactions": 1,
+        "AvgTicket": "173.9700",
+        "AvgSalesPerCustomer": "173.9700"
+      }
+    ],
+    "geographic": {
+      "top_states": {
+        "CustomerCount": {
+          "GA": 627,
+          "AL": 5,
+          "TX": 3,
+          "GA ": 2,
+          "PA": 1,
+          "GEORGIA": 2,
+          "NY": 1,
+          "TN": 1,
+          "FL": 1,
+          "KY": 1
+        },
+        "TotalSales": {
+          "GA": "30597239.8900",
+          "AL": "257752.1700",
+          "TX": "101760.4000",
+          "GA ": "83623.4000",
+          "PA": "66105.0000",
+          "GEORGIA": "51083.5000",
+          "NY": "49036.1300",
+          "TN": "41976.0000",
+          "FL": "40986.3500",
+          "KY": "22971.8800"
+        },
+        "Transactions": {
+          "GA": 16767,
+          "AL": 56,
+          "TX": 12,
+          "GA ": 84,
+          "PA": 3,
+          "GEORGIA": 72,
+          "NY": 52,
+          "TN": 2,
+          "FL": 44,
+          "KY": 10
+        }
+      },
+      "top_cities": [
+        {
+          "City": "ATLANTA",
+          "State": "GA",
+          "CustomerCount": 115,
+          "TotalSales": "4506014.0400"
+        },
+        {
+          "City": "DECATUR",
+          "State": "GA",
+          "CustomerCount": 66,
+          "TotalSales": "3021285.2600"
+        },
+        {
+          "City": "STOCKBRIDGE",
+          "State": "GA",
+          "CustomerCount": 8,
+          "TotalSales": "2826865.2100"
+        },
+        {
+          "City": "STONE MOUNTAIN",
+          "State": "GA",
+          "CustomerCount": 30,
+          "TotalSales": "1421264.3200"
+        },
+        {
+          "City": "CONYERS",
+          "State": "GA",
+          "CustomerCount": 17,
+          "TotalSales": "1013363.8000"
+        },
+        {
+          "City": "CLARKSTON",
+          "State": "GA",
+          "CustomerCount": 16,
+          "TotalSales": "877036.8300"
+        },
+        {
+          "City": "ELLENWOOD",
+          "State": "GA",
+          "CustomerCount": 5,
+          "TotalSales": "830848.9300"
+        },
+        {
+          "City": "COVINGTON",
+          "State": "GA",
+          "CustomerCount": 13,
+          "TotalSales": "666305.9400"
+        },
+        {
+          "City": "GAINSVILLE",
+          "State": "GA",
+          "CustomerCount": 3,
+          "TotalSales": "632457.1800"
+        },
+        {
+          "City": "DOWSONVILLE",
+          "State": "GA",
+          "CustomerCount": 1,
+          "TotalSales": "626850.0400"
+        },
+        {
+          "City": "VILLA RICA",
+          "State": "GA",
+          "CustomerCount": 6,
+          "TotalSales": "598820.7200"
+        },
+        {
+          "City": "MARIETTA",
+          "State": "GA",
+          "CustomerCount": 14,
+          "TotalSales": "585458.6800"
+        },
+        {
+          "City": "CALHOUN",
+          "State": "GA",
+          "CustomerCount": 1,
+          "TotalSales": "524330.9900"
+        },
+        {
+          "City": "TUCKER",
+          "State": "GA",
+          "CustomerCount": 10,
+          "TotalSales": "517030.3300"
+        },
+        {
+          "City": "LITHONIA",
+          "State": "GA",
+          "CustomerCount": 15,
+          "TotalSales": "482033.5400"
+        },
+        {
+          "City": "NEWNAN",
+          "State": "GA",
+          "CustomerCount": 4,
+          "TotalSales": "399894.9000"
+        },
+        {
+          "City": "CARROLLTON",
+          "State": "GA",
+          "CustomerCount": 3,
+          "TotalSales": "389443.2000"
+        },
+        {
+          "City": "JONESBORO",
+          "State": "GA",
+          "CustomerCount": 7,
+          "TotalSales": "378504.0300"
+        },
+        {
+          "City": "FOREST PARK",
+          "State": "GA",
+          "CustomerCount": 6,
+          "TotalSales": "365629.3900"
+        },
+        {
+          "City": "POWDER SPRINGS",
+          "State": "GA",
+          "CustomerCount": 1,
+          "TotalSales": "341015.4100"
+        }
+      ]
+    },
+    "purchase_patterns": [
+      {
+        "FrequencySegment": "Monthly Regular",
+        "CustomerCount": 163,
+        "AvgPurchaseDays": 31,
+        "AvgCategories": 27
+      },
+      {
+        "FrequencySegment": "Occasional",
+        "CustomerCount": 122,
+        "AvgPurchaseDays": 17,
+        "AvgCategories": 21
+      },
+      {
+        "FrequencySegment": "Rare",
+        "CustomerCount": 123,
+        "AvgPurchaseDays": 8,
+        "AvgCategories": 16
+      },
+      {
+        "FrequencySegment": "Very Rare",
+        "CustomerCount": 193,
+        "AvgPurchaseDays": 2,
+        "AvgCategories": 7
+      },
+      {
+        "FrequencySegment": "Weekly Regular",
+        "CustomerCount": 74,
+        "AvgPurchaseDays": 79,
+        "AvgCategories": 35
+      }
+    ],
+    "retention": {
+      "monthly_trend": [
+        {
+          "Year": 2025,
+          "Month": 9,
+          "ActiveCustomers": 109,
+          "TotalSales": "452772.1700"
+        },
+        {
+          "Year": 2025,
+          "Month": 8,
+          "ActiveCustomers": 353,
+          "TotalSales": "4095973.0800"
+        },
+        {
+          "Year": 2025,
+          "Month": 7,
+          "ActiveCustomers": 364,
+          "TotalSales": "3380592.6500"
+        },
+        {
+          "Year": 2025,
+          "Month": 6,
+          "ActiveCustomers": 354,
+          "TotalSales": "2941679.4800"
+        },
+        {
+          "Year": 2025,
+          "Month": 5,
+          "ActiveCustomers": 370,
+          "TotalSales": "2576745.8900"
+        },
+        {
+          "Year": 2025,
+          "Month": 4,
+          "ActiveCustomers": 373,
+          "TotalSales": "2729372.5200"
+        },
+        {
+          "Year": 2025,
+          "Month": 3,
+          "ActiveCustomers": 382,
+          "TotalSales": "2447630.9000"
+        },
+        {
+          "Year": 2025,
+          "Month": 2,
+          "ActiveCustomers": 353,
+          "TotalSales": "1996357.9000"
+        },
+        {
+          "Year": 2025,
+          "Month": 1,
+          "ActiveCustomers": 372,
+          "TotalSales": "2147711.5800"
+        },
+        {
+          "Year": 2024,
+          "Month": 12,
+          "ActiveCustomers": 363,
+          "TotalSales": "2282748.6700"
+        },
+        {
+          "Year": 2024,
+          "Month": 11,
+          "ActiveCustomers": 348,
+          "TotalSales": "2080075.8900"
+        },
+        {
+          "Year": 2024,
+          "Month": 10,
+          "ActiveCustomers": 379,
+          "TotalSales": "2401176.3300"
+        }
+      ],
+      "estimated_monthly_churn_rate": "69.12%"
+    },
+    "lifetime_value": {
+      "top_clv_customers": [
+        {
+          "CustomerName": "SHAMIM KHAN",
+          "Company": "PLAN B WHOLESALE",
+          "LifetimeMonths": 123,
+          "TotalTransactions": 2786,
+          "LifetimeRevenue": "4674794.5400",
+          "LifetimeGP": "701219.181000",
+          "MonthlyValue": "38006.4596",
+          "MonthlyFrequency": 22,
+          "ProjectedAnnualValue": "456077.5152",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "REKHA ACHARYA",
+          "Company": "ANDYS WHOLESALE INC",
+          "LifetimeMonths": 147,
+          "TotalTransactions": 436,
+          "LifetimeRevenue": "4440165.7300",
+          "LifetimeGP": "666024.859500",
+          "MonthlyValue": "30205.2090",
+          "MonthlyFrequency": 2,
+          "ProjectedAnnualValue": "362462.5080",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "ROBERT BHAI",
+          "Company": "ALL IN ONE WHOLESALE/ARHAN LLC",
+          "LifetimeMonths": 136,
+          "TotalTransactions": 615,
+          "LifetimeRevenue": "3569266.6900",
+          "LifetimeGP": "535390.003500",
+          "MonthlyValue": "26244.6080",
+          "MonthlyFrequency": 4,
+          "ProjectedAnnualValue": "314935.2960",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "MAHMOOD  BHAI",
+          "Company": "METRO ATLANTA WHOLESALES INC",
+          "LifetimeMonths": 141,
+          "TotalTransactions": 450,
+          "LifetimeRevenue": "3419894.6500",
+          "LifetimeGP": "512984.197500",
+          "MonthlyValue": "24254.5719",
+          "MonthlyFrequency": 3,
+          "ProjectedAnnualValue": "291054.8628",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "ADNAN VIRANI",
+          "Company": "WHOLESALE EXPRESS",
+          "LifetimeMonths": 136,
+          "TotalTransactions": 399,
+          "LifetimeRevenue": "2967455.2100",
+          "LifetimeGP": "445118.281500",
+          "MonthlyValue": "21819.5236",
+          "MonthlyFrequency": 2,
+          "ProjectedAnnualValue": "261834.2832",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "CHAND SHAIKH",
+          "Company": "YAA INVESTMENT LLC",
+          "LifetimeMonths": 122,
+          "TotalTransactions": 1085,
+          "LifetimeRevenue": "2901237.1000",
+          "LifetimeGP": "435185.565000",
+          "MonthlyValue": "23780.6319",
+          "MonthlyFrequency": 8,
+          "ProjectedAnnualValue": "285367.5828",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "RIJWAN  JIWANI",
+          "Company": "SHAYAAN INVESTMENTS INC",
+          "LifetimeMonths": 83,
+          "TotalTransactions": 822,
+          "LifetimeRevenue": "2822755.7400",
+          "LifetimeGP": "423413.361000",
+          "MonthlyValue": "34009.1053",
+          "MonthlyFrequency": 9,
+          "ProjectedAnnualValue": "408109.2636",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "ABID  MUSTAFA",
+          "Company": "A MUSTAFA INC./PHILLIPS  66",
+          "LifetimeMonths": 154,
+          "TotalTransactions": 3257,
+          "LifetimeRevenue": "2658305.5500",
+          "LifetimeGP": "398745.832500",
+          "MonthlyValue": "17261.7243",
+          "MonthlyFrequency": 21,
+          "ProjectedAnnualValue": "207140.6916",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "KARIM JIWANI",
+          "Company": "BOULEVARD CONVENIENCE INC",
+          "LifetimeMonths": 145,
+          "TotalTransactions": 509,
+          "LifetimeRevenue": "2353533.3600",
+          "LifetimeGP": "353030.004000",
+          "MonthlyValue": "16231.2645",
+          "MonthlyFrequency": 3,
+          "ProjectedAnnualValue": "194775.1740",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "AKBER ALI",
+          "Company": "BUDDHANI III LLC./SHELL FOOD",
+          "LifetimeMonths": 146,
+          "TotalTransactions": 2151,
+          "LifetimeRevenue": "2173878.2300",
+          "LifetimeGP": "326081.734500",
+          "MonthlyValue": "14889.5769",
+          "MonthlyFrequency": 14,
+          "ProjectedAnnualValue": "178674.9228",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "SHIVAJI SHINDE",
+          "Company": "PANI INVESTMENT LLC",
+          "LifetimeMonths": 137,
+          "TotalTransactions": 773,
+          "LifetimeRevenue": "1995620.0100",
+          "LifetimeGP": "299343.001500",
+          "MonthlyValue": "14566.5694",
+          "MonthlyFrequency": 5,
+          "ProjectedAnnualValue": "174798.8328",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "MURAD ALI",
+          "Company": "KUSHI ALI INC",
+          "LifetimeMonths": 93,
+          "TotalTransactions": 248,
+          "LifetimeRevenue": "1990858.1200",
+          "LifetimeGP": "298628.718000",
+          "MonthlyValue": "21407.0765",
+          "MonthlyFrequency": 2,
+          "ProjectedAnnualValue": "256884.9180",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "PAUL/SHIVAJI SHINDE",
+          "Company": "KINOS INV LLC / CITGO",
+          "LifetimeMonths": 124,
+          "TotalTransactions": 646,
+          "LifetimeRevenue": "1986338.7000",
+          "LifetimeGP": "297950.805000",
+          "MonthlyValue": "16018.8604",
+          "MonthlyFrequency": 5,
+          "ProjectedAnnualValue": "192226.3248",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "SHIVAJI  SHINDE",
+          "Company": "STOP & SAVE GROUP LLC",
+          "LifetimeMonths": 132,
+          "TotalTransactions": 960,
+          "LifetimeRevenue": "1977285.0500",
+          "LifetimeGP": "296592.757500",
+          "MonthlyValue": "14979.4321",
+          "MonthlyFrequency": 7,
+          "ProjectedAnnualValue": "179753.1852",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "MOHAMMED A KASHEM",
+          "Company": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+          "LifetimeMonths": 87,
+          "TotalTransactions": 1064,
+          "LifetimeRevenue": "1909396.6000",
+          "LifetimeGP": "286409.490000",
+          "MonthlyValue": "21947.0873",
+          "MonthlyFrequency": 12,
+          "ProjectedAnnualValue": "263365.0476",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "IRFAN AMIRALI",
+          "Company": "CHEVRON FOOD MART/SHAMANTA INC",
+          "LifetimeMonths": 152,
+          "TotalTransactions": 1014,
+          "LifetimeRevenue": "1876809.4100",
+          "LifetimeGP": "281521.411500",
+          "MonthlyValue": "12347.4303",
+          "MonthlyFrequency": 6,
+          "ProjectedAnnualValue": "148169.1636",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "NILESH  LALANI ",
+          "Company": "MEMORIAL DR FOOD LLC",
+          "LifetimeMonths": 150,
+          "TotalTransactions": 1223,
+          "LifetimeRevenue": "1860443.1300",
+          "LifetimeGP": "279066.469500",
+          "MonthlyValue": "12402.9542",
+          "MonthlyFrequency": 8,
+          "ProjectedAnnualValue": "148835.4504",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "RIJWAN  JIWANI",
+          "Company": "CHEVRON FOOD MART/ NIKI 3290 INC",
+          "LifetimeMonths": 66,
+          "TotalTransactions": 560,
+          "LifetimeRevenue": "1834063.1200",
+          "LifetimeGP": "275109.468000",
+          "MonthlyValue": "27788.8351",
+          "MonthlyFrequency": 8,
+          "ProjectedAnnualValue": "333466.0212",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "SHOAIB ",
+          "Company": "STARCO IMPEX INC",
+          "LifetimeMonths": 80,
+          "TotalTransactions": 72,
+          "LifetimeRevenue": "1784591.5400",
+          "LifetimeGP": "267688.731000",
+          "MonthlyValue": "22307.3942",
+          "MonthlyFrequency": 0,
+          "ProjectedAnnualValue": "267688.7304",
+          "GPMargin": "15.00"
+        },
+        {
+          "CustomerName": "RITESH PATEL",
+          "Company": "SHIV 3113 LLC",
+          "LifetimeMonths": 92,
+          "TotalTransactions": 604,
+          "LifetimeRevenue": "1717650.3400",
+          "LifetimeGP": "257647.551000",
+          "MonthlyValue": "18670.1123",
+          "MonthlyFrequency": 6,
+          "ProjectedAnnualValue": "224041.3476",
+          "GPMargin": "15.00"
+        }
+      ],
+      "avg_monthly_value": 14236.738222,
+      "avg_lifetime_months": 105.56,
+      "avg_gp_margin": 15.0
+    },
+    "at_risk_customers": {
+      "count": 32,
+      "total_revenue_at_risk": 1757697.79,
+      "top_at_risk": [
+        {
+          "CustomerName": "SAMEER  SOMANI",
+          "Company": "5 STAR FOOD MART LLC",
+          "Sales12M": "210718.5300",
+          "DaysSinceLastPurchase": 100.0,
+          "ActivityStatus": "Dormant"
+        },
+        {
+          "CustomerName": "AKBAR JIVANI",
+          "Company": "COVINGTON SHOP LLC",
+          "Sales12M": "119531.8300",
+          "DaysSinceLastPurchase": 195.0,
+          "ActivityStatus": "Lost"
+        },
+        {
+          "CustomerName": "LUTFUR RAHMAN",
+          "Company": "PAYLESS WAREHOUSE INC",
+          "Sales12M": "106006.8000",
+          "DaysSinceLastPurchase": 71.0,
+          "ActivityStatus": "At Risk"
+        },
+        {
+          "CustomerName": "AKBAR JIVANI",
+          "Company": "LAKE PRIME LLC",
+          "Sales12M": "97783.5700",
+          "DaysSinceLastPurchase": 200.0,
+          "ActivityStatus": "Lost"
+        },
+        {
+          "CustomerName": "ISRAR AHMED",
+          "Company": "PRICE CIGAR & CANDY CO",
+          "Sales12M": "81200.0000",
+          "DaysSinceLastPurchase": 165.0,
+          "ActivityStatus": "Dormant"
+        },
+        {
+          "CustomerName": "AKBAR  JIVANI",
+          "Company": "TOCCOA PRIME LLC",
+          "Sales12M": "76322.6300",
+          "DaysSinceLastPurchase": 200.0,
+          "ActivityStatus": "Lost"
+        },
+        {
+          "CustomerName": "SAIKH NASIRUDDIN",
+          "Company": "NERR PETROLEUM INC",
+          "Sales12M": "71922.2400",
+          "DaysSinceLastPurchase": 188.0,
+          "ActivityStatus": "Lost"
+        },
+        {
+          "CustomerName": "IBRAHIIM HOSSAIN",
+          "Company": "SADMAN 2023 INC",
+          "Sales12M": "70397.8700",
+          "DaysSinceLastPurchase": 183.0,
+          "ActivityStatus": "Lost"
+        },
+        {
+          "CustomerName": "SAHIL AMBANI",
+          "Company": "SZ WHOLESALE INC",
+          "Sales12M": "66105.0000",
+          "DaysSinceLastPurchase": 299.0,
+          "ActivityStatus": "Lost"
+        },
+        {
+          "CustomerName": "SAHIL DAKSHESH LALA",
+          "Company": "THB BUFORD LLC",
+          "Sales12M": "58813.6100",
+          "DaysSinceLastPurchase": 68.0,
+          "ActivityStatus": "At Risk"
+        }
+      ]
+    },
+    "growth_opportunities": {
+      "growing_customers": {
+        "count": 109,
+        "total_current_revenue": 9148626.29,
+        "top_growing": [
+          {
+            "CustomerName": "MURAD ALI",
+            "Company": "KUSHI ALI INC",
+            "Sales12M": "1353039.7700",
+            "Sales1M": "619123.6500"
+          },
+          {
+            "CustomerName": "MURAD ALI",
+            "Company": "A & K GLOBAL USA LLC/FAIRVIEW",
+            "Sales12M": "869480.2300",
+            "Sales1M": "371913.9000"
+          },
+          {
+            "CustomerName": "MURAD ALI",
+            "Company": "FR1 USA LLC",
+            "Sales12M": "669051.7300",
+            "Sales1M": "283686.1500"
+          },
+          {
+            "CustomerName": "MURAD ALI",
+            "Company": "PATRIOT PARTY STORE",
+            "Sales12M": "541934.8500",
+            "Sales1M": "229392.1500"
+          },
+          {
+            "CustomerName": "MURAD ALI",
+            "Company": "CDP USA LLC",
+            "Sales12M": "524330.9900",
+            "Sales1M": "205336.3500"
+          },
+          {
+            "CustomerName": "TAJENDER SINGH",
+            "Company": "MR SINGH FOOD & GAS LLC",
+            "Sales12M": "257410.8900",
+            "Sales1M": "28830.7700"
+          },
+          {
+            "CustomerName": "JAWAD LAKHANI",
+            "Company": "Z & F GASOLINE TEXACO FOOD MART",
+            "Sales12M": "182800.8700",
+            "Sales1M": "21872.4400"
+          },
+          {
+            "CustomerName": "AMAN JIWANI",
+            "Company": "SHAMROCK FOODMART/ ARZAN SMART GROUP LLC",
+            "Sales12M": "169322.8100",
+            "Sales1M": "22535.7000"
+          },
+          {
+            "CustomerName": "AMIT BUDHWANI",
+            "Company": "MARS CHEVRON",
+            "Sales12M": "159353.5900",
+            "Sales1M": "16857.8700"
+          },
+          {
+            "CustomerName": "NAUSHAD ",
+            "Company": "SMT DISTRIBUTORS INC",
+            "Sales12M": "158609.0000",
+            "Sales1M": "9474.3800"
+          }
+        ]
+      },
+      "credit_opportunities": {
+        "count": 148,
+        "unused_credit": 1419391.64,
+        "potential_revenue": 1968272.4420000003
+      }
+    }
+  },
+  "executive_summary": {
+    "total_customers": 2844,
+    "active_customers_12m": 669,
+    "total_revenue_12m": 31326052.05,
+    "total_gp_12m": 4698907.8075,
+    "avg_gp_margin": 15.0,
+    "top_20_percent_concentration": "75.35%",
+    "at_risk_revenue": 1757697.79,
+    "growth_opportunity_revenue": 9148626.29,
+    "monthly_churn_rate": "69.12%",
+    "key_insights": [
+      "Top 20% of customers generate 75.35% of revenue",
+      "32 high-value customers are at risk ($1,757,698 revenue)",
+      "109 customers showing growth trend",
+      "Average customer lifetime: 105.6 months",
+      "Unused credit opportunity: $1,419,392"
+    ]
+  }
+}

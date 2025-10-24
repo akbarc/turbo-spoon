@@ -1,0 +1,10 @@
+{
+  "extraction_timestamp": "2025-09-06T17:33:19.468662",
+  "executive_summary": {},
+  "sales_performance": {},
+  "inventory_health": {},
+  "customer_intelligence": {},
+  "ar_summary": {},
+  "database_metrics": {},
+  "error": "'SQLServerConnection' object has no attribute 'query_to_dataframe'"
+}

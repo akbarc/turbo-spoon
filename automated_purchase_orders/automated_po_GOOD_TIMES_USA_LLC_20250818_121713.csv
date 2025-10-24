@@ -1,0 +1,17 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: GOOD TIMES USA LLC
+# Generated: 2025-08-18 12:17:13
+# Total Items: 1
+# Total Quantity: 22.0
+# Estimated Value: $137.72
+# Critical Items: 0
+# Urgent Items: 0
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+LOW,842426181747,GT BLK SMOOTH .69 15CT PEACH,CIGAR GA,6,2.5,2.4,22,$6.26,$137.72,STABLE,$23.37,74

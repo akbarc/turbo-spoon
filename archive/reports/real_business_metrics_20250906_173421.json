@@ -1,0 +1,21 @@
+{
+  "extraction_timestamp": "2025-09-06T17:34:19.801683",
+  "executive_summary": {},
+  "sales_performance": {
+    "top_products": [],
+    "top_categories": []
+  },
+  "inventory_health": {
+    "low_stock": [],
+    "dead_stock": []
+  },
+  "customer_intelligence": {
+    "top_customers": []
+  },
+  "ar_summary": {
+    "high_risk_customers": []
+  },
+  "database_metrics": {
+    "table_counts": []
+  }
+}

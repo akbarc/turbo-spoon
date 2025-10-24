@@ -1,0 +1,1321 @@
+{
+  "analysis_date": "2025-09-08T16:51:56.909449",
+  "category_scores": [
+    {
+      "category": "LT-TAX PAID",
+      "overall_score": 61.05,
+      "score_components": {
+        "price_dispersion": 32.56,
+        "margin_headroom": 78.91,
+        "velocity_consistency": 85.46,
+        "supplier_concentration": 10.0,
+        "repeat_purchase": 80.02
+      },
+      "current_metrics": {
+        "revenue": 1060414.1399998935,
+        "margin_pct": 9.49,
+        "transactions": 5154,
+        "units_sold": 41240.0,
+        "unique_products": 200,
+        "avg_price": 27.49
+      },
+      "opportunity_metrics": {
+        "target_price_point": 23.37,
+        "target_margin_pct": 29.49,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "LT-TAX-COLLECTED",
+      "overall_score": 48.28,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 68.42,
+        "velocity_consistency": 86.65,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 60.93
+      },
+      "current_metrics": {
+        "revenue": 675069.8599998849,
+        "margin_pct": 14.21,
+        "transactions": 4194,
+        "units_sold": 25555.0,
+        "unique_products": 126,
+        "avg_price": 27.92
+      },
+      "opportunity_metrics": {
+        "target_price_point": 23.73,
+        "target_margin_pct": 34.21,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "CANDYS",
+      "overall_score": 44.67,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 56.89,
+        "velocity_consistency": 70.41,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 448775.0749999414,
+        "margin_pct": 19.4,
+        "transactions": 3361,
+        "units_sold": 54084.5,
+        "unique_products": 628,
+        "avg_price": 18.71
+      },
+      "opportunity_metrics": {
+        "target_price_point": 15.9,
+        "target_margin_pct": 39.4,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "DRINKS",
+      "overall_score": 53.59,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 73.69,
+        "velocity_consistency": 92.1,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 84.62
+      },
+      "current_metrics": {
+        "revenue": 696335.1400999314,
+        "margin_pct": 11.84,
+        "transactions": 4090,
+        "units_sold": 34611.0,
+        "unique_products": 74,
+        "avg_price": 26.94
+      },
+      "opportunity_metrics": {
+        "target_price_point": 22.9,
+        "target_margin_pct": 31.84,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "VITAMINS",
+      "overall_score": 76.25,
+      "score_components": {
+        "price_dispersion": 100.0,
+        "margin_headroom": 86.42,
+        "velocity_consistency": 93.04,
+        "supplier_concentration": 10.0,
+        "repeat_purchase": 55.64
+      },
+      "current_metrics": {
+        "revenue": 1031905.7099999698,
+        "margin_pct": 6.11,
+        "transactions": 4713,
+        "units_sold": 26223.0,
+        "unique_products": 198,
+        "avg_price": 52.69
+      },
+      "opportunity_metrics": {
+        "target_price_point": 44.79,
+        "target_margin_pct": 26.11,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "SHOPPING BAGS",
+      "overall_score": 16.62,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 7.18,
+        "velocity_consistency": 36.68,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 52.97
+      },
+      "current_metrics": {
+        "revenue": 133326.49000000188,
+        "margin_pct": 42.82,
+        "transactions": 2247,
+        "units_sold": 11902.0,
+        "unique_products": 17,
+        "avg_price": 10.58
+      },
+      "opportunity_metrics": {
+        "target_price_point": 8.99,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "NOVELTY ITEMS",
+      "overall_score": 45.5,
+      "score_components": {
+        "price_dispersion": 9.56,
+        "margin_headroom": 72.09,
+        "velocity_consistency": 55.25,
+        "supplier_concentration": 10.0,
+        "repeat_purchase": 66.47
+      },
+      "current_metrics": {
+        "revenue": 300840.8799999946,
+        "margin_pct": 12.56,
+        "transactions": 3144,
+        "units_sold": 20898.0,
+        "unique_products": 369,
+        "avg_price": 24.41
+      },
+      "opportunity_metrics": {
+        "target_price_point": 20.75,
+        "target_margin_pct": 32.56,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "MEDICINE",
+      "overall_score": 29.58,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 51.07,
+        "velocity_consistency": 38.64,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 45.96
+      },
+      "current_metrics": {
+        "revenue": 159325.76000000307,
+        "margin_pct": 22.02,
+        "transactions": 3247,
+        "units_sold": 14924.0,
+        "unique_products": 164,
+        "avg_price": 15.92
+      },
+      "opportunity_metrics": {
+        "target_price_point": 13.53,
+        "target_margin_pct": 42.02,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "AUTOMOTIVE",
+      "overall_score": 29.57,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 47.36,
+        "velocity_consistency": 38.74,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 56.81
+      },
+      "current_metrics": {
+        "revenue": 144811.14000000217,
+        "margin_pct": 23.69,
+        "transactions": 1616,
+        "units_sold": 9180.0,
+        "unique_products": 103,
+        "avg_price": 20.98
+      },
+      "opportunity_metrics": {
+        "target_price_point": 17.83,
+        "target_margin_pct": 43.69,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "MISC",
+      "overall_score": 23.57,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 38.96,
+        "velocity_consistency": 29.58,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 44.88
+      },
+      "current_metrics": {
+        "revenue": 123194.67000000106,
+        "margin_pct": 27.47,
+        "transactions": 1456,
+        "units_sold": 6535.0,
+        "unique_products": 136,
+        "avg_price": 25.32
+      },
+      "opportunity_metrics": {
+        "target_price_point": 21.53,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "FOOD",
+      "overall_score": 40.09,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 63.93,
+        "velocity_consistency": 43.64,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 207293.61999999775,
+        "margin_pct": 16.23,
+        "transactions": 2973,
+        "units_sold": 34608.0,
+        "unique_products": 276,
+        "avg_price": 11.88
+      },
+      "opportunity_metrics": {
+        "target_price_point": 10.1,
+        "target_margin_pct": 36.23,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "LIGHTERS",
+      "overall_score": 34.73,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 69.07,
+        "velocity_consistency": 39.5,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 41.31
+      },
+      "current_metrics": {
+        "revenue": 236332.48999999513,
+        "margin_pct": 13.92,
+        "transactions": 2781,
+        "units_sold": 11488.0,
+        "unique_products": 185,
+        "avg_price": 31.51
+      },
+      "opportunity_metrics": {
+        "target_price_point": 26.79,
+        "target_margin_pct": 33.92,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "HOUSEHOLD GOODS",
+      "overall_score": 22.91,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 32.22,
+        "velocity_consistency": 29.91,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 57.7
+      },
+      "current_metrics": {
+        "revenue": 80223.1200000008,
+        "margin_pct": 30.5,
+        "transactions": 2411,
+        "units_sold": 13911.0,
+        "unique_products": 228,
+        "avg_price": 13.03
+      },
+      "opportunity_metrics": {
+        "target_price_point": 11.08,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "ECIG - DISP D8",
+      "overall_score": 39.73,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 78.27,
+        "velocity_consistency": 43.56,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 53.58
+      },
+      "current_metrics": {
+        "revenue": 236852.69000000003,
+        "margin_pct": 9.78,
+        "transactions": 752,
+        "units_sold": 4029.0,
+        "unique_products": 75,
+        "avg_price": 60.31
+      },
+      "opportunity_metrics": {
+        "target_price_point": 51.27,
+        "target_margin_pct": 29.78,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 2
+      }
+    },
+    {
+      "category": "WATER",
+      "overall_score": 27.07,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 46.38,
+        "velocity_consistency": 24.75,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 69.73
+      },
+      "current_metrics": {
+        "revenue": 79273.87000000056,
+        "margin_pct": 24.13,
+        "transactions": 1316,
+        "units_sold": 9177.0,
+        "unique_products": 17,
+        "avg_price": 14.86
+      },
+      "opportunity_metrics": {
+        "target_price_point": 12.63,
+        "target_margin_pct": 44.13,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "AIR FRESHENER",
+      "overall_score": 35.35,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 58.13,
+        "velocity_consistency": 31.63,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 82138.34999999996,
+        "margin_pct": 18.84,
+        "transactions": 1243,
+        "units_sold": 29824.0,
+        "unique_products": 27,
+        "avg_price": 4.77
+      },
+      "opportunity_metrics": {
+        "target_price_point": 4.05,
+        "target_margin_pct": 38.84,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "GUMS/CHICLETS",
+      "overall_score": 28.88,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 57.29,
+        "velocity_consistency": 30.36,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 40.99
+      },
+      "current_metrics": {
+        "revenue": 79468.96000000188,
+        "margin_pct": 19.22,
+        "transactions": 1303,
+        "units_sold": 5341.0,
+        "unique_products": 148,
+        "avg_price": 14.88
+      },
+      "opportunity_metrics": {
+        "target_price_point": 12.65,
+        "target_margin_pct": 39.22,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 2
+      }
+    },
+    {
+      "category": "CELLUAR ACCESSORIES",
+      "overall_score": 22.3,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 42.4,
+        "velocity_consistency": 28.27,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 25.17
+      },
+      "current_metrics": {
+        "revenue": 52453.34999999987,
+        "margin_pct": 25.92,
+        "transactions": 1039,
+        "units_sold": 2615.0,
+        "unique_products": 99,
+        "avg_price": 27.44
+      },
+      "opportunity_metrics": {
+        "target_price_point": 23.32,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 4
+      }
+    },
+    {
+      "category": "GLOVES & T SHIRTS",
+      "overall_score": 32.71,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 58.4,
+        "velocity_consistency": 20.77,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 69113.73,
+        "margin_pct": 18.72,
+        "transactions": 839,
+        "units_sold": 21704.0,
+        "unique_products": 11,
+        "avg_price": 3.77
+      },
+      "opportunity_metrics": {
+        "target_price_point": 3.2,
+        "target_margin_pct": 38.72,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "CONDOMS",
+      "overall_score": 27.05,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 56.82,
+        "velocity_consistency": 28.2,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 29.53
+      },
+      "current_metrics": {
+        "revenue": 61176.99999999847,
+        "margin_pct": 19.43,
+        "transactions": 1614,
+        "units_sold": 4766.0,
+        "unique_products": 27,
+        "avg_price": 12.9
+      },
+      "opportunity_metrics": {
+        "target_price_point": 10.96,
+        "target_margin_pct": 39.43,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 2
+      }
+    },
+    {
+      "category": "COSMETICS & BEAUTY",
+      "overall_score": 25.68,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 36.18,
+        "velocity_consistency": 26.44,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 82.12
+      },
+      "current_metrics": {
+        "revenue": 34501.33000000032,
+        "margin_pct": 28.72,
+        "transactions": 1522,
+        "units_sold": 12498.0,
+        "unique_products": 168,
+        "avg_price": 5.33
+      },
+      "opportunity_metrics": {
+        "target_price_point": 4.53,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "LIT CIGARS 003251",
+      "overall_score": 31.6,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 75.51,
+        "velocity_consistency": 30.18,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 14.0
+      },
+      "current_metrics": {
+        "revenue": 83480.86000000066,
+        "margin_pct": 11.02,
+        "transactions": 937,
+        "units_sold": 1312.0,
+        "unique_products": 14,
+        "avg_price": 64.12
+      },
+      "opportunity_metrics": {
+        "target_price_point": 54.51,
+        "target_margin_pct": 31.02,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 9
+      }
+    },
+    {
+      "category": "CLEANING PRODUCTS",
+      "overall_score": 21.34,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 26.49,
+        "velocity_consistency": 23.64,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 74.85
+      },
+      "current_metrics": {
+        "revenue": 24330.709999999966,
+        "margin_pct": 33.08,
+        "transactions": 1061,
+        "units_sold": 7942.0,
+        "unique_products": 176,
+        "avg_price": 4.87
+      },
+      "opportunity_metrics": {
+        "target_price_point": 4.14,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "COOKIES",
+      "overall_score": 27.94,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 56.82,
+        "velocity_consistency": 24.54,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 47.55
+      },
+      "current_metrics": {
+        "revenue": 30554.09000000117,
+        "margin_pct": 19.43,
+        "transactions": 867,
+        "units_sold": 4123.0,
+        "unique_products": 98,
+        "avg_price": 10.87
+      },
+      "opportunity_metrics": {
+        "target_price_point": 9.24,
+        "target_margin_pct": 39.43,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 2
+      }
+    },
+    {
+      "category": "STATIONARY",
+      "overall_score": 26.59,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 60.78,
+        "velocity_consistency": 23.95,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 23.7
+      },
+      "current_metrics": {
+        "revenue": 30771.320000000498,
+        "margin_pct": 17.65,
+        "transactions": 985,
+        "units_sold": 2334.0,
+        "unique_products": 79,
+        "avg_price": 19.39
+      },
+      "opportunity_metrics": {
+        "target_price_point": 16.48,
+        "target_margin_pct": 37.65,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 5
+      }
+    },
+    {
+      "category": "BATTERY",
+      "overall_score": 22.97,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 35.33,
+        "velocity_consistency": 21.97,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 68.78
+      },
+      "current_metrics": {
+        "revenue": 17299.899999999947,
+        "margin_pct": 29.1,
+        "transactions": 426,
+        "units_sold": 2930.0,
+        "unique_products": 20,
+        "avg_price": 13.42
+      },
+      "opportunity_metrics": {
+        "target_price_point": 11.4,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 4
+      }
+    },
+    {
+      "category": "INCENSE",
+      "overall_score": 25.31,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 50.73,
+        "velocity_consistency": 21.43,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 47.35
+      },
+      "current_metrics": {
+        "revenue": 18577.230000000047,
+        "margin_pct": 22.17,
+        "transactions": 393,
+        "units_sold": 1861.0,
+        "unique_products": 27,
+        "avg_price": 29.75
+      },
+      "opportunity_metrics": {
+        "target_price_point": 25.28,
+        "target_margin_pct": 42.17,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 6
+      }
+    },
+    {
+      "category": "KITCHEN & TOILET",
+      "overall_score": 21.97,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 33.44,
+        "velocity_consistency": 22.18,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 63.87
+      },
+      "current_metrics": {
+        "revenue": 13476.689999999939,
+        "margin_pct": 29.95,
+        "transactions": 742,
+        "units_sold": 4739.0,
+        "unique_products": 50,
+        "avg_price": 7.67
+      },
+      "opportunity_metrics": {
+        "target_price_point": 6.52,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 2
+      }
+    },
+    {
+      "category": "HARDWARE",
+      "overall_score": 13.5,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 13.47,
+        "velocity_consistency": 19.28,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 46.42
+      },
+      "current_metrics": {
+        "revenue": 4204.579999999977,
+        "margin_pct": 36.53,
+        "transactions": 352,
+        "units_sold": 1634.0,
+        "unique_products": 109,
+        "avg_price": 2.77
+      },
+      "opportunity_metrics": {
+        "target_price_point": 2.36,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 7
+      }
+    },
+    {
+      "category": "Unknown",
+      "overall_score": 18.57,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 39.96,
+        "velocity_consistency": 8.76,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 43.92
+      },
+      "current_metrics": {
+        "revenue": 3431.189999999996,
+        "margin_pct": 27.02,
+        "transactions": 158,
+        "units_sold": 694.0,
+        "unique_products": 1,
+        "avg_price": 10.95
+      },
+      "opportunity_metrics": {
+        "target_price_point": 9.3,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 17
+      }
+    },
+    {
+      "category": "KIDS STUFF",
+      "overall_score": 11.53,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 11.06,
+        "velocity_consistency": 19.16,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 34.17
+      },
+      "current_metrics": {
+        "revenue": 2078.030000000002,
+        "margin_pct": 38.94,
+        "transactions": 163,
+        "units_sold": 557.0,
+        "unique_products": 10,
+        "avg_price": 5.16
+      },
+      "opportunity_metrics": {
+        "target_price_point": 4.38,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 21
+      }
+    },
+    {
+      "category": "PLAYING CARDS",
+      "overall_score": 20.82,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 51.73,
+        "velocity_consistency": 16.41,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 12.0
+      },
+      "current_metrics": {
+        "revenue": 3256.3199999999906,
+        "margin_pct": 21.72,
+        "transactions": 140,
+        "units_sold": 168.0,
+        "unique_products": 5,
+        "avg_price": 20.8
+      },
+      "opportunity_metrics": {
+        "target_price_point": 17.68,
+        "target_margin_pct": 41.72,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "PHONE CARDS",
+      "overall_score": 41.93,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 92.07,
+        "velocity_consistency": 17.25,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 18728.3,
+        "margin_pct": 3.57,
+        "transactions": 126,
+        "units_sold": 2700.0,
+        "unique_products": 7,
+        "avg_price": 6.89
+      },
+      "opportunity_metrics": {
+        "target_price_point": 5.86,
+        "target_margin_pct": 23.57,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 4
+      }
+    },
+    {
+      "category": "ECIG - PODS D8",
+      "overall_score": 24.08,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 67.04,
+        "velocity_consistency": 7.45,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 21.07
+      },
+      "current_metrics": {
+        "revenue": 1973.98,
+        "margin_pct": 14.83,
+        "transactions": 28,
+        "units_sold": 59.0,
+        "unique_products": 13,
+        "avg_price": 36.0
+      },
+      "opportunity_metrics": {
+        "target_price_point": 30.6,
+        "target_margin_pct": 34.83,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "CANDLES",
+      "overall_score": 14.47,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 8.45,
+        "velocity_consistency": 11.56,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 90.45
+      },
+      "current_metrics": {
+        "revenue": 561.6200000000002,
+        "margin_pct": 41.55,
+        "transactions": 44,
+        "units_sold": 398.0,
+        "unique_products": 12,
+        "avg_price": 1.54
+      },
+      "opportunity_metrics": {
+        "target_price_point": 1.31,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "PERFUMES",
+      "overall_score": 12.52,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 5.11,
+        "velocity_consistency": 10.96,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 82.5
+      },
+      "current_metrics": {
+        "revenue": 329.3400000000001,
+        "margin_pct": 44.89,
+        "transactions": 16,
+        "units_sold": 132.0,
+        "unique_products": 1,
+        "avg_price": 2.5
+      },
+      "opportunity_metrics": {
+        "target_price_point": 2.12,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "APPAREL & CLOTHING",
+      "overall_score": 7.78,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 14.38,
+        "velocity_consistency": 5.88,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 20.0
+      },
+      "current_metrics": {
+        "revenue": 209.7,
+        "margin_pct": 35.62,
+        "transactions": 15,
+        "units_sold": 30.0,
+        "unique_products": 1,
+        "avg_price": 6.99
+      },
+      "opportunity_metrics": {
+        "target_price_point": 5.94,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "TOYS",
+      "overall_score": 7.78,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 13.95,
+        "velocity_consistency": 10.16,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 10.56
+      },
+      "current_metrics": {
+        "revenue": 93.80999999999999,
+        "margin_pct": 36.05,
+        "transactions": 18,
+        "units_sold": 19.0,
+        "unique_products": 4,
+        "avg_price": 4.99
+      },
+      "opportunity_metrics": {
+        "target_price_point": 4.24,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "CLEAM",
+      "overall_score": 17.16,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 34.31,
+        "velocity_consistency": 11.45,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 40.0
+      },
+      "current_metrics": {
+        "revenue": 25.44,
+        "margin_pct": 29.56,
+        "transactions": 4,
+        "units_sold": 16.0,
+        "unique_products": 1,
+        "avg_price": 1.59
+      },
+      "opportunity_metrics": {
+        "target_price_point": 1.35,
+        "target_margin_pct": 45.0,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 24
+      }
+    },
+    {
+      "category": "JBR",
+      "overall_score": 44.85,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 100.0,
+        "velocity_consistency": 19.4,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 49518.74999999999,
+        "margin_pct": -1.99,
+        "transactions": 22,
+        "units_sold": 1256.0,
+        "unique_products": 10,
+        "avg_price": 34.79
+      },
+      "opportunity_metrics": {
+        "target_price_point": 29.57,
+        "target_margin_pct": 18.01,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 9
+      }
+    }
+  ],
+  "top_opportunities": [
+    {
+      "category": "VITAMINS",
+      "overall_score": 76.25,
+      "score_components": {
+        "price_dispersion": 100.0,
+        "margin_headroom": 86.42,
+        "velocity_consistency": 93.04,
+        "supplier_concentration": 10.0,
+        "repeat_purchase": 55.64
+      },
+      "current_metrics": {
+        "revenue": 1031905.7099999698,
+        "margin_pct": 6.11,
+        "transactions": 4713,
+        "units_sold": 26223.0,
+        "unique_products": 198,
+        "avg_price": 52.69
+      },
+      "opportunity_metrics": {
+        "target_price_point": 44.79,
+        "target_margin_pct": 26.11,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "LT-TAX PAID",
+      "overall_score": 61.05,
+      "score_components": {
+        "price_dispersion": 32.56,
+        "margin_headroom": 78.91,
+        "velocity_consistency": 85.46,
+        "supplier_concentration": 10.0,
+        "repeat_purchase": 80.02
+      },
+      "current_metrics": {
+        "revenue": 1060414.1399998935,
+        "margin_pct": 9.49,
+        "transactions": 5154,
+        "units_sold": 41240.0,
+        "unique_products": 200,
+        "avg_price": 27.49
+      },
+      "opportunity_metrics": {
+        "target_price_point": 23.37,
+        "target_margin_pct": 29.49,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "DRINKS",
+      "overall_score": 53.59,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 73.69,
+        "velocity_consistency": 92.1,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 84.62
+      },
+      "current_metrics": {
+        "revenue": 696335.1400999314,
+        "margin_pct": 11.84,
+        "transactions": 4090,
+        "units_sold": 34611.0,
+        "unique_products": 74,
+        "avg_price": 26.94
+      },
+      "opportunity_metrics": {
+        "target_price_point": 22.9,
+        "target_margin_pct": 31.84,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "LT-TAX-COLLECTED",
+      "overall_score": 48.28,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 68.42,
+        "velocity_consistency": 86.65,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 60.93
+      },
+      "current_metrics": {
+        "revenue": 675069.8599998849,
+        "margin_pct": 14.21,
+        "transactions": 4194,
+        "units_sold": 25555.0,
+        "unique_products": 126,
+        "avg_price": 27.92
+      },
+      "opportunity_metrics": {
+        "target_price_point": 23.73,
+        "target_margin_pct": 34.21,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "NOVELTY ITEMS",
+      "overall_score": 45.5,
+      "score_components": {
+        "price_dispersion": 9.56,
+        "margin_headroom": 72.09,
+        "velocity_consistency": 55.25,
+        "supplier_concentration": 10.0,
+        "repeat_purchase": 66.47
+      },
+      "current_metrics": {
+        "revenue": 300840.8799999946,
+        "margin_pct": 12.56,
+        "transactions": 3144,
+        "units_sold": 20898.0,
+        "unique_products": 369,
+        "avg_price": 24.41
+      },
+      "opportunity_metrics": {
+        "target_price_point": 20.75,
+        "target_margin_pct": 32.56,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "JBR",
+      "overall_score": 44.85,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 100.0,
+        "velocity_consistency": 19.4,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 49518.74999999999,
+        "margin_pct": -1.99,
+        "transactions": 22,
+        "units_sold": 1256.0,
+        "unique_products": 10,
+        "avg_price": 34.79
+      },
+      "opportunity_metrics": {
+        "target_price_point": 29.57,
+        "target_margin_pct": 18.01,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 9
+      }
+    },
+    {
+      "category": "CANDYS",
+      "overall_score": 44.67,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 56.89,
+        "velocity_consistency": 70.41,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 448775.0749999414,
+        "margin_pct": 19.4,
+        "transactions": 3361,
+        "units_sold": 54084.5,
+        "unique_products": 628,
+        "avg_price": 18.71
+      },
+      "opportunity_metrics": {
+        "target_price_point": 15.9,
+        "target_margin_pct": 39.4,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "PHONE CARDS",
+      "overall_score": 41.93,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 92.07,
+        "velocity_consistency": 17.25,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 18728.3,
+        "margin_pct": 3.57,
+        "transactions": 126,
+        "units_sold": 2700.0,
+        "unique_products": 7,
+        "avg_price": 6.89
+      },
+      "opportunity_metrics": {
+        "target_price_point": 5.86,
+        "target_margin_pct": 23.57,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 4
+      }
+    },
+    {
+      "category": "FOOD",
+      "overall_score": 40.09,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 63.93,
+        "velocity_consistency": 43.64,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 100.0
+      },
+      "current_metrics": {
+        "revenue": 207293.61999999775,
+        "margin_pct": 16.23,
+        "transactions": 2973,
+        "units_sold": 34608.0,
+        "unique_products": 276,
+        "avg_price": 11.88
+      },
+      "opportunity_metrics": {
+        "target_price_point": 10.1,
+        "target_margin_pct": 36.23,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 1
+      }
+    },
+    {
+      "category": "ECIG - DISP D8",
+      "overall_score": 39.73,
+      "score_components": {
+        "price_dispersion": 0.0,
+        "margin_headroom": 78.27,
+        "velocity_consistency": 43.56,
+        "supplier_concentration": 0.0,
+        "repeat_purchase": 53.58
+      },
+      "current_metrics": {
+        "revenue": 236852.69000000003,
+        "margin_pct": 9.78,
+        "transactions": 752,
+        "units_sold": 4029.0,
+        "unique_products": 75,
+        "avg_price": 60.31
+      },
+      "opportunity_metrics": {
+        "target_price_point": 51.27,
+        "target_margin_pct": 29.78,
+        "volume_requirement_annual": 1000,
+        "estimated_break_even_months": 2
+      }
+    }
+  ],
+  "first_five_skus": [
+    {
+      "rank": 1,
+      "category": "VITAMINS",
+      "reference_product_name": "OPMS 8ML SHOT 50CT - BLACK",
+      "reference_product_id": 45662,
+      "reference_upc": "643375878777",
+      "current_market_price": 425.91,
+      "proposed_private_label_price": 362.02,
+      "price_advantage_pct": 15.0,
+      "category_opportunity_score": 76.25,
+      "annual_revenue_potential": 141396.0,
+      "units_sold_reference": 335
+    },
+    {
+      "rank": 2,
+      "category": "LT-TAX PAID",
+      "reference_product_name": "GRABBA LEAF CIGAR WRAPS 25PK",
+      "reference_product_id": 37665,
+      "reference_upc": "094922733443",
+      "current_market_price": 29.87,
+      "proposed_private_label_price": 25.39,
+      "price_advantage_pct": 15.0,
+      "category_opportunity_score": 61.05,
+      "annual_revenue_potential": 570291.89,
+      "units_sold_reference": 21523
+    },
+    {
+      "rank": 3,
+      "category": "NOVELTY ITEMS",
+      "reference_product_name": "K-SHOT 12CT - REGULAR",
+      "reference_product_id": 41696,
+      "reference_upc": "820103507127",
+      "current_market_price": 82.15,
+      "proposed_private_label_price": 69.83,
+      "price_advantage_pct": 15.0,
+      "category_opportunity_score": 45.5,
+      "annual_revenue_potential": 123926.0,
+      "units_sold_reference": 1513
+    }
+  ],
+  "exclusions": {
+    "tobacco_categories": [
+      "CIGAR GA",
+      "CIG ROLLING PAPER",
+      "T7 SMOKELESS GA",
+      "ECIG - PODS",
+      "KRATOM",
+      "NICOTINE POUCHES",
+      "CIGARS",
+      "CIGARETTE",
+      "BLUNT WRAP",
+      "ELECTRONIC CIG",
+      "CBD/HEMP"
+    ],
+    "reason": "Regulatory compliance - focusing on non-tobacco first"
+  },
+  "summary_stats": {
+    "total_categories_analyzed": 40,
+    "categories_excluded": 11,
+    "avg_opportunity_score": 29.45,
+    "top_score": 76.25,
+    "total_revenue_potential": 835613.89
+  }
+}

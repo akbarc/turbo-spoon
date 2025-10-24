@@ -1,0 +1,972 @@
+{
+  "analysis_timestamp": "2025-09-08T17:23:25.262598",
+  "analysis_type": "B2B Wholesale Pricing Elasticity & Promotion Effectiveness",
+  "data_sources": {
+    "strategic_data": "strategic_data_extraction_20250908_164747.json",
+    "private_label_data": "private_label_opportunities.json",
+    "database_queries": "Real-time SQL Server queries"
+  },
+  "summary_metrics": {
+    "categories_analyzed": 33,
+    "elastic_categories": 2,
+    "inelastic_categories": 31,
+    "top_skus_analyzed": 0,
+    "skus_with_price_increase_opportunity": 0,
+    "total_sku_revenue_impact": 0,
+    "promotion_types_analyzed": 0,
+    "best_performing_promotion_type": "None",
+    "competitive_opportunities": 30,
+    "high_priority_competitive_opportunities": 2,
+    "analysis_confidence": "High"
+  },
+  "price_elasticity_by_category": {
+    "LT-TAX PAID": {
+      "price_elasticity": -0.574,
+      "price_power_score": 1.741,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 27.49,
+      "annual_units": 41240.0,
+      "current_margin_pct": 9.49,
+      "transactions": 5154,
+      "price_variation_coefficient": 0.3256,
+      "demand_stability": 0.8545999999999999,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "LT-TAX-COLLECTED": {
+      "price_elasticity": -0.442,
+      "price_power_score": 2.262,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 27.92,
+      "annual_units": 25555.0,
+      "current_margin_pct": 14.21,
+      "transactions": 4194,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.8665,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "CANDYS": {
+      "price_elasticity": -0.297,
+      "price_power_score": 3.369,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 18.71,
+      "annual_units": 54084.5,
+      "current_margin_pct": 19.4,
+      "transactions": 3361,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.7041,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "DRINKS": {
+      "price_elasticity": -0.508,
+      "price_power_score": 1.967,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 26.94,
+      "annual_units": 34611.0,
+      "current_margin_pct": 11.84,
+      "transactions": 4090,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.9209999999999999,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "VITAMINS": {
+      "price_elasticity": -0.669,
+      "price_power_score": 1.495,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 52.69,
+      "annual_units": 26223.0,
+      "current_margin_pct": 6.11,
+      "transactions": 4713,
+      "price_variation_coefficient": 1.0,
+      "demand_stability": 0.9304000000000001,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "SHOPPING BAGS": {
+      "price_elasticity": -0.28,
+      "price_power_score": 3.571,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 10.58,
+      "annual_units": 11902.0,
+      "current_margin_pct": 42.82,
+      "transactions": 2247,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.3668,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "NOVELTY ITEMS": {
+      "price_elasticity": -0.488,
+      "price_power_score": 2.048,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 24.41,
+      "annual_units": 20898.0,
+      "current_margin_pct": 12.56,
+      "transactions": 3144,
+      "price_variation_coefficient": 0.0956,
+      "demand_stability": 0.5525,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "MEDICINE": {
+      "price_elasticity": -0.28,
+      "price_power_score": 3.571,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 15.92,
+      "annual_units": 14924.0,
+      "current_margin_pct": 22.02,
+      "transactions": 3247,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.3864,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "AUTOMOTIVE": {
+      "price_elasticity": -0.28,
+      "price_power_score": 3.571,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 20.98,
+      "annual_units": 9180.0,
+      "current_margin_pct": 23.69,
+      "transactions": 1616,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.3874,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "MISC": {
+      "price_elasticity": -0.28,
+      "price_power_score": 3.571,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 25.32,
+      "annual_units": 6535.0,
+      "current_margin_pct": 27.47,
+      "transactions": 1456,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2958,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "FOOD": {
+      "price_elasticity": -0.386,
+      "price_power_score": 2.594,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 11.88,
+      "annual_units": 34608.0,
+      "current_margin_pct": 16.23,
+      "transactions": 2973,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.4364,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "LIGHTERS": {
+      "price_elasticity": -0.45,
+      "price_power_score": 2.221,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 31.51,
+      "annual_units": 11488.0,
+      "current_margin_pct": 13.92,
+      "transactions": 2781,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.395,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "HOUSEHOLD GOODS": {
+      "price_elasticity": -0.28,
+      "price_power_score": 3.571,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 13.03,
+      "annual_units": 13911.0,
+      "current_margin_pct": 30.5,
+      "transactions": 2411,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2991,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "ECIG - DISP D8": {
+      "price_elasticity": -1.076,
+      "price_power_score": 0.93,
+      "elasticity_category": "Elastic (Price Sensitive)",
+      "current_avg_price": 60.31,
+      "annual_units": 4029.0,
+      "current_margin_pct": 9.78,
+      "transactions": 752,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.43560000000000004,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "WATER": {
+      "price_elasticity": -0.304,
+      "price_power_score": 3.29,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 14.86,
+      "annual_units": 9177.0,
+      "current_margin_pct": 24.13,
+      "transactions": 1316,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2475,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "AIR FRESHENER": {
+      "price_elasticity": -0.359,
+      "price_power_score": 2.784,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 4.77,
+      "annual_units": 29824.0,
+      "current_margin_pct": 18.84,
+      "transactions": 1243,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.31629999999999997,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "GUMS/CHICLETS": {
+      "price_elasticity": -0.331,
+      "price_power_score": 3.022,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 14.88,
+      "annual_units": 5341.0,
+      "current_margin_pct": 19.22,
+      "transactions": 1303,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.3036,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "CELLUAR ACCESSORIES": {
+      "price_elasticity": -0.385,
+      "price_power_score": 2.597,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 27.44,
+      "annual_units": 2615.0,
+      "current_margin_pct": 25.92,
+      "transactions": 1039,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2827,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "GLOVES & T SHIRTS": {
+      "price_elasticity": -0.538,
+      "price_power_score": 1.859,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 3.77,
+      "annual_units": 21704.0,
+      "current_margin_pct": 18.72,
+      "transactions": 839,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2077,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "CONDOMS": {
+      "price_elasticity": -0.296,
+      "price_power_score": 3.379,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 12.9,
+      "annual_units": 4766.0,
+      "current_margin_pct": 19.43,
+      "transactions": 1614,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.282,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "COSMETICS & BEAUTY": {
+      "price_elasticity": -0.28,
+      "price_power_score": 3.571,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 5.33,
+      "annual_units": 12498.0,
+      "current_margin_pct": 28.72,
+      "transactions": 1522,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2644,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "LIT CIGARS 003251": {
+      "price_elasticity": -0.81,
+      "price_power_score": 1.234,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 64.12,
+      "annual_units": 1312.0,
+      "current_margin_pct": 11.02,
+      "transactions": 937,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.3018,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "CLEANING PRODUCTS": {
+      "price_elasticity": -0.377,
+      "price_power_score": 2.652,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 4.87,
+      "annual_units": 7942.0,
+      "current_margin_pct": 33.08,
+      "transactions": 1061,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2364,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "COOKIES": {
+      "price_elasticity": -0.488,
+      "price_power_score": 2.051,
+      "elasticity_category": "Inelastic (Price Power)",
+      "current_avg_price": 10.87,
+      "annual_units": 4123.0,
+      "current_margin_pct": 19.43,
+      "transactions": 867,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.24539999999999998,
+      "pricing_recommendation": "INCREASE PRICE: Low elasticity suggests -5% price increase possible"
+    },
+    "STATIONARY": {
+      "price_elasticity": -0.502,
+      "price_power_score": 1.994,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 19.39,
+      "annual_units": 2334.0,
+      "current_margin_pct": 17.65,
+      "transactions": 985,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2395,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "BATTERY": {
+      "price_elasticity": -0.6,
+      "price_power_score": 1.667,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 13.42,
+      "annual_units": 2930.0,
+      "current_margin_pct": 29.1,
+      "transactions": 426,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.21969999999999998,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "INCENSE": {
+      "price_elasticity": -0.6,
+      "price_power_score": 1.667,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 29.75,
+      "annual_units": 1861.0,
+      "current_margin_pct": 22.17,
+      "transactions": 393,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2143,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "KITCHEN & TOILET": {
+      "price_elasticity": -0.539,
+      "price_power_score": 1.855,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 7.67,
+      "annual_units": 4739.0,
+      "current_margin_pct": 29.95,
+      "transactions": 742,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.2218,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "HARDWARE": {
+      "price_elasticity": -0.6,
+      "price_power_score": 1.667,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 2.77,
+      "annual_units": 1634.0,
+      "current_margin_pct": 36.53,
+      "transactions": 352,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.1928,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "Unknown": {
+      "price_elasticity": -0.6,
+      "price_power_score": 1.667,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 10.95,
+      "annual_units": 694.0,
+      "current_margin_pct": 27.02,
+      "transactions": 158,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.0876,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "KIDS STUFF": {
+      "price_elasticity": -0.6,
+      "price_power_score": 1.667,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 5.16,
+      "annual_units": 557.0,
+      "current_margin_pct": 38.94,
+      "transactions": 163,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.1916,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "PLAYING CARDS": {
+      "price_elasticity": -0.6,
+      "price_power_score": 1.667,
+      "elasticity_category": "Unit Elastic",
+      "current_avg_price": 20.8,
+      "annual_units": 168.0,
+      "current_margin_pct": 21.72,
+      "transactions": 140,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.1641,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    },
+    "PHONE CARDS": {
+      "price_elasticity": -1.586,
+      "price_power_score": 0.631,
+      "elasticity_category": "Elastic (Price Sensitive)",
+      "current_avg_price": 6.89,
+      "annual_units": 2700.0,
+      "current_margin_pct": 3.57,
+      "transactions": 126,
+      "price_variation_coefficient": 0.0,
+      "demand_stability": 0.1725,
+      "pricing_recommendation": "MAINTAIN PRICE: Current pricing appears optimal"
+    }
+  },
+  "optimal_pricing_top_skus": {},
+  "promotion_effectiveness": {},
+  "competitive_pricing_opportunities": {
+    "LT-TAX PAID": {
+      "current_avg_price": 27.49,
+      "competitive_price_point": 23.37,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 78.91,
+      "current_margin_pct": 9.49,
+      "target_margin_pct": 29.49,
+      "annual_revenue": 1060414.14,
+      "market_potential_score": 82.74,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "High",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 1060414.14,
+        "projected_annual_revenue": 1013275.62,
+        "revenue_change": -47138.52,
+        "revenue_change_pct": -4.45
+      }
+    },
+    "LT-TAX-COLLECTED": {
+      "current_avg_price": 27.92,
+      "competitive_price_point": 23.73,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 68.42,
+      "current_margin_pct": 14.21,
+      "target_margin_pct": 34.21,
+      "annual_revenue": 675069.86,
+      "market_potential_score": 73.79,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 675069.86,
+        "projected_annual_revenue": 637298.09,
+        "revenue_change": -37771.77,
+        "revenue_change_pct": -5.6
+      }
+    },
+    "CANDYS": {
+      "current_avg_price": 18.71,
+      "competitive_price_point": 15.9,
+      "price_reduction_opportunity_pct": 15.02,
+      "margin_headroom_score": 56.89,
+      "current_margin_pct": 19.4,
+      "target_margin_pct": 39.4,
+      "annual_revenue": 448775.07,
+      "market_potential_score": 85.2,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 448775.07,
+        "projected_annual_revenue": 430175.35,
+        "revenue_change": -18599.72,
+        "revenue_change_pct": -4.14
+      }
+    },
+    "DRINKS": {
+      "current_avg_price": 26.94,
+      "competitive_price_point": 22.9,
+      "price_reduction_opportunity_pct": 15.0,
+      "margin_headroom_score": 73.69,
+      "current_margin_pct": 11.84,
+      "target_margin_pct": 31.84,
+      "annual_revenue": 696335.14,
+      "market_potential_score": 88.36,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 696335.14,
+        "projected_annual_revenue": 670343.15,
+        "revenue_change": -25991.99,
+        "revenue_change_pct": -3.73
+      }
+    },
+    "VITAMINS": {
+      "current_avg_price": 52.69,
+      "competitive_price_point": 44.79,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 86.42,
+      "current_margin_pct": 6.11,
+      "target_margin_pct": 26.11,
+      "annual_revenue": 1031905.71,
+      "market_potential_score": 74.34,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "High",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 1031905.71,
+        "projected_annual_revenue": 974960.36,
+        "revenue_change": -56945.35,
+        "revenue_change_pct": -5.52
+      }
+    },
+    "SHOPPING BAGS": {
+      "current_avg_price": 10.58,
+      "competitive_price_point": 8.99,
+      "price_reduction_opportunity_pct": 15.03,
+      "margin_headroom_score": 7.18,
+      "current_margin_pct": 42.82,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 133326.49,
+      "market_potential_score": 44.83,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 133326.49,
+        "projected_annual_revenue": 120922.28,
+        "revenue_change": -12404.21,
+        "revenue_change_pct": -9.3
+      }
+    },
+    "NOVELTY ITEMS": {
+      "current_avg_price": 24.41,
+      "competitive_price_point": 20.75,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 72.09,
+      "current_margin_pct": 12.56,
+      "target_margin_pct": 32.56,
+      "annual_revenue": 300840.88,
+      "market_potential_score": 60.86,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 300840.88,
+        "projected_annual_revenue": 279069.56,
+        "revenue_change": -21771.32,
+        "revenue_change_pct": -7.24
+      }
+    },
+    "MEDICINE": {
+      "current_avg_price": 15.92,
+      "competitive_price_point": 13.53,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 51.07,
+      "current_margin_pct": 22.02,
+      "target_margin_pct": 42.02,
+      "annual_revenue": 159325.76,
+      "market_potential_score": 42.3,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 159325.76,
+        "projected_annual_revenue": 144005.64,
+        "revenue_change": -15320.12,
+        "revenue_change_pct": -9.62
+      }
+    },
+    "AUTOMOTIVE": {
+      "current_avg_price": 20.98,
+      "competitive_price_point": 17.83,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 47.36,
+      "current_margin_pct": 23.69,
+      "target_margin_pct": 43.69,
+      "annual_revenue": 144811.14,
+      "market_potential_score": 47.78,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 144811.14,
+        "projected_annual_revenue": 131897.51,
+        "revenue_change": -12913.63,
+        "revenue_change_pct": -8.92
+      }
+    },
+    "MISC": {
+      "current_avg_price": 25.32,
+      "competitive_price_point": 21.53,
+      "price_reduction_opportunity_pct": 14.97,
+      "margin_headroom_score": 38.96,
+      "current_margin_pct": 27.47,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 123194.67,
+      "market_potential_score": 37.23,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 123194.67,
+        "projected_annual_revenue": 110592.08,
+        "revenue_change": -12602.59,
+        "revenue_change_pct": -10.23
+      }
+    },
+    "FOOD": {
+      "current_avg_price": 11.88,
+      "competitive_price_point": 10.1,
+      "price_reduction_opportunity_pct": 14.98,
+      "margin_headroom_score": 63.93,
+      "current_margin_pct": 16.23,
+      "target_margin_pct": 36.23,
+      "annual_revenue": 207293.62,
+      "market_potential_score": 71.82,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 207293.62,
+        "projected_annual_revenue": 195198.91,
+        "revenue_change": -12094.71,
+        "revenue_change_pct": -5.83
+      }
+    },
+    "LIGHTERS": {
+      "current_avg_price": 31.51,
+      "competitive_price_point": 26.79,
+      "price_reduction_opportunity_pct": 14.98,
+      "margin_headroom_score": 69.07,
+      "current_margin_pct": 13.92,
+      "target_margin_pct": 33.92,
+      "annual_revenue": 236332.49,
+      "market_potential_score": 40.41,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 236332.49,
+        "projected_annual_revenue": 213094.07,
+        "revenue_change": -23238.42,
+        "revenue_change_pct": -9.83
+      }
+    },
+    "HOUSEHOLD GOODS": {
+      "current_avg_price": 13.03,
+      "competitive_price_point": 11.08,
+      "price_reduction_opportunity_pct": 14.97,
+      "margin_headroom_score": 32.22,
+      "current_margin_pct": 30.5,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 80223.12,
+      "market_potential_score": 43.8,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 80223.12,
+        "projected_annual_revenue": 72688.92,
+        "revenue_change": -7534.2,
+        "revenue_change_pct": -9.39
+      }
+    },
+    "ECIG - DISP D8": {
+      "current_avg_price": 60.31,
+      "competitive_price_point": 51.27,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 78.27,
+      "current_margin_pct": 9.78,
+      "target_margin_pct": 29.78,
+      "annual_revenue": 236852.69,
+      "market_potential_score": 36.52,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 236852.69,
+        "projected_annual_revenue": 212372.36,
+        "revenue_change": -24480.33,
+        "revenue_change_pct": -10.34
+      }
+    },
+    "WATER": {
+      "current_avg_price": 14.86,
+      "competitive_price_point": 12.63,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 46.38,
+      "current_margin_pct": 24.13,
+      "target_margin_pct": 44.13,
+      "annual_revenue": 79273.87,
+      "market_potential_score": 47.24,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 79273.87,
+        "projected_annual_revenue": 72153.96,
+        "revenue_change": -7119.91,
+        "revenue_change_pct": -8.98
+      }
+    },
+    "AIR FRESHENER": {
+      "current_avg_price": 4.77,
+      "competitive_price_point": 4.05,
+      "price_reduction_opportunity_pct": 15.09,
+      "margin_headroom_score": 58.13,
+      "current_margin_pct": 18.84,
+      "target_margin_pct": 38.84,
+      "annual_revenue": 82138.35,
+      "market_potential_score": 65.81,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 82138.35,
+        "projected_annual_revenue": 76667.8,
+        "revenue_change": -5470.55,
+        "revenue_change_pct": -6.66
+      }
+    },
+    "GUMS/CHICLETS": {
+      "current_avg_price": 14.88,
+      "competitive_price_point": 12.65,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 57.29,
+      "current_margin_pct": 19.22,
+      "target_margin_pct": 39.22,
+      "annual_revenue": 79468.96,
+      "market_potential_score": 35.67,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 79468.96,
+        "projected_annual_revenue": 71170.82,
+        "revenue_change": -8298.14,
+        "revenue_change_pct": -10.44
+      }
+    },
+    "CELLUAR ACCESSORIES": {
+      "current_avg_price": 27.44,
+      "competitive_price_point": 23.32,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 42.4,
+      "current_margin_pct": 25.92,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 52453.35,
+      "market_potential_score": 26.72,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 52453.35,
+        "projected_annual_revenue": 46366.11,
+        "revenue_change": -6087.24,
+        "revenue_change_pct": -11.61
+      }
+    },
+    "GLOVES & T SHIRTS": {
+      "current_avg_price": 3.77,
+      "competitive_price_point": 3.2,
+      "price_reduction_opportunity_pct": 15.12,
+      "margin_headroom_score": 58.4,
+      "current_margin_pct": 18.72,
+      "target_margin_pct": 38.72,
+      "annual_revenue": 69113.73,
+      "market_potential_score": 50.66,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 69113.73,
+        "projected_annual_revenue": 63157.54,
+        "revenue_change": -5956.19,
+        "revenue_change_pct": -8.62
+      }
+    },
+    "CONDOMS": {
+      "current_avg_price": 12.9,
+      "competitive_price_point": 10.96,
+      "price_reduction_opportunity_pct": 15.04,
+      "margin_headroom_score": 56.82,
+      "current_margin_pct": 19.43,
+      "target_margin_pct": 39.43,
+      "annual_revenue": 61177.0,
+      "market_potential_score": 28.87,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 61177.0,
+        "projected_annual_revenue": 54233.41,
+        "revenue_change": -6943.59,
+        "revenue_change_pct": -11.35
+      }
+    },
+    "COSMETICS & BEAUTY": {
+      "current_avg_price": 5.33,
+      "competitive_price_point": 4.53,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 36.18,
+      "current_margin_pct": 28.72,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 34501.33,
+      "market_potential_score": 54.28,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 34501.33,
+        "projected_annual_revenue": 31711.86,
+        "revenue_change": -2789.47,
+        "revenue_change_pct": -8.09
+      }
+    },
+    "LIT CIGARS 003251": {
+      "current_avg_price": 64.12,
+      "competitive_price_point": 54.51,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 75.51,
+      "current_margin_pct": 11.02,
+      "target_margin_pct": 31.02,
+      "annual_revenue": 83480.86,
+      "market_potential_score": 20.7,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 83480.86,
+        "projected_annual_revenue": 73170.91,
+        "revenue_change": -10309.95,
+        "revenue_change_pct": -12.35
+      }
+    },
+    "CLEANING PRODUCTS": {
+      "current_avg_price": 4.87,
+      "competitive_price_point": 4.14,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 26.49,
+      "current_margin_pct": 33.08,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 24330.71,
+      "market_potential_score": 49.24,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 24330.71,
+        "projected_annual_revenue": 22210.25,
+        "revenue_change": -2120.46,
+        "revenue_change_pct": -8.72
+      }
+    },
+    "COOKIES": {
+      "current_avg_price": 10.87,
+      "competitive_price_point": 9.24,
+      "price_reduction_opportunity_pct": 15.0,
+      "margin_headroom_score": 56.82,
+      "current_margin_pct": 19.43,
+      "target_margin_pct": 39.43,
+      "annual_revenue": 30554.09,
+      "market_potential_score": 31.25,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 30554.09,
+        "projected_annual_revenue": 27189.46,
+        "revenue_change": -3364.63,
+        "revenue_change_pct": -11.01
+      }
+    },
+    "STATIONARY": {
+      "current_avg_price": 19.39,
+      "competitive_price_point": 16.48,
+      "price_reduction_opportunity_pct": 15.01,
+      "margin_headroom_score": 60.78,
+      "current_margin_pct": 17.65,
+      "target_margin_pct": 37.65,
+      "annual_revenue": 30771.32,
+      "market_potential_score": 23.47,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 30771.32,
+        "projected_annual_revenue": 27074.44,
+        "revenue_change": -3696.88,
+        "revenue_change_pct": -12.01
+      }
+    },
+    "BATTERY": {
+      "current_avg_price": 13.42,
+      "competitive_price_point": 11.4,
+      "price_reduction_opportunity_pct": 15.05,
+      "margin_headroom_score": 35.33,
+      "current_margin_pct": 29.1,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 17299.9,
+      "market_potential_score": 19.33,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 17299.9,
+        "projected_annual_revenue": 15123.48,
+        "revenue_change": -2176.42,
+        "revenue_change_pct": -12.58
+      }
+    },
+    "INCENSE": {
+      "current_avg_price": 29.75,
+      "competitive_price_point": 25.28,
+      "price_reduction_opportunity_pct": 15.03,
+      "margin_headroom_score": 50.73,
+      "current_margin_pct": 22.17,
+      "target_margin_pct": 42.17,
+      "annual_revenue": 18577.23,
+      "market_potential_score": 13.52,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 18577.23,
+        "projected_annual_revenue": 16106.64,
+        "revenue_change": -2470.59,
+        "revenue_change_pct": -13.3
+      }
+    },
+    "KITCHEN & TOILET": {
+      "current_avg_price": 7.67,
+      "competitive_price_point": 6.52,
+      "price_reduction_opportunity_pct": 14.99,
+      "margin_headroom_score": 33.44,
+      "current_margin_pct": 29.95,
+      "target_margin_pct": 45.0,
+      "annual_revenue": 13476.69,
+      "market_potential_score": 31.92,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 13476.69,
+        "projected_annual_revenue": 12004.34,
+        "revenue_change": -1472.35,
+        "revenue_change_pct": -10.93
+      }
+    },
+    "PHONE CARDS": {
+      "current_avg_price": 6.89,
+      "competitive_price_point": 5.86,
+      "price_reduction_opportunity_pct": 14.95,
+      "margin_headroom_score": 92.07,
+      "current_margin_pct": 3.57,
+      "target_margin_pct": 23.57,
+      "annual_revenue": 18728.3,
+      "market_potential_score": 7.39,
+      "competitive_advantage": "Moderate: Good positioning with some flexibility",
+      "implementation_priority": "Medium",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 18728.3,
+        "projected_annual_revenue": 16104.54,
+        "revenue_change": -2623.76,
+        "revenue_change_pct": -14.01
+      }
+    },
+    "JBR": {
+      "current_avg_price": 34.79,
+      "competitive_price_point": 29.57,
+      "price_reduction_opportunity_pct": 15.0,
+      "margin_headroom_score": 100.0,
+      "current_margin_pct": -1.99,
+      "target_margin_pct": 18.01,
+      "annual_revenue": 49518.75,
+      "market_potential_score": 1.31,
+      "competitive_advantage": "Strong: Significant pricing power and margin flexibility",
+      "implementation_priority": "Low",
+      "revenue_impact_projection": {
+        "current_annual_revenue": 49518.75,
+        "projected_annual_revenue": 42171.53,
+        "revenue_change": -7347.22,
+        "revenue_change_pct": -14.84
+      }
+    }
+  },
+  "strategic_recommendations": [
+    "PRICING POWER: Categories with pricing power (LT-TAX PAID, LT-TAX-COLLECTED, CANDYS) can support 5-15% price increases with minimal volume loss.",
+    "COMPETITIVE OPPORTUNITIES: 2 high-priority categories (LT-TAX PAID, VITAMINS) offer immediate competitive pricing advantages.",
+    "DYNAMIC PRICING: Implement category-specific pricing strategies based on elasticity analysis.",
+    "MARGIN OPTIMIZATION: Focus on categories with pricing power for margin expansion.",
+    "VOLUME STRATEGIES: Use competitive pricing in price-sensitive categories to gain market share.",
+    "PROMOTION EFFICIENCY: Optimize promotion spend based on ROI analysis by type."
+  ]
+}

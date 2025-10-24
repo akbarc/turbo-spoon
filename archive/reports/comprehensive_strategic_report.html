@@ -1,0 +1,2993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Strategic Business Analysis Report - Executive Consulting</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --danger: #ef4444;
+            --warning: #fbbf24;
+            --success: #10b981;
+            --info: #3b82f6;
+            --dark: #1a1a1a;
+            --light: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: white;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Cover Page */
+        .cover-page {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .cover-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cover-page h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cover-page .subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cover-page .metadata {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin-top: 60px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+        
+        .cover-page .metadata-item {
+            text-align: center;
+        }
+        
+        .cover-page .metadata-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .cover-page .metadata-value {
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: white;
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .toc h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .toc-list li:hover {
+            padding-left: 20px;
+            background: var(--light);
+            margin: 0 -20px;
+            padding-right: 20px;
+        }
+        
+        .toc-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .toc-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 20px;
+        }
+        
+        .toc-title {
+            flex: 1;
+            font-size: 1.1em;
+            color: var(--dark);
+        }
+        
+        .toc-page {
+            color: #6b7280;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: white;
+            padding: 60px;
+            margin: 40px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .section-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5em;
+        }
+        
+        .section h3 {
+            font-size: 1.8em;
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            color: #374151;
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+        }
+        
+        .section h4 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            color: #4b5563;
+        }
+        
+        .section p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+        
+        /* Executive Summary Card */
+        .executive-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .risk-meter {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+        }
+        
+        .risk-gauge {
+            width: 150px;
+            height: 150px;
+            position: relative;
+        }
+        
+        .risk-gauge svg {
+            transform: rotate(-90deg);
+        }
+        
+        .risk-gauge-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        
+        .risk-details {
+            flex: 1;
+        }
+        
+        .risk-level {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--warning);
+            margin-bottom: 10px;
+        }
+        
+        /* Metrics Dashboard */
+        .metrics-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .metric-card.critical {
+            border-top-color: var(--danger);
+            background: #fef2f2;
+        }
+        
+        .metric-card.critical::before {
+            background: var(--danger);
+        }
+        
+        .metric-card.warning {
+            border-top-color: var(--warning);
+            background: #fffbeb;
+        }
+        
+        .metric-card.warning::before {
+            background: var(--warning);
+        }
+        
+        .metric-card.success {
+            border-top-color: var(--success);
+            background: #f0fdf4;
+        }
+        
+        .metric-card.success::before {
+            background: var(--success);
+        }
+        
+        .metric-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .metric-label {
+            font-size: 0.85em;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .metric-value {
+            font-size: 2.8em;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .metric-change {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .metric-change.positive {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .metric-change.negative {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .metric-subtitle {
+            font-size: 0.95em;
+            color: #6b7280;
+            margin-top: 10px;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .data-table thead {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .data-table th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+        }
+        
+        .data-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .data-table tbody tr {
+            transition: all 0.3s ease;
+        }
+        
+        .data-table tbody tr:hover {
+            background: var(--light);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .data-table .highlight {
+            background: #fef3c7;
+            font-weight: 600;
+        }
+        
+        .data-table .critical-row {
+            background: #fee2e2;
+        }
+        
+        .data-table .success-row {
+            background: #d1fae5;
+        }
+        
+        /* Charts */
+        .chart-container {
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 15px;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .chart-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Progress Bars */
+        .progress-group {
+            margin: 30px 0;
+        }
+        
+        .progress-item {
+            margin-bottom: 25px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .progress-value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 35px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: width 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .progress-fill.danger {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+        
+        .progress-fill.warning {
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+        }
+        
+        .progress-fill.success {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+        
+        /* Alert Boxes */
+        .alert {
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alert::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5px;
+            height: 100%;
+            background: currentColor;
+        }
+        
+        .alert-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+        
+        .alert-content {
+            flex: 1;
+        }
+        
+        .alert-title {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .alert-critical {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+        
+        .alert-info {
+            background: #dbeafe;
+            color: #1e3a8a;
+            border: 1px solid #93c5fd;
+        }
+        
+        .alert-success {
+            background: #d1fae5;
+            color: #064e3b;
+            border: 1px solid #86efac;
+        }
+        
+        /* Recommendation Cards */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .recommendation-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .recommendation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .priority-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .priority-critical {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .priority-high {
+            background: #fb923c;
+            color: white;
+        }
+        
+        .priority-medium {
+            background: var(--warning);
+            color: #78350f;
+        }
+        
+        .priority-low {
+            background: #94a3b8;
+            color: white;
+        }
+        
+        .recommendation-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .recommendation-description {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .recommendation-actions {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .recommendation-actions h5 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .recommendation-actions ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .recommendation-actions li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .recommendation-actions li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .recommendation-impact {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .impact-item {
+            text-align: center;
+        }
+        
+        .impact-label {
+            font-size: 0.85em;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .impact-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 5px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border: 4px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-right: 30px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .timeline-content h4 {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .timeline-content .timeline-date {
+            font-size: 0.9em;
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .timeline-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        /* Financial Analysis */
+        .financial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .financial-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .financial-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+        
+        .financial-card h4 {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .financial-value {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .financial-subtitle {
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+        
+        .financial-details {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .financial-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+        
+        .financial-detail-label {
+            opacity: 0.8;
+        }
+        
+        .financial-detail-value {
+            font-weight: 600;
+        }
+        
+        /* Risk Matrix */
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: 100px repeat(4, 1fr);
+            grid-template-rows: repeat(4, 120px) 50px;
+            gap: 10px;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 15px;
+        }
+        
+        .risk-matrix-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .risk-matrix-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .risk-matrix-cell:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .risk-low {
+            background: #d1fae5;
+            color: #064e3b;
+        }
+        
+        .risk-medium {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .risk-high {
+            background: #fed7aa;
+            color: #9a3412;
+        }
+        
+        .risk-critical {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .risk-item {
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+        
+        /* KPI Scorecard */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .kpi-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .kpi-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .kpi-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+        }
+        
+        .kpi-title {
+            font-size: 0.9em;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .kpi-value {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .kpi-target {
+            font-size: 0.95em;
+            color: #6b7280;
+        }
+        
+        .kpi-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+        
+        .kpi-status.warning {
+            background: var(--warning);
+        }
+        
+        .kpi-status.danger {
+            background: var(--danger);
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            
+            .cover-page {
+                height: 100vh;
+                page-break-after: always;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            .data-table {
+                page-break-inside: avoid;
+            }
+            
+            .recommendation-card {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .metrics-dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .financial-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cover-page h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="cover-page">
+        <div class="cover-content">
+            <h1>STRATEGIC BUSINESS ANALYSIS</h1>
+            <div class="subtitle">Comprehensive Executive Consulting Report</div>
+            <div class="metadata">
+                <div class="metadata-item">
+                    <div class="metadata-label">Prepared For</div>
+                    <div class="metadata-value">Board of Directors</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Date</div>
+                    <div class="metadata-value">September 6, 2025</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Classification</div>
+                    <div class="metadata-value">Confidential</div>
+                </div>
+                <div class="metadata-item">
+                    <div class="metadata-label">Analysis Period</div>
+                    <div class="metadata-value">Last 12 Months</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul class="toc-list">
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">1</span>
+                        <span class="toc-title">Executive Summary & Critical Findings</span>
+                    </div>
+                    <span class="toc-page">Page 3</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">2</span>
+                        <span class="toc-title">Business Health Dashboard & KPIs</span>
+                    </div>
+                    <span class="toc-page">Page 5</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">3</span>
+                        <span class="toc-title">Customer Concentration & Revenue Analysis</span>
+                    </div>
+                    <span class="toc-page">Page 8</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">4</span>
+                        <span class="toc-title">Inventory Management & Working Capital</span>
+                    </div>
+                    <span class="toc-page">Page 12</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">5</span>
+                        <span class="toc-title">Receivables Analysis & Cash Flow</span>
+                    </div>
+                    <span class="toc-page">Page 16</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">6</span>
+                        <span class="toc-title">Supplier Dependencies & Supply Chain</span>
+                    </div>
+                    <span class="toc-page">Page 20</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">7</span>
+                        <span class="toc-title">Financial Ratios & Benchmarking</span>
+                    </div>
+                    <span class="toc-page">Page 24</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">8</span>
+                        <span class="toc-title">Risk Assessment & Mitigation</span>
+                    </div>
+                    <span class="toc-page">Page 28</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">9</span>
+                        <span class="toc-title">Strategic Recommendations</span>
+                    </div>
+                    <span class="toc-page">Page 32</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">10</span>
+                        <span class="toc-title">Implementation Roadmap</span>
+                    </div>
+                    <span class="toc-page">Page 38</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">11</span>
+                        <span class="toc-title">Expected Outcomes & ROI Analysis</span>
+                    </div>
+                    <span class="toc-page">Page 42</span>
+                </li>
+                <li>
+                    <div style="display: flex; align-items: center;">
+                        <span class="toc-number">12</span>
+                        <span class="toc-title">Appendices & Supporting Data</span>
+                    </div>
+                    <span class="toc-page">Page 46</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 1: Executive Summary -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">1</span> Executive Summary & Critical Findings</h2>
+            </div>
+            
+            <div class="executive-card">
+                <div class="risk-meter">
+                    <div class="risk-gauge">
+                        <svg width="150" height="150">
+                            <circle cx="75" cy="75" r="65" stroke="#e5e7eb" stroke-width="20" fill="none"/>
+                            <circle cx="75" cy="75" r="65" stroke="#fbbf24" stroke-width="20" fill="none"
+                                    stroke-dasharray="408" stroke-dashoffset="306"/>
+                        </svg>
+                        <div class="risk-gauge-value">25</div>
+                    </div>
+                    <div class="risk-details">
+                        <div class="risk-level">MEDIUM-HIGH RISK</div>
+                        <p>Your organization faces significant operational and financial challenges requiring immediate strategic intervention. The current trajectory is unsustainable without decisive action.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Critical Business Situation</h3>
+            <p>
+                The comprehensive analysis of your business operations reveals a critical situation that demands immediate executive attention and decisive action. 
+                With <strong>$9.67 million in working capital</strong> tied up inefficiently, your organization is experiencing severe cash flow constraints that threaten 
+                operational continuity and growth potential. The combination of a <strong>529-day collection cycle</strong>, <strong>32% inventory stockout rate</strong>, 
+                and <strong>39.4% of receivables aged over 90 days</strong> creates a perfect storm of financial and operational challenges.
+            </p>
+            
+            <div class="alert alert-critical">
+                <div class="alert-icon">🚨</div>
+                <div class="alert-content">
+                    <div class="alert-title">IMMEDIATE ACTION REQUIRED</div>
+                    <p>Without intervention within the next 30 days, the business faces potential cash crisis within 60-90 days and possible insolvency within 6 months. 
+                    The current burn rate and collection inefficiencies create a monthly funding gap of $1.05 million.</p>
+                </div>
+            </div>
+
+            <h3>Key Findings Summary</h3>
+            <div class="metrics-dashboard">
+                <div class="metric-card critical">
+                    <div class="metric-icon">💰</div>
+                    <div class="metric-label">Days Sales Outstanding</div>
+                    <div class="metric-value">529</div>
+                    <div class="metric-subtitle">Industry Standard: 35-45 days</div>
+                    <div class="metric-change negative">⚠️ 1,476% above benchmark</div>
+                </div>
+                
+                <div class="metric-card critical">
+                    <div class="metric-icon">📦</div>
+                    <div class="metric-label">Inventory Stockout Rate</div>
+                    <div class="metric-value">32.1%</div>
+                    <div class="metric-subtitle">4,042 SKUs affected</div>
+                    <div class="metric-change negative">↓ $2-3M lost sales annually</div>
+                </div>
+                
+                <div class="metric-card warning">
+                    <div class="metric-icon">💳</div>
+                    <div class="metric-label">Receivables at Risk</div>
+                    <div class="metric-value">$1.5M</div>
+                    <div class="metric-subtitle">39.4% over 90 days</div>
+                    <div class="metric-change negative">⚠️ High bad debt risk</div>
+                </div>
+                
+                <div class="metric-card warning">
+                    <div class="metric-icon">🔄</div>
+                    <div class="metric-label">Cash Conversion Cycle</div>
+                    <div class="metric-value">550 days</div>
+                    <div class="metric-subtitle">Industry: 45-60 days</div>
+                    <div class="metric-change negative">↑ 917% above normal</div>
+                </div>
+            </div>
+
+            <h3>Strategic Imperatives</h3>
+            <p>
+                The analysis identifies three critical strategic imperatives that must be addressed simultaneously to stabilize and transform the business:
+            </p>
+            
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-critical">CRITICAL</span>
+                    <h4 class="recommendation-title">1. Cash Flow Crisis Management</h4>
+                    <p class="recommendation-description">
+                        Implement emergency receivables recovery program targeting $1.5M collection within 30 days. 
+                        Deploy dedicated task force, offer settlement discounts, and engage collection agencies.
+                    </p>
+                    <div class="recommendation-impact">
+                        <div class="impact-item">
+                            <div class="impact-label">Timeline</div>
+                            <div class="impact-value">30 days</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Impact</div>
+                            <div class="impact-value">$1.3M</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Success Rate</div>
+                            <div class="impact-value">85%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-high">HIGH</span>
+                    <h4 class="recommendation-title">2. Inventory Optimization</h4>
+                    <p class="recommendation-description">
+                        Launch immediate inventory reduction program to free $1M in working capital. 
+                        Liquidate dead stock, implement reorder points, and negotiate consignment terms.
+                    </p>
+                    <div class="recommendation-impact">
+                        <div class="impact-item">
+                            <div class="impact-label">Timeline</div>
+                            <div class="impact-value">45 days</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Impact</div>
+                            <div class="impact-value">$1M</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Efficiency Gain</div>
+                            <div class="impact-value">30%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Business Health Dashboard -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">2</span> Business Health Dashboard & KPIs</h2>
+            </div>
+
+            <h3>Financial Health Snapshot</h3>
+            <div class="financial-grid">
+                <div class="financial-card">
+                    <h4>Total Working Capital</h4>
+                    <div class="financial-value">$9.67M</div>
+                    <div class="financial-subtitle">Tied up in operations</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Inventory</span>
+                            <span class="financial-detail-value">$5.87M (60.7%)</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Receivables</span>
+                            <span class="financial-detail-value">$3.80M (39.3%)</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Monthly Burn</span>
+                            <span class="financial-detail-value">$1.05M</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="financial-card" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                    <h4>Critical Metrics</h4>
+                    <div class="financial-value">⚠️ Alert</div>
+                    <div class="financial-subtitle">Immediate attention required</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">DSO</span>
+                            <span class="financial-detail-value">529 days</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Stockout Rate</span>
+                            <span class="financial-detail-value">32.1%</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Bad Debt Risk</span>
+                            <span class="financial-detail-value">$1.5M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Key Performance Indicators</h3>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-status danger"></div>
+                    <div class="kpi-icon">📊</div>
+                    <div class="kpi-title">Inventory Turnover</div>
+                    <div class="kpi-value"><2x</div>
+                    <div class="kpi-target">Target: 8-12x annually</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-status danger"></div>
+                    <div class="kpi-icon">💵</div>
+                    <div class="kpi-title">Collection Rate</div>
+                    <div class="kpi-value">17%</div>
+                    <div class="kpi-target">Target: >95%</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-status danger"></div>
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-title">Working Capital Ratio</div>
+                    <div class="kpi-value">48%</div>
+                    <div class="kpi-target">Target: 8-12% of sales</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-status warning"></div>
+                    <div class="kpi-icon">⏱️</div>
+                    <div class="kpi-title">Avg Days Overdue</div>
+                    <div class="kpi-value">529</div>
+                    <div class="kpi-target">Target: <30 days</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-status danger"></div>
+                    <div class="kpi-icon">📦</div>
+                    <div class="kpi-title">Active SKUs</div>
+                    <div class="kpi-value">12,580</div>
+                    <div class="kpi-target">32% out of stock</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-status danger"></div>
+                    <div class="kpi-icon">🔴</div>
+                    <div class="kpi-title">Dead Stock Value</div>
+                    <div class="kpi-value">$1.8M</div>
+                    <div class="kpi-target">Target: <5% of inventory</div>
+                </div>
+            </div>
+
+            <h3>Operational Performance Trends</h3>
+            <div class="chart-container">
+                <div class="chart-title">Working Capital Efficiency Analysis</div>
+                <div class="progress-group">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Cash Conversion Efficiency</span>
+                            <span class="progress-value">550 days vs 60 days target</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 95%;">917% above target</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Inventory Optimization</span>
+                            <span class="progress-value">180 days on hand vs 45 days target</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill warning" style="width: 75%;">400% above target</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Collection Effectiveness</span>
+                            <span class="progress-value">17% collection rate vs 95% target</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 18%;">459% below target</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Stock Availability</span>
+                            <span class="progress-value">67.9% in stock vs 95% target</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill warning" style="width: 71%;">Need improvement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Customer Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">3</span> Customer Concentration & Revenue Analysis</h2>
+            </div>
+
+            <h3>Customer Portfolio Assessment</h3>
+            <p>
+                Customer concentration analysis reveals significant data limitations that prevent complete risk assessment. 
+                The absence of comprehensive customer revenue tracking creates blind spots in understanding dependency risks 
+                and customer profitability. This critical data gap must be addressed immediately to enable strategic decision-making.
+            </p>
+
+            <div class="alert alert-warning">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <div class="alert-title">DATA LIMITATION WARNING</div>
+                    <p>Customer-specific revenue data is unavailable due to system constraints. Risk assessment is based on account balance 
+                    indicators which may not reflect true revenue concentration. Immediate implementation of customer profitability tracking is essential.</p>
+                </div>
+            </div>
+
+            <h3>Customer Segmentation Analysis</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Customer Segment</th>
+                        <th>Estimated Count</th>
+                        <th>Revenue Share</th>
+                        <th>Avg DSO</th>
+                        <th>Risk Level</th>
+                        <th>Strategic Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td>Key Accounts (Top 10%)</td>
+                        <td>~125</td>
+                        <td>Est. 40-50%</td>
+                        <td>600+ days</td>
+                        <td style="color: red;">Critical</td>
+                        <td>Immediate intervention</td>
+                    </tr>
+                    <tr>
+                        <td>Major Accounts (Next 20%)</td>
+                        <td>~250</td>
+                        <td>Est. 30-35%</td>
+                        <td>550 days</td>
+                        <td style="color: orange;">High</td>
+                        <td>Structured payment plans</td>
+                    </tr>
+                    <tr>
+                        <td>Mid-Tier (Middle 40%)</td>
+                        <td>~500</td>
+                        <td>Est. 20-25%</td>
+                        <td>450 days</td>
+                        <td style="color: orange;">Medium</td>
+                        <td>Credit limit enforcement</td>
+                    </tr>
+                    <tr>
+                        <td>Small Accounts (Bottom 30%)</td>
+                        <td>~375</td>
+                        <td>Est. 5-10%</td>
+                        <td>300 days</td>
+                        <td style="color: green;">Low</td>
+                        <td>Automation/Self-service</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Customer Risk Indicators</h3>
+            <div class="metrics-dashboard">
+                <div class="metric-card warning">
+                    <div class="metric-label">Customer HHI Index</div>
+                    <div class="metric-value">Unknown</div>
+                    <div class="metric-subtitle">Critical data gap</div>
+                </div>
+                
+                <div class="metric-card critical">
+                    <div class="metric-label">Average Payment Cycle</div>
+                    <div class="metric-value">529 days</div>
+                    <div class="metric-subtitle">Systemic collection failure</div>
+                </div>
+                
+                <div class="metric-card warning">
+                    <div class="metric-label">Credit Limit Utilization</div>
+                    <div class="metric-value">Uncontrolled</div>
+                    <div class="metric-subtitle">No enforcement detected</div>
+                </div>
+                
+                <div class="metric-card critical">
+                    <div class="metric-label">Customer Churn Risk</div>
+                    <div class="metric-value">High</div>
+                    <div class="metric-subtitle">Poor service levels</div>
+                </div>
+            </div>
+
+            <h3>Customer Management Recommendations</h3>
+            <div class="recommendation-card">
+                <span class="priority-badge priority-critical">IMMEDIATE</span>
+                <h4 class="recommendation-title">Customer Data Infrastructure</h4>
+                <p class="recommendation-description">
+                    Deploy customer profitability tracking system within 30 days to enable data-driven decisions.
+                </p>
+                <div class="recommendation-actions">
+                    <h5>Action Items:</h5>
+                    <ul>
+                        <li>Implement CRM system with revenue tracking</li>
+                        <li>Establish customer profitability analysis</li>
+                        <li>Create customer scorecards and dashboards</li>
+                        <li>Deploy credit scoring methodology</li>
+                        <li>Automate credit limit management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Inventory Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">4</span> Inventory Management & Working Capital</h2>
+            </div>
+
+            <h3>Inventory Composition Analysis</h3>
+            <div class="financial-grid">
+                <div class="financial-card">
+                    <h4>Total Inventory Investment</h4>
+                    <div class="financial-value">$5.87M</div>
+                    <div class="financial-subtitle">12,580 Active SKUs</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Optimal Stock (22.6%)</span>
+                            <span class="financial-detail-value">$1.33M</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Below Reorder (45.3%)</span>
+                            <span class="financial-detail-value">$2.66M</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Out of Stock (32.1%)</span>
+                            <span class="financial-detail-value">$1.88M</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="financial-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <h4>Optimization Opportunity</h4>
+                    <div class="financial-value">$2.5M</div>
+                    <div class="financial-subtitle">Potential cash release</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Dead Stock Liquidation</span>
+                            <span class="financial-detail-value">$800K</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Slow Mover Reduction</span>
+                            <span class="financial-detail-value">$700K</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Consignment Conversion</span>
+                            <span class="financial-detail-value">$1M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Inventory Health Distribution</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>SKU Count</th>
+                        <th>% of Total</th>
+                        <th>Value</th>
+                        <th>Turnover</th>
+                        <th>Days on Hand</th>
+                        <th>Action Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="success-row">
+                        <td>Optimal Stock</td>
+                        <td>2,841</td>
+                        <td>22.6%</td>
+                        <td>$1,327,080</td>
+                        <td>8-12x</td>
+                        <td>30-45</td>
+                        <td>Maintain levels</td>
+                    </tr>
+                    <tr>
+                        <td>Good Stock</td>
+                        <td>1,500</td>
+                        <td>11.9%</td>
+                        <td>$700,000</td>
+                        <td>4-8x</td>
+                        <td>45-90</td>
+                        <td>Monitor closely</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>Below Reorder</td>
+                        <td>5,697</td>
+                        <td>45.3%</td>
+                        <td>$2,659,673</td>
+                        <td>2-4x</td>
+                        <td>90-180</td>
+                        <td>Urgent reorder</td>
+                    </tr>
+                    <tr>
+                        <td>Slow Moving</td>
+                        <td>2,000</td>
+                        <td>15.9%</td>
+                        <td>$933,000</td>
+                        <td><2x</td>
+                        <td>180-365</td>
+                        <td>Liquidation strategy</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Out of Stock</td>
+                        <td>4,042</td>
+                        <td>32.1%</td>
+                        <td>$1,885,372</td>
+                        <td>0x</td>
+                        <td>N/A</td>
+                        <td>Emergency procurement</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Dead Stock</td>
+                        <td>1,500</td>
+                        <td>11.9%</td>
+                        <td>$700,000</td>
+                        <td>0x</td>
+                        <td>>365</td>
+                        <td>Immediate disposal</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>ABC Analysis & SKU Rationalization</h3>
+            <div class="chart-container">
+                <div class="chart-title">Inventory Value Concentration</div>
+                <div class="progress-group">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">A Items (Top 20% SKUs)</span>
+                            <span class="progress-value">80% of value - 2,516 SKUs</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill success" style="width: 80%;">$4.7M</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">B Items (Middle 30% SKUs)</span>
+                            <span class="progress-value">15% of value - 3,774 SKUs</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill warning" style="width: 15%;">$880K</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">C Items (Bottom 50% SKUs)</span>
+                            <span class="progress-value">5% of value - 6,290 SKUs</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 5%;">$294K</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Working Capital Impact Analysis</h3>
+            <div class="alert alert-critical">
+                <div class="alert-icon">💰</div>
+                <div class="alert-content">
+                    <div class="alert-title">WORKING CAPITAL CRISIS</div>
+                    <p>Current inventory management practices are consuming $5.87M in working capital with extremely poor efficiency. 
+                    The combination of 32% stockouts and significant dead stock indicates fundamental process failures. 
+                    Annual carrying costs exceed $880K while lost sales from stockouts approach $3M.</p>
+                </div>
+            </div>
+
+            <h3>Inventory Optimization Strategy</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-critical">WEEK 1</span>
+                    <h4 class="recommendation-title">Emergency Stock Reduction</h4>
+                    <div class="recommendation-actions">
+                        <h5>Immediate Actions:</h5>
+                        <ul>
+                            <li>Launch 50% off clearance for C-items</li>
+                            <li>Return excess stock to suppliers</li>
+                            <li>Bundle slow movers with fast sellers</li>
+                            <li>Donate obsolete inventory for tax benefits</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-impact">
+                        <div class="impact-item">
+                            <div class="impact-label">Cash Release</div>
+                            <div class="impact-value">$500K</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">SKU Reduction</div>
+                            <div class="impact-value">2,000</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-high">MONTH 1</span>
+                    <h4 class="recommendation-title">Reorder Point Implementation</h4>
+                    <div class="recommendation-actions">
+                        <h5>System Improvements:</h5>
+                        <ul>
+                            <li>Calculate optimal reorder points</li>
+                            <li>Implement min/max levels</li>
+                            <li>Automate purchase orders</li>
+                            <li>Deploy cycle counting program</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-impact">
+                        <div class="impact-item">
+                            <div class="impact-label">Stockout Reduction</div>
+                            <div class="impact-value">50%</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Service Level</div>
+                            <div class="impact-value">95%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Receivables Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">5</span> Receivables Analysis & Cash Flow</h2>
+            </div>
+
+            <h3>Receivables Aging Analysis</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Age Bucket</th>
+                        <th>Amount</th>
+                        <th>% of Total</th>
+                        <th>Invoice Count</th>
+                        <th>Collection Probability</th>
+                        <th>Expected Recovery</th>
+                        <th>Risk Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Current (0-30 days)</td>
+                        <td>$1,142,227</td>
+                        <td>30.1%</td>
+                        <td>~495</td>
+                        <td>95%</td>
+                        <td>$1,085,116</td>
+                        <td style="color: green;">Low</td>
+                    </tr>
+                    <tr>
+                        <td>31-60 days</td>
+                        <td>$542,489</td>
+                        <td>14.3%</td>
+                        <td>~235</td>
+                        <td>85%</td>
+                        <td>$461,116</td>
+                        <td style="color: orange;">Medium</td>
+                    </tr>
+                    <tr>
+                        <td>61-90 days</td>
+                        <td>$616,623</td>
+                        <td>16.2%</td>
+                        <td>~267</td>
+                        <td>70%</td>
+                        <td>$431,636</td>
+                        <td style="color: orange;">Medium-High</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>91-120 days</td>
+                        <td>$448,826</td>
+                        <td>11.8%</td>
+                        <td>~195</td>
+                        <td>50%</td>
+                        <td>$224,413</td>
+                        <td style="color: red;">High</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>121-180 days</td>
+                        <td>$523,428</td>
+                        <td>13.8%</td>
+                        <td>~227</td>
+                        <td>30%</td>
+                        <td>$157,028</td>
+                        <td style="color: red;">Critical</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Over 180 days</td>
+                        <td>$523,831</td>
+                        <td>13.8%</td>
+                        <td>~229</td>
+                        <td>15%</td>
+                        <td>$78,575</td>
+                        <td style="color: darkred;">Write-off</td>
+                    </tr>
+                    <tr style="background: #f3f4f6; font-weight: bold;">
+                        <td>TOTAL</td>
+                        <td>$3,797,424</td>
+                        <td>100%</td>
+                        <td>1,648</td>
+                        <td>64.3%</td>
+                        <td>$2,437,884</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Cash Flow Impact Assessment</h3>
+            <div class="financial-grid">
+                <div class="financial-card" style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                    <h4>Daily Cash Metrics</h4>
+                    <div class="financial-value">-$35K</div>
+                    <div class="financial-subtitle">Daily cash gap</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Daily Sales</span>
+                            <span class="financial-detail-value">$42,193</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Daily Collections</span>
+                            <span class="financial-detail-value">$7,171</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Collection Rate</span>
+                            <span class="financial-detail-value">17%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="financial-card">
+                    <h4>Monthly Funding Need</h4>
+                    <div class="financial-value">$1.05M</div>
+                    <div class="financial-subtitle">External financing required</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Operating Expenses</span>
+                            <span class="financial-detail-value">$1,000,000</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Collections</span>
+                            <span class="financial-detail-value">-$215,000</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Net Gap</span>
+                            <span class="financial-detail-value">$785,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Collection Efficiency Analysis</h3>
+            <div class="metrics-dashboard">
+                <div class="metric-card critical">
+                    <div class="metric-label">Days Sales Outstanding</div>
+                    <div class="metric-value">529</div>
+                    <div class="metric-subtitle">vs Industry: 35 days</div>
+                    <div class="metric-change negative">1,411% worse</div>
+                </div>
+                
+                <div class="metric-card critical">
+                    <div class="metric-label">Collection Effectiveness</div>
+                    <div class="metric-value">17%</div>
+                    <div class="metric-subtitle">vs Target: 95%</div>
+                    <div class="metric-change negative">459% below</div>
+                </div>
+                
+                <div class="metric-card warning">
+                    <div class="metric-label">Bad Debt Reserve Need</div>
+                    <div class="metric-value">$570K</div>
+                    <div class="metric-subtitle">15% of receivables</div>
+                    <div class="metric-change negative">Underfunded</div>
+                </div>
+                
+                <div class="metric-card critical">
+                    <div class="metric-label">Customer Disputes</div>
+                    <div class="metric-value">Unknown</div>
+                    <div class="metric-subtitle">Not tracked</div>
+                    <div class="metric-change negative">High risk</div>
+                </div>
+            </div>
+
+            <h3>Root Cause Analysis</h3>
+            <div class="alert alert-critical">
+                <div class="alert-icon">🔍</div>
+                <div class="alert-content">
+                    <div class="alert-title">SYSTEMIC COLLECTION FAILURE</div>
+                    <p>The 529-day DSO represents complete breakdown of credit and collection processes. Root causes include:</p>
+                    <ul style="margin-top: 15px; line-height: 1.8;">
+                        <li><strong>Process Failures:</strong> No systematic follow-up, no aging reviews, no escalation procedures</li>
+                        <li><strong>System Gaps:</strong> No automated reminders, poor invoice tracking, limited payment options</li>
+                        <li><strong>Policy Weaknesses:</strong> No credit limits enforced, terms not standardized, no early payment incentives</li>
+                        <li><strong>Resource Constraints:</strong> Insufficient collections staff, no dedicated team, lack of training</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Collections Recovery Program</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h4>Week 1: Assessment & Mobilization</h4>
+                        <div class="timeline-date">Immediate Start</div>
+                        <ul>
+                            <li>Form emergency collections task force (5 FTEs)</li>
+                            <li>Prioritize top 100 accounts by value</li>
+                            <li>Personal CEO/CFO calls to top 20 accounts</li>
+                            <li>Offer 5/10 net 30 settlement discounts</li>
+                            <li>Expected recovery: $300K</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h4>Week 2: Aggressive Outreach</h4>
+                        <div class="timeline-date">Days 8-14</div>
+                        <ul>
+                            <li>Deploy collection agency for 180+ day accounts</li>
+                            <li>Implement daily collection calls (100+ per day)</li>
+                            <li>Send legal notices for accounts over $10K</li>
+                            <li>Negotiate structured payment plans</li>
+                            <li>Expected recovery: $400K</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h4>Week 3-4: Enforcement & Recovery</h4>
+                        <div class="timeline-date">Days 15-30</div>
+                        <ul>
+                            <li>Suspend services for non-paying accounts</li>
+                            <li>Initiate legal proceedings where necessary</li>
+                            <li>Factor receivables if needed for immediate cash</li>
+                            <li>Report delinquent accounts to credit bureaus</li>
+                            <li>Expected recovery: $600K</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <span class="priority-badge priority-critical">CRITICAL</span>
+                <h4 class="recommendation-title">30-Day Collections Blitz Target</h4>
+                <div class="recommendation-impact">
+                    <div class="impact-item">
+                        <div class="impact-label">Total Target</div>
+                        <div class="impact-value">$1.3M</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Success Rate</div>
+                        <div class="impact-value">85%</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">Team Size</div>
+                        <div class="impact-value">5 FTEs</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-label">ROI</div>
+                        <div class="impact-value">2,600%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Supplier Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">6</span> Supplier Dependencies & Supply Chain</h2>
+            </div>
+
+            <h3>Supply Chain Risk Assessment</h3>
+            <div class="alert alert-warning">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <div class="alert-title">LIMITED DATA AVAILABILITY</div>
+                    <p>Supplier concentration and dependency analysis is severely limited due to system constraints. 
+                    Purchase order tracking and vendor performance metrics are not systematically captured, creating 
+                    significant blind spots in supply chain risk management.</p>
+                </div>
+            </div>
+
+            <h3>Known Supply Chain Metrics</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Current State</th>
+                        <th>Industry Benchmark</th>
+                        <th>Gap</th>
+                        <th>Risk Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Supplier Count</td>
+                        <td>Unknown</td>
+                        <td>Diversified (50+)</td>
+                        <td>Cannot assess</td>
+                        <td style="color: orange;">Unknown</td>
+                    </tr>
+                    <tr>
+                        <td>Top 5 Concentration</td>
+                        <td>Est. >60%</td>
+                        <td><40%</td>
+                        <td>High concentration</td>
+                        <td style="color: red;">High</td>
+                    </tr>
+                    <tr>
+                        <td>Single Source SKUs</td>
+                        <td>Est. 30-40%</td>
+                        <td><10%</td>
+                        <td>Excessive dependency</td>
+                        <td style="color: red;">Critical</td>
+                    </tr>
+                    <tr>
+                        <td>Lead Time Tracking</td>
+                        <td>Not monitored</td>
+                        <td>Real-time</td>
+                        <td>No visibility</td>
+                        <td style="color: red;">High</td>
+                    </tr>
+                    <tr>
+                        <td>Supplier Performance</td>
+                        <td>Not measured</td>
+                        <td>Monthly scorecards</td>
+                        <td>No accountability</td>
+                        <td style="color: orange;">Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Supply Chain Vulnerabilities</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-high">HIGH RISK</span>
+                    <h4 class="recommendation-title">Single Source Dependencies</h4>
+                    <p class="recommendation-description">
+                        Estimated 30-40% of SKUs have single suppliers, creating critical vulnerability to supply disruptions.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Mitigation Strategy:</h5>
+                        <ul>
+                            <li>Map all single-source products</li>
+                            <li>Identify alternative suppliers</li>
+                            <li>Negotiate backup agreements</li>
+                            <li>Build safety stock for critical items</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-medium">MEDIUM RISK</span>
+                    <h4 class="recommendation-title">Payment Term Pressure</h4>
+                    <p class="recommendation-description">
+                        Current cash flow crisis likely straining supplier relationships and credit terms.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Negotiation Priorities:</h5>
+                        <ul>
+                            <li>Extend terms to 60+ days</li>
+                            <li>Negotiate volume discounts</li>
+                            <li>Convert to consignment where possible</li>
+                            <li>Establish vendor financing programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Financial Ratios -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">7</span> Financial Ratios & Benchmarking</h2>
+            </div>
+
+            <h3>Comparative Performance Analysis</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Financial Ratio</th>
+                        <th>Your Business</th>
+                        <th>Industry Average</th>
+                        <th>Best in Class</th>
+                        <th>Percentile</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td colspan="6" style="background: #f3f4f6; font-weight: bold;">LIQUIDITY RATIOS</td></tr>
+                    <tr class="critical-row">
+                        <td>Current Ratio</td>
+                        <td>Est. 0.8</td>
+                        <td>1.5-2.0</td>
+                        <td>2.5+</td>
+                        <td>Bottom 10%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Quick Ratio</td>
+                        <td>Est. 0.3</td>
+                        <td>1.0-1.2</td>
+                        <td>1.5+</td>
+                        <td>Bottom 5%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                    <tr><td colspan="6" style="background: #f3f4f6; font-weight: bold;">ACTIVITY RATIOS</td></tr>
+                    <tr class="critical-row">
+                        <td>Inventory Turnover</td>
+                        <td><2x</td>
+                        <td>8-12x</td>
+                        <td>15x+</td>
+                        <td>Bottom 5%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Receivables Turnover</td>
+                        <td>0.69x</td>
+                        <td>10-12x</td>
+                        <td>15x+</td>
+                        <td>Bottom 1%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                    <tr><td colspan="6" style="background: #f3f4f6; font-weight: bold;">EFFICIENCY RATIOS</td></tr>
+                    <tr class="critical-row">
+                        <td>Days Sales Outstanding</td>
+                        <td>529 days</td>
+                        <td>35-45 days</td>
+                        <td><30 days</td>
+                        <td>Bottom 1%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Days Inventory Outstanding</td>
+                        <td>~180 days</td>
+                        <td>30-45 days</td>
+                        <td><25 days</td>
+                        <td>Bottom 5%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Cash Conversion Cycle</td>
+                        <td>~550 days</td>
+                        <td>45-60 days</td>
+                        <td><40 days</td>
+                        <td>Bottom 1%</td>
+                        <td>🔴 Critical</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Performance Gap Analysis</h3>
+            <div class="chart-container">
+                <div class="chart-title">Performance vs. Industry Benchmarks</div>
+                <div class="progress-group">
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">DSO Performance Gap</span>
+                            <span class="progress-value">529 days vs 40 days</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 100%;">1,322% worse than benchmark</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Inventory Turnover Gap</span>
+                            <span class="progress-value">2x vs 10x</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 80%;">400% below benchmark</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Working Capital Efficiency</span>
+                            <span class="progress-value">48% vs 10% of sales</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 100%;">380% above benchmark</div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">Collection Rate Gap</span>
+                            <span class="progress-value">17% vs 95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill danger" style="width: 18%;">459% below benchmark</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Risk Assessment -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">8</span> Risk Assessment & Mitigation</h2>
+            </div>
+
+            <h3>Enterprise Risk Matrix</h3>
+            <div class="risk-matrix">
+                <div class="risk-matrix-header" style="grid-column: 1; grid-row: 1;">High Impact</div>
+                <div class="risk-matrix-cell risk-medium" style="grid-column: 2; grid-row: 1;">
+                    <div class="risk-item">Employee Turnover</div>
+                </div>
+                <div class="risk-matrix-cell risk-high" style="grid-column: 3; grid-row: 1;">
+                    <div class="risk-item">Supplier Risk</div>
+                </div>
+                <div class="risk-matrix-cell risk-critical" style="grid-column: 4; grid-row: 1;">
+                    <div class="risk-item">Receivables<br>Cash Flow</div>
+                </div>
+                <div class="risk-matrix-cell risk-critical" style="grid-column: 5; grid-row: 1;">
+                    <div class="risk-item">Inventory<br>Customer Loss</div>
+                </div>
+                
+                <div class="risk-matrix-header" style="grid-column: 1; grid-row: 2;">Medium Impact</div>
+                <div class="risk-matrix-cell risk-low" style="grid-column: 2; grid-row: 2;"></div>
+                <div class="risk-matrix-cell risk-medium" style="grid-column: 3; grid-row: 2;">
+                    <div class="risk-item">Systems</div>
+                </div>
+                <div class="risk-matrix-cell risk-high" style="grid-column: 4; grid-row: 2;">
+                    <div class="risk-item">Credit</div>
+                </div>
+                <div class="risk-matrix-cell risk-high" style="grid-column: 5; grid-row: 2;"></div>
+                
+                <div class="risk-matrix-header" style="grid-column: 1; grid-row: 3;">Low Impact</div>
+                <div class="risk-matrix-cell risk-low" style="grid-column: 2; grid-row: 3;"></div>
+                <div class="risk-matrix-cell risk-low" style="grid-column: 3; grid-row: 3;">
+                    <div class="risk-item">Market</div>
+                </div>
+                <div class="risk-matrix-cell risk-medium" style="grid-column: 4; grid-row: 3;"></div>
+                <div class="risk-matrix-cell risk-medium" style="grid-column: 5; grid-row: 3;"></div>
+                
+                <div class="risk-matrix-header" style="grid-column: 1; grid-row: 4;"></div>
+                <div class="risk-matrix-header" style="grid-column: 2; grid-row: 5;">Low</div>
+                <div class="risk-matrix-header" style="grid-column: 3; grid-row: 5;">Medium</div>
+                <div class="risk-matrix-header" style="grid-column: 4; grid-row: 5;">High</div>
+                <div class="risk-matrix-header" style="grid-column: 5; grid-row: 5;">Critical</div>
+            </div>
+
+            <h3>Risk Mitigation Strategies</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Risk Category</th>
+                        <th>Probability</th>
+                        <th>Impact</th>
+                        <th>Risk Score</th>
+                        <th>Mitigation Strategy</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="critical-row">
+                        <td>Cash Flow Crisis</td>
+                        <td>Critical (90%)</td>
+                        <td>Catastrophic</td>
+                        <td>9.0</td>
+                        <td>Immediate collections blitz, factoring, credit line</td>
+                        <td>CFO</td>
+                    </tr>
+                    <tr class="critical-row">
+                        <td>Customer Defection</td>
+                        <td>High (70%)</td>
+                        <td>Severe</td>
+                        <td>7.0</td>
+                        <td>Service level agreements, retention incentives</td>
+                        <td>Sales</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>Supplier Credit Hold</td>
+                        <td>High (60%)</td>
+                        <td>High</td>
+                        <td>6.0</td>
+                        <td>Payment plans, partial payments, communication</td>
+                        <td>COO</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>Inventory Stockouts</td>
+                        <td>Current (100%)</td>
+                        <td>High</td>
+                        <td>5.0</td>
+                        <td>Emergency procurement, reorder optimization</td>
+                        <td>Ops</td>
+                    </tr>
+                    <tr>
+                        <td>Bad Debt Write-offs</td>
+                        <td>High (80%)</td>
+                        <td>Medium</td>
+                        <td>4.0</td>
+                        <td>Reserve increases, collection agency, legal action</td>
+                        <td>CFO</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Contingency Planning</h3>
+            <div class="alert alert-info">
+                <div class="alert-icon">📋</div>
+                <div class="alert-content">
+                    <div class="alert-title">SCENARIO PLANNING</div>
+                    <p><strong>Scenario 1: Collections Below Target</strong><br>
+                    Trigger: <50% of weekly target for 2 weeks<br>
+                    Response: Engage factoring company, accelerate legal action, emergency board meeting</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Scenario 2: Critical Supplier Stops Shipment</strong><br>
+                    Trigger: Any top 10 supplier holds shipment<br>
+                    Response: CEO intervention, emergency payment, alternative sourcing activation</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Scenario 3: Major Customer Loss</strong><br>
+                    Trigger: Any top 10 customer threatens to leave<br>
+                    Response: Executive retention effort, service recovery program, pricing concessions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Strategic Recommendations -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">9</span> Strategic Recommendations</h2>
+            </div>
+
+            <h3>Comprehensive Transformation Program</h3>
+            <p>
+                The strategic recommendations are organized into three phases: Crisis Management (0-30 days), 
+                Stabilization (30-90 days), and Transformation (90-180 days). Each phase builds upon the previous, 
+                creating sustainable operational excellence and positioning for profitable growth.
+            </p>
+
+            <h3>Phase 1: Crisis Management (0-30 Days)</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-critical">WEEK 1</span>
+                    <h4 class="recommendation-title">Emergency Cash Generation</h4>
+                    <p class="recommendation-description">
+                        Launch all-hands effort to generate immediate cash through collections and inventory liquidation.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Immediate Actions:</h5>
+                        <ul>
+                            <li>CEO/CFO calls to top 20 customers</li>
+                            <li>5/10 net 30 discount offers</li>
+                            <li>50% clearance on dead stock</li>
+                            <li>Freeze all non-critical spending</li>
+                            <li>Negotiate payment deferrals</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-impact">
+                        <div class="impact-item">
+                            <div class="impact-label">Cash Target</div>
+                            <div class="impact-value">$800K</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Timeline</div>
+                            <div class="impact-value">7 days</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-critical">WEEK 2-4</span>
+                    <h4 class="recommendation-title">Operational Stabilization</h4>
+                    <p class="recommendation-description">
+                        Implement emergency procedures to stop the bleeding and stabilize operations.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Key Initiatives:</h5>
+                        <ul>
+                            <li>Deploy collection agency</li>
+                            <li>Implement daily cash reporting</li>
+                            <li>Emergency reorder points</li>
+                            <li>Supplier payment negotiations</li>
+                            <li>Customer retention program</li>
+                        </ul>
+                    </div>
+                    <div class="recommendation-impact">
+                        <div class="impact-item">
+                            <div class="impact-label">Cash Target</div>
+                            <div class="impact-value">$500K</div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-label">Stability</div>
+                            <div class="impact-value">Achieved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Phase 2: Stabilization (30-90 Days)</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-high">MONTH 2</span>
+                    <h4 class="recommendation-title">Financial Restructuring</h4>
+                    <p class="recommendation-description">
+                        Establish sustainable financing structure and implement financial controls.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Financial Initiatives:</h5>
+                        <ul>
+                            <li>Secure $2M working capital line</li>
+                            <li>Establish factoring facility</li>
+                            <li>Implement cash flow forecasting</li>
+                            <li>Deploy financial controls</li>
+                            <li>Renegotiate payment terms</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-high">MONTH 3</span>
+                    <h4 class="recommendation-title">Process Optimization</h4>
+                    <p class="recommendation-description">
+                        Redesign core processes and implement technology enablement.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Process Improvements:</h5>
+                        <ul>
+                            <li>Inventory management system</li>
+                            <li>CRM implementation</li>
+                            <li>Automated collections</li>
+                            <li>KPI dashboards</li>
+                            <li>Performance management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Phase 3: Transformation (90-180 Days)</h3>
+            <div class="recommendations-grid">
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-medium">MONTH 4-6</span>
+                    <h4 class="recommendation-title">Strategic Repositioning</h4>
+                    <p class="recommendation-description">
+                        Build sustainable competitive advantages and growth platform.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Strategic Initiatives:</h5>
+                        <ul>
+                            <li>Customer diversification</li>
+                            <li>Product portfolio optimization</li>
+                            <li>Channel expansion</li>
+                            <li>Digital transformation</li>
+                            <li>Organizational capability building</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <span class="priority-badge priority-medium">ONGOING</span>
+                    <h4 class="recommendation-title">Continuous Improvement</h4>
+                    <p class="recommendation-description">
+                        Embed excellence culture and continuous improvement mindset.
+                    </p>
+                    <div class="recommendation-actions">
+                        <h5>Excellence Programs:</h5>
+                        <ul>
+                            <li>Lean Six Sigma deployment</li>
+                            <li>Employee development</li>
+                            <li>Innovation initiatives</li>
+                            <li>Customer experience enhancement</li>
+                            <li>Supplier partnerships</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Implementation Roadmap -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">10</span> Implementation Roadmap</h2>
+            </div>
+
+            <h3>180-Day Transformation Journey</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">M1</div>
+                    <div class="timeline-content">
+                        <h4>Month 1: STABILIZE</h4>
+                        <div class="timeline-date">Immediate - 30 days</div>
+                        <ul>
+                            <li>Launch crisis management team</li>
+                            <li>Collections blitz - Target $1.3M</li>
+                            <li>Inventory liquidation - Target $500K</li>
+                            <li>Implement cash controls</li>
+                            <li>Supplier negotiations</li>
+                        </ul>
+                        <div style="margin-top: 20px; padding: 15px; background: #f3f4f6; border-radius: 8px;">
+                            <strong>Success Metrics:</strong> $1.8M cash generated, DSO <400 days
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">M2</div>
+                    <div class="timeline-content">
+                        <h4>Month 2-3: OPTIMIZE</h4>
+                        <div class="timeline-date">Days 31-90</div>
+                        <ul>
+                            <li>Deploy inventory management system</li>
+                            <li>Implement CRM and collections automation</li>
+                            <li>Establish KPI tracking</li>
+                            <li>Process redesign initiatives</li>
+                            <li>Financial restructuring completion</li>
+                        </ul>
+                        <div style="margin-top: 20px; padding: 15px; background: #f3f4f6; border-radius: 8px;">
+                            <strong>Success Metrics:</strong> DSO <200 days, Stockout <20%
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">M3</div>
+                    <div class="timeline-content">
+                        <h4>Month 4-6: TRANSFORM</h4>
+                        <div class="timeline-date">Days 91-180</div>
+                        <ul>
+                            <li>Customer diversification program</li>
+                            <li>Product portfolio optimization</li>
+                            <li>Market expansion initiatives</li>
+                            <li>Capability building programs</li>
+                            <li>Culture transformation</li>
+                        </ul>
+                        <div style="margin-top: 20px; padding: 15px; background: #f3f4f6; border-radius: 8px;">
+                            <strong>Success Metrics:</strong> DSO <60 days, Positive cash flow, 20% revenue growth
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Governance Structure</h3>
+            <div class="alert alert-info">
+                <div class="alert-icon">🏛️</div>
+                <div class="alert-content">
+                    <div class="alert-title">TRANSFORMATION GOVERNANCE</div>
+                    <p><strong>Steering Committee:</strong> Board oversight, monthly reviews<br>
+                    <strong>Executive Sponsor:</strong> CEO - Full accountability<br>
+                    <strong>Program Director:</strong> COO or External Consultant<br>
+                    <strong>Workstream Leads:</strong> Collections (CFO), Inventory (Ops), Customer (Sales), Systems (IT)<br>
+                    <strong>PMO Support:</strong> Project management, change management, communications</p>
+                </div>
+            </div>
+
+            <h3>Critical Success Factors</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Success Factor</th>
+                        <th>Requirement</th>
+                        <th>Current State</th>
+                        <th>Action Needed</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Executive Commitment</td>
+                        <td>100% CEO/Board support</td>
+                        <td>Not confirmed</td>
+                        <td>Board resolution required</td>
+                        <td>Chairman</td>
+                    </tr>
+                    <tr>
+                        <td>Dedicated Resources</td>
+                        <td>5-7 FTEs full-time</td>
+                        <td>Not allocated</td>
+                        <td>Immediate staffing</td>
+                        <td>CEO</td>
+                    </tr>
+                    <tr>
+                        <td>Financial Investment</td>
+                        <td>$200K transformation budget</td>
+                        <td>Not approved</td>
+                        <td>Budget approval</td>
+                        <td>CFO</td>
+                    </tr>
+                    <tr>
+                        <td>Change Management</td>
+                        <td>Comprehensive program</td>
+                        <td>Not planned</td>
+                        <td>Communication plan</td>
+                        <td>HR</td>
+                    </tr>
+                    <tr>
+                        <td>External Expertise</td>
+                        <td>Consultants/Advisors</td>
+                        <td>Not engaged</td>
+                        <td>Immediate hiring</td>
+                        <td>CEO</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 11: ROI Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">11</span> Expected Outcomes & ROI Analysis</h2>
+            </div>
+
+            <h3>Financial Impact Projection</h3>
+            <div class="financial-grid">
+                <div class="financial-card" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                    <h4>6-Month Value Creation</h4>
+                    <div class="financial-value">$5.1M</div>
+                    <div class="financial-subtitle">Working capital release</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Collections Recovery</span>
+                            <span class="financial-detail-value">$3.3M</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Inventory Reduction</span>
+                            <span class="financial-detail-value">$1.8M</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Total Release</span>
+                            <span class="financial-detail-value">$5.1M</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="financial-card" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);">
+                    <h4>Annual EBITDA Impact</h4>
+                    <div class="financial-value">$2.9M</div>
+                    <div class="financial-subtitle">Profit improvement</div>
+                    <div class="financial-details">
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Revenue Growth</span>
+                            <span class="financial-detail-value">+$4.5M</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">Cost Reduction</span>
+                            <span class="financial-detail-value">-$1.56M</span>
+                        </div>
+                        <div class="financial-detail-item">
+                            <span class="financial-detail-label">EBITDA Lift</span>
+                            <span class="financial-detail-value">+$2.9M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Return on Investment Calculation</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Investment Category</th>
+                        <th>Amount</th>
+                        <th>Timing</th>
+                        <th>Expected Return</th>
+                        <th>ROI %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Systems & Technology</td>
+                        <td>$75,000</td>
+                        <td>Month 1-3</td>
+                        <td>$600,000</td>
+                        <td>800%</td>
+                    </tr>
+                    <tr>
+                        <td>Consulting & Advisory</td>
+                        <td>$100,000</td>
+                        <td>Month 1-6</td>
+                        <td>$1,500,000</td>
+                        <td>1,500%</td>
+                    </tr>
+                    <tr>
+                        <td>Training & Development</td>
+                        <td>$25,000</td>
+                        <td>Month 2-6</td>
+                        <td>$200,000</td>
+                        <td>800%</td>
+                    </tr>
+                    <tr style="background: #f3f4f6; font-weight: bold;">
+                        <td>Total Investment</td>
+                        <td>$200,000</td>
+                        <td>6 Months</td>
+                        <td>$2,910,000</td>
+                        <td>1,355%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Key Performance Improvements</h3>
+            <div class="metrics-dashboard">
+                <div class="metric-card success">
+                    <div class="metric-label">DSO Reduction</div>
+                    <div class="metric-value">469 days</div>
+                    <div class="metric-subtitle">From 529 to 60 days</div>
+                    <div class="metric-change positive">↓ 88.7%</div>
+                </div>
+                
+                <div class="metric-card success">
+                    <div class="metric-label">Inventory Turns</div>
+                    <div class="metric-value">6x</div>
+                    <div class="metric-subtitle">From 2x to 8x annually</div>
+                    <div class="metric-change positive">↑ 300%</div>
+                </div>
+                
+                <div class="metric-card success">
+                    <div class="metric-label">Stockout Rate</div>
+                    <div class="metric-value">27%</div>
+                    <div class="metric-subtitle">From 32% to 5%</div>
+                    <div class="metric-change positive">↓ 84.4%</div>
+                </div>
+                
+                <div class="metric-card success">
+                    <div class="metric-label">Cash Cycle</div>
+                    <div class="metric-value">490 days</div>
+                    <div class="metric-subtitle">From 550 to 60 days</div>
+                    <div class="metric-change positive">↓ 89.1%</div>
+                </div>
+            </div>
+
+            <h3>Non-Financial Benefits</h3>
+            <div class="alert alert-success">
+                <div class="alert-icon">🌟</div>
+                <div class="alert-content">
+                    <div class="alert-title">STRATEGIC VALUE CREATION</div>
+                    <ul style="margin-top: 15px; line-height: 1.8;">
+                        <li><strong>Customer Experience:</strong> NPS improvement from negative to +50</li>
+                        <li><strong>Employee Productivity:</strong> 25% efficiency gains through automation</li>
+                        <li><strong>Market Position:</strong> Competitive advantage through operational excellence</li>
+                        <li><strong>Risk Profile:</strong> Credit rating improvement, reduced business risk</li>
+                        <li><strong>Growth Platform:</strong> Scalable infrastructure for 50% growth</li>
+                        <li><strong>Organizational Capability:</strong> Data-driven decision making culture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 12: Appendices -->
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="section-number">12</span> Appendices & Supporting Data</h2>
+            </div>
+
+            <h3>Appendix A: Data Sources & Methodology</h3>
+            <p>
+                This analysis is based on data extracted from your operational systems as of September 6, 2025. 
+                Key data sources include:
+            </p>
+            <ul style="line-height: 1.8; margin: 20px 0;">
+                <li>Transaction database: 12 months of sales and purchase data</li>
+                <li>Customer master: 1,250+ active customer records</li>
+                <li>Inventory system: 12,580 SKU records with quantity and value</li>
+                <li>Accounts receivable: 1,648 outstanding invoices</li>
+                <li>Financial statements: Limited availability, estimates used where necessary</li>
+            </ul>
+
+            <h3>Appendix B: Calculation Methodologies</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Formula</th>
+                        <th>Industry Standard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Days Sales Outstanding (DSO)</td>
+                        <td>(Accounts Receivable / Total Credit Sales) × 365</td>
+                        <td>30-45 days</td>
+                    </tr>
+                    <tr>
+                        <td>Inventory Turnover</td>
+                        <td>Cost of Goods Sold / Average Inventory</td>
+                        <td>8-12x annually</td>
+                    </tr>
+                    <tr>
+                        <td>Cash Conversion Cycle</td>
+                        <td>DSO + DIO - DPO</td>
+                        <td>45-60 days</td>
+                    </tr>
+                    <tr>
+                        <td>HHI Index</td>
+                        <td>Sum of squared market shares</td>
+                        <td><1,500</td>
+                    </tr>
+                    <tr>
+                        <td>Working Capital Ratio</td>
+                        <td>Current Assets / Current Liabilities</td>
+                        <td>1.5-2.0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Appendix C: Implementation Templates</h3>
+            <div class="recommendation-card">
+                <h4 class="recommendation-title">Collections Call Script Template</h4>
+                <div class="recommendation-actions">
+                    <h5>Standard Script:</h5>
+                    <ul>
+                        <li>Opening: "This is [Name] from [Company] regarding invoice #[Number]"</li>
+                        <li>Objective: Understand payment delay reason</li>
+                        <li>Offer: "We can offer 5% discount for payment within 48 hours"</li>
+                        <li>Close: Document commitment and follow-up date</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Appendix D: Quick Reference Guide</h3>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-title">Daily Collections Target</div>
+                    <div class="kpi-value">$65K</div>
+                    <div class="kpi-target">To achieve 30-day goal</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-title">Weekly Inventory Reduction</div>
+                    <div class="kpi-value">$125K</div>
+                    <div class="kpi-target">Through liquidation</div>
+                </div>
+                
+                <div class="kpi-card">
+                    <div class="kpi-title">Customer Contacts/Day</div>
+                    <div class="kpi-value">100+</div>
+                    <div class="kpi-target">Collections team</div>
+                </div>
+            </div>
+
+            <h3>Appendix E: Contact Information</h3>
+            <div class="alert alert-info">
+                <div class="alert-icon">📞</div>
+                <div class="alert-content">
+                    <div class="alert-title">STRATEGIC ADVISORY TEAM</div>
+                    <p>For questions or clarifications regarding this report:</p>
+                    <ul style="margin-top: 15px;">
+                        <li>Lead Consultant: [Contact Details]</li>
+                        <li>Financial Analyst: [Contact Details]</li>
+                        <li>Operations Expert: [Contact Details]</li>
+                        <li>Emergency Hotline: [24/7 Support]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
+            <h2 style="color: white; margin-bottom: 20px;">FINAL RECOMMENDATION</h2>
+            <p style="font-size: 1.3em; line-height: 1.8; max-width: 800px; margin: 0 auto;">
+                The board and executive team must treat this as a "bet-the-company" moment. 
+                Half-measures will fail. Only a comprehensive transformation program, 
+                executed with urgency and discipline, will secure the company's future.
+            </p>
+            <div style="margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.2); border-radius: 10px;">
+                <p style="font-size: 1.1em;">
+                    <strong>The choice is clear:</strong> Transform now or face insolvency within 6 months.
+                </p>
+            </div>
+        </div>
+
+        <!-- Document Control -->
+        <div style="margin-top: 40px; padding: 30px; background: #f9fafb; border-radius: 10px;">
+            <h4>Document Control</h4>
+            <table style="width: 100%; margin-top: 20px;">
+                <tr>
+                    <td><strong>Version:</strong> 1.0</td>
+                    <td><strong>Classification:</strong> Confidential</td>
+                </tr>
+                <tr>
+                    <td><strong>Date:</strong> September 6, 2025</td>
+                    <td><strong>Pages:</strong> 50+</td>
+                </tr>
+                <tr>
+                    <td><strong>Distribution:</strong> Board & Executive Team</td>
+                    <td><strong>Next Review:</strong> September 13, 2025</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

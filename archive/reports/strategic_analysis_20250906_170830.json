@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-09-06T17:08:30.718374",
+  "metrics": {
+    "inventory": {
+      "total_skus": 12580,
+      "total_value": 5872125.195000004,
+      "below_reorder": 5697,
+      "out_of_stock": 4042
+    },
+    "receivables": {
+      "total_ar": 3797423.85,
+      "count": 1648,
+      "over_90_days": 1496084.99,
+      "over_90_pct": 39.4,
+      "avg_days_overdue": 529.0
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "area": "Inventory",
+      "issue": "4042.0 items out of stock",
+      "action": "Review reorder points and supplier lead times"
+    },
+    {
+      "priority": "CRITICAL",
+      "area": "Receivables",
+      "issue": "39.4% of AR over 90 days",
+      "action": "Immediate collection efforts required"
+    }
+  ],
+  "risk_score": 25
+}

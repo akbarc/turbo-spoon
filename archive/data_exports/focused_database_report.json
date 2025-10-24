@@ -1,0 +1,3090 @@
+{
+  "timestamp": "2025-07-15T14:50:41.067284",
+  "database_info": {
+    "server_version": "Microsoft SQL Server 2008 R2 (SP1) - 10.50.2500.0 (X64) \n\tJun 17 2011 00:54:03 \n\tCopyright (c) Microsoft Corporation\n\tExpress Edition (64-bit) on Windows NT 6.1 <X64> (Build 7601: Service Pack 1)\n",
+    "database_name": "GAWDB"
+  },
+  "key_tables": {
+    "Transaction": {
+      "table_name": "dbo.Transaction",
+      "columns": [
+        {
+          "name": "ShipToID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TransactionNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "BatchNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Time",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "CustomerID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CashierID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Total",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "SalesTax",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "Comment",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "ReferenceNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "Status",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ExchangeID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ChannelType",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "RecallID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "RecallType",
+          "type": "int",
+          "nullable": false
+        }
+      ],
+      "row_count": 0,
+      "sample_data": []
+    },
+    "TransactionEntry": {
+      "table_name": "dbo.TransactionEntry",
+      "columns": [
+        {
+          "name": "Commission",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "Cost",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "FullPrice",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TransactionNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ItemID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Price",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PriceSource",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "Quantity",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "SalesRepID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Taxable",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "DetailID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Comment",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "DiscountReasonCodeID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ReturnReasonCodeID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TaxChangeReasonCodeID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "SalesTax",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "QuantityDiscountID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ItemType",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ComputedQuantity",
+          "type": "float",
+          "nullable": true
+        },
+        {
+          "name": "TransactionTime",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "IsAddMoney",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "VoucherID",
+          "type": "int",
+          "nullable": false
+        }
+      ],
+      "row_count": 4670963,
+      "sample_data": [
+        {
+          "Commission": "0.0000",
+          "Cost": "5.4000",
+          "FullPrice": "6.9900",
+          "StoreID": "0",
+          "ID": "1",
+          "TransactionNumber": "1",
+          "ItemID": "19633",
+          "Price": "6.9900",
+          "PriceSource": "1",
+          "Quantity": "1.0",
+          "SalesRepID": "0",
+          "Taxable": "False",
+          "DetailID": "0",
+          "Comment": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05D\\x15'",
+          "DiscountReasonCodeID": "0",
+          "ReturnReasonCodeID": "0",
+          "TaxChangeReasonCodeID": "0",
+          "SalesTax": "0.0000",
+          "QuantityDiscountID": "0",
+          "ItemType": "0",
+          "ComputedQuantity": "-1.0",
+          "TransactionTime": "2012-12-07T12:46:31",
+          "IsAddMoney": "False",
+          "VoucherID": "0"
+        },
+        {
+          "Commission": "0.0000",
+          "Cost": "7.7500",
+          "FullPrice": "12.5000",
+          "StoreID": "0",
+          "ID": "2",
+          "TransactionNumber": "1",
+          "ItemID": "19713",
+          "Price": "12.5000",
+          "PriceSource": "1",
+          "Quantity": "1.0",
+          "SalesRepID": "0",
+          "Taxable": "False",
+          "DetailID": "0",
+          "Comment": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05D\\x17'",
+          "DiscountReasonCodeID": "0",
+          "ReturnReasonCodeID": "0",
+          "TaxChangeReasonCodeID": "0",
+          "SalesTax": "0.0000",
+          "QuantityDiscountID": "0",
+          "ItemType": "0",
+          "ComputedQuantity": "-1.0",
+          "TransactionTime": "2012-12-07T12:46:31",
+          "IsAddMoney": "False",
+          "VoucherID": "0"
+        },
+        {
+          "Commission": "0.0000",
+          "Cost": "7.4500",
+          "FullPrice": "9.9900",
+          "StoreID": "0",
+          "ID": "3",
+          "TransactionNumber": "2",
+          "ItemID": "28926",
+          "Price": "9.9900",
+          "PriceSource": "1",
+          "Quantity": "20.0",
+          "SalesRepID": "0",
+          "Taxable": "False",
+          "DetailID": "0",
+          "Comment": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05K\\xe6'",
+          "DiscountReasonCodeID": "0",
+          "ReturnReasonCodeID": "0",
+          "TaxChangeReasonCodeID": "0",
+          "SalesTax": "0.0000",
+          "QuantityDiscountID": "0",
+          "ItemType": "0",
+          "ComputedQuantity": "52.0",
+          "TransactionTime": "2012-12-07T13:10:52",
+          "IsAddMoney": "False",
+          "VoucherID": "0"
+        }
+      ]
+    },
+    "Item": {
+      "table_name": "dbo.Item",
+      "columns": [
+        {
+          "name": "BinLocation",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "BuydownPrice",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "BuydownQuantity",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "CommissionAmount",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CommissionMaximum",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CommissionMode",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CommissionPercentProfit",
+          "type": "real",
+          "nullable": false
+        },
+        {
+          "name": "CommissionPercentSale",
+          "type": "real",
+          "nullable": false
+        },
+        {
+          "name": "Description",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "FoodStampable",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "HQID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ItemNotDiscountable",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "LastReceived",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "LastUpdated",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "Notes",
+          "type": "ntext",
+          "nullable": true
+        },
+        {
+          "name": "QuantityCommitted",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "SerialNumberCount",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TareWeightPercent",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ItemLookupCode",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DepartmentID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CategoryID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "MessageID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Price",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PriceA",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PriceB",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PriceC",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "SalePrice",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "SaleStartDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "SaleEndDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "QuantityDiscountID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TaxID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ItemType",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "Cost",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "Quantity",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "ReorderPoint",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "RestockLevel",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "TareWeight",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "SupplierID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TagAlongItem",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TagAlongQuantity",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "ParentItem",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ParentQuantity",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "BarcodeFormat",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "PriceLowerBound",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PriceUpperBound",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PictureName",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "LastSold",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "ExtendedDescription",
+          "type": "ntext",
+          "nullable": false
+        },
+        {
+          "name": "SubDescription1",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "SubDescription2",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "SubDescription3",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "UnitOfMeasure",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "SubCategoryID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "QuantityEntryNotAllowed",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "PriceMustBeEntered",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "BlockSalesReason",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "BlockSalesAfterDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "Weight",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "Taxable",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "BlockSalesBeforeDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "LastCost",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "ReplacementCost",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "WebItem",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "BlockSalesType",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "BlockSalesScheduleID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "SaleType",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "SaleScheduleID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Consignment",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "Inactive",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "LastCounted",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "DoNotOrder",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "MSRP",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "DateCreated",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "Content",
+          "type": "ntext",
+          "nullable": false
+        },
+        {
+          "name": "UsuallyShip",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "NumberFormat",
+          "type": "nvarchar",
+          "nullable": true
+        },
+        {
+          "name": "ItemCannotBeRet",
+          "type": "bit",
+          "nullable": true
+        },
+        {
+          "name": "ItemCannotBeSold",
+          "type": "bit",
+          "nullable": true
+        },
+        {
+          "name": "IsAutogenerated",
+          "type": "bit",
+          "nullable": true
+        },
+        {
+          "name": "IsGlobalvoucher",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "DeleteZeroBalanceEntry",
+          "type": "bit",
+          "nullable": true
+        },
+        {
+          "name": "TenderID",
+          "type": "int",
+          "nullable": false
+        }
+      ],
+      "row_count": 12332,
+      "sample_data": [
+        {
+          "BinLocation": "",
+          "BuydownPrice": "0.0000",
+          "BuydownQuantity": "0.0",
+          "CommissionAmount": "0.0000",
+          "CommissionMaximum": "0.0000",
+          "CommissionMode": "1",
+          "CommissionPercentProfit": "0.0",
+          "CommissionPercentSale": "0.0",
+          "Description": "PLASTIC SPOONS 600CT",
+          "FoodStampable": "False",
+          "HQID": "0",
+          "ItemNotDiscountable": "False",
+          "LastReceived": "2013-02-16T09:51:50.247000",
+          "LastUpdated": "2013-02-16T00:00:00",
+          "Notes": null,
+          "QuantityCommitted": "0.0",
+          "SerialNumberCount": "0",
+          "TareWeightPercent": "0.0",
+          "ID": "29968",
+          "ItemLookupCode": "605388001948",
+          "DepartmentID": "1",
+          "CategoryID": "7",
+          "MessageID": "0",
+          "Price": "9.9900",
+          "PriceA": "0.0000",
+          "PriceB": "0.0000",
+          "PriceC": "0.0000",
+          "SalePrice": "0.0000",
+          "SaleStartDate": null,
+          "SaleEndDate": null,
+          "QuantityDiscountID": "0",
+          "TaxID": "0",
+          "ItemType": "0",
+          "Cost": "8.9400",
+          "Quantity": "1.0",
+          "ReorderPoint": "0.0",
+          "RestockLevel": "0.0",
+          "TareWeight": "0.0",
+          "SupplierID": "0",
+          "TagAlongItem": "0",
+          "TagAlongQuantity": "0.0",
+          "ParentItem": "0",
+          "ParentQuantity": "0.0",
+          "BarcodeFormat": "0",
+          "PriceLowerBound": "0.0000",
+          "PriceUpperBound": "0.0000",
+          "PictureName": "",
+          "LastSold": null,
+          "ExtendedDescription": "",
+          "SubDescription1": "",
+          "SubDescription2": "",
+          "SubDescription3": "",
+          "UnitOfMeasure": "",
+          "SubCategoryID": "0",
+          "QuantityEntryNotAllowed": "False",
+          "PriceMustBeEntered": "False",
+          "BlockSalesReason": "",
+          "BlockSalesAfterDate": null,
+          "Weight": "0.0",
+          "Taxable": "True",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05\\xc3\\x81\\xc6'",
+          "BlockSalesBeforeDate": null,
+          "LastCost": "8.9400",
+          "ReplacementCost": "0.0000",
+          "WebItem": "False",
+          "BlockSalesType": "0",
+          "BlockSalesScheduleID": "0",
+          "SaleType": "0",
+          "SaleScheduleID": "0",
+          "Consignment": "False",
+          "Inactive": "False",
+          "LastCounted": null,
+          "DoNotOrder": "False",
+          "MSRP": "0.0000",
+          "DateCreated": "2013-02-16T09:31:31.310000",
+          "Content": "",
+          "UsuallyShip": "",
+          "NumberFormat": null,
+          "ItemCannotBeRet": "False",
+          "ItemCannotBeSold": "False",
+          "IsAutogenerated": "False",
+          "IsGlobalvoucher": "False",
+          "DeleteZeroBalanceEntry": "False",
+          "TenderID": "0"
+        },
+        {
+          "BinLocation": "",
+          "BuydownPrice": "0.0000",
+          "BuydownQuantity": "0.0",
+          "CommissionAmount": "0.0000",
+          "CommissionMaximum": "0.0000",
+          "CommissionMode": "1",
+          "CommissionPercentProfit": "0.0",
+          "CommissionPercentSale": "0.0",
+          "Description": "FOIL BANNER BABY GIRL 12FT",
+          "FoodStampable": "False",
+          "HQID": "0",
+          "ItemNotDiscountable": "False",
+          "LastReceived": "2013-03-12T16:09:21.930000",
+          "LastUpdated": "2013-03-08T00:00:00",
+          "Notes": null,
+          "QuantityCommitted": "0.0",
+          "SerialNumberCount": "0",
+          "TareWeightPercent": "0.0",
+          "ID": "30437",
+          "ItemLookupCode": "801822604755",
+          "DepartmentID": "1",
+          "CategoryID": "7",
+          "MessageID": "0",
+          "Price": "0.5000",
+          "PriceA": "0.0000",
+          "PriceB": "0.0000",
+          "PriceC": "0.0000",
+          "SalePrice": "0.0000",
+          "SaleStartDate": null,
+          "SaleEndDate": null,
+          "QuantityDiscountID": "0",
+          "TaxID": "0",
+          "ItemType": "0",
+          "Cost": "0.4000",
+          "Quantity": "144.0",
+          "ReorderPoint": "0.0",
+          "RestockLevel": "0.0",
+          "TareWeight": "0.0",
+          "SupplierID": "971",
+          "TagAlongItem": "0",
+          "TagAlongQuantity": "0.0",
+          "ParentItem": "0",
+          "ParentQuantity": "0.0",
+          "BarcodeFormat": "0",
+          "PriceLowerBound": "0.0000",
+          "PriceUpperBound": "0.0000",
+          "PictureName": "",
+          "LastSold": null,
+          "ExtendedDescription": "",
+          "SubDescription1": "",
+          "SubDescription2": "",
+          "SubDescription3": "",
+          "UnitOfMeasure": "",
+          "SubCategoryID": "0",
+          "QuantityEntryNotAllowed": "False",
+          "PriceMustBeEntered": "False",
+          "BlockSalesReason": "",
+          "BlockSalesAfterDate": null,
+          "Weight": "0.0",
+          "Taxable": "True",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05\\xc3\\x81\\xc7'",
+          "BlockSalesBeforeDate": null,
+          "LastCost": "0.4000",
+          "ReplacementCost": "0.0000",
+          "WebItem": "False",
+          "BlockSalesType": "0",
+          "BlockSalesScheduleID": "0",
+          "SaleType": "0",
+          "SaleScheduleID": "0",
+          "Consignment": "False",
+          "Inactive": "False",
+          "LastCounted": null,
+          "DoNotOrder": "False",
+          "MSRP": "0.0000",
+          "DateCreated": "2013-03-11T14:11:06.513000",
+          "Content": "",
+          "UsuallyShip": "",
+          "NumberFormat": null,
+          "ItemCannotBeRet": "False",
+          "ItemCannotBeSold": "False",
+          "IsAutogenerated": "False",
+          "IsGlobalvoucher": "False",
+          "DeleteZeroBalanceEntry": "False",
+          "TenderID": "0"
+        },
+        {
+          "BinLocation": "",
+          "BuydownPrice": "0.0000",
+          "BuydownQuantity": "0.0",
+          "CommissionAmount": "0.0000",
+          "CommissionMaximum": "0.0000",
+          "CommissionMode": "1",
+          "CommissionPercentProfit": "0.0",
+          "CommissionPercentSale": "0.0",
+          "Description": "FOIL BANNER CONGRATULATIONS",
+          "FoodStampable": "False",
+          "HQID": "0",
+          "ItemNotDiscountable": "False",
+          "LastReceived": "2013-03-12T16:09:22.537000",
+          "LastUpdated": "2013-03-08T00:00:00",
+          "Notes": null,
+          "QuantityCommitted": "0.0",
+          "SerialNumberCount": "0",
+          "TareWeightPercent": "0.0",
+          "ID": "30495",
+          "ItemLookupCode": "801822605271",
+          "DepartmentID": "1",
+          "CategoryID": "7",
+          "MessageID": "0",
+          "Price": "0.5000",
+          "PriceA": "0.0000",
+          "PriceB": "0.0000",
+          "PriceC": "0.0000",
+          "SalePrice": "0.0000",
+          "SaleStartDate": null,
+          "SaleEndDate": null,
+          "QuantityDiscountID": "0",
+          "TaxID": "0",
+          "ItemType": "0",
+          "Cost": "0.4000",
+          "Quantity": "144.0",
+          "ReorderPoint": "0.0",
+          "RestockLevel": "0.0",
+          "TareWeight": "0.0",
+          "SupplierID": "971",
+          "TagAlongItem": "0",
+          "TagAlongQuantity": "0.0",
+          "ParentItem": "0",
+          "ParentQuantity": "0.0",
+          "BarcodeFormat": "0",
+          "PriceLowerBound": "0.0000",
+          "PriceUpperBound": "0.0000",
+          "PictureName": "",
+          "LastSold": null,
+          "ExtendedDescription": "",
+          "SubDescription1": "",
+          "SubDescription2": "",
+          "SubDescription3": "",
+          "UnitOfMeasure": "",
+          "SubCategoryID": "0",
+          "QuantityEntryNotAllowed": "False",
+          "PriceMustBeEntered": "False",
+          "BlockSalesReason": "",
+          "BlockSalesAfterDate": null,
+          "Weight": "0.0",
+          "Taxable": "True",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05\\xc3\\x81\\xc8'",
+          "BlockSalesBeforeDate": null,
+          "LastCost": "0.4000",
+          "ReplacementCost": "0.0000",
+          "WebItem": "False",
+          "BlockSalesType": "0",
+          "BlockSalesScheduleID": "0",
+          "SaleType": "0",
+          "SaleScheduleID": "0",
+          "Consignment": "False",
+          "Inactive": "False",
+          "LastCounted": null,
+          "DoNotOrder": "False",
+          "MSRP": "0.0000",
+          "DateCreated": "2013-03-11T16:22:06.510000",
+          "Content": "",
+          "UsuallyShip": "",
+          "NumberFormat": null,
+          "ItemCannotBeRet": "False",
+          "ItemCannotBeSold": "False",
+          "IsAutogenerated": "False",
+          "IsGlobalvoucher": "False",
+          "DeleteZeroBalanceEntry": "False",
+          "TenderID": "0"
+        }
+      ]
+    },
+    "Category": {
+      "table_name": "dbo.Category",
+      "columns": [
+        {
+          "name": "HQID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "DepartmentID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Name",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "Code",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ],
+      "row_count": 83,
+      "sample_data": [
+        {
+          "HQID": "0",
+          "ID": "1",
+          "DepartmentID": "1",
+          "Name": "BATTERY",
+          "Code": "BAT",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x040,'"
+        },
+        {
+          "HQID": "0",
+          "ID": "2",
+          "DepartmentID": "1",
+          "Name": "AIR FRESHENER",
+          "Code": "AIR",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x040('"
+        },
+        {
+          "HQID": "0",
+          "ID": "3",
+          "DepartmentID": "1",
+          "Name": "MEDICINE",
+          "Code": "MED",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x040Q'"
+        }
+      ]
+    },
+    "Department": {
+      "table_name": "dbo.Department",
+      "columns": [
+        {
+          "name": "HQID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Name",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "code",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ],
+      "row_count": 1,
+      "sample_data": [
+        {
+          "HQID": "0",
+          "ID": "1",
+          "Name": "DEPARTMENT",
+          "code": "DEP",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x02e\\xcd'"
+        }
+      ]
+    },
+    "Customer": {
+      "table_name": "dbo.Customer",
+      "columns": [
+        {
+          "name": "AccountNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "AccountTypeID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Address2",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "AssessFinanceCharges",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "Company",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "Country",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CustomDate1",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "CustomDate2",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "CustomDate3",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "CustomDate4",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "CustomDate5",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "CustomNumber1",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "CustomNumber2",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "CustomNumber3",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "CustomNumber4",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "CustomNumber5",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "CustomText1",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CustomText2",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CustomText3",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CustomText4",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CustomText5",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "GlobalCustomer",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "HQID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "LastStartingDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "LastClosingDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "LastUpdated",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "LimitPurchase",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "LastClosingBalance",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "PrimaryShipToID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "State",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "LayawayCustomer",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "Employee",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "FirstName",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "LastName",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "Address",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "City",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "Zip",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "AccountBalance",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CreditLimit",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "TotalSales",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "AccountOpened",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "LastVisit",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "TotalVisits",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TotalSavings",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CurrentDiscount",
+          "type": "real",
+          "nullable": false
+        },
+        {
+          "name": "PriceLevel",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "TaxExempt",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "Notes",
+          "type": "ntext",
+          "nullable": true
+        },
+        {
+          "name": "Title",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "EmailAddress",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "TaxNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "PictureName",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DefaultShippingServiceID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "PhoneNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "FaxNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CashierID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "SalesRepID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Vouchers",
+          "type": "money",
+          "nullable": false
+        }
+      ],
+      "row_count": 2824,
+      "sample_data": [
+        {
+          "AccountNumber": "4044237232",
+          "AccountTypeID": "1",
+          "Address2": "2024 SOUTH MILLEDGE AVE",
+          "AssessFinanceCharges": "True",
+          "Company": "CLASSIC CITY ENTERPRISE",
+          "Country": "",
+          "CustomDate1": "1899-12-31T00:00:00",
+          "CustomDate2": "1899-12-31T00:00:00",
+          "CustomDate3": "1899-12-31T00:00:00",
+          "CustomDate4": "1899-12-31T00:00:00",
+          "CustomDate5": "1899-12-31T00:00:00",
+          "CustomNumber1": "0.0",
+          "CustomNumber2": "0.0",
+          "CustomNumber3": "0.0",
+          "CustomNumber4": "0.0",
+          "CustomNumber5": "0.0",
+          "CustomText1": "",
+          "CustomText2": "",
+          "CustomText3": "",
+          "CustomText4": "",
+          "CustomText5": "",
+          "GlobalCustomer": "False",
+          "HQID": "0",
+          "LastStartingDate": null,
+          "LastClosingDate": "1899-12-31T00:00:00",
+          "LastUpdated": "2012-11-29T23:25:12",
+          "LimitPurchase": "False",
+          "LastClosingBalance": "0.0000",
+          "PrimaryShipToID": "0",
+          "State": "GA",
+          "StoreID": "0",
+          "ID": "46",
+          "LayawayCustomer": "False",
+          "Employee": "False",
+          "FirstName": "",
+          "LastName": "",
+          "Address": "CLASSIC CITY ENTERPRISE",
+          "City": "ATHENS",
+          "Zip": "30606",
+          "AccountBalance": "0.0000",
+          "CreditLimit": "0.0000",
+          "TotalSales": "0.0000",
+          "AccountOpened": "2012-11-29T23:25:12",
+          "LastVisit": "2012-11-29T23:25:12",
+          "TotalVisits": "0",
+          "TotalSavings": "0.0000",
+          "CurrentDiscount": "0.0",
+          "PriceLevel": "0",
+          "TaxExempt": "False",
+          "Notes": "",
+          "Title": "",
+          "EmailAddress": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x04~9'",
+          "TaxNumber": "",
+          "PictureName": "",
+          "DefaultShippingServiceID": "0",
+          "PhoneNumber": "(404)423-7232",
+          "FaxNumber": "",
+          "CashierID": "0",
+          "SalesRepID": "0",
+          "Vouchers": "0.0000"
+        },
+        {
+          "AccountNumber": "7065430860",
+          "AccountTypeID": "1",
+          "Address2": "",
+          "AssessFinanceCharges": "True",
+          "Company": "S.TEJANI & SONS              D",
+          "Country": "",
+          "CustomDate1": "1899-12-31T00:00:00",
+          "CustomDate2": "1899-12-31T00:00:00",
+          "CustomDate3": "1899-12-31T00:00:00",
+          "CustomDate4": "1899-12-31T00:00:00",
+          "CustomDate5": "1899-12-31T00:00:00",
+          "CustomNumber1": "0.0",
+          "CustomNumber2": "0.0",
+          "CustomNumber3": "0.0",
+          "CustomNumber4": "0.0",
+          "CustomNumber5": "0.0",
+          "CustomText1": "",
+          "CustomText2": "",
+          "CustomText3": "",
+          "CustomText4": "",
+          "CustomText5": "",
+          "GlobalCustomer": "False",
+          "HQID": "0",
+          "LastStartingDate": null,
+          "LastClosingDate": "1899-12-31T00:00:00",
+          "LastUpdated": "2012-11-29T23:25:12",
+          "LimitPurchase": "False",
+          "LastClosingBalance": "0.0000",
+          "PrimaryShipToID": "0",
+          "State": "GA",
+          "StoreID": "0",
+          "ID": "63",
+          "LayawayCustomer": "False",
+          "Employee": "False",
+          "FirstName": "",
+          "LastName": "",
+          "Address": "3700 ATLANTA HWY",
+          "City": "ATHENS",
+          "Zip": "30606",
+          "AccountBalance": "0.0000",
+          "CreditLimit": "0.0000",
+          "TotalSales": "0.0000",
+          "AccountOpened": "2012-11-29T23:25:12",
+          "LastVisit": "2012-11-29T23:25:12",
+          "TotalVisits": "0",
+          "TotalSavings": "0.0000",
+          "CurrentDiscount": "0.0",
+          "PriceLevel": "0",
+          "TaxExempt": "False",
+          "Notes": "",
+          "Title": "",
+          "EmailAddress": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x04~['",
+          "TaxNumber": "",
+          "PictureName": "",
+          "DefaultShippingServiceID": "0",
+          "PhoneNumber": "(706)543-0860",
+          "FaxNumber": "",
+          "CashierID": "0",
+          "SalesRepID": "0",
+          "Vouchers": "0.0000"
+        },
+        {
+          "AccountNumber": "7064250555",
+          "AccountTypeID": "1",
+          "Address2": "",
+          "AssessFinanceCharges": "True",
+          "Company": "QUICK PANTRY/",
+          "Country": "",
+          "CustomDate1": "1899-12-31T00:00:00",
+          "CustomDate2": "1899-12-31T00:00:00",
+          "CustomDate3": "1899-12-31T00:00:00",
+          "CustomDate4": "1899-12-31T00:00:00",
+          "CustomDate5": "1899-12-31T00:00:00",
+          "CustomNumber1": "0.0",
+          "CustomNumber2": "0.0",
+          "CustomNumber3": "0.0",
+          "CustomNumber4": "0.0",
+          "CustomNumber5": "0.0",
+          "CustomText1": "",
+          "CustomText2": "",
+          "CustomText3": "",
+          "CustomText4": "",
+          "CustomText5": "",
+          "GlobalCustomer": "False",
+          "HQID": "0",
+          "LastStartingDate": null,
+          "LastClosingDate": "1899-12-31T00:00:00",
+          "LastUpdated": "2012-11-29T23:25:12",
+          "LimitPurchase": "False",
+          "LastClosingBalance": "0.0000",
+          "PrimaryShipToID": "0",
+          "State": "GA",
+          "StoreID": "0",
+          "ID": "71",
+          "LayawayCustomer": "False",
+          "Employee": "False",
+          "FirstName": "",
+          "LastName": "",
+          "Address": "495 NEWTON BRIDGE RD",
+          "City": "ATHENS",
+          "Zip": "30607",
+          "AccountBalance": "0.0000",
+          "CreditLimit": "0.0000",
+          "TotalSales": "0.0000",
+          "AccountOpened": "2012-11-29T23:25:12",
+          "LastVisit": "2012-11-29T23:25:12",
+          "TotalVisits": "0",
+          "TotalSavings": "0.0000",
+          "CurrentDiscount": "0.0",
+          "PriceLevel": "0",
+          "TaxExempt": "False",
+          "Notes": "",
+          "Title": "",
+          "EmailAddress": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x04~k'",
+          "TaxNumber": "",
+          "PictureName": "",
+          "DefaultShippingServiceID": "0",
+          "PhoneNumber": "(706)425-0555",
+          "FaxNumber": "",
+          "CashierID": "0",
+          "SalesRepID": "0",
+          "Vouchers": "0.0000"
+        }
+      ]
+    },
+    "AccountReceivable": {
+      "table_name": "dbo.AccountReceivable",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CustomerID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Date",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "DueDate",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "OriginalAmount",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "TransactionNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Type",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "Balance",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ],
+      "row_count": 142706,
+      "sample_data": [
+        {
+          "ID": "1",
+          "StoreID": "0",
+          "CustomerID": "2467",
+          "Date": "2012-12-18T15:14:24",
+          "DueDate": "2012-12-18T00:00:00",
+          "OriginalAmount": "339.6800",
+          "TransactionNumber": "47",
+          "Type": "0",
+          "Balance": "0.0000",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x07\\xa5\\x81'"
+        },
+        {
+          "ID": "2",
+          "StoreID": "0",
+          "CustomerID": "1748",
+          "Date": "2012-12-18T15:23:02",
+          "DueDate": "2012-12-18T00:00:00",
+          "OriginalAmount": "1318.8500",
+          "TransactionNumber": "48",
+          "Type": "0",
+          "Balance": "0.0000",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x07\\xa5v'"
+        },
+        {
+          "ID": "3",
+          "StoreID": "0",
+          "CustomerID": "1985",
+          "Date": "2012-12-24T17:10:02",
+          "DueDate": "2012-12-24T00:00:00",
+          "OriginalAmount": "187.9400",
+          "TransactionNumber": "110",
+          "Type": "0",
+          "Balance": "0.0000",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x07\\xa5\\x8c'"
+        }
+      ]
+    },
+    "TenderEntry": {
+      "table_name": "dbo.TenderEntry",
+      "columns": [
+        {
+          "name": "BatchNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CreditCardExpiration",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "OrderHistoryID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "DropPayoutID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TransactionNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TenderID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "PaymentID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Description",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CreditCardNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "CreditCardApprovalCode",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "Amount",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "AccountHolder",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "RoundingError",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "AmountForeign",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "BankNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "SerialNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "State",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "License",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "BirthDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "TransitNumber",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "VisaNetAuthorizationID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "DebitSurcharge",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CashBackSurcharge",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "IsCreateNew",
+          "type": "bit",
+          "nullable": false
+        }
+      ],
+      "row_count": 358194,
+      "sample_data": [
+        {
+          "BatchNumber": "5",
+          "CreditCardExpiration": "",
+          "OrderHistoryID": "0",
+          "DropPayoutID": "0",
+          "StoreID": "0",
+          "ID": "1",
+          "TransactionNumber": "1",
+          "TenderID": "1",
+          "PaymentID": "0",
+          "Description": "CASH",
+          "CreditCardNumber": "",
+          "CreditCardApprovalCode": "",
+          "Amount": "19.5000",
+          "AccountHolder": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05D\"'",
+          "RoundingError": "0.0000",
+          "AmountForeign": "19.5000",
+          "BankNumber": "",
+          "SerialNumber": "",
+          "State": "",
+          "License": "",
+          "BirthDate": null,
+          "TransitNumber": "",
+          "VisaNetAuthorizationID": "0",
+          "DebitSurcharge": "0.0000",
+          "CashBackSurcharge": "0.0000",
+          "IsCreateNew": "False"
+        },
+        {
+          "BatchNumber": "5",
+          "CreditCardExpiration": "",
+          "OrderHistoryID": "0",
+          "DropPayoutID": "0",
+          "StoreID": "0",
+          "ID": "2",
+          "TransactionNumber": "1",
+          "TenderID": "1",
+          "PaymentID": "0",
+          "Description": "CASH",
+          "CreditCardNumber": "",
+          "CreditCardApprovalCode": "",
+          "Amount": "-0.0100",
+          "AccountHolder": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05D$'",
+          "RoundingError": "0.0000",
+          "AmountForeign": "-0.0100",
+          "BankNumber": "",
+          "SerialNumber": "",
+          "State": "",
+          "License": "",
+          "BirthDate": null,
+          "TransitNumber": "",
+          "VisaNetAuthorizationID": "0",
+          "DebitSurcharge": "0.0000",
+          "CashBackSurcharge": "0.0000",
+          "IsCreateNew": "False"
+        },
+        {
+          "BatchNumber": "6",
+          "CreditCardExpiration": "",
+          "OrderHistoryID": "0",
+          "DropPayoutID": "0",
+          "StoreID": "0",
+          "ID": "3",
+          "TransactionNumber": "2",
+          "TenderID": "1",
+          "PaymentID": "0",
+          "Description": "CASH",
+          "CreditCardNumber": "",
+          "CreditCardApprovalCode": "",
+          "Amount": "200.0000",
+          "AccountHolder": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05K\\xec'",
+          "RoundingError": "0.0000",
+          "AmountForeign": "200.0000",
+          "BankNumber": "",
+          "SerialNumber": "",
+          "State": "",
+          "License": "",
+          "BirthDate": null,
+          "TransitNumber": "",
+          "VisaNetAuthorizationID": "0",
+          "DebitSurcharge": "0.0000",
+          "CashBackSurcharge": "0.0000",
+          "IsCreateNew": "False"
+        }
+      ]
+    },
+    "Tender": {
+      "table_name": "dbo.Tender",
+      "columns": [
+        {
+          "name": "HQID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "PreventOverTendering",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "VerificationType",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "VerifyViaEDC",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Description",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "AdditionalDetailType",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "PrinterValidation",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "ValidationLine1",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "ValidationLine2",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "ValidationLine3",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "GLAccount",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "ScanCode",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "RoundToValue",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "Code",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "MaximumAmount",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "DoNotPopCashDrawer",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "CurrencyID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "DisplayOrder",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ValidationMask",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "SignatureRequired",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "AllowMultipleEntries",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "DebitSurcharge",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "SupportCashBack",
+          "type": "bit",
+          "nullable": false
+        },
+        {
+          "name": "CashBackLimit",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CashBackFee",
+          "type": "money",
+          "nullable": false
+        }
+      ],
+      "row_count": 9,
+      "sample_data": [
+        {
+          "HQID": "0",
+          "PreventOverTendering": "False",
+          "VerificationType": "0",
+          "VerifyViaEDC": "False",
+          "ID": "1",
+          "Description": "CASH",
+          "AdditionalDetailType": "1",
+          "PrinterValidation": "False",
+          "ValidationLine1": "",
+          "ValidationLine2": "",
+          "ValidationLine3": "",
+          "GLAccount": "",
+          "ScanCode": "1",
+          "RoundToValue": "0.0000",
+          "Code": "1",
+          "MaximumAmount": "99999.9900",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x06\\xa51'",
+          "DoNotPopCashDrawer": "False",
+          "CurrencyID": "0",
+          "DisplayOrder": "1",
+          "ValidationMask": "",
+          "SignatureRequired": "False",
+          "AllowMultipleEntries": "False",
+          "DebitSurcharge": "0.0000",
+          "SupportCashBack": "False",
+          "CashBackLimit": "0.0000",
+          "CashBackFee": "0.0000"
+        },
+        {
+          "HQID": "0",
+          "PreventOverTendering": "True",
+          "VerificationType": "0",
+          "VerifyViaEDC": "False",
+          "ID": "2",
+          "Description": "CHECK",
+          "AdditionalDetailType": "2",
+          "PrinterValidation": "False",
+          "ValidationLine1": "CHECK NO.",
+          "ValidationLine2": "",
+          "ValidationLine3": "",
+          "GLAccount": "",
+          "ScanCode": "2",
+          "RoundToValue": "0.0000",
+          "Code": "2",
+          "MaximumAmount": "0.0000",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05`~O'",
+          "DoNotPopCashDrawer": "False",
+          "CurrencyID": "0",
+          "DisplayOrder": "2",
+          "ValidationMask": "",
+          "SignatureRequired": "False",
+          "AllowMultipleEntries": "True",
+          "DebitSurcharge": "0.0000",
+          "SupportCashBack": "False",
+          "CashBackLimit": "0.0000",
+          "CashBackFee": "0.0000"
+        },
+        {
+          "HQID": "0",
+          "PreventOverTendering": "True",
+          "VerificationType": "0",
+          "VerifyViaEDC": "False",
+          "ID": "3",
+          "Description": "CREDIT CARD",
+          "AdditionalDetailType": "1",
+          "PrinterValidation": "False",
+          "ValidationLine1": "",
+          "ValidationLine2": "",
+          "ValidationLine3": "",
+          "GLAccount": "",
+          "ScanCode": "3",
+          "RoundToValue": "0.0000",
+          "Code": "3",
+          "MaximumAmount": "0.0000",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x04\\xfe\\xbe\\x0c'",
+          "DoNotPopCashDrawer": "True",
+          "CurrencyID": "0",
+          "DisplayOrder": "3",
+          "ValidationMask": "",
+          "SignatureRequired": "False",
+          "AllowMultipleEntries": "False",
+          "DebitSurcharge": "0.0000",
+          "SupportCashBack": "False",
+          "CashBackLimit": "0.0000",
+          "CashBackFee": "0.0000"
+        }
+      ]
+    },
+    "Payment": {
+      "table_name": "dbo.Payment",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "BatchNumber",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CashierID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "CustomerID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Time",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "Amount",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "Comment",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        }
+      ],
+      "row_count": 63021,
+      "sample_data": [
+        {
+          "ID": "1",
+          "BatchNumber": "26",
+          "CashierID": "1",
+          "StoreID": "0",
+          "CustomerID": "1748",
+          "Time": "2012-12-27T19:02:49",
+          "Amount": "1318.8500",
+          "Comment": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x07\\xa5t'"
+        },
+        {
+          "ID": "2",
+          "BatchNumber": "26",
+          "CashierID": "1",
+          "StoreID": "0",
+          "CustomerID": "2467",
+          "Time": "2012-12-27T19:11:42",
+          "Amount": "339.6800",
+          "Comment": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x07\\xa5\\x7f'"
+        },
+        {
+          "ID": "3",
+          "BatchNumber": "26",
+          "CashierID": "1",
+          "StoreID": "0",
+          "CustomerID": "1985",
+          "Time": "2012-12-27T19:14:17",
+          "Amount": "219.8900",
+          "Comment": "",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x07\\xa5\\x8a'"
+        }
+      ]
+    },
+    "DailySales": {
+      "table_name": "dbo.DailySales",
+      "columns": [
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Date",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "Type",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "TypeID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Total",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        }
+      ],
+      "row_count": 563775,
+      "sample_data": [
+        {
+          "ID": "1",
+          "Date": "2012-12-07T00:00:00",
+          "Type": "6",
+          "TypeID": "0",
+          "Total": "298.0400",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05_~'",
+          "StoreID": "0"
+        },
+        {
+          "ID": "2",
+          "Date": "2012-12-07T00:00:00",
+          "Type": "3",
+          "TypeID": "1",
+          "Total": "98.2400",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05_\\x7f'",
+          "StoreID": "0"
+        },
+        {
+          "ID": "3",
+          "Date": "2012-12-07T00:00:00",
+          "Type": "4",
+          "TypeID": "1",
+          "Total": "298.0400",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x00\\x05_\\x80'",
+          "StoreID": "0"
+        }
+      ]
+    },
+    "Cashier": {
+      "table_name": "dbo.Cashier",
+      "columns": [
+        {
+          "name": "HQID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "LastUpdated",
+          "type": "datetime",
+          "nullable": false
+        },
+        {
+          "name": "Number",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "StoreID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "ID",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Name",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "Password",
+          "type": "nvarchar",
+          "nullable": true
+        },
+        {
+          "name": "FloorLimit",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "ReturnLimit",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "CashDrawerNumber",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "SecurityLevel",
+          "type": "smallint",
+          "nullable": false
+        },
+        {
+          "name": "Privileges",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "EmailAddress",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "FailedLogonAttempts",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "DBTimeStamp",
+          "type": "timestamp",
+          "nullable": true
+        },
+        {
+          "name": "MaxOverShortAmount",
+          "type": "money",
+          "nullable": false
+        },
+        {
+          "name": "MaxOverShortPercent",
+          "type": "float",
+          "nullable": false
+        },
+        {
+          "name": "OverShortLimitType",
+          "type": "int",
+          "nullable": false
+        },
+        {
+          "name": "Telephone",
+          "type": "nvarchar",
+          "nullable": false
+        },
+        {
+          "name": "PasswordChangedDate",
+          "type": "datetime",
+          "nullable": true
+        },
+        {
+          "name": "PasswordResetFlag",
+          "type": "bit",
+          "nullable": false
+        }
+      ],
+      "row_count": 11,
+      "sample_data": [
+        {
+          "HQID": "0",
+          "LastUpdated": "2025-07-11T13:40:50.590000",
+          "Number": "CASEY",
+          "StoreID": "0",
+          "ID": "1",
+          "Name": "CASEY",
+          "Password": "MGIGCSsGAQQBgjdYA6BVMFMGCisGAQQBgjdYAwGgRTBDAgMBAAACAmYDAgIAwAQI\r\n91fYvrczoxsEEKuRQwAPcJk2trPE2BMOloQEGNE4bskhqH3QVdoCHrCAsj4HQrJQ\r\nPXV/Ww==\r\n",
+          "FloorLimit": "0.0000",
+          "ReturnLimit": "0.0000",
+          "CashDrawerNumber": "0",
+          "SecurityLevel": "0",
+          "Privileges": "8388607",
+          "EmailAddress": "",
+          "FailedLogonAttempts": "0",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05\\xc6\\xf6m'",
+          "MaxOverShortAmount": "0.0000",
+          "MaxOverShortPercent": "0.0",
+          "OverShortLimitType": "0",
+          "Telephone": "",
+          "PasswordChangedDate": "2017-04-22T13:24:26",
+          "PasswordResetFlag": "False"
+        },
+        {
+          "HQID": "0",
+          "LastUpdated": "2023-02-18T09:34:57.497000",
+          "Number": "RASHIDA",
+          "StoreID": "0",
+          "ID": "51",
+          "Name": "RASHIDA",
+          "Password": "MFoGCSsGAQQBgjdYA6BNMEsGCisGAQQBgjdYAwGgPTA7AgMBAAACAmYDAgIAwAQI\r\nmXNbpDlsDCIEEIWBS7KpPisffsU0gyG/XHUEEHgpnVDrRq9whhLUNT9W9/M=\r\n",
+          "FloorLimit": "0.0000",
+          "ReturnLimit": "0.0000",
+          "CashDrawerNumber": "0",
+          "SecurityLevel": "0",
+          "Privileges": "7272223",
+          "EmailAddress": "",
+          "FailedLogonAttempts": "0",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05\\xc6\\xf6n'",
+          "MaxOverShortAmount": "0.0000",
+          "MaxOverShortPercent": "0.0",
+          "OverShortLimitType": "0",
+          "Telephone": "",
+          "PasswordChangedDate": "2023-01-05T12:27:53",
+          "PasswordResetFlag": "False"
+        },
+        {
+          "HQID": "0",
+          "LastUpdated": "2023-05-13T10:34:43.703000",
+          "Number": "AFRAZ",
+          "StoreID": "0",
+          "ID": "52",
+          "Name": "AFRAZ",
+          "Password": "MGIGCSsGAQQBgjdYA6BVMFMGCisGAQQBgjdYAwGgRTBDAgMBAAACAmYDAgIAwAQI\r\nRGGptk5jKTMEEFUpImRSRQ4VoYGd4FtFSWEEGHT7hDEbh9Y2hxfbBk7XljDbcpUk\r\nSMhNqg==\r\n",
+          "FloorLimit": "0.0000",
+          "ReturnLimit": "0.0000",
+          "CashDrawerNumber": "0",
+          "SecurityLevel": "0",
+          "Privileges": "7333255",
+          "EmailAddress": "",
+          "FailedLogonAttempts": "0",
+          "DBTimeStamp": "b'\\x00\\x00\\x00\\x00\\x05\\xc6\\xf6o'",
+          "MaxOverShortAmount": "0.0000",
+          "MaxOverShortPercent": "0.0",
+          "OverShortLimitType": "0",
+          "Telephone": "",
+          "PasswordChangedDate": "2023-02-17T09:48:58",
+          "PasswordResetFlag": "False"
+        }
+      ]
+    }
+  },
+  "sample_joins": {
+    "Transaction-TransactionEntry Join": {
+      "query": "\n                SELECT TOP 5 \n                    t.TransactionNumber,\n                    t.Time,\n                    t.Total,\n                    te.ItemID,\n                    te.Price,\n                    te.Quantity\n                FROM [dbo].[Transaction] t\n                JOIN dbo.TransactionEntry te ON t.TransactionNumber = te.TransactionNumber\n                ORDER BY t.Time DESC\n                ",
+      "description": "Core transaction data join",
+      "success": true,
+      "row_count": 5,
+      "sample_data": [
+        {
+          "TransactionNumber": "233211",
+          "Time": "2025-07-15T14:46:17",
+          "Total": "1046.4200",
+          "ItemID": "44849",
+          "Price": "16.4900",
+          "Quantity": "1.0"
+        },
+        {
+          "TransactionNumber": "233211",
+          "Time": "2025-07-15T14:46:17",
+          "Total": "1046.4200",
+          "ItemID": "44223",
+          "Price": "27.9900",
+          "Quantity": "2.0"
+        },
+        {
+          "TransactionNumber": "233211",
+          "Time": "2025-07-15T14:46:17",
+          "Total": "1046.4200",
+          "ItemID": "46429",
+          "Price": "32.5900",
+          "Quantity": "3.0"
+        }
+      ]
+    },
+    "Item-Category Join": {
+      "query": "\n                SELECT TOP 5\n                    i.Description as ItemName,\n                    i.Price,\n                    i.Cost,\n                    c.Name as CategoryName\n                FROM dbo.Item i\n                LEFT JOIN dbo.Category c ON i.CategoryID = c.ID\n                WHERE i.Quantity > 0\n                ORDER BY i.Price DESC\n                ",
+      "description": "Item and category information",
+      "success": true,
+      "row_count": 5,
+      "sample_data": [
+        {
+          "ItemName": "CELLTEKK FLOOR DISPLAY 264CT",
+          "Price": "649.9900",
+          "Cost": "525.7700",
+          "CategoryName": "CELLUAR ACCESSORIES"
+        },
+        {
+          "ItemName": "CELLTEKK CTD 20W 3X 126CT",
+          "Price": "489.9900",
+          "Cost": "376.7400",
+          "CategoryName": "CELLUAR ACCESSORIES"
+        },
+        {
+          "ItemName": "OPMS 8ML SHOT 50CT - RED",
+          "Price": "460.0000",
+          "Cost": "390.0000",
+          "CategoryName": "VITAMINS"
+        }
+      ]
+    },
+    "Transaction-Item-Category Join": {
+      "query": "\n                SELECT TOP 5\n                    t.Time,\n                    i.Description,\n                    c.Name as Category,\n                    te.Price,\n                    te.Quantity,\n                    (te.Price * te.Quantity) as Revenue\n                FROM [dbo].[Transaction] t\n                JOIN dbo.TransactionEntry te ON t.TransactionNumber = te.TransactionNumber\n                JOIN dbo.Item i ON te.ItemID = i.ID\n                LEFT JOIN dbo.Category c ON i.CategoryID = c.ID\n                WHERE t.Time >= DATEADD(day, -7, GETDATE())\n                ORDER BY Revenue DESC\n                ",
+      "description": "Full sales data with categories (last 7 days)",
+      "success": true,
+      "row_count": 5,
+      "sample_data": [
+        {
+          "Time": "2025-07-13T14:54:35",
+          "Description": "GRABBA LEAF CIGAR WRAPS 25PK",
+          "Category": "LT-TAX PAID",
+          "Price": "25.0000",
+          "Quantity": "1680.0",
+          "Revenue": "42000.0"
+        },
+        {
+          "Time": "2025-07-11T14:04:19",
+          "Description": "NEWPORT MENTHOL 100 BOX 10CT",
+          "Category": "CIGARETTE",
+          "Price": "88.6900",
+          "Quantity": "240.0",
+          "Revenue": "21285.6"
+        },
+        {
+          "Time": "2025-07-09T13:04:17",
+          "Description": "NEWPORT MENTHOL 100 BOX 10CT",
+          "Category": "CIGARETTE",
+          "Price": "88.6900",
+          "Quantity": "210.0",
+          "Revenue": "18624.899999999998"
+        }
+      ]
+    }
+  },
+  "business_summary": {
+    "categories": {
+      "total_count": 83,
+      "tobacco_related": [
+        {
+          "id": 56,
+          "name": "CIGAR GA",
+          "code": "C"
+        },
+        {
+          "id": 48,
+          "name": "CIGARETTE",
+          "code": "CIG"
+        },
+        {
+          "id": 23,
+          "name": "CIGARS",
+          "code": "CCC"
+        },
+        {
+          "id": 51,
+          "name": "LIT CIGARS 003251",
+          "code": "CCL"
+        },
+        {
+          "id": 72,
+          "name": "LITTLE CIGAR-GA",
+          "code": "CCT"
+        },
+        {
+          "id": 52,
+          "name": "LT-RYO-TAX COLLECTED",
+          "code": "T8"
+        },
+        {
+          "id": 57,
+          "name": "LT-TAX PAID",
+          "code": "T9"
+        },
+        {
+          "id": 49,
+          "name": "LT-TAX-COLLECTED",
+          "code": "LT"
+        },
+        {
+          "id": 45,
+          "name": "T7 SMOKELESS GA",
+          "code": "T7"
+        }
+      ],
+      "all_categories": [
+        {
+          "id": 2,
+          "name": "AIR FRESHENER",
+          "code": "AIR"
+        },
+        {
+          "id": 58,
+          "name": "AIR SCENTS",
+          "code": "A"
+        },
+        {
+          "id": 86,
+          "name": "APPAREL & CLOTHING",
+          "code": "APPAREL"
+        },
+        {
+          "id": 16,
+          "name": "AUTOMOTIVE",
+          "code": "AUTO"
+        },
+        {
+          "id": 1,
+          "name": "BATTERY",
+          "code": "BAT"
+        },
+        {
+          "id": 31,
+          "name": "BLUNT WRAP",
+          "code": "B"
+        },
+        {
+          "id": 30,
+          "name": "CAMERA",
+          "code": "CAMERA"
+        },
+        {
+          "id": 24,
+          "name": "CANDLES",
+          "code": "CANDLE"
+        },
+        {
+          "id": 4,
+          "name": "CANDYS",
+          "code": "CANDY"
+        },
+        {
+          "id": 78,
+          "name": "CBD/HEMP",
+          "code": "CBD"
+        },
+        {
+          "id": 84,
+          "name": "CELLUAR ACCESSORIES",
+          "code": "CELLULAR"
+        },
+        {
+          "id": 11,
+          "name": "CIG ROLLING PAPER",
+          "code": "PAPER"
+        },
+        {
+          "id": 56,
+          "name": "CIGAR GA",
+          "code": "C"
+        },
+        {
+          "id": 48,
+          "name": "CIGARETTE",
+          "code": "CIG"
+        },
+        {
+          "id": 23,
+          "name": "CIGARS",
+          "code": "CCC"
+        },
+        {
+          "id": 69,
+          "name": "CLEAM",
+          "code": "CLEAM"
+        },
+        {
+          "id": 12,
+          "name": "CLEANING PRODUCTS",
+          "code": "CLEAN"
+        },
+        {
+          "id": 68,
+          "name": "CLEKIT",
+          "code": "CLEKIT"
+        },
+        {
+          "id": 28,
+          "name": "CONDOMS",
+          "code": "CONDOM"
+        },
+        {
+          "id": 27,
+          "name": "COOKIES",
+          "code": "COOKIE"
+        },
+        {
+          "id": 33,
+          "name": "COSMETICS & BEAUTY",
+          "code": "COS"
+        },
+        {
+          "id": 73,
+          "name": "DELETE",
+          "code": "DELETE"
+        },
+        {
+          "id": 74,
+          "name": "DRINKS",
+          "code": "DRINKS"
+        },
+        {
+          "id": 79,
+          "name": "ECIG - DISP D8",
+          "code": "ECDD8"
+        },
+        {
+          "id": 81,
+          "name": "ECIG - PODS",
+          "code": "ECPD"
+        },
+        {
+          "id": 80,
+          "name": "ECIG - PODS D8",
+          "code": "ECPD8"
+        },
+        {
+          "id": 66,
+          "name": "ELECTRONIC CIG",
+          "code": "CAS"
+        },
+        {
+          "id": 44,
+          "name": "ENTERTAINMENT",
+          "code": "ENTERT"
+        },
+        {
+          "id": 8,
+          "name": "FILMS",
+          "code": "FILM"
+        },
+        {
+          "id": 35,
+          "name": "FLOWERS",
+          "code": "FLOWER"
+        },
+        {
+          "id": 6,
+          "name": "FOOD",
+          "code": "FOOD"
+        },
+        {
+          "id": 9,
+          "name": "FROZEN",
+          "code": "F"
+        },
+        {
+          "id": 10,
+          "name": "GLOVES & T SHIRTS",
+          "code": "GLOVE"
+        },
+        {
+          "id": 19,
+          "name": "GUMS/CHICLETS",
+          "code": "G"
+        },
+        {
+          "id": 13,
+          "name": "HARDWARE",
+          "code": "HARD/W"
+        },
+        {
+          "id": 38,
+          "name": "HOUSEHOLD GOODS",
+          "code": "HOUSE"
+        },
+        {
+          "id": 37,
+          "name": "INCENSE",
+          "code": "INC"
+        },
+        {
+          "id": 82,
+          "name": "JBR",
+          "code": "JBR"
+        },
+        {
+          "id": 75,
+          "name": "JUICES",
+          "code": "J"
+        },
+        {
+          "id": 63,
+          "name": "KC",
+          "code": "KC"
+        },
+        {
+          "id": 43,
+          "name": "KIDS STUFF",
+          "code": "KIDS"
+        },
+        {
+          "id": 25,
+          "name": "KITCHEN & TOILET",
+          "code": "KIT"
+        },
+        {
+          "id": 64,
+          "name": "KITS",
+          "code": "KITS"
+        },
+        {
+          "id": 85,
+          "name": "KRATOM",
+          "code": "KRA"
+        },
+        {
+          "id": 18,
+          "name": "LIGHTERS",
+          "code": "LIGHT"
+        },
+        {
+          "id": 62,
+          "name": "LIL DRUG",
+          "code": "LIL"
+        },
+        {
+          "id": 34,
+          "name": "LIST-1",
+          "code": "LIST1"
+        },
+        {
+          "id": 67,
+          "name": "LIST-2",
+          "code": "LIST2"
+        },
+        {
+          "id": 51,
+          "name": "LIT CIGARS 003251",
+          "code": "CCL"
+        },
+        {
+          "id": 72,
+          "name": "LITTLE CIGAR-GA",
+          "code": "CCT"
+        },
+        {
+          "id": 59,
+          "name": "LT-NON-GA/ROL UR OWN",
+          "code": "T6"
+        },
+        {
+          "id": 52,
+          "name": "LT-RYO-TAX COLLECTED",
+          "code": "T8"
+        },
+        {
+          "id": 57,
+          "name": "LT-TAX PAID",
+          "code": "T9"
+        },
+        {
+          "id": 49,
+          "name": "LT-TAX-COLLECTED",
+          "code": "LT"
+        },
+        {
+          "id": 39,
+          "name": "MAPS",
+          "code": "MAP"
+        },
+        {
+          "id": 3,
+          "name": "MEDICINE",
+          "code": "MED"
+        },
+        {
+          "id": 7,
+          "name": "MISC",
+          "code": "MISC"
+        },
+        {
+          "id": 29,
+          "name": "MISC",
+          "code": "M"
+        },
+        {
+          "id": 83,
+          "name": "NICOTINE POUCHES",
+          "code": "NP"
+        },
+        {
+          "id": 22,
+          "name": "NoCat",
+          "code": "NoCat"
+        },
+        {
+          "id": 17,
+          "name": "NOVELTY ITEMS",
+          "code": "NOVELT"
+        },
+        {
+          "id": 42,
+          "name": "PERFUMES",
+          "code": "PER"
+        },
+        {
+          "id": 26,
+          "name": "PHONE CARDS",
+          "code": "P"
+        },
+        {
+          "id": 14,
+          "name": "PLAYING CARDS",
+          "code": "CARDS"
+        },
+        {
+          "id": 50,
+          "name": "QUOTATION",
+          "code": "Q"
+        },
+        {
+          "id": 21,
+          "name": "SHOPPING BAGS",
+          "code": "BAG"
+        },
+        {
+          "id": 60,
+          "name": "STAINLESS STEEL",
+          "code": "SB"
+        },
+        {
+          "id": 36,
+          "name": "STATIONARY",
+          "code": "S"
+        },
+        {
+          "id": 61,
+          "name": "SUPPLIER",
+          "code": "SUPPLY"
+        },
+        {
+          "id": 45,
+          "name": "T7 SMOKELESS GA",
+          "code": "T7"
+        },
+        {
+          "id": 46,
+          "name": "TMP",
+          "code": "TMP"
+        },
+        {
+          "id": 65,
+          "name": "TMP2",
+          "code": "TMP2"
+        },
+        {
+          "id": 71,
+          "name": "TMPSE",
+          "code": "TMPSE"
+        },
+        {
+          "id": 53,
+          "name": "TOB 003211",
+          "code": "T"
+        },
+        {
+          "id": 41,
+          "name": "TOB 003212",
+          "code": "T2"
+        },
+        {
+          "id": 54,
+          "name": "TOB 003213",
+          "code": "T3"
+        },
+        {
+          "id": 76,
+          "name": "TOB 003214",
+          "code": "T4"
+        },
+        {
+          "id": 55,
+          "name": "TOB 003215",
+          "code": "T5"
+        },
+        {
+          "id": 20,
+          "name": "TOOTH",
+          "code": "TOOTH"
+        },
+        {
+          "id": 15,
+          "name": "TOYS",
+          "code": "TOYS"
+        },
+        {
+          "id": 5,
+          "name": "VITAMINS",
+          "code": "VITA"
+        },
+        {
+          "id": 77,
+          "name": "WATER",
+          "code": "WATER"
+        },
+        {
+          "id": 47,
+          "name": "ZIPPO",
+          "code": "Z"
+        }
+      ]
+    },
+    "date_ranges": {
+      "earliest_transaction": "2012-12-07T12:46:32",
+      "latest_transaction": "2025-07-15T14:46:17",
+      "total_transactions": 149834.57
+    },
+    "key_table_status": {
+      "total_analyzed": 12,
+      "tables_with_data": 11,
+      "successful_joins": 3
+    },
+    "largest_tables": [
+      [
+        "TransactionEntry",
+        4670963
+      ],
+      [
+        "DailySales",
+        563775
+      ],
+      [
+        "TenderEntry",
+        358194
+      ],
+      [
+        "AccountReceivable",
+        142706
+      ],
+      [
+        "Payment",
+        63021
+      ]
+    ]
+  }
+}

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Dashboard - AI Assistant v2</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --border-color: #e5e7eb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .status-bar {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.connected { background: var(--success-color); }
+        .status-dot.disconnected { background: var(--danger-color); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .metric-icon.revenue { background: var(--success-color); }
+        .metric-icon.transactions { background: var(--primary-color); }
+        .metric-icon.customers { background: var(--warning-color); }
+        .metric-icon.items { background: var(--accent-color); }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .query-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .query-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .query-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .query-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .query-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .query-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .query-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .query-button:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .suggestion-chip {
+            background: var(--light-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .suggestion-chip:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            min-height: 200px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .results-table th,
+        .results-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .results-table th {
+            background: var(--light-color);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .results-table tr:hover {
+            background: var(--light-color);
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .chart-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .spinner {
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .alert.error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #dc2626;
+        }
+
+        .alert.success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
+        }
+
+        .alert.info {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #2563eb;
+        }
+
+        .sql-display {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .top-items-list {
+            list-style: none;
+        }
+
+        .top-items-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-items-list li:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .item-quantity {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .query-input-group {
+                flex-direction: column;
+            }
+
+            .status-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-robot"></i> AI Assistant v2</h1>
+            <p>Intelligent Database Analytics & Natural Language Query Processing</p>
+        </header>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-dot" id="db-status"></div>
+                <span id="db-status-text">Connecting...</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-clock"></i>
+                <span id="last-updated">Never</span>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-database"></i>
+                <span id="db-type">Unknown</span>
+            </div>
+        </div>
+
+        <!-- Dashboard Metrics -->
+        <div class="dashboard-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon revenue">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="metric-value" id="today-revenue">$0</div>
+                <div class="metric-label">Today's Revenue</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon transactions">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                </div>
+                <div class="metric-value" id="today-transactions">0</div>
+                <div class="metric-label">Today's Transactions</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <div class="metric-value" id="total-customers">0</div>
+                <div class="metric-label">Total Customers</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon items">
+                        <i class="fas fa-box"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Top Items This Week</h3>
+                    <ul class="top-items-list" id="top-items-list">
+                        <li>Loading...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Query Section -->
+        <div class="query-section">
+            <h2><i class="fas fa-search"></i> Natural Language Query</h2>
+            
+            <div class="suggestions">
+                <div class="suggestion-chip" onclick="setQuery('Show me today\'s sales revenue')">Today's Revenue</div>
+                <div class="suggestion-chip" onclick="setQuery('What are the top 10 selling items this week?')">Top 10 Items</div>
+                <div class="suggestion-chip" onclick="setQuery('List recent customers with their last visit dates')">Recent Customers</div>
+                <div class="suggestion-chip" onclick="setQuery('Show tobacco category sales with proper cost adjustments')">Tobacco Sales</div>
+                <div class="suggestion-chip" onclick="setQuery('Display customers with outstanding account balances')">AR Balances</div>
+                <div class="suggestion-chip" onclick="setQuery('Show sales trends over the last 30 days')">Sales Trends</div>
+            </div>
+
+            <div class="query-input-group">
+                <input type="text" class="query-input" id="query-input" 
+                       placeholder="Ask anything about your data... (e.g., 'Show me today's sales' or 'What are the top selling items?')"
+                       onkeypress="handleKeyPress(event)">
+                <button class="query-button" id="query-button" onclick="executeQuery()">
+                    <i class="fas fa-paper-plane"></i>
+                    Ask AI
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="results-section" style="display: none;">
+            <div class="results-header">
+                <h3 id="results-title">Query Results</h3>
+                <div id="results-meta"></div>
+            </div>
+            <div id="results-content"></div>
+        </div>
+
+        <!-- Sales Trends Chart -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <h3><i class="fas fa-chart-line"></i> Sales Trends (Last 30 Days)</h3>
+            </div>
+            <div class="chart-wrapper">
+                <canvas id="sales-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let salesChart = null;
+
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+            loadDashboardData();
+            initializeSalesChart();
+        });
+
+        // Initialize application
+        function initializeApp() {
+            checkSystemStatus();
+            setInterval(checkSystemStatus, 30000); // Check every 30 seconds
+        }
+
+        // Check system status
+        async function checkSystemStatus() {
+            try {
+                const response = await fetch('/api/ai/status');
+                const status = await response.json();
+                
+                const statusDot = document.getElementById('db-status');
+                const statusText = document.getElementById('db-status-text');
+                const dbType = document.getElementById('db-type');
+                const lastUpdated = document.getElementById('last-updated');
+                
+                if (status.database_connected && status.ai_available) {
+                    statusDot.className = 'status-dot connected';
+                    statusText.textContent = 'Enhanced AI Connected';
+                } else {
+                    statusDot.className = 'status-dot disconnected';
+                    statusText.textContent = 'Enhanced AI Disconnected';
+                }
+                
+                dbType.textContent = status.database_type || 'Unknown';
+                lastUpdated.textContent = new Date().toLocaleTimeString();
+                
+            } catch (error) {
+                console.error('Failed to check system status:', error);
+                document.getElementById('db-status').className = 'status-dot disconnected';
+                document.getElementById('db-status-text').textContent = 'Connection Error';
+            }
+        }
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('/api/ai/metrics');
+                const metrics = await response.json();
+                
+                if (metrics.error) {
+                    showAlert('error', `Failed to load metrics: ${metrics.error}`);
+                    return;
+                }
+                
+                // Update revenue metric
+                document.getElementById('today-revenue').textContent = 
+                    formatCurrency(metrics.today_revenue || 0);
+                
+                // Update transactions metric
+                document.getElementById('today-transactions').textContent = 
+                    (metrics.today_transactions || 0).toLocaleString();
+                
+                // Update customers metric
+                document.getElementById('total-customers').textContent = 
+                    (metrics.total_customers || 0).toLocaleString();
+                
+                // Update top items
+                updateTopItems(metrics.top_items || []);
+                
+            } catch (error) {
+                console.error('Failed to load dashboard data:', error);
+                showAlert('error', 'Failed to load dashboard data');
+            }
+        }
+
+        // Update top items list
+        function updateTopItems(items) {
+            const list = document.getElementById('top-items-list');
+            
+            if (!items.length) {
+                list.innerHTML = '<li>No data available</li>';
+                return;
+            }
+            
+            list.innerHTML = items.map(item => `
+                <li>
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-quantity">${item.quantity}</span>
+                </li>
+            `).join('');
+        }
+
+        // Initialize sales chart
+        async function initializeSalesChart() {
+            try {
+                const response = await fetch('/api/ai/trends?days=30');
+                const trends = await response.json();
+                
+                if (trends.error) {
+                    console.error('Failed to load trends:', trends.error);
+                    return;
+                }
+                
+                const ctx = document.getElementById('sales-chart').getContext('2d');
+                
+                salesChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: trends.map(t => new Date(t.date).toLocaleDateString()),
+                        datasets: [{
+                            label: 'Revenue',
+                            data: trends.map(t => t.revenue),
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }, {
+                            label: 'Transactions',
+                            data: trends.map(t => t.transactions),
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'Revenue ($)'
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        return formatCurrency(value);
+                                    }
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: {
+                                    display: true,
+                                    text: 'Transactions'
+                                },
+                                grid: {
+                                    drawOnChartArea: false,
+                                }
+                            }
+                        },
+                        plugins: {
+                            title: {
+                                display: false
+                            },
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            }
+                        }
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Failed to initialize sales chart:', error);
+            }
+        }
+
+        // Set query in input
+        function setQuery(query) {
+            document.getElementById('query-input').value = query;
+        }
+
+        // Handle key press in query input
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                executeQuery();
+            }
+        }
+
+        // Execute natural language query
+        async function executeQuery() {
+            const input = document.getElementById('query-input');
+            const button = document.getElementById('query-button');
+            const resultsSection = document.getElementById('results-section');
+            const resultsContent = document.getElementById('results-content');
+            const resultsTitle = document.getElementById('results-title');
+            const resultsMeta = document.getElementById('results-meta');
+            
+            const query = input.value.trim();
+            if (!query) {
+                showAlert('error', 'Please enter a question');
+                return;
+            }
+            
+            // Show loading state
+            button.disabled = true;
+            button.innerHTML = '<div class="spinner"></div> Processing...';
+            resultsSection.style.display = 'block';
+            resultsContent.innerHTML = '<div class="loading"><div class="spinner"></div> Processing your query...</div>';
+            
+            try {
+                const response = await fetch('/api/ai/query', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ question: query })
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'error' || result.error) {
+                    resultsContent.innerHTML = `
+                        <div class="alert error">
+                            <strong>Error:</strong> ${result.error}
+                        </div>
+                        ${result.suggestions ? `
+                            <div style="margin-top: 1rem;">
+                                <strong>Try these suggestions:</strong>
+                                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                                    ${result.suggestions.map(s => `<li style="margin: 0.25rem 0;">${s}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        ${result.schema_help ? `
+                            <div style="margin-top: 1rem;">
+                                <strong>Available Tables:</strong> ${result.schema_help.available_tables ? result.schema_help.available_tables.join(', ') : ''}
+                            </div>
+                        ` : ''}
+                    `;
+                } else {
+                    displayQueryResults(result);
+                }
+                
+            } catch (error) {
+                console.error('Query failed:', error);
+                resultsContent.innerHTML = `
+                    <div class="alert error">
+                        <strong>Error:</strong> Failed to process query. Please try again.
+                    </div>
+                `;
+            } finally {
+                // Reset button
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-paper-plane"></i> Ask AI';
+            }
+        }
+
+        // Display query results
+        function displayQueryResults(result) {
+            const resultsContent = document.getElementById('results-content');
+            const resultsTitle = document.getElementById('results-title');
+            const resultsMeta = document.getElementById('results-meta');
+            
+            resultsTitle.textContent = 'Query Results';
+            
+            // Handle enhanced AI response format
+            const data = result.data || result;
+            const rowCount = data.row_count || result.row_count || 0;
+            const sqlQuery = data.sql_query || result.sql;
+            const queryResults = data.results || result.results;
+            const businessInsights = data.business_insights || (queryResults ? queryResults.business_insights : []);
+            
+            resultsMeta.innerHTML = `
+                <span><i class="fas fa-database"></i> ${rowCount} rows</span>
+                <span><i class="fas fa-clock"></i> ${new Date().toLocaleTimeString()}</span>
+                ${data.execution_info ? `<span><i class="fas fa-server"></i> ${data.execution_info.database_type}</span>` : ''}
+            `;
+            
+            let content = '';
+            
+            // Show business insights if available
+            if (businessInsights && businessInsights.length > 0) {
+                content += `
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--success-color);">🔍 Business Insights:</h4>
+                        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 1rem;">
+                            ${businessInsights.map(insight => `<div style="margin: 0.5rem 0;">• ${insight}</div>`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Show SQL query if available
+            if (sqlQuery) {
+                content += `
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Generated SQL:</h4>
+                        <div class="sql-display">${escapeHtml(sqlQuery)}</div>
+                    </div>
+                `;
+            }
+            
+            // Show results
+            if (queryResults && queryResults.data && queryResults.data.length > 0) {
+                content += `
+                    <div>
+                        <h4 style="margin-bottom: 1rem; color: var(--text-primary);">${queryResults.summary}</h4>
+                        ${formatResultsTable(queryResults.data)}
+                        ${queryResults.data_quality ? `
+                            <div style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-secondary);">
+                                Data Quality: ${queryResults.data_quality.completeness.toFixed(1)}% complete
+                                ${queryResults.data_quality.issues.length > 0 ? ` (${queryResults.data_quality.issues.join(', ')})` : ''}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            } else {
+                content += `
+                    <div class="alert info">
+                        <strong>No Results:</strong> ${queryResults?.summary || 'Your query returned no results.'}
+                    </div>
+                `;
+            }
+            
+            resultsContent.innerHTML = content;
+        }
+
+        // Format results as table
+        function formatResultsTable(data) {
+            if (!data.length) return '<p>No data to display</p>';
+            
+            const columns = Object.keys(data[0]);
+            
+            return `
+                <div style="overflow-x: auto;">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                ${columns.map(col => `<th>${formatColumnName(col)}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.slice(0, 100).map(row => `
+                                <tr>
+                                    ${columns.map(col => `<td>${formatCellValue(row[col])}</td>`).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                    ${data.length > 100 ? `<p style="margin-top: 1rem; color: var(--text-secondary); font-style: italic;">Showing first 100 of ${data.length} results</p>` : ''}
+                </div>
+            `;
+        }
+
+        // Format column name
+        function formatColumnName(col) {
+            return col.replace(/col_\d+/, 'Column').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+        }
+
+        // Format cell value
+        function formatCellValue(value) {
+            if (value === null || value === undefined) return '<em>null</em>';
+            if (typeof value === 'number') {
+                if (value % 1 === 0) return value.toLocaleString(); // Integer
+                if (Math.abs(value) >= 1000) return formatCurrency(value); // Large numbers as currency
+                return value.toFixed(2);
+            }
+            if (typeof value === 'string' && value.includes('T') && Date.parse(value)) {
+                return new Date(value).toLocaleString();
+            }
+            return escapeHtml(String(value));
+        }
+
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(amount);
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Show alert
+        function showAlert(type, message) {
+            // You can implement a toast notification system here
+            console.log(`${type.toUpperCase()}: ${message}`);
+        }
+
+        // Auto-refresh dashboard data every 5 minutes
+        setInterval(loadDashboardData, 5 * 60 * 1000);
+    </script>
+</body>
+</html> 

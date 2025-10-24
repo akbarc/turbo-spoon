@@ -1,0 +1,17 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: GLOBAL TOBACCO
+# Generated: 2025-09-06 16:56:21
+# Total Items: 1
+# Total Quantity: 27.0
+# Estimated Value: $217.35
+# Critical Items: 0
+# Urgent Items: 0
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+LOW,812615006700,CLIPPER CIGAR 10CT FULL FLAVOR,CIGARS,12,4.0,3.0,27,$8.05,$217.35,DECREASING,$94.56,70

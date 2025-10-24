@@ -1,0 +1,55 @@
+================================================================================
+COMPREHENSIVE CUSTOMER ANALYTICS REPORT
+Generated: 2025-09-03T17:19:58.187793
+================================================================================
+
+PRIORITY 1: MUST HAVE METRICS
+----------------------------------------
+
+1. Customer Revenue Brackets (Annual):
+
+2. Revenue Concentration:
+   Top 10 Customers: 20.89% of total revenue
+   Top 25 Customers: 34.80% of total revenue
+   Top 50 Customers: 49.09% of total revenue
+   Top 100 Customers: 66.97% of total revenue
+
+3. Customer Retention:
+   Retention Rate: 68.51%
+   Retained Customers: 483
+   Lost Customers: 222
+   New Customers: 123
+
+
+PRIORITY 2: VERY HELPFUL METRICS
+----------------------------------------
+
+1. Geographic Distribution (Top 5 States):
+   GA: 642 customers, $30,671,574.93
+   AL: 10 customers, $259,823.60
+   TX: 3 customers, $101,760.40
+   PA: 1 customers, $66,105.00
+   GEORGIA: 2 customers, $51,083.50
+
+2. Category Revenue Breakdown (Top 10):
+   CIGARETTE: $14,578,929.01 (46.6%)
+   CIGARS: $3,677,755.93 (11.8%)
+   ELECTRONIC CIG: $1,746,807.91 (5.6%)
+   CIGAR GA: $1,424,557.84 (4.6%)
+   ECIG - PODS: $1,131,923.18 (3.6%)
+   LT-TAX PAID: $1,087,679.34 (3.5%)
+   VITAMINS: $1,033,080.80 (3.3%)
+   DRINKS: $696,040.51 (2.2%)
+   LT-TAX-COLLECTED: $671,556.39 (2.1%)
+   T7 SMOKELESS GA: $661,473.53 (2.1%)
+
+
+PRIORITY 3: NICE TO HAVE METRICS
+----------------------------------------
+
+Average Order Value: $1,689.27
+Avg Orders Per Customer: 25.0
+Avg Orders Per Month: 8.1
+
+================================================================================
+Full detailed report saved to: customer_analytics_report_20250903_172015.json

@@ -1,0 +1,17 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: KRETEK INTERNATIONAL
+# Generated: 2025-08-18 12:17:13
+# Total Items: 1
+# Total Quantity: 206.0
+# Estimated Value: $6,795.94
+# Critical Items: 0
+# Urgent Items: 0
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+LOW,751667126663,TAJMAHAL BIDIS 10/20 200 CT,CIGARETTE,64,2.8,22.9,206,$32.99,$6795.94,INCREASING,$1067.55,101

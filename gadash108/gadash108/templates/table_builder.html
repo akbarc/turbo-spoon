@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Builder - Ultimate Data Explorer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .table-builder-container {
+            display: grid;
+            grid-template-columns: 300px 1fr 400px;
+            height: 100vh;
+            gap: 1px;
+            background: rgba(51, 65, 85, 0.3);
+        }
+
+        /* Left Panel - Data Sources */
+        .data-sources-panel {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            overflow-y: auto;
+            border-right: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .panel-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-subtitle {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .source-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .category-title {
+            color: #cbd5e1;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .source-item {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+        }
+
+        .source-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+            transform: translateX(4px);
+        }
+
+        .source-item.selected {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+        }
+
+        .source-name {
+            font-weight: 600;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .source-description {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .field-list {
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .field-item {
+            background: rgba(51, 65, 85, 0.4);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.25rem;
+            cursor: grab;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .field-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: #3b82f6;
+            transform: translateX(2px);
+        }
+
+        .field-item:active {
+            cursor: grabbing;
+        }
+
+        .field-item i {
+            color: #64748b;
+            width: 12px;
+        }
+
+        /* Center Panel - Table Builder */
+        .table-builder-panel {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .builder-section {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Drop Zone for Columns */
+        .column-drop-zone {
+            min-height: 120px;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.05);
+            transition: all 0.2s;
+        }
+
+        .column-drop-zone.drag-over {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .drop-zone-empty {
+            text-align: center;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .selected-column {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid #3b82f6;
+            border-radius: 6px;
+            padding: 0.5rem 0.75rem;
+            margin: 0.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: move;
+            font-size: 0.875rem;
+        }
+
+        .selected-column .remove-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        /* Filter Builder */
+        .filter-builder {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-builder select,
+        .filter-builder input {
+            background: rgba(51, 65, 85, 0.6);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 6px;
+            padding: 0.5rem;
+            color: #f1f5f9;
+            font-size: 0.875rem;
+        }
+
+        .filter-builder button {
+            background: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .active-filter {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 6px;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+
+        .filter-remove {
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        /* Right Panel - Live Preview */
+        .preview-panel {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            overflow-y: auto;
+            border-left: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #3b82f6;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: rgba(59, 130, 246, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .action-btn.primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Live Table */
+        .live-table-container {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .live-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        .live-table th {
+            background: rgba(51, 65, 85, 0.8);
+            color: #cbd5e1;
+            padding: 0.75rem 0.5rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+            position: sticky;
+            top: 0;
+        }
+
+        .live-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.2);
+            color: #e2e8f0;
+        }
+
+        .live-table tr:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .table-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: rgba(51, 65, 85, 0.4);
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        /* Loading and Error States */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+        }
+
+        .loading i {
+            margin-right: 0.5rem;
+            animation: spin 1s linear infinite;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .table-builder-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr;
+                height: auto;
+            }
+            
+            .data-sources-panel,
+            .table-builder-panel,
+            .preview-panel {
+                max-height: 400px;
+            }
+        }
+
+        /* Drag and Drop Styles */
+        .dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+
+        .drag-over {
+            background: rgba(59, 130, 246, 0.1) !important;
+            border-color: #3b82f6 !important;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Quick Templates */
+        .quick-templates {
+            margin-bottom: 1rem;
+        }
+
+        .template-btn {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #10b981;
+            padding: 0.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            margin: 0.25rem;
+            transition: all 0.2s;
+        }
+
+        .template-btn:hover {
+            background: rgba(16, 185, 129, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="table-builder-container">
+        <!-- Left Panel - Data Sources -->
+        <div class="data-sources-panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i class="fas fa-database"></i>
+                    Data Sources
+                </div>
+                <div class="panel-subtitle">Drag fields to build your table</div>
+            </div>
+
+            <!-- Quick Templates -->
+            <div class="quick-templates">
+                <div class="category-title">⚡ Quick Templates</div>
+                <button class="template-btn" onclick="loadTemplate('daily_performance')">📅 Daily Performance</button>
+                <button class="template-btn" onclick="loadTemplate('top_products')">🏆 Top Products</button>
+                <button class="template-btn" onclick="loadTemplate('customer_analysis')">👥 Customer Analysis</button>
+                <button class="template-btn" onclick="loadTemplate('excise_compliance')">🚬 Excise Compliance</button>
+                <button class="template-btn" onclick="loadTemplate('ar_aging')">💰 AR Aging</button>
+            </div>
+
+            <!-- POS System Reports -->
+            <div class="source-category">
+                <div class="category-title">🏪 POS System Reports</div>
+                
+                <div class="source-item" onclick="selectDataSource('daily_sales')" data-source="daily_sales">
+                    <div class="source-name">
+                        <i class="fas fa-calendar-day"></i>
+                        Daily Sales
+                    </div>
+                    <div class="source-description">Daily sales summaries and trends</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('item_sales')" data-source="item_sales">
+                    <div class="source-name">
+                        <i class="fas fa-box"></i>
+                        Item Sales
+                    </div>
+                    <div class="source-description">Product performance and rankings</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('category_sales')" data-source="category_sales">
+                    <div class="source-name">
+                        <i class="fas fa-tags"></i>
+                        Category Sales
+                    </div>
+                    <div class="source-description">Category performance analysis</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('customer_sales')" data-source="customer_sales">
+                    <div class="source-name">
+                        <i class="fas fa-users"></i>
+                        Customer Sales
+                    </div>
+                    <div class="source-description">Customer purchase behavior</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('cashier_performance')" data-source="cashier_performance">
+                    <div class="source-name">
+                        <i class="fas fa-user-tie"></i>
+                        Cashier Performance
+                    </div>
+                    <div class="source-description">Staff performance metrics</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('payment_methods')" data-source="payment_methods">
+                    <div class="source-name">
+                        <i class="fas fa-credit-card"></i>
+                        Payment Methods
+                    </div>
+                    <div class="source-description">Payment type analysis</div>
+                </div>
+            </div>
+
+            <!-- Excise Tax Reports -->
+            <div class="source-category">
+                <div class="category-title">🚬 Excise Tax Reports</div>
+                
+                <div class="source-item" onclick="selectDataSource('excise_simple')" data-source="excise_simple">
+                    <div class="source-name">
+                        <i class="fas fa-file-invoice"></i>
+                        Excise Transactions
+                    </div>
+                    <div class="source-description">Individual excise tax transactions</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('pu_excise_summary')" data-source="pu_excise_summary">
+                    <div class="source-name">
+                        <i class="fas fa-chart-bar"></i>
+                        Excise Summary
+                    </div>
+                    <div class="source-description">Daily excise tax summaries</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('excise_by_category')" data-source="excise_by_category">
+                    <div class="source-name">
+                        <i class="fas fa-layer-group"></i>
+                        Excise by Category
+                    </div>
+                    <div class="source-description">Excise tax by product category</div>
+                </div>
+            </div>
+
+            <!-- Financial Reports -->
+            <div class="source-category">
+                <div class="category-title">💰 Financial Reports</div>
+                
+                <div class="source-item" onclick="selectDataSource('ar_aging')" data-source="ar_aging">
+                    <div class="source-name">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        AR Aging
+                    </div>
+                    <div class="source-description">Accounts receivable aging analysis</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('ar_history')" data-source="ar_history">
+                    <div class="source-name">
+                        <i class="fas fa-history"></i>
+                        AR History
+                    </div>
+                    <div class="source-description">Payment history tracking</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('profit_analysis')" data-source="profit_analysis">
+                    <div class="source-name">
+                        <i class="fas fa-chart-pie"></i>
+                        Profit Analysis
+                    </div>
+                    <div class="source-description">Profit margins by category</div>
+                </div>
+            </div>
+
+            <!-- Customer Intelligence -->
+            <div class="source-category">
+                <div class="category-title">🧠 Customer Intelligence</div>
+                
+                <div class="source-item" onclick="selectDataSource('customer_segmentation')" data-source="customer_segmentation">
+                    <div class="source-name">
+                        <i class="fas fa-users-cog"></i>
+                        Customer Segments
+                    </div>
+                    <div class="source-description">RFM analysis and segmentation</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('customer_groups')" data-source="customer_groups">
+                    <div class="source-name">
+                        <i class="fas fa-layer-group"></i>
+                        Customer Groups
+                    </div>
+                    <div class="source-description">Business type groupings</div>
+                </div>
+
+                <div class="source-item" onclick="selectDataSource('customer_labels')" data-source="customer_labels">
+                    <div class="source-name">
+                        <i class="fas fa-address-card"></i>
+                        Customer Directory
+                    </div>
+                    <div class="source-description">Complete customer contact info</div>
+                </div>
+            </div>
+
+            <!-- Available Fields -->
+            <div class="field-list" id="available-fields" style="display: none;">
+                <div class="category-title">📋 Available Fields</div>
+                <div id="fields-container">
+                    <!-- Fields will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Panel - Table Builder -->
+        <div class="table-builder-panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i class="fas fa-tools"></i>
+                    Table Builder
+                </div>
+                <div class="panel-subtitle">Configure your custom table</div>
+            </div>
+
+            <!-- Selected Columns -->
+            <div class="builder-section">
+                <div class="section-title">
+                    <i class="fas fa-columns"></i>
+                    Selected Columns
+                </div>
+                <div class="column-drop-zone" id="column-drop-zone">
+                    <div class="drop-zone-empty">
+                        Drag fields here to build your table
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="builder-section">
+                <div class="section-title">
+                    <i class="fas fa-filter"></i>
+                    Filters
+                </div>
+                <div class="filter-builder">
+                    <select id="filter-field">
+                        <option value="">Select field...</option>
+                    </select>
+                    <select id="filter-operator">
+                        <option value="">Select operator...</option>
+                        <option value="equals">Equals</option>
+                        <option value="contains">Contains</option>
+                        <option value="greater_than">Greater Than</option>
+                        <option value="less_than">Less Than</option>
+                        <option value="between">Between</option>
+                        <option value="not_equals">Not Equals</option>
+                    </select>
+                    <input type="text" id="filter-value" placeholder="Enter value...">
+                    <button onclick="addFilter()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div id="active-filters">
+                    <!-- Active filters will appear here -->
+                </div>
+            </div>
+
+            <!-- Sort & Group -->
+            <div class="builder-section">
+                <div class="section-title">
+                    <i class="fas fa-sort"></i>
+                    Sort & Group
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-size: 0.875rem;">Sort By:</label>
+                        <select id="sort-field" style="width: 100%; background: rgba(51, 65, 85, 0.6); border: 1px solid rgba(71, 85, 105, 0.3); border-radius: 6px; padding: 0.5rem; color: #f1f5f9;">
+                            <option value="">No sorting</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-size: 0.875rem;">Direction:</label>
+                        <select id="sort-direction" style="width: 100%; background: rgba(51, 65, 85, 0.6); border: 1px solid rgba(71, 85, 105, 0.3); border-radius: 6px; padding: 0.5rem; color: #f1f5f9;">
+                            <option value="DESC">Descending</option>
+                            <option value="ASC">Ascending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advanced Options -->
+            <div class="builder-section">
+                <div class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Advanced Options
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-size: 0.875rem;">Limit Results:</label>
+                        <input type="number" id="result-limit" placeholder="No limit" min="1" style="width: 100%; background: rgba(51, 65, 85, 0.6); border: 1px solid rgba(71, 85, 105, 0.3); border-radius: 6px; padding: 0.5rem; color: #f1f5f9;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; color: #cbd5e1; font-size: 0.875rem;">Date Range:</label>
+                        <select id="date-range" style="width: 100%; background: rgba(51, 65, 85, 0.6); border: 1px solid rgba(71, 85, 105, 0.3); border-radius: 6px; padding: 0.5rem; color: #f1f5f9;">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month" selected>This Month</option>
+                            <option value="quarter">This Quarter</option>
+                            <option value="year">This Year</option>
+                            <option value="all">All Time</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="display: flex; gap: 1rem; margin-top: auto;">
+                <button class="action-btn primary" onclick="executeQuery()" style="flex: 1;">
+                    <i class="fas fa-play"></i>
+                    Run Query
+                </button>
+                <button class="action-btn" onclick="clearAll()">
+                    <i class="fas fa-trash"></i>
+                    Clear All
+                </button>
+                <button class="action-btn" onclick="saveView()">
+                    <i class="fas fa-save"></i>
+                    Save View
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Panel - Live Preview -->
+        <div class="preview-panel">
+            <div class="panel-header">
+                <div class="panel-title">
+                    <i class="fas fa-eye"></i>
+                    Live Preview
+                </div>
+                <div class="panel-subtitle">Real-time table preview</div>
+            </div>
+
+            <div class="preview-actions">
+                <button class="action-btn" onclick="exportTable('csv')">
+                    <i class="fas fa-file-csv"></i>
+                    CSV
+                </button>
+                <button class="action-btn" onclick="exportTable('excel')">
+                    <i class="fas fa-file-excel"></i>
+                    Excel
+                </button>
+                <button class="action-btn" onclick="createChart()">
+                    <i class="fas fa-chart-bar"></i>
+                    Chart
+                </button>
+                <button class="action-btn" onclick="refreshPreview()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh
+                </button>
+            </div>
+
+            <div class="live-table-container">
+                <div id="table-preview">
+                    <div class="loading">
+                        <i class="fas fa-info-circle"></i>
+                        Select a data source and drag fields to start building your table
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-stats" id="table-stats" style="display: none;">
+                <span id="row-count">0 rows</span>
+                <span id="load-time">Load time: 0ms</span>
+                <span id="last-updated">Last updated: Never</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentDataSource = null;
+        let selectedFields = [];
+        let activeFilters = [];
+        let sortOptions = { field: '', direction: 'DESC' };
+        let tableData = [];
+
+        // Data source definitions with ALL available sources
+        const dataSources = {
+            'daily_sales': {
+                name: 'Daily Sales',
+                fields: [
+                    { name: 'SaleDate', type: 'date', icon: 'fas fa-calendar' },
+                    { name: 'TotalSales', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'UniqueCustomers', type: 'number', icon: 'fas fa-users' },
+                    { name: 'AvgTransaction', type: 'currency', icon: 'fas fa-calculator' }
+                ]
+            },
+            'item_sales': {
+                name: 'Item Sales',
+                fields: [
+                    { name: 'ItemName', type: 'text', icon: 'fas fa-box' },
+                    { name: 'ItemLookupCode', type: 'text', icon: 'fas fa-barcode' },
+                    { name: 'Category', type: 'text', icon: 'fas fa-tag' },
+                    { name: 'TotalQuantity', type: 'number', icon: 'fas fa-cubes' },
+                    { name: 'TotalRevenue', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'AvgPrice', type: 'currency', icon: 'fas fa-calculator' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'UniqueCustomers', type: 'number', icon: 'fas fa-users' }
+                ]
+            },
+            'category_sales': {
+                name: 'Category Sales',
+                fields: [
+                    { name: 'Category', type: 'text', icon: 'fas fa-tag' },
+                    { name: 'TotalRevenue', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'TotalQuantity', type: 'number', icon: 'fas fa-cubes' },
+                    { name: 'AvgPrice', type: 'currency', icon: 'fas fa-calculator' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' }
+                ]
+            },
+            'customer_sales': {
+                name: 'Customer Sales',
+                fields: [
+                    { name: 'CustomerName', type: 'text', icon: 'fas fa-user' },
+                    { name: 'AccountNumber', type: 'text', icon: 'fas fa-id-card' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'TotalSales', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'AvgTransaction', type: 'currency', icon: 'fas fa-calculator' },
+                    { name: 'LastPurchase', type: 'date', icon: 'fas fa-calendar' },
+                    { name: 'LifetimeSales', type: 'currency', icon: 'fas fa-chart-line' }
+                ]
+            },
+            'cashier_performance': {
+                name: 'Cashier Performance',
+                fields: [
+                    { name: 'CashierName', type: 'text', icon: 'fas fa-user-tie' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'TotalSales', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'AvgTransaction', type: 'currency', icon: 'fas fa-calculator' },
+                    { name: 'FirstTransaction', type: 'datetime', icon: 'fas fa-clock' },
+                    { name: 'LastTransaction', type: 'datetime', icon: 'fas fa-clock' }
+                ]
+            },
+            'payment_methods': {
+                name: 'Payment Methods',
+                fields: [
+                    { name: 'Description', type: 'text', icon: 'fas fa-credit-card' },
+                    { name: 'TotalAmount', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'AvgAmount', type: 'currency', icon: 'fas fa-calculator' }
+                ]
+            },
+            'excise_simple': {
+                name: 'Excise Transactions',
+                fields: [
+                    { name: 'TransactionNumber', type: 'number', icon: 'fas fa-hashtag' },
+                    { name: 'TransactionDate', type: 'date', icon: 'fas fa-calendar' },
+                    { name: 'ItemName', type: 'text', icon: 'fas fa-box' },
+                    { name: 'Category', type: 'text', icon: 'fas fa-tag' },
+                    { name: 'Quantity', type: 'number', icon: 'fas fa-cubes' },
+                    { name: 'ExciseRate', type: 'currency', icon: 'fas fa-percentage' },
+                    { name: 'ExciseTax', type: 'currency', icon: 'fas fa-file-invoice' },
+                    { name: 'SalePrice', type: 'currency', icon: 'fas fa-dollar-sign' }
+                ]
+            },
+            'pu_excise_summary': {
+                name: 'Excise Summary',
+                fields: [
+                    { name: 'ExciseDate', type: 'date', icon: 'fas fa-calendar' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'TotalExciseTax', type: 'currency', icon: 'fas fa-file-invoice' },
+                    { name: 'TotalQuantity', type: 'number', icon: 'fas fa-cubes' },
+                    { name: 'AvgExciseRate', type: 'currency', icon: 'fas fa-calculator' }
+                ]
+            },
+            'excise_by_category': {
+                name: 'Excise by Category',
+                fields: [
+                    { name: 'Category', type: 'text', icon: 'fas fa-tag' },
+                    { name: 'TransactionCount', type: 'number', icon: 'fas fa-receipt' },
+                    { name: 'TotalExciseTax', type: 'currency', icon: 'fas fa-file-invoice' },
+                    { name: 'TotalQuantity', type: 'number', icon: 'fas fa-cubes' },
+                    { name: 'AvgExciseRate', type: 'currency', icon: 'fas fa-calculator' },
+                    { name: 'UniqueItems', type: 'number', icon: 'fas fa-boxes' }
+                ]
+            },
+            'ar_aging': {
+                name: 'AR Aging',
+                fields: [
+                    { name: 'CustomerName', type: 'text', icon: 'fas fa-user' },
+                    { name: 'AccountNumber', type: 'text', icon: 'fas fa-id-card' },
+                    { name: 'TotalBalance', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'Current', type: 'currency', icon: 'fas fa-clock' },
+                    { name: 'Days31_60', type: 'currency', icon: 'fas fa-clock' },
+                    { name: 'Days61_90', type: 'currency', icon: 'fas fa-clock' },
+                    { name: 'Over90', type: 'currency', icon: 'fas fa-exclamation-triangle' },
+                    { name: 'OldestInvoiceDays', type: 'number', icon: 'fas fa-calendar-times' }
+                ]
+            },
+            'ar_history': {
+                name: 'AR History',
+                fields: [
+                    { name: 'Date', type: 'date', icon: 'fas fa-calendar' },
+                    { name: 'Amount', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'Comment', type: 'text', icon: 'fas fa-comment' },
+                    { name: 'Company', type: 'text', icon: 'fas fa-building' },
+                    { name: 'FirstName', type: 'text', icon: 'fas fa-user' },
+                    { name: 'LastName', type: 'text', icon: 'fas fa-user' }
+                ]
+            },
+            'profit_analysis': {
+                name: 'Profit Analysis',
+                fields: [
+                    { name: 'Category', type: 'text', icon: 'fas fa-tag' },
+                    { name: 'TotalRevenue', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'TotalCost', type: 'currency', icon: 'fas fa-coins' },
+                    { name: 'TrueGrossProfit', type: 'currency', icon: 'fas fa-chart-line' },
+                    { name: 'ProfitMargin', type: 'percentage', icon: 'fas fa-percentage' },
+                    { name: 'TotalQuantity', type: 'number', icon: 'fas fa-cubes' }
+                ]
+            },
+            'customer_segmentation': {
+                name: 'Customer Segments',
+                fields: [
+                    { name: 'CustomerName', type: 'text', icon: 'fas fa-user' },
+                    { name: 'Segment', type: 'text', icon: 'fas fa-layer-group' },
+                    { name: 'RFM_Score', type: 'number', icon: 'fas fa-star' },
+                    { name: 'Recency', type: 'number', icon: 'fas fa-clock' },
+                    { name: 'Frequency', type: 'number', icon: 'fas fa-repeat' },
+                    { name: 'Monetary', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'CLV', type: 'currency', icon: 'fas fa-gem' },
+                    { name: 'RiskScore', type: 'number', icon: 'fas fa-exclamation-triangle' }
+                ]
+            },
+            'customer_groups': {
+                name: 'Customer Groups',
+                fields: [
+                    { name: 'CustomerGroup', type: 'text', icon: 'fas fa-layer-group' },
+                    { name: 'CustomerCount', type: 'number', icon: 'fas fa-users' },
+                    { name: 'TotalSales', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'AvgTicket', type: 'currency', icon: 'fas fa-calculator' },
+                    { name: 'AvgSalesPerCustomer', type: 'currency', icon: 'fas fa-user-dollar' },
+                    { name: 'BusinessType', type: 'text', icon: 'fas fa-building' }
+                ]
+            },
+            'customer_labels': {
+                name: 'Customer Directory',
+                fields: [
+                    { name: 'CustomerName', type: 'text', icon: 'fas fa-user' },
+                    { name: 'AccountNumber', type: 'text', icon: 'fas fa-id-card' },
+                    { name: 'Address', type: 'text', icon: 'fas fa-map-marker-alt' },
+                    { name: 'City', type: 'text', icon: 'fas fa-city' },
+                    { name: 'State', type: 'text', icon: 'fas fa-flag' },
+                    { name: 'Zip', type: 'text', icon: 'fas fa-mail-bulk' },
+                    { name: 'PhoneNumber', type: 'text', icon: 'fas fa-phone' },
+                    { name: 'EmailAddress', type: 'text', icon: 'fas fa-envelope' },
+                    { name: 'TotalSales', type: 'currency', icon: 'fas fa-dollar-sign' },
+                    { name: 'LastVisit', type: 'date', icon: 'fas fa-calendar' }
+                ]
+            }
+        };
+
+        // Quick templates
+        const quickTemplates = {
+            'daily_performance': {
+                name: 'Daily Performance Summary',
+                data_source: 'daily_sales',
+                fields: ['SaleDate', 'TotalSales', 'TransactionCount', 'UniqueCustomers'],
+                sort: { field: 'SaleDate', direction: 'DESC' },
+                date_range: 'month'
+            },
+            'top_products': {
+                name: 'Top Products Analysis',
+                data_source: 'item_sales',
+                fields: ['ItemName', 'Category', 'TotalRevenue', 'TotalQuantity', 'AvgPrice'],
+                sort: { field: 'TotalRevenue', direction: 'DESC' },
+                limit: 50
+            },
+            'customer_analysis': {
+                name: 'Customer Purchase Analysis',
+                data_source: 'customer_sales',
+                fields: ['CustomerName', 'AccountNumber', 'TotalSales', 'TransactionCount', 'LastPurchase'],
+                sort: { field: 'TotalSales', direction: 'DESC' },
+                limit: 100
+            },
+            'excise_compliance': {
+                name: 'Excise Tax Compliance Report',
+                data_source: 'excise_simple',
+                fields: ['TransactionDate', 'ItemName', 'Category', 'Quantity', 'ExciseTax'],
+                sort: { field: 'TransactionDate', direction: 'DESC' },
+                date_range: 'month'
+            },
+            'ar_aging': {
+                name: 'AR Aging Analysis',
+                data_source: 'ar_aging',
+                fields: ['CustomerName', 'TotalBalance', 'Current', 'Days31_60', 'Days61_90', 'Over90'],
+                sort: { field: 'TotalBalance', direction: 'DESC' }
+            }
+        };
+
+        // Initialize drag and drop
+        function initializeDragAndDrop() {
+            // Make fields draggable
+            document.querySelectorAll('.field-item').forEach(field => {
+                field.addEventListener('dragstart', handleDragStart);
+                field.addEventListener('dragend', handleDragEnd);
+            });
+
+            // Make drop zone accept drops
+            const dropZone = document.getElementById('column-drop-zone');
+            dropZone.addEventListener('dragover', handleDragOver);
+            dropZone.addEventListener('drop', handleDrop);
+            dropZone.addEventListener('dragenter', handleDragEnter);
+            dropZone.addEventListener('dragleave', handleDragLeave);
+
+            // Make selected columns sortable
+            new Sortable(dropZone, {
+                animation: 150,
+                ghostClass: 'dragging',
+                onEnd: function(evt) {
+                    // Reorder selected fields
+                    const field = selectedFields.splice(evt.oldIndex, 1)[0];
+                    selectedFields.splice(evt.newIndex, 0, field);
+                    updatePreview();
+                }
+            });
+        }
+
+        // Drag and drop handlers
+        function handleDragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.dataset.field);
+            e.target.classList.add('dragging');
+        }
+
+        function handleDragEnd(e) {
+            e.target.classList.remove('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDragEnter(e) {
+            e.preventDefault();
+            e.target.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            e.target.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            e.target.classList.remove('drag-over');
+            
+            const fieldName = e.dataTransfer.getData('text/plain');
+            addFieldToTable(fieldName);
+        }
+
+        // Select data source
+        function selectDataSource(sourceName) {
+            // Update UI
+            document.querySelectorAll('.source-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            document.querySelector(`[data-source="${sourceName}"]`).classList.add('selected');
+            
+            currentDataSource = sourceName;
+            
+            // Show available fields
+            showAvailableFields(sourceName);
+            
+            // Clear current selection
+            selectedFields = [];
+            activeFilters = [];
+            updateColumnDropZone();
+            updateFilterOptions();
+            updateSortOptions();
+        }
+
+        // Show available fields for selected data source
+        function showAvailableFields(sourceName) {
+            const source = dataSources[sourceName];
+            if (!source) return;
+
+            const fieldsContainer = document.getElementById('fields-container');
+            const fieldsList = document.getElementById('available-fields');
+            
+            fieldsContainer.innerHTML = source.fields.map(field => `
+                <div class="field-item" draggable="true" data-field="${field.name}" data-type="${field.type}">
+                    <i class="${field.icon}"></i>
+                    <span>${field.name}</span>
+                </div>
+            `).join('');
+            
+            fieldsList.style.display = 'block';
+            
+            // Reinitialize drag and drop for new fields
+            initializeDragAndDrop();
+        }
+
+        // Add field to table
+        function addFieldToTable(fieldName) {
+            if (!currentDataSource) {
+                showError('Please select a data source first');
+                return;
+            }
+
+            // Check if field already selected
+            if (selectedFields.find(f => f.name === fieldName)) {
+                showError('Field already selected');
+                return;
+            }
+
+            const source = dataSources[currentDataSource];
+            const field = source.fields.find(f => f.name === fieldName);
+            
+            if (field) {
+                selectedFields.push({
+                    name: field.name,
+                    type: field.type,
+                    icon: field.icon,
+                    source: currentDataSource
+                });
+                
+                updateColumnDropZone();
+                updateFilterOptions();
+                updateSortOptions();
+                updatePreview();
+            }
+        }
+
+        // Update column drop zone display
+        function updateColumnDropZone() {
+            const dropZone = document.getElementById('column-drop-zone');
+            
+            if (selectedFields.length === 0) {
+                dropZone.innerHTML = '<div class="drop-zone-empty">Drag fields here to build your table</div>';
+                return;
+            }
+            
+            dropZone.innerHTML = selectedFields.map((field, index) => `
+                <div class="selected-column" data-index="${index}">
+                    <i class="${field.icon}"></i>
+                    <span>${field.name}</span>
+                    <button class="remove-btn" onclick="removeField(${index})">×</button>
+                </div>
+            `).join('');
+        }
+
+        // Remove field from selection
+        function removeField(index) {
+            selectedFields.splice(index, 1);
+            updateColumnDropZone();
+            updateFilterOptions();
+            updateSortOptions();
+            updatePreview();
+        }
+
+        // Update filter field options
+        function updateFilterOptions() {
+            const filterField = document.getElementById('filter-field');
+            filterField.innerHTML = '<option value="">Select field...</option>' +
+                selectedFields.map(field => `<option value="${field.name}">${field.name}</option>`).join('');
+        }
+
+        // Update sort field options
+        function updateSortOptions() {
+            const sortField = document.getElementById('sort-field');
+            sortField.innerHTML = '<option value="">No sorting</option>' +
+                selectedFields.map(field => `<option value="${field.name}">${field.name}</option>`).join('');
+        }
+
+        // Add filter
+        function addFilter() {
+            const field = document.getElementById('filter-field').value;
+            const operator = document.getElementById('filter-operator').value;
+            const value = document.getElementById('filter-value').value;
+            
+            if (!field || !operator || !value) {
+                showError('Please fill in all filter fields');
+                return;
+            }
+            
+            activeFilters.push({
+                id: Date.now(),
+                field: field,
+                operator: operator,
+                value: value
+            });
+            
+            // Clear inputs
+            document.getElementById('filter-field').value = '';
+            document.getElementById('filter-operator').value = '';
+            document.getElementById('filter-value').value = '';
+            
+            updateActiveFilters();
+            updatePreview();
+        }
+
+        // Update active filters display
+        function updateActiveFilters() {
+            const container = document.getElementById('active-filters');
+            container.innerHTML = activeFilters.map(filter => `
+                <div class="active-filter">
+                    <span>${filter.field} ${filter.operator} "${filter.value}"</span>
+                    <button class="filter-remove" onclick="removeFilter(${filter.id})">×</button>
+                </div>
+            `).join('');
+        }
+
+        // Remove filter
+        function removeFilter(filterId) {
+            activeFilters = activeFilters.filter(f => f.id !== filterId);
+            updateActiveFilters();
+            updatePreview();
+        }
+
+        // Execute query and update preview
+        async function executeQuery() {
+            if (!currentDataSource || selectedFields.length === 0) {
+                showError('Please select a data source and at least one field');
+                return;
+            }
+
+            const startTime = Date.now();
+            
+            try {
+                // Show loading
+                document.getElementById('table-preview').innerHTML = 
+                    '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading data...</div>';
+
+                // Get date range
+                const dateRange = document.getElementById('date-range').value;
+                const { startDate, endDate } = getDateRangeForBuilder(dateRange);
+                
+                // Build query parameters
+                const queryParams = new URLSearchParams({
+                    type: currentDataSource,
+                    start_date: startDate,
+                    end_date: endDate
+                });
+
+                // Add limit if specified
+                const limit = document.getElementById('result-limit').value;
+                if (limit) {
+                    queryParams.append('limit', limit);
+                }
+
+                // Execute query
+                const response = await fetch(`/api/pos/run-report?${queryParams}`);
+                const data = await response.json();
+                
+                if (data.success && data.data) {
+                    tableData = data.data;
+                    renderLiveTable(tableData);
+                    
+                    // Update stats
+                    const loadTime = Date.now() - startTime;
+                    document.getElementById('row-count').textContent = `${tableData.length} rows`;
+                    document.getElementById('load-time').textContent = `Load time: ${loadTime}ms`;
+                    document.getElementById('last-updated').textContent = `Last updated: ${new Date().toLocaleTimeString()}`;
+                    document.getElementById('table-stats').style.display = 'flex';
+                } else {
+                    showError('Failed to load data: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                showError('Query failed: ' + error.message);
+            }
+        }
+
+        // Render live table
+        function renderLiveTable(data) {
+            if (!data || data.length === 0) {
+                document.getElementById('table-preview').innerHTML = 
+                    '<div class="loading"><i class="fas fa-info-circle"></i> No data found</div>';
+                return;
+            }
+
+            // Apply filters
+            let filteredData = applyFilters(data);
+            
+            // Apply sorting
+            filteredData = applySorting(filteredData);
+
+            // Build table HTML
+            const tableHtml = `
+                <table class="live-table">
+                    <thead>
+                        <tr>
+                            ${selectedFields.map(field => `
+                                <th>
+                                    <i class="${field.icon}"></i>
+                                    ${field.name}
+                                </th>
+                            `).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${filteredData.map(row => `
+                            <tr>
+                                ${selectedFields.map(field => `
+                                    <td>${formatCellValue(row[field.name], field.type)}</td>
+                                `).join('')}
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+            
+            document.getElementById('table-preview').innerHTML = tableHtml;
+        }
+
+        // Apply filters to data
+        function applyFilters(data) {
+            return data.filter(row => {
+                return activeFilters.every(filter => {
+                    const value = row[filter.field];
+                    const filterValue = filter.value;
+                    
+                    switch(filter.operator) {
+                        case 'equals':
+                            return String(value).toLowerCase() === filterValue.toLowerCase();
+                        case 'contains':
+                            return String(value).toLowerCase().includes(filterValue.toLowerCase());
+                        case 'greater_than':
+                            return parseFloat(value) > parseFloat(filterValue);
+                        case 'less_than':
+                            return parseFloat(value) < parseFloat(filterValue);
+                        case 'not_equals':
+                            return String(value).toLowerCase() !== filterValue.toLowerCase();
+                        default:
+                            return true;
+                    }
+                });
+            });
+        }
+
+        // Apply sorting to data
+        function applySorting(data) {
+            const sortField = document.getElementById('sort-field').value;
+            const sortDirection = document.getElementById('sort-direction').value;
+            
+            if (!sortField) return data;
+            
+            return [...data].sort((a, b) => {
+                let aVal = a[sortField];
+                let bVal = b[sortField];
+                
+                // Handle different data types
+                if (typeof aVal === 'string' && !isNaN(Date.parse(aVal))) {
+                    aVal = new Date(aVal);
+                    bVal = new Date(bVal);
+                } else if (!isNaN(aVal) && !isNaN(bVal)) {
+                    aVal = parseFloat(aVal);
+                    bVal = parseFloat(bVal);
+                }
+                
+                if (sortDirection === 'ASC') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+        }
+
+        // Format cell values based on type
+        function formatCellValue(value, type) {
+            if (value === null || value === undefined) return 'N/A';
+            
+            switch(type) {
+                case 'currency':
+                    return '$' + parseFloat(value).toLocaleString('en-US', {minimumFractionDigits: 2});
+                case 'percentage':
+                    return parseFloat(value).toFixed(1) + '%';
+                case 'number':
+                    return parseFloat(value).toLocaleString();
+                case 'date':
+                    return new Date(value).toLocaleDateString();
+                case 'datetime':
+                    return new Date(value).toLocaleString();
+                default:
+                    return String(value);
+            }
+        }
+
+        // Get date range for builder
+        function getDateRangeForBuilder(range) {
+            const endDate = new Date();
+            const startDate = new Date();
+            
+            switch(range) {
+                case 'today':
+                    startDate.setHours(0, 0, 0, 0);
+                    endDate.setHours(23, 59, 59, 999);
+                    break;
+                case 'week':
+                    startDate.setDate(startDate.getDate() - 6);
+                    break;
+                case 'month':
+                    startDate.setDate(1);
+                    break;
+                case 'quarter':
+                    const quarter = Math.floor(startDate.getMonth() / 3);
+                    startDate.setMonth(quarter * 3, 1);
+                    break;
+                case 'year':
+                    startDate.setMonth(0, 1);
+                    break;
+                case 'all':
+                    startDate.setFullYear(2020, 0, 1);
+                    break;
+            }
+            
+            return {
+                startDate: startDate.toISOString().split('T')[0],
+                endDate: endDate.toISOString().split('T')[0]
+            };
+        }
+
+        // Load quick template
+        function loadTemplate(templateName) {
+            const template = quickTemplates[templateName];
+            if (!template) return;
+            
+            // Select data source
+            selectDataSource(template.data_source);
+            
+            // Add fields
+            selectedFields = [];
+            template.fields.forEach(fieldName => {
+                const source = dataSources[template.data_source];
+                const field = source.fields.find(f => f.name === fieldName);
+                if (field) {
+                    selectedFields.push({
+                        name: field.name,
+                        type: field.type,
+                        icon: field.icon,
+                        source: template.data_source
+                    });
+                }
+            });
+            
+            // Set options
+            if (template.sort) {
+                document.getElementById('sort-field').value = template.sort.field;
+                document.getElementById('sort-direction').value = template.sort.direction;
+            }
+            
+            if (template.limit) {
+                document.getElementById('result-limit').value = template.limit;
+            }
+            
+            if (template.date_range) {
+                document.getElementById('date-range').value = template.date_range;
+            }
+            
+            // Update UI
+            updateColumnDropZone();
+            updateFilterOptions();
+            updateSortOptions();
+            
+            // Auto-execute
+            executeQuery();
+        }
+
+        // Export functions
+        function exportTable(format) {
+            if (!tableData || tableData.length === 0) {
+                showError('No data to export');
+                return;
+            }
+
+            const queryParams = new URLSearchParams({
+                type: currentDataSource,
+                format: format,
+                fields: selectedFields.map(f => f.name).join(',')
+            });
+
+            // Add date range
+            const dateRange = document.getElementById('date-range').value;
+            const { startDate, endDate } = getDateRangeForBuilder(dateRange);
+            queryParams.append('start_date', startDate);
+            queryParams.append('end_date', endDate);
+
+            // Add limit
+            const limit = document.getElementById('result-limit').value;
+            if (limit) {
+                queryParams.append('limit', limit);
+            }
+
+            // Open export URL
+            window.open(`/api/pos/export-report?${queryParams}`, '_blank');
+        }
+
+        // Create chart from table data
+        function createChart() {
+            if (!tableData || tableData.length === 0) {
+                showError('No data available for chart');
+                return;
+            }
+
+            // Simple chart creation - open in new window
+            const chartData = {
+                data: tableData,
+                fields: selectedFields,
+                title: `${dataSources[currentDataSource].name} Chart`
+            };
+            
+            // Store chart data in sessionStorage and open chart page
+            sessionStorage.setItem('chartData', JSON.stringify(chartData));
+            window.open('/chart-viewer', '_blank');
+        }
+
+        // Utility functions
+        function updatePreview() {
+            if (selectedFields.length > 0) {
+                executeQuery();
+            }
+        }
+
+        function refreshPreview() {
+            executeQuery();
+        }
+
+        function clearAll() {
+            selectedFields = [];
+            activeFilters = [];
+            currentDataSource = null;
+            
+            document.querySelectorAll('.source-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            document.getElementById('available-fields').style.display = 'none';
+            updateColumnDropZone();
+            updateActiveFilters();
+            
+            document.getElementById('table-preview').innerHTML = 
+                '<div class="loading"><i class="fas fa-info-circle"></i> Select a data source and drag fields to start building your table</div>';
+            document.getElementById('table-stats').style.display = 'none';
+        }
+
+        function saveView() {
+            if (!currentDataSource || selectedFields.length === 0) {
+                showError('Nothing to save - please build a table first');
+                return;
+            }
+
+            const viewName = prompt('Enter a name for this view:');
+            if (!viewName) return;
+
+            const viewConfig = {
+                name: viewName,
+                data_source: currentDataSource,
+                fields: selectedFields,
+                filters: activeFilters,
+                sort: {
+                    field: document.getElementById('sort-field').value,
+                    direction: document.getElementById('sort-direction').value
+                },
+                limit: document.getElementById('result-limit').value,
+                date_range: document.getElementById('date-range').value,
+                created_at: new Date().toISOString()
+            };
+
+            // Save to localStorage for now (could be enhanced to save to server)
+            const savedViews = JSON.parse(localStorage.getItem('savedTableViews') || '[]');
+            savedViews.push(viewConfig);
+            localStorage.setItem('savedTableViews', JSON.stringify(savedViews));
+
+            showSuccess(`View "${viewName}" saved successfully!`);
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+            document.querySelector('.table-builder-panel').prepend(errorDiv);
+            
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                background: rgba(16, 185, 129, 0.1);
+                border: 1px solid rgba(16, 185, 129, 0.3);
+                color: #10b981;
+                padding: 1rem;
+                border-radius: 8px;
+                margin: 1rem 0;
+            `;
+            successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.querySelector('.table-builder-panel').prepend(successDiv);
+            
+            setTimeout(() => successDiv.remove(), 3000);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDragAndDrop();
+            
+            // Load saved views
+            const savedViews = JSON.parse(localStorage.getItem('savedTableViews') || '[]');
+            if (savedViews.length > 0) {
+                console.log('Found saved views:', savedViews);
+            }
+        });
+    </script>
+</body>
+</html>

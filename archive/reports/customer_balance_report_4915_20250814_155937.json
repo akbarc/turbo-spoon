@@ -1,0 +1,19 @@
+{
+  "report_metadata": {
+    "generated_at": "2025-08-14T15:59:38.081774",
+    "customer_id": 4915,
+    "report_type": "comprehensive_balance_analysis"
+  },
+  "balance_calculation": {
+    "customer_id": 4915,
+    "customer_name": "5 STAR FOOD MART LLC",
+    "current_balance": 43424.87,
+    "transaction_count": 331,
+    "first_transaction": "2022-06-13T13:04:25",
+    "last_transaction": "2025-07-21T00:00:00",
+    "verification": {
+      "status": "passed",
+      "calculated_balance": 43424.87,
+      "ar_table_balance": 43424.87,
+      "difference": 0.0,
+      "active_ar_records": 

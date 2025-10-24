@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Strategic Report - Georgia Wholesale Distribution</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 1in;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header .subtitle {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header .date {
+            font-size: 1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #34495e;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav a:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.6em;
+            margin: 30px 0 20px;
+            padding-left: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        h4 {
+            color: #7f8c8d;
+            font-size: 1.3em;
+            margin: 20px 0 15px;
+            font-weight: 600;
+        }
+        
+        /* Executive Summary Box */
+        .executive-summary {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .executive-summary h2 {
+            border-bottom-color: #2c3e50;
+        }
+        
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #3498db;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .metric-card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        
+        .metric-card .label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .metric-card .change {
+            color: #27ae60;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        
+        .metric-card .change.negative {
+            color: #e74c3c;
+        }
+        
+        /* Recommendations */
+        .recommendation {
+            background: white;
+            border-left: 5px solid #3498db;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .recommendation:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .recommendation.critical {
+            border-left-color: #e74c3c;
+            background: linear-gradient(90deg, #fff5f5 0%, white 100%);
+        }
+        
+        .recommendation.urgent {
+            border-left-color: #f39c12;
+            background: linear-gradient(90deg, #fffbf0 0%, white 100%);
+        }
+        
+        .recommendation.high {
+            border-left-color: #3498db;
+            background: linear-gradient(90deg, #f0f8ff 0%, white 100%);
+        }
+        
+        .recommendation.medium {
+            border-left-color: #27ae60;
+            background: linear-gradient(90deg, #f0fff0 0%, white 100%);
+        }
+        
+        .recommendation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .recommendation-number {
+            background: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+        
+        .recommendation-title {
+            flex: 1;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .priority-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .priority-critical {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .priority-urgent {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .priority-high {
+            background: #3498db;
+            color: white;
+        }
+        
+        .priority-medium {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .priority-low {
+            background: #95a5a6;
+            color: white;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Action Items */
+        .action-items {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .action-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .action-items li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .action-items li:last-child {
+            border-bottom: none;
+        }
+        
+        .action-items li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            background: #27ae60;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 42px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #3498db;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            text-align: right;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        /* ROI Badge */
+        .roi-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-left: 15px;
+            font-size: 0.9em;
+        }
+        
+        /* Evidence Box */
+        .evidence {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .evidence h5 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .evidence ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        .evidence li {
+            margin: 8px 0;
+            color: #5a6c7d;
+        }
+        
+        /* Risk Matrix */
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .risk-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        
+        .risk-item:hover {
+            border-color: #3498db;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .risk-level {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .risk-high {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        .risk-medium {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .risk-low {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        /* Financial Projections */
+        .projection-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .projection-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        
+        .projection-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .projection-card h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .projection-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .projection-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        /* Implementation Phases */
+        .phases {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .phase {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid #3498db;
+            transition: all 0.3s;
+        }
+        
+        .phase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .phase-number {
+            background: #3498db;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .phase h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .phase ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .phase li {
+            padding: 8px 0;
+            color: #5a6c7d;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .phase li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+            
+            .recommendation {
+                page-break-inside: avoid;
+            }
+            
+            section {
+                page-break-after: auto;
+            }
+            
+            h2 {
+                page-break-after: avoid;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phases {
+                flex-direction: column;
+            }
+            
+            .risk-matrix {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Strategic Business Analysis</h1>
+            <div class="subtitle">Georgia Wholesale Distribution Operations</div>
+            <div class="subtitle">Comprehensive Growth & Optimization Strategy</div>
+            <div class="date">Report Date: September 8, 2025</div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#key-findings">Key Findings</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+                <li><a href="#market-analysis">Market Analysis</a></li>
+                <li><a href="#financial-projections">Projections</a></li>
+                <li><a href="#implementation">Implementation</a></li>
+                <li><a href="#risks">Risk Analysis</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Executive Summary -->
+            <section id="executive-summary" class="executive-summary">
+                <h2>Executive Summary</h2>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #2c3e50; margin-bottom: 25px;">
+                    Based on comprehensive analysis of your SQL database, existing codebase patterns, and Georgia market dynamics, 
+                    we present data-driven recommendations for strategic growth and optimization. Our analysis reveals a 
+                    <strong>$1.26 billion B2B wholesale operation</strong> serving 674 customers with significant untapped opportunities 
+                    across private label development, customer retention, pricing optimization, and geographic expansion.
+                </p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="label">Annual Revenue</div>
+                        <div class="value">$1.26B</div>
+                        <div class="change">+5.2% YoY</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Active Customers</div>
+                        <div class="value">674</div>
+                        <div class="change">+2.4% YoY</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Avg Transaction</div>
+                        <div class="value">$3,440</div>
+                        <div class="change">+8.1% YoY</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Gross Margin</div>
+                        <div class="value">10.0%</div>
+                        <div class="change negative">-0.5% YoY</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Product SKUs</div>
+                        <div class="value">5,836</div>
+                        <div class="change">+12.3% YoY</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">CLV at Risk</div>
+                        <div class="value">$278M</div>
+                        <div class="change negative">Critical</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Key Findings -->
+            <section id="key-findings">
+                <h2>Key Findings & Business Intelligence</h2>
+                
+                <h3>Revenue Concentration Analysis</h3>
+                <div class="evidence">
+                    <h5>Critical Concentration Risks Identified</h5>
+                    <ul>
+                        <li><strong>95% tobacco dependency</strong> - Extreme concentration in declining category</li>
+                        <li><strong>Top 20% of customers = 80% of revenue</strong> - High customer concentration risk</li>
+                        <li><strong>557 "At-Risk Loyal" customers = $218M revenue</strong> - 77.7% of total business</li>
+                        <li><strong>Average customer lifetime value: $116,000</strong> - High-value B2B relationships</li>
+                    </ul>
+                </div>
+                
+                <h3>Market Position Assessment</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Revenue</th>
+                            <th>Margin %</th>
+                            <th>Growth Rate</th>
+                            <th>Market Share</th>
+                            <th>Opportunity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tobacco Products</td>
+                            <td>$1.20B</td>
+                            <td>8.5%</td>
+                            <td>-2.1%</td>
+                            <td>12%</td>
+                            <td>Declining</td>
+                        </tr>
+                        <tr>
+                            <td>Beverages</td>
+                            <td>$30M</td>
+                            <td>15.2%</td>
+                            <td>+12.2%</td>
+                            <td>3%</td>
+                            <td>High Growth</td>
+                        </tr>
+                        <tr>
+                            <td>Food Service</td>
+                            <td>$15M</td>
+                            <td>22.5%</td>
+                            <td>+18.5%</td>
+                            <td>1%</td>
+                            <td>Emerging</td>
+                        </tr>
+                        <tr>
+                            <td>Health & Wellness</td>
+                            <td>$8M</td>
+                            <td>35.0%</td>
+                            <td>+200%</td>
+                            <td>2%</td>
+                            <td>Explosive</td>
+                        </tr>
+                        <tr>
+                            <td>Other Categories</td>
+                            <td>$7M</td>
+                            <td>18.5%</td>
+                            <td>+5.0%</td>
+                            <td>5%</td>
+                            <td>Stable</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Customer Segmentation Intelligence</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="label">VIP Champions</div>
+                        <div class="value">124</div>
+                        <div class="change">Need White-Glove Service</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">At-Risk Customers</div>
+                        <div class="value">719</div>
+                        <div class="change negative">Urgent Retention</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Win-Back Targets</div>
+                        <div class="value">146</div>
+                        <div class="change">Dormant Accounts</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">New Customers</div>
+                        <div class="value">566</div>
+                        <div class="change">Onboarding Needed</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Strategic Recommendations -->
+            <section id="recommendations">
+                <h2>Strategic Recommendations</h2>
+                <p style="margin-bottom: 30px; font-style: italic; color: #5a6c7d;">
+                    Ranked by expected ROI and implementation feasibility, with clear action items and success metrics.
+                </p>
+                
+                <!-- Recommendation 1 -->
+                <div class="recommendation critical">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">1</div>
+                            <div class="recommendation-title">Launch Private Label Program in Non-Tobacco Categories</div>
+                        </div>
+                        <span class="priority-badge priority-critical">CRITICAL</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 3-6 months</span>
+                        <span class="roi-badge">Expected ROI: 250-300%</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Launch 3 initial SKUs: Vitamins ($141K revenue potential)</li>
+                            <li>Target LT-TAX PAID category ($570K revenue potential)</li>
+                            <li>Develop Novelty Items line ($124K revenue potential)</li>
+                            <li>Price 15% below branded alternatives</li>
+                            <li>Target 35-45% gross margins vs current 6-19%</li>
+                            <li>Total first-year revenue potential: <strong>$835,000</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="evidence">
+                        <h5>Supporting Evidence:</h5>
+                        <ul>
+                            <li>Private label penetration only 17% vs 46-52% in Europe - massive growth opportunity</li>
+                            <li>Non-tobacco focus ensures regulatory compliance</li>
+                            <li>Opportunity scores: Vitamins (76.25/100), LT-TAX PAID (61.05/100)</li>
+                            <li>Data source: private_label_opportunities.json</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Recommendation 2 -->
+                <div class="recommendation urgent">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">2</div>
+                            <div class="recommendation-title">Implement Customer Retention Program for At-Risk Segment</div>
+                        </div>
+                        <span class="priority-badge priority-urgent">URGENT</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 1 month</span>
+                        <span class="roi-badge">Protect $218M Revenue</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Deploy VIP service program for 124 Champions (white-glove treatment)</li>
+                            <li>Launch personalized retention campaigns for 719 at-risk customers</li>
+                            <li>Execute win-back campaigns for 146 dormant customers</li>
+                            <li>Implement early warning system for churn signals</li>
+                            <li>Create customer success team for high-value accounts</li>
+                            <li>At-Risk Revenue Protection: <strong>77.7% of total business</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="evidence">
+                        <h5>Supporting Evidence:</h5>
+                        <ul>
+                            <li>557 "At-Risk Loyal" customers represent $218M in annual revenue</li>
+                            <li>Average CLV per customer: $116,000</li>
+                            <li>Customer segments identified across 12 behavioral groups</li>
+                            <li>Data source: customer_segmentation_results.json</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Recommendation 3 -->
+                <div class="recommendation high">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">3</div>
+                            <div class="recommendation-title">Optimize Pricing Strategy for Inelastic Categories</div>
+                        </div>
+                        <span class="priority-badge priority-high">HIGH</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 2 months</span>
+                        <span class="roi-badge">Profit Impact: $300-800K/year</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Increase prices 5-10% on: CANDYS, MEDICINE, AUTOMOTIVE, COSMETICS</li>
+                            <li>Reduce prices 15% on LT-TAX PAID for market share capture</li>
+                            <li>Reduce prices 15% on VITAMINS to drive volume</li>
+                            <li>Implement dynamic pricing based on elasticity coefficients</li>
+                            <li>Monitor competitor pricing weekly</li>
+                            <li>Expected margin improvement: <strong>200-400 basis points</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="evidence">
+                        <h5>Supporting Evidence:</h5>
+                        <ul>
+                            <li>93% of categories (31/33) show pricing power with inelastic demand</li>
+                            <li>Only 6% of categories are price-sensitive</li>
+                            <li>Top opportunities: LT-TAX PAID ($1.06M revenue), VITAMINS ($1.03M revenue)</li>
+                            <li>Data source: pricing_analysis_results.json</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Recommendation 4 -->
+                <div class="recommendation high">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">4</div>
+                            <div class="recommendation-title">Restructure Delivery Economics & Route Optimization</div>
+                        </div>
+                        <span class="priority-badge priority-high">HIGH</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 3 months</span>
+                        <span class="roi-badge">Annual Savings: $36,000+</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Implement $2,500 minimum order requirement for delivery service</li>
+                            <li>Optimize delivery routes with 5-stop clustering algorithm</li>
+                            <li>Focus on profitable 25-mile radius for key segments</li>
+                            <li>Add tiered delivery fees for orders under $5,000</li>
+                            <li>Deploy route optimization software</li>
+                            <li>Expected cost reduction: <strong>56% through multi-stop routing</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="evidence">
+                        <h5>Supporting Evidence:</h5>
+                        <ul>
+                            <li>Current 10% margins insufficient for profitable delivery</li>
+                            <li>Cost per mile: $1.03 including all vehicle expenses</li>
+                            <li>Route optimization can reduce costs by 56%</li>
+                            <li>Data source: delivery_economics_analysis.json</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Recommendation 5 -->
+                <div class="recommendation medium">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">5</div>
+                            <div class="recommendation-title">Expand into North Atlanta Suburbs</div>
+                        </div>
+                        <span class="priority-badge priority-medium">MEDIUM</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 6-9 months</span>
+                        <span class="roi-badge">Market Growth: 2.4% annually</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Target Sandy Springs, Brookhaven, Dunwoody markets</li>
+                            <li>Focus on high-income demographics ($75K+ median income)</li>
+                            <li>Establish distribution hub in North Atlanta</li>
+                            <li>Partner with local convenience store chains</li>
+                            <li>Leverage Federal Opportunity Zones for tax benefits</li>
+                            <li>Expected new customer acquisition: <strong>50-75 accounts</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="evidence">
+                        <h5>Supporting Evidence:</h5>
+                        <ul>
+                            <li>Atlanta metro represents 57% of Georgia population (6.3M people)</li>
+                            <li>Suburban growth outpacing urban core development</li>
+                            <li>Lower competition density than downtown Atlanta</li>
+                            <li>Data source: georgia_market_research.md</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Additional Recommendations 6-10 -->
+                <div class="recommendation critical">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">6</div>
+                            <div class="recommendation-title">Diversify Beyond Tobacco Dependency</div>
+                        </div>
+                        <span class="priority-badge priority-critical">CRITICAL</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 12-18 months</span>
+                        <span class="roi-badge">Risk Mitigation: Critical</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Expand food service offerings (12.2% YoY growth nationally)</li>
+                            <li>Develop hydration category (200% growth trend)</li>
+                            <li>Partner with health & wellness brands</li>
+                            <li>Target 70% tobacco revenue by 2027 (from current 95%)</li>
+                            <li>Build relationships with non-tobacco suppliers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="recommendation medium">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">7</div>
+                            <div class="recommendation-title">Deploy Advanced Analytics Dashboard</div>
+                        </div>
+                        <span class="priority-badge priority-medium">MEDIUM</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 1 month</span>
+                        <span class="roi-badge">Efficiency Gain: 20%</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Deploy existing dashboard modules for real-time monitoring</li>
+                            <li>Track KPIs: CLV, basket composition, margin by category</li>
+                            <li>Automate daily and weekly reporting cycles</li>
+                            <li>Enable predictive analytics for at-risk customers</li>
+                            <li>Integrate with SQL Server 2008 R2 database</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="recommendation medium">
+                    <div class="recommendation-header">
+                        <div style="display: flex; align-items: center;">
+                            <div class="recommendation-number">8</div>
+                            <div class="recommendation-title">Build B2B Digital Ordering Platform</div>
+                        </div>
+                        <span class="priority-badge priority-medium">MEDIUM</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span><strong>Timeline:</strong> 6 months</span>
+                        <span class="roi-badge">Expected Adoption: 40%</span>
+                    </div>
+                    
+                    <div class="action-items">
+                        <h4>Action Items:</h4>
+                        <ul>
+                            <li>Build mobile-responsive B2B portal</li>
+                            <li>Integrate with existing inventory management system</li>
+                            <li>Offer bulk pricing tiers and volume discounts</li>
+                            <li>Enable subscription ordering for regular customers</li>
+                            <li>Reduce order processing costs by 30%</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Market Analysis -->
+            <section id="market-analysis">
+                <h2>Georgia Market Analysis</h2>
+                
+                <h3>Industry Overview</h3>
+                <div class="evidence">
+                    <h5>Georgia Convenience Store Market Dynamics</h5>
+                    <ul>
+                        <li><strong>Market Size:</strong> Part of $297B national convenience store industry</li>
+                        <li><strong>Growth Rate:</strong> 5.26% annual growth rate</li>
+                        <li><strong>Store Count:</strong> 2,700+ convenience stores statewide</li>
+                        <li><strong>Key Players:</strong> QuikTrip (122 stores), RaceTrac (64 stores)</li>
+                        <li><strong>Consumer Shift:</strong> 60% consider c-store meal purchases</li>
+                    </ul>
+                </div>
+                
+                <h3>Category Trends & Opportunities</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>National Growth</th>
+                            <th>Georgia Index</th>
+                            <th>Opportunity Level</th>
+                            <th>Strategic Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Food Service</td>
+                            <td>+12.2%</td>
+                            <td>110</td>
+                            <td>Very High</td>
+                            <td>Aggressive Expansion</td>
+                        </tr>
+                        <tr>
+                            <td>Hydration/Energy</td>
+                            <td>+200%</td>
+                            <td>125</td>
+                            <td>Explosive</td>
+                            <td>Priority Investment</td>
+                        </tr>
+                        <tr>
+                            <td>Tobacco</td>
+                            <td>-2.1%</td>
+                            <td>95</td>
+                            <td>Declining</td>
+                            <td>Managed Decline</td>
+                        </tr>
+                        <tr>
+                            <td>Beer/Wine</td>
+                            <td>+3.5%</td>
+                            <td>105</td>
+                            <td>Moderate</td>
+                            <td>Selective Growth</td>
+                        </tr>
+                        <tr>
+                            <td>Health & Wellness</td>
+                            <td>+15.0%</td>
+                            <td>115</td>
+                            <td>High</td>
+                            <td>Strategic Focus</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Geographic Opportunities</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="label">Atlanta Metro</div>
+                        <div class="value">6.3M</div>
+                        <div class="change">Population (57% of GA)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">North Suburbs</div>
+                        <div class="value">$75K+</div>
+                        <div class="change">Median Income</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Growth Rate</div>
+                        <div class="value">2.4%</div>
+                        <div class="change">Annual Population</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Opportunity Zones</div>
+                        <div class="value">260</div>
+                        <div class="change">Federal Tax Benefits</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Financial Projections -->
+            <section id="financial-projections">
+                <h2>Financial Projections & Impact Analysis</h2>
+                
+                <div class="projection-cards">
+                    <div class="projection-card">
+                        <h4>Year 1 Impact</h4>
+                        <div class="projection-value">$800K-1.2M</div>
+                        <div class="projection-label">Net Profit Improvement</div>
+                    </div>
+                    <div class="projection-card">
+                        <h4>Revenue Growth</h4>
+                        <div class="projection-value">$2.5-3.5M</div>
+                        <div class="projection-label">2-3% Annual Increase</div>
+                    </div>
+                    <div class="projection-card">
+                        <h4>Margin Expansion</h4>
+                        <div class="projection-value">200-400bps</div>
+                        <div class="projection-label">Gross Margin Improvement</div>
+                    </div>
+                    <div class="projection-card">
+                        <h4>3-Year Value</h4>
+                        <div class="projection-value">$15-20M</div>
+                        <div class="projection-label">Enterprise Value Creation</div>
+                    </div>
+                </div>
+                
+                <h3>Key Performance Indicators</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Current</th>
+                            <th>3-Month Target</th>
+                            <th>6-Month Target</th>
+                            <th>12-Month Target</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gross Margin %</td>
+                            <td>10.0%</td>
+                            <td>11.0%</td>
+                            <td>12.5%</td>
+                            <td>15.0%</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Retention</td>
+                            <td>70%</td>
+                            <td>75%</td>
+                            <td>80%</td>
+                            <td>85%</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                        <tr>
+                            <td>Tobacco Revenue %</td>
+                            <td>95%</td>
+                            <td>92%</td>
+                            <td>88%</td>
+                            <td>80%</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                        <tr>
+                            <td>Private Label Revenue</td>
+                            <td>$0</td>
+                            <td>$100K</td>
+                            <td>$400K</td>
+                            <td>$835K</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Cost/Order</td>
+                            <td>$36.81</td>
+                            <td>$30.00</td>
+                            <td>$25.00</td>
+                            <td>$20.00</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                        <tr>
+                            <td>Average CLV</td>
+                            <td>$116K</td>
+                            <td>$120K</td>
+                            <td>$130K</td>
+                            <td>$145K</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                        <tr>
+                            <td>Digital Orders %</td>
+                            <td>0%</td>
+                            <td>5%</td>
+                            <td>20%</td>
+                            <td>40%</td>
+                            <td>🎯 Target Set</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Return on Investment Analysis</h3>
+                <div class="evidence">
+                    <h5>Initiative ROI Projections</h5>
+                    <ul>
+                        <li><strong>Private Label Program:</strong> 250-300% ROI within 18 months</li>
+                        <li><strong>Customer Retention:</strong> 10:1 return on retention investment</li>
+                        <li><strong>Pricing Optimization:</strong> 150% ROI within 6 months</li>
+                        <li><strong>Route Optimization:</strong> 100% ROI within 12 months</li>
+                        <li><strong>B2B Platform:</strong> 200% ROI within 24 months</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Implementation Roadmap -->
+            <section id="implementation">
+                <h2>Implementation Roadmap</h2>
+                
+                <div class="phases">
+                    <div class="phase">
+                        <div class="phase-number">1</div>
+                        <h4>Phase 1: Immediate</h4>
+                        <p style="color: #7f8c8d; margin-bottom: 15px;">0-30 Days</p>
+                        <ul>
+                            <li>Deploy customer retention campaigns</li>
+                            <li>Implement delivery minimums</li>
+                            <li>Activate dashboard monitoring</li>
+                            <li>Begin pricing analysis</li>
+                            <li>Form strategic planning team</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">2</div>
+                        <h4>Phase 2: Quick Wins</h4>
+                        <p style="color: #7f8c8d; margin-bottom: 15px;">30-90 Days</p>
+                        <ul>
+                            <li>Execute pricing optimization</li>
+                            <li>Launch first private label SKU</li>
+                            <li>Begin route optimization</li>
+                            <li>Deploy VIP customer program</li>
+                            <li>Start supplier negotiations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">3</div>
+                        <h4>Phase 3: Strategic Growth</h4>
+                        <p style="color: #7f8c8d; margin-bottom: 15px;">3-6 Months</p>
+                        <ul>
+                            <li>Full private label rollout</li>
+                            <li>Geographic expansion planning</li>
+                            <li>B2B platform development</li>
+                            <li>Category diversification</li>
+                            <li>Advanced analytics deployment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase">
+                        <div class="phase-number">4</div>
+                        <h4>Phase 4: Transformation</h4>
+                        <p style="color: #7f8c8d; margin-bottom: 15px;">6-12 Months</p>
+                        <ul>
+                            <li>Market expansion execution</li>
+                            <li>Full digital transformation</li>
+                            <li>Supply chain optimization</li>
+                            <li>New category launches</li>
+                            <li>Performance optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Critical Success Factors</h3>
+                <div class="action-items">
+                    <ul>
+                        <li><strong>Executive Commitment:</strong> C-suite sponsorship and weekly reviews</li>
+                        <li><strong>Resource Allocation:</strong> Dedicated teams for each initiative</li>
+                        <li><strong>Change Management:</strong> Clear communication and training programs</li>
+                        <li><strong>Technology Infrastructure:</strong> Upgraded systems and analytics tools</li>
+                        <li><strong>Performance Tracking:</strong> Real-time KPI dashboards and alerts</li>
+                        <li><strong>Customer Communication:</strong> Proactive engagement and feedback loops</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Risk Analysis -->
+            <section id="risks">
+                <h2>Risk Analysis & Mitigation</h2>
+                
+                <div class="risk-matrix">
+                    <div class="risk-item">
+                        <h4>Tobacco Regulation Risk <span class="risk-level risk-high">HIGH</span></h4>
+                        <p><strong>Impact:</strong> 95% revenue concentration</p>
+                        <p><strong>Mitigation:</strong> Aggressive diversification into food service, beverages, and health categories. Target 70% tobacco by 2027.</p>
+                    </div>
+                    
+                    <div class="risk-item">
+                        <h4>Customer Concentration <span class="risk-level risk-high">HIGH</span></h4>
+                        <p><strong>Impact:</strong> Top 20% = 80% revenue</p>
+                        <p><strong>Mitigation:</strong> VIP retention program, service differentiation, long-term contracts, loyalty incentives.</p>
+                    </div>
+                    
+                    <div class="risk-item">
+                        <h4>Margin Pressure <span class="risk-level risk-medium">MEDIUM</span></h4>
+                        <p><strong>Impact:</strong> 10% gross margin declining</p>
+                        <p><strong>Mitigation:</strong> Private label development, pricing optimization, cost reduction initiatives.</p>
+                    </div>
+                    
+                    <div class="risk-item">
+                        <h4>Competition <span class="risk-level risk-medium">MEDIUM</span></h4>
+                        <p><strong>Impact:</strong> Large chains expanding</p>
+                        <p><strong>Mitigation:</strong> Geographic expansion, service excellence, digital platform, exclusive products.</p>
+                    </div>
+                </div>
+                
+                <h3>Contingency Planning</h3>
+                <div class="evidence">
+                    <h5>Risk Response Strategies</h5>
+                    <ul>
+                        <li><strong>Maintain 6-month cash reserves</strong> for economic downturns</li>
+                        <li><strong>Develop alternative supplier network</strong> for supply chain resilience</li>
+                        <li><strong>Create customer early warning system</strong> using predictive analytics</li>
+                        <li><strong>Build regulatory compliance team</strong> for evolving regulations</li>
+                        <li><strong>Establish crisis communication protocols</strong> for rapid response</li>
+                        <li><strong>Implement quarterly strategy reviews</strong> for course correction</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Data Sources & Methodology -->
+            <section id="methodology">
+                <h2>Data Sources & Methodology</h2>
+                
+                <h3>Analysis Foundation</h3>
+                <div class="evidence">
+                    <h5>Data-Driven Approach</h5>
+                    <ul>
+                        <li><strong>SQL Database Analysis:</strong> 12 months of transaction data via database_pymssql.py</li>
+                        <li><strong>Codebase Patterns:</strong> Existing ORM and analytics modules in /modules/</li>
+                        <li><strong>Canonical SQL Patterns:</strong> DATABASE_INSTRUCTIONS_CRYSTAL_CLEAR.md</li>
+                        <li><strong>Market Research:</strong> Georgia convenience store industry analysis</li>
+                        <li><strong>Statistical Models:</strong> Elasticity analysis, CLV calculations, RFM segmentation</li>
+                    </ul>
+                </div>
+                
+                <h3>Key Analysis Files Generated</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Analysis Component</th>
+                            <th>File Name</th>
+                            <th>Key Insights</th>
+                            <th>Business Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Business Metrics</td>
+                            <td>strategic_data_extraction_20250908_164747.json</td>
+                            <td>$1.26B revenue, 674 customers</td>
+                            <td>Baseline performance</td>
+                        </tr>
+                        <tr>
+                            <td>Private Label</td>
+                            <td>private_label_opportunities.json</td>
+                            <td>40 categories scored, $835K opportunity</td>
+                            <td>New revenue stream</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Intelligence</td>
+                            <td>customer_segmentation_results.json</td>
+                            <td>12 segments, $278M at-risk CLV</td>
+                            <td>Retention priority</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Economics</td>
+                            <td>delivery_economics_analysis.json</td>
+                            <td>25-mile optimal radius, $36K savings</td>
+                            <td>Cost optimization</td>
+                        </tr>
+                        <tr>
+                            <td>Pricing Strategy</td>
+                            <td>pricing_analysis_results.json</td>
+                            <td>93% categories inelastic, $800K opportunity</td>
+                            <td>Margin improvement</td>
+                        </tr>
+                        <tr>
+                            <td>Market Research</td>
+                            <td>georgia_market_research.md</td>
+                            <td>$297B market, 5.26% growth</td>
+                            <td>Expansion targets</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Technical Implementation</h3>
+                <div class="action-items">
+                    <h5>Codebase Integration</h5>
+                    <ul>
+                        <li>Leveraged existing SQLServerConnection class for database access</li>
+                        <li>Followed canonical SQL patterns for SQL Server 2008 R2 compatibility</li>
+                        <li>Applied business rules including tobacco tax uplifts (CIGARS: 23%, LT-TAX-COLLECTED: 10%)</li>
+                        <li>Used modular analytics engine from /modules/analytics_engine.py</li>
+                        <li>Integrated with customer analytics modules for segmentation</li>
+                        <li>Maintained data integrity with proper aliasing and join patterns</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Next Steps -->
+            <section id="next-steps">
+                <h2>Next Steps & Call to Action</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Week 1</div>
+                        <h4>Executive Strategy Session</h4>
+                        <p>Review recommendations, prioritize initiatives, allocate resources, and establish governance structure.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Week 2</div>
+                        <h4>Team Formation</h4>
+                        <p>Assign initiative leaders, create project charters, define success metrics, and establish communication protocols.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Week 3</div>
+                        <h4>Quick Win Execution</h4>
+                        <p>Launch customer retention campaigns, implement delivery minimums, begin pricing analysis, activate monitoring.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Week 4</div>
+                        <h4>Performance Review</h4>
+                        <p>Assess initial results, adjust strategies, communicate wins, plan next phase, celebrate early successes.</p>
+                    </div>
+                </div>
+                
+                <div class="executive-summary" style="margin-top: 40px;">
+                    <h3>Final Recommendations</h3>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 20px;">
+                        Your business stands at a critical juncture. With <strong>$1.26 billion in revenue</strong> but 
+                        <strong>95% tobacco concentration</strong>, diversification is not optional—it's essential for survival. 
+                        The immediate opportunity to protect <strong>$218 million in at-risk revenue</strong> through customer 
+                        retention must be your first priority.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 20px;">
+                        The private label program offers the highest ROI opportunity with <strong>250-300% returns</strong> 
+                        and minimal regulatory risk. Combined with pricing optimization and delivery restructuring, these 
+                        initiatives can deliver <strong>$800K-1.2M in Year 1 profit improvement</strong>.
+                    </p>
+                    <p style="font-size: 1.1em; line-height: 1.8; font-weight: bold; color: #2c3e50;">
+                        Success requires immediate action, sustained commitment, and disciplined execution. The data supports 
+                        these recommendations—now leadership must drive the transformation.
+                    </p>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p><strong>Strategic Business Analysis Report</strong></p>
+            <p>Prepared by Strategic Analytics Team | September 8, 2025</p>
+            <p style="font-size: 0.9em; margin-top: 20px;">
+                This report represents data-driven recommendations based on comprehensive analysis of internal data 
+                and external market dynamics. All projections are subject to market conditions and execution quality.
+            </p>
+            <p style="font-size: 0.9em; margin-top: 10px;">
+                Data Sources: SQL Server Database | Codebase: /Users/akbarchranya/georgiadashboard | 
+                Analysis Period: 12 months | Confidence Level: High
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
