@@ -104,17 +104,12 @@ class CustomerGroupManager:
             if len(group_df) == 1:
                 continue
 
-            # Get the most common name for the group
-            # Prefer Company if it exists, otherwise use FirstName LastName
-            if group_df['company'].notna().any() and (group_df['company'] != '').any():
-                # Use most common company name
-                group_name = group_df['company'].value_counts().index[0]
+            # Use the FIRST customer's name as the group name (primary member)
+            first_customer = group_df.iloc[0]
+            if first_customer['company'] and str(first_customer['company']).strip():
+                group_name = str(first_customer['company']).strip()
             else:
-                # Use most common first/last name combination
-                name_counts = group_df.apply(
-                    lambda x: f"{x['first_name']} {x['last_name']}".strip(), axis=1
-                ).value_counts()
-                group_name = name_counts.index[0] if not name_counts.empty else "Unknown"
+                group_name = f"{first_customer['first_name']} {first_customer['last_name']}".strip()
 
             soundex_last = group_df.iloc[0]['soundex_last']
             soundex_first = group_df.iloc[0]['soundex_first']
@@ -498,6 +493,174 @@ class CustomerGroupManager:
             })
 
         return pd.DataFrame(summaries)
+
+    def calculate_and_cache_all_analytics(self) -> Dict:
+        """
+        Calculate analytics for ALL groups in one efficient batch and cache results.
+        This is much faster than querying each group individually.
+
+        Returns:
+            Dict with calculation statistics
+        """
+        from datetime import datetime, timedelta
+
+        logger.info("Starting bulk analytics calculation...")
+
+        # Clear existing cache
+        self.overlay.clear_analytics_cache()
+
+        # Get all groups
+        groups_df = self.overlay.get_soundex_groups()
+
+        if groups_df.empty:
+            return {
+                'status': 'success',
+                'groups_processed': 0,
+                'message': 'No groups to calculate'
+            }
+
+        # Calculate date range (last 30 days)
+        end_date = datetime.now().date()
+        start_date = end_date - timedelta(days=30)
+        start_date_str = start_date.strftime('%Y-%m-%d')
+        end_date_str = end_date.strftime('%Y-%m-%d')
+
+        logger.info(f"Calculating analytics for {len(groups_df)} groups...")
+
+        groups_processed = 0
+        for _, group in groups_df.iterrows():
+            group_id = int(group['id'])
+
+            try:
+                # Get members for this group
+                members_df = self.overlay.get_group_members(group_id)
+                if members_df.empty:
+                    continue
+
+                customer_ids = members_df['customer_id'].tolist()
+                customer_ids_str = ','.join([str(cid) for cid in customer_ids])
+
+                # Calculate financial metrics (30 days)
+                financial_query = f"""
+                    SELECT
+                        COUNT(DISTINCT t.TransactionNumber) as transaction_count,
+                        ISNULL(SUM(t.Total), 0) as total_sales,
+                        MAX(t.Time) as last_purchase
+                    FROM dbo.[Transaction] t
+                    WHERE t.CustomerID IN ({customer_ids_str})
+                        AND t.Time >= '{start_date_str}'
+                        AND t.Time <= '{end_date_str}'
+                """
+
+                financial_df = execute_query(financial_query)
+
+                # Calculate GP from TransactionEntry
+                gp_query = f"""
+                    SELECT
+                        ISNULL(SUM((te.Price - te.Cost) * te.Quantity), 0) as gross_profit
+                    FROM dbo.TransactionEntry te
+                    INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+                    WHERE t.CustomerID IN ({customer_ids_str})
+                        AND t.Time >= '{start_date_str}'
+                        AND t.Time <= '{end_date_str}'
+                """
+
+                gp_df = execute_query(gp_query)
+
+                # Get AR balance (current)
+                ar_query = f"""
+                    SELECT ISNULL(SUM(AccountBalance), 0) as ar_balance
+                    FROM dbo.Customer
+                    WHERE ID IN ({customer_ids_str})
+                """
+
+                ar_df = execute_query(ar_query)
+
+                # Get PD checks
+                pd_query = f"""
+                    SELECT
+                        COUNT(*) as pd_count,
+                        ISNULL(SUM(te.Amount), 0) as pd_total
+                    FROM dbo.TenderEntry te
+                    INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+                    WHERE t.CustomerID IN ({customer_ids_str})
+                        AND (te.Description LIKE '%post%date%' OR te.Description LIKE '%PD%')
+                        AND te.Amount > 0
+                """
+
+                pd_df = execute_query(pd_query)
+
+                # Build analytics dict
+                total_sales = float(financial_df.iloc[0]['total_sales'] or 0)
+                gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
+
+                analytics = {
+                    'total_sales': total_sales,
+                    'gross_profit': gross_profit,
+                    'gp_percentage': (gross_profit / total_sales * 100) if total_sales > 0 else 0,
+                    'ar_balance': float(ar_df.iloc[0]['ar_balance'] or 0),
+                    'pd_checks_count': int(pd_df.iloc[0]['pd_count'] or 0),
+                    'pd_checks_total': float(pd_df.iloc[0]['pd_total'] or 0),
+                    'transaction_count': int(financial_df.iloc[0]['transaction_count'] or 0),
+                    'last_purchase': str(financial_df.iloc[0]['last_purchase']) if financial_df.iloc[0]['last_purchase'] else None
+                }
+
+                # Cache the analytics
+                self.overlay.cache_group_analytics(group_id, analytics)
+                groups_processed += 1
+
+                if groups_processed % 10 == 0:
+                    logger.info(f"Processed {groups_processed}/{len(groups_df)} groups...")
+
+            except Exception as e:
+                logger.error(f"Error calculating analytics for group {group_id}: {str(e)}")
+                continue
+
+        logger.info(f"Analytics calculation complete: {groups_processed} groups processed")
+
+        return {
+            'status': 'success',
+            'groups_processed': groups_processed,
+            'message': f'Calculated and cached analytics for {groups_processed} groups',
+            'timestamp': datetime.now().isoformat()
+        }
+
+    def get_cached_groups_summary(self, min_sales: float = 0) -> pd.DataFrame:
+        """
+        Get group summaries from cache (instant load).
+
+        Args:
+            min_sales: Minimum sales to include
+
+        Returns:
+            DataFrame with cached group summaries
+        """
+        df = self.overlay.get_cached_analytics()
+
+        if df.empty:
+            return df
+
+        # Filter by min_sales
+        if min_sales > 0:
+            df = df[df['total_sales_30d'] >= min_sales]
+
+        # Rename columns to match expected format
+        df = df.rename(columns={
+            'total_sales_30d': 'total_sales',
+            'gross_profit_30d': 'gross_profit',
+            'gp_percentage_30d': 'gp_percentage',
+            'transaction_count_30d': 'transaction_count',
+            'pd_checks_total': 'pd_checks_amount'
+        })
+
+        # Add avg_days_to_pay as 0 for now (not cached yet)
+        df['avg_days_to_pay'] = 0
+
+        return df
+
+    def get_group_members(self, group_id: int) -> pd.DataFrame:
+        """Get all members of a customer group from overlay database."""
+        return self.overlay.get_group_members(group_id)
 
     def _build_date_filter(self, start_date: Optional[str], end_date: Optional[str]) -> str:
         """Build SQL date filter clause."""

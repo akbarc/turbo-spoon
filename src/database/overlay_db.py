@@ -120,6 +120,28 @@ class OverlayDatabase:
                 )
             """)
 
+            # Customer group analytics cache
+            cursor.execute("""
+                CREATE TABLE IF NOT EXISTS customer_group_analytics (
+                    group_id INTEGER PRIMARY KEY,
+                    total_sales_30d REAL DEFAULT 0,
+                    gross_profit_30d REAL DEFAULT 0,
+                    gp_percentage_30d REAL DEFAULT 0,
+                    ar_balance REAL DEFAULT 0,
+                    pd_checks_count INTEGER DEFAULT 0,
+                    pd_checks_total REAL DEFAULT 0,
+                    transaction_count_30d INTEGER DEFAULT 0,
+                    last_purchase DATE,
+                    last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (group_id) REFERENCES customer_groups(id)
+                )
+            """)
+
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_group_analytics_sales
+                ON customer_group_analytics(total_sales_30d DESC)
+            """)
+
             conn.commit()
 
     def execute_query(self, query: str, params: Optional[tuple] = None) -> pd.DataFrame:
@@ -259,6 +281,56 @@ class OverlayDatabase:
         """
         df = self.execute_query(query)
         return df['customer_id'].tolist() if not df.empty else []
+
+    # Customer group analytics cache methods
+    def cache_group_analytics(self, group_id: int, analytics: dict):
+        """Cache analytics for a customer group."""
+        query = """
+            INSERT OR REPLACE INTO customer_group_analytics
+                (group_id, total_sales_30d, gross_profit_30d, gp_percentage_30d,
+                 ar_balance, pd_checks_count, pd_checks_total,
+                 transaction_count_30d, last_purchase, last_updated)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+        """
+        return self.execute_non_query(query, (
+            group_id,
+            analytics.get('total_sales', 0),
+            analytics.get('gross_profit', 0),
+            analytics.get('gp_percentage', 0),
+            analytics.get('ar_balance', 0),
+            analytics.get('pd_checks_count', 0),
+            analytics.get('pd_checks_total', 0),
+            analytics.get('transaction_count', 0),
+            analytics.get('last_purchase')
+        ))
+
+    def get_cached_analytics(self) -> pd.DataFrame:
+        """Get all cached group analytics joined with group info."""
+        query = """
+            SELECT
+                cg.id as group_id,
+                cg.group_key,
+                cg.group_name,
+                cg.member_count,
+                cga.total_sales_30d,
+                cga.gross_profit_30d,
+                cga.gp_percentage_30d,
+                cga.ar_balance,
+                cga.pd_checks_count,
+                cga.pd_checks_total,
+                cga.transaction_count_30d,
+                cga.last_purchase,
+                cga.last_updated
+            FROM customer_groups cg
+            LEFT JOIN customer_group_analytics cga ON cg.id = cga.group_id
+            WHERE cg.group_type = 'soundex'
+            ORDER BY cga.total_sales_30d DESC NULLS LAST
+        """
+        return self.execute_query(query)
+
+    def clear_analytics_cache(self):
+        """Clear all cached analytics."""
+        return self.execute_non_query("DELETE FROM customer_group_analytics")
 
     # Excise tax methods
     def add_excise_tax_rule(self, tax_rate: float, tax_type: str,
