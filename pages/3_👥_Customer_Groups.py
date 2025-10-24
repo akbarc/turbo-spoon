@@ -2,10 +2,11 @@
 
 import streamlit as st
 import pandas as pd
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 from src.database.sql_server import test_connection, execute_query
 from src.modules.customer_groups import customer_group_manager
+from src.modules.pd_check_parser import PDCheckParser
 
 # Page configuration
 st.set_page_config(
@@ -132,11 +133,12 @@ with st.spinner(f"Calculating analytics for last {days} days..."):
             """
             ar_df = execute_query(ar_query)
 
-            # Get PD checks from Payment table
+            # Get PD checks from Payment table - get all to parse dates
             pd_query = f"""
                 SELECT
-                    COUNT(*) as pd_count,
-                    ISNULL(SUM(Amount), 0) as pd_total
+                    Time,
+                    Amount,
+                    Comment
                 FROM dbo.Payment
                 WHERE CustomerID IN ({customer_ids_str})
                     AND (
@@ -149,6 +151,19 @@ with st.spinner(f"Calculating analytics for last {days} days..."):
             """
             pd_df = execute_query(pd_query)
 
+            # Parse and filter PD checks - only count future/active checks
+            active_pd_total = 0
+            active_pd_count = 0
+            today = date.today()
+
+            for _, pd_row in pd_df.iterrows():
+                pd_info = PDCheckParser.extract_pd_info(pd_row['Comment'])
+                if pd_info.get('deposit_date'):
+                    # Only count if the PD date hasn't passed yet
+                    if pd_info['deposit_date'] >= today:
+                        active_pd_total += float(pd_row['Amount'])
+                        active_pd_count += 1
+
             total_sales = float(financial_df.iloc[0]['total_sales'] or 0)
             gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
 
@@ -160,8 +175,8 @@ with st.spinner(f"Calculating analytics for last {days} days..."):
                 'gross_profit': gross_profit,
                 'gp_percentage': (gross_profit / total_sales * 100) if total_sales > 0 else 0,
                 'ar_balance': float(ar_df.iloc[0]['total_ar'] or 0),
-                'pd_checks_amount': float(pd_df.iloc[0]['pd_total'] or 0),
-                'pd_checks_count': int(pd_df.iloc[0]['pd_count'] or 0),
+                'pd_checks_amount': active_pd_total,
+                'pd_checks_count': active_pd_count,
                 'transaction_count': int(financial_df.iloc[0]['transaction_count'] or 0)
             })
         except Exception as e:
@@ -389,7 +404,7 @@ else:
                     # PD Checks from Payment table - get individual checks with details
                     pd_query = f"""
                         SELECT
-                            Time as check_date,
+                            Time as payment_date,
                             Amount,
                             Comment
                         FROM dbo.Payment
@@ -403,14 +418,32 @@ else:
                             AND Amount > 0
                         ORDER BY Time DESC
                     """
-                    pd_checks_df = execute_query(pd_query)
+                    pd_checks_raw = execute_query(pd_query)
 
                     total_sales = float(sales_df.iloc[0]['total_sales'] or 0)
                     gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
 
-                    # Calculate PD check totals
-                    pd_checks_total = float(pd_checks_df['Amount'].sum()) if not pd_checks_df.empty else 0
-                    pd_checks_count = len(pd_checks_df)
+                    # Parse PD checks and only keep active (future) ones
+                    active_checks = []
+                    pd_checks_total = 0
+                    today = date.today()
+
+                    for _, check in pd_checks_raw.iterrows():
+                        pd_info = PDCheckParser.extract_pd_info(check['Comment'])
+                        if pd_info.get('deposit_date'):
+                            # Only include if PD date hasn't passed
+                            if pd_info['deposit_date'] >= today:
+                                active_checks.append({
+                                    'payment_date': check['payment_date'],
+                                    'pd_date': pd_info['deposit_date'],
+                                    'amount': float(check['Amount']),
+                                    'comment': check['Comment'],
+                                    'days_until': pd_info.get('days_until_deposit', 0)
+                                })
+                                pd_checks_total += float(check['Amount'])
+
+                    # Sort by PD date
+                    active_checks.sort(key=lambda x: x['pd_date'])
 
                     store_analytics.append({
                         'customer_name': member['customer_name'],
@@ -420,8 +453,8 @@ else:
                         'gp_percentage': (gross_profit / total_sales * 100) if total_sales > 0 else 0,
                         'ar_balance': float(ar_df.iloc[0]['ar_balance'] or 0),
                         'pd_checks_total': pd_checks_total,
-                        'pd_checks_count': pd_checks_count,
-                        'pd_checks_details': pd_checks_df,  # Store the full details
+                        'pd_checks_count': len(active_checks),
+                        'pd_checks_details': active_checks,  # Store parsed active checks only
                         'transaction_count': int(sales_df.iloc[0]['transaction_count'] or 0),
                         'last_purchase': sales_df.iloc[0]['last_purchase']
                     })
@@ -465,18 +498,29 @@ else:
                     if store.get('last_purchase'):
                         st.caption(f"Last purchase: {store['last_purchase']}")
 
-                    # Show individual PD check details if any
-                    if store['pd_checks_count'] > 0 and not store['pd_checks_details'].empty:
+                    # Show individual PD check details if any (active checks only)
+                    if store['pd_checks_count'] > 0 and store['pd_checks_details']:
                         st.markdown("---")
-                        st.markdown("**📝 PD Checks Details:**")
+                        st.markdown("**📝 Active PD Checks (Not Yet Matured):**")
 
-                        pd_checks = store['pd_checks_details']
-                        for idx, check in pd_checks.iterrows():
-                            check_date = check['check_date'].strftime('%Y-%m-%d') if pd.notna(check['check_date']) else 'N/A'
-                            amount = check['Amount']
-                            comment = check['Comment'] if pd.notna(check['Comment']) else ''
+                        for check in store['pd_checks_details']:
+                            pd_date = check['pd_date'].strftime('%Y-%m-%d') if isinstance(check['pd_date'], date) else str(check['pd_date'])
+                            amount = check['amount']
+                            comment = check['comment']
+                            days_until = check['days_until']
 
-                            st.text(f"• {check_date} - ${amount:,.2f} - {comment}")
+                            # Color code based on how soon it's due
+                            if days_until == 0:
+                                status = "🔴 DUE TODAY"
+                            elif days_until <= 3:
+                                status = f"🟡 Due in {days_until} days"
+                            elif days_until <= 7:
+                                status = f"🟢 Due in {days_until} days"
+                            else:
+                                status = f"⚪ Due in {days_until} days"
+
+                            st.text(f"• {pd_date} - ${amount:,.2f} - {status}")
+                            st.caption(f"  {comment}")
         else:
             st.info("No store details available")
 
