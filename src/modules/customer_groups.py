@@ -227,18 +227,22 @@ class CustomerGroupManager:
         ar_df = execute_query(ar_query)
 
         # Get post-dated checks
-        pd_checks_query = f"""
-            SELECT
-                COUNT(*) as pd_check_count,
-                SUM(te.Amount) as pd_check_total
-            FROM dbo.TenderEntry te
-            INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
-            WHERE t.CustomerID IN ({customer_ids_str})
-                AND te.Comment LIKE '%post%date%'
-                AND te.Amount > 0
-        """
+        # TODO: Need to find correct column for PD check comments in TenderEntry
+        # Temporarily disabled - returning zeros
+        # pd_checks_query = f"""
+        #     SELECT
+        #         COUNT(*) as pd_check_count,
+        #         SUM(te.Amount) as pd_check_total
+        #     FROM dbo.TenderEntry te
+        #     INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+        #     WHERE t.CustomerID IN ({customer_ids_str})
+        #         AND te.Comment LIKE '%post%date%'
+        #         AND te.Amount > 0
+        # """
+        # pd_checks_df = execute_query(pd_checks_query)
 
-        pd_checks_df = execute_query(pd_checks_query)
+        # Return zeros for now until we find correct column
+        pd_checks_df = pd.DataFrame([{'pd_check_count': 0, 'pd_check_total': 0}])
 
         # Get payment velocity (average days to pay)
         payment_velocity_query = f"""
