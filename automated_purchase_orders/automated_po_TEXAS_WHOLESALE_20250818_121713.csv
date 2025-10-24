@@ -1,0 +1,21 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: TEXAS WHOLESALE
+# Generated: 2025-08-18 12:17:13
+# Total Items: 5
+# Total Quantity: 1,219.0
+# Estimated Value: $26,661.16
+# Critical Items: 1
+# Urgent Items: 1
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+CRITICAL,070137514916,BLK & MLD 1.19 25CT PT SWEET,CIGARS,-14,-0.1,96.9,872,$18.73,$16331.60,DECREASING,$2747.21,2
+URGENT,751667067584,DJARUM 10/12PK SPECIAL,CIGARS,14,2.0,7.1,65,$40.53,$2634.66,DECREASING,$664.43,5
+LOW,070137525295,BLK & MLD 25CT WT WINE,CIGARS,44,2.1,21.4,193,$23.00,$4439.48,STABLE,$1593.72,2
+LOW,751667074346,DJARUM 10/12PK BALI HAI ,CIGARS,19,2.4,7.9,71,$40.53,$2877.86,STABLE,$1032.57,5
+LOW,070137005889,BLK & MLD 25CT PT APPLE ,CIGARS,5,2.5,2.0,18,$20.98,$377.55,DECREASING,$125.44,2

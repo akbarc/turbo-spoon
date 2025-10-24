@@ -1,0 +1,4966 @@
+{
+  "report_date": "2025-09-03T17:19:58.187793",
+  "priority_1": {
+    "customer_revenue_brackets": {
+      "summary": [],
+      "top_customers_by_bracket": [
+        {
+          "CustomerName": "KUSHI ALI INC",
+          "AnnualRevenue": "1353039.7700",
+          "AnnualTransactions": 65,
+          "AvgTransaction": "20815.9964",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "A & K GLOBAL USA LLC/FAIRVIEW",
+          "AnnualRevenue": "869480.2300",
+          "AnnualTransactions": 48,
+          "AvgTransaction": "18114.1714",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "FR1 USA LLC",
+          "AnnualRevenue": "669051.7300",
+          "AnnualTransactions": 46,
+          "AvgTransaction": "14544.6028",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ARISHA SHELL INC",
+          "AnnualRevenue": "626135.0400",
+          "AnnualTransactions": 124,
+          "AvgTransaction": "5049.4761",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ARISHA CHEVRON INC",
+          "AnnualRevenue": "557502.9600",
+          "AnnualTransactions": 130,
+          "AvgTransaction": "4288.4843",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "REDAN BP INC",
+          "AnnualRevenue": "556148.6400",
+          "AnnualTransactions": 93,
+          "AvgTransaction": "5980.0929",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "PATRIOT PARTY STORE",
+          "AnnualRevenue": "541934.8500",
+          "AnnualTransactions": 49,
+          "AvgTransaction": "11059.8948",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CDP USA LLC",
+          "AnnualRevenue": "524330.9900",
+          "AnnualTransactions": 22,
+          "AvgTransaction": "23833.2268",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "BOULEVARD CONVENIENCE INC",
+          "AnnualRevenue": "425090.5900",
+          "AnnualTransactions": 88,
+          "AvgTransaction": "4830.5748",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "STOP & SAVE GROUP LLC",
+          "AnnualRevenue": "417260.7900",
+          "AnnualTransactions": 120,
+          "AvgTransaction": "3477.1732",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "DON KING OF NEWNAN LLC/NEWNAN FOOD MART",
+          "AnnualRevenue": "382011.5300",
+          "AnnualTransactions": 91,
+          "AvgTransaction": "4197.9289",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MAGNET MARKET/4565 BP FOOD MART LLC",
+          "AnnualRevenue": "342972.2400",
+          "AnnualTransactions": 169,
+          "AvgTransaction": "2029.4215",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "KK SONS USA INC",
+          "AnnualRevenue": "341015.4100",
+          "AnnualTransactions": 125,
+          "AvgTransaction": "2728.1232",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "101 DISTRIBUTORS GA LLC",
+          "AnnualRevenue": "329002.9400",
+          "AnnualTransactions": 75,
+          "AvgTransaction": "4386.7058",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "FAIRBURN BLESSINGS LLC/SHELL FOOD MART",
+          "AnnualRevenue": "324357.1800",
+          "AnnualTransactions": 100,
+          "AvgTransaction": "3243.5718",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "KGN INTERNATIONAL LLC/WALKERS GROCERY AND DELI",
+          "AnnualRevenue": "301959.4800",
+          "AnnualTransactions": 96,
+          "AvgTransaction": "3145.4112",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+          "AnnualRevenue": "285283.2900",
+          "AnnualTransactions": 112,
+          "AvgTransaction": "2547.1722",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "3834 ALTO INC/BP GAS STATION",
+          "AnnualRevenue": "282644.6800",
+          "AnnualTransactions": 89,
+          "AvgTransaction": "3175.7829",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "DOLAT PARTNERS USA LLC",
+          "AnnualRevenue": "266652.3800",
+          "AnnualTransactions": 120,
+          "AvgTransaction": "2222.1031",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SEANS COUNTRY STOP",
+          "AnnualRevenue": "262683.6000",
+          "AnnualTransactions": 113,
+          "AvgTransaction": "2324.6336",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "TYRONE B.P",
+          "AnnualRevenue": "261336.1900",
+          "AnnualTransactions": 146,
+          "AvgTransaction": "1789.9739",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MR SINGH FOOD & GAS LLC",
+          "AnnualRevenue": "257410.8900",
+          "AnnualTransactions": 55,
+          "AvgTransaction": "4680.1980",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ANIL INVESTMENT LLC/CITGO/K",
+          "AnnualRevenue": "249658.9600",
+          "AnnualTransactions": 164,
+          "AvgTransaction": "1522.3107",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "FLAT SHOALS NEIGHBORHOOD STORE,INC",
+          "AnnualRevenue": "239040.6000",
+          "AnnualTransactions": 126,
+          "AvgTransaction": "1897.1476",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "BEST FOOD MART",
+          "AnnualRevenue": "231341.7700",
+          "AnnualTransactions": 103,
+          "AvgTransaction": "2246.0366",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "REX C STORE/REX STORE INC",
+          "AnnualRevenue": "230699.7800",
+          "AnnualTransactions": 124,
+          "AvgTransaction": "1860.4820",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "COVINGTON OPS 1 LLC/COVINGTON FOOD MART",
+          "AnnualRevenue": "222596.9700",
+          "AnnualTransactions": 86,
+          "AvgTransaction": "2588.3368",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "157 COMMERCE DRIVE LLC",
+          "AnnualRevenue": "216067.1000",
+          "AnnualTransactions": 70,
+          "AvgTransaction": "3086.6728",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MAGIC PRIME LLC/TRUCK STOP",
+          "AnnualRevenue": "213801.0200",
+          "AnnualTransactions": 34,
+          "AvgTransaction": "6288.2652",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "5 STAR FOOD MART LLC",
+          "AnnualRevenue": "210718.5300",
+          "AnnualTransactions": 57,
+          "AvgTransaction": "3696.8163",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CHEVRON FOOD MART/SHAMANTA INC",
+          "AnnualRevenue": "208121.3900",
+          "AnnualTransactions": 72,
+          "AvgTransaction": "2890.5748",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SPEEDZONE SHELL",
+          "AnnualRevenue": "188044.1800",
+          "AnnualTransactions": 46,
+          "AvgTransaction": "4087.9169",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "OAKLAND FOOD MART",
+          "AnnualRevenue": "187475.5500",
+          "AnnualTransactions": 145,
+          "AvgTransaction": "1292.9348",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ANDYS WHOLESALE INC",
+          "AnnualRevenue": "183840.6000",
+          "AnnualTransactions": 15,
+          "AvgTransaction": "12256.0400",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "Z & F GASOLINE TEXACO FOOD MART",
+          "AnnualRevenue": "182800.8700",
+          "AnnualTransactions": 35,
+          "AvgTransaction": "5222.8820",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MIDWAY EXXON INC ",
+          "AnnualRevenue": "177233.6600",
+          "AnnualTransactions": 76,
+          "AvgTransaction": "2332.0218",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "WHOLESALE EXPRESS",
+          "AnnualRevenue": "172038.7500",
+          "AnnualTransactions": 9,
+          "AvgTransaction": "19115.4166",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SHAMROCK FOODMART/ ARZAN SMART GROUP LLC",
+          "AnnualRevenue": "169322.8100",
+          "AnnualTransactions": 76,
+          "AvgTransaction": "2227.9317",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CHEVRON FOOD MART/ NIKI 3290 INC",
+          "AnnualRevenue": "168129.6800",
+          "AnnualTransactions": 94,
+          "AvgTransaction": "1788.6136",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "EXXON FOOD MART/BROWNSMILL ENTERPRISES CORP",
+          "AnnualRevenue": "166202.9100",
+          "AnnualTransactions": 77,
+          "AvgTransaction": "2158.4793",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "AAP MONTICELLO INC.",
+          "AnnualRevenue": "164618.5200",
+          "AnnualTransactions": 126,
+          "AvgTransaction": "1306.4961",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "NURUL ENTERPRISE LLC",
+          "AnnualRevenue": "161625.3100",
+          "AnnualTransactions": 90,
+          "AvgTransaction": "1795.8367",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SR UNITED USA INC",
+          "AnnualRevenue": "161220.1500",
+          "AnnualTransactions": 71,
+          "AvgTransaction": "2270.7063",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "LUCKY WOODS FOOD MART LLC",
+          "AnnualRevenue": "161210.7700",
+          "AnnualTransactions": 102,
+          "AvgTransaction": "1580.4977",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MARS CHEVRON",
+          "AnnualRevenue": "159353.5900",
+          "AnnualTransactions": 45,
+          "AvgTransaction": "3541.1908",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SMT DISTRIBUTORS INC",
+          "AnnualRevenue": "158609.0000",
+          "AnnualTransactions": 29,
+          "AvgTransaction": "5469.2758",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "LA FONTANA INC/ AAP PACE INC",
+          "AnnualRevenue": "155769.9000",
+          "AnnualTransactions": 93,
+          "AvgTransaction": "1674.9451",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "KINOS INV LLC / CITGO",
+          "AnnualRevenue": "152858.3600",
+          "AnnualTransactions": 43,
+          "AvgTransaction": "3554.8455",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CHEVRON GAS STATION",
+          "AnnualRevenue": "151428.7800",
+          "AnnualTransactions": 33,
+          "AvgTransaction": "4588.7509",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "PEACHTREE CHEVRON/BROOKHEAVEN",
+          "AnnualRevenue": "149201.9100",
+          "AnnualTransactions": 58,
+          "AvgTransaction": "2572.4467",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "PANI INVESTMENT LLC",
+          "AnnualRevenue": "145883.6700",
+          "AnnualTransactions": 24,
+          "AvgTransaction": "6078.4862",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MABLETON USA INC/SHELL FOOD MART",
+          "AnnualRevenue": "144760.4800",
+          "AnnualTransactions": 60,
+          "AvgTransaction": "2412.6746",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "AVONDALE ENTERPRISES LLC/ CHEVRON",
+          "AnnualRevenue": "143679.3200",
+          "AnnualTransactions": 114,
+          "AvgTransaction": "1260.3449",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "GANDHI WHOLESALE/TRIDENT WHLS ",
+          "AnnualRevenue": "142515.8400",
+          "AnnualTransactions": 7,
+          "AvgTransaction": "20359.4057",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SHAYAAN INVESTMENTS INC",
+          "AnnualRevenue": "142053.5300",
+          "AnnualTransactions": 85,
+          "AvgTransaction": "1671.2180",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MARS MOBIL",
+          "AnnualRevenue": "137045.0200",
+          "AnnualTransactions": 49,
+          "AvgTransaction": "2796.8371",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "BP HAYNESBRIDGE",
+          "AnnualRevenue": "136801.8100",
+          "AnnualTransactions": 83,
+          "AvgTransaction": "1648.2145",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SHASEE PRIME LLC/ CUSTER FOOD MART",
+          "AnnualRevenue": "135018.6200",
+          "AnnualTransactions": 103,
+          "AvgTransaction": "1310.8603",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "YAA INVESTMENT LLC",
+          "AnnualRevenue": "133331.3600",
+          "AnnualTransactions": 137,
+          "AvgTransaction": "973.2216",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CHAPPELL ROAD INC",
+          "AnnualRevenue": "128606.4700",
+          "AnnualTransactions": 43,
+          "AvgTransaction": "2990.8481",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ASHAR ENTERPRISES",
+          "AnnualRevenue": "123122.4000",
+          "AnnualTransactions": 95,
+          "AvgTransaction": "1296.0252",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "PLAN B WHOLESALE",
+          "AnnualRevenue": "122897.9000",
+          "AnnualTransactions": 42,
+          "AvgTransaction": "2926.1404",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "COVINGTON SHOP LLC",
+          "AnnualRevenue": "119531.8300",
+          "AnnualTransactions": 33,
+          "AvgTransaction": "3622.1766",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "A MUSTAFA INC./PHILLIPS  66",
+          "AnnualRevenue": "119038.1800",
+          "AnnualTransactions": 141,
+          "AvgTransaction": "844.2424",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ELLENWOOD CHEVRON INC",
+          "AnnualRevenue": "118957.6800",
+          "AnnualTransactions": 61,
+          "AvgTransaction": "1950.1259",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CLEVELAND 129 INC",
+          "AnnualRevenue": "117522.9600",
+          "AnnualTransactions": 79,
+          "AvgTransaction": "1487.6324",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "CONYERS 1801 LLC",
+          "AnnualRevenue": "117016.3400",
+          "AnnualTransactions": 92,
+          "AvgTransaction": "1271.9167",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "COVINGTON STORE PRIME LLC ",
+          "AnnualRevenue": "116693.1200",
+          "AnnualTransactions": 65,
+          "AvgTransaction": "1795.2787",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ACWORTH CHEVRON/RELIANCE GROUP INC",
+          "AnnualRevenue": "115470.4200",
+          "AnnualTransactions": 35,
+          "AvgTransaction": "3299.1548",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "DOLLAR PLUS INVESTMENT INC",
+          "AnnualRevenue": "115238.9300",
+          "AnnualTransactions": 89,
+          "AvgTransaction": "1294.8194",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "MADISON CHEVRON",
+          "AnnualRevenue": "114060.7100",
+          "AnnualTransactions": 44,
+          "AvgTransaction": "2592.2888",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "SPRINGS STREET CHEVRON/PETROZONE",
+          "AnnualRevenue": "112454.2100",
+          "AnnualTransactions": 27,
+          "AvgTransaction": "4164.9707",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ELIAS INVESTMENTS INC/BIG JOHN",
+          "AnnualRevenue": "111690.0500",
+          "AnnualTransactions": 50,
+          "AvgTransaction": "2233.8010",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "PETRO AVE LLC/ BP DUNWOODY",
+          "AnnualRevenue": "111302.0300",
+          "AnnualTransactions": 93,
+          "AvgTransaction": "1196.7960",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "6121 CITGO MART LLC",
+          "AnnualRevenue": "109999.2900",
+          "AnnualTransactions": 32,
+          "AvgTransaction": "3437.4778",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "BP FOOD MART",
+          "AnnualRevenue": "106831.4300",
+          "AnnualTransactions": 41,
+          "AvgTransaction": "2605.6446",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "PAYLESS WAREHOUSE INC",
+          "AnnualRevenue": "106006.8000",
+          "AnnualTransactions": 11,
+          "AvgTransaction": "9636.9818",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "ARYANA IMPORTERS & WHOLESALERS",
+          "AnnualRevenue": "105522.6800",
+          "AnnualTransactions": 27,
+          "AvgTransaction": "3908.2474",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "AAP EATONTON INC/SHELL EATONTON MART",
+          "AnnualRevenue": "105305.9100",
+          "AnnualTransactions": 33,
+          "AvgTransaction": "3191.0881",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "HIGHTECH 2022 LLC",
+          "AnnualRevenue": "104706.2900",
+          "AnnualTransactions": 22,
+          "AvgTransaction": "4759.3768",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "TASNOVA LLC/ CHEVRON FOOD MART",
+          "AnnualRevenue": "104425.0200",
+          "AnnualTransactions": 41,
+          "AvgTransaction": "2546.9517",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "AT CONVENIENCE INC/SHELL FD MT",
+          "AnnualRevenue": "102991.6500",
+          "AnnualTransactions": 38,
+          "AvgTransaction": "2710.3065",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "NADIA III LLC/YAM 2021 LLC",
+          "AnnualRevenue": "102293.1600",
+          "AnnualTransactions": 37,
+          "AvgTransaction": "2764.6800",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "INAAYA INVESTMENTS INC/MAM 2022 LLC",
+          "AnnualRevenue": "101473.5800",
+          "AnnualTransactions": 78,
+          "AvgTransaction": "1300.9433",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "TWP1 USA LLC",
+          "AnnualRevenue": "100463.1000",
+          "AnnualTransactions": 9,
+          "AvgTransaction": "11162.5666",
+          "Bracket": "$100K+"
+        },
+        {
+          "CustomerName": "DEVKI LAXMI LLC",
+          "AnnualRevenue": "99977.9100",
+          "AnnualTransactions": 75,
+          "AvgTransaction": "1333.0388",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "CAMBELLTON CHEVRON LLC",
+          "AnnualRevenue": "99363.5300",
+          "AnnualTransactions": 49,
+          "AvgTransaction": "2027.8271",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "BSB MEMORIAL FOOD MART INC",
+          "AnnualRevenue": "98469.8200",
+          "AnnualTransactions": 113,
+          "AvgTransaction": "871.4143",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "DUNWOODY CHEVRON",
+          "AnnualRevenue": "98396.2400",
+          "AnnualTransactions": 105,
+          "AvgTransaction": "937.1070",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "CHEVRON FOOD MART",
+          "AnnualRevenue": "97816.7200",
+          "AnnualTransactions": 73,
+          "AvgTransaction": "1339.9550",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "LAKE PRIME LLC",
+          "AnnualRevenue": "97783.5700",
+          "AnnualTransactions": 26,
+          "AvgTransaction": "3760.9065",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "DANIEL FOOD MART/SHAKIR",
+          "AnnualRevenue": "96713.4500",
+          "AnnualTransactions": 24,
+          "AvgTransaction": "4029.7270",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "601 BREMEN MANAGEMENT LLC/BREMEN MART",
+          "AnnualRevenue": "94769.4100",
+          "AnnualTransactions": 12,
+          "AvgTransaction": "7897.4508",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "COVINGTON FOOD MART/SAIF FAMILY LLC",
+          "AnnualRevenue": "94514.3300",
+          "AnnualTransactions": 79,
+          "AvgTransaction": "1196.3839",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "COVINGTON PACKAGE LLC",
+          "AnnualRevenue": "92835.3100",
+          "AnnualTransactions": 58,
+          "AvgTransaction": "1600.6087",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "BOWDON MANAGEMENT LLC",
+          "AnnualRevenue": "91831.9900",
+          "AnnualTransactions": 36,
+          "AvgTransaction": "2550.8886",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "ELAN CONVENIENCE & GAS LLC",
+          "AnnualRevenue": "91807.8800",
+          "AnnualTransactions": 77,
+          "AvgTransaction": "1192.3101",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "GREASE MONKEY LLC",
+          "AnnualRevenue": "91111.7700",
+          "AnnualTransactions": 48,
+          "AvgTransaction": "1898.1618",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "SBS 2022 INC",
+          "AnnualRevenue": "90337.4000",
+          "AnnualTransactions": 30,
+          "AvgTransaction": "3011.2466",
+          "Bracket": "$50K-$100K"
+        },
+        {
+          "CustomerName": "DEES LIQUOR STORE",
+          "AnnualRevenue": "90261.5700",
+          "AnnualTransactions": 143,
+          "AvgTransaction": "631.1997",
+          "Bracket": "$50K-$100K"
+        }
+      ]
+    },
+    "revenue_concentration": {
+      "concentration_summary": [
+        {
+          "CustomerGroup": "Top 10 Customers",
+          "CustomerCount": 10,
+          "GroupRevenue": "6539975.5900",
+          "TotalRevenue": "31311914.7300",
+          "PercentOfTotal": "20.89"
+        },
+        {
+          "CustomerGroup": "Top 25 Customers",
+          "CustomerCount": 25,
+          "GroupRevenue": "10897346.7300",
+          "TotalRevenue": "31311914.7300",
+          "PercentOfTotal": "34.80"
+        },
+        {
+          "CustomerGroup": "Top 50 Customers",
+          "CustomerCount": 50,
+          "GroupRevenue": "15370336.8200",
+          "TotalRevenue": "31311914.7300",
+          "PercentOfTotal": "49.09"
+        },
+        {
+          "CustomerGroup": "Top 100 Customers",
+          "CustomerCount": 100,
+          "GroupRevenue": "20971039.5100",
+          "TotalRevenue": "31311914.7300",
+          "PercentOfTotal": "66.97"
+        }
+      ],
+      "top_50_customers": [
+        {
+          "CustomerName": "KUSHI ALI INC",
+          "Revenue": "1353039.7700",
+          "Transactions": 65,
+          "AvgTransaction": "20815.9964",
+          "FirstPurchase": "2024-09-12 14:35:23",
+          "LastPurchase": "2025-09-02 17:04:27",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "A & K GLOBAL USA LLC/FAIRVIEW",
+          "Revenue": "869480.2300",
+          "Transactions": 48,
+          "AvgTransaction": "18114.1714",
+          "FirstPurchase": "2024-12-27 14:02:03",
+          "LastPurchase": "2025-09-02 17:05:00",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "FR1 USA LLC",
+          "Revenue": "669051.7300",
+          "Transactions": 46,
+          "AvgTransaction": "14544.6028",
+          "FirstPurchase": "2024-11-27 15:37:19",
+          "LastPurchase": "2025-09-02 17:07:56",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "ARISHA SHELL INC",
+          "Revenue": "626135.0400",
+          "Transactions": 124,
+          "AvgTransaction": "5049.4761",
+          "FirstPurchase": "2024-09-16 13:14:05",
+          "LastPurchase": "2025-09-03 12:14:13",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "ARISHA CHEVRON INC",
+          "Revenue": "557502.9600",
+          "Transactions": 130,
+          "AvgTransaction": "4288.4843",
+          "FirstPurchase": "2024-09-05 12:27:37",
+          "LastPurchase": "2025-08-27 19:06:50",
+          "DaysSinceLastPurchase": 7
+        },
+        {
+          "CustomerName": "REDAN BP INC",
+          "Revenue": "556148.6400",
+          "Transactions": 93,
+          "AvgTransaction": "5980.0929",
+          "FirstPurchase": "2024-09-10 15:43:27",
+          "LastPurchase": "2025-09-02 14:15:51",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "PATRIOT PARTY STORE",
+          "Revenue": "541934.8500",
+          "Transactions": 49,
+          "AvgTransaction": "11059.8948",
+          "FirstPurchase": "2024-09-12 12:14:01",
+          "LastPurchase": "2025-09-02 17:09:25",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "CDP USA LLC",
+          "Revenue": "524330.9900",
+          "Transactions": 22,
+          "AvgTransaction": "23833.2268",
+          "FirstPurchase": "2025-03-17 13:07:57",
+          "LastPurchase": "2025-09-02 16:57:39",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "BOULEVARD CONVENIENCE INC",
+          "Revenue": "425090.5900",
+          "Transactions": 88,
+          "AvgTransaction": "4830.5748",
+          "FirstPurchase": "2024-09-08 14:32:46",
+          "LastPurchase": "2025-08-31 12:18:51",
+          "DaysSinceLastPurchase": 3
+        },
+        {
+          "CustomerName": "STOP & SAVE GROUP LLC",
+          "Revenue": "417260.7900",
+          "Transactions": 120,
+          "AvgTransaction": "3477.1732",
+          "FirstPurchase": "2024-09-04 09:29:04",
+          "LastPurchase": "2025-09-01 09:08:11",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "DON KING OF NEWNAN LLC/NEWNAN FOOD MART",
+          "Revenue": "382011.5300",
+          "Transactions": 91,
+          "AvgTransaction": "4197.9289",
+          "FirstPurchase": "2024-09-04 18:03:18",
+          "LastPurchase": "2025-09-01 16:42:14",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "MAGNET MARKET/4565 BP FOOD MART LLC",
+          "Revenue": "342972.2400",
+          "Transactions": 169,
+          "AvgTransaction": "2029.4215",
+          "FirstPurchase": "2024-09-04 16:35:16",
+          "LastPurchase": "2025-08-30 12:29:28",
+          "DaysSinceLastPurchase": 4
+        },
+        {
+          "CustomerName": "KK SONS USA INC",
+          "Revenue": "341015.4100",
+          "Transactions": 125,
+          "AvgTransaction": "2728.1232",
+          "FirstPurchase": "2024-09-05 16:25:01",
+          "LastPurchase": "2025-08-28 18:58:01",
+          "DaysSinceLastPurchase": 6
+        },
+        {
+          "CustomerName": "101 DISTRIBUTORS GA LLC",
+          "Revenue": "329002.9400",
+          "Transactions": 75,
+          "AvgTransaction": "4386.7058",
+          "FirstPurchase": "2024-09-05 12:28:46",
+          "LastPurchase": "2025-07-10 12:57:56",
+          "DaysSinceLastPurchase": 55
+        },
+        {
+          "CustomerName": "FAIRBURN BLESSINGS LLC/SHELL FOOD MART",
+          "Revenue": "324357.1800",
+          "Transactions": 100,
+          "AvgTransaction": "3243.5718",
+          "FirstPurchase": "2024-09-07 13:04:47",
+          "LastPurchase": "2025-09-03 14:26:48",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "KGN INTERNATIONAL LLC/WALKERS GROCERY AND DELI",
+          "Revenue": "301959.4800",
+          "Transactions": 96,
+          "AvgTransaction": "3145.4112",
+          "FirstPurchase": "2024-09-08 17:34:34",
+          "LastPurchase": "2025-08-31 16:36:47",
+          "DaysSinceLastPurchase": 3
+        },
+        {
+          "CustomerName": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+          "Revenue": "285283.2900",
+          "Transactions": 112,
+          "AvgTransaction": "2547.1722",
+          "FirstPurchase": "2024-09-13 17:58:47",
+          "LastPurchase": "2025-09-01 18:23:57",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "3834 ALTO INC/BP GAS STATION",
+          "Revenue": "282644.6800",
+          "Transactions": 89,
+          "AvgTransaction": "3175.7829",
+          "FirstPurchase": "2024-09-04 09:51:41",
+          "LastPurchase": "2025-08-28 09:59:34",
+          "DaysSinceLastPurchase": 6
+        },
+        {
+          "CustomerName": "DOLAT PARTNERS USA LLC",
+          "Revenue": "266652.3800",
+          "Transactions": 120,
+          "AvgTransaction": "2222.1031",
+          "FirstPurchase": "2024-09-09 18:06:09",
+          "LastPurchase": "2025-09-03 13:43:09",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "SEANS COUNTRY STOP",
+          "Revenue": "262683.6000",
+          "Transactions": 113,
+          "AvgTransaction": "2324.6336",
+          "FirstPurchase": "2024-09-08 12:01:23",
+          "LastPurchase": "2025-09-01 14:51:09",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "TYRONE B.P",
+          "Revenue": "261336.1900",
+          "Transactions": 146,
+          "AvgTransaction": "1789.9739",
+          "FirstPurchase": "2024-09-06 14:09:25",
+          "LastPurchase": "2025-09-02 14:19:49",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "MR SINGH FOOD & GAS LLC",
+          "Revenue": "257410.8900",
+          "Transactions": 55,
+          "AvgTransaction": "4680.1980",
+          "FirstPurchase": "2024-09-04 13:53:41",
+          "LastPurchase": "2025-09-03 16:28:16",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "ANIL INVESTMENT LLC/CITGO/K",
+          "Revenue": "249658.9600",
+          "Transactions": 164,
+          "AvgTransaction": "1522.3107",
+          "FirstPurchase": "2024-09-05 13:01:09",
+          "LastPurchase": "2025-08-29 12:40:43",
+          "DaysSinceLastPurchase": 5
+        },
+        {
+          "CustomerName": "FLAT SHOALS NEIGHBORHOOD STORE,INC",
+          "Revenue": "239040.6000",
+          "Transactions": 126,
+          "AvgTransaction": "1897.1476",
+          "FirstPurchase": "2024-09-09 14:19:11",
+          "LastPurchase": "2025-09-01 17:26:03",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "BEST FOOD MART",
+          "Revenue": "231341.7700",
+          "Transactions": 103,
+          "AvgTransaction": "2246.0366",
+          "FirstPurchase": "2024-09-04 16:38:49",
+          "LastPurchase": "2025-08-27 18:10:28",
+          "DaysSinceLastPurchase": 7
+        },
+        {
+          "CustomerName": "REX C STORE/REX STORE INC",
+          "Revenue": "230699.7800",
+          "Transactions": 124,
+          "AvgTransaction": "1860.4820",
+          "FirstPurchase": "2024-09-09 18:02:11",
+          "LastPurchase": "2025-09-01 17:12:25",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "COVINGTON OPS 1 LLC/COVINGTON FOOD MART",
+          "Revenue": "222596.9700",
+          "Transactions": 86,
+          "AvgTransaction": "2588.3368",
+          "FirstPurchase": "2024-09-08 17:51:49",
+          "LastPurchase": "2025-08-29 12:18:50",
+          "DaysSinceLastPurchase": 5
+        },
+        {
+          "CustomerName": "157 COMMERCE DRIVE LLC",
+          "Revenue": "216067.1000",
+          "Transactions": 70,
+          "AvgTransaction": "3086.6728",
+          "FirstPurchase": "2024-09-15 17:30:52",
+          "LastPurchase": "2025-07-13 17:48:08",
+          "DaysSinceLastPurchase": 52
+        },
+        {
+          "CustomerName": "MAGIC PRIME LLC/TRUCK STOP",
+          "Revenue": "213801.0200",
+          "Transactions": 34,
+          "AvgTransaction": "6288.2652",
+          "FirstPurchase": "2024-09-10 19:16:38",
+          "LastPurchase": "2025-08-24 18:41:06",
+          "DaysSinceLastPurchase": 10
+        },
+        {
+          "CustomerName": "5 STAR FOOD MART LLC",
+          "Revenue": "210718.5300",
+          "Transactions": 57,
+          "AvgTransaction": "3696.8163",
+          "FirstPurchase": "2024-10-10 19:18:24",
+          "LastPurchase": "2025-05-26 15:51:12",
+          "DaysSinceLastPurchase": 100
+        },
+        {
+          "CustomerName": "CHEVRON FOOD MART/SHAMANTA INC",
+          "Revenue": "208121.3900",
+          "Transactions": 72,
+          "AvgTransaction": "2890.5748",
+          "FirstPurchase": "2024-09-05 16:23:18",
+          "LastPurchase": "2025-08-28 11:11:13",
+          "DaysSinceLastPurchase": 6
+        },
+        {
+          "CustomerName": "SPEEDZONE SHELL",
+          "Revenue": "188044.1800",
+          "Transactions": 46,
+          "AvgTransaction": "4087.9169",
+          "FirstPurchase": "2024-09-07 16:37:38",
+          "LastPurchase": "2025-09-02 19:00:18",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "OAKLAND FOOD MART",
+          "Revenue": "187475.5500",
+          "Transactions": 145,
+          "AvgTransaction": "1292.9348",
+          "FirstPurchase": "2024-09-11 14:33:27",
+          "LastPurchase": "2025-09-03 09:36:43",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "ANDYS WHOLESALE INC",
+          "Revenue": "183840.6000",
+          "Transactions": 15,
+          "AvgTransaction": "12256.0400",
+          "FirstPurchase": "2024-09-05 17:56:00",
+          "LastPurchase": "2025-08-28 18:31:28",
+          "DaysSinceLastPurchase": 6
+        },
+        {
+          "CustomerName": "Z & F GASOLINE TEXACO FOOD MART",
+          "Revenue": "182800.8700",
+          "Transactions": 35,
+          "AvgTransaction": "5222.8820",
+          "FirstPurchase": "2024-09-04 16:55:20",
+          "LastPurchase": "2025-09-02 10:59:50",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "MIDWAY EXXON INC ",
+          "Revenue": "177233.6600",
+          "Transactions": 76,
+          "AvgTransaction": "2332.0218",
+          "FirstPurchase": "2024-09-08 18:11:54",
+          "LastPurchase": "2025-08-08 16:49:19",
+          "DaysSinceLastPurchase": 26
+        },
+        {
+          "CustomerName": "WHOLESALE EXPRESS",
+          "Revenue": "172038.7500",
+          "Transactions": 9,
+          "AvgTransaction": "19115.4166",
+          "FirstPurchase": "2024-10-09 12:27:40",
+          "LastPurchase": "2025-07-13 14:54:35",
+          "DaysSinceLastPurchase": 52
+        },
+        {
+          "CustomerName": "SHAMROCK FOODMART/ ARZAN SMART GROUP LLC",
+          "Revenue": "169322.8100",
+          "Transactions": 76,
+          "AvgTransaction": "2227.9317",
+          "FirstPurchase": "2024-09-29 17:07:59",
+          "LastPurchase": "2025-09-02 18:36:31",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "CHEVRON FOOD MART/ NIKI 3290 INC",
+          "Revenue": "168129.6800",
+          "Transactions": 94,
+          "AvgTransaction": "1788.6136",
+          "FirstPurchase": "2024-09-05 15:24:00",
+          "LastPurchase": "2025-09-01 12:18:07",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "EXXON FOOD MART/BROWNSMILL ENTERPRISES CORP",
+          "Revenue": "166202.9100",
+          "Transactions": 77,
+          "AvgTransaction": "2158.4793",
+          "FirstPurchase": "2025-03-19 18:41:48",
+          "LastPurchase": "2025-09-03 10:12:23",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "AAP MONTICELLO INC.",
+          "Revenue": "164618.5200",
+          "Transactions": 126,
+          "AvgTransaction": "1306.4961",
+          "FirstPurchase": "2024-09-04 09:32:32",
+          "LastPurchase": "2025-09-03 09:46:52",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "NURUL ENTERPRISE LLC",
+          "Revenue": "161625.3100",
+          "Transactions": 90,
+          "AvgTransaction": "1795.8367",
+          "FirstPurchase": "2024-09-09 14:57:11",
+          "LastPurchase": "2025-09-02 15:45:57",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "SR UNITED USA INC",
+          "Revenue": "161220.1500",
+          "Transactions": 71,
+          "AvgTransaction": "2270.7063",
+          "FirstPurchase": "2024-09-04 19:00:45",
+          "LastPurchase": "2025-08-29 11:43:00",
+          "DaysSinceLastPurchase": 5
+        },
+        {
+          "CustomerName": "LUCKY WOODS FOOD MART LLC",
+          "Revenue": "161210.7700",
+          "Transactions": 102,
+          "AvgTransaction": "1580.4977",
+          "FirstPurchase": "2024-09-09 12:59:46",
+          "LastPurchase": "2025-09-01 12:27:30",
+          "DaysSinceLastPurchase": 2
+        },
+        {
+          "CustomerName": "MARS CHEVRON",
+          "Revenue": "159353.5900",
+          "Transactions": 45,
+          "AvgTransaction": "3541.1908",
+          "FirstPurchase": "2024-09-06 14:41:19",
+          "LastPurchase": "2025-08-25 13:57:13",
+          "DaysSinceLastPurchase": 9
+        },
+        {
+          "CustomerName": "SMT DISTRIBUTORS INC",
+          "Revenue": "158609.0000",
+          "Transactions": 29,
+          "AvgTransaction": "5469.2758",
+          "FirstPurchase": "2024-09-18 15:41:25",
+          "LastPurchase": "2025-08-27 10:27:50",
+          "DaysSinceLastPurchase": 7
+        },
+        {
+          "CustomerName": "LA FONTANA INC/ AAP PACE INC",
+          "Revenue": "155769.9000",
+          "Transactions": 93,
+          "AvgTransaction": "1674.9451",
+          "FirstPurchase": "2024-09-04 14:10:21",
+          "LastPurchase": "2025-09-02 12:27:24",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "KINOS INV LLC / CITGO",
+          "Revenue": "152858.3600",
+          "Transactions": 43,
+          "AvgTransaction": "3554.8455",
+          "FirstPurchase": "2024-09-18 12:53:56",
+          "LastPurchase": "2025-09-03 13:35:54",
+          "DaysSinceLastPurchase": 0
+        },
+        {
+          "CustomerName": "CHEVRON GAS STATION",
+          "Revenue": "151428.7800",
+          "Transactions": 33,
+          "AvgTransaction": "4588.7509",
+          "FirstPurchase": "2024-10-10 19:15:31",
+          "LastPurchase": "2025-09-02 14:37:07",
+          "DaysSinceLastPurchase": 1
+        },
+        {
+          "CustomerName": "PEACHTREE CHEVRON/BROOKHEAVEN",
+          "Revenue": "149201.9100",
+          "Transactions": 58,
+          "AvgTransaction": "2572.4467",
+          "FirstPurchase": "2024-09-04 11:58:51",
+          "LastPurchase": "2025-09-03 11:12:25",
+          "DaysSinceLastPurchase": 0
+        }
+      ]
+    },
+    "customer_retention": {
+      "annual_retention": [
+        {
+          "LastYearActiveCustomers": 705,
+          "CurrentYearActiveCustomers": 606,
+          "RetainedCustomers": 483,
+          "NewCustomers": 123,
+          "LostCustomers": 222,
+          "RetentionRate": "68.51",
+          "LastYearTotalRevenue": "26124288.9800",
+          "CurrentYearTotalRevenue": "22745688.1800",
+          "RetainedCustomerRevenue": "21145399.8500"
+        }
+      ],
+      "monthly_cohorts": [
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 9,
+          "CohortSize": 104,
+          "RetainedNextMonth": 0,
+          "OneMonthRetention": "0.00",
+          "RetainedIn3Months": 0,
+          "ThreeMonthRetention": "0.00",
+          "RetainedIn6Months": 0,
+          "SixMonthRetention": "0.00"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 8,
+          "CohortSize": 353,
+          "RetainedNextMonth": 98,
+          "OneMonthRetention": "27.76",
+          "RetainedIn3Months": 0,
+          "ThreeMonthRetention": "0.00",
+          "RetainedIn6Months": 0,
+          "SixMonthRetention": "0.00"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 7,
+          "CohortSize": 364,
+          "RetainedNextMonth": 290,
+          "OneMonthRetention": "79.67",
+          "RetainedIn3Months": 0,
+          "ThreeMonthRetention": "0.00",
+          "RetainedIn6Months": 0,
+          "SixMonthRetention": "0.00"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 6,
+          "CohortSize": 354,
+          "RetainedNextMonth": 298,
+          "OneMonthRetention": "84.18",
+          "RetainedIn3Months": 93,
+          "ThreeMonthRetention": "26.27",
+          "RetainedIn6Months": 0,
+          "SixMonthRetention": "0.00"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 5,
+          "CohortSize": 370,
+          "RetainedNextMonth": 296,
+          "OneMonthRetention": "80.00",
+          "RetainedIn3Months": 281,
+          "ThreeMonthRetention": "75.95",
+          "RetainedIn6Months": 0,
+          "SixMonthRetention": "0.00"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 4,
+          "CohortSize": 374,
+          "RetainedNextMonth": 300,
+          "OneMonthRetention": "80.21",
+          "RetainedIn3Months": 294,
+          "ThreeMonthRetention": "78.61",
+          "RetainedIn6Months": 0,
+          "SixMonthRetention": "0.00"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 3,
+          "CohortSize": 382,
+          "RetainedNextMonth": 301,
+          "OneMonthRetention": "78.80",
+          "RetainedIn3Months": 284,
+          "ThreeMonthRetention": "74.35",
+          "RetainedIn6Months": 83,
+          "SixMonthRetention": "21.73"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 2,
+          "CohortSize": 354,
+          "RetainedNextMonth": 292,
+          "OneMonthRetention": "82.49",
+          "RetainedIn3Months": 272,
+          "ThreeMonthRetention": "76.84",
+          "RetainedIn6Months": 235,
+          "SixMonthRetention": "66.38"
+        },
+        {
+          "CohortYear": 2025,
+          "CohortMonth": 1,
+          "CohortSize": 373,
+          "RetainedNextMonth": 291,
+          "OneMonthRetention": "78.02",
+          "RetainedIn3Months": 283,
+          "ThreeMonthRetention": "75.87",
+          "RetainedIn6Months": 277,
+          "SixMonthRetention": "74.26"
+        },
+        {
+          "CohortYear": 2024,
+          "CohortMonth": 12,
+          "CohortSize": 363,
+          "RetainedNextMonth": 300,
+          "OneMonthRetention": "82.64",
+          "RetainedIn3Months": 284,
+          "ThreeMonthRetention": "78.24",
+          "RetainedIn6Months": 262,
+          "SixMonthRetention": "72.18"
+        },
+        {
+          "CohortYear": 2024,
+          "CohortMonth": 11,
+          "CohortSize": 348,
+          "RetainedNextMonth": 290,
+          "OneMonthRetention": "83.33",
+          "RetainedIn3Months": 270,
+          "ThreeMonthRetention": "77.59",
+          "RetainedIn6Months": 258,
+          "SixMonthRetention": "74.14"
+        },
+        {
+          "CohortYear": 2024,
+          "CohortMonth": 10,
+          "CohortSize": 379,
+          "RetainedNextMonth": 298,
+          "OneMonthRetention": "78.63",
+          "RetainedIn3Months": 296,
+          "ThreeMonthRetention": "78.10",
+          "RetainedIn6Months": 271,
+          "SixMonthRetention": "71.50"
+        }
+      ]
+    }
+  },
+  "priority_2": {
+    "geographic_distribution": {
+      "by_state": [
+        {
+          "State": "GA",
+          "CustomerCount": 642,
+          "StateRevenue": "30671574.9300",
+          "AvgCustomerRevenue": "47775.0388",
+          "TotalTransactions": 16873
+        },
+        {
+          "State": "AL",
+          "CustomerCount": 10,
+          "StateRevenue": "259823.6000",
+          "AvgCustomerRevenue": "25982.3600",
+          "TotalTransactions": 61
+        },
+        {
+          "State": "TX",
+          "CustomerCount": 3,
+          "StateRevenue": "101760.4000",
+          "AvgCustomerRevenue": "33920.1333",
+          "TotalTransactions": 12
+        },
+        {
+          "State": "PA",
+          "CustomerCount": 1,
+          "StateRevenue": "66105.0000",
+          "AvgCustomerRevenue": "66105.0000",
+          "TotalTransactions": 3
+        },
+        {
+          "State": "GEORGIA",
+          "CustomerCount": 2,
+          "StateRevenue": "51083.5000",
+          "AvgCustomerRevenue": "25541.7500",
+          "TotalTransactions": 72
+        },
+        {
+          "State": "NY",
+          "CustomerCount": 1,
+          "StateRevenue": "49036.1300",
+          "AvgCustomerRevenue": "49036.1300",
+          "TotalTransactions": 52
+        },
+        {
+          "State": "TN",
+          "CustomerCount": 2,
+          "StateRevenue": "42075.5000",
+          "AvgCustomerRevenue": "21037.7500",
+          "TotalTransactions": 3
+        },
+        {
+          "State": "FL",
+          "CustomerCount": 1,
+          "StateRevenue": "40986.3500",
+          "AvgCustomerRevenue": "40986.3500",
+          "TotalTransactions": 44
+        },
+        {
+          "State": "KY",
+          "CustomerCount": 1,
+          "StateRevenue": "22971.8800",
+          "AvgCustomerRevenue": "22971.8800",
+          "TotalTransactions": 10
+        },
+        {
+          "State": "ALABAMA",
+          "CustomerCount": 3,
+          "StateRevenue": "6086.5300",
+          "AvgCustomerRevenue": "2028.8433",
+          "TotalTransactions": 4
+        },
+        {
+          "State": "MS",
+          "CustomerCount": 3,
+          "StateRevenue": "718.2100",
+          "AvgCustomerRevenue": "239.4033",
+          "TotalTransactions": 5
+        },
+        {
+          "State": "FLORIDA",
+          "CustomerCount": 1,
+          "StateRevenue": "678.7900",
+          "AvgCustomerRevenue": "678.7900",
+          "TotalTransactions": 2
+        },
+        {
+          "State": "SC",
+          "CustomerCount": 2,
+          "StateRevenue": "388.6400",
+          "AvgCustomerRevenue": "194.3200",
+          "TotalTransactions": 17
+        },
+        {
+          "State": "IL",
+          "CustomerCount": 1,
+          "StateRevenue": "287.9500",
+          "AvgCustomerRevenue": "287.9500",
+          "TotalTransactions": 1
+        },
+        {
+          "State": "AR",
+          "CustomerCount": 1,
+          "StateRevenue": "160.4900",
+          "AvgCustomerRevenue": "160.4900",
+          "TotalTransactions": 1
+        },
+        {
+          "State": "NJ",
+          "CustomerCount": 1,
+          "StateRevenue": "90.9800",
+          "AvgCustomerRevenue": "90.9800",
+          "TotalTransactions": 1
+        },
+        {
+          "State": "",
+          "CustomerCount": 1,
+          "StateRevenue": "-1914.1500",
+          "AvgCustomerRevenue": "-1914.1500",
+          "TotalTransactions": 3
+        }
+      ],
+      "top_cities": [
+        {
+          "State": "GA",
+          "City": "ATLANTA ",
+          "CustomerCount": 115,
+          "CityRevenue": "4514518.8200"
+        },
+        {
+          "State": "GA",
+          "City": "DECATUR",
+          "CustomerCount": 66,
+          "CityRevenue": "3021689.8000"
+        },
+        {
+          "State": "GA",
+          "City": "STOCKBRIDGE",
+          "CustomerCount": 8,
+          "CityRevenue": "2826865.2100"
+        },
+        {
+          "State": "GA",
+          "City": "STONE MOUNTAIN",
+          "CustomerCount": 30,
+          "CityRevenue": "1421365.6700"
+        },
+        {
+          "State": "GA",
+          "City": "CONYERS",
+          "CustomerCount": 17,
+          "CityRevenue": "1013363.8000"
+        },
+        {
+          "State": "GA",
+          "City": "CLARKSTON",
+          "CustomerCount": 16,
+          "CityRevenue": "877036.8300"
+        },
+        {
+          "State": "GA",
+          "City": "ELLENWOOD",
+          "CustomerCount": 5,
+          "CityRevenue": "830848.9300"
+        },
+        {
+          "State": "GA",
+          "City": "COVINGTON",
+          "CustomerCount": 13,
+          "CityRevenue": "666305.9400"
+        },
+        {
+          "State": "GA",
+          "City": "DOWSONVILLE",
+          "CustomerCount": 1,
+          "CityRevenue": "626135.0400"
+        },
+        {
+          "State": "GA",
+          "City": "GAINSVILLE",
+          "CustomerCount": 3,
+          "CityRevenue": "623943.9200"
+        },
+        {
+          "State": "GA",
+          "City": "VILLA RICA",
+          "CustomerCount": 6,
+          "CityRevenue": "598820.7200"
+        },
+        {
+          "State": "GA",
+          "City": "MARIETTA ",
+          "CustomerCount": 14,
+          "CityRevenue": "585458.6800"
+        },
+        {
+          "State": "GA",
+          "City": "CALHOUN",
+          "CustomerCount": 1,
+          "CityRevenue": "524330.9900"
+        },
+        {
+          "State": "GA",
+          "City": "TUCKER",
+          "CustomerCount": 10,
+          "CityRevenue": "517030.3300"
+        },
+        {
+          "State": "GA",
+          "City": "LITHONIA",
+          "CustomerCount": 15,
+          "CityRevenue": "482033.5400"
+        },
+        {
+          "State": "GA",
+          "City": "NEWNAN",
+          "CustomerCount": 4,
+          "CityRevenue": "399894.9000"
+        },
+        {
+          "State": "GA",
+          "City": "CARROLLTON",
+          "CustomerCount": 3,
+          "CityRevenue": "389443.2000"
+        },
+        {
+          "State": "GA",
+          "City": "JONESBORO",
+          "CustomerCount": 7,
+          "CityRevenue": "378504.0300"
+        },
+        {
+          "State": "GA",
+          "City": "FOREST PARK",
+          "CustomerCount": 6,
+          "CityRevenue": "365629.3900"
+        },
+        {
+          "State": "GA",
+          "City": "POWDER SPRINGS",
+          "CustomerCount": 1,
+          "CityRevenue": "341015.4100"
+        },
+        {
+          "State": "GA",
+          "City": "FAIRBURN ",
+          "CustomerCount": 1,
+          "CityRevenue": "324357.1800"
+        },
+        {
+          "State": "GA",
+          "City": "ALTO",
+          "CustomerCount": 1,
+          "CityRevenue": "282644.6800"
+        },
+        {
+          "State": "GA",
+          "City": "MORROW",
+          "CustomerCount": 4,
+          "CityRevenue": "273414.0100"
+        },
+        {
+          "State": "GA",
+          "City": "LAWRENCEVILLE",
+          "CustomerCount": 8,
+          "CityRevenue": "271626.3000"
+        },
+        {
+          "State": "GA",
+          "City": "TALLAPOOSE",
+          "CustomerCount": 1,
+          "CityRevenue": "262683.6000"
+        },
+        {
+          "State": "GA",
+          "City": "TYRONE",
+          "CustomerCount": 1,
+          "CityRevenue": "261336.1900"
+        },
+        {
+          "State": "GA",
+          "City": "REX",
+          "CustomerCount": 2,
+          "CityRevenue": "232705.9700"
+        },
+        {
+          "State": "GA",
+          "City": "DUNWOODY",
+          "CustomerCount": 3,
+          "CityRevenue": "230878.3400"
+        },
+        {
+          "State": "GA",
+          "City": "DOUGLASVILLE",
+          "CustomerCount": 2,
+          "CityRevenue": "224510.2900"
+        },
+        {
+          "State": "GA",
+          "City": "CONLEY",
+          "CustomerCount": 3,
+          "CityRevenue": "217937.2300"
+        },
+        {
+          "State": "GA",
+          "City": "CONVINGTON",
+          "CustomerCount": 2,
+          "CityRevenue": "209528.4300"
+        },
+        {
+          "State": "GA",
+          "City": "BROOKHAVEN",
+          "CustomerCount": 4,
+          "CityRevenue": "196369.8100"
+        },
+        {
+          "State": "GA",
+          "City": "MACON",
+          "CustomerCount": 6,
+          "CityRevenue": "191040.4900"
+        },
+        {
+          "State": "GA",
+          "City": "LAWRENCEVILL ",
+          "CustomerCount": 2,
+          "CityRevenue": "189499.9600"
+        },
+        {
+          "State": "GA",
+          "City": "EATONTON",
+          "CustomerCount": 4,
+          "CityRevenue": "182089.1300"
+        },
+        {
+          "State": "GA",
+          "City": "CEDARTOWN ",
+          "CustomerCount": 1,
+          "CityRevenue": "169322.8100"
+        },
+        {
+          "State": "GA",
+          "City": "POWDER SPRING",
+          "CustomerCount": 1,
+          "CityRevenue": "168129.6800"
+        },
+        {
+          "State": "GA",
+          "City": "MONTICELLO",
+          "CustomerCount": 1,
+          "CityRevenue": "164618.5200"
+        },
+        {
+          "State": "GA",
+          "City": "COLLEGE PARK",
+          "CustomerCount": 10,
+          "CityRevenue": "162997.1600"
+        },
+        {
+          "State": "GA",
+          "City": "BROOKHEAVEN",
+          "CustomerCount": 1,
+          "CityRevenue": "161625.3100"
+        },
+        {
+          "State": "GA",
+          "City": "BREMEN",
+          "CustomerCount": 2,
+          "CityRevenue": "157066.7800"
+        },
+        {
+          "State": "GA",
+          "City": "RIVERDALE",
+          "CustomerCount": 9,
+          "CityRevenue": "151560.1600"
+        },
+        {
+          "State": "GA",
+          "City": "ROSWELL",
+          "CustomerCount": 3,
+          "CityRevenue": "146467.9800"
+        },
+        {
+          "State": "GA",
+          "City": "MEBLETON",
+          "CustomerCount": 1,
+          "CityRevenue": "144760.4800"
+        },
+        {
+          "State": "GA",
+          "City": "JACKSON",
+          "CustomerCount": 2,
+          "CityRevenue": "143746.0300"
+        },
+        {
+          "State": "GA",
+          "City": "LOCUST GROVE",
+          "CustomerCount": 1,
+          "CityRevenue": "142053.5300"
+        },
+        {
+          "State": "GA",
+          "City": "ALPHARETTA",
+          "CustomerCount": 2,
+          "CityRevenue": "136881.7700"
+        },
+        {
+          "State": "GA",
+          "City": "AUSTELL",
+          "CustomerCount": 4,
+          "CityRevenue": "129218.3400"
+        },
+        {
+          "State": "GA",
+          "City": "MCDONOUGH",
+          "CustomerCount": 8,
+          "CityRevenue": "124741.6600"
+        },
+        {
+          "State": "GA ",
+          "City": "ACWORTH",
+          "CustomerCount": 3,
+          "CityRevenue": "122328.6800"
+        }
+      ]
+    },
+    "new_customer_trends": {
+      "monthly_acquisition": [],
+      "customer_quality_by_cohort": []
+    },
+    "category_revenue_breakdown": {
+      "category_summary": [
+        {
+          "Category": "CIGARETTE",
+          "Transactions": 8805,
+          "UniqueCustomers": 516,
+          "UnitsSold": 198701.0,
+          "Revenue": 14578929.01000179,
+          "GrossProfit": 446909.7000000134,
+          "AvgPrice": "71.9255",
+          "PercentOfTotal": "46.56"
+        },
+        {
+          "Category": "CIGARS",
+          "Transactions": 9198,
+          "UniqueCustomers": 525,
+          "UnitsSold": 143938.0,
+          "Revenue": 3677755.930002916,
+          "GrossProfit": 262766.3509630439,
+          "AvgPrice": "25.8599",
+          "PercentOfTotal": "11.75"
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 4244,
+          "UniqueCustomers": 428,
+          "UnitsSold": 42000.0,
+          "Revenue": 1746807.9099999948,
+          "GrossProfit": 129083.52800000121,
+          "AvgPrice": "41.8806",
+          "PercentOfTotal": "5.58"
+        },
+        {
+          "Category": "CIGAR GA",
+          "Transactions": 7096,
+          "UniqueCustomers": 479,
+          "UnitsSold": 60843.0,
+          "Revenue": 1424557.8399996357,
+          "GrossProfit": 265333.10079997854,
+          "AvgPrice": "23.8584",
+          "PercentOfTotal": "4.55"
+        },
+        {
+          "Category": "ECIG - PODS",
+          "Transactions": 1501,
+          "UniqueCustomers": 206,
+          "UnitsSold": 12220.0,
+          "Revenue": 1131923.179999974,
+          "GrossProfit": 58057.336999999774,
+          "AvgPrice": "88.5199",
+          "PercentOfTotal": "3.62"
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "Transactions": 5165,
+          "UniqueCustomers": 456,
+          "UnitsSold": 42304.0,
+          "Revenue": 1087679.3399998944,
+          "GrossProfit": 102139.58620000823,
+          "AvgPrice": "27.5192",
+          "PercentOfTotal": "3.47"
+        },
+        {
+          "Category": "VITAMINS",
+          "Transactions": 4733,
+          "UniqueCustomers": 436,
+          "UnitsSold": 26304.0,
+          "Revenue": 1033080.7999999702,
+          "GrossProfit": 60960.89399999829,
+          "AvgPrice": "52.7441",
+          "PercentOfTotal": "3.30"
+        },
+        {
+          "Category": "DRINKS",
+          "Transactions": 4088,
+          "UniqueCustomers": 432,
+          "UnitsSold": 34704.0,
+          "Revenue": 696040.5100999324,
+          "GrossProfit": 82584.63500000071,
+          "AvgPrice": "26.9051",
+          "PercentOfTotal": "2.22"
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 4167,
+          "UniqueCustomers": 409,
+          "UnitsSold": 25402.0,
+          "Revenue": 671556.3899998874,
+          "GrossProfit": 95193.9660000022,
+          "AvgPrice": "27.9448",
+          "PercentOfTotal": "2.14"
+        },
+        {
+          "Category": "T7 SMOKELESS GA",
+          "Transactions": 2988,
+          "UniqueCustomers": 319,
+          "UnitsSold": 22770.0,
+          "Revenue": 661473.5299999841,
+          "GrossProfit": 33087.23000000026,
+          "AvgPrice": "33.6667",
+          "PercentOfTotal": "2.11"
+        },
+        {
+          "Category": "KRATOM",
+          "Transactions": 656,
+          "UniqueCustomers": 100,
+          "UnitsSold": 5965.0,
+          "Revenue": 614534.5999999996,
+          "GrossProfit": 50472.35999999999,
+          "AvgPrice": "115.0495",
+          "PercentOfTotal": "1.96"
+        },
+        {
+          "Category": "NICOTINE POUCHES",
+          "Transactions": 2165,
+          "UniqueCustomers": 272,
+          "UnitsSold": 22882.0,
+          "Revenue": 463279.2399999667,
+          "GrossProfit": 27969.95999999916,
+          "AvgPrice": "20.3622",
+          "PercentOfTotal": "1.48"
+        },
+        {
+          "Category": "CANDYS",
+          "Transactions": 3353,
+          "UniqueCustomers": 406,
+          "UnitsSold": 53749.5,
+          "Revenue": 446700.3149999421,
+          "GrossProfit": 86662.80685000008,
+          "AvgPrice": "18.6528",
+          "PercentOfTotal": "1.43"
+        },
+        {
+          "Category": "NOVELTY ITEMS",
+          "Transactions": 3167,
+          "UniqueCustomers": 426,
+          "UnitsSold": 21078.0,
+          "Revenue": 300087.5399999952,
+          "GrossProfit": 37890.227800000146,
+          "AvgPrice": "24.2437",
+          "PercentOfTotal": "0.96"
+        },
+        {
+          "Category": "CIG ROLLING PAPER",
+          "Transactions": 3681,
+          "UniqueCustomers": 426,
+          "UnitsSold": 9293.0,
+          "Revenue": 299964.51999997534,
+          "GrossProfit": 43923.16939999949,
+          "AvgPrice": "35.8232",
+          "PercentOfTotal": "0.96"
+        },
+        {
+          "Category": "LIGHTERS",
+          "Transactions": 2799,
+          "UniqueCustomers": 402,
+          "UnitsSold": 11559.0,
+          "Revenue": 239252.5499999939,
+          "GrossProfit": 33131.57620000111,
+          "AvgPrice": "31.6738",
+          "PercentOfTotal": "0.76"
+        },
+        {
+          "Category": "ECIG - DISP D8",
+          "Transactions": 753,
+          "UniqueCustomers": 171,
+          "UnitsSold": 4039.0,
+          "Revenue": 237849.14,
+          "GrossProfit": 23240.32409999999,
+          "AvgPrice": "60.3532",
+          "PercentOfTotal": "0.76"
+        },
+        {
+          "Category": "BLUNT WRAP",
+          "Transactions": 4210,
+          "UniqueCustomers": 423,
+          "UnitsSold": 26165.0,
+          "Revenue": 211061.7599999976,
+          "GrossProfit": 17859.261000000028,
+          "AvgPrice": "8.6418",
+          "PercentOfTotal": "0.67"
+        },
+        {
+          "Category": "FOOD",
+          "Transactions": 3002,
+          "UniqueCustomers": 408,
+          "UnitsSold": 34782.0,
+          "Revenue": 208883.00999999672,
+          "GrossProfit": 33882.07180000013,
+          "AvgPrice": "11.9143",
+          "PercentOfTotal": "0.67"
+        },
+        {
+          "Category": "CBD/HEMP",
+          "Transactions": 1222,
+          "UniqueCustomers": 241,
+          "UnitsSold": 6943.0,
+          "Revenue": 172702.57000000004,
+          "GrossProfit": 17424.941199999972,
+          "AvgPrice": "35.6581",
+          "PercentOfTotal": "0.55"
+        },
+        {
+          "Category": "MEDICINE",
+          "Transactions": 3262,
+          "UniqueCustomers": 426,
+          "UnitsSold": 15072.0,
+          "Revenue": 160703.3600000028,
+          "GrossProfit": 34823.01460000217,
+          "AvgPrice": "15.9181",
+          "PercentOfTotal": "0.51"
+        },
+        {
+          "Category": "AUTOMOTIVE",
+          "Transactions": 1624,
+          "UniqueCustomers": 264,
+          "UnitsSold": 9247.0,
+          "Revenue": 145456.77000000232,
+          "GrossProfit": 34451.61170000038,
+          "AvgPrice": "20.9554",
+          "PercentOfTotal": "0.46"
+        },
+        {
+          "Category": "SHOPPING BAGS",
+          "Transactions": 2244,
+          "UniqueCustomers": 347,
+          "UnitsSold": 11909.0,
+          "Revenue": 133213.5500000023,
+          "GrossProfit": 57072.41,
+          "AvgPrice": "10.5693",
+          "PercentOfTotal": "0.43"
+        },
+        {
+          "Category": "MISC",
+          "Transactions": 1469,
+          "UniqueCustomers": 363,
+          "UnitsSold": 6541.0,
+          "Revenue": 123164.9300000013,
+          "GrossProfit": 33769.59860000003,
+          "AvgPrice": "25.1765",
+          "PercentOfTotal": "0.39"
+        },
+        {
+          "Category": "LIT CIGARS 003251",
+          "Transactions": 942,
+          "UniqueCustomers": 193,
+          "UnitsSold": 1326.0,
+          "Revenue": 84415.72000000073,
+          "GrossProfit": 9289.157999999921,
+          "AvgPrice": "64.1230",
+          "PercentOfTotal": "0.27"
+        },
+        {
+          "Category": "AIR FRESHENER",
+          "Transactions": 1244,
+          "UniqueCustomers": 320,
+          "UnitsSold": 29835.0,
+          "Revenue": 82121.54000000001,
+          "GrossProfit": 15540.998999999996,
+          "AvgPrice": "4.7437",
+          "PercentOfTotal": "0.26"
+        },
+        {
+          "Category": "HOUSEHOLD GOODS",
+          "Transactions": 2414,
+          "UniqueCustomers": 389,
+          "UnitsSold": 13951.0,
+          "Revenue": 80293.7400000007,
+          "GrossProfit": 24479.255100000046,
+          "AvgPrice": "13.0535",
+          "PercentOfTotal": "0.26"
+        },
+        {
+          "Category": "WATER",
+          "Transactions": 1315,
+          "UniqueCustomers": 241,
+          "UnitsSold": 9196.0,
+          "Revenue": 79769.68000000034,
+          "GrossProfit": 19202.370000000145,
+          "AvgPrice": "14.9153",
+          "PercentOfTotal": "0.25"
+        },
+        {
+          "Category": "GUMS/CHICLETS",
+          "Transactions": 1309,
+          "UniqueCustomers": 287,
+          "UnitsSold": 5317.0,
+          "Revenue": 79089.70000000164,
+          "GrossProfit": 15225.389700000253,
+          "AvgPrice": "14.8721",
+          "PercentOfTotal": "0.25"
+        },
+        {
+          "Category": "GLOVES & T SHIRTS",
+          "Transactions": 846,
+          "UniqueCustomers": 207,
+          "UnitsSold": 21910.0,
+          "Revenue": 69791.23000000001,
+          "GrossProfit": 13065.606599999986,
+          "AvgPrice": "3.7713",
+          "PercentOfTotal": "0.22"
+        },
+        {
+          "Category": "CONDOMS",
+          "Transactions": 1628,
+          "UniqueCustomers": 296,
+          "UnitsSold": 4795.0,
+          "Revenue": 61711.70999999847,
+          "GrossProfit": 11992.825999999684,
+          "AvgPrice": "12.9485",
+          "PercentOfTotal": "0.20"
+        },
+        {
+          "Category": "CELLUAR ACCESSORIES",
+          "Transactions": 1043,
+          "UniqueCustomers": 240,
+          "UnitsSold": 2586.0,
+          "Revenue": 51704.82999999987,
+          "GrossProfit": 13468.499999999827,
+          "AvgPrice": "27.1435",
+          "PercentOfTotal": "0.17"
+        },
+        {
+          "Category": "JBR",
+          "Transactions": 23,
+          "UniqueCustomers": 9,
+          "UnitsSold": 1258.0,
+          "Revenue": 49518.74999999999,
+          "GrossProfit": -1036.1905000000002,
+          "AvgPrice": "34.0802",
+          "PercentOfTotal": "0.16"
+        },
+        {
+          "Category": "COSMETICS & BEAUTY",
+          "Transactions": 1529,
+          "UniqueCustomers": 318,
+          "UnitsSold": 12593.0,
+          "Revenue": 34972.00000000039,
+          "GrossProfit": 10041.083999999972,
+          "AvgPrice": "5.3699",
+          "PercentOfTotal": "0.11"
+        },
+        {
+          "Category": "STATIONARY",
+          "Transactions": 987,
+          "UniqueCustomers": 274,
+          "UnitsSold": 2327.0,
+          "Revenue": 30777.400000000474,
+          "GrossProfit": 5451.837699999934,
+          "AvgPrice": "19.4019",
+          "PercentOfTotal": "0.10"
+        },
+        {
+          "Category": "COOKIES",
+          "Transactions": 874,
+          "UniqueCustomers": 238,
+          "UnitsSold": 4099.0,
+          "Revenue": 30433.46000000118,
+          "GrossProfit": 5892.654299999996,
+          "AvgPrice": "10.8574",
+          "PercentOfTotal": "0.10"
+        },
+        {
+          "Category": "CLEANING PRODUCTS",
+          "Transactions": 1064,
+          "UniqueCustomers": 288,
+          "UnitsSold": 8023.0,
+          "Revenue": 24527.59999999997,
+          "GrossProfit": 8102.958399999928,
+          "AvgPrice": "4.8570",
+          "PercentOfTotal": "0.08"
+        },
+        {
+          "Category": "PHONE CARDS",
+          "Transactions": 127,
+          "UniqueCustomers": 43,
+          "UnitsSold": 2753.0,
+          "Revenue": 18986.7,
+          "GrossProfit": 692.4499999999992,
+          "AvgPrice": "6.8836",
+          "PercentOfTotal": "0.06"
+        },
+        {
+          "Category": "INCENSE",
+          "Transactions": 390,
+          "UniqueCustomers": 159,
+          "UnitsSold": 1809.0,
+          "Revenue": 17854.15,
+          "GrossProfit": 3976.7599999999907,
+          "AvgPrice": "29.1978",
+          "PercentOfTotal": "0.06"
+        },
+        {
+          "Category": "BATTERY",
+          "Transactions": 427,
+          "UniqueCustomers": 165,
+          "UnitsSold": 2956.0,
+          "Revenue": 17203.53999999994,
+          "GrossProfit": 4965.361599999971,
+          "AvgPrice": "13.2557",
+          "PercentOfTotal": "0.05"
+        },
+        {
+          "Category": "KITCHEN & TOILET",
+          "Transactions": 760,
+          "UniqueCustomers": 247,
+          "UnitsSold": 4864.0,
+          "Revenue": 13806.539999999943,
+          "GrossProfit": 4127.991799999976,
+          "AvgPrice": "7.6303",
+          "PercentOfTotal": "0.04"
+        },
+        {
+          "Category": "HARDWARE",
+          "Transactions": 358,
+          "UniqueCustomers": 177,
+          "UnitsSold": 1713.0,
+          "Revenue": 4411.4899999999725,
+          "GrossProfit": 1611.248699999999,
+          "AvgPrice": "2.7913",
+          "PercentOfTotal": "0.01"
+        },
+        {
+          "Category": "Uncategorized",
+          "Transactions": 165,
+          "UniqueCustomers": 104,
+          "UnitsSold": 709.0,
+          "Revenue": 3592.559999999994,
+          "GrossProfit": 968.2800000000001,
+          "AvgPrice": "11.2272",
+          "PercentOfTotal": "0.01"
+        },
+        {
+          "Category": "PLAYING CARDS",
+          "Transactions": 138,
+          "UniqueCustomers": 80,
+          "UnitsSold": 163.0,
+          "Revenue": 3225.369999999991,
+          "GrossProfit": 700.0700000000004,
+          "AvgPrice": "20.9355",
+          "PercentOfTotal": "0.01"
+        },
+        {
+          "Category": "ECIG - PODS D8",
+          "Transactions": 30,
+          "UniqueCustomers": 22,
+          "UnitsSold": 64.0,
+          "Revenue": 2130.48,
+          "GrossProfit": 297.909,
+          "AvgPrice": "35.3813",
+          "PercentOfTotal": "0.01"
+        },
+        {
+          "Category": "KIDS STUFF",
+          "Transactions": 163,
+          "UniqueCustomers": 97,
+          "UnitsSold": 552.0,
+          "Revenue": 2083.880000000002,
+          "GrossProfit": 808.5989000000021,
+          "AvgPrice": "5.2047",
+          "PercentOfTotal": "0.01"
+        },
+        {
+          "Category": "CANDLES",
+          "Transactions": 44,
+          "UniqueCustomers": 38,
+          "UnitsSold": 414.0,
+          "Revenue": 582.2600000000002,
+          "GrossProfit": 243.1848,
+          "AvgPrice": "1.5365",
+          "PercentOfTotal": "0.00"
+        },
+        {
+          "Category": "PERFUMES",
+          "Transactions": 16,
+          "UniqueCustomers": 11,
+          "UnitsSold": 132.0,
+          "Revenue": 329.3400000000001,
+          "GrossProfit": 147.84000000000003,
+          "AvgPrice": "2.4950",
+          "PercentOfTotal": "0.00"
+        },
+        {
+          "Category": "APPAREL & CLOTHING",
+          "Transactions": 15,
+          "UniqueCustomers": 13,
+          "UnitsSold": 30.0,
+          "Revenue": 209.7,
+          "GrossProfit": 74.7,
+          "AvgPrice": "6.9900",
+          "PercentOfTotal": "0.00"
+        },
+        {
+          "Category": "TOYS",
+          "Transactions": 18,
+          "UniqueCustomers": 18,
+          "UnitsSold": 19.0,
+          "Revenue": 93.80999999999997,
+          "GrossProfit": 33.82000000000002,
+          "AvgPrice": "4.9900",
+          "PercentOfTotal": "0.00"
+        },
+        {
+          "Category": "CLEAM",
+          "Transactions": 4,
+          "UniqueCustomers": 4,
+          "UnitsSold": 16.0,
+          "Revenue": 25.44,
+          "GrossProfit": 7.52,
+          "AvgPrice": "1.5900",
+          "PercentOfTotal": "0.00"
+        }
+      ],
+      "top_items_by_category": [
+        {
+          "Category": "AIR FRESHENER",
+          "ItemDescription": "BLUNT POWER AF 1.5OZ 1CT",
+          "ItemLookupCode": "BP",
+          "UnitsSold": 27055.0,
+          "Revenue": 72734.4599999999,
+          "AvgSellingPrice": "2.6892",
+          "TransactionCount": 1061,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "AIR FRESHENER",
+          "ItemDescription": "BLUNT P/ TUBE  STICK 7PC 1CT",
+          "ItemLookupCode": "BLUNTTUBE",
+          "UnitsSold": 2279.0,
+          "Revenue": 5238.909999999998,
+          "AvgSellingPrice": "2.2968",
+          "TransactionCount": 87,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "AIR FRESHENER",
+          "ItemDescription": "BLUNT & MILD INCENSE 24/30CT",
+          "ItemLookupCode": "010220786240",
+          "UnitsSold": 17.0,
+          "Revenue": 730.83,
+          "AvgSellingPrice": "42.9900",
+          "TransactionCount": 14,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "AIR FRESHENER",
+          "ItemDescription": "BLUNT LIFE INCENSE 30CT/24PK",
+          "ItemLookupCode": "097868125563",
+          "UnitsSold": 14.0,
+          "Revenue": 699.86,
+          "AvgSellingPrice": "49.9900",
+          "TransactionCount": 14,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "AIR FRESHENER",
+          "ItemDescription": "EVAIR PREMIU CAR FRESHNER 10CT",
+          "ItemLookupCode": "8908019927689",
+          "UnitsSold": 16.0,
+          "Revenue": 607.84,
+          "AvgSellingPrice": "37.9900",
+          "TransactionCount": 11,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "APPAREL & CLOTHING",
+          "ItemDescription": "LUX ANKLE SOCKS SZ9-11 12CT",
+          "ItemLookupCode": "661799864831",
+          "UnitsSold": 30.0,
+          "Revenue": 209.69999999999996,
+          "AvgSellingPrice": "6.9900",
+          "TransactionCount": 15,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "AUTOMOTIVE",
+          "ItemDescription": "CASTROL GTX MOTOR OIL ALL 6CT",
+          "ItemLookupCode": "GTX",
+          "UnitsSold": 1067.0,
+          "Revenue": 29862.840000000087,
+          "AvgSellingPrice": "27.9852",
+          "TransactionCount": 529,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "AUTOMOTIVE",
+          "ItemDescription": "PEAK BLUE DEF DIESEL FLUID 2.5",
+          "ItemLookupCode": "PBD",
+          "UnitsSold": 1390.0,
+          "Revenue": 17940.479999999956,
+          "AvgSellingPrice": "12.9280",
+          "TransactionCount": 272,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "AUTOMOTIVE",
+          "ItemDescription": "GOLD STAR MOTOR OIL 12/1QT",
+          "ItemLookupCode": "GOLD STAR ",
+          "UnitsSold": 311.0,
+          "Revenue": 12436.88999999997,
+          "AvgSellingPrice": "39.9900",
+          "TransactionCount": 175,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "AUTOMOTIVE",
+          "ItemDescription": "COASTAL OIL 12/1QT",
+          "ItemLookupCode": "COASTAL",
+          "UnitsSold": 253.0,
+          "Revenue": 10117.469999999987,
+          "AvgSellingPrice": "39.9900",
+          "TransactionCount": 123,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "AUTOMOTIVE",
+          "ItemDescription": "GAS CAN 2 GALLON 1 CT",
+          "ItemLookupCode": "GC2",
+          "UnitsSold": 851.0,
+          "Revenue": 9731.989999999969,
+          "AvgSellingPrice": "11.4557",
+          "TransactionCount": 219,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "BATTERY",
+          "ItemDescription": "DURACELL AA 4PK 1CT",
+          "ItemLookupCode": "041333415017",
+          "UnitsSold": 774.0,
+          "Revenue": 3017.2599999999975,
+          "AvgSellingPrice": "4.0047",
+          "TransactionCount": 146,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "BATTERY",
+          "ItemDescription": "DURACELL AA 4PK 14/4CT",
+          "ItemLookupCode": "00041333009612",
+          "UnitsSold": 60.0,
+          "Revenue": 3011.399999999996,
+          "AvgSellingPrice": "50.1933",
+          "TransactionCount": 59,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "BATTERY",
+          "ItemDescription": "DURACELL AAA 4PK 18/4CT",
+          "ItemLookupCode": "00041333014616",
+          "UnitsSold": 30.0,
+          "Revenue": 2080.7,
+          "AvgSellingPrice": "69.3448",
+          "TransactionCount": 31,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "BATTERY",
+          "ItemDescription": "DURACELL AAA 4PK 1CT",
+          "ItemLookupCode": "041333424019",
+          "UnitsSold": 471.0,
+          "Revenue": 1889.7900000000027,
+          "AvgSellingPrice": "4.0157",
+          "TransactionCount": 97,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "BATTERY",
+          "ItemDescription": "DURACELL AA 2PK 14/2CT",
+          "ItemLookupCode": "00041333087610",
+          "UnitsSold": 47.0,
+          "Revenue": 1416.5300000000002,
+          "AvgSellingPrice": "30.1455",
+          "TransactionCount": 45,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "BLUNT WRAP",
+          "ItemDescription": "EZ ROLL .49C 25CT FLAVOR LESS",
+          "ItemLookupCode": "619682010322",
+          "UnitsSold": 6285.0,
+          "Revenue": 43711.65000000033,
+          "AvgSellingPrice": "6.9889",
+          "TransactionCount": 1919,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "BLUNT WRAP",
+          "ItemDescription": "TRUE BLUNT .49C 25CT OGK KUSH",
+          "ItemLookupCode": "619682010407",
+          "UnitsSold": 3523.0,
+          "Revenue": 24576.770000000084,
+          "AvgSellingPrice": "6.9896",
+          "TransactionCount": 1477,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "BLUNT WRAP",
+          "ItemDescription": "EZ ROLL .49C 25CT WET MANGO",
+          "ItemLookupCode": "619682621221",
+          "UnitsSold": 3005.0,
+          "Revenue": 20992.699999999903,
+          "AvgSellingPrice": "6.9896",
+          "TransactionCount": 1318,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "BLUNT WRAP",
+          "ItemDescription": "HIGH HEMP WRAPS 25CT ORIGINAL",
+          "ItemLookupCode": "719499005044",
+          "UnitsSold": 1346.0,
+          "Revenue": 14532.729999999907,
+          "AvgSellingPrice": "11.8374",
+          "TransactionCount": 433,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "BLUNT WRAP",
+          "ItemDescription": "EZ ROLL .49C 25CT SOUR APLE",
+          "ItemLookupCode": "619682010360",
+          "UnitsSold": 1949.0,
+          "Revenue": 13623.509999999791,
+          "AvgSellingPrice": "6.9900",
+          "TransactionCount": 963,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CANDLES",
+          "ItemDescription": "WICK & WAX 10\" CANDLE 3CT",
+          "ItemLookupCode": "676979960555",
+          "UnitsSold": 87.0,
+          "Revenue": 112.23,
+          "AvgSellingPrice": "1.2900",
+          "TransactionCount": 5,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CANDLES",
+          "ItemDescription": "WICK & WAX JUMBO CANDLE 6CT",
+          "ItemLookupCode": "676979858913",
+          "UnitsSold": 68.0,
+          "Revenue": 87.72,
+          "AvgSellingPrice": "1.2900",
+          "TransactionCount": 4,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CANDLES",
+          "ItemDescription": "WICK & WAX 4\" CANDLE 10CT",
+          "ItemLookupCode": "676979960517",
+          "UnitsSold": 50.0,
+          "Revenue": 64.5,
+          "AvgSellingPrice": "1.2900",
+          "TransactionCount": 10,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CANDLES",
+          "ItemDescription": "WICK & WAX 8\" CANDLE 1CT",
+          "ItemLookupCode": "676979556819",
+          "UnitsSold": 32.0,
+          "Revenue": 63.67999999999999,
+          "AvgSellingPrice": "1.9900",
+          "TransactionCount": 8,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CANDLES",
+          "ItemDescription": "AIRWICK CANDLES - AASORTED 1CT",
+          "ItemLookupCode": "5059001011466",
+          "UnitsSold": 23.0,
+          "Revenue": 54.970000000000006,
+          "AvgSellingPrice": "2.3900",
+          "TransactionCount": 4,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CANDYS",
+          "ItemDescription": "N&L ALL FLAVOURS 24CT",
+          "ItemLookupCode": "N&L",
+          "UnitsSold": 2800.0,
+          "Revenue": 19226.999999999985,
+          "AvgSellingPrice": "6.8844",
+          "TransactionCount": 488,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CANDYS",
+          "ItemDescription": "AIRHEADS ALL FLAVORS 36CT",
+          "ItemLookupCode": "AH36",
+          "UnitsSold": 1480.0,
+          "Revenue": 12349.399999999958,
+          "AvgSellingPrice": "8.3630",
+          "TransactionCount": 401,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CANDYS",
+          "ItemDescription": "SNICKERS 48 CT",
+          "ItemLookupCode": "040000524311",
+          "UnitsSold": 224.0,
+          "Revenue": 11518.75999999996,
+          "AvgSellingPrice": "51.4230",
+          "TransactionCount": 224,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CANDYS",
+          "ItemDescription": "FROOTIES ASSORTED FLVRS 360PCS",
+          "ItemLookupCode": "FROOTIES",
+          "UnitsSold": 1425.0,
+          "Revenue": 10553.550000000001,
+          "AvgSellingPrice": "7.3752",
+          "TransactionCount": 167,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CANDYS",
+          "ItemDescription": "HABIBI'S DUBAI CHOCOLATE 24CT",
+          "ItemLookupCode": "4270004666410",
+          "UnitsSold": 175.0,
+          "Revenue": 10160.819999999987,
+          "AvgSellingPrice": "60.4028",
+          "TransactionCount": 98,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CBD/HEMP",
+          "ItemDescription": "HIGH GR PRE ROLL 2GM THCP 50CT",
+          "ItemLookupCode": "725272745830",
+          "UnitsSold": 191.0,
+          "Revenue": 12987.49,
+          "AvgSellingPrice": "68.8196",
+          "TransactionCount": 75,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CBD/HEMP",
+          "ItemDescription": "LAVA PRE ROLL THCP 10/3CT",
+          "ItemLookupCode": "725272744963",
+          "UnitsSold": 221.0,
+          "Revenue": 11647.0,
+          "AvgSellingPrice": "54.0337",
+          "TransactionCount": 74,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CBD/HEMP",
+          "ItemDescription": "HIGH GR PRE ROLL THCP 10/2CT",
+          "ItemLookupCode": "725272746639",
+          "UnitsSold": 209.0,
+          "Revenue": 10367.95,
+          "AvgSellingPrice": "49.2141",
+          "TransactionCount": 63,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CBD/HEMP",
+          "ItemDescription": "BUG-EE'S GUMMY 96KMG JAR 80CT",
+          "ItemLookupCode": "850026296716",
+          "UnitsSold": 99.0,
+          "Revenue": 6218.839999999997,
+          "AvgSellingPrice": "62.9045",
+          "TransactionCount": 78,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CBD/HEMP",
+          "ItemDescription": "LOST THC PRE ROLL 2x2GM 10/2CT",
+          "ItemLookupCode": "9344483248384",
+          "UnitsSold": 154.0,
+          "Revenue": 5770.5,
+          "AvgSellingPrice": "37.8205",
+          "TransactionCount": 39,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CELLUAR ACCESSORIES",
+          "ItemDescription": "CELLTEKK CTD USB IPHONE 10CT",
+          "ItemLookupCode": "SKU-CTKK-10IPC",
+          "UnitsSold": 351.0,
+          "Revenue": 5583.50999999997,
+          "AvgSellingPrice": "15.8802",
+          "TransactionCount": 264,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CELLUAR ACCESSORIES",
+          "ItemDescription": "DIAMOND AC CABLE 25CT USB IPHN",
+          "ItemLookupCode": "0944850",
+          "UnitsSold": 124.0,
+          "Revenue": 3960.759999999991,
+          "AvgSellingPrice": "31.9339",
+          "TransactionCount": 107,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CELLUAR ACCESSORIES",
+          "ItemDescription": "CELLTEKK USB C + USB CAR 10CT",
+          "ItemLookupCode": "716053604712",
+          "UnitsSold": 153.0,
+          "Revenue": 3664.349999999997,
+          "AvgSellingPrice": "23.9500",
+          "TransactionCount": 119,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CELLUAR ACCESSORIES",
+          "ItemDescription": "DIAMOND AC CABLE 25CT USB - C",
+          "ItemLookupCode": "0948501",
+          "UnitsSold": 104.0,
+          "Revenue": 3326.959999999994,
+          "AvgSellingPrice": "31.9900",
+          "TransactionCount": 96,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CELLUAR ACCESSORIES",
+          "ItemDescription": "CELLTEKK CTD USB TYPE-C 10CT",
+          "ItemLookupCode": "SKU-CTKK-10TCC",
+          "UnitsSold": 209.0,
+          "Revenue": 3293.919999999991,
+          "AvgSellingPrice": "15.7685",
+          "TransactionCount": 167,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CIG ROLLING PAPER",
+          "ItemDescription": "BOB M CLASSIC KS PAPERS 50CT",
+          "ItemLookupCode": "850730000302",
+          "UnitsSold": 1312.0,
+          "Revenue": 39272.98000000026,
+          "AvgSellingPrice": "29.9514",
+          "TransactionCount": 1088,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CIG ROLLING PAPER",
+          "ItemDescription": "JOB GOLD 1.5 1 1/2 PAPER 50CT",
+          "ItemLookupCode": "079083159509",
+          "UnitsSold": 389.0,
+          "Revenue": 31564.95000000025,
+          "AvgSellingPrice": "81.3083",
+          "TransactionCount": 362,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CIG ROLLING PAPER",
+          "ItemDescription": "RAW CONES CLSC 1 1/4CT 32/6PK",
+          "ItemLookupCode": "716165177128",
+          "UnitsSold": 760.0,
+          "Revenue": 27442.400000000325,
+          "AvgSellingPrice": "36.1142",
+          "TransactionCount": 652,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CIG ROLLING PAPER",
+          "ItemDescription": "RAW CLSC KING SIZE SLIM 50CT ",
+          "ItemLookupCode": "716165177364",
+          "UnitsSold": 892.0,
+          "Revenue": 26418.14000000028,
+          "AvgSellingPrice": "29.6318",
+          "TransactionCount": 758,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CIG ROLLING PAPER",
+          "ItemDescription": "JOB JAR ORANGE 1.25 $.99 100CT",
+          "ItemLookupCode": "077170110365",
+          "UnitsSold": 268.0,
+          "Revenue": 16269.329999999954,
+          "AvgSellingPrice": "60.7786",
+          "TransactionCount": 246,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CIGAR GA",
+          "ItemDescription": "BACKWOODS 5PK 8/5CT RUSS CREAM",
+          "ItemLookupCode": "071610302808",
+          "UnitsSold": 3394.0,
+          "Revenue": 126058.5100000019,
+          "AvgSellingPrice": "37.3047",
+          "TransactionCount": 1675,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CIGAR GA",
+          "ItemDescription": "SS LEAF 3/2.49 10CT IRISH CRM",
+          "ItemLookupCode": "025900359553",
+          "UnitsSold": 4831.0,
+          "Revenue": 97191.29000000062,
+          "AvgSellingPrice": "20.1503",
+          "TransactionCount": 1697,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CIGAR GA",
+          "ItemDescription": "GAME 2/1.29 30/2CT DIAMOND",
+          "ItemLookupCode": "031700237991",
+          "UnitsSold": 3343.0,
+          "Revenue": 93408.7300000009,
+          "AvgSellingPrice": "28.0102",
+          "TransactionCount": 1734,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CIGAR GA",
+          "ItemDescription": "GAME 2/1.29 30/2CT GREEN SWTS",
+          "ItemLookupCode": "031700237946",
+          "UnitsSold": 2679.0,
+          "Revenue": 74880.89000000048,
+          "AvgSellingPrice": "28.0094",
+          "TransactionCount": 1493,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CIGAR GA",
+          "ItemDescription": "SS LEAF 3/2.49 10CT SWEET AROM",
+          "ItemLookupCode": "025900359522",
+          "UnitsSold": 2839.0,
+          "Revenue": 57151.61000000018,
+          "AvgSellingPrice": "20.1280",
+          "TransactionCount": 1289,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CIGARETTE",
+          "ItemDescription": "NEWPORT MENTHOL 100 BOX 10CT",
+          "ItemLookupCode": "026100805734",
+          "UnitsSold": 38603.0,
+          "Revenue": 3419320.0699999603,
+          "AvgSellingPrice": "87.1870",
+          "TransactionCount": 3202,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CIGARETTE",
+          "ItemDescription": "NEWPORT MENTHOL BOX 10CT",
+          "ItemLookupCode": "026100805758",
+          "UnitsSold": 28877.0,
+          "Revenue": 2544990.4299999517,
+          "AvgSellingPrice": "87.1774",
+          "TransactionCount": 3620,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CIGARETTE",
+          "ItemDescription": "MARL GOLD BOX 10CT",
+          "ItemLookupCode": "028200138408",
+          "UnitsSold": 14852.0,
+          "Revenue": 1191363.9800000018,
+          "AvgSellingPrice": "79.8508",
+          "TransactionCount": 2707,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CIGARETTE",
+          "ItemDescription": "MARL RED KING BOX 10CT",
+          "ItemLookupCode": "028200135704",
+          "UnitsSold": 7949.0,
+          "Revenue": 637448.0100000062,
+          "AvgSellingPrice": "79.8193",
+          "TransactionCount": 1965,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CIGARETTE",
+          "ItemDescription": "NEWPORT MENTHOL SOFT 10CT",
+          "ItemLookupCode": "026100805789",
+          "UnitsSold": 4188.0,
+          "Revenue": 363499.7200000034,
+          "AvgSellingPrice": "86.7558",
+          "TransactionCount": 1656,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CIGARS",
+          "ItemDescription": "BLK & MLD 25CT PT REGULAR ",
+          "ItemLookupCode": "070137005186",
+          "UnitsSold": 6417.0,
+          "Revenue": 175565.2300000013,
+          "AvgSellingPrice": "27.6193",
+          "TransactionCount": 1871,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CIGARS",
+          "ItemDescription": "BLK & MLD 10/5PK PT REGULAR",
+          "ItemLookupCode": "070137500186",
+          "UnitsSold": 3138.0,
+          "Revenue": 170887.35000000018,
+          "AvgSellingPrice": "55.1754",
+          "TransactionCount": 1486,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CIGARS",
+          "ItemDescription": "SS 2/$1.19 30/2CT - SWEETS",
+          "ItemLookupCode": "025900287337",
+          "UnitsSold": 6521.0,
+          "Revenue": 169111.88000000172,
+          "AvgSellingPrice": "25.9859",
+          "TransactionCount": 2694,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CIGARS",
+          "ItemDescription": "SS BLK 2/1.49 15/2CT SMOOTH",
+          "ItemLookupCode": "025900325718",
+          "UnitsSold": 10058.0,
+          "Revenue": 165637.54000000146,
+          "AvgSellingPrice": "16.4894",
+          "TransactionCount": 2378,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CIGARS",
+          "ItemDescription": "SS LEAF 3/2.49 10CT ORIGINAL",
+          "ItemLookupCode": "025900359508",
+          "UnitsSold": 7931.0,
+          "Revenue": 159158.2900000018,
+          "AvgSellingPrice": "20.1344",
+          "TransactionCount": 2353,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CLEAM",
+          "ItemDescription": "LUSTI POMADE HAIR GREASE 4OZ",
+          "ItemLookupCode": "743690022975",
+          "UnitsSold": 16.0,
+          "Revenue": 25.44,
+          "AvgSellingPrice": "1.5900",
+          "TransactionCount": 4,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CLEANING PRODUCTS",
+          "ItemDescription": "PINE-SOL LIQUID 60OZ",
+          "ItemLookupCode": "041294601610",
+          "UnitsSold": 393.0,
+          "Revenue": 3325.5300000000025,
+          "AvgSellingPrice": "8.4759",
+          "TransactionCount": 131,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CLEANING PRODUCTS",
+          "ItemDescription": "TOILET PAPER 4PK 12CT",
+          "ItemLookupCode": "TP12",
+          "UnitsSold": 89.0,
+          "Revenue": 2135.1099999999997,
+          "AvgSellingPrice": "23.9900",
+          "TransactionCount": 63,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CLEANING PRODUCTS",
+          "ItemDescription": "AJAX DISH LIQUID 12.6OZ 1CT",
+          "ItemLookupCode": "827854007463",
+          "UnitsSold": 966.0,
+          "Revenue": 1825.739999999999,
+          "AvgSellingPrice": "1.8900",
+          "TransactionCount": 138,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CLEANING PRODUCTS",
+          "ItemDescription": "PANDA TISSUE PAPER 4PK 6CT",
+          "ItemLookupCode": "183689001350",
+          "UnitsSold": 96.0,
+          "Revenue": 1519.0500000000006,
+          "AvgSellingPrice": "15.8062",
+          "TransactionCount": 87,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CLEANING PRODUCTS",
+          "ItemDescription": "TIDE LIQUID 25OZ 1CT",
+          "ItemLookupCode": "037000137849",
+          "UnitsSold": 160.0,
+          "Revenue": 1118.4000000000008,
+          "AvgSellingPrice": "6.9900",
+          "TransactionCount": 58,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "CONDOMS",
+          "ItemDescription": "TROJAN MAGNUM 6/3CT BARESKIN",
+          "ItemLookupCode": "022600228882",
+          "UnitsSold": 650.0,
+          "Revenue": 9114.49999999991,
+          "AvgSellingPrice": "14.0233",
+          "TransactionCount": 509,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "CONDOMS",
+          "ItemDescription": "TROJAN MAGNUM 6/3CT THIN BLK",
+          "ItemLookupCode": "022600646037",
+          "UnitsSold": 530.0,
+          "Revenue": 6362.949999999934,
+          "AvgSellingPrice": "11.9360",
+          "TransactionCount": 459,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "CONDOMS",
+          "ItemDescription": "TROJAN MAGNUM 6/3CT BLACK",
+          "ItemLookupCode": "022600642039",
+          "UnitsSold": 724.0,
+          "Revenue": 6157.2699999999295,
+          "AvgSellingPrice": "8.4646",
+          "TransactionCount": 533,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "CONDOMS",
+          "ItemDescription": "TROJAN 6/3CT BARESKIN SENSTIV",
+          "ItemLookupCode": "022600957058",
+          "UnitsSold": 359.0,
+          "Revenue": 5039.409999999963,
+          "AvgSellingPrice": "14.0390",
+          "TransactionCount": 306,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "CONDOMS",
+          "ItemDescription": "TROJAN MAGNUM JAR 96CT",
+          "ItemLookupCode": "MAG96",
+          "UnitsSold": 113.0,
+          "Revenue": 4522.869999999988,
+          "AvgSellingPrice": "40.0263",
+          "TransactionCount": 110,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "COOKIES",
+          "ItemDescription": "SNAK CLUB SMALL 1CT",
+          "ItemLookupCode": "SNAK",
+          "UnitsSold": 566.0,
+          "Revenue": 1484.7300000000002,
+          "AvgSellingPrice": "2.4561",
+          "TransactionCount": 49,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "COOKIES",
+          "ItemDescription": "COMBOS PEG BAG 6.3OZ 1CT",
+          "ItemLookupCode": "041419420010",
+          "UnitsSold": 411.0,
+          "Revenue": 1138.32,
+          "AvgSellingPrice": "2.6602",
+          "TransactionCount": 43,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "COOKIES",
+          "ItemDescription": "CHIPS AHOY KS 8CT ORIGINAL",
+          "ItemLookupCode": "044000056940",
+          "UnitsSold": 64.0,
+          "Revenue": 959.3600000000005,
+          "AvgSellingPrice": "14.9900",
+          "TransactionCount": 63,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "COOKIES",
+          "ItemDescription": "OREO GOLDEN DBLESTUFF KS 12CT",
+          "ItemLookupCode": "044000082130",
+          "UnitsSold": 43.0,
+          "Revenue": 945.5700000000003,
+          "AvgSellingPrice": "21.9900",
+          "TransactionCount": 45,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "COOKIES",
+          "ItemDescription": "KEEBLER WAFERS KS 9CT STRBRY",
+          "ItemLookupCode": "027800173574",
+          "UnitsSold": 48.0,
+          "Revenue": 907.5200000000003,
+          "AvgSellingPrice": "18.9066",
+          "TransactionCount": 48,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "COSMETICS & BEAUTY",
+          "ItemDescription": "AXE BODY SPRAY 1CT",
+          "ItemLookupCode": "AXE",
+          "UnitsSold": 2048.0,
+          "Revenue": 4474.950000000001,
+          "AvgSellingPrice": "2.1780",
+          "TransactionCount": 233,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "COSMETICS & BEAUTY",
+          "ItemDescription": "CARMEX 12CT ORIGINAL TUBES",
+          "ItemLookupCode": "083078123147",
+          "UnitsSold": 200.0,
+          "Revenue": 2997.999999999988,
+          "AvgSellingPrice": "14.9900",
+          "TransactionCount": 200,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "COSMETICS & BEAUTY",
+          "ItemDescription": "HAND SANITIZER 2OZ 30CT",
+          "ItemLookupCode": "761856466142",
+          "UnitsSold": 46.0,
+          "Revenue": 2529.539999999998,
+          "AvgSellingPrice": "54.9900",
+          "TransactionCount": 47,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "COSMETICS & BEAUTY",
+          "ItemDescription": "TAMPAX SUPER 10CT",
+          "ItemLookupCode": "073010314092",
+          "UnitsSold": 768.0,
+          "Revenue": 2526.7199999999943,
+          "AvgSellingPrice": "3.2900",
+          "TransactionCount": 173,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "COSMETICS & BEAUTY",
+          "ItemDescription": "TAMPAX REGULAR 10CT",
+          "ItemLookupCode": "073010214095",
+          "UnitsSold": 585.0,
+          "Revenue": 1924.649999999998,
+          "AvgSellingPrice": "3.2900",
+          "TransactionCount": 141,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "DRINKS",
+          "ItemDescription": "RED BULL 12OZ 24CT",
+          "ItemLookupCode": "R12",
+          "UnitsSold": 1259.0,
+          "Revenue": 70196.03000000004,
+          "AvgSellingPrice": "55.7740",
+          "TransactionCount": 491,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "DRINKS",
+          "ItemDescription": "RED BULL 8.4OZ 24CT",
+          "ItemLookupCode": "R8",
+          "UnitsSold": 1545.0,
+          "Revenue": 62331.09,
+          "AvgSellingPrice": "40.3133",
+          "TransactionCount": 606,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "DRINKS",
+          "ItemDescription": "COKE PRODUCTS 20OZ 24CT",
+          "ItemLookupCode": "C20",
+          "UnitsSold": 1906.0,
+          "Revenue": 60274.95000000009,
+          "AvgSellingPrice": "31.5848",
+          "TransactionCount": 622,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "DRINKS",
+          "ItemDescription": "NESTLE WATER 16.9 OZ 40CT",
+          "ItemLookupCode": "N16",
+          "UnitsSold": 9671.0,
+          "Revenue": 57275.919999999875,
+          "AvgSellingPrice": "5.9638",
+          "TransactionCount": 668,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "DRINKS",
+          "ItemDescription": "ARIZONA CAN 24OZ 24CT",
+          "ItemLookupCode": "ARIZONA",
+          "UnitsSold": 3546.0,
+          "Revenue": 53143.75999999994,
+          "AvgSellingPrice": "14.9886",
+          "TransactionCount": 712,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "ECIG - DISP D8",
+          "ItemDescription": "CAKE 7G 5CT THC-P HHC-P",
+          "ItemLookupCode": "753386094124",
+          "UnitsSold": 302.0,
+          "Revenue": 22771.260000000002,
+          "AvgSellingPrice": "76.3397",
+          "TransactionCount": 87,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "ECIG - DISP D8",
+          "ItemDescription": "GEEK THC 8.3GM THCP 5CT",
+          "ItemLookupCode": "10850066311025",
+          "UnitsSold": 275.0,
+          "Revenue": 20547.93,
+          "AvgSellingPrice": "75.1021",
+          "TransactionCount": 76,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "ECIG - DISP D8",
+          "ItemDescription": "FLYING H 7G 3IN1 STONER 5CT",
+          "ItemLookupCode": "840352511768",
+          "UnitsSold": 226.0,
+          "Revenue": 16662.0,
+          "AvgSellingPrice": "73.5344",
+          "TransactionCount": 85,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "ECIG - DISP D8",
+          "ItemDescription": "FLYING H 3GM 5CT STONER BLEND",
+          "ItemLookupCode": "840352516312",
+          "UnitsSold": 450.0,
+          "Revenue": 15043.0,
+          "AvgSellingPrice": "33.6386",
+          "TransactionCount": 135,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "ECIG - DISP D8",
+          "ItemDescription": "FLYING H 9G 3IN1 BLK 5CT",
+          "ItemLookupCode": "840352522696",
+          "UnitsSold": 167.0,
+          "Revenue": 13509.94,
+          "AvgSellingPrice": "81.1589",
+          "TransactionCount": 65,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "ECIG - PODS",
+          "ItemDescription": "JUUL CLASSIC MENTHL 5% 4PK 8CT",
+          "ItemLookupCode": "10819913012591",
+          "UnitsSold": 4367.0,
+          "Revenue": 443797.7500000016,
+          "AvgSellingPrice": "103.9775",
+          "TransactionCount": 540,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "ECIG - PODS",
+          "ItemDescription": "JUUL VIRG TOBACCO 5% 4PK 8CT",
+          "ItemLookupCode": "10819913011426",
+          "UnitsSold": 3707.0,
+          "Revenue": 376581.65000000113,
+          "AvgSellingPrice": "103.8518",
+          "TransactionCount": 464,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "ECIG - PODS",
+          "ItemDescription": "JUUL 5% 6/4CT 23.99 CLSC MENTH",
+          "ItemLookupCode": "10840048219043",
+          "UnitsSold": 1033.0,
+          "Revenue": 69267.65000000002,
+          "AvgSellingPrice": "68.9836",
+          "TransactionCount": 102,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "ECIG - PODS",
+          "ItemDescription": "VUSE MENTHOL 5.0% 5/4CT",
+          "ItemLookupCode": "849205023465",
+          "UnitsSold": 442.0,
+          "Revenue": 46000.58,
+          "AvgSellingPrice": "104.0714",
+          "TransactionCount": 307,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "ECIG - PODS",
+          "ItemDescription": "JUUL CLASSIC MENTHL 3% 4PK 8CT",
+          "ItemLookupCode": "10840048202960",
+          "UnitsSold": 399.0,
+          "Revenue": 40711.509999999966,
+          "AvgSellingPrice": "102.9812",
+          "TransactionCount": 137,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "ECIG - PODS D8",
+          "ItemDescription": "CAKE CART LIVE RESIN D10 5CT",
+          "ItemLookupCode": "717340440013",
+          "UnitsSold": 16.0,
+          "Revenue": 624.0,
+          "AvgSellingPrice": "30.4615",
+          "TransactionCount": 12,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "ECIG - PODS D8",
+          "ItemDescription": "FLYING H 4GM CART STNR BLD 5CT",
+          "ItemLookupCode": "384621944326",
+          "UnitsSold": 10.0,
+          "Revenue": 420.0,
+          "AvgSellingPrice": "43.3333",
+          "TransactionCount": 3,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "ECIG - PODS D8",
+          "ItemDescription": "CAKE CART 510 DELTA 10 1ML 5CT",
+          "ItemLookupCode": "717340440136",
+          "UnitsSold": 11.0,
+          "Revenue": 332.0,
+          "AvgSellingPrice": "30.1666",
+          "TransactionCount": 6,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "ECIG - PODS D8",
+          "ItemDescription": "FADED KO LR CART 2.5G 6CT",
+          "ItemLookupCode": "726597633420",
+          "UnitsSold": 4.0,
+          "Revenue": 186.5,
+          "AvgSellingPrice": "46.6250",
+          "TransactionCount": 4,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "ECIG - PODS D8",
+          "ItemDescription": "FADED D11+THCP CART 2.5G 6CT",
+          "ItemLookupCode": "689176567090",
+          "UnitsSold": 3.0,
+          "Revenue": 139.0,
+          "AvgSellingPrice": "46.3333",
+          "TransactionCount": 3,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "ItemDescription": "GEEK BAR 15000 PUFFS DISP 5CT",
+          "ItemLookupCode": "810125436772",
+          "UnitsSold": 7033.0,
+          "Revenue": 291375.0,
+          "AvgSellingPrice": "41.8237",
+          "TransactionCount": 1311,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "ItemDescription": "GEEK BAR 25000 PUFFS DISP 5CT",
+          "ItemLookupCode": "GEEK25",
+          "UnitsSold": 5337.0,
+          "Revenue": 278979.24,
+          "AvgSellingPrice": "52.5191",
+          "TransactionCount": 1123,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "ItemDescription": "RAZ 25000 PUFFS DISP 5CT",
+          "ItemLookupCode": "RAZ25K",
+          "UnitsSold": 3069.0,
+          "Revenue": 153404.81999999998,
+          "AvgSellingPrice": "49.9069",
+          "TransactionCount": 626,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "ItemDescription": "KADO BAR NI40K - ALL FLVRS",
+          "ItemLookupCode": "942411010158",
+          "UnitsSold": 2262.0,
+          "Revenue": 101789.5,
+          "AvgSellingPrice": "45.2066",
+          "TransactionCount": 481,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "ItemDescription": "KADO BAR 5000 5CT - ALL FLVRS",
+          "ItemLookupCode": "679417891695",
+          "UnitsSold": 2575.0,
+          "Revenue": 71251.91000000002,
+          "AvgSellingPrice": "27.3649",
+          "TransactionCount": 704,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "FOOD",
+          "ItemDescription": "TAKIS FUEGO 4 OZ 20CT 1 CASE",
+          "ItemLookupCode": "TAKIS20",
+          "UnitsSold": 726.0,
+          "Revenue": 24351.95999999999,
+          "AvgSellingPrice": "33.6544",
+          "TransactionCount": 351,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "FOOD",
+          "ItemDescription": "BOWL NOODLES NONGSHIM FLAVORS",
+          "ItemLookupCode": "BOWLNOODLES",
+          "UnitsSold": 1230.0,
+          "Revenue": 18454.46999999997,
+          "AvgSellingPrice": "14.9788",
+          "TransactionCount": 378,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "FOOD",
+          "ItemDescription": "PEANUT BOILED 6LBS 8OZ JUMBO ",
+          "ItemLookupCode": "041443110925",
+          "UnitsSold": 1811.0,
+          "Revenue": 14001.229999999969,
+          "AvgSellingPrice": "7.9751",
+          "TransactionCount": 224,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "FOOD",
+          "ItemDescription": "MARUCHAN CUPS ALL FLAVORS 12CT",
+          "ItemLookupCode": "MARUCUPS",
+          "UnitsSold": 1601.0,
+          "Revenue": 12909.279999999915,
+          "AvgSellingPrice": "8.0545",
+          "TransactionCount": 559,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "FOOD",
+          "ItemDescription": "LAYS/CHEETOS/DORITOS",
+          "ItemLookupCode": "CHIPS",
+          "UnitsSold": 8087.0,
+          "Revenue": 11277.730000000001,
+          "AvgSellingPrice": "1.3927",
+          "TransactionCount": 108,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "GLOVES & T SHIRTS",
+          "ItemDescription": "T-SHIRT HARLEM SHORT SLEVE 1CT",
+          "ItemLookupCode": "HS",
+          "UnitsSold": 19796.0,
+          "Revenue": 64192.79,
+          "AvgSellingPrice": "3.2290",
+          "TransactionCount": 737,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "GLOVES & T SHIRTS",
+          "ItemDescription": "TANK TOP T-SHIRT BLK/WHT 1CT",
+          "ItemLookupCode": "TANK",
+          "UnitsSold": 1983.0,
+          "Revenue": 4461.75,
+          "AvgSellingPrice": "2.2500",
+          "TransactionCount": 82,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "GLOVES & T SHIRTS",
+          "ItemDescription": "HARLEM GLOVES 12CT",
+          "ItemLookupCode": "HG",
+          "UnitsSold": 60.0,
+          "Revenue": 564.4000000000002,
+          "AvgSellingPrice": "9.4046",
+          "TransactionCount": 41,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "GLOVES & T SHIRTS",
+          "ItemDescription": "BROWN WORK JERSEY GLOVES 12CT ",
+          "ItemLookupCode": "801822400456",
+          "UnitsSold": 23.0,
+          "Revenue": 183.77000000000004,
+          "AvgSellingPrice": "7.9900",
+          "TransactionCount": 23,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "GLOVES & T SHIRTS",
+          "ItemDescription": "GLOVES LEATHER WORKING 12CT",
+          "ItemLookupCode": "731123123849",
+          "UnitsSold": 10.0,
+          "Revenue": 149.9,
+          "AvgSellingPrice": "14.9900",
+          "TransactionCount": 9,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "GUMS/CHICLETS",
+          "ItemDescription": "WR TWIN PK $.50 40CT DOUBLEMNT",
+          "ItemLookupCode": "022000293220",
+          "UnitsSold": 335.0,
+          "Revenue": 4349.649999999972,
+          "AvgSellingPrice": "12.9829",
+          "TransactionCount": 284,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "GUMS/CHICLETS",
+          "ItemDescription": "WR TWIN PK $.50 40CT SPEARMINT",
+          "ItemLookupCode": "022000293312",
+          "UnitsSold": 233.0,
+          "Revenue": 3026.669999999988,
+          "AvgSellingPrice": "12.9900",
+          "TransactionCount": 217,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "GUMS/CHICLETS",
+          "ItemDescription": "WR EXTRA 35STK 6CT - SPEARMINT",
+          "ItemLookupCode": "022000135582",
+          "UnitsSold": 152.0,
+          "Revenue": 2923.479999999993,
+          "AvgSellingPrice": "19.2202",
+          "TransactionCount": 139,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "GUMS/CHICLETS",
+          "ItemDescription": "WR EXTRA 35STK 6CT-  PEPPRMINT",
+          "ItemLookupCode": "022000126283",
+          "UnitsSold": 123.0,
+          "Revenue": 2360.7699999999977,
+          "AvgSellingPrice": "19.2042",
+          "TransactionCount": 112,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "GUMS/CHICLETS",
+          "ItemDescription": "WR EXTRA 35STK 6CT-  WATERMLON",
+          "ItemLookupCode": "022000282187",
+          "UnitsSold": 120.0,
+          "Revenue": 2330.799999999998,
+          "AvgSellingPrice": "19.4395",
+          "TransactionCount": 109,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "HARDWARE",
+          "ItemDescription": "WD-40 3OZ 1CT",
+          "ItemLookupCode": "079567490005",
+          "UnitsSold": 202.0,
+          "Revenue": 866.5800000000003,
+          "AvgSellingPrice": "4.2900",
+          "TransactionCount": 51,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "HARDWARE",
+          "ItemDescription": "LIL AUTO TIRE REP KIT PLUG STY",
+          "ItemLookupCode": "080893012359",
+          "UnitsSold": 123.0,
+          "Revenue": 355.4699999999999,
+          "AvgSellingPrice": "2.8900",
+          "TransactionCount": 33,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "HARDWARE",
+          "ItemDescription": "LIL AUTO TIRE REP KIT STRIP ",
+          "ItemLookupCode": "080893010355",
+          "UnitsSold": 84.0,
+          "Revenue": 234.36,
+          "AvgSellingPrice": "2.7900",
+          "TransactionCount": 22,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "HARDWARE",
+          "ItemDescription": "PENZ BOOSTER CABLE 8FT",
+          "ItemLookupCode": "024291141273",
+          "UnitsSold": 28.0,
+          "Revenue": 223.72,
+          "AvgSellingPrice": "7.9900",
+          "TransactionCount": 10,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "HARDWARE",
+          "ItemDescription": "LIL AUTO DUCT TAPE 1.5\"x10Y ",
+          "ItemLookupCode": "080893010508",
+          "UnitsSold": 100.0,
+          "Revenue": 199.00000000000003,
+          "AvgSellingPrice": "1.9900",
+          "TransactionCount": 30,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "HOUSEHOLD GOODS",
+          "ItemDescription": "NOVA JUMBO TISSUE 2PLY 9\" 12CT",
+          "ItemLookupCode": "1000",
+          "UnitsSold": 331.0,
+          "Revenue": 9194.689999999968,
+          "AvgSellingPrice": "27.8330",
+          "TransactionCount": 223,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "HOUSEHOLD GOODS",
+          "ItemDescription": "NOVA BATH TISSUE 96CT",
+          "ItemLookupCode": "4530",
+          "UnitsSold": 146.0,
+          "Revenue": 8263.549999999977,
+          "AvgSellingPrice": "56.6360",
+          "TransactionCount": 161,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "HOUSEHOLD GOODS",
+          "ItemDescription": "WINTER CAP REGULAR 12CT",
+          "ItemLookupCode": "6868555997886",
+          "UnitsSold": 520.0,
+          "Revenue": 7776.79999999998,
+          "AvgSellingPrice": "14.9846",
+          "TransactionCount": 187,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "HOUSEHOLD GOODS",
+          "ItemDescription": "NOVA CENTER PULL TOWEL 6CT",
+          "ItemLookupCode": "600",
+          "UnitsSold": 119.0,
+          "Revenue": 3528.829999999995,
+          "AvgSellingPrice": "29.5407",
+          "TransactionCount": 88,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "HOUSEHOLD GOODS",
+          "ItemDescription": "CAN LINER 38X58 55GL",
+          "ItemLookupCode": "CANLINER 55",
+          "UnitsSold": 160.0,
+          "Revenue": 3173.6799999999957,
+          "AvgSellingPrice": "19.8907",
+          "TransactionCount": 83,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "INCENSE",
+          "ItemDescription": "SONG OF SUDHAN DISPLAY 64/30CT",
+          "ItemLookupCode": "SONG30",
+          "UnitsSold": 32.0,
+          "Revenue": 7029.679999999995,
+          "AvgSellingPrice": "219.7627",
+          "TransactionCount": 44,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "INCENSE",
+          "ItemDescription": "SONG OF SUDAN 19\" 30CT",
+          "ItemLookupCode": "SONG",
+          "UnitsSold": 1444.0,
+          "Revenue": 5471.969999999992,
+          "AvgSellingPrice": "3.7857",
+          "TransactionCount": 186,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "INCENSE",
+          "ItemDescription": "SONG OF SUDAN 19\" DISP 24/30CT",
+          "ItemLookupCode": "738435728991",
+          "UnitsSold": 23.0,
+          "Revenue": 1729.77,
+          "AvgSellingPrice": "75.1900",
+          "TransactionCount": 25,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "INCENSE",
+          "ItemDescription": "SONG OF SUDAN 72CT BOX",
+          "ItemLookupCode": "738435712860",
+          "UnitsSold": 46.0,
+          "Revenue": 1287.5400000000002,
+          "AvgSellingPrice": "27.9900",
+          "TransactionCount": 47,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "INCENSE",
+          "ItemDescription": "SATYA INCENSE 12CT NAG CHAMPA",
+          "ItemLookupCode": "8904245400484",
+          "UnitsSold": 75.0,
+          "Revenue": 529.4400000000004,
+          "AvgSellingPrice": "6.7643",
+          "TransactionCount": 69,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "JBR",
+          "ItemDescription": "JBP PIPES G25K ASSORTED",
+          "ItemLookupCode": "JBPKG25",
+          "UnitsSold": 509.0,
+          "Revenue": 23551.31,
+          "AvgSellingPrice": "42.6050",
+          "TransactionCount": 12,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "JBR",
+          "ItemDescription": "JBPK PIPES G15K ASSORTED",
+          "ItemLookupCode": "JBPG15",
+          "UnitsSold": 274.0,
+          "Revenue": 9053.0,
+          "AvgSellingPrice": "31.7777",
+          "TransactionCount": 9,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "JBR",
+          "ItemDescription": "JBP PIPES R25K ASSORTED",
+          "ItemLookupCode": "JBPRZ",
+          "UnitsSold": 176.0,
+          "Revenue": 8116.6900000000005,
+          "AvgSellingPrice": "44.5600",
+          "TransactionCount": 6,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "JBR",
+          "ItemDescription": "JBPK PIPES KB25K ASSORTED",
+          "ItemLookupCode": "JBPKB",
+          "UnitsSold": 155.0,
+          "Revenue": 4383.75,
+          "AvgSellingPrice": "23.5416",
+          "TransactionCount": 5,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "JBR",
+          "ItemDescription": "JBPK PIPES KB40K ASSORTED",
+          "ItemLookupCode": "JBPKBT",
+          "UnitsSold": 122.0,
+          "Revenue": 4080.0,
+          "AvgSellingPrice": "31.6666",
+          "TransactionCount": 6,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "KIDS STUFF",
+          "ItemDescription": "GERBER CLEAR BOTTLE 9.OZ 6CT.",
+          "ItemLookupCode": "885131761408",
+          "UnitsSold": 48.0,
+          "Revenue": 431.52000000000027,
+          "AvgSellingPrice": "8.9900",
+          "TransactionCount": 46,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "KIDS STUFF",
+          "ItemDescription": "GERBER CLEAR BOTTLE 5.0Z 6CT",
+          "ItemLookupCode": "885131788856",
+          "UnitsSold": 37.0,
+          "Revenue": 332.63000000000017,
+          "AvgSellingPrice": "8.9900",
+          "TransactionCount": 40,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "KIDS STUFF",
+          "ItemDescription": "DIAPERS BEBIN 14CT MEDIUM SZ 3",
+          "ItemLookupCode": "619585004213",
+          "UnitsSold": 66.0,
+          "Revenue": 263.34000000000003,
+          "AvgSellingPrice": "3.9900",
+          "TransactionCount": 27,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "KIDS STUFF",
+          "ItemDescription": "J&J BABY LOTION 100ML 1CT",
+          "ItemLookupCode": "9556006060537",
+          "UnitsSold": 130.0,
+          "Revenue": 258.7,
+          "AvgSellingPrice": "1.9900",
+          "TransactionCount": 31,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "KIDS STUFF",
+          "ItemDescription": "DIAPERS BEBIN 14CT LARGE SZ 4",
+          "ItemLookupCode": "619585004312",
+          "UnitsSold": 56.0,
+          "Revenue": 223.43999999999997,
+          "AvgSellingPrice": "3.9900",
+          "TransactionCount": 24,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "KITCHEN & TOILET",
+          "ItemDescription": "CHORE BOY 36CT",
+          "ItemLookupCode": "CHORE BOY",
+          "UnitsSold": 315.0,
+          "Revenue": 6888.3499999999585,
+          "AvgSellingPrice": "22.1581",
+          "TransactionCount": 278,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "KITCHEN & TOILET",
+          "ItemDescription": "INDICA SANDWICH BAG 150CT",
+          "ItemLookupCode": "676979855974",
+          "UnitsSold": 1502.0,
+          "Revenue": 2388.179999999999,
+          "AvgSellingPrice": "1.5900",
+          "TransactionCount": 193,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "KITCHEN & TOILET",
+          "ItemDescription": "SANDWICH BAGS CARE 150CT",
+          "ItemLookupCode": "SANDWICH BAGS CARE 150CT",
+          "UnitsSold": 361.0,
+          "Revenue": 465.68999999999994,
+          "AvgSellingPrice": "1.2900",
+          "TransactionCount": 14,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "KITCHEN & TOILET",
+          "ItemDescription": "PARTY CUP PLASTIC 16OZ 50CT",
+          "ItemLookupCode": "676979902456",
+          "UnitsSold": 88.0,
+          "Revenue": 436.1200000000001,
+          "AvgSellingPrice": "4.9596",
+          "TransactionCount": 33,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "KITCHEN & TOILET",
+          "ItemDescription": "PARTY WORLD 2OZ SHOT GLASS 20C",
+          "ItemLookupCode": "878848910252",
+          "UnitsSold": 433.0,
+          "Revenue": 428.67000000000013,
+          "AvgSellingPrice": "0.9900",
+          "TransactionCount": 43,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "KRATOM",
+          "ItemDescription": "WONDER VITA PILLS 10/4CT",
+          "ItemLookupCode": "725414671065",
+          "UnitsSold": 1495.0,
+          "Revenue": 131097.71,
+          "AvgSellingPrice": "89.6773",
+          "TransactionCount": 131,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "KRATOM",
+          "ItemDescription": "WONDER VITA PILLS 40CT",
+          "ItemLookupCode": "679523790295",
+          "UnitsSold": 1141.0,
+          "Revenue": 107356.44,
+          "AvgSellingPrice": "95.8926",
+          "TransactionCount": 166,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "KRATOM",
+          "ItemDescription": "WONDER RD VITA PILLS 10/4CT",
+          "ItemLookupCode": "679523786540",
+          "UnitsSold": 488.0,
+          "Revenue": 66965.0,
+          "AvgSellingPrice": "136.5000",
+          "TransactionCount": 18,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "KRATOM",
+          "ItemDescription": "DOZO PERKS TABLETS 10/3CT",
+          "ItemLookupCode": "791126256524",
+          "UnitsSold": 611.0,
+          "Revenue": 60699.990000000005,
+          "AvgSellingPrice": "101.6455",
+          "TransactionCount": 155,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "KRATOM",
+          "ItemDescription": "MODUS SMAX TABLETS 10/4CT",
+          "ItemLookupCode": "766679205749",
+          "UnitsSold": 224.0,
+          "Revenue": 32481.0,
+          "AvgSellingPrice": "148.5125",
+          "TransactionCount": 38,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "LIGHTERS",
+          "ItemDescription": "LGT BIC BIG 50+3   53 CT",
+          "ItemLookupCode": "070330644809",
+          "UnitsSold": 1645.0,
+          "Revenue": 76677.95000000032,
+          "AvgSellingPrice": "49.2790",
+          "TransactionCount": 583,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "LIGHTERS",
+          "ItemDescription": "LGT BIC MINI 50 + 3",
+          "ItemLookupCode": "070330644793",
+          "UnitsSold": 658.0,
+          "Revenue": 26412.740000000234,
+          "AvgSellingPrice": "40.2081",
+          "TransactionCount": 527,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "LIGHTERS",
+          "ItemDescription": "LGT BIC BIG 50CT",
+          "ItemLookupCode": "070330639362",
+          "UnitsSold": 366.0,
+          "Revenue": 16466.339999999946,
+          "AvgSellingPrice": "44.9900",
+          "TransactionCount": 311,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "LIGHTERS",
+          "ItemDescription": "LGT BIC 50CT TRAY PLAYBOY",
+          "ItemLookupCode": "070330633261",
+          "UnitsSold": 110.0,
+          "Revenue": 8698.899999999983,
+          "AvgSellingPrice": "79.0809",
+          "TransactionCount": 110,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "LIGHTERS",
+          "ItemDescription": "LGT BIC 50CT TRAY RAW ",
+          "ItemLookupCode": "070330666832",
+          "UnitsSold": 123.0,
+          "Revenue": 7576.769999999982,
+          "AvgSellingPrice": "61.6370",
+          "TransactionCount": 102,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "LIT CIGARS 003251",
+          "ItemDescription": "AL CAPONE 10/10CT SWEET FILTER",
+          "ItemLookupCode": "717519011143",
+          "UnitsSold": 319.0,
+          "Revenue": 18478.859999999993,
+          "AvgSellingPrice": "57.9754",
+          "TransactionCount": 275,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "LIT CIGARS 003251",
+          "ItemDescription": "AL CAPONE JAR 60/2CT SWT FLTR",
+          "ItemLookupCode": "717519000864",
+          "UnitsSold": 212.0,
+          "Revenue": 14799.989999999965,
+          "AvgSellingPrice": "69.9291",
+          "TransactionCount": 205,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "LIT CIGARS 003251",
+          "ItemDescription": "AL CAPONE 10/10CT SWEET COGNAC",
+          "ItemLookupCode": "717519011105",
+          "UnitsSold": 193.0,
+          "Revenue": 11192.069999999969,
+          "AvgSellingPrice": "57.9900",
+          "TransactionCount": 162,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "LIT CIGARS 003251",
+          "ItemDescription": "AL CAPONE TOWER JAM BLZ 60/2CT",
+          "ItemLookupCode": "717519111706",
+          "UnitsSold": 131.0,
+          "Revenue": 9154.719999999981,
+          "AvgSellingPrice": "69.9439",
+          "TransactionCount": 130,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "LIT CIGARS 003251",
+          "ItemDescription": "AL CAPONE TOWER 60/2CT SWT FIL",
+          "ItemLookupCode": "717519001052",
+          "UnitsSold": 123.0,
+          "Revenue": 8566.849999999984,
+          "AvgSellingPrice": "69.9350",
+          "TransactionCount": 109,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "ItemDescription": "GRABBA LEAF CIGAR WRAPS 25PK",
+          "ItemLookupCode": "094922733443",
+          "UnitsSold": 22414.0,
+          "Revenue": 593623.6899999862,
+          "AvgSellingPrice": "29.8684",
+          "TransactionCount": 1795,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "ItemDescription": "GRABBA  WH LEAF NATURAL10PK",
+          "ItemLookupCode": "855906007031",
+          "UnitsSold": 7771.0,
+          "Revenue": 193689.7399999987,
+          "AvgSellingPrice": "26.9089",
+          "TransactionCount": 1759,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "ItemDescription": "420 GRABBA CRUSH DARK 15CT",
+          "ItemLookupCode": "742488783104",
+          "UnitsSold": 2807.0,
+          "Revenue": 69905.55000000012,
+          "AvgSellingPrice": "24.9859",
+          "TransactionCount": 1599,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "ItemDescription": "SLAPWOODS 10/5PK RUSSIAN CRM",
+          "ItemLookupCode": "738607282948",
+          "UnitsSold": 821.0,
+          "Revenue": 32736.91000000017,
+          "AvgSellingPrice": "40.0724",
+          "TransactionCount": 467,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "ItemDescription": "SLAPWOODS 10/5PK NATURAL",
+          "ItemLookupCode": "796559467110",
+          "UnitsSold": 585.0,
+          "Revenue": 23406.230000000025,
+          "AvgSellingPrice": "40.0707",
+          "TransactionCount": 341,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "ItemDescription": "LOOSE LEAF 2/2.99 20CT CKIS CR",
+          "ItemLookupCode": "769577921186",
+          "UnitsSold": 1802.0,
+          "Revenue": 62288.96000000001,
+          "AvgSellingPrice": "34.9679",
+          "TransactionCount": 883,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "ItemDescription": "LIL LEAF 3/$2.99 10/3CT ORIGNL",
+          "ItemLookupCode": "860010326268",
+          "UnitsSold": 3104.0,
+          "Revenue": 61222.75000000022,
+          "AvgSellingPrice": "19.9683",
+          "TransactionCount": 1277,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "ItemDescription": "LIL LEAF 3/$2.99 10/3CT RUS CR",
+          "ItemLookupCode": "860010326275",
+          "UnitsSold": 2639.0,
+          "Revenue": 51776.61000000022,
+          "AvgSellingPrice": "19.9692",
+          "TransactionCount": 1213,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "ItemDescription": "BUGLER ORIGINAL  0.65OZ 6CT",
+          "ItemLookupCode": "761073426219",
+          "UnitsSold": 1290.0,
+          "Revenue": 30820.100000000108,
+          "AvgSellingPrice": "26.9802",
+          "TransactionCount": 278,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "ItemDescription": "LIL LEAF 3/$2.99 10/3CT WT RUM",
+          "ItemLookupCode": "850059190036",
+          "UnitsSold": 1435.0,
+          "Revenue": 28092.870000000206,
+          "AvgSellingPrice": "19.9591",
+          "TransactionCount": 735,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "MEDICINE",
+          "ItemDescription": "U PASS 3OZ 6CT.",
+          "ItemLookupCode": "642125393072",
+          "UnitsSold": 645.0,
+          "Revenue": 15443.599999999895,
+          "AvgSellingPrice": "23.9959",
+          "TransactionCount": 511,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "MEDICINE",
+          "ItemDescription": "GOODY'S POWDER 24/6CT",
+          "ItemLookupCode": "042037104726",
+          "UnitsSold": 313.0,
+          "Revenue": 11697.819999999945,
+          "AvgSellingPrice": "35.8895",
+          "TransactionCount": 315,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "MEDICINE",
+          "ItemDescription": "GOODYS POWDER XS 36/2CT",
+          "ItemLookupCode": "042037110963",
+          "UnitsSold": 315.0,
+          "Revenue": 7605.41999999995,
+          "AvgSellingPrice": "23.5416",
+          "TransactionCount": 319,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "MEDICINE",
+          "ItemDescription": "CLEAR EYES 12CT",
+          "ItemLookupCode": "300742541282",
+          "UnitsSold": 224.0,
+          "Revenue": 5595.7599999999775,
+          "AvgSellingPrice": "24.9587",
+          "TransactionCount": 192,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "MEDICINE",
+          "ItemDescription": "VISINE ADVANCED  0.28OZ 6CT",
+          "ItemLookupCode": "655708119693",
+          "UnitsSold": 418.0,
+          "Revenue": 5457.44999999996,
+          "AvgSellingPrice": "13.0638",
+          "TransactionCount": 332,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "MISC",
+          "ItemDescription": "GALAXY GAS 0.6L N20 1CT",
+          "ItemLookupCode": "850042370476",
+          "UnitsSold": 1967.0,
+          "Revenue": 27274.609999999997,
+          "AvgSellingPrice": "13.9431",
+          "TransactionCount": 128,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "MISC",
+          "ItemDescription": "BEER RING CARDBOARD HOLDER 6PK",
+          "ItemLookupCode": "CBH6",
+          "UnitsSold": 343.0,
+          "Revenue": 15394.129999999983,
+          "AvgSellingPrice": "49.4152",
+          "TransactionCount": 99,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "MISC",
+          "ItemDescription": "SPACE GAS 1L N20 1CT",
+          "ItemLookupCode": "SP1L680",
+          "UnitsSold": 919.0,
+          "Revenue": 13758.989999999996,
+          "AvgSellingPrice": "15.2229",
+          "TransactionCount": 73,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "MISC",
+          "ItemDescription": "BEER RING FOR CAN 1000CT",
+          "ItemLookupCode": "CRH1000",
+          "UnitsSold": 248.0,
+          "Revenue": 8360.149999999994,
+          "AvgSellingPrice": "36.8682",
+          "TransactionCount": 82,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "MISC",
+          "ItemDescription": "CHEER UP BOX 12CT",
+          "ItemLookupCode": "10850026106029",
+          "UnitsSold": 48.0,
+          "Revenue": 6336.0,
+          "AvgSellingPrice": "132.0000",
+          "TransactionCount": 2,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "NICOTINE POUCHES",
+          "ItemDescription": "ZYN 6MG WINTERGREEN 5CT",
+          "ItemLookupCode": "609249903426",
+          "UnitsSold": 1938.0,
+          "Revenue": 41158.360000000095,
+          "AvgSellingPrice": "21.4934",
+          "TransactionCount": 388,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "NICOTINE POUCHES",
+          "ItemDescription": "ZYN 6MG SPEARMINT 5CT",
+          "ItemLookupCode": "609249902429",
+          "UnitsSold": 1709.0,
+          "Revenue": 36473.09000000007,
+          "AvgSellingPrice": "21.5171",
+          "TransactionCount": 346,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "NICOTINE POUCHES",
+          "ItemDescription": "ZYN 6MG PEPPERMINT 5CT",
+          "ItemLookupCode": "609249901422",
+          "UnitsSold": 1607.0,
+          "Revenue": 34302.490000000085,
+          "AvgSellingPrice": "21.5224",
+          "TransactionCount": 353,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "NICOTINE POUCHES",
+          "ItemDescription": "ZYN 6MG COOL MINT 5CT",
+          "ItemLookupCode": "609249900425",
+          "UnitsSold": 1468.0,
+          "Revenue": 31401.980000000094,
+          "AvgSellingPrice": "21.5012",
+          "TransactionCount": 356,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "NICOTINE POUCHES",
+          "ItemDescription": "ZYN 6MG CITRUS 5CT",
+          "ItemLookupCode": "609249907424",
+          "UnitsSold": 1452.0,
+          "Revenue": 30913.320000000047,
+          "AvgSellingPrice": "21.5048",
+          "TransactionCount": 342,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "NOVELTY ITEMS",
+          "ItemDescription": "K-SHOT 12CT - REGULAR",
+          "ItemLookupCode": "820103507127",
+          "UnitsSold": 1518.0,
+          "Revenue": 124335.0,
+          "AvgSellingPrice": "82.1231",
+          "TransactionCount": 528,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "NOVELTY ITEMS",
+          "ItemDescription": "SOMA 300 KRATOM SHOT 12CT",
+          "ItemLookupCode": "10810075773191",
+          "UnitsSold": 146.0,
+          "Revenue": 17266.0,
+          "AvgSellingPrice": "119.3700",
+          "TransactionCount": 54,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "NOVELTY ITEMS",
+          "ItemDescription": "K-SHOT 12CT - BLACK",
+          "ItemLookupCode": "589764138773",
+          "UnitsSold": 135.0,
+          "Revenue": 11980.0,
+          "AvgSellingPrice": "89.5645",
+          "TransactionCount": 123,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "NOVELTY ITEMS",
+          "ItemDescription": "THERMAL LONG SLEEVES CT",
+          "ItemLookupCode": "THERMAL",
+          "UnitsSold": 2212.0,
+          "Revenue": 11542.41,
+          "AvgSellingPrice": "5.1503",
+          "TransactionCount": 116,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "NOVELTY ITEMS",
+          "ItemDescription": "GAS HOUSE BACK PACK 1CT",
+          "ItemLookupCode": "GHBP24",
+          "UnitsSold": 378.0,
+          "Revenue": 7749.829999999998,
+          "AvgSellingPrice": "20.5567",
+          "TransactionCount": 139,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "PERFUMES",
+          "ItemDescription": "PERFUME ALL FLAVOR SINGLE BX",
+          "ItemLookupCode": "PERFUME",
+          "UnitsSold": 132.0,
+          "Revenue": 329.3400000000001,
+          "AvgSellingPrice": "2.4950",
+          "TransactionCount": 16,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "PHONE CARDS",
+          "ItemDescription": "CARD BOSS REVOLUTION $10",
+          "ItemLookupCode": "678578421468",
+          "UnitsSold": 1034.0,
+          "Revenue": 9308.5,
+          "AvgSellingPrice": "9.0030",
+          "TransactionCount": 83,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "PHONE CARDS",
+          "ItemDescription": "CARD BOSS REVOLUTION $5",
+          "ItemLookupCode": "678578421451",
+          "UnitsSold": 1234.0,
+          "Revenue": 5665.7,
+          "AvgSellingPrice": "4.5910",
+          "TransactionCount": 89,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "PHONE CARDS",
+          "ItemDescription": "CARD TIGO INTERNATIONAL $10",
+          "ItemLookupCode": "678578501405",
+          "UnitsSold": 365.0,
+          "Revenue": 3471.0,
+          "AvgSellingPrice": "9.5117",
+          "TransactionCount": 17,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "PHONE CARDS",
+          "ItemDescription": "CARD RAZA $5",
+          "ItemLookupCode": "251748594409",
+          "UnitsSold": 60.0,
+          "Revenue": 270.0,
+          "AvgSellingPrice": "4.5000",
+          "TransactionCount": 2,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "PHONE CARDS",
+          "ItemDescription": "CARD PINLESS WORLD $5",
+          "ItemLookupCode": "251748530056",
+          "UnitsSold": 30.0,
+          "Revenue": 135.0,
+          "AvgSellingPrice": "4.5000",
+          "TransactionCount": 1,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "PLAYING CARDS",
+          "ItemDescription": "PLAYING CARD AVIATOR 12CT",
+          "ItemLookupCode": "073854009147",
+          "UnitsSold": 90.0,
+          "Revenue": 1709.1000000000006,
+          "AvgSellingPrice": "18.9900",
+          "TransactionCount": 79,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "PLAYING CARDS",
+          "ItemDescription": "PLAYING CARD BEE 12CT",
+          "ItemLookupCode": "073854000922",
+          "UnitsSold": 34.0,
+          "Revenue": 1087.66,
+          "AvgSellingPrice": "31.9900",
+          "TransactionCount": 38,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "PLAYING CARDS",
+          "ItemDescription": "PLAYING CARD MAVERICK 12CT",
+          "ItemLookupCode": "10041187000091",
+          "UnitsSold": 24.0,
+          "Revenue": 359.7600000000001,
+          "AvgSellingPrice": "14.9900",
+          "TransactionCount": 21,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "PLAYING CARDS",
+          "ItemDescription": "PLAYING CARDS NAIPES 12CT",
+          "ItemLookupCode": "PC12US2",
+          "UnitsSold": 6.0,
+          "Revenue": 41.940000000000005,
+          "AvgSellingPrice": "6.9900",
+          "TransactionCount": 5,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "PLAYING CARDS",
+          "ItemDescription": "PLAYING CARDS RAW BLACK 1CT",
+          "ItemLookupCode": "716165286455",
+          "UnitsSold": 9.0,
+          "Revenue": 26.91,
+          "AvgSellingPrice": "2.9900",
+          "TransactionCount": 4,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "SHOPPING BAGS",
+          "ItemDescription": "BAG 1/6 BLACK GA WHSL ",
+          "ItemLookupCode": "B6",
+          "UnitsSold": 4261.0,
+          "Revenue": 40260.0500000001,
+          "AvgSellingPrice": "7.0390",
+          "TransactionCount": 1033,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "SHOPPING BAGS",
+          "ItemDescription": "BAG 1/8 HDPE BLACK 18M",
+          "ItemLookupCode": "B8",
+          "UnitsSold": 3024.0,
+          "Revenue": 35234.8400000002,
+          "AvgSellingPrice": "11.1224",
+          "TransactionCount": 780,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "SHOPPING BAGS",
+          "ItemDescription": "CAN LINER 38X60 55GL 100/150CT",
+          "ItemLookupCode": "CANLINER55",
+          "UnitsSold": 986.0,
+          "Revenue": 19310.339999999975,
+          "AvgSellingPrice": "19.4616",
+          "TransactionCount": 444,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "SHOPPING BAGS",
+          "ItemDescription": "BAG 1/10  BLACK SMALL",
+          "ItemLookupCode": "B10",
+          "UnitsSold": 1538.0,
+          "Revenue": 18140.679999999964,
+          "AvgSellingPrice": "11.3439",
+          "TransactionCount": 501,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "SHOPPING BAGS",
+          "ItemDescription": "PAPER BAG NO 02 500CT",
+          "ItemLookupCode": "PAP2",
+          "UnitsSold": 993.0,
+          "Revenue": 6857.669999999956,
+          "AvgSellingPrice": "7.9830",
+          "TransactionCount": 428,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "STATIONARY",
+          "ItemDescription": "THERMAL PAPER 31/8' X 230 50CT",
+          "ItemLookupCode": "3230",
+          "UnitsSold": 377.0,
+          "Revenue": 15196.22999999993,
+          "AvgSellingPrice": "40.3251",
+          "TransactionCount": 358,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "STATIONARY",
+          "ItemDescription": "THERMAL 2.1/4 BY 85' 50CT",
+          "ItemLookupCode": "2085",
+          "UnitsSold": 375.0,
+          "Revenue": 7619.819999999953,
+          "AvgSellingPrice": "20.0569",
+          "TransactionCount": 320,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "STATIONARY",
+          "ItemDescription": "BEER RING FLAT BOTTLE 100CT",
+          "ItemLookupCode": "FB100",
+          "UnitsSold": 173.0,
+          "Revenue": 3285.27,
+          "AvgSellingPrice": "18.9900",
+          "TransactionCount": 24,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "STATIONARY",
+          "ItemDescription": "COPY PAPER CASE 10 REAMS",
+          "ItemLookupCode": "036500100643",
+          "UnitsSold": 16.0,
+          "Revenue": 799.84,
+          "AvgSellingPrice": "49.9900",
+          "TransactionCount": 4,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "STATIONARY",
+          "ItemDescription": "BEER RING FLAT BOTTLE 250CT",
+          "ItemLookupCode": "FB250",
+          "UnitsSold": 20.0,
+          "Revenue": 799.8000000000001,
+          "AvgSellingPrice": "39.9900",
+          "TransactionCount": 18,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "T7 SMOKELESS GA",
+          "ItemDescription": "GRIZZLY LC WINTERGREEN 5CT",
+          "ItemLookupCode": "428721",
+          "UnitsSold": 3576.0,
+          "Revenue": 89629.43999999978,
+          "AvgSellingPrice": "25.0574",
+          "TransactionCount": 1077,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "T7 SMOKELESS GA",
+          "ItemDescription": "COPENHAGEN FC SNUFF 5CT",
+          "ItemLookupCode": "073100010897",
+          "UnitsSold": 2997.0,
+          "Revenue": 85447.20999999993,
+          "AvgSellingPrice": "28.6608",
+          "TransactionCount": 767,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "T7 SMOKELESS GA",
+          "ItemDescription": "COPENHAGEN LC 5CT",
+          "ItemLookupCode": "073100014611",
+          "UnitsSold": 2339.0,
+          "Revenue": 67054.58,
+          "AvgSellingPrice": "28.6523",
+          "TransactionCount": 599,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "T7 SMOKELESS GA",
+          "ItemDescription": "BRUTON SNUFF POCKET CAN 12CT",
+          "ItemLookupCode": "073100002021",
+          "UnitsSold": 109.0,
+          "Revenue": 34878.91000000006,
+          "AvgSellingPrice": "319.4611",
+          "TransactionCount": 104,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "T7 SMOKELESS GA",
+          "ItemDescription": "COPENHAGEN POUCHES 5CT",
+          "ItemLookupCode": "073100014772",
+          "UnitsSold": 1056.0,
+          "Revenue": 29992.67,
+          "AvgSellingPrice": "28.4674",
+          "TransactionCount": 233,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "TOYS",
+          "ItemDescription": "DICE 3 LINE 3 COL 48CT",
+          "ItemLookupCode": "6933479450080",
+          "UnitsSold": 15.0,
+          "Revenue": 59.85000000000002,
+          "AvgSellingPrice": "3.9900",
+          "TransactionCount": 14,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "TOYS",
+          "ItemDescription": "FLASHING MASSAGE BALLS 12CT",
+          "ItemLookupCode": "M1006871153",
+          "UnitsSold": 1.0,
+          "Revenue": 17.99,
+          "AvgSellingPrice": "17.9900",
+          "TransactionCount": 1,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "TOYS",
+          "ItemDescription": "SUPREME DICE SOLID 100CT JAR",
+          "ItemLookupCode": "654329300893",
+          "UnitsSold": 1.0,
+          "Revenue": 9.99,
+          "AvgSellingPrice": "9.9900",
+          "TransactionCount": 1,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "TOYS",
+          "ItemDescription": "SELECT DICE 48CT",
+          "ItemLookupCode": "655708011652",
+          "UnitsSold": 2.0,
+          "Revenue": 5.98,
+          "AvgSellingPrice": "2.9900",
+          "TransactionCount": 2,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "Uncategorized",
+          "ItemDescription": "AQUA DE COCO 16.57OZ 24CT",
+          "ItemLookupCode": "CW",
+          "UnitsSold": 34.0,
+          "Revenue": 1019.6600000000002,
+          "AvgSellingPrice": "29.9900",
+          "TransactionCount": 30,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "VITAMINS",
+          "ItemDescription": "OPMS 8ML SHOT 50CT - BLACK",
+          "ItemLookupCode": "643375878777",
+          "UnitsSold": 333.0,
+          "Revenue": 139811.0,
+          "AvgSellingPrice": "424.8239",
+          "TransactionCount": 291,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "VITAMINS",
+          "ItemDescription": "VIVA ZEN 12CT EXTRA STRENGTH",
+          "ItemLookupCode": "10628504926137",
+          "UnitsSold": 3000.0,
+          "Revenue": 131432.44000000006,
+          "AvgSellingPrice": "45.5351",
+          "TransactionCount": 817,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "VITAMINS",
+          "ItemDescription": "OPMS 8ML SHOT 50CT - GOLD",
+          "ItemLookupCode": "643375878784",
+          "UnitsSold": 299.0,
+          "Revenue": 122065.5,
+          "AvgSellingPrice": "423.7552",
+          "TransactionCount": 282,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "VITAMINS",
+          "ItemDescription": "MIT 45 GOLD KRATOM SHOT 12CT",
+          "ItemLookupCode": "680201857223",
+          "UnitsSold": 606.0,
+          "Revenue": 59457.5,
+          "AvgSellingPrice": "98.1078",
+          "TransactionCount": 255,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "VITAMINS",
+          "ItemDescription": "H/S SHOTS 12CT",
+          "ItemLookupCode": "HDST1",
+          "UnitsSold": 1949.0,
+          "Revenue": 55930.80999999993,
+          "AvgSellingPrice": "28.9702",
+          "TransactionCount": 1041,
+          "ItemRank": "5"
+        },
+        {
+          "Category": "WATER",
+          "ItemDescription": "KIRKLAND 16.9 OZ 40CT",
+          "ItemLookupCode": "K16",
+          "UnitsSold": 4499.0,
+          "Revenue": 26704.86000000003,
+          "AvgSellingPrice": "5.9575",
+          "TransactionCount": 369,
+          "ItemRank": "1"
+        },
+        {
+          "Category": "WATER",
+          "ItemDescription": "GALLON WATER 6CT",
+          "ItemLookupCode": "CG",
+          "UnitsSold": 1530.0,
+          "Revenue": 12599.979999999925,
+          "AvgSellingPrice": "8.8744",
+          "TransactionCount": 471,
+          "ItemRank": "2"
+        },
+        {
+          "Category": "WATER",
+          "ItemDescription": "AQUA FINA 16.9 OZ 32CT",
+          "ItemLookupCode": "A16",
+          "UnitsSold": 1474.0,
+          "Revenue": 10303.259999999991,
+          "AvgSellingPrice": "6.9900",
+          "TransactionCount": 112,
+          "ItemRank": "3"
+        },
+        {
+          "Category": "WATER",
+          "ItemDescription": "FIJI WATER 1LTR 12CT",
+          "ItemLookupCode": "FIJI1L",
+          "UnitsSold": 224.0,
+          "Revenue": 5597.7599999999775,
+          "AvgSellingPrice": "24.9900",
+          "TransactionCount": 191,
+          "ItemRank": "4"
+        },
+        {
+          "Category": "WATER",
+          "ItemDescription": "DASANI WATER 16.9OZ 24CT",
+          "ItemLookupCode": "D16",
+          "UnitsSold": 510.0,
+          "Revenue": 3564.899999999998,
+          "AvgSellingPrice": "6.9900",
+          "TransactionCount": 83,
+          "ItemRank": "5"
+        }
+      ]
+    }
+  },
+  "priority_3": {
+    "order_metrics": {
+      "order_metrics_summary": [
+        {
+          "TotalCustomers": 676,
+          "AvgOrdersPerCustomer": 25,
+          "OverallAvgOrderValue": "1689.2700",
+          "AvgOrdersPerMonth": 8.132304203872817,
+          "MinAvgOrderValue": "-2257.0000",
+          "MaxAvgOrderValue": "81200.0000",
+          "StdDevOrderValue": 3962.7533179572674
+        }
+      ],
+      "order_value_distribution": []
+    },
+    "seasonal_patterns": {
+      "monthly_seasonality": [
+        {
+          "Month": 1,
+          "MonthName": "January",
+          "AvgMonthlyRevenue": "2369739.6933",
+          "AvgTransactions": 1505,
+          "AvgCustomers": 395,
+          "MinRevenue": "2147711.5800",
+          "MaxRevenue": "2693097.3200",
+          "SeasonalIndex": "-7.30"
+        },
+        {
+          "Month": 2,
+          "MonthName": "February",
+          "AvgMonthlyRevenue": "2161452.0900",
+          "AvgTransactions": 1383,
+          "AvgCustomers": 380,
+          "MinRevenue": "1996357.9000",
+          "MaxRevenue": "2288203.5500",
+          "SeasonalIndex": "-15.45"
+        },
+        {
+          "Month": 3,
+          "MonthName": "March",
+          "AvgMonthlyRevenue": "2493211.7966",
+          "AvgTransactions": 1609,
+          "AvgCustomers": 400,
+          "MinRevenue": "2162769.2400",
+          "MaxRevenue": "2869235.2500",
+          "SeasonalIndex": "-2.47"
+        },
+        {
+          "Month": 4,
+          "MonthName": "April",
+          "AvgMonthlyRevenue": "2645434.6800",
+          "AvgTransactions": 1569,
+          "AvgCustomers": 391,
+          "MinRevenue": "2205401.3500",
+          "MaxRevenue": "3001530.1700",
+          "SeasonalIndex": "3.48"
+        },
+        {
+          "Month": 5,
+          "MonthName": "May",
+          "AvgMonthlyRevenue": "2549510.0100",
+          "AvgTransactions": 1590,
+          "AvgCustomers": 391,
+          "MinRevenue": "2006440.4200",
+          "MaxRevenue": "3065343.7200",
+          "SeasonalIndex": "-0.27"
+        },
+        {
+          "Month": 6,
+          "MonthName": "June",
+          "AvgMonthlyRevenue": "2702984.4033",
+          "AvgTransactions": 1508,
+          "AvgCustomers": 383,
+          "MinRevenue": "2280214.5900",
+          "MaxRevenue": "2941679.4800",
+          "SeasonalIndex": "5.73"
+        },
+        {
+          "Month": 7,
+          "MonthName": "July",
+          "AvgMonthlyRevenue": "2833191.9933",
+          "AvgTransactions": 1517,
+          "AvgCustomers": 382,
+          "MinRevenue": "2185736.7100",
+          "MaxRevenue": "3380592.6500",
+          "SeasonalIndex": "10.83"
+        },
+        {
+          "Month": 8,
+          "MonthName": "August",
+          "AvgMonthlyRevenue": "2993183.6266",
+          "AvgTransactions": 1505,
+          "AvgCustomers": 374,
+          "MinRevenue": "1999440.4500",
+          "MaxRevenue": "4095973.0800",
+          "SeasonalIndex": "17.08"
+        },
+        {
+          "Month": 9,
+          "MonthName": "September",
+          "AvgMonthlyRevenue": "2017572.5475",
+          "AvgTransactions": 1223,
+          "AvgCustomers": 327,
+          "MinRevenue": "429624.1800",
+          "MaxRevenue": "2816090.6500",
+          "SeasonalIndex": "-21.08"
+        },
+        {
+          "Month": 10,
+          "MonthName": "October",
+          "AvgMonthlyRevenue": "2784259.2700",
+          "AvgTransactions": 1599,
+          "AvgCustomers": 410,
+          "MinRevenue": "2401176.3300",
+          "MaxRevenue": "3229555.8600",
+          "SeasonalIndex": "8.91"
+        },
+        {
+          "Month": 11,
+          "MonthName": "November",
+          "AvgMonthlyRevenue": "2522424.4466",
+          "AvgTransactions": 1549,
+          "AvgCustomers": 387,
+          "MinRevenue": "2080075.8900",
+          "MaxRevenue": "2786906.7800",
+          "SeasonalIndex": "-1.33"
+        },
+        {
+          "Month": 12,
+          "MonthName": "December",
+          "AvgMonthlyRevenue": "2604149.4433",
+          "AvgTransactions": 1594,
+          "AvgCustomers": 386,
+          "MinRevenue": "2282748.6700",
+          "MaxRevenue": "2809438.6600",
+          "SeasonalIndex": "1.87"
+        }
+      ],
+      "weekly_patterns": [
+        {
+          "DayOfWeek": "Sunday",
+          "DayNumber": 1,
+          "Transactions": 428,
+          "Revenue": "972634.0700",
+          "AvgTransaction": "2272.5095",
+          "UniqueCustomers": 161
+        },
+        {
+          "DayOfWeek": "Monday",
+          "DayNumber": 2,
+          "Transactions": 669,
+          "Revenue": "1125132.2000",
+          "AvgTransaction": "1681.8119",
+          "UniqueCustomers": 225
+        },
+        {
+          "DayOfWeek": "Tuesday",
+          "DayNumber": 3,
+          "Transactions": 823,
+          "Revenue": "2493624.4800",
+          "AvgTransaction": "3029.9203",
+          "UniqueCustomers": 259
+        },
+        {
+          "DayOfWeek": "Wednesday",
+          "DayNumber": 4,
+          "Transactions": 745,
+          "Revenue": "2164415.8500",
+          "AvgTransaction": "2905.2561",
+          "UniqueCustomers": 260
+        },
+        {
+          "DayOfWeek": "Thursday",
+          "DayNumber": 5,
+          "Transactions": 715,
+          "Revenue": "1249690.3000",
+          "AvgTransaction": "1747.8186",
+          "UniqueCustomers": 248
+        },
+        {
+          "DayOfWeek": "Friday",
+          "DayNumber": 6,
+          "Transactions": 621,
+          "Revenue": "1912717.1900",
+          "AvgTransaction": "3080.0598",
+          "UniqueCustomers": 242
+        },
+        {
+          "DayOfWeek": "Saturday",
+          "DayNumber": 7,
+          "Transactions": 481,
+          "Revenue": "721167.7100",
+          "AvgTransaction": "1499.3091",
+          "UniqueCustomers": 197
+        }
+      ],
+      "quarterly_trends": [
+        {
+          "Year": 2025,
+          "Quarter": 3,
+          "Period": "Q3 2025",
+          "Revenue": "7906189.9100",
+          "Transactions": 3185,
+          "UniqueCustomers": 429
+        },
+        {
+          "Year": 2025,
+          "Quarter": 2,
+          "Period": "Q2 2025",
+          "Revenue": "8247797.8900",
+          "Transactions": 4449,
+          "UniqueCustomers": 474
+        },
+        {
+          "Year": 2025,
+          "Quarter": 1,
+          "Period": "Q1 2025",
+          "Revenue": "6591700.3800",
+          "Transactions": 4031,
+          "UniqueCustomers": 486
+        },
+        {
+          "Year": 2024,
+          "Quarter": 4,
+          "Period": "Q4 2024",
+          "Revenue": "6764000.8900",
+          "Transactions": 4314,
+          "UniqueCustomers": 466
+        },
+        {
+          "Year": 2024,
+          "Quarter": 3,
+          "Period": "Q3 2024",
+          "Revenue": "6237257.4900",
+          "Transactions": 3994,
+          "UniqueCustomers": 478
+        },
+        {
+          "Year": 2024,
+          "Quarter": 2,
+          "Period": "Q2 2024",
+          "Revenue": "6492056.3600",
+          "Transactions": 4302,
+          "UniqueCustomers": 498
+        },
+        {
+          "Year": 2024,
+          "Quarter": 1,
+          "Period": "Q1 2024",
+          "Revenue": "6630974.2400",
+          "Transactions": 4331,
+          "UniqueCustomers": 523
+        },
+        {
+          "Year": 2023,
+          "Quarter": 4,
+          "Period": "Q4 2023",
+          "Revenue": "8736723.6400",
+          "Transactions": 4576,
+          "UniqueCustomers": 510
+        },
+        {
+          "Year": 2023,
+          "Quarter": 3,
+          "Period": "Q3 2023",
+          "Revenue": "8633474.6200",
+          "Transactions": 5027,
+          "UniqueCustomers": 537
+        },
+        {
+          "Year": 2023,
+          "Quarter": 2,
+          "Period": "Q2 2023",
+          "Revenue": "8953933.0300",
+          "Transactions": 5252,
+          "UniqueCustomers": 514
+        },
+        {
+          "Year": 2023,
+          "Quarter": 1,
+          "Period": "Q1 2023",
+          "Revenue": "7850536.1200",
+          "Transactions": 5132,
+          "UniqueCustomers": 531
+        },
+        {
+          "Year": 2022,
+          "Quarter": 4,
+          "Period": "Q4 2022",
+          "Revenue": "8231774.9500",
+          "Transactions": 5339,
+          "UniqueCustomers": 546
+        }
+      ]
+    }
+  }
+}

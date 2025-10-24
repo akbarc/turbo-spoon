@@ -1,0 +1,103 @@
+{
+  "timestamp": "2025-09-08T14:54:08.306406",
+  "metrics": {
+    "trailing_12m_revenue": 32329581.505102616,
+    "active_customers": "455",
+    "customer_metrics": {
+      "retention_rate": 0,
+      "avg_new_customers_monthly": 9.076923076923077
+    },
+    "avg_monthly_gross_profit": 236141.52693571305,
+    "ar_metrics": {
+      "total_ar": "3801301.5100",
+      "customers_with_ar": "395",
+      "avg_balance": "2345.0348",
+      "max_balance": "298873.8700",
+      "aging": {
+        "Current": {
+          "amount": "1579442.1000",
+          "customers": 176
+        },
+        "61-90 days": {
+          "amount": "194843.7100",
+          "customers": 30
+        },
+        "31-60 days": {
+          "amount": "518613.1300",
+          "customers": 77
+        },
+        "Over 90 days": {
+          "amount": "1508402.5700",
+          "customers": 224
+        }
+      }
+    },
+    "product_diversity": {
+      "total_categories": 50,
+      "top_categories": [
+        {
+          "Category": "CIGARETTE",
+          "Transactions": 2358,
+          "Revenue": 6682866.960000675,
+          "UniqueCustomers": 340
+        },
+        {
+          "Category": "CIGARS",
+          "Transactions": 2283,
+          "Revenue": 1015603.5999998377,
+          "UniqueCustomers": 341
+        },
+        {
+          "Category": "ELECTRONIC CIG",
+          "Transactions": 766,
+          "Revenue": 290431.07,
+          "UniqueCustomers": 231
+        },
+        {
+          "Category": "ECIG - PODS",
+          "Transactions": 350,
+          "Revenue": 287596.4399999996,
+          "UniqueCustomers": 112
+        },
+        {
+          "Category": "KRATOM",
+          "Transactions": 216,
+          "Revenue": 271887.17,
+          "UniqueCustomers": 60
+        },
+        {
+          "Category": "VITAMINS",
+          "Transactions": 1112,
+          "Revenue": 266189.08999999886,
+          "UniqueCustomers": 254
+        },
+        {
+          "Category": "LT-TAX PAID",
+          "Transactions": 1249,
+          "Revenue": 261993.99999999447,
+          "UniqueCustomers": 292
+        },
+        {
+          "Category": "DRINKS",
+          "Transactions": 1015,
+          "Revenue": 224738.88999999934,
+          "UniqueCustomers": 255
+        },
+        {
+          "Category": "CIGAR GA",
+          "Transactions": 1472,
+          "Revenue": 216489.0299999982,
+          "UniqueCustomers": 294
+        },
+        {
+          "Category": "LT-TAX-COLLECTED",
+          "Transactions": 1215,
+          "Revenue": 205395.72999999824,
+          "UniqueCustomers": 273
+        }
+      ],
+      "non_cigarette_pct": 27.27755211551469,
+      "total_revenue": 10914590.20000051
+    }
+  }
+}

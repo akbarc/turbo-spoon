@@ -1,0 +1,269 @@
+====================================================================================================
+                              VIVA ZEN PRICE ANALYSIS REPORT
+====================================================================================================
+Analysis Period: 2025-08-07 to 2025-09-06 (Last 30 Days)
+Report Generated: 2025-09-06 15:38:23
+====================================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------------------------------------------------------------------
+Total Viva Zen Products Found: 6
+Total Units Sold: 378
+Total Transactions: 129
+Overall Average Selling Price: $52.36
+Overall Average Cost: $48.35
+Overall Average Margin: $4.01 (7.7%)
+
+====================================================================================================
+PRODUCT-BY-PRODUCT PRICE ANALYSIS
+====================================================================================================
+
+================================================================================
+PRODUCT: VIVA ZEN 12CT 2X CONCENTRATE
+SKU: 16285049263383
+================================================================================
+
+SALES ACTIVITY (Last 30 Days):
+  • Total Transactions: 5
+  • Total Units Sold: 5
+  • Last Sold: 2025-08-30 11:26:22
+
+PRICE METRICS:
+  • Current Retail Price: $75.00
+  • Average Selling Price: $68.10
+  • Lowest Price: $65.50
+  • Highest Price: $70.00
+  • Price Range: $4.50
+
+COST METRICS:
+  • Current Cost: $59.00
+  • Average Cost: $59.00
+  • Lowest Cost: $59.00
+  • Highest Cost: $59.00
+
+PROFITABILITY:
+  • Average Margin: $9.10
+  • Average Margin %: 13.4%
+
+RECENT TRANSACTIONS (Last 10):
+  Date                 Price      Cost       Qty    Customer                      
+  ----------------------------------------------------------------------------
+  2025-08-30 11:26     $70.00     $59.00     1      PEACHTREE 5018 LLC            
+  2025-08-25 17:14     $69.99     $59.00     1      INAAYA INVESTMENTS INC/MAM 20 
+  2025-08-24 13:34     $67.50     $59.00     1      SR UNITED USA INC             
+  2025-08-21 17:21     $65.50     $59.00     1      PETRO AVE LLC/ BP DUNWOODY    
+  2025-08-11 16:32     $67.50     $59.00     1      ARISHA SHELL INC              
+
+================================================================================
+PRODUCT: VIVA ZEN 12CT EXTRA STRENGTH
+SKU: 10628504926137
+================================================================================
+
+SALES ACTIVITY (Last 30 Days):
+  • Total Transactions: 71
+  • Total Units Sold: 267
+  • Last Sold: 2025-09-05 13:16:01
+
+PRICE METRICS:
+  • Current Retail Price: $52.50
+  • Average Selling Price: $47.68
+  • Lowest Price: $44.25
+  • Highest Price: $49.50
+  • Price Range: $5.25
+
+COST METRICS:
+  • Current Cost: $44.25
+  • Average Cost: $44.25
+  • Lowest Cost: $44.25
+  • Highest Cost: $44.25
+
+PROFITABILITY:
+  • Average Margin: $3.43
+  • Average Margin %: 7.2%
+
+RECENT TRANSACTIONS (Last 10):
+  Date                 Price      Cost       Qty    Customer                      
+  ----------------------------------------------------------------------------
+  2025-09-05 13:16     $46.00     $44.25     12     SHAGUFTA INVETSMENTS LLC/PACI 
+  2025-09-05 10:53     $46.50     $44.25     1      DUNWOODY CHEVRON              
+  2025-09-04 17:25     $47.50     $44.25     2      CHEVRON FOOD MART/ NIKI 3290  
+  2025-09-04 16:47     $46.50     $44.25     1      PETRO AVE LLC/ BP DUNWOODY    
+  2025-09-04 16:37     $47.50     $44.25     2      SHAYAAN INVESTMENTS INC       
+  2025-09-03 17:47     $47.50     $44.25     1      3834 ALTO INC/BP GAS STATION  
+  2025-09-03 12:14     $47.50     $44.25     4      ARISHA SHELL INC              
+  2025-09-03 11:19     $45.50     $44.25     12     PETRO MAX LLC                 
+  2025-09-02 19:11     $48.50     $44.25     2      NYSAH ENTERPRISES LLC/SHELL F 
+  2025-09-02 18:36     $47.50     $44.25     1      SHAMROCK FOODMART/ ARZAN SMAR 
+
+================================================================================
+PRODUCT: VIVA ZEN 12CT KAVA BLEND
+SKU: 16285049265677
+================================================================================
+
+SALES ACTIVITY (Last 30 Days):
+  • Total Transactions: 2
+  • Total Units Sold: 3
+  • Last Sold: 2025-09-02 18:58:27
+
+PRICE METRICS:
+  • Current Retail Price: $49.99
+  • Average Selling Price: $47.00
+  • Lowest Price: $46.00
+  • Highest Price: $48.00
+  • Price Range: $2.00
+
+COST METRICS:
+  • Current Cost: $42.00
+  • Average Cost: $42.00
+  • Lowest Cost: $42.00
+  • Highest Cost: $42.00
+
+PROFITABILITY:
+  • Average Margin: $5.00
+  • Average Margin %: 10.6%
+
+RECENT TRANSACTIONS (Last 10):
+  Date                 Price      Cost       Qty    Customer                      
+  ----------------------------------------------------------------------------
+  2025-09-02 18:58     $48.00     $42.00     1      SPEEDZONE SHELL               
+  2025-08-14 09:44     $46.00     $42.00     2      ARISHA CHEVRON INC            
+
+================================================================================
+PRODUCT: VIVA ZEN 12CT KAVA+KRATOM BLND
+SKU: 16285049268647
+================================================================================
+
+SALES ACTIVITY (Last 30 Days):
+  • Total Transactions: 10
+  • Total Units Sold: 15
+  • Last Sold: 2025-09-04 16:03:35
+
+PRICE METRICS:
+  • Current Retail Price: $51.99
+  • Average Selling Price: $47.75
+  • Lowest Price: $47.00
+  • Highest Price: $50.00
+  • Price Range: $3.00
+
+COST METRICS:
+  • Current Cost: $40.00
+  • Average Cost: $43.60
+  • Lowest Cost: $40.00
+  • Highest Cost: $44.00
+
+PROFITABILITY:
+  • Average Margin: $4.15
+  • Average Margin %: 8.7%
+
+RECENT TRANSACTIONS (Last 10):
+  Date                 Price      Cost       Qty    Customer                      
+  ----------------------------------------------------------------------------
+  2025-09-04 16:03     $48.00     $40.00     1      BP HAYNESBRIDGE               
+  2025-09-03 18:47     $47.00     $44.00     2      ARISHA CHEVRON INC            
+  2025-09-02 18:58     $50.00     $44.00     1      SPEEDZONE SHELL               
+  2025-08-27 19:06     $47.00     $44.00     2      ARISHA CHEVRON INC            
+  2025-08-25 17:14     $48.00     $44.00     1      INAAYA INVESTMENTS INC/MAM 20 
+  2025-08-24 18:41     $48.50     $44.00     1      MAGIC PRIME LLC/TRUCK STOP    
+  2025-08-20 18:52     $47.00     $44.00     1      ARISHA CHEVRON INC            
+  2025-08-15 13:34     $48.00     $44.00     1      PEACHMART/DIAMOND BROS USA IN 
+  2025-08-14 09:44     $47.00     $44.00     4      ARISHA CHEVRON INC            
+  2025-08-13 17:33     $47.00     $44.00     1      CLEVELAND 129 INC             
+
+================================================================================
+PRODUCT: VIVA ZEN 12CT REGULAR SHOT
+SKU: 10609465149322
+================================================================================
+
+SALES ACTIVITY (Last 30 Days):
+  • Total Transactions: 22
+  • Total Units Sold: 61
+  • Last Sold: 2025-09-05 14:15:05
+
+PRICE METRICS:
+  • Current Retail Price: $35.00
+  • Average Selling Price: $30.67
+  • Lowest Price: $27.00
+  • Highest Price: $33.00
+  • Price Range: $6.00
+
+COST METRICS:
+  • Current Cost: $27.25
+  • Average Cost: $27.25
+  • Lowest Cost: $27.25
+  • Highest Cost: $27.25
+
+PROFITABILITY:
+  • Average Margin: $3.42
+  • Average Margin %: 11.2%
+
+RECENT TRANSACTIONS (Last 10):
+  Date                 Price      Cost       Qty    Customer                      
+  ----------------------------------------------------------------------------
+  2025-09-05 14:15     $29.00     $27.25     12     TYRONE B.P                    
+  2025-09-04 17:25     $30.00     $27.25     3      CHEVRON FOOD MART/ NIKI 3290  
+  2025-09-03 18:56     $29.00     $27.25     1      SEANS COUNTRY STOP            
+  2025-08-27 19:06     $29.00     $27.25     1      ARISHA CHEVRON INC            
+  2025-08-27 17:34     $29.00     $27.25     2      SEANS COUNTRY STOP            
+  2025-08-25 13:28     $32.00     $27.25     1      BOWDON MANAGEMENT LLC         
+  2025-08-24 18:41     $32.00     $27.25     1      MAGIC PRIME LLC/TRUCK STOP    
+  2025-08-24 16:18     $33.00     $27.25     1      PETROKART LLC                 
+  2025-08-19 18:38     $33.00     $27.25     1      CHEVRON FOOD MART             
+  2025-08-18 18:39     $27.00     $27.25     1      TRUSHA BUSINESS INC/BP        
+
+================================================================================
+PRODUCT: VIVA ZEN 12CT ULTIMATE
+SKU: 628504926123
+================================================================================
+
+SALES ACTIVITY (Last 30 Days):
+  • Total Transactions: 19
+  • Total Units Sold: 27
+  • Last Sold: 2025-09-04 16:36:51
+
+PRICE METRICS:
+  • Current Retail Price: $103.00
+  • Average Selling Price: $93.84
+  • Lowest Price: $91.50
+  • Highest Price: $100.00
+  • Price Range: $8.50
+
+COST METRICS:
+  • Current Cost: $88.50
+  • Average Cost: $88.50
+  • Lowest Cost: $88.50
+  • Highest Cost: $88.50
+
+PROFITABILITY:
+  • Average Margin: $5.34
+  • Average Margin %: 5.7%
+
+RECENT TRANSACTIONS (Last 10):
+  Date                 Price      Cost       Qty    Customer                      
+  ----------------------------------------------------------------------------
+  2025-09-04 16:36     $91.50     $88.50     1      NIKI 1485 INC                 
+  2025-09-02 18:58     $92.00     $88.50     2      SPEEDZONE SHELL               
+  2025-09-02 10:42     $91.50     $88.50     2      PAVO 233 INC                  
+  2025-08-29 11:15     $100.00    $88.50     1      MAGNET MARKET/4565 BP FOOD MA 
+  2025-08-28 16:20     $99.00     $88.50     1      KK SONS USA INC               
+  2025-08-28 11:15     $95.00     $88.50     1      5401 COVINGTON HWY INC        
+  2025-08-27 19:06     $92.50     $88.50     3      ARISHA CHEVRON INC            
+  2025-08-25 16:20     $100.00    $88.50     1      NEWNAN LAKES BUSINESS INC     
+  2025-08-21 17:21     $92.50     $88.50     1      PETRO AVE LLC/ BP DUNWOODY    
+  2025-08-20 18:45     $91.50     $88.50     2      CLEVELAND 129 INC             
+
+====================================================================================================
+PRICE VARIANCE ANALYSIS
+====================================================================================================
+
+Product                                            Price StdDev    Cost StdDev     # Sales   
+------------------------------------------------------------------------------------------
+VIVA ZEN 12CT 2X CONCENTRATE                       $1.91           $0.00           5         
+VIVA ZEN 12CT EXTRA STRENGTH                       $1.21           $0.00           71        
+VIVA ZEN 12CT KAVA BLEND                           $1.41           $0.00           2         
+VIVA ZEN 12CT KAVA+KRATOM BLND                     $0.98           $1.26           10        
+VIVA ZEN 12CT REGULAR SHOT                         $2.01           $0.00           22        
+VIVA ZEN 12CT ULTIMATE                             $3.25           $0.00           19        
+
+====================================================================================================
+END OF REPORT
+====================================================================================================

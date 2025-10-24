@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Customer Ledger - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            min-height: 100vh;
+            color: #1a202c;
+            display: flex;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+        }
+        
+        .sidebar-header h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background: #f7fafc;
+            color: #2d3748;
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+        
+        .nav-item i {
+            width: 20px;
+            margin-right: 12px;
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-header {
+            padding: 0.5rem 1rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-header:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        /* Container */
+        .container {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        /* Search Section */
+        .search-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .search-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .search-controls {
+            display: grid;
+            grid-template-columns: 1fr 200px auto;
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+        
+        .search-input {
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        select {
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Search Results */
+        .search-results {
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .search-results.active {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 1rem;
+            border-bottom: 1px solid #f7fafc;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+        }
+        
+        .search-result-item:hover {
+            background: #f7fafc;
+        }
+        
+        .search-result-item.selected {
+            background: #edf2f7;
+        }
+        
+        /* Customer Overview */
+        .customer-overview {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .customer-overview.active {
+            display: block;
+        }
+        
+        /* Ultimate Ledger Table */
+        .ledger-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: none;
+            margin-bottom: 2rem;
+        }
+        
+        .ledger-section.active {
+            display: block;
+        }
+        
+        .ledger-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .ledger-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        
+        .ledger-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .btn-export {
+            padding: 0.5rem 1rem;
+            background: white;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-export:hover {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        /* Ultimate Ledger Table */
+        .ledger-table-wrapper {
+            overflow-x: auto;
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        
+        .ledger-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+        
+        .ledger-table thead {
+            background: #f7fafc;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .ledger-table th {
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid #e2e8f0;
+            white-space: nowrap;
+        }
+        
+        .ledger-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #f7fafc;
+            font-size: 0.875rem;
+        }
+        
+        .ledger-table tbody tr:hover {
+            background: #f7fafc;
+        }
+        
+        /* Transaction type badges */
+        .type-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        
+        .type-sale { background: #fee2e2; color: #dc2626; }
+        .type-inv { background: #fee2e2; color: #dc2626; }
+        .type-dc { background: #fef3c7; color: #d97706; }
+        .type-pmt { background: #dcfce7; color: #16a34a; }
+        .type-nsf-fee { background: #fce7f3; color: #ec4899; }
+        .type-nsf-rev { background: #e0e7ff; color: #4f46e5; }
+        .type-nsf-ret { background: #fee2e2; color: #991b1b; }
+        .type-adj-plus { background: #fef3c7; color: #92400e; }
+        .type-adj-minus { background: #dbeafe; color: #1e40af; }
+        .type-fee { background: #fce7f3; color: #be185d; }
+        .type-credit { background: #d1fae5; color: #065f46; }
+        .type-debit { background: #fed7aa; color: #9a3412; }
+        
+        .amount-debit {
+            color: #dc2626;
+            font-weight: 600;
+        }
+        
+        .amount-credit {
+            color: #16a34a;
+            font-weight: 600;
+        }
+        
+        .running-balance {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        
+        .running-balance.positive {
+            color: #dc2626;
+        }
+        
+        .running-balance.negative {
+            color: #16a34a;
+        }
+        
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .summary-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .summary-label {
+            font-size: 0.75rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        
+        .summary-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        
+        .summary-detail {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            margin-top: 0.25rem;
+        }
+        
+        /* Category Breakdown */
+        .category-breakdown {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .category-breakdown.active {
+            display: block;
+        }
+        
+        .category-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .category-table th {
+            text-align: left;
+            padding: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 0.875rem;
+            color: #4a5568;
+        }
+        
+        .category-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #f7fafc;
+            font-size: 0.875rem;
+        }
+        
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .loading.active {
+            display: block;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Alert */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .alert.active {
+            display: block;
+        }
+        
+        .alert-error {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fca5a5;
+        }
+        
+        .alert-success {
+            background: #dcfce7;
+            color: #16a34a;
+            border: 1px solid #86efac;
+        }
+        
+        .alert-info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>
+                <i class="fas fa-chart-line"></i>
+                Georgia Dashboard
+            </h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="/executive-dashboard" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Executive Dashboard</span>
+            </a>
+            <a href="/customer-ledger" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Standard Ledger</span>
+            </a>
+            <a href="/customer-ledger-ultimate" class="nav-item active">
+                <i class="fas fa-book-open"></i>
+                <span>Ultimate Ledger</span>
+            </a>
+            <a href="/ar-module" class="nav-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>AR Analysis</span>
+            </a>
+            <a href="/ai-assistant" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <h1>
+                <i class="fas fa-book-open"></i>
+                Ultimate Customer Ledger
+            </h1>
+            <div class="header-actions">
+                <button class="btn-header" onclick="window.print()">
+                    <i class="fas fa-print"></i>
+                    Print
+                </button>
+            </div>
+        </div>
+
+        <!-- Container -->
+        <div class="container">
+            <!-- Alert -->
+            <div id="alert" class="alert"></div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-header">
+                    <i class="fas fa-search"></i>
+                    Search Customer
+                </div>
+                <div class="search-controls">
+                    <div class="form-group">
+                        <label for="customerSearch">Search by Name, Account #, Customer ID, or Phone</label>
+                        <input 
+                            type="text" 
+                            id="customerSearch" 
+                            class="search-input"
+                            placeholder="Enter search term..."
+                            autocomplete="off"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="periodSelect">Period</label>
+                        <select id="periodSelect">
+                            <option value="30">Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                            <option value="180">Last 6 Months</option>
+                            <option value="365">Last Year</option>
+                            <option value="730">Last 2 Years</option>
+                            <option value="99999" selected>All Time</option>
+                        </select>
+                    </div>
+                    <button id="generateBtn" class="btn-primary" disabled>
+                        <i class="fas fa-file-alt"></i>
+                        Generate Ultimate Ledger
+                    </button>
+                </div>
+                
+                <!-- Search Results -->
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <!-- Customer Overview -->
+            <div id="customerOverview" class="customer-overview"></div>
+
+            <!-- Summary Cards -->
+            <div id="summaryCards" class="summary-grid" style="display: none;"></div>
+
+            <!-- Category Breakdown -->
+            <div id="categoryBreakdown" class="category-breakdown"></div>
+
+            <!-- Active AR Section -->
+            <div id="activeARSection" class="ledger-section"></div>
+
+            <!-- Complete Ledger Section -->
+            <div id="ledgerSection" class="ledger-section"></div>
+
+            <!-- Loading -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p style="margin-top: 1rem; color: #718096;">Loading comprehensive ledger data...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCustomerId = null;
+        let searchTimeout = null;
+        let currentLedgerData = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('customerSearch');
+            const generateBtn = document.getElementById('generateBtn');
+            
+            // Search as you type
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimeout);
+                const searchTerm = this.value.trim();
+                
+                if (searchTerm.length < 2) {
+                    hideSearchResults();
+                    return;
+                }
+                
+                searchTimeout = setTimeout(() => searchCustomers(searchTerm), 300);
+            });
+            
+            // Generate button
+            generateBtn.addEventListener('click', generateUltimateLedger);
+            
+            // Enter key in search
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && selectedCustomerId) {
+                    generateUltimateLedger();
+                }
+            });
+        });
+
+        // Search customers
+        async function searchCustomers(searchTerm) {
+            try {
+                const response = await fetch(`/api/ultimate-ledger/customers?search=${encodeURIComponent(searchTerm)}`);
+                const data = await response.json();
+                
+                if (data.success && data.customers.length > 0) {
+                    displaySearchResults(data.customers);
+                } else {
+                    hideSearchResults();
+                    showAlert('No customers found matching your search', 'info');
+                }
+            } catch (error) {
+                console.error('Search error:', error);
+                showAlert('Error searching customers', 'error');
+            }
+        }
+
+        // Display search results
+        function displaySearchResults(customers) {
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = '';
+            
+            customers.forEach(customer => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                resultItem.onclick = () => selectCustomer(customer);
+                
+                const balanceClass = customer.balance > 0 ? 'balance-positive' : 'balance-negative';
+                
+                let displayName = customer.name || customer.company || `${customer.first_name} ${customer.last_name}`.trim() || 'N/A';
+                
+                resultItem.innerHTML = `
+                    <div class="customer-info">
+                        <div class="customer-name" style="font-weight: 600;">${displayName}</div>
+                        <div class="customer-details" style="font-size: 0.875rem; color: #718096;">
+                            <span><i class="fas fa-id-card"></i> ID: ${customer.id}</span>
+                            <span style="margin-left: 1rem;"><i class="fas fa-file-invoice"></i> Account: ${customer.account_number || 'N/A'}</span>
+                            ${customer.phone ? `<span style="margin-left: 1rem;"><i class="fas fa-phone"></i> ${customer.phone}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="customer-balance ${balanceClass}" style="font-weight: 700; font-size: 1.125rem;">
+                        $${formatNumber(customer.balance)}
+                    </div>
+                `;
+                
+                resultsDiv.appendChild(resultItem);
+            });
+            
+            resultsDiv.classList.add('active');
+        }
+
+        // Hide search results
+        function hideSearchResults() {
+            document.getElementById('searchResults').classList.remove('active');
+        }
+
+        // Select customer
+        function selectCustomer(customer) {
+            selectedCustomerId = customer.id;
+            
+            let displayName = customer.name || customer.company || `${customer.first_name} ${customer.last_name}`.trim() || `Customer #${customer.id}`;
+            
+            document.getElementById('customerSearch').value = displayName;
+            document.getElementById('generateBtn').disabled = false;
+            
+            // Highlight selected
+            document.querySelectorAll('.search-result-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+            
+            setTimeout(hideSearchResults, 200);
+        }
+
+        // Generate ultimate ledger
+        async function generateUltimateLedger() {
+            if (!selectedCustomerId) {
+                showAlert('Please select a customer first', 'error');
+                return;
+            }
+            
+            const days = document.getElementById('periodSelect').value;
+            
+            // Show loading
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('customerOverview').classList.remove('active');
+            document.getElementById('summaryCards').style.display = 'none';
+            document.getElementById('categoryBreakdown').classList.remove('active');
+            document.getElementById('activeARSection').classList.remove('active');
+            document.getElementById('ledgerSection').classList.remove('active');
+            
+            try {
+                const response = await fetch(`/api/ultimate-ledger/generate/${selectedCustomerId}?days=${days}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentLedgerData = data.data;
+                    displayUltimateLedger(data.data);
+                } else {
+                    showAlert(data.error || 'Failed to generate ledger', 'error');
+                }
+            } catch (error) {
+                console.error('Generate error:', error);
+                showAlert('Error generating ledger', 'error');
+            } finally {
+                document.getElementById('loading').classList.remove('active');
+            }
+        }
+
+        // Display ultimate ledger
+        function displayUltimateLedger(data) {
+            // Display customer overview
+            displayCustomerOverview(data.customer_info);
+            
+            // Display summary cards
+            displaySummaryCards(data.summary);
+            
+            // Display category breakdown
+            displayCategoryBreakdown(data.summary.category_breakdown);
+            
+            // Display active AR
+            displayActiveAR(data.active_ar, data.customer_info);
+            
+            // Display complete ledger
+            displayCompleteLedger(data.ledger);
+            
+            // Show sections
+            document.getElementById('customerOverview').classList.add('active');
+            document.getElementById('summaryCards').style.display = 'grid';
+            document.getElementById('categoryBreakdown').classList.add('active');
+            document.getElementById('activeARSection').classList.add('active');
+            document.getElementById('ledgerSection').classList.add('active');
+        }
+
+        // Display customer overview
+        function displayCustomerOverview(info) {
+            const overviewDiv = document.getElementById('customerOverview');
+            
+            overviewDiv.innerHTML = `
+                <div class="ledger-header">
+                    <div class="ledger-title">Customer Information</div>
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-label">Customer Name</div>
+                        <div class="summary-value">${info.name}</div>
+                        <div class="summary-detail">ID: ${info.id}</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Account Number</div>
+                        <div class="summary-value">${info.account_number || 'N/A'}</div>
+                        <div class="summary-detail">${info.tax_exempt ? 'Tax Exempt' : 'Standard Tax'}</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Current AR Balance</div>
+                        <div class="summary-value ${info.current_balance > 0 ? 'balance-positive' : 'balance-negative'}">
+                            $${formatNumber(info.current_balance)}
+                        </div>
+                        <div class="summary-detail">As of today</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-label">Credit Limit</div>
+                        <div class="summary-value">$${formatNumber(info.credit_limit || 0)}</div>
+                        <div class="summary-detail">Available: $${formatNumber((info.credit_limit || 0) - info.current_balance)}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Display summary cards
+        function displaySummaryCards(summary) {
+            const cardsDiv = document.getElementById('summaryCards');
+            
+            cardsDiv.innerHTML = `
+                <div class="summary-card">
+                    <div class="summary-label">Total Sales</div>
+                    <div class="summary-value">$${formatNumber(summary.total_sales)}</div>
+                    <div class="summary-detail">Transaction sales</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Direct Charges</div>
+                    <div class="summary-value">$${formatNumber(summary.total_direct_charges)}</div>
+                    <div class="summary-detail">Direct AR entries</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Total Payments</div>
+                    <div class="summary-value" style="color: #16a34a;">$${formatNumber(summary.total_payments)}</div>
+                    <div class="summary-detail">Payments received</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">NSF Fees</div>
+                    <div class="summary-value">$${formatNumber(summary.total_nsf_fees)}</div>
+                    <div class="summary-detail">Reversals: $${formatNumber(summary.total_nsf_reversals)}</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Returned Payments</div>
+                    <div class="summary-value" style="color: #dc2626;">$${formatNumber(summary.total_returned_payments)}</div>
+                    <div class="summary-detail">NSF returns</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Net Adjustments</div>
+                    <div class="summary-value ${summary.total_adjustments >= 0 ? '' : 'balance-negative'}">
+                        $${formatNumber(summary.total_adjustments)}
+                    </div>
+                    <div class="summary-detail">Manual adjustments</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Total Debits</div>
+                    <div class="summary-value">$${formatNumber(summary.total_debits)}</div>
+                    <div class="summary-detail">All charges</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Total Credits</div>
+                    <div class="summary-value" style="color: #16a34a;">$${formatNumber(summary.total_credits)}</div>
+                    <div class="summary-detail">All payments/credits</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Running Balance</div>
+                    <div class="summary-value ${summary.ending_balance > 0 ? 'balance-positive' : 'balance-negative'}">
+                        $${formatNumber(summary.ending_balance)}
+                    </div>
+                    <div class="summary-detail">From all transactions</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Active AR Total</div>
+                    <div class="summary-value ${summary.active_ar_total > 0 ? 'balance-positive' : 'balance-negative'}">
+                        $${formatNumber(summary.active_ar_total)}
+                    </div>
+                    <div class="summary-detail">${summary.active_ar_count} open items</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Balance Check</div>
+                    <div class="summary-value">
+                        ${summary.balance_matches ? 
+                            '<span style="color: #16a34a;">✓ Match</span>' : 
+                            '<span style="color: #dc2626;">✗ Mismatch</span>'}
+                    </div>
+                    <div class="summary-detail">AR vs System</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-label">Total Transactions</div>
+                    <div class="summary-value">${summary.transaction_count}</div>
+                    <div class="summary-detail">All entries</div>
+                </div>
+            `;
+        }
+
+        // Display category breakdown
+        function displayCategoryBreakdown(categories) {
+            if (!categories || Object.keys(categories).length === 0) return;
+            
+            const breakdownDiv = document.getElementById('categoryBreakdown');
+            
+            let tableRows = '';
+            for (const [category, data] of Object.entries(categories)) {
+                tableRows += `
+                    <tr>
+                        <td>${category}</td>
+                        <td style="text-align: center;">${data.count}</td>
+                        <td style="text-align: right;">$${formatNumber(data.total_debit)}</td>
+                        <td style="text-align: right;">$${formatNumber(data.total_credit)}</td>
+                        <td style="text-align: right; font-weight: 600;">$${formatNumber(data.net_amount)}</td>
+                    </tr>
+                `;
+            }
+            
+            breakdownDiv.innerHTML = `
+                <div class="ledger-header">
+                    <div class="ledger-title">Transaction Category Breakdown</div>
+                </div>
+                <table class="category-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th style="text-align: center;">Count</th>
+                            <th style="text-align: right;">Total Debit</th>
+                            <th style="text-align: right;">Total Credit</th>
+                            <th style="text-align: right;">Net Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        // Display active AR
+        function displayActiveAR(activeAR, customerInfo) {
+            const section = document.getElementById('activeARSection');
+            
+            if (!activeAR || activeAR.length === 0) {
+                section.innerHTML = '<p style="padding: 1rem;">No active AR items</p>';
+                return;
+            }
+            
+            let tableRows = '';
+            let totalOriginal = 0;
+            let totalBalance = 0;
+            
+            activeAR.forEach(ar => {
+                totalOriginal += ar.OriginalAmount || 0;
+                totalBalance += ar.Balance || 0;
+                
+                const typeStr = ar.Type === 0 ? 'TR' : ar.Type === 2 ? 'DC' : 'AR';
+                const refNum = ar.TransactionNumber || ar.AR_ID;
+                const date = new Date(ar.Date);
+                const dateStr = date.toLocaleDateString('en-US');
+                
+                tableRows += `
+                    <tr>
+                        <td>${customerInfo.account_number}</td>
+                        <td>${typeStr}</td>
+                        <td>${refNum}</td>
+                        <td>${ar.AccountReceivableNumber || ar.AR_ID}</td>
+                        <td>${dateStr}</td>
+                        <td>${ar.AgingCategory}</td>
+                        <td style="text-align: right;">$${formatNumber(ar.OriginalAmount)}</td>
+                        <td style="text-align: right; font-weight: 600;">$${formatNumber(ar.Balance)}</td>
+                    </tr>
+                `;
+            });
+            
+            section.innerHTML = `
+                <div class="ledger-header">
+                    <div class="ledger-title">Active Accounts Receivable (Outstanding Balances)</div>
+                </div>
+                <div class="ledger-table-wrapper">
+                    <table class="ledger-table">
+                        <thead>
+                            <tr>
+                                <th>Account #</th>
+                                <th>Type</th>
+                                <th>Ref #</th>
+                                <th>AR Number</th>
+                                <th>Date</th>
+                                <th>Aging</th>
+                                <th style="text-align: right;">Original Amount</th>
+                                <th style="text-align: right;">Current Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${tableRows}
+                        </tbody>
+                        <tfoot style="background: #f7fafc; font-weight: 700;">
+                            <tr>
+                                <td colspan="6">TOTAL</td>
+                                <td style="text-align: right;">$${formatNumber(totalOriginal)}</td>
+                                <td style="text-align: right;">$${formatNumber(totalBalance)}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Display complete ledger
+        function displayCompleteLedger(ledger) {
+            const section = document.getElementById('ledgerSection');
+            
+            if (!ledger || ledger.length === 0) {
+                section.innerHTML = '<p style="padding: 1rem;">No transactions found</p>';
+                return;
+            }
+            
+            let tableRows = '';
+            
+            ledger.forEach(trans => {
+                // Get type badge class
+                let typeClass = 'type-adj-plus';
+                const type = trans.TransactionType.toLowerCase();
+                if (type === 'sale') typeClass = 'type-sale';
+                else if (type === 'inv') typeClass = 'type-inv';
+                else if (type === 'dc') typeClass = 'type-dc';
+                else if (type === 'pmt') typeClass = 'type-pmt';
+                else if (type === 'nsf-fee') typeClass = 'type-nsf-fee';
+                else if (type === 'nsf-rev') typeClass = 'type-nsf-rev';
+                else if (type === 'nsf-ret') typeClass = 'type-nsf-ret';
+                else if (type === 'fee') typeClass = 'type-fee';
+                else if (type === 'credit') typeClass = 'type-credit';
+                else if (type === 'debit') typeClass = 'type-debit';
+                else if (type === 'adj+') typeClass = 'type-adj-plus';
+                else if (type === 'adj-') typeClass = 'type-adj-minus';
+                
+                // Format date
+                const date = new Date(trans.TransactionDate);
+                const dateStr = date.toLocaleDateString('en-US');
+                
+                // Running balance class
+                const balanceClass = trans.RunningBalance > 0 ? 'positive' : 'negative';
+                
+                tableRows += `
+                    <tr>
+                        <td>${dateStr}</td>
+                        <td><span class="type-badge ${typeClass}">${trans.TransactionType}</span></td>
+                        <td>${trans.Category || ''}</td>
+                        <td>${trans.RefNumber || ''}</td>
+                        <td title="${trans.FullRefNumber || ''}">${trans.FullRefNumber || ''}</td>
+                        <td>${trans.Description || ''}</td>
+                        <td title="${trans.OriginalComment || ''}">${trans.OriginalComment || '-'}</td>
+                        <td class="amount-debit">${trans.Debit > 0 ? '$' + formatNumber(trans.Debit) : '-'}</td>
+                        <td class="amount-credit">${trans.Credit > 0 ? '$' + formatNumber(trans.Credit) : '-'}</td>
+                        <td class="running-balance ${balanceClass}">$${formatNumber(trans.RunningBalance)}</td>
+                        <td>${trans.SourceTable || ''}</td>
+                        <td>${trans.AgingBracket || ''}</td>
+                    </tr>
+                `;
+            });
+            
+            section.innerHTML = `
+                <div class="ledger-header">
+                    <div class="ledger-title">Complete Transaction History (ALL Details)</div>
+                    <div class="ledger-actions">
+                        <button class="btn-export" onclick="exportLedger('csv')">
+                            <i class="fas fa-file-csv"></i>
+                            Export CSV
+                        </button>
+                        <button class="btn-export" onclick="exportLedger('excel')">
+                            <i class="fas fa-file-excel"></i>
+                            Export Excel
+                        </button>
+                    </div>
+                </div>
+                <div class="ledger-table-wrapper">
+                    <table class="ledger-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Category</th>
+                                <th>Ref #</th>
+                                <th>Full Reference</th>
+                                <th>Description</th>
+                                <th>Comments</th>
+                                <th>Debit</th>
+                                <th>Credit</th>
+                                <th>Running Balance</th>
+                                <th>Source</th>
+                                <th>Aging</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${tableRows}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Export ledger
+        async function exportLedger(format) {
+            if (!selectedCustomerId || !currentLedgerData) {
+                showAlert('Please generate a ledger first', 'error');
+                return;
+            }
+            
+            const days = document.getElementById('periodSelect').value;
+            const url = `/api/ultimate-ledger/export/${selectedCustomerId}?days=${days}&format=${format}`;
+            
+            // Create a temporary link and click it
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `ultimate_ledger_${selectedCustomerId}.${format === 'excel' ? 'xlsx' : 'csv'}`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showAlert(`Ultimate ledger exported as ${format.toUpperCase()}`, 'success');
+        }
+
+        // Format number
+        function formatNumber(num) {
+            return parseFloat(num || 0).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        // Show alert
+        function showAlert(message, type = 'info') {
+            const alert = document.getElementById('alert');
+            alert.className = `alert alert-${type} active`;
+            alert.textContent = message;
+            
+            setTimeout(() => {
+                alert.classList.remove('active');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

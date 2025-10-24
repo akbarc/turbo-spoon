@@ -1,0 +1,951 @@
+{
+  "analysis_date": "2025-09-09T18:50:50.040330",
+  "period_start": "2024-09-09T18:50:50.040340",
+  "period_end": "2025-09-09T18:50:50.040345",
+  "total_sales": 31724859.295105595,
+  "total_gross_profit": 2935759.694049743,
+  "overall_gp_margin": 9.253814703293774,
+  "categories": [
+    {
+      "Category": "CIGARETTE",
+      "TransactionCount": 8845,
+      "UniqueCustomers": 516,
+      "TotalUnits": 204059.0,
+      "TotalSales": 15036427.68000193,
+      "GrossProfit": 452323.3300000216,
+      "GrossProfitMargin": 3.008183457042794,
+      "SalesPerCustomer": 29140.363720933972,
+      "UnitsPerTransaction": 23.07054833239118,
+      "AvgUnitPrice": 73.68666748343337
+    },
+    {
+      "Category": "CIGARS",
+      "TransactionCount": 9339,
+      "UniqueCustomers": 523,
+      "TotalUnits": 163281.0,
+      "TotalSales": 4204602.350004345,
+      "GrossProfit": 1024967.8534997222,
+      "GrossProfitMargin": 24.37728394217025,
+      "SalesPerCustomer": 8039.392638631635,
+      "UnitsPerTransaction": 17.483777706392548,
+      "AvgUnitPrice": 25.75071410638314
+    },
+    {
+      "Category": "ELECTRONIC CIG",
+      "TransactionCount": 4193,
+      "UniqueCustomers": 423,
+      "TotalUnits": 41447.0,
+      "TotalSales": 1728049.1199999955,
+      "GrossProfit": 129571.2702000014,
+      "GrossProfitMargin": 7.498124254708786,
+      "SalesPerCustomer": 4085.2225059101547,
+      "UnitsPerTransaction": 9.884808013355592,
+      "AvgUnitPrice": 41.69298429319361
+    },
+    {
+      "Category": "ECIG - PODS",
+      "TransactionCount": 1496,
+      "UniqueCustomers": 204,
+      "TotalUnits": 12236.0,
+      "TotalSales": 1134251.3299999759,
+      "GrossProfit": 58205.89699999966,
+      "GrossProfitMargin": 5.131657813440774,
+      "SalesPerCustomer": 5560.055539215568,
+      "UnitsPerTransaction": 8.179144385026738,
+      "AvgUnitPrice": 92.69788574697417
+    },
+    {
+      "Category": "LT-TAX PAID",
+      "TransactionCount": 5153,
+      "UniqueCustomers": 454,
+      "TotalUnits": 41253.0,
+      "TotalSales": 1061342.469999894,
+      "GrossProfit": 100740.5232000084,
+      "GrossProfitMargin": 9.491801755565145,
+      "SalesPerCustomer": 2337.7587444931587,
+      "UnitsPerTransaction": 8.005627789637105,
+      "AvgUnitPrice": 25.72764332290728
+    },
+    {
+      "Category": "VITAMINS",
+      "TransactionCount": 4718,
+      "UniqueCustomers": 433,
+      "TotalUnits": 26303.0,
+      "TotalSales": 1033855.3099999696,
+      "GrossProfit": 63162.53639999791,
+      "GrossProfitMargin": 6.109417419348532,
+      "SalesPerCustomer": 2387.656605080761,
+      "UnitsPerTransaction": 5.575031793132683,
+      "AvgUnitPrice": 39.30560430369044
+    },
+    {
+      "Category": "CIGAR GA",
+      "TransactionCount": 6202,
+      "UniqueCustomers": 465,
+      "TotalUnits": 40612.0,
+      "TotalSales": 881590.8999998028,
+      "GrossProfit": 137129.42889998012,
+      "GrossProfitMargin": 15.554769099818383,
+      "SalesPerCustomer": 1895.8944086017266,
+      "UnitsPerTransaction": 6.54821025475653,
+      "AvgUnitPrice": 21.707645523485738
+    },
+    {
+      "Category": "DRINKS",
+      "TransactionCount": 4086,
+      "UniqueCustomers": 432,
+      "TotalUnits": 34527.0,
+      "TotalSales": 695002.1800999322,
+      "GrossProfit": 82150.92500000066,
+      "GrossProfitMargin": 11.820239900281813,
+      "SalesPerCustomer": 1608.8013428239171,
+      "UnitsPerTransaction": 8.45007342143906,
+      "AvgUnitPrice": 20.12923741129934
+    },
+    {
+      "Category": "LT-TAX-COLLECTED",
+      "TransactionCount": 4204,
+      "UniqueCustomers": 409,
+      "TotalUnits": 25663.0,
+      "TotalSales": 677726.7799998865,
+      "GrossProfit": 149208.81000000893,
+      "GrossProfitMargin": 22.016071137108366,
+      "SalesPerCustomer": 1657.0336919312629,
+      "UnitsPerTransaction": 6.104424357754519,
+      "AvgUnitPrice": 26.408712153679872
+    },
+    {
+      "Category": "T7 SMOKELESS GA",
+      "TransactionCount": 2999,
+      "UniqueCustomers": 316,
+      "TotalUnits": 22956.0,
+      "TotalSales": 668637.7899999821,
+      "GrossProfit": 33283.98000000023,
+      "GrossProfitMargin": 4.977878979888517,
+      "SalesPerCustomer": 2115.942373417665,
+      "UnitsPerTransaction": 7.654551517172391,
+      "AvgUnitPrice": 29.126929343090353
+    },
+    {
+      "Category": "KRATOM",
+      "TransactionCount": 670,
+      "UniqueCustomers": 102,
+      "TotalUnits": 6065.0,
+      "TotalSales": 624637.5999999996,
+      "GrossProfit": 51019.36,
+      "GrossProfitMargin": 8.167833636655883,
+      "SalesPerCustomer": 6123.898039215683,
+      "UnitsPerTransaction": 9.052238805970148,
+      "AvgUnitPrice": 102.99053586150035
+    },
+    {
+      "Category": "NICOTINE POUCHES",
+      "TransactionCount": 2192,
+      "UniqueCustomers": 274,
+      "TotalUnits": 22980.0,
+      "TotalSales": 465577.08999997005,
+      "GrossProfit": 28182.10999999927,
+      "GrossProfitMargin": 6.053156524519083,
+      "SalesPerCustomer": 1699.1864598539053,
+      "UnitsPerTransaction": 10.483576642335766,
+      "AvgUnitPrice": 20.26009965186989
+    },
+    {
+      "Category": "CANDYS",
+      "TransactionCount": 3369,
+      "UniqueCustomers": 410,
+      "TotalUnits": 53868.5,
+      "TotalSales": 448241.6149999413,
+      "GrossProfit": 86880.0865500004,
+      "GrossProfitMargin": 19.382423149178546,
+      "SalesPerCustomer": 1093.272231707174,
+      "UnitsPerTransaction": 15.989462748590086,
+      "AvgUnitPrice": 8.32103390664194
+    },
+    {
+      "Category": "NOVELTY ITEMS",
+      "TransactionCount": 3146,
+      "UniqueCustomers": 423,
+      "TotalUnits": 20895.0,
+      "TotalSales": 301228.5699999951,
+      "GrossProfit": 37799.761300000224,
+      "GrossProfitMargin": 12.548531269793179,
+      "SalesPerCustomer": 712.1242789597993,
+      "UnitsPerTransaction": 6.641767323585506,
+      "AvgUnitPrice": 14.41629911462049
+    },
+    {
+      "Category": "CIG ROLLING PAPER",
+      "TransactionCount": 3674,
+      "UniqueCustomers": 425,
+      "TotalUnits": 9281.0,
+      "TotalSales": 300816.69999997545,
+      "GrossProfit": 45214.11919999914,
+      "GrossProfitMargin": 15.030455157576966,
+      "SalesPerCustomer": 707.8039999999422,
+      "UnitsPerTransaction": 2.526129559063691,
+      "AvgUnitPrice": 32.412099989222654
+    },
+    {
+      "Category": "ECIG - DISP D8",
+      "TransactionCount": 755,
+      "UniqueCustomers": 171,
+      "TotalUnits": 4045.0,
+      "TotalSales": 237923.19,
+      "GrossProfit": 23247.9563,
+      "GrossProfitMargin": 9.771202336350653,
+      "SalesPerCustomer": 1391.3636842105263,
+      "UnitsPerTransaction": 5.357615894039735,
+      "AvgUnitPrice": 58.81908281829419
+    },
+    {
+      "Category": "LIGHTERS",
+      "TransactionCount": 2779,
+      "UniqueCustomers": 400,
+      "TotalUnits": 11477.0,
+      "TotalSales": 236334.1699999935,
+      "GrossProfit": 32975.441200001165,
+      "GrossProfitMargin": 13.952887642105274,
+      "SalesPerCustomer": 590.8354249999837,
+      "UnitsPerTransaction": 4.12990284274919,
+      "AvgUnitPrice": 20.591981354011807
+    },
+    {
+      "Category": "BLUNT WRAP",
+      "TransactionCount": 4203,
+      "UniqueCustomers": 422,
+      "TotalUnits": 26018.0,
+      "TotalSales": 210839.2099999977,
+      "GrossProfit": 18858.980899999984,
+      "GrossProfitMargin": 8.944721857001927,
+      "SalesPerCustomer": 499.61898104264856,
+      "UnitsPerTransaction": 6.190340233166785,
+      "AvgUnitPrice": 8.103590206779833
+    },
+    {
+      "Category": "FOOD",
+      "TransactionCount": 2971,
+      "UniqueCustomers": 408,
+      "TotalUnits": 34523.0,
+      "TotalSales": 206382.66999999745,
+      "GrossProfit": 33523.10660000005,
+      "GrossProfitMargin": 16.243179042116505,
+      "SalesPerCustomer": 505.83987745097414,
+      "UnitsPerTransaction": 11.619993268259845,
+      "AvgUnitPrice": 5.978120962836297
+    },
+    {
+      "Category": "CBD/HEMP",
+      "TransactionCount": 1207,
+      "UniqueCustomers": 236,
+      "TotalUnits": 6915.0,
+      "TotalSales": 170972.85000000003,
+      "GrossProfit": 17865.229999999978,
+      "GrossProfitMargin": 10.449161957585648,
+      "SalesPerCustomer": 724.4612288135595,
+      "UnitsPerTransaction": 5.729080364540183,
+      "AvgUnitPrice": 24.72492407809111
+    },
+    {
+      "Category": "MEDICINE",
+      "TransactionCount": 3248,
+      "UniqueCustomers": 422,
+      "TotalUnits": 14913.0,
+      "TotalSales": 159194.2700000027,
+      "GrossProfit": 35052.210400002026,
+      "GrossProfitMargin": 22.01851260098836,
+      "SalesPerCustomer": 377.2376066350775,
+      "UnitsPerTransaction": 4.591440886699507,
+      "AvgUnitPrice": 10.674865553544068
+    },
+    {
+      "Category": "AUTOMOTIVE",
+      "TransactionCount": 1614,
+      "UniqueCustomers": 260,
+      "TotalUnits": 9168.0,
+      "TotalSales": 144264.36000000237,
+      "GrossProfit": 34205.23470000028,
+      "GrossProfitMargin": 23.710107402826115,
+      "SalesPerCustomer": 554.8629230769322,
+      "UnitsPerTransaction": 5.680297397769516,
+      "AvgUnitPrice": 15.735641361256803
+    },
+    {
+      "Category": "SHOPPING BAGS",
+      "TransactionCount": 2250,
+      "UniqueCustomers": 347,
+      "TotalUnits": 11922.0,
+      "TotalSales": 133523.93000000218,
+      "GrossProfit": 57153.83999999989,
+      "GrossProfitMargin": 42.80419247695822,
+      "SalesPerCustomer": 384.795187319891,
+      "UnitsPerTransaction": 5.298666666666667,
+      "AvgUnitPrice": 11.199792819996828
+    },
+    {
+      "Category": "MISC",
+      "TransactionCount": 1459,
+      "UniqueCustomers": 360,
+      "TotalUnits": 6570.0,
+      "TotalSales": 123746.37000000126,
+      "GrossProfit": 33881.27909999999,
+      "GrossProfitMargin": 27.379614529298635,
+      "SalesPerCustomer": 343.7399166666702,
+      "UnitsPerTransaction": 4.503084304318026,
+      "AvgUnitPrice": 18.83506392694083
+    },
+    {
+      "Category": "LIT CIGARS 003251",
+      "TransactionCount": 940,
+      "UniqueCustomers": 191,
+      "TotalUnits": 1313.0,
+      "TotalSales": 83547.85000000063,
+      "GrossProfit": 9226.470999999932,
+      "GrossProfitMargin": 11.043337440759831,
+      "SalesPerCustomer": 437.4232984293227,
+      "UnitsPerTransaction": 1.396808510638298,
+      "AvgUnitPrice": 63.631264280274664
+    },
+    {
+      "Category": "AIR FRESHENER",
+      "TransactionCount": 1239,
+      "UniqueCustomers": 318,
+      "TotalUnits": 29708.0,
+      "TotalSales": 81820.31000000006,
+      "GrossProfit": 15390.177500000003,
+      "GrossProfitMargin": 18.809727682527715,
+      "SalesPerCustomer": 257.2965723270442,
+      "UnitsPerTransaction": 23.9774011299435,
+      "AvgUnitPrice": 2.7541507338090767
+    },
+    {
+      "Category": "HOUSEHOLD GOODS",
+      "TransactionCount": 2410,
+      "UniqueCustomers": 391,
+      "TotalUnits": 13909.0,
+      "TotalSales": 80073.64000000039,
+      "GrossProfit": 24431.533900000013,
+      "GrossProfitMargin": 30.511331694175382,
+      "SalesPerCustomer": 204.7919181585688,
+      "UnitsPerTransaction": 5.771369294605809,
+      "AvgUnitPrice": 5.756965993241814
+    },
+    {
+      "Category": "WATER",
+      "TransactionCount": 1311,
+      "UniqueCustomers": 242,
+      "TotalUnits": 9264.0,
+      "TotalSales": 79555.00000000033,
+      "GrossProfit": 19270.76000000016,
+      "GrossProfitMargin": 24.223191502734053,
+      "SalesPerCustomer": 328.739669421489,
+      "UnitsPerTransaction": 7.066361556064074,
+      "AvgUnitPrice": 8.587543177892956
+    },
+    {
+      "Category": "GUMS/CHICLETS",
+      "TransactionCount": 1301,
+      "UniqueCustomers": 286,
+      "TotalUnits": 5334.0,
+      "TotalSales": 79343.03000000205,
+      "GrossProfit": 15247.25970000024,
+      "GrossProfitMargin": 19.216886095728693,
+      "SalesPerCustomer": 277.423181818189,
+      "UnitsPerTransaction": 4.099923136049193,
+      "AvgUnitPrice": 14.87495875515599
+    },
+    {
+      "Category": "GLOVES & T SHIRTS",
+      "TransactionCount": 834,
+      "UniqueCustomers": 204,
+      "TotalUnits": 21377.0,
+      "TotalSales": 68134.98,
+      "GrossProfit": 12753.47559999999,
+      "GrossProfitMargin": 18.717956033743594,
+      "SalesPerCustomer": 333.995,
+      "UnitsPerTransaction": 25.63189448441247,
+      "AvgUnitPrice": 3.1873031763109885
+    },
+    {
+      "Category": "CONDOMS",
+      "TransactionCount": 1613,
+      "UniqueCustomers": 294,
+      "TotalUnits": 4752.0,
+      "TotalSales": 61005.639999998704,
+      "GrossProfit": 11847.885999999706,
+      "GrossProfitMargin": 19.420968290800584,
+      "SalesPerCustomer": 207.50217687074388,
+      "UnitsPerTransaction": 2.9460632362058274,
+      "AvgUnitPrice": 12.837887205386933
+    },
+    {
+      "Category": "CELLUAR ACCESSORIES",
+      "TransactionCount": 1039,
+      "UniqueCustomers": 242,
+      "TotalUnits": 2615.0,
+      "TotalSales": 52413.30999999987,
+      "GrossProfit": 13585.079999999823,
+      "GrossProfitMargin": 25.9191415310345,
+      "SalesPerCustomer": 216.58392561983416,
+      "UnitsPerTransaction": 2.516843118383061,
+      "AvgUnitPrice": 20.043330783938764
+    },
+    {
+      "Category": "JBR",
+      "TransactionCount": 22,
+      "UniqueCustomers": 9,
+      "TotalUnits": 1256.0,
+      "TotalSales": 49518.74999999999,
+      "GrossProfit": -983.6905000000002,
+      "GrossProfitMargin": -1.9865010728259505,
+      "SalesPerCustomer": 5502.083333333332,
+      "UnitsPerTransaction": 57.09090909090909,
+      "AvgUnitPrice": 39.42575636942674
+    },
+    {
+      "Category": "COSMETICS & BEAUTY",
+      "TransactionCount": 1521,
+      "UniqueCustomers": 321,
+      "TotalUnits": 12461.0,
+      "TotalSales": 34420.300000000345,
+      "GrossProfit": 9885.27589999998,
+      "GrossProfitMargin": 28.71931941325288,
+      "SalesPerCustomer": 107.2283489096584,
+      "UnitsPerTransaction": 8.192636423405654,
+      "AvgUnitPrice": 2.762242195650457
+    },
+    {
+      "Category": "COOKIES",
+      "TransactionCount": 866,
+      "UniqueCustomers": 236,
+      "TotalUnits": 4118.0,
+      "TotalSales": 30565.950000001198,
+      "GrossProfit": 5940.816199999992,
+      "GrossProfitMargin": 19.4360594059722,
+      "SalesPerCustomer": 129.51673728814066,
+      "UnitsPerTransaction": 4.755196304849885,
+      "AvgUnitPrice": 7.422523069451481
+    },
+    {
+      "Category": "STATIONARY",
+      "TransactionCount": 980,
+      "UniqueCustomers": 273,
+      "TotalUnits": 2317.0,
+      "TotalSales": 30403.490000000485,
+      "GrossProfit": 5789.481899999911,
+      "GrossProfitMargin": 19.042162264923594,
+      "SalesPerCustomer": 111.36809523809701,
+      "UnitsPerTransaction": 2.3642857142857143,
+      "AvgUnitPrice": 13.121920586966114
+    },
+    {
+      "Category": "CLEANING PRODUCTS",
+      "TransactionCount": 1064,
+      "UniqueCustomers": 291,
+      "TotalUnits": 8031.0,
+      "TotalSales": 24620.419999999984,
+      "GrossProfit": 8151.058999999935,
+      "GrossProfitMargin": 33.10690475629555,
+      "SalesPerCustomer": 84.6062542955326,
+      "UnitsPerTransaction": 7.547932330827067,
+      "AvgUnitPrice": 3.0656730170588946
+    },
+    {
+      "Category": "PHONE CARDS",
+      "TransactionCount": 127,
+      "UniqueCustomers": 43,
+      "TotalUnits": 2705.0,
+      "TotalSales": 18773.299999999996,
+      "GrossProfit": 670.349999999999,
+      "GrossProfitMargin": 3.570762732178142,
+      "SalesPerCustomer": 436.58837209302317,
+      "UnitsPerTransaction": 21.299212598425196,
+      "AvgUnitPrice": 6.940221811460257
+    },
+    {
+      "Category": "INCENSE",
+      "TransactionCount": 394,
+      "UniqueCustomers": 161,
+      "TotalUnits": 1863.0,
+      "TotalSales": 18584.810000000038,
+      "GrossProfit": 4120.38999999999,
+      "GrossProfitMargin": 22.170740513354627,
+      "SalesPerCustomer": 115.43360248447229,
+      "UnitsPerTransaction": 4.728426395939087,
+      "AvgUnitPrice": 9.975743424584024
+    },
+    {
+      "Category": "BATTERY",
+      "TransactionCount": 427,
+      "UniqueCustomers": 165,
+      "TotalUnits": 2943.0,
+      "TotalSales": 17336.46999999994,
+      "GrossProfit": 5051.5615999999745,
+      "GrossProfitMargin": 29.138351694433712,
+      "SalesPerCustomer": 105.06951515151478,
+      "UnitsPerTransaction": 6.892271662763466,
+      "AvgUnitPrice": 5.890747536527332
+    },
+    {
+      "Category": "KITCHEN & TOILET",
+      "TransactionCount": 740,
+      "UniqueCustomers": 239,
+      "TotalUnits": 4736.0,
+      "TotalSales": 13467.11999999994,
+      "GrossProfit": 4033.0375999999756,
+      "GrossProfitMargin": 29.947290883277145,
+      "SalesPerCustomer": 56.347782426778,
+      "UnitsPerTransaction": 6.4,
+      "AvgUnitPrice": 2.8435641891891765
+    },
+    {
+      "Category": "HARDWARE",
+      "TransactionCount": 350,
+      "UniqueCustomers": 176,
+      "TotalUnits": 1630.0,
+      "TotalSales": 4190.419999999976,
+      "GrossProfit": 1532.1593999999993,
+      "GrossProfitMargin": 36.5633850544816,
+      "SalesPerCustomer": 23.80920454545441,
+      "UnitsPerTransaction": 4.6571428571428575,
+      "AvgUnitPrice": 2.5708098159509056
+    },
+    {
+      "Category": "UNCATEGORIZED",
+      "TransactionCount": 156,
+      "UniqueCustomers": 99,
+      "TotalUnits": 687.0,
+      "TotalSales": 3414.5599999999954,
+      "GrossProfit": 922.1700000000001,
+      "GrossProfitMargin": 27.00699358043207,
+      "SalesPerCustomer": 34.49050505050501,
+      "UnitsPerTransaction": 4.403846153846154,
+      "AvgUnitPrice": 4.970247452692861
+    },
+    {
+      "Category": "PLAYING CARDS",
+      "TransactionCount": 140,
+      "UniqueCustomers": 81,
+      "TotalUnits": 168.0,
+      "TotalSales": 3256.3199999999906,
+      "GrossProfit": 707.3300000000004,
+      "GrossProfitMargin": 21.721759532232777,
+      "SalesPerCustomer": 40.201481481481366,
+      "UnitsPerTransaction": 1.2,
+      "AvgUnitPrice": 19.382857142857087
+    },
+    {
+      "Category": "KIDS STUFF",
+      "TransactionCount": 162,
+      "UniqueCustomers": 96,
+      "TotalUnits": 547.0,
+      "TotalSales": 2051.2300000000023,
+      "GrossProfit": 793.9422000000012,
+      "GrossProfitMargin": 38.70566440623433,
+      "SalesPerCustomer": 21.36697916666669,
+      "UnitsPerTransaction": 3.376543209876543,
+      "AvgUnitPrice": 3.7499634369287063
+    },
+    {
+      "Category": "ECIG - PODS D8",
+      "TransactionCount": 28,
+      "UniqueCustomers": 20,
+      "TotalUnits": 59.0,
+      "TotalSales": 1973.98,
+      "GrossProfit": 292.659,
+      "GrossProfitMargin": 14.82583410166263,
+      "SalesPerCustomer": 98.699,
+      "UnitsPerTransaction": 2.107142857142857,
+      "AvgUnitPrice": 33.457288135593224
+    },
+    {
+      "Category": "CANDLES",
+      "TransactionCount": 44,
+      "UniqueCustomers": 38,
+      "TotalUnits": 398.0,
+      "TotalSales": 561.6200000000001,
+      "GrossProfit": 233.35759999999996,
+      "GrossProfitMargin": 41.55079947295322,
+      "SalesPerCustomer": 14.77947368421053,
+      "UnitsPerTransaction": 9.045454545454545,
+      "AvgUnitPrice": 1.4111055276381912
+    },
+    {
+      "Category": "PERFUMES",
+      "TransactionCount": 16,
+      "UniqueCustomers": 11,
+      "TotalUnits": 132.0,
+      "TotalSales": 329.3400000000001,
+      "GrossProfit": 147.84,
+      "GrossProfitMargin": 44.889779559118224,
+      "SalesPerCustomer": 29.94000000000001,
+      "UnitsPerTransaction": 8.25,
+      "AvgUnitPrice": 2.4950000000000006
+    },
+    {
+      "Category": "APPAREL & CLOTHING",
+      "TransactionCount": 15,
+      "UniqueCustomers": 13,
+      "TotalUnits": 30.0,
+      "TotalSales": 209.69999999999996,
+      "GrossProfit": 74.7,
+      "GrossProfitMargin": 35.62231759656653,
+      "SalesPerCustomer": 16.13076923076923,
+      "UnitsPerTransaction": 2.0,
+      "AvgUnitPrice": 6.989999999999998
+    },
+    {
+      "Category": "TOYS",
+      "TransactionCount": 18,
+      "UniqueCustomers": 18,
+      "TotalUnits": 19.0,
+      "TotalSales": 93.80999999999997,
+      "GrossProfit": 33.82000000000002,
+      "GrossProfitMargin": 36.05159364673279,
+      "SalesPerCustomer": 5.211666666666665,
+      "UnitsPerTransaction": 1.0555555555555556,
+      "AvgUnitPrice": 4.93736842105263
+    },
+    {
+      "Category": "CLEAM",
+      "TransactionCount": 4,
+      "UniqueCustomers": 4,
+      "TotalUnits": 16.0,
+      "TotalSales": 25.44,
+      "GrossProfit": 7.52,
+      "GrossProfitMargin": 29.559748427672954,
+      "SalesPerCustomer": 6.36,
+      "UnitsPerTransaction": 4.0,
+      "AvgUnitPrice": 1.59
+    }
+  ],
+  "top_5_monthly_trend": [
+    {
+      "Month": "2024-09",
+      "Category": "CIGARETTE",
+      "MonthlySales": 469115.65999999153
+    },
+    {
+      "Month": "2024-09",
+      "Category": "CIGARS",
+      "MonthlySales": 226875.47999999902
+    },
+    {
+      "Month": "2024-09",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 125657.78000000009
+    },
+    {
+      "Month": "2024-09",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 114134.0700000001
+    },
+    {
+      "Month": "2024-09",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 35352.510000000046
+    },
+    {
+      "Month": "2024-10",
+      "Category": "CIGARETTE",
+      "MonthlySales": 898875.5199999699
+    },
+    {
+      "Month": "2024-10",
+      "Category": "CIGARS",
+      "MonthlySales": 406094.3499999696
+    },
+    {
+      "Month": "2024-10",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 186456.05000000002
+    },
+    {
+      "Month": "2024-10",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 98140.15000000026
+    },
+    {
+      "Month": "2024-10",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 73096.14000000063
+    },
+    {
+      "Month": "2024-11",
+      "Category": "CIGARETTE",
+      "MonthlySales": 717926.8299999726
+    },
+    {
+      "Month": "2024-11",
+      "Category": "CIGARS",
+      "MonthlySales": 331159.23999998573
+    },
+    {
+      "Month": "2024-11",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 185194.40000000008
+    },
+    {
+      "Month": "2024-11",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 131822.4700000003
+    },
+    {
+      "Month": "2024-11",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 102230.38000000076
+    },
+    {
+      "Month": "2024-12",
+      "Category": "CIGARETTE",
+      "MonthlySales": 815497.1899999669
+    },
+    {
+      "Month": "2024-12",
+      "Category": "CIGARS",
+      "MonthlySales": 353103.27999997715
+    },
+    {
+      "Month": "2024-12",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 182149.22999999748
+    },
+    {
+      "Month": "2024-12",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 180089.73000000004
+    },
+    {
+      "Month": "2024-12",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 48041.22
+    },
+    {
+      "Month": "2025-01",
+      "Category": "CIGARETTE",
+      "MonthlySales": 822622.6099999906
+    },
+    {
+      "Month": "2025-01",
+      "Category": "CIGARS",
+      "MonthlySales": 311659.7799999861
+    },
+    {
+      "Month": "2025-01",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 160356.94
+    },
+    {
+      "Month": "2025-01",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 94147.57000000007
+    },
+    {
+      "Month": "2025-01",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 79507.79000000085
+    },
+    {
+      "Month": "2025-02",
+      "Category": "CIGARETTE",
+      "MonthlySales": 738241.1800000065
+    },
+    {
+      "Month": "2025-02",
+      "Category": "CIGARS",
+      "MonthlySales": 336596.25999998633
+    },
+    {
+      "Month": "2025-02",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 151355.43
+    },
+    {
+      "Month": "2025-02",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 76567.71
+    },
+    {
+      "Month": "2025-02",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 55490.469999999834
+    },
+    {
+      "Month": "2025-03",
+      "Category": "CIGARETTE",
+      "MonthlySales": 876830.1400000011
+    },
+    {
+      "Month": "2025-03",
+      "Category": "CIGARS",
+      "MonthlySales": 405232.73999997135
+    },
+    {
+      "Month": "2025-03",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 136422.00999999998
+    },
+    {
+      "Month": "2025-03",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 131176.3800000002
+    },
+    {
+      "Month": "2025-03",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 89392.12999999986
+    },
+    {
+      "Month": "2025-04",
+      "Category": "CIGARETTE",
+      "MonthlySales": 1309462.389999964
+    },
+    {
+      "Month": "2025-04",
+      "Category": "CIGARS",
+      "MonthlySales": 361164.039999982
+    },
+    {
+      "Month": "2025-04",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 140231.14999999997
+    },
+    {
+      "Month": "2025-04",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 74173.44000000002
+    },
+    {
+      "Month": "2025-04",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 69625.90000000026
+    },
+    {
+      "Month": "2025-05",
+      "Category": "CIGARETTE",
+      "MonthlySales": 1172941.0499999481
+    },
+    {
+      "Month": "2025-05",
+      "Category": "CIGARS",
+      "MonthlySales": 357285.1199999837
+    },
+    {
+      "Month": "2025-05",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 150228.41999999998
+    },
+    {
+      "Month": "2025-05",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 96062.31000000048
+    },
+    {
+      "Month": "2025-05",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 54634.49999999999
+    },
+    {
+      "Month": "2025-06",
+      "Category": "CIGARETTE",
+      "MonthlySales": 1539711.5699999451
+    },
+    {
+      "Month": "2025-06",
+      "Category": "CIGARS",
+      "MonthlySales": 332392.8499999889
+    },
+    {
+      "Month": "2025-06",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 129388.77000000012
+    },
+    {
+      "Month": "2025-06",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 105694.47
+    },
+    {
+      "Month": "2025-06",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 95717.16000000139
+    },
+    {
+      "Month": "2025-07",
+      "Category": "CIGARETTE",
+      "MonthlySales": 1993008.259999961
+    },
+    {
+      "Month": "2025-07",
+      "Category": "CIGARS",
+      "MonthlySales": 342434.94999998645
+    },
+    {
+      "Month": "2025-07",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 108440.14000000006
+    },
+    {
+      "Month": "2025-07",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 78303.87999999999
+    },
+    {
+      "Month": "2025-07",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 72565.0000000001
+    },
+    {
+      "Month": "2025-08",
+      "Category": "CIGARETTE",
+      "MonthlySales": 2794872.0800000746
+    },
+    {
+      "Month": "2025-08",
+      "Category": "CIGARS",
+      "MonthlySales": 334770.1799999897
+    },
+    {
+      "Month": "2025-08",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 96705.98000000004
+    },
+    {
+      "Month": "2025-08",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 91553.91000000002
+    },
+    {
+      "Month": "2025-08",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 63325.70999999997
+    },
+    {
+      "Month": "2025-09",
+      "Category": "CIGARETTE",
+      "MonthlySales": 887323.1999999931
+    },
+    {
+      "Month": "2025-09",
+      "Category": "CIGARS",
+      "MonthlySales": 105834.08000000134
+    },
+    {
+      "Month": "2025-09",
+      "Category": "ELECTRONIC CIG",
+      "MonthlySales": 36504.95
+    },
+    {
+      "Month": "2025-09",
+      "Category": "ECIG - PODS",
+      "MonthlySales": 12754.069999999996
+    },
+    {
+      "Month": "2025-09",
+      "Category": "LT-TAX PAID",
+      "MonthlySales": 10952.59999999996
+    }
+  ],
+  "tobacco_total_sales": 21945238.030005857,
+  "tobacco_pct_of_total": 69.17363391865852
+}

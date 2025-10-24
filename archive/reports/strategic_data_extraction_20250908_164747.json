@@ -1,0 +1,6878 @@
+{
+  "summary_metrics": {
+    "total_transactions": 17148,
+    "unique_customers": 674,
+    "active_days": 363,
+    "total_revenue": "1263077959.0700",
+    "avg_transaction_value": "3439.6236",
+    "max_transaction_value": "81200.0000",
+    "min_transaction_value": "-38005.8000",
+    "total_items_sold": 981824.5,
+    "unique_products_sold": 5836,
+    "categories_with_sales": 50,
+    "avg_items_per_transaction": 57.26,
+    "avg_transactions_per_customer": 25.44,
+    "avg_revenue_per_customer": "1874002.91",
+    "avg_daily_transactions": 47.24,
+    "avg_daily_revenue": "3479553.61"
+  },
+  "monthly_revenue_by_category": [
+    {
+      "month": "2025-09",
+      "category": "CIGARETTE",
+      "total_revenue": 669167.6099999959,
+      "transaction_count": 200,
+      "line_items": 1773
+    },
+    {
+      "month": "2025-09",
+      "category": "CIGARS",
+      "total_revenue": 82234.0000000003,
+      "transaction_count": 185,
+      "line_items": 1684
+    },
+    {
+      "month": "2025-09",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 32761.449999999997,
+      "transaction_count": 61,
+      "line_items": 98
+    },
+    {
+      "month": "2025-09",
+      "category": "VITAMINS",
+      "total_revenue": 24342.060000000012,
+      "transaction_count": 97,
+      "line_items": 289
+    },
+    {
+      "month": "2025-09",
+      "category": "CIGAR GA",
+      "total_revenue": 22123.620000000024,
+      "transaction_count": 117,
+      "line_items": 631
+    },
+    {
+      "month": "2025-09",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 17814.150000000016,
+      "transaction_count": 68,
+      "line_items": 235
+    },
+    {
+      "month": "2025-09",
+      "category": "DRINKS",
+      "total_revenue": 16409.81999999997,
+      "transaction_count": 87,
+      "line_items": 203
+    },
+    {
+      "month": "2025-09",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 13778.689999999924,
+      "transaction_count": 90,
+      "line_items": 315
+    },
+    {
+      "month": "2025-09",
+      "category": "ECIG - PODS",
+      "total_revenue": 12196.609999999993,
+      "transaction_count": 26,
+      "line_items": 43
+    },
+    {
+      "month": "2025-09",
+      "category": "CANDYS",
+      "total_revenue": 11306.849999999957,
+      "transaction_count": 78,
+      "line_items": 402
+    },
+    {
+      "month": "2025-09",
+      "category": "KRATOM",
+      "total_revenue": 10283.5,
+      "transaction_count": 18,
+      "line_items": 31
+    },
+    {
+      "month": "2025-09",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 8621.72999999999,
+      "transaction_count": 57,
+      "line_items": 118
+    },
+    {
+      "month": "2025-09",
+      "category": "LT-TAX PAID",
+      "total_revenue": 8474.489999999974,
+      "transaction_count": 91,
+      "line_items": 179
+    },
+    {
+      "month": "2025-09",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 8474.439999999977,
+      "transaction_count": 49,
+      "line_items": 208
+    },
+    {
+      "month": "2025-09",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 6272.269999999981,
+      "transaction_count": 73,
+      "line_items": 161
+    },
+    {
+      "month": "2025-09",
+      "category": "CBD/HEMP",
+      "total_revenue": 5520.0,
+      "transaction_count": 30,
+      "line_items": 48
+    },
+    {
+      "month": "2025-09",
+      "category": "BLUNT WRAP",
+      "total_revenue": 4534.809999999986,
+      "transaction_count": 88,
+      "line_items": 286
+    },
+    {
+      "month": "2025-09",
+      "category": "LIGHTERS",
+      "total_revenue": 3276.429999999996,
+      "transaction_count": 57,
+      "line_items": 103
+    },
+    {
+      "month": "2025-09",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 3251.699999999995,
+      "transaction_count": 60,
+      "line_items": 133
+    },
+    {
+      "month": "2025-09",
+      "category": "FOOD",
+      "total_revenue": 3083.089999999996,
+      "transaction_count": 43,
+      "line_items": 108
+    },
+    {
+      "month": "2025-09",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 2935.0899999999897,
+      "transaction_count": 23,
+      "line_items": 189
+    },
+    {
+      "month": "2025-09",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 2899.4599999999973,
+      "transaction_count": 35,
+      "line_items": 86
+    },
+    {
+      "month": "2025-09",
+      "category": "MEDICINE",
+      "total_revenue": 2795.3999999999946,
+      "transaction_count": 64,
+      "line_items": 156
+    },
+    {
+      "month": "2025-09",
+      "category": "AIR FRESHENER",
+      "total_revenue": 1992.7200000000007,
+      "transaction_count": 30,
+      "line_items": 36
+    },
+    {
+      "month": "2025-09",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 1937.1000000000008,
+      "transaction_count": 25,
+      "line_items": 42
+    },
+    {
+      "month": "2025-09",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 1715.3300000000006,
+      "transaction_count": 48,
+      "line_items": 108
+    },
+    {
+      "month": "2025-09",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 1425.27,
+      "transaction_count": 20,
+      "line_items": 23
+    },
+    {
+      "month": "2025-09",
+      "category": "CONDOMS",
+      "total_revenue": 1340.0200000000007,
+      "transaction_count": 31,
+      "line_items": 89
+    },
+    {
+      "month": "2025-09",
+      "category": "WATER",
+      "total_revenue": 1161.5700000000002,
+      "transaction_count": 23,
+      "line_items": 26
+    },
+    {
+      "month": "2025-09",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 1131.5,
+      "transaction_count": 10,
+      "line_items": 15
+    },
+    {
+      "month": "2025-09",
+      "category": "INCENSE",
+      "total_revenue": 929.75,
+      "transaction_count": 12,
+      "line_items": 19
+    },
+    {
+      "month": "2025-09",
+      "category": "COOKIES",
+      "total_revenue": 817.8600000000006,
+      "transaction_count": 13,
+      "line_items": 59
+    },
+    {
+      "month": "2025-09",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 813.16,
+      "transaction_count": 29,
+      "line_items": 69
+    },
+    {
+      "month": "2025-09",
+      "category": "STATIONARY",
+      "total_revenue": 718.4100000000002,
+      "transaction_count": 27,
+      "line_items": 35
+    },
+    {
+      "month": "2025-09",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 682.49,
+      "transaction_count": 12,
+      "line_items": 15
+    },
+    {
+      "month": "2025-09",
+      "category": "BATTERY",
+      "total_revenue": 559.24,
+      "transaction_count": 10,
+      "line_items": 23
+    },
+    {
+      "month": "2025-09",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 466.13,
+      "transaction_count": 24,
+      "line_items": 38
+    },
+    {
+      "month": "2025-09",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 165.12,
+      "transaction_count": 10,
+      "line_items": 10
+    },
+    {
+      "month": "2025-09",
+      "category": "HARDWARE",
+      "total_revenue": 137.81,
+      "transaction_count": 10,
+      "line_items": 22
+    },
+    {
+      "month": "2025-09",
+      "category": "PHONE CARDS",
+      "total_revenue": 127.6,
+      "transaction_count": 3,
+      "line_items": 4
+    },
+    {
+      "month": "2025-09",
+      "category": "PLAYING CARDS",
+      "total_revenue": 68.92999999999999,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2025-09",
+      "category": "KIDS STUFF",
+      "total_revenue": 55.86,
+      "transaction_count": 5,
+      "line_items": 6
+    },
+    {
+      "month": "2025-09",
+      "category": "CANDLES",
+      "total_revenue": 5.16,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-09",
+      "category": "MISC",
+      "total_revenue": -53.129999999999846,
+      "transaction_count": 33,
+      "line_items": 44
+    },
+    {
+      "month": "2025-08",
+      "category": "CIGARETTE",
+      "total_revenue": 2794872.0800000704,
+      "transaction_count": 804,
+      "line_items": 6479
+    },
+    {
+      "month": "2025-08",
+      "category": "CIGARS",
+      "total_revenue": 334770.1799999893,
+      "transaction_count": 773,
+      "line_items": 6395
+    },
+    {
+      "month": "2025-08",
+      "category": "ECIG - PODS",
+      "total_revenue": 96705.98000000011,
+      "transaction_count": 123,
+      "line_items": 214
+    },
+    {
+      "month": "2025-08",
+      "category": "KRATOM",
+      "total_revenue": 92166.5,
+      "transaction_count": 89,
+      "line_items": 135
+    },
+    {
+      "month": "2025-08",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 91553.91000000002,
+      "transaction_count": 245,
+      "line_items": 406
+    },
+    {
+      "month": "2025-08",
+      "category": "VITAMINS",
+      "total_revenue": 70840.1099999999,
+      "transaction_count": 356,
+      "line_items": 979
+    },
+    {
+      "month": "2025-08",
+      "category": "CIGAR GA",
+      "total_revenue": 70038.65000000023,
+      "transaction_count": 501,
+      "line_items": 1919
+    },
+    {
+      "month": "2025-08",
+      "category": "LT-TAX PAID",
+      "total_revenue": 63325.709999999985,
+      "transaction_count": 393,
+      "line_items": 770
+    },
+    {
+      "month": "2025-08",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 60527.98999999998,
+      "transaction_count": 384,
+      "line_items": 1331
+    },
+    {
+      "month": "2025-08",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 57370.84999999994,
+      "transaction_count": 265,
+      "line_items": 826
+    },
+    {
+      "month": "2025-08",
+      "category": "DRINKS",
+      "total_revenue": 54865.18000000006,
+      "transaction_count": 322,
+      "line_items": 797
+    },
+    {
+      "month": "2025-08",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 37955.34000000009,
+      "transaction_count": 214,
+      "line_items": 863
+    },
+    {
+      "month": "2025-08",
+      "category": "CANDYS",
+      "total_revenue": 35836.35000000043,
+      "transaction_count": 316,
+      "line_items": 1246
+    },
+    {
+      "month": "2025-08",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 26480.08000000021,
+      "transaction_count": 295,
+      "line_items": 551
+    },
+    {
+      "month": "2025-08",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 19539.579999999998,
+      "transaction_count": 243,
+      "line_items": 394
+    },
+    {
+      "month": "2025-08",
+      "category": "FOOD",
+      "total_revenue": 16816.10999999992,
+      "transaction_count": 249,
+      "line_items": 540
+    },
+    {
+      "month": "2025-08",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 15825.949999999999,
+      "transaction_count": 60,
+      "line_items": 107
+    },
+    {
+      "month": "2025-08",
+      "category": "BLUNT WRAP",
+      "total_revenue": 15491.329999999827,
+      "transaction_count": 313,
+      "line_items": 855
+    },
+    {
+      "month": "2025-08",
+      "category": "MISC",
+      "total_revenue": 15009.579999999984,
+      "transaction_count": 152,
+      "line_items": 211
+    },
+    {
+      "month": "2025-08",
+      "category": "CBD/HEMP",
+      "total_revenue": 13709.900000000001,
+      "transaction_count": 93,
+      "line_items": 134
+    },
+    {
+      "month": "2025-08",
+      "category": "LIGHTERS",
+      "total_revenue": 13571.959999999948,
+      "transaction_count": 217,
+      "line_items": 382
+    },
+    {
+      "month": "2025-08",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 12664.559999999954,
+      "transaction_count": 204,
+      "line_items": 436
+    },
+    {
+      "month": "2025-08",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 12390.319999999943,
+      "transaction_count": 131,
+      "line_items": 321
+    },
+    {
+      "month": "2025-08",
+      "category": "MEDICINE",
+      "total_revenue": 11023.52999999991,
+      "transaction_count": 240,
+      "line_items": 590
+    },
+    {
+      "month": "2025-08",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 7243.969999999999,
+      "transaction_count": 87,
+      "line_items": 99
+    },
+    {
+      "month": "2025-08",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 7234.359999999983,
+      "transaction_count": 77,
+      "line_items": 105
+    },
+    {
+      "month": "2025-08",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 6699.079999999978,
+      "transaction_count": 183,
+      "line_items": 394
+    },
+    {
+      "month": "2025-08",
+      "category": "AIR FRESHENER",
+      "total_revenue": 5392.539999999999,
+      "transaction_count": 98,
+      "line_items": 104
+    },
+    {
+      "month": "2025-08",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 5250.409999999961,
+      "transaction_count": 95,
+      "line_items": 328
+    },
+    {
+      "month": "2025-08",
+      "category": "CONDOMS",
+      "total_revenue": 4793.449999999964,
+      "transaction_count": 119,
+      "line_items": 303
+    },
+    {
+      "month": "2025-08",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 3724.0099999999884,
+      "transaction_count": 73,
+      "line_items": 128
+    },
+    {
+      "month": "2025-08",
+      "category": "WATER",
+      "total_revenue": 3335.8899999999967,
+      "transaction_count": 82,
+      "line_items": 102
+    },
+    {
+      "month": "2025-08",
+      "category": "JBR",
+      "total_revenue": 3038.75,
+      "transaction_count": 1,
+      "line_items": 3
+    },
+    {
+      "month": "2025-08",
+      "category": "STATIONARY",
+      "total_revenue": 2974.769999999996,
+      "transaction_count": 93,
+      "line_items": 122
+    },
+    {
+      "month": "2025-08",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2633.2099999999964,
+      "transaction_count": 117,
+      "line_items": 220
+    },
+    {
+      "month": "2025-08",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 2284.5999999999985,
+      "transaction_count": 94,
+      "line_items": 197
+    },
+    {
+      "month": "2025-08",
+      "category": "COOKIES",
+      "total_revenue": 2122.65,
+      "transaction_count": 69,
+      "line_items": 166
+    },
+    {
+      "month": "2025-08",
+      "category": "INCENSE",
+      "total_revenue": 1466.8000000000002,
+      "transaction_count": 30,
+      "line_items": 38
+    },
+    {
+      "month": "2025-08",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1431.7800000000004,
+      "transaction_count": 65,
+      "line_items": 100
+    },
+    {
+      "month": "2025-08",
+      "category": "BATTERY",
+      "total_revenue": 1112.8800000000003,
+      "transaction_count": 35,
+      "line_items": 59
+    },
+    {
+      "month": "2025-08",
+      "category": "PHONE CARDS",
+      "total_revenue": 994.0,
+      "transaction_count": 4,
+      "line_items": 7
+    },
+    {
+      "month": "2025-08",
+      "category": "HARDWARE",
+      "total_revenue": 342.44999999999993,
+      "transaction_count": 28,
+      "line_items": 40
+    },
+    {
+      "month": "2025-08",
+      "category": "PLAYING CARDS",
+      "total_revenue": 170.91,
+      "transaction_count": 8,
+      "line_items": 8
+    },
+    {
+      "month": "2025-08",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 135.0,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-08",
+      "category": "KIDS STUFF",
+      "total_revenue": 97.57999999999998,
+      "transaction_count": 12,
+      "line_items": 15
+    },
+    {
+      "month": "2025-08",
+      "category": "PERFUMES",
+      "total_revenue": 49.900000000000006,
+      "transaction_count": 1,
+      "line_items": 2
+    },
+    {
+      "month": "2025-08",
+      "category": "Unknown",
+      "total_revenue": 33.98,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-08",
+      "category": "CANDLES",
+      "total_revenue": 31.83,
+      "transaction_count": 5,
+      "line_items": 7
+    },
+    {
+      "month": "2025-08",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 20.97,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-08",
+      "category": "TOYS",
+      "total_revenue": 3.99,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-08",
+      "category": "CLEAM",
+      "total_revenue": 1.59,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-07",
+      "category": "CIGARETTE",
+      "total_revenue": 1993008.2599999572,
+      "transaction_count": 835,
+      "line_items": 6784
+    },
+    {
+      "month": "2025-07",
+      "category": "CIGARS",
+      "total_revenue": 342434.9499999859,
+      "transaction_count": 820,
+      "line_items": 6943
+    },
+    {
+      "month": "2025-07",
+      "category": "LT-TAX PAID",
+      "total_revenue": 108440.14000000012,
+      "transaction_count": 452,
+      "line_items": 948
+    },
+    {
+      "month": "2025-07",
+      "category": "KRATOM",
+      "total_revenue": 101001.91000000002,
+      "transaction_count": 74,
+      "line_items": 119
+    },
+    {
+      "month": "2025-07",
+      "category": "DRINKS",
+      "total_revenue": 79458.43000000017,
+      "transaction_count": 371,
+      "line_items": 992
+    },
+    {
+      "month": "2025-07",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 78303.88,
+      "transaction_count": 256,
+      "line_items": 480
+    },
+    {
+      "month": "2025-07",
+      "category": "VITAMINS",
+      "total_revenue": 78294.24000000002,
+      "transaction_count": 409,
+      "line_items": 1117
+    },
+    {
+      "month": "2025-07",
+      "category": "ECIG - PODS",
+      "total_revenue": 72565.0000000001,
+      "transaction_count": 113,
+      "line_items": 199
+    },
+    {
+      "month": "2025-07",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 69335.90999999996,
+      "transaction_count": 430,
+      "line_items": 1580
+    },
+    {
+      "month": "2025-07",
+      "category": "CIGAR GA",
+      "total_revenue": 67170.21000000017,
+      "transaction_count": 507,
+      "line_items": 1938
+    },
+    {
+      "month": "2025-07",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 58345.2300000001,
+      "transaction_count": 246,
+      "line_items": 841
+    },
+    {
+      "month": "2025-07",
+      "category": "CANDYS",
+      "total_revenue": 43139.89000000023,
+      "transaction_count": 337,
+      "line_items": 1331
+    },
+    {
+      "month": "2025-07",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 34541.08000000002,
+      "transaction_count": 211,
+      "line_items": 646
+    },
+    {
+      "month": "2025-07",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 24876.090000000026,
+      "transaction_count": 244,
+      "line_items": 389
+    },
+    {
+      "month": "2025-07",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 24870.870000000228,
+      "transaction_count": 307,
+      "line_items": 626
+    },
+    {
+      "month": "2025-07",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 20311.5,
+      "transaction_count": 56,
+      "line_items": 106
+    },
+    {
+      "month": "2025-07",
+      "category": "MISC",
+      "total_revenue": 15715.589999999986,
+      "transaction_count": 140,
+      "line_items": 200
+    },
+    {
+      "month": "2025-07",
+      "category": "BLUNT WRAP",
+      "total_revenue": 14638.099999999806,
+      "transaction_count": 349,
+      "line_items": 988
+    },
+    {
+      "month": "2025-07",
+      "category": "CBD/HEMP",
+      "total_revenue": 13952.249999999998,
+      "transaction_count": 98,
+      "line_items": 149
+    },
+    {
+      "month": "2025-07",
+      "category": "LIGHTERS",
+      "total_revenue": 13644.12999999995,
+      "transaction_count": 223,
+      "line_items": 378
+    },
+    {
+      "month": "2025-07",
+      "category": "FOOD",
+      "total_revenue": 13007.109999999926,
+      "transaction_count": 240,
+      "line_items": 545
+    },
+    {
+      "month": "2025-07",
+      "category": "WATER",
+      "total_revenue": 12859.309999999974,
+      "transaction_count": 140,
+      "line_items": 211
+    },
+    {
+      "month": "2025-07",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 12665.399999999952,
+      "transaction_count": 154,
+      "line_items": 349
+    },
+    {
+      "month": "2025-07",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 11422.599999999946,
+      "transaction_count": 218,
+      "line_items": 473
+    },
+    {
+      "month": "2025-07",
+      "category": "MEDICINE",
+      "total_revenue": 10759.65999999991,
+      "transaction_count": 260,
+      "line_items": 640
+    },
+    {
+      "month": "2025-07",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 10337.99,
+      "transaction_count": 100,
+      "line_items": 109
+    },
+    {
+      "month": "2025-07",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 7596.389999999984,
+      "transaction_count": 86,
+      "line_items": 110
+    },
+    {
+      "month": "2025-07",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 7417.9899999999725,
+      "transaction_count": 211,
+      "line_items": 345
+    },
+    {
+      "month": "2025-07",
+      "category": "AIR FRESHENER",
+      "total_revenue": 5843.669999999999,
+      "transaction_count": 110,
+      "line_items": 116
+    },
+    {
+      "month": "2025-07",
+      "category": "JBR",
+      "total_revenue": 5500.0,
+      "transaction_count": 2,
+      "line_items": 5
+    },
+    {
+      "month": "2025-07",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 4942.709999999963,
+      "transaction_count": 97,
+      "line_items": 321
+    },
+    {
+      "month": "2025-07",
+      "category": "CONDOMS",
+      "total_revenue": 4516.379999999968,
+      "transaction_count": 132,
+      "line_items": 313
+    },
+    {
+      "month": "2025-07",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4259.869999999989,
+      "transaction_count": 90,
+      "line_items": 177
+    },
+    {
+      "month": "2025-07",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 3005.9299999999953,
+      "transaction_count": 120,
+      "line_items": 223
+    },
+    {
+      "month": "2025-07",
+      "category": "STATIONARY",
+      "total_revenue": 2611.0099999999984,
+      "transaction_count": 84,
+      "line_items": 102
+    },
+    {
+      "month": "2025-07",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 1904.4000000000021,
+      "transaction_count": 86,
+      "line_items": 163
+    },
+    {
+      "month": "2025-07",
+      "category": "COOKIES",
+      "total_revenue": 1876.2300000000012,
+      "transaction_count": 52,
+      "line_items": 148
+    },
+    {
+      "month": "2025-07",
+      "category": "INCENSE",
+      "total_revenue": 1741.3700000000001,
+      "transaction_count": 34,
+      "line_items": 43
+    },
+    {
+      "month": "2025-07",
+      "category": "PHONE CARDS",
+      "total_revenue": 1653.1,
+      "transaction_count": 13,
+      "line_items": 20
+    },
+    {
+      "month": "2025-07",
+      "category": "BATTERY",
+      "total_revenue": 1019.9800000000006,
+      "transaction_count": 40,
+      "line_items": 59
+    },
+    {
+      "month": "2025-07",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 957.2199999999999,
+      "transaction_count": 56,
+      "line_items": 79
+    },
+    {
+      "month": "2025-07",
+      "category": "HARDWARE",
+      "total_revenue": 363.86000000000007,
+      "transaction_count": 31,
+      "line_items": 54
+    },
+    {
+      "month": "2025-07",
+      "category": "KIDS STUFF",
+      "total_revenue": 92.69000000000001,
+      "transaction_count": 10,
+      "line_items": 12
+    },
+    {
+      "month": "2025-07",
+      "category": "Unknown",
+      "total_revenue": 89.97,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-07",
+      "category": "PLAYING CARDS",
+      "total_revenue": 70.94999999999999,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2025-07",
+      "category": "CANDLES",
+      "total_revenue": 9.24,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-07",
+      "category": "TOYS",
+      "total_revenue": 7.98,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-07",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 6.99,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-07",
+      "category": "PERFUMES",
+      "total_revenue": 4.99,
+      "transaction_count": 1,
+      "line_items": 2
+    },
+    {
+      "month": "2025-06",
+      "category": "CIGARETTE",
+      "total_revenue": 1539711.5699999544,
+      "transaction_count": 747,
+      "line_items": 5898
+    },
+    {
+      "month": "2025-06",
+      "category": "CIGARS",
+      "total_revenue": 332392.8499999854,
+      "transaction_count": 757,
+      "line_items": 6752
+    },
+    {
+      "month": "2025-06",
+      "category": "ECIG - PODS",
+      "total_revenue": 129388.77000000015,
+      "transaction_count": 129,
+      "line_items": 232
+    },
+    {
+      "month": "2025-06",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 105694.46999999999,
+      "transaction_count": 300,
+      "line_items": 594
+    },
+    {
+      "month": "2025-06",
+      "category": "LT-TAX PAID",
+      "total_revenue": 95717.16000000143,
+      "transaction_count": 432,
+      "line_items": 916
+    },
+    {
+      "month": "2025-06",
+      "category": "KRATOM",
+      "total_revenue": 80340.53,
+      "transaction_count": 57,
+      "line_items": 105
+    },
+    {
+      "month": "2025-06",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 79911.77000000043,
+      "transaction_count": 429,
+      "line_items": 1510
+    },
+    {
+      "month": "2025-06",
+      "category": "CIGAR GA",
+      "total_revenue": 73285.13000000054,
+      "transaction_count": 486,
+      "line_items": 1938
+    },
+    {
+      "month": "2025-06",
+      "category": "VITAMINS",
+      "total_revenue": 69290.77000000012,
+      "transaction_count": 371,
+      "line_items": 962
+    },
+    {
+      "month": "2025-06",
+      "category": "DRINKS",
+      "total_revenue": 66335.81000000001,
+      "transaction_count": 342,
+      "line_items": 920
+    },
+    {
+      "month": "2025-06",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 55625.81999999995,
+      "transaction_count": 236,
+      "line_items": 797
+    },
+    {
+      "month": "2025-06",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 36130.16000000007,
+      "transaction_count": 198,
+      "line_items": 661
+    },
+    {
+      "month": "2025-06",
+      "category": "CANDYS",
+      "total_revenue": 33879.50000000033,
+      "transaction_count": 260,
+      "line_items": 1335
+    },
+    {
+      "month": "2025-06",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 28200.800000000287,
+      "transaction_count": 297,
+      "line_items": 658
+    },
+    {
+      "month": "2025-06",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 23759.630000000037,
+      "transaction_count": 266,
+      "line_items": 432
+    },
+    {
+      "month": "2025-06",
+      "category": "BLUNT WRAP",
+      "total_revenue": 16203.419999999795,
+      "transaction_count": 343,
+      "line_items": 1117
+    },
+    {
+      "month": "2025-06",
+      "category": "CBD/HEMP",
+      "total_revenue": 15790.519999999999,
+      "transaction_count": 107,
+      "line_items": 163
+    },
+    {
+      "month": "2025-06",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 15147.48,
+      "transaction_count": 61,
+      "line_items": 94
+    },
+    {
+      "month": "2025-06",
+      "category": "LIGHTERS",
+      "total_revenue": 14854.579999999933,
+      "transaction_count": 222,
+      "line_items": 389
+    },
+    {
+      "month": "2025-06",
+      "category": "FOOD",
+      "total_revenue": 12982.349999999933,
+      "transaction_count": 209,
+      "line_items": 496
+    },
+    {
+      "month": "2025-06",
+      "category": "MEDICINE",
+      "total_revenue": 11732.70999999989,
+      "transaction_count": 244,
+      "line_items": 653
+    },
+    {
+      "month": "2025-06",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 11442.949999999943,
+      "transaction_count": 202,
+      "line_items": 423
+    },
+    {
+      "month": "2025-06",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 10297.249999999965,
+      "transaction_count": 128,
+      "line_items": 251
+    },
+    {
+      "month": "2025-06",
+      "category": "MISC",
+      "total_revenue": 10141.389999999989,
+      "transaction_count": 112,
+      "line_items": 128
+    },
+    {
+      "month": "2025-06",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 9046.74,
+      "transaction_count": 101,
+      "line_items": 109
+    },
+    {
+      "month": "2025-06",
+      "category": "WATER",
+      "total_revenue": 7354.189999999983,
+      "transaction_count": 124,
+      "line_items": 194
+    },
+    {
+      "month": "2025-06",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 7160.889999999984,
+      "transaction_count": 85,
+      "line_items": 112
+    },
+    {
+      "month": "2025-06",
+      "category": "JBR",
+      "total_revenue": 6724.5,
+      "transaction_count": 2,
+      "line_items": 6
+    },
+    {
+      "month": "2025-06",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 6497.629999999944,
+      "transaction_count": 90,
+      "line_items": 406
+    },
+    {
+      "month": "2025-06",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 6420.329999999978,
+      "transaction_count": 195,
+      "line_items": 332
+    },
+    {
+      "month": "2025-06",
+      "category": "AIR FRESHENER",
+      "total_revenue": 6090.069999999999,
+      "transaction_count": 101,
+      "line_items": 114
+    },
+    {
+      "month": "2025-06",
+      "category": "CONDOMS",
+      "total_revenue": 5819.3999999999505,
+      "transaction_count": 137,
+      "line_items": 386
+    },
+    {
+      "month": "2025-06",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4047.0899999999897,
+      "transaction_count": 82,
+      "line_items": 155
+    },
+    {
+      "month": "2025-06",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2616.7299999999996,
+      "transaction_count": 108,
+      "line_items": 208
+    },
+    {
+      "month": "2025-06",
+      "category": "STATIONARY",
+      "total_revenue": 2202.109999999999,
+      "transaction_count": 67,
+      "line_items": 82
+    },
+    {
+      "month": "2025-06",
+      "category": "COOKIES",
+      "total_revenue": 2127.5300000000007,
+      "transaction_count": 59,
+      "line_items": 157
+    },
+    {
+      "month": "2025-06",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 1692.560000000002,
+      "transaction_count": 67,
+      "line_items": 156
+    },
+    {
+      "month": "2025-06",
+      "category": "BATTERY",
+      "total_revenue": 1659.330000000001,
+      "transaction_count": 32,
+      "line_items": 67
+    },
+    {
+      "month": "2025-06",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1198.4000000000003,
+      "transaction_count": 58,
+      "line_items": 71
+    },
+    {
+      "month": "2025-06",
+      "category": "PHONE CARDS",
+      "total_revenue": 1058.0,
+      "transaction_count": 9,
+      "line_items": 12
+    },
+    {
+      "month": "2025-06",
+      "category": "INCENSE",
+      "total_revenue": 933.4800000000001,
+      "transaction_count": 29,
+      "line_items": 39
+    },
+    {
+      "month": "2025-06",
+      "category": "PLAYING CARDS",
+      "total_revenue": 279.88,
+      "transaction_count": 9,
+      "line_items": 10
+    },
+    {
+      "month": "2025-06",
+      "category": "HARDWARE",
+      "total_revenue": 200.75000000000009,
+      "transaction_count": 21,
+      "line_items": 34
+    },
+    {
+      "month": "2025-06",
+      "category": "KIDS STUFF",
+      "total_revenue": 141.79000000000002,
+      "transaction_count": 11,
+      "line_items": 17
+    },
+    {
+      "month": "2025-06",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 120.0,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-06",
+      "category": "CANDLES",
+      "total_revenue": 22.71,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-06",
+      "category": "TOYS",
+      "total_revenue": 7.98,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-05",
+      "category": "CIGARETTE",
+      "total_revenue": 1172941.0499999449,
+      "transaction_count": 810,
+      "line_items": 6527
+    },
+    {
+      "month": "2025-05",
+      "category": "CIGARS",
+      "total_revenue": 357285.1199999834,
+      "transaction_count": 818,
+      "line_items": 6948
+    },
+    {
+      "month": "2025-05",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 150228.41999999998,
+      "transaction_count": 379,
+      "line_items": 886
+    },
+    {
+      "month": "2025-05",
+      "category": "LT-TAX PAID",
+      "total_revenue": 96062.31000000046,
+      "transaction_count": 444,
+      "line_items": 881
+    },
+    {
+      "month": "2025-05",
+      "category": "VITAMINS",
+      "total_revenue": 92443.97000000042,
+      "transaction_count": 432,
+      "line_items": 1136
+    },
+    {
+      "month": "2025-05",
+      "category": "CIGAR GA",
+      "total_revenue": 69878.6399999998,
+      "transaction_count": 542,
+      "line_items": 1946
+    },
+    {
+      "month": "2025-05",
+      "category": "KRATOM",
+      "total_revenue": 66206.93,
+      "transaction_count": 74,
+      "line_items": 135
+    },
+    {
+      "month": "2025-05",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 63607.059999999976,
+      "transaction_count": 447,
+      "line_items": 1500
+    },
+    {
+      "month": "2025-05",
+      "category": "DRINKS",
+      "total_revenue": 57583.799999999894,
+      "transaction_count": 362,
+      "line_items": 906
+    },
+    {
+      "month": "2025-05",
+      "category": "ECIG - PODS",
+      "total_revenue": 54634.49999999999,
+      "transaction_count": 125,
+      "line_items": 220
+    },
+    {
+      "month": "2025-05",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 51677.79000000002,
+      "transaction_count": 271,
+      "line_items": 770
+    },
+    {
+      "month": "2025-05",
+      "category": "CANDYS",
+      "total_revenue": 39338.435000000354,
+      "transaction_count": 289,
+      "line_items": 1548
+    },
+    {
+      "month": "2025-05",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 34880.830000000184,
+      "transaction_count": 204,
+      "line_items": 677
+    },
+    {
+      "month": "2025-05",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 27396.320000000083,
+      "transaction_count": 255,
+      "line_items": 464
+    },
+    {
+      "month": "2025-05",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 25637.820000000207,
+      "transaction_count": 332,
+      "line_items": 645
+    },
+    {
+      "month": "2025-05",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 21240.299999999996,
+      "transaction_count": 62,
+      "line_items": 116
+    },
+    {
+      "month": "2025-05",
+      "category": "CBD/HEMP",
+      "total_revenue": 20015.83,
+      "transaction_count": 113,
+      "line_items": 187
+    },
+    {
+      "month": "2025-05",
+      "category": "FOOD",
+      "total_revenue": 17636.14499999993,
+      "transaction_count": 261,
+      "line_items": 780
+    },
+    {
+      "month": "2025-05",
+      "category": "BLUNT WRAP",
+      "total_revenue": 17474.20999999988,
+      "transaction_count": 356,
+      "line_items": 1011
+    },
+    {
+      "month": "2025-05",
+      "category": "LIGHTERS",
+      "total_revenue": 17277.85999999995,
+      "transaction_count": 240,
+      "line_items": 472
+    },
+    {
+      "month": "2025-05",
+      "category": "MISC",
+      "total_revenue": 11924.149999999989,
+      "transaction_count": 128,
+      "line_items": 153
+    },
+    {
+      "month": "2025-05",
+      "category": "MEDICINE",
+      "total_revenue": 11720.569999999909,
+      "transaction_count": 264,
+      "line_items": 609
+    },
+    {
+      "month": "2025-05",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 11413.679999999957,
+      "transaction_count": 131,
+      "line_items": 330
+    },
+    {
+      "month": "2025-05",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 11070.189999999948,
+      "transaction_count": 205,
+      "line_items": 414
+    },
+    {
+      "month": "2025-05",
+      "category": "JBR",
+      "total_revenue": 8943.75,
+      "transaction_count": 3,
+      "line_items": 7
+    },
+    {
+      "month": "2025-05",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 8524.689999999999,
+      "transaction_count": 89,
+      "line_items": 97
+    },
+    {
+      "month": "2025-05",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 8056.619999999916,
+      "transaction_count": 126,
+      "line_items": 517
+    },
+    {
+      "month": "2025-05",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 7670.379999999983,
+      "transaction_count": 78,
+      "line_items": 113
+    },
+    {
+      "month": "2025-05",
+      "category": "AIR FRESHENER",
+      "total_revenue": 7242.959999999997,
+      "transaction_count": 105,
+      "line_items": 114
+    },
+    {
+      "month": "2025-05",
+      "category": "WATER",
+      "total_revenue": 6254.799999999984,
+      "transaction_count": 127,
+      "line_items": 173
+    },
+    {
+      "month": "2025-05",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 5479.51999999998,
+      "transaction_count": 192,
+      "line_items": 323
+    },
+    {
+      "month": "2025-05",
+      "category": "CONDOMS",
+      "total_revenue": 4642.80999999997,
+      "transaction_count": 133,
+      "line_items": 309
+    },
+    {
+      "month": "2025-05",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4593.919999999985,
+      "transaction_count": 93,
+      "line_items": 181
+    },
+    {
+      "month": "2025-05",
+      "category": "COOKIES",
+      "total_revenue": 2843.6199999999876,
+      "transaction_count": 82,
+      "line_items": 236
+    },
+    {
+      "month": "2025-05",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2834.5500000000006,
+      "transaction_count": 123,
+      "line_items": 241
+    },
+    {
+      "month": "2025-05",
+      "category": "STATIONARY",
+      "total_revenue": 2141.78,
+      "transaction_count": 82,
+      "line_items": 90
+    },
+    {
+      "month": "2025-05",
+      "category": "INCENSE",
+      "total_revenue": 1717.9599999999998,
+      "transaction_count": 38,
+      "line_items": 61
+    },
+    {
+      "month": "2025-05",
+      "category": "PHONE CARDS",
+      "total_revenue": 1714.5,
+      "transaction_count": 12,
+      "line_items": 20
+    },
+    {
+      "month": "2025-05",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 1461.7600000000018,
+      "transaction_count": 75,
+      "line_items": 180
+    },
+    {
+      "month": "2025-05",
+      "category": "BATTERY",
+      "total_revenue": 917.1300000000002,
+      "transaction_count": 23,
+      "line_items": 34
+    },
+    {
+      "month": "2025-05",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 893.34,
+      "transaction_count": 56,
+      "line_items": 70
+    },
+    {
+      "month": "2025-05",
+      "category": "HARDWARE",
+      "total_revenue": 353.69000000000005,
+      "transaction_count": 32,
+      "line_items": 43
+    },
+    {
+      "month": "2025-05",
+      "category": "PLAYING CARDS",
+      "total_revenue": 267.90000000000003,
+      "transaction_count": 10,
+      "line_items": 10
+    },
+    {
+      "month": "2025-05",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 213.5,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2025-05",
+      "category": "Unknown",
+      "total_revenue": 212.32,
+      "transaction_count": 8,
+      "line_items": 8
+    },
+    {
+      "month": "2025-05",
+      "category": "KIDS STUFF",
+      "total_revenue": 149.41999999999996,
+      "transaction_count": 13,
+      "line_items": 20
+    },
+    {
+      "month": "2025-05",
+      "category": "CANDLES",
+      "total_revenue": 39.03,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2025-04",
+      "category": "CIGARETTE",
+      "total_revenue": 1309462.3899999596,
+      "transaction_count": 769,
+      "line_items": 6211
+    },
+    {
+      "month": "2025-04",
+      "category": "CIGARS",
+      "total_revenue": 361164.03999997856,
+      "transaction_count": 816,
+      "line_items": 7358
+    },
+    {
+      "month": "2025-04",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 140231.15000000002,
+      "transaction_count": 367,
+      "line_items": 847
+    },
+    {
+      "month": "2025-04",
+      "category": "VITAMINS",
+      "total_revenue": 88098.9400000003,
+      "transaction_count": 396,
+      "line_items": 1131
+    },
+    {
+      "month": "2025-04",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 82027.71000000098,
+      "transaction_count": 453,
+      "line_items": 1769
+    },
+    {
+      "month": "2025-04",
+      "category": "CIGAR GA",
+      "total_revenue": 77769.01000000036,
+      "transaction_count": 517,
+      "line_items": 2069
+    },
+    {
+      "month": "2025-04",
+      "category": "ECIG - PODS",
+      "total_revenue": 74173.44000000013,
+      "transaction_count": 122,
+      "line_items": 219
+    },
+    {
+      "month": "2025-04",
+      "category": "KRATOM",
+      "total_revenue": 71100.91,
+      "transaction_count": 57,
+      "line_items": 92
+    },
+    {
+      "month": "2025-04",
+      "category": "LT-TAX PAID",
+      "total_revenue": 69625.89999999988,
+      "transaction_count": 446,
+      "line_items": 896
+    },
+    {
+      "month": "2025-04",
+      "category": "DRINKS",
+      "total_revenue": 63929.22009999999,
+      "transaction_count": 351,
+      "line_items": 962
+    },
+    {
+      "month": "2025-04",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 54535.030000000035,
+      "transaction_count": 239,
+      "line_items": 695
+    },
+    {
+      "month": "2025-04",
+      "category": "CANDYS",
+      "total_revenue": 38203.85000000023,
+      "transaction_count": 293,
+      "line_items": 1637
+    },
+    {
+      "month": "2025-04",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 36144.17000000007,
+      "transaction_count": 200,
+      "line_items": 601
+    },
+    {
+      "month": "2025-04",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 25731.310000000278,
+      "transaction_count": 323,
+      "line_items": 627
+    },
+    {
+      "month": "2025-04",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 24340.720000000023,
+      "transaction_count": 272,
+      "line_items": 514
+    },
+    {
+      "month": "2025-04",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 21653.95,
+      "transaction_count": 64,
+      "line_items": 119
+    },
+    {
+      "month": "2025-04",
+      "category": "CBD/HEMP",
+      "total_revenue": 19358.1,
+      "transaction_count": 121,
+      "line_items": 201
+    },
+    {
+      "month": "2025-04",
+      "category": "BLUNT WRAP",
+      "total_revenue": 18586.469999999936,
+      "transaction_count": 389,
+      "line_items": 1091
+    },
+    {
+      "month": "2025-04",
+      "category": "FOOD",
+      "total_revenue": 16896.699999999884,
+      "transaction_count": 258,
+      "line_items": 735
+    },
+    {
+      "month": "2025-04",
+      "category": "LIGHTERS",
+      "total_revenue": 15421.419999999935,
+      "transaction_count": 243,
+      "line_items": 445
+    },
+    {
+      "month": "2025-04",
+      "category": "MEDICINE",
+      "total_revenue": 14772.869999999877,
+      "transaction_count": 278,
+      "line_items": 768
+    },
+    {
+      "month": "2025-04",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 11307.259999999958,
+      "transaction_count": 133,
+      "line_items": 286
+    },
+    {
+      "month": "2025-04",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 11168.829999999949,
+      "transaction_count": 178,
+      "line_items": 363
+    },
+    {
+      "month": "2025-04",
+      "category": "MISC",
+      "total_revenue": 8590.869999999992,
+      "transaction_count": 129,
+      "line_items": 159
+    },
+    {
+      "month": "2025-04",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 7904.829999999983,
+      "transaction_count": 87,
+      "line_items": 116
+    },
+    {
+      "month": "2025-04",
+      "category": "WATER",
+      "total_revenue": 7671.22999999998,
+      "transaction_count": 128,
+      "line_items": 186
+    },
+    {
+      "month": "2025-04",
+      "category": "AIR FRESHENER",
+      "total_revenue": 6772.84,
+      "transaction_count": 105,
+      "line_items": 120
+    },
+    {
+      "month": "2025-04",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 6497.519999999999,
+      "transaction_count": 77,
+      "line_items": 90
+    },
+    {
+      "month": "2025-04",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 6416.689999999945,
+      "transaction_count": 114,
+      "line_items": 388
+    },
+    {
+      "month": "2025-04",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 6168.61999999997,
+      "transaction_count": 189,
+      "line_items": 331
+    },
+    {
+      "month": "2025-04",
+      "category": "CONDOMS",
+      "total_revenue": 5636.569999999952,
+      "transaction_count": 147,
+      "line_items": 362
+    },
+    {
+      "month": "2025-04",
+      "category": "JBR",
+      "total_revenue": 5633.5,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2025-04",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4217.599999999985,
+      "transaction_count": 86,
+      "line_items": 173
+    },
+    {
+      "month": "2025-04",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 3495.1699999999955,
+      "transaction_count": 125,
+      "line_items": 265
+    },
+    {
+      "month": "2025-04",
+      "category": "COOKIES",
+      "total_revenue": 2410.179999999997,
+      "transaction_count": 70,
+      "line_items": 190
+    },
+    {
+      "month": "2025-04",
+      "category": "STATIONARY",
+      "total_revenue": 2372.2099999999996,
+      "transaction_count": 82,
+      "line_items": 105
+    },
+    {
+      "month": "2025-04",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 1916.1600000000005,
+      "transaction_count": 82,
+      "line_items": 121
+    },
+    {
+      "month": "2025-04",
+      "category": "PHONE CARDS",
+      "total_revenue": 1290.0,
+      "transaction_count": 9,
+      "line_items": 15
+    },
+    {
+      "month": "2025-04",
+      "category": "INCENSE",
+      "total_revenue": 1289.2499999999998,
+      "transaction_count": 28,
+      "line_items": 38
+    },
+    {
+      "month": "2025-04",
+      "category": "BATTERY",
+      "total_revenue": 1078.0000000000005,
+      "transaction_count": 35,
+      "line_items": 62
+    },
+    {
+      "month": "2025-04",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 996.7000000000004,
+      "transaction_count": 58,
+      "line_items": 78
+    },
+    {
+      "month": "2025-04",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 464.0,
+      "transaction_count": 3,
+      "line_items": 3
+    },
+    {
+      "month": "2025-04",
+      "category": "HARDWARE",
+      "total_revenue": 450.60000000000014,
+      "transaction_count": 27,
+      "line_items": 53
+    },
+    {
+      "month": "2025-04",
+      "category": "PLAYING CARDS",
+      "total_revenue": 381.8400000000001,
+      "transaction_count": 15,
+      "line_items": 15
+    },
+    {
+      "month": "2025-04",
+      "category": "KIDS STUFF",
+      "total_revenue": 148.72,
+      "transaction_count": 11,
+      "line_items": 15
+    },
+    {
+      "month": "2025-04",
+      "category": "Unknown",
+      "total_revenue": 126.89999999999999,
+      "transaction_count": 6,
+      "line_items": 6
+    },
+    {
+      "month": "2025-04",
+      "category": "CANDLES",
+      "total_revenue": 97.43000000000002,
+      "transaction_count": 4,
+      "line_items": 6
+    },
+    {
+      "month": "2025-04",
+      "category": "PERFUMES",
+      "total_revenue": 39.92,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2025-04",
+      "category": "TOYS",
+      "total_revenue": 7.98,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2025-03",
+      "category": "CIGARETTE",
+      "total_revenue": 876830.1400000004,
+      "transaction_count": 740,
+      "line_items": 5810
+    },
+    {
+      "month": "2025-03",
+      "category": "CIGARS",
+      "total_revenue": 405232.73999997193,
+      "transaction_count": 831,
+      "line_items": 7201
+    },
+    {
+      "month": "2025-03",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 136422.01,
+      "transaction_count": 340,
+      "line_items": 812
+    },
+    {
+      "month": "2025-03",
+      "category": "ECIG - PODS",
+      "total_revenue": 131176.38000000018,
+      "transaction_count": 126,
+      "line_items": 236
+    },
+    {
+      "month": "2025-03",
+      "category": "VITAMINS",
+      "total_revenue": 93104.29000000034,
+      "transaction_count": 402,
+      "line_items": 1126
+    },
+    {
+      "month": "2025-03",
+      "category": "LT-TAX PAID",
+      "total_revenue": 89392.12999999968,
+      "transaction_count": 487,
+      "line_items": 1093
+    },
+    {
+      "month": "2025-03",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 84425.3500000011,
+      "transaction_count": 433,
+      "line_items": 1731
+    },
+    {
+      "month": "2025-03",
+      "category": "CIGAR GA",
+      "total_revenue": 81405.83000000028,
+      "transaction_count": 580,
+      "line_items": 2204
+    },
+    {
+      "month": "2025-03",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 60166.8300000001,
+      "transaction_count": 240,
+      "line_items": 763
+    },
+    {
+      "month": "2025-03",
+      "category": "DRINKS",
+      "total_revenue": 54446.36000000004,
+      "transaction_count": 351,
+      "line_items": 863
+    },
+    {
+      "month": "2025-03",
+      "category": "KRATOM",
+      "total_revenue": 46971.99,
+      "transaction_count": 40,
+      "line_items": 60
+    },
+    {
+      "month": "2025-03",
+      "category": "CANDYS",
+      "total_revenue": 42351.46000000001,
+      "transaction_count": 302,
+      "line_items": 1770
+    },
+    {
+      "month": "2025-03",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 40774.399999999936,
+      "transaction_count": 206,
+      "line_items": 651
+    },
+    {
+      "month": "2025-03",
+      "category": "LIGHTERS",
+      "total_revenue": 38798.0,
+      "transaction_count": 239,
+      "line_items": 453
+    },
+    {
+      "month": "2025-03",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 27777.850000000264,
+      "transaction_count": 339,
+      "line_items": 689
+    },
+    {
+      "month": "2025-03",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 25060.470000000034,
+      "transaction_count": 292,
+      "line_items": 548
+    },
+    {
+      "month": "2025-03",
+      "category": "BLUNT WRAP",
+      "total_revenue": 24167.4300000003,
+      "transaction_count": 393,
+      "line_items": 1193
+    },
+    {
+      "month": "2025-03",
+      "category": "FOOD",
+      "total_revenue": 20638.840000000037,
+      "transaction_count": 261,
+      "line_items": 892
+    },
+    {
+      "month": "2025-03",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 19567.1,
+      "transaction_count": 75,
+      "line_items": 125
+    },
+    {
+      "month": "2025-03",
+      "category": "CBD/HEMP",
+      "total_revenue": 18840.79,
+      "transaction_count": 117,
+      "line_items": 189
+    },
+    {
+      "month": "2025-03",
+      "category": "MEDICINE",
+      "total_revenue": 14120.329999999867,
+      "transaction_count": 297,
+      "line_items": 751
+    },
+    {
+      "month": "2025-03",
+      "category": "MISC",
+      "total_revenue": 12939.379999999988,
+      "transaction_count": 118,
+      "line_items": 143
+    },
+    {
+      "month": "2025-03",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 11994.599999999966,
+      "transaction_count": 133,
+      "line_items": 305
+    },
+    {
+      "month": "2025-03",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 10291.04999999996,
+      "transaction_count": 191,
+      "line_items": 428
+    },
+    {
+      "month": "2025-03",
+      "category": "JBR",
+      "total_revenue": 9967.25,
+      "transaction_count": 3,
+      "line_items": 6
+    },
+    {
+      "month": "2025-03",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 8711.719999999914,
+      "transaction_count": 136,
+      "line_items": 570
+    },
+    {
+      "month": "2025-03",
+      "category": "AIR FRESHENER",
+      "total_revenue": 7427.499999999996,
+      "transaction_count": 106,
+      "line_items": 112
+    },
+    {
+      "month": "2025-03",
+      "category": "WATER",
+      "total_revenue": 7329.059999999984,
+      "transaction_count": 93,
+      "line_items": 150
+    },
+    {
+      "month": "2025-03",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 6946.469999999999,
+      "transaction_count": 69,
+      "line_items": 70
+    },
+    {
+      "month": "2025-03",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 6607.579999999987,
+      "transaction_count": 64,
+      "line_items": 97
+    },
+    {
+      "month": "2025-03",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 5430.359999999979,
+      "transaction_count": 109,
+      "line_items": 206
+    },
+    {
+      "month": "2025-03",
+      "category": "CONDOMS",
+      "total_revenue": 5323.559999999959,
+      "transaction_count": 144,
+      "line_items": 395
+    },
+    {
+      "month": "2025-03",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 4818.079999999985,
+      "transaction_count": 190,
+      "line_items": 372
+    },
+    {
+      "month": "2025-03",
+      "category": "COOKIES",
+      "total_revenue": 3790.539999999977,
+      "transaction_count": 93,
+      "line_items": 296
+    },
+    {
+      "month": "2025-03",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2831.3199999999983,
+      "transaction_count": 151,
+      "line_items": 258
+    },
+    {
+      "month": "2025-03",
+      "category": "STATIONARY",
+      "total_revenue": 2401.159999999997,
+      "transaction_count": 88,
+      "line_items": 113
+    },
+    {
+      "month": "2025-03",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 2088.2500000000014,
+      "transaction_count": 91,
+      "line_items": 175
+    },
+    {
+      "month": "2025-03",
+      "category": "BATTERY",
+      "total_revenue": 1911.860000000001,
+      "transaction_count": 39,
+      "line_items": 77
+    },
+    {
+      "month": "2025-03",
+      "category": "INCENSE",
+      "total_revenue": 1654.7800000000002,
+      "transaction_count": 33,
+      "line_items": 42
+    },
+    {
+      "month": "2025-03",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1317.8900000000003,
+      "transaction_count": 80,
+      "line_items": 105
+    },
+    {
+      "month": "2025-03",
+      "category": "PHONE CARDS",
+      "total_revenue": 662.0,
+      "transaction_count": 6,
+      "line_items": 9
+    },
+    {
+      "month": "2025-03",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 430.98,
+      "transaction_count": 6,
+      "line_items": 8
+    },
+    {
+      "month": "2025-03",
+      "category": "PLAYING CARDS",
+      "total_revenue": 406.79000000000013,
+      "transaction_count": 15,
+      "line_items": 17
+    },
+    {
+      "month": "2025-03",
+      "category": "KIDS STUFF",
+      "total_revenue": 229.37000000000003,
+      "transaction_count": 17,
+      "line_items": 23
+    },
+    {
+      "month": "2025-03",
+      "category": "HARDWARE",
+      "total_revenue": 216.16000000000003,
+      "transaction_count": 27,
+      "line_items": 48
+    },
+    {
+      "month": "2025-03",
+      "category": "CANDLES",
+      "total_revenue": 85.14000000000001,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2025-03",
+      "category": "Unknown",
+      "total_revenue": 62.5,
+      "transaction_count": 5,
+      "line_items": 5
+    },
+    {
+      "month": "2025-03",
+      "category": "PERFUMES",
+      "total_revenue": 54.89,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2025-03",
+      "category": "TOYS",
+      "total_revenue": 15.96,
+      "transaction_count": 3,
+      "line_items": 3
+    },
+    {
+      "month": "2025-03",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 13.98,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-02",
+      "category": "CIGARETTE",
+      "total_revenue": 738241.1800000056,
+      "transaction_count": 640,
+      "line_items": 5254
+    },
+    {
+      "month": "2025-02",
+      "category": "CIGARS",
+      "total_revenue": 336596.2599999853,
+      "transaction_count": 689,
+      "line_items": 6583
+    },
+    {
+      "month": "2025-02",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 151355.43,
+      "transaction_count": 342,
+      "line_items": 898
+    },
+    {
+      "month": "2025-02",
+      "category": "VITAMINS",
+      "total_revenue": 83716.85999999994,
+      "transaction_count": 374,
+      "line_items": 1083
+    },
+    {
+      "month": "2025-02",
+      "category": "ECIG - PODS",
+      "total_revenue": 76567.71000000006,
+      "transaction_count": 126,
+      "line_items": 213
+    },
+    {
+      "month": "2025-02",
+      "category": "CIGAR GA",
+      "total_revenue": 63618.549999999865,
+      "transaction_count": 466,
+      "line_items": 1780
+    },
+    {
+      "month": "2025-02",
+      "category": "LT-TAX PAID",
+      "total_revenue": 55490.469999999834,
+      "transaction_count": 396,
+      "line_items": 843
+    },
+    {
+      "month": "2025-02",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 54108.66000000009,
+      "transaction_count": 239,
+      "line_items": 788
+    },
+    {
+      "month": "2025-02",
+      "category": "KRATOM",
+      "total_revenue": 51559.2,
+      "transaction_count": 38,
+      "line_items": 67
+    },
+    {
+      "month": "2025-02",
+      "category": "DRINKS",
+      "total_revenue": 49411.13000000006,
+      "transaction_count": 321,
+      "line_items": 776
+    },
+    {
+      "month": "2025-02",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 43020.249999999935,
+      "transaction_count": 309,
+      "line_items": 1035
+    },
+    {
+      "month": "2025-02",
+      "category": "CANDYS",
+      "total_revenue": 34015.800000000345,
+      "transaction_count": 247,
+      "line_items": 1413
+    },
+    {
+      "month": "2025-02",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 27003.89000000011,
+      "transaction_count": 166,
+      "line_items": 483
+    },
+    {
+      "month": "2025-02",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 25697.320000000153,
+      "transaction_count": 289,
+      "line_items": 622
+    },
+    {
+      "month": "2025-02",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 24463.900000000023,
+      "transaction_count": 245,
+      "line_items": 487
+    },
+    {
+      "month": "2025-02",
+      "category": "CBD/HEMP",
+      "total_revenue": 23915.730000000003,
+      "transaction_count": 123,
+      "line_items": 252
+    },
+    {
+      "month": "2025-02",
+      "category": "FOOD",
+      "total_revenue": 18432.149999999976,
+      "transaction_count": 244,
+      "line_items": 780
+    },
+    {
+      "month": "2025-02",
+      "category": "BLUNT WRAP",
+      "total_revenue": 18251.69999999984,
+      "transaction_count": 334,
+      "line_items": 1056
+    },
+    {
+      "month": "2025-02",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 18039.0,
+      "transaction_count": 68,
+      "line_items": 126
+    },
+    {
+      "month": "2025-02",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 13679.14999999995,
+      "transaction_count": 112,
+      "line_items": 333
+    },
+    {
+      "month": "2025-02",
+      "category": "LIGHTERS",
+      "total_revenue": 13562.799999999932,
+      "transaction_count": 210,
+      "line_items": 417
+    },
+    {
+      "month": "2025-02",
+      "category": "MEDICINE",
+      "total_revenue": 11282.189999999893,
+      "transaction_count": 263,
+      "line_items": 748
+    },
+    {
+      "month": "2025-02",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 8671.229999999969,
+      "transaction_count": 155,
+      "line_items": 340
+    },
+    {
+      "month": "2025-02",
+      "category": "MISC",
+      "total_revenue": 7026.1799999999985,
+      "transaction_count": 87,
+      "line_items": 108
+    },
+    {
+      "month": "2025-02",
+      "category": "AIR FRESHENER",
+      "total_revenue": 6842.7199999999975,
+      "transaction_count": 102,
+      "line_items": 107
+    },
+    {
+      "month": "2025-02",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 4947.659999999962,
+      "transaction_count": 98,
+      "line_items": 319
+    },
+    {
+      "month": "2025-02",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 4726.389999999988,
+      "transaction_count": 172,
+      "line_items": 295
+    },
+    {
+      "month": "2025-02",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 4432.319999999992,
+      "transaction_count": 60,
+      "line_items": 78
+    },
+    {
+      "month": "2025-02",
+      "category": "WATER",
+      "total_revenue": 4295.609999999992,
+      "transaction_count": 93,
+      "line_items": 131
+    },
+    {
+      "month": "2025-02",
+      "category": "CONDOMS",
+      "total_revenue": 4230.099999999973,
+      "transaction_count": 126,
+      "line_items": 309
+    },
+    {
+      "month": "2025-02",
+      "category": "PHONE CARDS",
+      "total_revenue": 2461.0,
+      "transaction_count": 10,
+      "line_items": 17
+    },
+    {
+      "month": "2025-02",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 2446.4299999999985,
+      "transaction_count": 72,
+      "line_items": 131
+    },
+    {
+      "month": "2025-02",
+      "category": "COOKIES",
+      "total_revenue": 2386.309999999996,
+      "transaction_count": 74,
+      "line_items": 184
+    },
+    {
+      "month": "2025-02",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2268.7000000000003,
+      "transaction_count": 112,
+      "line_items": 211
+    },
+    {
+      "month": "2025-02",
+      "category": "INCENSE",
+      "total_revenue": 1646.2,
+      "transaction_count": 30,
+      "line_items": 58
+    },
+    {
+      "month": "2025-02",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 1626.0700000000002,
+      "transaction_count": 31,
+      "line_items": 34
+    },
+    {
+      "month": "2025-02",
+      "category": "STATIONARY",
+      "total_revenue": 1620.9200000000005,
+      "transaction_count": 67,
+      "line_items": 81
+    },
+    {
+      "month": "2025-02",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 1413.6600000000012,
+      "transaction_count": 77,
+      "line_items": 145
+    },
+    {
+      "month": "2025-02",
+      "category": "BATTERY",
+      "total_revenue": 1304.3800000000006,
+      "transaction_count": 31,
+      "line_items": 54
+    },
+    {
+      "month": "2025-02",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 964.2000000000003,
+      "transaction_count": 63,
+      "line_items": 81
+    },
+    {
+      "month": "2025-02",
+      "category": "HARDWARE",
+      "total_revenue": 282.7800000000001,
+      "transaction_count": 23,
+      "line_items": 40
+    },
+    {
+      "month": "2025-02",
+      "category": "Unknown",
+      "total_revenue": 239.95000000000002,
+      "transaction_count": 14,
+      "line_items": 14
+    },
+    {
+      "month": "2025-02",
+      "category": "PLAYING CARDS",
+      "total_revenue": 196.90999999999997,
+      "transaction_count": 10,
+      "line_items": 10
+    },
+    {
+      "month": "2025-02",
+      "category": "KIDS STUFF",
+      "total_revenue": 132.12999999999997,
+      "transaction_count": 13,
+      "line_items": 18
+    },
+    {
+      "month": "2025-02",
+      "category": "PERFUMES",
+      "total_revenue": 59.88000000000001,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2025-02",
+      "category": "CANDLES",
+      "total_revenue": 42.849999999999994,
+      "transaction_count": 3,
+      "line_items": 4
+    },
+    {
+      "month": "2025-02",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 27.96,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-02",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 22.5,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2025-02",
+      "category": "CLEAM",
+      "total_revenue": 9.540000000000001,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-02",
+      "category": "TOYS",
+      "total_revenue": 3.99,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2025-01",
+      "category": "CIGARETTE",
+      "total_revenue": 822622.6099999964,
+      "transaction_count": 684,
+      "line_items": 5042
+    },
+    {
+      "month": "2025-01",
+      "category": "CIGARS",
+      "total_revenue": 311659.7799999876,
+      "transaction_count": 708,
+      "line_items": 6418
+    },
+    {
+      "month": "2025-01",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 160356.94,
+      "transaction_count": 344,
+      "line_items": 872
+    },
+    {
+      "month": "2025-01",
+      "category": "ECIG - PODS",
+      "total_revenue": 94147.57,
+      "transaction_count": 138,
+      "line_items": 271
+    },
+    {
+      "month": "2025-01",
+      "category": "VITAMINS",
+      "total_revenue": 83929.9200000002,
+      "transaction_count": 392,
+      "line_items": 1105
+    },
+    {
+      "month": "2025-01",
+      "category": "LT-TAX PAID",
+      "total_revenue": 79507.7900000009,
+      "transaction_count": 437,
+      "line_items": 1004
+    },
+    {
+      "month": "2025-01",
+      "category": "CIGAR GA",
+      "total_revenue": 70238.59000000016,
+      "transaction_count": 500,
+      "line_items": 1867
+    },
+    {
+      "month": "2025-01",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 56974.85000000011,
+      "transaction_count": 288,
+      "line_items": 969
+    },
+    {
+      "month": "2025-01",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 56546.260000000126,
+      "transaction_count": 243,
+      "line_items": 837
+    },
+    {
+      "month": "2025-01",
+      "category": "DRINKS",
+      "total_revenue": 50547.700000000106,
+      "transaction_count": 330,
+      "line_items": 853
+    },
+    {
+      "month": "2025-01",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 42548.320000000196,
+      "transaction_count": 177,
+      "line_items": 535
+    },
+    {
+      "month": "2025-01",
+      "category": "KRATOM",
+      "total_revenue": 41485.99,
+      "transaction_count": 53,
+      "line_items": 88
+    },
+    {
+      "month": "2025-01",
+      "category": "CANDYS",
+      "total_revenue": 40155.220000000336,
+      "transaction_count": 265,
+      "line_items": 1727
+    },
+    {
+      "month": "2025-01",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 27738.5,
+      "transaction_count": 73,
+      "line_items": 139
+    },
+    {
+      "month": "2025-01",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 24072.500000000004,
+      "transaction_count": 238,
+      "line_items": 441
+    },
+    {
+      "month": "2025-01",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 21382.690000000068,
+      "transaction_count": 309,
+      "line_items": 587
+    },
+    {
+      "month": "2025-01",
+      "category": "FOOD",
+      "total_revenue": 18335.219999999943,
+      "transaction_count": 252,
+      "line_items": 815
+    },
+    {
+      "month": "2025-01",
+      "category": "BLUNT WRAP",
+      "total_revenue": 16419.059999999823,
+      "transaction_count": 338,
+      "line_items": 932
+    },
+    {
+      "month": "2025-01",
+      "category": "LIGHTERS",
+      "total_revenue": 15034.139999999941,
+      "transaction_count": 212,
+      "line_items": 475
+    },
+    {
+      "month": "2025-01",
+      "category": "MEDICINE",
+      "total_revenue": 14958.159999999869,
+      "transaction_count": 264,
+      "line_items": 802
+    },
+    {
+      "month": "2025-01",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 13493.429999999946,
+      "transaction_count": 166,
+      "line_items": 364
+    },
+    {
+      "month": "2025-01",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 10782.879999999965,
+      "transaction_count": 119,
+      "line_items": 270
+    },
+    {
+      "month": "2025-01",
+      "category": "MISC",
+      "total_revenue": 8816.929999999986,
+      "transaction_count": 104,
+      "line_items": 130
+    },
+    {
+      "month": "2025-01",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 7252.759999999974,
+      "transaction_count": 200,
+      "line_items": 385
+    },
+    {
+      "month": "2025-01",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 6856.3699999999335,
+      "transaction_count": 105,
+      "line_items": 469
+    },
+    {
+      "month": "2025-01",
+      "category": "AIR FRESHENER",
+      "total_revenue": 5930.009999999998,
+      "transaction_count": 95,
+      "line_items": 100
+    },
+    {
+      "month": "2025-01",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 5644.09999999999,
+      "transaction_count": 64,
+      "line_items": 85
+    },
+    {
+      "month": "2025-01",
+      "category": "CBD/HEMP",
+      "total_revenue": 5262.66,
+      "transaction_count": 73,
+      "line_items": 103
+    },
+    {
+      "month": "2025-01",
+      "category": "JBR",
+      "total_revenue": 4385.0,
+      "transaction_count": 1,
+      "line_items": 3
+    },
+    {
+      "month": "2025-01",
+      "category": "WATER",
+      "total_revenue": 4219.449999999992,
+      "transaction_count": 103,
+      "line_items": 138
+    },
+    {
+      "month": "2025-01",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4016.9699999999884,
+      "transaction_count": 74,
+      "line_items": 137
+    },
+    {
+      "month": "2025-01",
+      "category": "CONDOMS",
+      "total_revenue": 3875.359999999979,
+      "transaction_count": 122,
+      "line_items": 274
+    },
+    {
+      "month": "2025-01",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2775.8799999999947,
+      "transaction_count": 125,
+      "line_items": 248
+    },
+    {
+      "month": "2025-01",
+      "category": "COOKIES",
+      "total_revenue": 2353.209999999996,
+      "transaction_count": 76,
+      "line_items": 198
+    },
+    {
+      "month": "2025-01",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 2306.6500000000015,
+      "transaction_count": 92,
+      "line_items": 197
+    },
+    {
+      "month": "2025-01",
+      "category": "STATIONARY",
+      "total_revenue": 1895.3200000000008,
+      "transaction_count": 65,
+      "line_items": 77
+    },
+    {
+      "month": "2025-01",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 1866.7200000000003,
+      "transaction_count": 45,
+      "line_items": 47
+    },
+    {
+      "month": "2025-01",
+      "category": "PHONE CARDS",
+      "total_revenue": 1803.0,
+      "transaction_count": 13,
+      "line_items": 19
+    },
+    {
+      "month": "2025-01",
+      "category": "BATTERY",
+      "total_revenue": 1677.5900000000006,
+      "transaction_count": 39,
+      "line_items": 78
+    },
+    {
+      "month": "2025-01",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1243.5700000000008,
+      "transaction_count": 72,
+      "line_items": 113
+    },
+    {
+      "month": "2025-01",
+      "category": "INCENSE",
+      "total_revenue": 1225.8300000000002,
+      "transaction_count": 28,
+      "line_items": 33
+    },
+    {
+      "month": "2025-01",
+      "category": "Unknown",
+      "total_revenue": 328.49,
+      "transaction_count": 21,
+      "line_items": 21
+    },
+    {
+      "month": "2025-01",
+      "category": "PLAYING CARDS",
+      "total_revenue": 305.83000000000004,
+      "transaction_count": 15,
+      "line_items": 15
+    },
+    {
+      "month": "2025-01",
+      "category": "HARDWARE",
+      "total_revenue": 301.08,
+      "transaction_count": 25,
+      "line_items": 41
+    },
+    {
+      "month": "2025-01",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 193.5,
+      "transaction_count": 2,
+      "line_items": 3
+    },
+    {
+      "month": "2025-01",
+      "category": "KIDS STUFF",
+      "total_revenue": 170.32000000000005,
+      "transaction_count": 14,
+      "line_items": 20
+    },
+    {
+      "month": "2025-01",
+      "category": "CANDLES",
+      "total_revenue": 49.900000000000006,
+      "transaction_count": 6,
+      "line_items": 7
+    },
+    {
+      "month": "2025-01",
+      "category": "PERFUMES",
+      "total_revenue": 9.98,
+      "transaction_count": 1,
+      "line_items": 2
+    },
+    {
+      "month": "2025-01",
+      "category": "TOYS",
+      "total_revenue": 6.98,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2024-12",
+      "category": "CIGARETTE",
+      "total_revenue": 815497.1899999662,
+      "transaction_count": 742,
+      "line_items": 5706
+    },
+    {
+      "month": "2024-12",
+      "category": "CIGARS",
+      "total_revenue": 353103.27999997826,
+      "transaction_count": 837,
+      "line_items": 7164
+    },
+    {
+      "month": "2024-12",
+      "category": "LT-TAX PAID",
+      "total_revenue": 182149.22999999757,
+      "transaction_count": 449,
+      "line_items": 994
+    },
+    {
+      "month": "2024-12",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 180089.73000000004,
+      "transaction_count": 435,
+      "line_items": 1082
+    },
+    {
+      "month": "2024-12",
+      "category": "VITAMINS",
+      "total_revenue": 95271.23000000027,
+      "transaction_count": 432,
+      "line_items": 1141
+    },
+    {
+      "month": "2024-12",
+      "category": "CIGAR GA",
+      "total_revenue": 66190.6799999998,
+      "transaction_count": 539,
+      "line_items": 2039
+    },
+    {
+      "month": "2024-12",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 62309.19000000005,
+      "transaction_count": 269,
+      "line_items": 829
+    },
+    {
+      "month": "2024-12",
+      "category": "ECIG - PODS",
+      "total_revenue": 48041.21999999998,
+      "transaction_count": 125,
+      "line_items": 208
+    },
+    {
+      "month": "2024-12",
+      "category": "DRINKS",
+      "total_revenue": 47563.13000000007,
+      "transaction_count": 318,
+      "line_items": 711
+    },
+    {
+      "month": "2024-12",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 42125.86000000021,
+      "transaction_count": 175,
+      "line_items": 496
+    },
+    {
+      "month": "2024-12",
+      "category": "KRATOM",
+      "total_revenue": 38590.21,
+      "transaction_count": 99,
+      "line_items": 155
+    },
+    {
+      "month": "2024-12",
+      "category": "LIGHTERS",
+      "total_revenue": 37664.43000000013,
+      "transaction_count": 260,
+      "line_items": 497
+    },
+    {
+      "month": "2024-12",
+      "category": "CANDYS",
+      "total_revenue": 35169.710000000494,
+      "transaction_count": 272,
+      "line_items": 1449
+    },
+    {
+      "month": "2024-12",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 34952.78000000024,
+      "transaction_count": 272,
+      "line_items": 862
+    },
+    {
+      "month": "2024-12",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 30326.950000000077,
+      "transaction_count": 294,
+      "line_items": 520
+    },
+    {
+      "month": "2024-12",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 28168.62,
+      "transaction_count": 76,
+      "line_items": 156
+    },
+    {
+      "month": "2024-12",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 22506.930000000168,
+      "transaction_count": 304,
+      "line_items": 571
+    },
+    {
+      "month": "2024-12",
+      "category": "FOOD",
+      "total_revenue": 20327.315000000002,
+      "transaction_count": 271,
+      "line_items": 853
+    },
+    {
+      "month": "2024-12",
+      "category": "MEDICINE",
+      "total_revenue": 17014.079999999904,
+      "transaction_count": 320,
+      "line_items": 812
+    },
+    {
+      "month": "2024-12",
+      "category": "BLUNT WRAP",
+      "total_revenue": 16524.27999999977,
+      "transaction_count": 369,
+      "line_items": 1045
+    },
+    {
+      "month": "2024-12",
+      "category": "MISC",
+      "total_revenue": 13215.839999999986,
+      "transaction_count": 135,
+      "line_items": 174
+    },
+    {
+      "month": "2024-12",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 12833.099999999948,
+      "transaction_count": 152,
+      "line_items": 322
+    },
+    {
+      "month": "2024-12",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 9856.729999999963,
+      "transaction_count": 178,
+      "line_items": 382
+    },
+    {
+      "month": "2024-12",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 8671.309999999961,
+      "transaction_count": 256,
+      "line_items": 416
+    },
+    {
+      "month": "2024-12",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 7811.099999999916,
+      "transaction_count": 126,
+      "line_items": 536
+    },
+    {
+      "month": "2024-12",
+      "category": "CBD/HEMP",
+      "total_revenue": 7209.299999999998,
+      "transaction_count": 79,
+      "line_items": 115
+    },
+    {
+      "month": "2024-12",
+      "category": "AIR FRESHENER",
+      "total_revenue": 7107.299999999998,
+      "transaction_count": 89,
+      "line_items": 90
+    },
+    {
+      "month": "2024-12",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 6799.419999999986,
+      "transaction_count": 94,
+      "line_items": 114
+    },
+    {
+      "month": "2024-12",
+      "category": "CONDOMS",
+      "total_revenue": 5374.989999999955,
+      "transaction_count": 155,
+      "line_items": 356
+    },
+    {
+      "month": "2024-12",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4175.869999999989,
+      "transaction_count": 91,
+      "line_items": 137
+    },
+    {
+      "month": "2024-12",
+      "category": "WATER",
+      "total_revenue": 4019.3299999999945,
+      "transaction_count": 95,
+      "line_items": 113
+    },
+    {
+      "month": "2024-12",
+      "category": "STATIONARY",
+      "total_revenue": 3409.039999999992,
+      "transaction_count": 104,
+      "line_items": 144
+    },
+    {
+      "month": "2024-12",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 3287.7000000000003,
+      "transaction_count": 56,
+      "line_items": 60
+    },
+    {
+      "month": "2024-12",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 3153.3299999999927,
+      "transaction_count": 145,
+      "line_items": 265
+    },
+    {
+      "month": "2024-12",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 2330.8800000000006,
+      "transaction_count": 102,
+      "line_items": 193
+    },
+    {
+      "month": "2024-12",
+      "category": "COOKIES",
+      "total_revenue": 2289.2099999999978,
+      "transaction_count": 86,
+      "line_items": 203
+    },
+    {
+      "month": "2024-12",
+      "category": "BATTERY",
+      "total_revenue": 2182.8300000000013,
+      "transaction_count": 49,
+      "line_items": 76
+    },
+    {
+      "month": "2024-12",
+      "category": "INCENSE",
+      "total_revenue": 1788.43,
+      "transaction_count": 35,
+      "line_items": 51
+    },
+    {
+      "month": "2024-12",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1105.3800000000003,
+      "transaction_count": 51,
+      "line_items": 72
+    },
+    {
+      "month": "2024-12",
+      "category": "PHONE CARDS",
+      "total_revenue": 916.6,
+      "transaction_count": 10,
+      "line_items": 15
+    },
+    {
+      "month": "2024-12",
+      "category": "Unknown",
+      "total_revenue": 475.51000000000005,
+      "transaction_count": 25,
+      "line_items": 28
+    },
+    {
+      "month": "2024-12",
+      "category": "PLAYING CARDS",
+      "total_revenue": 402.7600000000001,
+      "transaction_count": 18,
+      "line_items": 21
+    },
+    {
+      "month": "2024-12",
+      "category": "HARDWARE",
+      "total_revenue": 347.34,
+      "transaction_count": 37,
+      "line_items": 43
+    },
+    {
+      "month": "2024-12",
+      "category": "KIDS STUFF",
+      "total_revenue": 228.32999999999998,
+      "transaction_count": 17,
+      "line_items": 26
+    },
+    {
+      "month": "2024-12",
+      "category": "PERFUMES",
+      "total_revenue": 69.86000000000001,
+      "transaction_count": 4,
+      "line_items": 8
+    },
+    {
+      "month": "2024-12",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 60.0,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2024-12",
+      "category": "CANDLES",
+      "total_revenue": 30.15,
+      "transaction_count": 1,
+      "line_items": 2
+    },
+    {
+      "month": "2024-12",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 6.99,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2024-12",
+      "category": "TOYS",
+      "total_revenue": 3.99,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2024-11",
+      "category": "CIGARETTE",
+      "total_revenue": 717926.8299999754,
+      "transaction_count": 672,
+      "line_items": 4895
+    },
+    {
+      "month": "2024-11",
+      "category": "CIGARS",
+      "total_revenue": 331159.2399999858,
+      "transaction_count": 752,
+      "line_items": 6689
+    },
+    {
+      "month": "2024-11",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 185194.40000000005,
+      "transaction_count": 411,
+      "line_items": 1020
+    },
+    {
+      "month": "2024-11",
+      "category": "ECIG - PODS",
+      "total_revenue": 131822.47000000026,
+      "transaction_count": 134,
+      "line_items": 244
+    },
+    {
+      "month": "2024-11",
+      "category": "LT-TAX PAID",
+      "total_revenue": 102230.38000000037,
+      "transaction_count": 403,
+      "line_items": 896
+    },
+    {
+      "month": "2024-11",
+      "category": "VITAMINS",
+      "total_revenue": 83058.39999999998,
+      "transaction_count": 381,
+      "line_items": 995
+    },
+    {
+      "month": "2024-11",
+      "category": "CIGAR GA",
+      "total_revenue": 76398.68000000047,
+      "transaction_count": 530,
+      "line_items": 1975
+    },
+    {
+      "month": "2024-11",
+      "category": "DRINKS",
+      "total_revenue": 52554.10999999995,
+      "transaction_count": 337,
+      "line_items": 810
+    },
+    {
+      "month": "2024-11",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 50420.05000000009,
+      "transaction_count": 260,
+      "line_items": 700
+    },
+    {
+      "month": "2024-11",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 34891.000000000226,
+      "transaction_count": 246,
+      "line_items": 677
+    },
+    {
+      "month": "2024-11",
+      "category": "CANDYS",
+      "total_revenue": 33270.3800000005,
+      "transaction_count": 247,
+      "line_items": 1302
+    },
+    {
+      "month": "2024-11",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 26047.350000000006,
+      "transaction_count": 264,
+      "line_items": 490
+    },
+    {
+      "month": "2024-11",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 24540.550000000192,
+      "transaction_count": 287,
+      "line_items": 616
+    },
+    {
+      "month": "2024-11",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 22891.250000000025,
+      "transaction_count": 163,
+      "line_items": 505
+    },
+    {
+      "month": "2024-11",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 20234.91,
+      "transaction_count": 64,
+      "line_items": 126
+    },
+    {
+      "month": "2024-11",
+      "category": "LIGHTERS",
+      "total_revenue": 19287.919999999995,
+      "transaction_count": 238,
+      "line_items": 454
+    },
+    {
+      "month": "2024-11",
+      "category": "BLUNT WRAP",
+      "total_revenue": 18514.20999999988,
+      "transaction_count": 329,
+      "line_items": 916
+    },
+    {
+      "month": "2024-11",
+      "category": "FOOD",
+      "total_revenue": 18318.95999999995,
+      "transaction_count": 247,
+      "line_items": 766
+    },
+    {
+      "month": "2024-11",
+      "category": "MEDICINE",
+      "total_revenue": 14755.46999999987,
+      "transaction_count": 282,
+      "line_items": 769
+    },
+    {
+      "month": "2024-11",
+      "category": "KRATOM",
+      "total_revenue": 12915.99,
+      "transaction_count": 38,
+      "line_items": 66
+    },
+    {
+      "month": "2024-11",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 11995.219999999963,
+      "transaction_count": 182,
+      "line_items": 404
+    },
+    {
+      "month": "2024-11",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 11087.429999999962,
+      "transaction_count": 132,
+      "line_items": 264
+    },
+    {
+      "month": "2024-11",
+      "category": "CBD/HEMP",
+      "total_revenue": 8494.75,
+      "transaction_count": 79,
+      "line_items": 122
+    },
+    {
+      "month": "2024-11",
+      "category": "AIR FRESHENER",
+      "total_revenue": 7515.54,
+      "transaction_count": 105,
+      "line_items": 109
+    },
+    {
+      "month": "2024-11",
+      "category": "MISC",
+      "total_revenue": 7508.999999999994,
+      "transaction_count": 110,
+      "line_items": 134
+    },
+    {
+      "month": "2024-11",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 7254.2499999999745,
+      "transaction_count": 201,
+      "line_items": 400
+    },
+    {
+      "month": "2024-11",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 6559.599999999938,
+      "transaction_count": 105,
+      "line_items": 438
+    },
+    {
+      "month": "2024-11",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 6147.529999999988,
+      "transaction_count": 72,
+      "line_items": 93
+    },
+    {
+      "month": "2024-11",
+      "category": "CONDOMS",
+      "total_revenue": 5888.479999999943,
+      "transaction_count": 135,
+      "line_items": 398
+    },
+    {
+      "month": "2024-11",
+      "category": "WATER",
+      "total_revenue": 5818.399999999979,
+      "transaction_count": 101,
+      "line_items": 155
+    },
+    {
+      "month": "2024-11",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 4359.719999999988,
+      "transaction_count": 79,
+      "line_items": 148
+    },
+    {
+      "month": "2024-11",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 3100.5499999999997,
+      "transaction_count": 56,
+      "line_items": 58
+    },
+    {
+      "month": "2024-11",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2834.9899999999952,
+      "transaction_count": 123,
+      "line_items": 233
+    },
+    {
+      "month": "2024-11",
+      "category": "COOKIES",
+      "total_revenue": 2688.0699999999892,
+      "transaction_count": 60,
+      "line_items": 193
+    },
+    {
+      "month": "2024-11",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 2530.0899999999974,
+      "transaction_count": 94,
+      "line_items": 178
+    },
+    {
+      "month": "2024-11",
+      "category": "STATIONARY",
+      "total_revenue": 2484.7799999999984,
+      "transaction_count": 76,
+      "line_items": 93
+    },
+    {
+      "month": "2024-11",
+      "category": "PHONE CARDS",
+      "total_revenue": 1960.5,
+      "transaction_count": 14,
+      "line_items": 25
+    },
+    {
+      "month": "2024-11",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1370.6300000000008,
+      "transaction_count": 71,
+      "line_items": 101
+    },
+    {
+      "month": "2024-11",
+      "category": "INCENSE",
+      "total_revenue": 1203.1200000000001,
+      "transaction_count": 32,
+      "line_items": 49
+    },
+    {
+      "month": "2024-11",
+      "category": "BATTERY",
+      "total_revenue": 1186.68,
+      "transaction_count": 27,
+      "line_items": 52
+    },
+    {
+      "month": "2024-11",
+      "category": "Unknown",
+      "total_revenue": 550.7800000000001,
+      "transaction_count": 23,
+      "line_items": 29
+    },
+    {
+      "month": "2024-11",
+      "category": "KIDS STUFF",
+      "total_revenue": 279.95,
+      "transaction_count": 13,
+      "line_items": 24
+    },
+    {
+      "month": "2024-11",
+      "category": "PLAYING CARDS",
+      "total_revenue": 275.85,
+      "transaction_count": 15,
+      "line_items": 16
+    },
+    {
+      "month": "2024-11",
+      "category": "HARDWARE",
+      "total_revenue": 221.66,
+      "transaction_count": 25,
+      "line_items": 35
+    },
+    {
+      "month": "2024-11",
+      "category": "JBR",
+      "total_revenue": 120.0,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2024-11",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 109.5,
+      "transaction_count": 2,
+      "line_items": 3
+    },
+    {
+      "month": "2024-11",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 62.910000000000004,
+      "transaction_count": 5,
+      "line_items": 5
+    },
+    {
+      "month": "2024-11",
+      "category": "CANDLES",
+      "total_revenue": 23.37,
+      "transaction_count": 3,
+      "line_items": 4
+    },
+    {
+      "month": "2024-11",
+      "category": "TOYS",
+      "total_revenue": 9.99,
+      "transaction_count": 1,
+      "line_items": 1
+    },
+    {
+      "month": "2024-10",
+      "category": "CIGARETTE",
+      "total_revenue": 898875.5199999687,
+      "transaction_count": 701,
+      "line_items": 5624
+    },
+    {
+      "month": "2024-10",
+      "category": "CIGARS",
+      "total_revenue": 406094.34999996837,
+      "transaction_count": 803,
+      "line_items": 7148
+    },
+    {
+      "month": "2024-10",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 186456.05,
+      "transaction_count": 442,
+      "line_items": 1276
+    },
+    {
+      "month": "2024-10",
+      "category": "VITAMINS",
+      "total_revenue": 99005.09000000023,
+      "transaction_count": 410,
+      "line_items": 1173
+    },
+    {
+      "month": "2024-10",
+      "category": "ECIG - PODS",
+      "total_revenue": 98140.15000000026,
+      "transaction_count": 125,
+      "line_items": 262
+    },
+    {
+      "month": "2024-10",
+      "category": "CIGAR GA",
+      "total_revenue": 91064.32000000132,
+      "transaction_count": 555,
+      "line_items": 2141
+    },
+    {
+      "month": "2024-10",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 76221.2500000002,
+      "transaction_count": 143,
+      "line_items": 657
+    },
+    {
+      "month": "2024-10",
+      "category": "LT-TAX PAID",
+      "total_revenue": 73096.14000000052,
+      "transaction_count": 438,
+      "line_items": 986
+    },
+    {
+      "month": "2024-10",
+      "category": "DRINKS",
+      "total_revenue": 61033.28,
+      "transaction_count": 343,
+      "line_items": 910
+    },
+    {
+      "month": "2024-10",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 49242.38000000005,
+      "transaction_count": 240,
+      "line_items": 731
+    },
+    {
+      "month": "2024-10",
+      "category": "CANDYS",
+      "total_revenue": 43490.68000000025,
+      "transaction_count": 298,
+      "line_items": 1796
+    },
+    {
+      "month": "2024-10",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 35396.86000000016,
+      "transaction_count": 270,
+      "line_items": 811
+    },
+    {
+      "month": "2024-10",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 27501.00000000035,
+      "transaction_count": 320,
+      "line_items": 641
+    },
+    {
+      "month": "2024-10",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 27283.77000000008,
+      "transaction_count": 297,
+      "line_items": 575
+    },
+    {
+      "month": "2024-10",
+      "category": "LIGHTERS",
+      "total_revenue": 23733.700000000143,
+      "transaction_count": 265,
+      "line_items": 474
+    },
+    {
+      "month": "2024-10",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 21599.88,
+      "transaction_count": 53,
+      "line_items": 105
+    },
+    {
+      "month": "2024-10",
+      "category": "FOOD",
+      "total_revenue": 19291.389999999985,
+      "transaction_count": 267,
+      "line_items": 827
+    },
+    {
+      "month": "2024-10",
+      "category": "BLUNT WRAP",
+      "total_revenue": 18126.72999999986,
+      "transaction_count": 377,
+      "line_items": 1098
+    },
+    {
+      "month": "2024-10",
+      "category": "MEDICINE",
+      "total_revenue": 15082.279999999862,
+      "transaction_count": 276,
+      "line_items": 749
+    },
+    {
+      "month": "2024-10",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 12385.069999999952,
+      "transaction_count": 145,
+      "line_items": 358
+    },
+    {
+      "month": "2024-10",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 11356.279999999944,
+      "transaction_count": 188,
+      "line_items": 420
+    },
+    {
+      "month": "2024-10",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 9444.609999999979,
+      "transaction_count": 87,
+      "line_items": 121
+    },
+    {
+      "month": "2024-10",
+      "category": "MISC",
+      "total_revenue": 9131.409999999989,
+      "transaction_count": 118,
+      "line_items": 150
+    },
+    {
+      "month": "2024-10",
+      "category": "WATER",
+      "total_revenue": 8849.969999999978,
+      "transaction_count": 109,
+      "line_items": 174
+    },
+    {
+      "month": "2024-10",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 8589.449999999966,
+      "transaction_count": 225,
+      "line_items": 377
+    },
+    {
+      "month": "2024-10",
+      "category": "AIR FRESHENER",
+      "total_revenue": 8492.129999999997,
+      "transaction_count": 112,
+      "line_items": 121
+    },
+    {
+      "month": "2024-10",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 7078.659999999932,
+      "transaction_count": 115,
+      "line_items": 456
+    },
+    {
+      "month": "2024-10",
+      "category": "CBD/HEMP",
+      "total_revenue": 6685.76,
+      "transaction_count": 78,
+      "line_items": 114
+    },
+    {
+      "month": "2024-10",
+      "category": "CONDOMS",
+      "total_revenue": 6576.03999999995,
+      "transaction_count": 150,
+      "line_items": 387
+    },
+    {
+      "month": "2024-10",
+      "category": "KRATOM",
+      "total_revenue": 6019.47,
+      "transaction_count": 20,
+      "line_items": 29
+    },
+    {
+      "month": "2024-10",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 5767.899999999979,
+      "transaction_count": 91,
+      "line_items": 185
+    },
+    {
+      "month": "2024-10",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 4989.889999999999,
+      "transaction_count": 60,
+      "line_items": 64
+    },
+    {
+      "month": "2024-10",
+      "category": "STATIONARY",
+      "total_revenue": 3763.389999999994,
+      "transaction_count": 93,
+      "line_items": 116
+    },
+    {
+      "month": "2024-10",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 3189.519999999993,
+      "transaction_count": 146,
+      "line_items": 286
+    },
+    {
+      "month": "2024-10",
+      "category": "COOKIES",
+      "total_revenue": 3123.2099999999887,
+      "transaction_count": 86,
+      "line_items": 242
+    },
+    {
+      "month": "2024-10",
+      "category": "PHONE CARDS",
+      "total_revenue": 2842.5,
+      "transaction_count": 13,
+      "line_items": 16
+    },
+    {
+      "month": "2024-10",
+      "category": "INCENSE",
+      "total_revenue": 2555.5200000000004,
+      "transaction_count": 47,
+      "line_items": 61
+    },
+    {
+      "month": "2024-10",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 2527.1099999999974,
+      "transaction_count": 111,
+      "line_items": 209
+    },
+    {
+      "month": "2024-10",
+      "category": "JBR",
+      "total_revenue": 2160.0,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2024-10",
+      "category": "BATTERY",
+      "total_revenue": 1672.4900000000007,
+      "transaction_count": 36,
+      "line_items": 73
+    },
+    {
+      "month": "2024-10",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 1129.8000000000004,
+      "transaction_count": 66,
+      "line_items": 91
+    },
+    {
+      "month": "2024-10",
+      "category": "Unknown",
+      "total_revenue": 671.91,
+      "transaction_count": 28,
+      "line_items": 32
+    },
+    {
+      "month": "2024-10",
+      "category": "HARDWARE",
+      "total_revenue": 630.9200000000003,
+      "transaction_count": 42,
+      "line_items": 88
+    },
+    {
+      "month": "2024-10",
+      "category": "PLAYING CARDS",
+      "total_revenue": 334.84000000000003,
+      "transaction_count": 11,
+      "line_items": 13
+    },
+    {
+      "month": "2024-10",
+      "category": "KIDS STUFF",
+      "total_revenue": 171.30000000000004,
+      "transaction_count": 13,
+      "line_items": 20
+    },
+    {
+      "month": "2024-10",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 93.0,
+      "transaction_count": 1,
+      "line_items": 2
+    },
+    {
+      "month": "2024-10",
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 69.9,
+      "transaction_count": 4,
+      "line_items": 4
+    },
+    {
+      "month": "2024-10",
+      "category": "CANDLES",
+      "total_revenue": 65.25,
+      "transaction_count": 2,
+      "line_items": 5
+    },
+    {
+      "month": "2024-10",
+      "category": "PERFUMES",
+      "total_revenue": 34.93,
+      "transaction_count": 2,
+      "line_items": 4
+    },
+    {
+      "month": "2024-10",
+      "category": "TOYS",
+      "total_revenue": 24.97,
+      "transaction_count": 3,
+      "line_items": 3
+    },
+    {
+      "month": "2024-10",
+      "category": "CLEAM",
+      "total_revenue": 14.31,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2024-09",
+      "category": "CIGARETTE",
+      "total_revenue": 510152.2899999892,
+      "transaction_count": 476,
+      "line_items": 3519
+    },
+    {
+      "month": "2024-09",
+      "category": "CIGARS",
+      "total_revenue": 250126.4799999983,
+      "transaction_count": 542,
+      "line_items": 4643
+    },
+    {
+      "month": "2024-09",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 134946.77000000008,
+      "transaction_count": 283,
+      "line_items": 857
+    },
+    {
+      "month": "2024-09",
+      "category": "ECIG - PODS",
+      "total_revenue": 114919.64000000004,
+      "transaction_count": 85,
+      "line_items": 137
+    },
+    {
+      "month": "2024-09",
+      "category": "VITAMINS",
+      "total_revenue": 70509.83000000002,
+      "transaction_count": 261,
+      "line_items": 769
+    },
+    {
+      "month": "2024-09",
+      "category": "CIGAR GA",
+      "total_revenue": 51300.74999999997,
+      "transaction_count": 368,
+      "line_items": 1366
+    },
+    {
+      "month": "2024-09",
+      "category": "DRINKS",
+      "total_revenue": 42197.17000000014,
+      "transaction_count": 255,
+      "line_items": 667
+    },
+    {
+      "month": "2024-09",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 38631.250000000065,
+      "transaction_count": 170,
+      "line_items": 537
+    },
+    {
+      "month": "2024-09",
+      "category": "LT-TAX PAID",
+      "total_revenue": 36902.29000000002,
+      "transaction_count": 286,
+      "line_items": 617
+    },
+    {
+      "month": "2024-09",
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 24158.920000000082,
+      "transaction_count": 72,
+      "line_items": 309
+    },
+    {
+      "month": "2024-09",
+      "category": "CANDYS",
+      "total_revenue": 18616.95000000003,
+      "transaction_count": 157,
+      "line_items": 801
+    },
+    {
+      "month": "2024-09",
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 16219.639999999916,
+      "transaction_count": 143,
+      "line_items": 377
+    },
+    {
+      "month": "2024-09",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 15051.869999999974,
+      "transaction_count": 177,
+      "line_items": 335
+    },
+    {
+      "month": "2024-09",
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 13869.299999999928,
+      "transaction_count": 195,
+      "line_items": 389
+    },
+    {
+      "month": "2024-09",
+      "category": "BLUNT WRAP",
+      "total_revenue": 12171.119999999879,
+      "transaction_count": 225,
+      "line_items": 641
+    },
+    {
+      "month": "2024-09",
+      "category": "CBD/HEMP",
+      "total_revenue": 11923.31,
+      "transaction_count": 96,
+      "line_items": 141
+    },
+    {
+      "month": "2024-09",
+      "category": "FOOD",
+      "total_revenue": 11528.239999999943,
+      "transaction_count": 171,
+      "line_items": 456
+    },
+    {
+      "month": "2024-09",
+      "category": "AUTOMOTIVE",
+      "total_revenue": 11075.539999999964,
+      "transaction_count": 111,
+      "line_items": 247
+    },
+    {
+      "month": "2024-09",
+      "category": "LIGHTERS",
+      "total_revenue": 10205.119999999959,
+      "transaction_count": 155,
+      "line_items": 279
+    },
+    {
+      "month": "2024-09",
+      "category": "MEDICINE",
+      "total_revenue": 9308.509999999931,
+      "transaction_count": 195,
+      "line_items": 524
+    },
+    {
+      "month": "2024-09",
+      "category": "SHOPPING BAGS",
+      "total_revenue": 6641.719999999981,
+      "transaction_count": 120,
+      "line_items": 254
+    },
+    {
+      "month": "2024-09",
+      "category": "ECIG - DISP D8",
+      "total_revenue": 6194.0,
+      "transaction_count": 30,
+      "line_items": 44
+    },
+    {
+      "month": "2024-09",
+      "category": "WATER",
+      "total_revenue": 6105.059999999987,
+      "transaction_count": 98,
+      "line_items": 147
+    },
+    {
+      "month": "2024-09",
+      "category": "AIR FRESHENER",
+      "total_revenue": 5488.349999999997,
+      "transaction_count": 85,
+      "line_items": 93
+    },
+    {
+      "month": "2024-09",
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 5413.179999999989,
+      "transaction_count": 63,
+      "line_items": 79
+    },
+    {
+      "month": "2024-09",
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 5010.0099999999875,
+      "transaction_count": 149,
+      "line_items": 249
+    },
+    {
+      "month": "2024-09",
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 4962.9299999999985,
+      "transaction_count": 56,
+      "line_items": 59
+    },
+    {
+      "month": "2024-09",
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 3476.509999999991,
+      "transaction_count": 74,
+      "line_items": 117
+    },
+    {
+      "month": "2024-09",
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 3404.6999999999825,
+      "transaction_count": 73,
+      "line_items": 228
+    },
+    {
+      "month": "2024-09",
+      "category": "MISC",
+      "total_revenue": 3227.4799999999973,
+      "transaction_count": 90,
+      "line_items": 106
+    },
+    {
+      "month": "2024-09",
+      "category": "CONDOMS",
+      "total_revenue": 3159.8399999999883,
+      "transaction_count": 83,
+      "line_items": 185
+    },
+    {
+      "month": "2024-09",
+      "category": "JBR",
+      "total_revenue": 3046.0,
+      "transaction_count": 4,
+      "line_items": 6
+    },
+    {
+      "month": "2024-09",
+      "category": "STATIONARY",
+      "total_revenue": 2176.4199999999996,
+      "transaction_count": 57,
+      "line_items": 73
+    },
+    {
+      "month": "2024-09",
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 2048.8400000000015,
+      "transaction_count": 98,
+      "line_items": 197
+    },
+    {
+      "month": "2024-09",
+      "category": "COOKIES",
+      "total_revenue": 1725.470000000001,
+      "transaction_count": 47,
+      "line_items": 108
+    },
+    {
+      "month": "2024-09",
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 1408.460000000001,
+      "transaction_count": 66,
+      "line_items": 117
+    },
+    {
+      "month": "2024-09",
+      "category": "PHONE CARDS",
+      "total_revenue": 1245.5,
+      "transaction_count": 10,
+      "line_items": 16
+    },
+    {
+      "month": "2024-09",
+      "category": "KRATOM",
+      "total_revenue": 1188.47,
+      "transaction_count": 9,
+      "line_items": 10
+    },
+    {
+      "month": "2024-09",
+      "category": "BATTERY",
+      "total_revenue": 1017.5100000000003,
+      "transaction_count": 30,
+      "line_items": 52
+    },
+    {
+      "month": "2024-09",
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 702.6600000000002,
+      "transaction_count": 36,
+      "line_items": 58
+    },
+    {
+      "month": "2024-09",
+      "category": "Unknown",
+      "total_revenue": 638.8800000000002,
+      "transaction_count": 24,
+      "line_items": 38
+    },
+    {
+      "month": "2024-09",
+      "category": "INCENSE",
+      "total_revenue": 424.73999999999995,
+      "transaction_count": 17,
+      "line_items": 23
+    },
+    {
+      "month": "2024-09",
+      "category": "HARDWARE",
+      "total_revenue": 355.48,
+      "transaction_count": 24,
+      "line_items": 39
+    },
+    {
+      "month": "2024-09",
+      "category": "KIDS STUFF",
+      "total_revenue": 180.57000000000002,
+      "transaction_count": 14,
+      "line_items": 21
+    },
+    {
+      "month": "2024-09",
+      "category": "ECIG - PODS D8",
+      "total_revenue": 132.0,
+      "transaction_count": 2,
+      "line_items": 2
+    },
+    {
+      "month": "2024-09",
+      "category": "PLAYING CARDS",
+      "total_revenue": 92.92999999999999,
+      "transaction_count": 6,
+      "line_items": 6
+    },
+    {
+      "month": "2024-09",
+      "category": "CANDLES",
+      "total_revenue": 59.56,
+      "transaction_count": 7,
+      "line_items": 10
+    },
+    {
+      "month": "2024-09",
+      "category": "PERFUMES",
+      "total_revenue": 4.99,
+      "transaction_count": 1,
+      "line_items": 2
+    }
+  ],
+  "gross_margin_by_category": [
+    {
+      "category": "CIGARETTE",
+      "total_revenue": 14859308.720001673,
+      "total_cost_with_uplifts": 14407442.380002543,
+      "gross_profit": 451866.34000001295,
+      "transactions": 8820,
+      "total_units_sold": 202005.0,
+      "avg_item_price": "72.0165",
+      "unique_products": 360,
+      "gross_margin_pct": 3.04,
+      "avg_units_per_transaction": 22.9
+    },
+    {
+      "category": "CIGARS",
+      "total_revenue": 4204253.270004334,
+      "total_cost_with_uplifts": 3910793.8682996407,
+      "gross_profit": 293459.4017000617,
+      "transactions": 9331,
+      "total_units_sold": 163339.0,
+      "avg_item_price": "26.1516",
+      "unique_products": 431,
+      "gross_margin_pct": 6.98,
+      "avg_units_per_transaction": 17.5
+    },
+    {
+      "category": "CIGAR GA",
+      "total_revenue": 880482.6599998047,
+      "total_cost_with_uplifts": 743415.8316000976,
+      "gross_profit": 137066.82839998088,
+      "transactions": 6208,
+      "total_units_sold": 40596.0,
+      "avg_item_price": "21.9508",
+      "unique_products": 122,
+      "gross_margin_pct": 15.57,
+      "avg_units_per_transaction": 6.54
+    },
+    {
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 1733594.6099999947,
+      "total_cost_with_uplifts": 1604207.5157999939,
+      "gross_profit": 129387.09420000094,
+      "transactions": 4205,
+      "total_units_sold": 41594.0,
+      "avg_item_price": "41.9156",
+      "unique_products": 121,
+      "gross_margin_pct": 7.46,
+      "avg_units_per_transaction": 9.89
+    },
+    {
+      "category": "LT-TAX PAID",
+      "total_revenue": 1060414.1399998935,
+      "total_cost_with_uplifts": 959801.956800013,
+      "gross_profit": 100612.18320000802,
+      "transactions": 5154,
+      "total_units_sold": 41240.0,
+      "avg_item_price": "27.4946",
+      "unique_products": 200,
+      "gross_margin_pct": 9.49,
+      "avg_units_per_transaction": 8.0
+    },
+    {
+      "category": "LT-TAX-COLLECTED",
+      "total_revenue": 675069.8599998849,
+      "total_cost_with_uplifts": 579147.9100000332,
+      "gross_profit": 95921.95000000189,
+      "transactions": 4194,
+      "total_units_sold": 25555.0,
+      "avg_item_price": "27.9195",
+      "unique_products": 126,
+      "gross_margin_pct": 14.21,
+      "avg_units_per_transaction": 6.09
+    },
+    {
+      "category": "CANDYS",
+      "total_revenue": 448775.0749999414,
+      "total_cost_with_uplifts": 361723.8977499943,
+      "gross_profit": 87051.17725000007,
+      "transactions": 3361,
+      "total_units_sold": 54084.5,
+      "avg_item_price": "18.7056",
+      "unique_products": 628,
+      "gross_margin_pct": 19.4,
+      "avg_units_per_transaction": 16.09
+    },
+    {
+      "category": "DRINKS",
+      "total_revenue": 696335.1400999314,
+      "total_cost_with_uplifts": 613920.4450999758,
+      "gross_profit": 82414.69500000065,
+      "transactions": 4090,
+      "total_units_sold": 34611.0,
+      "avg_item_price": "26.9365",
+      "unique_products": 74,
+      "gross_margin_pct": 11.84,
+      "avg_units_per_transaction": 8.46
+    },
+    {
+      "category": "VITAMINS",
+      "total_revenue": 1031905.7099999698,
+      "total_cost_with_uplifts": 968810.5135999769,
+      "gross_profit": 63095.19639999817,
+      "transactions": 4713,
+      "total_units_sold": 26223.0,
+      "avg_item_price": "52.6919",
+      "unique_products": 198,
+      "gross_margin_pct": 6.11,
+      "avg_units_per_transaction": 5.56
+    },
+    {
+      "category": "ECIG - PODS",
+      "total_revenue": 1134479.4399999725,
+      "total_cost_with_uplifts": 1076293.0030000126,
+      "gross_profit": 58186.43699999977,
+      "transactions": 1497,
+      "total_units_sold": 12236.0,
+      "avg_item_price": "88.6673",
+      "unique_products": 42,
+      "gross_margin_pct": 5.13,
+      "avg_units_per_transaction": 8.17
+    },
+    {
+      "category": "SHOPPING BAGS",
+      "total_revenue": 133326.49000000188,
+      "total_cost_with_uplifts": 76242.08999999962,
+      "gross_profit": 57084.40000000023,
+      "transactions": 2247,
+      "total_units_sold": 11902.0,
+      "avg_item_price": "10.5804",
+      "unique_products": 17,
+      "gross_margin_pct": 42.82,
+      "avg_units_per_transaction": 5.3
+    },
+    {
+      "category": "KRATOM",
+      "total_revenue": 619831.5999999999,
+      "total_cost_with_uplifts": 568828.24,
+      "gross_profit": 51003.35999999999,
+      "transactions": 666,
+      "total_units_sold": 6007.0,
+      "avg_item_price": "115.5208",
+      "unique_products": 48,
+      "gross_margin_pct": 8.23,
+      "avg_units_per_transaction": 9.02
+    },
+    {
+      "category": "CIG ROLLING PAPER",
+      "total_revenue": 300468.78999997425,
+      "total_cost_with_uplifts": 255323.06159999632,
+      "gross_profit": 45145.72839999923,
+      "transactions": 3670,
+      "total_units_sold": 9272.0,
+      "avg_item_price": "35.9286",
+      "unique_products": 186,
+      "gross_margin_pct": 15.03,
+      "avg_units_per_transaction": 2.53
+    },
+    {
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 300840.8799999946,
+      "total_cost_with_uplifts": 263061.22869999975,
+      "gross_profit": 37779.651300000216,
+      "transactions": 3144,
+      "total_units_sold": 20898.0,
+      "avg_item_price": "24.4090",
+      "unique_products": 369,
+      "gross_margin_pct": 12.56,
+      "avg_units_per_transaction": 6.65
+    },
+    {
+      "category": "MEDICINE",
+      "total_revenue": 159325.76000000307,
+      "total_cost_with_uplifts": 124245.17490000132,
+      "gross_profit": 35080.58510000197,
+      "transactions": 3247,
+      "total_units_sold": 14924.0,
+      "avg_item_price": "15.9151",
+      "unique_products": 164,
+      "gross_margin_pct": 22.02,
+      "avg_units_per_transaction": 4.6
+    },
+    {
+      "category": "AUTOMOTIVE",
+      "total_revenue": 144811.14000000217,
+      "total_cost_with_uplifts": 110510.69729999904,
+      "gross_profit": 34300.4427000003,
+      "transactions": 1616,
+      "total_units_sold": 9180.0,
+      "avg_item_price": "20.9809",
+      "unique_products": 103,
+      "gross_margin_pct": 23.69,
+      "avg_units_per_transaction": 5.68
+    },
+    {
+      "category": "MISC",
+      "total_revenue": 123194.67000000106,
+      "total_cost_with_uplifts": 89353.32290000038,
+      "gross_profit": 33841.3471,
+      "transactions": 1456,
+      "total_units_sold": 6535.0,
+      "avg_item_price": "25.3246",
+      "unique_products": 136,
+      "gross_margin_pct": 27.47,
+      "avg_units_per_transaction": 4.49
+    },
+    {
+      "category": "FOOD",
+      "total_revenue": 207293.61999999775,
+      "total_cost_with_uplifts": 173642.55039999733,
+      "gross_profit": 33651.06960000004,
+      "transactions": 2973,
+      "total_units_sold": 34608.0,
+      "avg_item_price": "11.8808",
+      "unique_products": 276,
+      "gross_margin_pct": 16.23,
+      "avg_units_per_transaction": 11.64
+    },
+    {
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 666793.4899999835,
+      "total_cost_with_uplifts": 633519.1700000165,
+      "gross_profit": 33274.320000000276,
+      "transactions": 2986,
+      "total_units_sold": 22948.0,
+      "avg_item_price": "33.6843",
+      "unique_products": 144,
+      "gross_margin_pct": 4.99,
+      "avg_units_per_transaction": 7.69
+    },
+    {
+      "category": "LIGHTERS",
+      "total_revenue": 236332.48999999513,
+      "total_cost_with_uplifts": 203428.95879999845,
+      "gross_profit": 32903.53120000125,
+      "transactions": 2781,
+      "total_units_sold": 11488.0,
+      "avg_item_price": "31.5131",
+      "unique_products": 185,
+      "gross_margin_pct": 13.92,
+      "avg_units_per_transaction": 4.13
+    },
+    {
+      "category": "NICOTINE POUCHES",
+      "total_revenue": 463849.9099999663,
+      "total_cost_with_uplifts": 435767.22999999044,
+      "gross_profit": 28082.679999999116,
+      "transactions": 2178,
+      "total_units_sold": 22898.0,
+      "avg_item_price": "20.3775",
+      "unique_products": 148,
+      "gross_margin_pct": 6.05,
+      "avg_units_per_transaction": 10.51
+    },
+    {
+      "category": "HOUSEHOLD GOODS",
+      "total_revenue": 80223.1200000008,
+      "total_cost_with_uplifts": 55751.83689999985,
+      "gross_profit": 24471.28310000007,
+      "transactions": 2411,
+      "total_units_sold": 13911.0,
+      "avg_item_price": "13.0295",
+      "unique_products": 228,
+      "gross_margin_pct": 30.5,
+      "avg_units_per_transaction": 5.77
+    },
+    {
+      "category": "ECIG - DISP D8",
+      "total_revenue": 236852.69000000003,
+      "total_cost_with_uplifts": 213696.16130000018,
+      "gross_profit": 23156.5287,
+      "transactions": 752,
+      "total_units_sold": 4029.0,
+      "avg_item_price": "60.3140",
+      "unique_products": 75,
+      "gross_margin_pct": 9.78,
+      "avg_units_per_transaction": 5.36
+    },
+    {
+      "category": "WATER",
+      "total_revenue": 79273.87000000056,
+      "total_cost_with_uplifts": 60145.9799999997,
+      "gross_profit": 19127.890000000127,
+      "transactions": 1316,
+      "total_units_sold": 9177.0,
+      "avg_item_price": "14.8595",
+      "unique_products": 17,
+      "gross_margin_pct": 24.13,
+      "avg_units_per_transaction": 6.97
+    },
+    {
+      "category": "BLUNT WRAP",
+      "total_revenue": 211102.86999999807,
+      "total_cost_with_uplifts": 192175.6790999986,
+      "gross_profit": 18927.190899999045,
+      "transactions": 4203,
+      "total_units_sold": 26052.0,
+      "avg_item_price": "8.6730",
+      "unique_products": 203,
+      "gross_margin_pct": 8.97,
+      "avg_units_per_transaction": 6.2
+    },
+    {
+      "category": "CBD/HEMP",
+      "total_revenue": 170678.90000000005,
+      "total_cost_with_uplifts": 152841.26900000017,
+      "gross_profit": 17837.630999999983,
+      "transactions": 1207,
+      "total_units_sold": 6860.0,
+      "avg_item_price": "35.6875",
+      "unique_products": 117,
+      "gross_margin_pct": 10.45,
+      "avg_units_per_transaction": 5.68
+    },
+    {
+      "category": "AIR FRESHENER",
+      "total_revenue": 82138.34999999996,
+      "total_cost_with_uplifts": 66665.85249999994,
+      "gross_profit": 15472.497500000001,
+      "transactions": 1243,
+      "total_units_sold": 29824.0,
+      "avg_item_price": "4.7695",
+      "unique_products": 27,
+      "gross_margin_pct": 18.84,
+      "avg_units_per_transaction": 23.99
+    },
+    {
+      "category": "GUMS/CHICLETS",
+      "total_revenue": 79468.96000000188,
+      "total_cost_with_uplifts": 64197.360300002096,
+      "gross_profit": 15271.59970000022,
+      "transactions": 1303,
+      "total_units_sold": 5341.0,
+      "avg_item_price": "14.8795",
+      "unique_products": 148,
+      "gross_margin_pct": 19.22,
+      "avg_units_per_transaction": 4.1
+    },
+    {
+      "category": "CELLUAR ACCESSORIES",
+      "total_revenue": 52453.34999999987,
+      "total_cost_with_uplifts": 38855.48000000015,
+      "gross_profit": 13597.869999999837,
+      "transactions": 1039,
+      "total_units_sold": 2615.0,
+      "avg_item_price": "27.4382",
+      "unique_products": 99,
+      "gross_margin_pct": 25.92,
+      "avg_units_per_transaction": 2.52
+    },
+    {
+      "category": "GLOVES & T SHIRTS",
+      "total_revenue": 69113.73,
+      "total_cost_with_uplifts": 56177.815399999934,
+      "gross_profit": 12935.914599999996,
+      "transactions": 839,
+      "total_units_sold": 21704.0,
+      "avg_item_price": "3.7687",
+      "unique_products": 11,
+      "gross_margin_pct": 18.72,
+      "avg_units_per_transaction": 25.87
+    },
+    {
+      "category": "CONDOMS",
+      "total_revenue": 61176.99999999847,
+      "total_cost_with_uplifts": 49293.24399999979,
+      "gross_profit": 11883.755999999647,
+      "transactions": 1614,
+      "total_units_sold": 4766.0,
+      "avg_item_price": "12.8974",
+      "unique_products": 27,
+      "gross_margin_pct": 19.43,
+      "avg_units_per_transaction": 2.95
+    },
+    {
+      "category": "COSMETICS & BEAUTY",
+      "total_revenue": 34501.33000000032,
+      "total_cost_with_uplifts": 24593.228099999928,
+      "gross_profit": 9908.10189999995,
+      "transactions": 1522,
+      "total_units_sold": 12498.0,
+      "avg_item_price": "5.3332",
+      "unique_products": 168,
+      "gross_margin_pct": 28.72,
+      "avg_units_per_transaction": 8.21
+    },
+    {
+      "category": "LIT CIGARS 003251",
+      "total_revenue": 83480.86000000066,
+      "total_cost_with_uplifts": 74281.3654999999,
+      "gross_profit": 9199.494499999935,
+      "transactions": 937,
+      "total_units_sold": 1312.0,
+      "avg_item_price": "64.1249",
+      "unique_products": 14,
+      "gross_margin_pct": 11.02,
+      "avg_units_per_transaction": 1.4
+    },
+    {
+      "category": "CLEANING PRODUCTS",
+      "total_revenue": 24330.709999999966,
+      "total_cost_with_uplifts": 16281.700099999964,
+      "gross_profit": 8049.009899999931,
+      "transactions": 1061,
+      "total_units_sold": 7942.0,
+      "avg_item_price": "4.8725",
+      "unique_products": 176,
+      "gross_margin_pct": 33.08,
+      "avg_units_per_transaction": 7.49
+    },
+    {
+      "category": "COOKIES",
+      "total_revenue": 30554.09000000117,
+      "total_cost_with_uplifts": 24616.507800000247,
+      "gross_profit": 5937.582199999999,
+      "transactions": 867,
+      "total_units_sold": 4123.0,
+      "avg_item_price": "10.8701",
+      "unique_products": 98,
+      "gross_margin_pct": 19.43,
+      "avg_units_per_transaction": 4.76
+    },
+    {
+      "category": "STATIONARY",
+      "total_revenue": 30771.320000000498,
+      "total_cost_with_uplifts": 25341.118100000054,
+      "gross_profit": 5430.2018999999145,
+      "transactions": 985,
+      "total_units_sold": 2334.0,
+      "avg_item_price": "19.3911",
+      "unique_products": 79,
+      "gross_margin_pct": 17.65,
+      "avg_units_per_transaction": 2.37
+    },
+    {
+      "category": "BATTERY",
+      "total_revenue": 17299.899999999947,
+      "total_cost_with_uplifts": 12265.318399999991,
+      "gross_profit": 5034.581599999973,
+      "transactions": 426,
+      "total_units_sold": 2930.0,
+      "avg_item_price": "13.4173",
+      "unique_products": 20,
+      "gross_margin_pct": 29.1,
+      "avg_units_per_transaction": 6.88
+    },
+    {
+      "category": "INCENSE",
+      "total_revenue": 18577.230000000047,
+      "total_cost_with_uplifts": 14459.120000000014,
+      "gross_profit": 4118.10999999999,
+      "transactions": 393,
+      "total_units_sold": 1861.0,
+      "avg_item_price": "29.7465",
+      "unique_products": 27,
+      "gross_margin_pct": 22.17,
+      "avg_units_per_transaction": 4.74
+    },
+    {
+      "category": "KITCHEN & TOILET",
+      "total_revenue": 13476.689999999939,
+      "total_cost_with_uplifts": 9440.371599999988,
+      "gross_profit": 4036.318399999979,
+      "transactions": 742,
+      "total_units_sold": 4739.0,
+      "avg_item_price": "7.6728",
+      "unique_products": 50,
+      "gross_margin_pct": 29.95,
+      "avg_units_per_transaction": 6.39
+    },
+    {
+      "category": "HARDWARE",
+      "total_revenue": 4204.579999999977,
+      "total_cost_with_uplifts": 2668.510600000002,
+      "gross_profit": 1536.0693999999985,
+      "transactions": 352,
+      "total_units_sold": 1634.0,
+      "avg_item_price": "2.7731",
+      "unique_products": 109,
+      "gross_margin_pct": 36.53,
+      "avg_units_per_transaction": 4.64
+    },
+    {
+      "category": "Unknown",
+      "total_revenue": 3431.189999999996,
+      "total_cost_with_uplifts": 2503.94,
+      "gross_profit": 927.25,
+      "transactions": 158,
+      "total_units_sold": 694.0,
+      "avg_item_price": "10.9455",
+      "unique_products": 1,
+      "gross_margin_pct": 27.02,
+      "avg_units_per_transaction": 4.39
+    },
+    {
+      "category": "KIDS STUFF",
+      "total_revenue": 2078.030000000002,
+      "total_cost_with_uplifts": 1268.7727999999984,
+      "gross_profit": 809.2572000000024,
+      "transactions": 163,
+      "total_units_sold": 557.0,
+      "avg_item_price": "5.1566",
+      "unique_products": 10,
+      "gross_margin_pct": 38.94,
+      "avg_units_per_transaction": 3.42
+    },
+    {
+      "category": "PLAYING CARDS",
+      "total_revenue": 3256.3199999999906,
+      "total_cost_with_uplifts": 2548.989999999999,
+      "gross_profit": 707.3300000000004,
+      "transactions": 140,
+      "total_units_sold": 168.0,
+      "avg_item_price": "20.8020",
+      "unique_products": 5,
+      "gross_margin_pct": 21.72,
+      "avg_units_per_transaction": 1.2
+    },
+    {
+      "category": "PHONE CARDS",
+      "total_revenue": 18728.3,
+      "total_cost_with_uplifts": 18058.949999999997,
+      "gross_profit": 669.3499999999992,
+      "transactions": 126,
+      "total_units_sold": 2700.0,
+      "avg_item_price": "6.8933",
+      "unique_products": 7,
+      "gross_margin_pct": 3.57,
+      "avg_units_per_transaction": 21.43
+    },
+    {
+      "category": "ECIG - PODS D8",
+      "total_revenue": 1973.98,
+      "total_cost_with_uplifts": 1681.321,
+      "gross_profit": 292.659,
+      "transactions": 28,
+      "total_units_sold": 59.0,
+      "avg_item_price": "35.9996",
+      "unique_products": 13,
+      "gross_margin_pct": 14.83,
+      "avg_units_per_transaction": 2.11
+    },
+    {
+      "category": "CANDLES",
+      "total_revenue": 561.6200000000002,
+      "total_cost_with_uplifts": 328.2623999999999,
+      "gross_profit": 233.3576,
+      "transactions": 44,
+      "total_units_sold": 398.0,
+      "avg_item_price": "1.5365",
+      "unique_products": 12,
+      "gross_margin_pct": 41.55,
+      "avg_units_per_transaction": 9.05
+    },
+    {
+      "category": "PERFUMES",
+      "total_revenue": 329.3400000000001,
+      "total_cost_with_uplifts": 181.5,
+      "gross_profit": 147.84000000000006,
+      "transactions": 16,
+      "total_units_sold": 132.0,
+      "avg_item_price": "2.4950",
+      "unique_products": 1,
+      "gross_margin_pct": 44.89,
+      "avg_units_per_transaction": 8.25
+    },
+    {
+      "category": "APPAREL & CLOTHING",
+      "total_revenue": 209.7,
+      "total_cost_with_uplifts": 135.0,
+      "gross_profit": 74.7,
+      "transactions": 15,
+      "total_units_sold": 30.0,
+      "avg_item_price": "6.9900",
+      "unique_products": 1,
+      "gross_margin_pct": 35.62,
+      "avg_units_per_transaction": 2.0
+    },
+    {
+      "category": "TOYS",
+      "total_revenue": 93.80999999999999,
+      "total_cost_with_uplifts": 59.99,
+      "gross_profit": 33.820000000000014,
+      "transactions": 18,
+      "total_units_sold": 19.0,
+      "avg_item_price": "4.9900",
+      "unique_products": 4,
+      "gross_margin_pct": 36.05,
+      "avg_units_per_transaction": 1.06
+    },
+    {
+      "category": "CLEAM",
+      "total_revenue": 25.44,
+      "total_cost_with_uplifts": 17.920000000000005,
+      "gross_profit": 7.52,
+      "transactions": 4,
+      "total_units_sold": 16.0,
+      "avg_item_price": "1.5900",
+      "unique_products": 1,
+      "gross_margin_pct": 29.56,
+      "avg_units_per_transaction": 4.0
+    },
+    {
+      "category": "JBR",
+      "total_revenue": 49518.74999999999,
+      "total_cost_with_uplifts": 50502.4405,
+      "gross_profit": -983.6905000000002,
+      "transactions": 22,
+      "total_units_sold": 1256.0,
+      "avg_item_price": "34.7902",
+      "unique_products": 10,
+      "gross_margin_pct": -1.99,
+      "avg_units_per_transaction": 57.09
+    }
+  ],
+  "top_products_by_revenue": [
+    {
+      "product_id": 23616,
+      "product_name": "NEWPORT MENTHOL 100 BOX 10CT",
+      "lookup_code": "026100805734",
+      "category": "CIGARETTE",
+      "total_revenue": 3530566.9499999546,
+      "total_units_sold": 39825.0,
+      "transaction_count": 3220,
+      "unique_customers": 281,
+      "avg_selling_price": "87.2594",
+      "max_price": "90.4900",
+      "min_price": "83.4900",
+      "total_base_cost": 3472722.919999969,
+      "gross_profit_with_uplifts": 57844.030000000355,
+      "avg_units_per_transaction": 12.37,
+      "revenue_per_customer": 12564.3,
+      "gross_margin_pct": 1.64
+    },
+    {
+      "product_id": 23615,
+      "product_name": "NEWPORT MENTHOL BOX 10CT",
+      "lookup_code": "026100805758",
+      "category": "CIGARETTE",
+      "total_revenue": 2591292.299999946,
+      "total_units_sold": 29380.0,
+      "transaction_count": 3643,
+      "unique_customers": 317,
+      "avg_selling_price": "87.2487",
+      "max_price": "90.4900",
+      "min_price": "83.4900",
+      "total_base_cost": 2546098.349999964,
+      "gross_profit_with_uplifts": 45193.95000000028,
+      "avg_units_per_transaction": 8.06,
+      "revenue_per_customer": 8174.42,
+      "gross_margin_pct": 1.74
+    },
+    {
+      "product_id": 23603,
+      "product_name": "MARL GOLD BOX 10CT",
+      "lookup_code": "028200138408",
+      "category": "CIGARETTE",
+      "total_revenue": 1219234.5500000045,
+      "total_units_sold": 15185.0,
+      "transaction_count": 2735,
+      "unique_customers": 294,
+      "avg_selling_price": "79.9367",
+      "max_price": "83.3900",
+      "min_price": "75.9900",
+      "total_base_cost": 1170206.6300000034,
+      "gross_profit_with_uplifts": 49027.92000000013,
+      "avg_units_per_transaction": 5.55,
+      "revenue_per_customer": 4147.06,
+      "gross_margin_pct": 4.02
+    },
+    {
+      "product_id": 23606,
+      "product_name": "MARL RED KING BOX 10CT",
+      "lookup_code": "028200135704",
+      "category": "CIGARETTE",
+      "total_revenue": 657471.5100000078,
+      "total_units_sold": 8189.0,
+      "transaction_count": 1990,
+      "unique_customers": 251,
+      "avg_selling_price": "79.9058",
+      "max_price": "83.3900",
+      "min_price": "75.9900",
+      "total_base_cost": 633823.3399999952,
+      "gross_profit_with_uplifts": 23648.1699999999,
+      "avg_units_per_transaction": 4.12,
+      "revenue_per_customer": 2619.41,
+      "gross_margin_pct": 3.6
+    },
+    {
+      "product_id": 37665,
+      "product_name": "GRABBA LEAF CIGAR WRAPS 25PK",
+      "lookup_code": "094922733443",
+      "category": "LT-TAX PAID",
+      "total_revenue": 570291.889999987,
+      "total_units_sold": 21523.0,
+      "transaction_count": 1783,
+      "unique_customers": 303,
+      "avg_selling_price": "29.8729",
+      "max_price": "29.9900",
+      "min_price": "25.0000",
+      "total_base_cost": 538075.0,
+      "gross_profit_with_uplifts": 32216.89000000071,
+      "avg_units_per_transaction": 12.07,
+      "revenue_per_customer": 1882.15,
+      "gross_margin_pct": 5.65
+    },
+    {
+      "product_id": 37426,
+      "product_name": "JUUL CLASSIC MENTHL 5% 4PK 8CT",
+      "lookup_code": "10819913012591",
+      "category": "ECIG - PODS",
+      "total_revenue": 445334.94000000146,
+      "total_units_sold": 4381.0,
+      "transaction_count": 541,
+      "unique_customers": 115,
+      "avg_selling_price": "104.0294",
+      "max_price": "108.6900",
+      "min_price": "99.5200",
+      "total_base_cost": 425613.20000000054,
+      "gross_profit_with_uplifts": 19721.739999999998,
+      "avg_units_per_transaction": 8.1,
+      "revenue_per_customer": 3872.48,
+      "gross_margin_pct": 4.43
+    },
+    {
+      "product_id": 37612,
+      "product_name": "JUUL VIRG TOBACCO 5% 4PK 8CT",
+      "lookup_code": "10819913011426",
+      "category": "ECIG - PODS",
+      "total_revenue": 378496.48000000103,
+      "total_units_sold": 3725.0,
+      "transaction_count": 464,
+      "unique_customers": 107,
+      "avg_selling_price": "103.8851",
+      "max_price": "108.6900",
+      "min_price": "99.5200",
+      "total_base_cost": 362208.80000000045,
+      "gross_profit_with_uplifts": 16287.680000000026,
+      "avg_units_per_transaction": 8.03,
+      "revenue_per_customer": 3537.35,
+      "gross_margin_pct": 4.3
+    },
+    {
+      "product_id": 24076,
+      "product_name": "NEWPORT MENTHOL SOFT 10CT",
+      "lookup_code": "026100805789",
+      "category": "CIGARETTE",
+      "total_revenue": 368240.0600000034,
+      "total_units_sold": 4244.0,
+      "transaction_count": 1674,
+      "unique_customers": 229,
+      "avg_selling_price": "86.7454",
+      "max_price": "90.4900",
+      "min_price": "83.4900",
+      "total_base_cost": 361279.43000000104,
+      "gross_profit_with_uplifts": 6960.6299999999,
+      "avg_units_per_transaction": 2.54,
+      "revenue_per_customer": 1608.04,
+      "gross_margin_pct": 1.89
+    },
+    {
+      "product_id": 24084,
+      "product_name": "NEWPORT MENTHOL SOFT 100 10CT",
+      "lookup_code": "026100805772",
+      "category": "CIGARETTE",
+      "total_revenue": 359805.0300000034,
+      "total_units_sold": 4147.0,
+      "transaction_count": 1603,
+      "unique_customers": 216,
+      "avg_selling_price": "86.7756",
+      "max_price": "90.4900",
+      "min_price": "83.4900",
+      "total_base_cost": 352960.11000000103,
+      "gross_profit_with_uplifts": 6844.919999999918,
+      "avg_units_per_transaction": 2.59,
+      "revenue_per_customer": 1665.76,
+      "gross_margin_pct": 1.9
+    },
+    {
+      "product_id": 44864,
+      "product_name": "GEEK BAR 15000 PUFFS DISP 5CT",
+      "lookup_code": "810125436772",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 285546.5,
+      "total_units_sold": 6887.0,
+      "transaction_count": 1284,
+      "unique_customers": 251,
+      "avg_selling_price": "41.8566",
+      "max_price": "57.5000",
+      "min_price": "4.0000",
+      "total_base_cost": 265819.20039999933,
+      "gross_profit_with_uplifts": 19727.29959999997,
+      "avg_units_per_transaction": 5.36,
+      "revenue_per_customer": 1137.64,
+      "gross_margin_pct": 6.91
+    },
+    {
+      "product_id": 45436,
+      "product_name": "GEEK BAR 25000 PUFFS DISP 5CT",
+      "lookup_code": "GEEK25",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 275968.24,
+      "total_units_sold": 5280.0,
+      "transaction_count": 1101,
+      "unique_customers": 244,
+      "avg_selling_price": "52.5096",
+      "max_price": "68.0000",
+      "min_price": "41.0000",
+      "total_base_cost": 256559.29790000056,
+      "gross_profit_with_uplifts": 19408.94209999999,
+      "avg_units_per_transaction": 4.8,
+      "revenue_per_customer": 1131.02,
+      "gross_margin_pct": 7.03
+    },
+    {
+      "product_id": 23608,
+      "product_name": "MARL GOLD 100 BOX 10CT",
+      "lookup_code": "028200146502",
+      "category": "CIGARETTE",
+      "total_revenue": 262797.25000000175,
+      "total_units_sold": 3265.0,
+      "transaction_count": 1057,
+      "unique_customers": 195,
+      "avg_selling_price": "80.0073",
+      "max_price": "83.3900",
+      "min_price": "75.6900",
+      "total_base_cost": 254663.06000000008,
+      "gross_profit_with_uplifts": 8134.189999999986,
+      "avg_units_per_transaction": 3.09,
+      "revenue_per_customer": 1347.68,
+      "gross_margin_pct": 3.1
+    },
+    {
+      "product_id": 23605,
+      "product_name": "MARL RED 100 BOX 10CT",
+      "lookup_code": "028200136305",
+      "category": "CIGARETTE",
+      "total_revenue": 217425.94000000035,
+      "total_units_sold": 2696.0,
+      "transaction_count": 768,
+      "unique_customers": 177,
+      "avg_selling_price": "79.8676",
+      "max_price": "83.3900",
+      "min_price": "75.6900",
+      "total_base_cost": 210994.02000000008,
+      "gross_profit_with_uplifts": 6431.920000000015,
+      "avg_units_per_transaction": 3.51,
+      "revenue_per_customer": 1228.4,
+      "gross_margin_pct": 2.96
+    },
+    {
+      "product_id": 24353,
+      "product_name": "24/7 RED 100 BOX 10CT",
+      "lookup_code": "685141913039",
+      "category": "CIGARETTE",
+      "total_revenue": 208676.24000000054,
+      "total_units_sold": 7404.0,
+      "transaction_count": 1949,
+      "unique_customers": 238,
+      "avg_selling_price": "28.4616",
+      "max_price": "29.2900",
+      "min_price": "27.1500",
+      "total_base_cost": 200690.1999999996,
+      "gross_profit_with_uplifts": 7986.039999999948,
+      "avg_units_per_transaction": 3.8,
+      "revenue_per_customer": 876.79,
+      "gross_margin_pct": 3.83
+    },
+    {
+      "product_id": 24008,
+      "product_name": "MAVERICK MENTHOL 100 BOX 10CT",
+      "lookup_code": "090500100041",
+      "category": "CIGARETTE",
+      "total_revenue": 202181.74999999814,
+      "total_units_sold": 3195.0,
+      "transaction_count": 1711,
+      "unique_customers": 214,
+      "avg_selling_price": "63.2181",
+      "max_price": "65.2900",
+      "min_price": "59.9900",
+      "total_base_cost": 194999.22999999893,
+      "gross_profit_with_uplifts": 7182.519999999963,
+      "avg_units_per_transaction": 1.87,
+      "revenue_per_customer": 944.77,
+      "gross_margin_pct": 3.55
+    },
+    {
+      "product_id": 31132,
+      "product_name": "24/7 MENTHOL 100 BOX 10CT",
+      "lookup_code": "685141913152",
+      "category": "CIGARETTE",
+      "total_revenue": 189532.04000000044,
+      "total_units_sold": 6688.0,
+      "transaction_count": 2328,
+      "unique_customers": 275,
+      "avg_selling_price": "28.4754",
+      "max_price": "29.2900",
+      "min_price": "27.1500",
+      "total_base_cost": 181815.49999999907,
+      "gross_profit_with_uplifts": 7716.539999999965,
+      "avg_units_per_transaction": 2.87,
+      "revenue_per_customer": 689.21,
+      "gross_margin_pct": 4.07
+    },
+    {
+      "product_id": 37666,
+      "product_name": "GRABBA  WH LEAF NATURAL10PK",
+      "lookup_code": "855906007031",
+      "category": "LT-TAX PAID",
+      "total_revenue": 189520.92999999944,
+      "total_units_sold": 7600.0,
+      "transaction_count": 1754,
+      "unique_customers": 303,
+      "avg_selling_price": "26.9115",
+      "max_price": "26.9900",
+      "min_price": "22.5000",
+      "total_base_cost": 167200.0,
+      "gross_profit_with_uplifts": 22320.930000000128,
+      "avg_units_per_transaction": 4.33,
+      "revenue_per_customer": 625.48,
+      "gross_margin_pct": 11.78
+    },
+    {
+      "product_id": 2289,
+      "product_name": "BLK & MLD 25CT PT REGULAR ",
+      "lookup_code": "070137005186",
+      "category": "CIGARS",
+      "total_revenue": 175458.93000000133,
+      "total_units_sold": 6407.0,
+      "transaction_count": 1869,
+      "unique_customers": 309,
+      "avg_selling_price": "27.6519",
+      "max_price": "28.3900",
+      "min_price": "20.3500",
+      "total_base_cost": 130202.91440000148,
+      "gross_profit_with_uplifts": 15309.345287999984,
+      "avg_units_per_transaction": 3.43,
+      "revenue_per_customer": 567.83,
+      "gross_margin_pct": 8.73
+    },
+    {
+      "product_id": 2283,
+      "product_name": "BLK & MLD 10/5PK PT REGULAR",
+      "lookup_code": "070137500186",
+      "category": "CIGARS",
+      "total_revenue": 170314.8800000001,
+      "total_units_sold": 3125.0,
+      "transaction_count": 1481,
+      "unique_customers": 288,
+      "avg_selling_price": "55.2369",
+      "max_price": "56.6900",
+      "min_price": "49.5000",
+      "total_base_cost": 126432.16700000149,
+      "gross_profit_with_uplifts": 14803.314590000127,
+      "avg_units_per_transaction": 2.11,
+      "revenue_per_customer": 591.37,
+      "gross_margin_pct": 8.69
+    },
+    {
+      "product_id": 27696,
+      "product_name": "SS 2/$1.19 30/2CT - SWEETS",
+      "lookup_code": "025900287337",
+      "category": "CIGARS",
+      "total_revenue": 166693.8100000015,
+      "total_units_sold": 6428.0,
+      "transaction_count": 2652,
+      "unique_customers": 327,
+      "avg_selling_price": "25.9855",
+      "max_price": "25.9900",
+      "min_price": "23.9900",
+      "total_base_cost": 128676.23660000128,
+      "gross_profit_with_uplifts": 8422.038981999876,
+      "avg_units_per_transaction": 2.42,
+      "revenue_per_customer": 509.77,
+      "gross_margin_pct": 5.05
+    },
+    {
+      "product_id": 45355,
+      "product_name": "SS BLK 2/1.49 15/2CT SMOOTH",
+      "lookup_code": "025900325718",
+      "category": "CIGARS",
+      "total_revenue": 163840.13000000134,
+      "total_units_sold": 9949.0,
+      "transaction_count": 2349,
+      "unique_customers": 326,
+      "avg_selling_price": "16.4894",
+      "max_price": "16.4900",
+      "min_price": "15.9900",
+      "total_base_cost": 125562.09999999985,
+      "gross_profit_with_uplifts": 9398.747000000085,
+      "avg_units_per_transaction": 4.24,
+      "revenue_per_customer": 502.58,
+      "gross_margin_pct": 5.74
+    },
+    {
+      "product_id": 31699,
+      "product_name": "MARL NXT BOX 10CT",
+      "lookup_code": "028200317711",
+      "category": "CIGARETTE",
+      "total_revenue": 158919.23000000004,
+      "total_units_sold": 1987.0,
+      "transaction_count": 995,
+      "unique_customers": 184,
+      "avg_selling_price": "79.9049",
+      "max_price": "83.3900",
+      "min_price": "75.9900",
+      "total_base_cost": 149256.82999999955,
+      "gross_profit_with_uplifts": 9662.399999999901,
+      "avg_units_per_transaction": 2.0,
+      "revenue_per_customer": 863.69,
+      "gross_margin_pct": 6.08
+    },
+    {
+      "product_id": 43857,
+      "product_name": "SS LEAF 3/2.49 10CT ORIGINAL",
+      "lookup_code": "025900359508",
+      "category": "CIGARS",
+      "total_revenue": 158191.8000000015,
+      "total_units_sold": 7880.0,
+      "transaction_count": 2342,
+      "unique_customers": 312,
+      "avg_selling_price": "20.1436",
+      "max_price": "20.9900",
+      "min_price": "18.3000",
+      "total_base_cost": 115061.02750000021,
+      "gross_profit_with_uplifts": 16666.736174999878,
+      "avg_units_per_transaction": 3.36,
+      "revenue_per_customer": 507.03,
+      "gross_margin_pct": 10.54
+    },
+    {
+      "product_id": 45378,
+      "product_name": "RAZ 25000 PUFFS DISP 5CT",
+      "lookup_code": "RAZ25K",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 151534.81999999998,
+      "total_units_sold": 3031.0,
+      "transaction_count": 615,
+      "unique_customers": 177,
+      "avg_selling_price": "49.9228",
+      "max_price": "57.5000",
+      "min_price": "18.6900",
+      "total_base_cost": 139756.34219999993,
+      "gross_profit_with_uplifts": 11778.477799999993,
+      "avg_units_per_transaction": 4.93,
+      "revenue_per_customer": 856.13,
+      "gross_margin_pct": 7.77
+    },
+    {
+      "product_id": 26184,
+      "product_name": "MARL SB BLACK BOX 10CT",
+      "lookup_code": "028200195203",
+      "category": "CIGARETTE",
+      "total_revenue": 149585.59999999945,
+      "total_units_sold": 1860.0,
+      "transaction_count": 720,
+      "unique_customers": 121,
+      "avg_selling_price": "80.2088",
+      "max_price": "83.3900",
+      "min_price": "75.9900",
+      "total_base_cost": 139312.49999999985,
+      "gross_profit_with_uplifts": 10273.099999999959,
+      "avg_units_per_transaction": 2.58,
+      "revenue_per_customer": 1236.24,
+      "gross_margin_pct": 6.87
+    },
+    {
+      "product_id": 45662,
+      "product_name": "OPMS 8ML SHOT 50CT - BLACK",
+      "lookup_code": "643375878777",
+      "category": "VITAMINS",
+      "total_revenue": 141396.0,
+      "total_units_sold": 335.0,
+      "transaction_count": 293,
+      "unique_customers": 72,
+      "avg_selling_price": "425.9062",
+      "max_price": "460.0000",
+      "min_price": "0.0000",
+      "total_base_cost": 136411.5,
+      "gross_profit_with_uplifts": 4984.5,
+      "avg_units_per_transaction": 1.14,
+      "revenue_per_customer": 1963.83,
+      "gross_margin_pct": 3.53
+    },
+    {
+      "product_id": 40124,
+      "product_name": "VIVA ZEN 12CT EXTRA STRENGTH",
+      "lookup_code": "10628504926137",
+      "category": "VITAMINS",
+      "total_revenue": 132091.44,
+      "total_units_sold": 3008.0,
+      "transaction_count": 817,
+      "unique_customers": 140,
+      "avg_selling_price": "45.6353",
+      "max_price": "56.0000",
+      "min_price": "0.0000",
+      "total_base_cost": 127814.5,
+      "gross_profit_with_uplifts": 4276.94,
+      "avg_units_per_transaction": 3.68,
+      "revenue_per_customer": 943.51,
+      "gross_margin_pct": 3.24
+    },
+    {
+      "product_id": 45936,
+      "product_name": "WONDER VITA PILLS 10/4CT",
+      "lookup_code": "725414671065",
+      "category": "KRATOM",
+      "total_revenue": 131097.71,
+      "total_units_sold": 1495.0,
+      "transaction_count": 131,
+      "unique_customers": 32,
+      "avg_selling_price": "89.6773",
+      "max_price": "109.9900",
+      "min_price": "0.0000",
+      "total_base_cost": 123644.5,
+      "gross_profit_with_uplifts": 7453.21,
+      "avg_units_per_transaction": 11.41,
+      "revenue_per_customer": 4096.8,
+      "gross_margin_pct": 5.69
+    },
+    {
+      "product_id": 43856,
+      "product_name": "SS LEAF 3/2.49 10CT HONEY",
+      "lookup_code": "025900359515",
+      "category": "CIGARS",
+      "total_revenue": 129718.49000000114,
+      "total_units_sold": 6451.0,
+      "transaction_count": 2111,
+      "unique_customers": 289,
+      "avg_selling_price": "20.1405",
+      "max_price": "20.9900",
+      "min_price": "18.9900",
+      "total_base_cost": 94235.70949999969,
+      "gross_profit_with_uplifts": 13808.567314999851,
+      "avg_units_per_transaction": 3.06,
+      "revenue_per_customer": 448.85,
+      "gross_margin_pct": 10.65
+    },
+    {
+      "product_id": 24354,
+      "product_name": "24/7 RED KING BOX 10CT",
+      "lookup_code": "685141913008",
+      "category": "CIGARETTE",
+      "total_revenue": 128492.58000000058,
+      "total_units_sold": 4546.0,
+      "transaction_count": 1284,
+      "unique_customers": 192,
+      "avg_selling_price": "28.4922",
+      "max_price": "29.2900",
+      "min_price": "27.1500",
+      "total_base_cost": 123424.69999999937,
+      "gross_profit_with_uplifts": 5067.879999999953,
+      "avg_units_per_transaction": 3.54,
+      "revenue_per_customer": 669.23,
+      "gross_margin_pct": 3.94
+    },
+    {
+      "product_id": 36863,
+      "product_name": "BACKWOODS 5PK 8/5CT RUSS CREAM",
+      "lookup_code": "071610302808",
+      "category": "CIGAR GA",
+      "total_revenue": 125939.55000000184,
+      "total_units_sold": 3390.0,
+      "transaction_count": 1678,
+      "unique_customers": 301,
+      "avg_selling_price": "37.3161",
+      "max_price": "37.9900",
+      "min_price": "30.0000",
+      "total_base_cost": 100989.29599999826,
+      "gross_profit_with_uplifts": 24950.2540000006,
+      "avg_units_per_transaction": 2.02,
+      "revenue_per_customer": 418.4,
+      "gross_margin_pct": 19.81
+    },
+    {
+      "product_id": 23604,
+      "product_name": "MARL SILVER BOX 10CT",
+      "lookup_code": "028200147707",
+      "category": "CIGARETTE",
+      "total_revenue": 125293.37999999942,
+      "total_units_sold": 1562.0,
+      "transaction_count": 806,
+      "unique_customers": 155,
+      "avg_selling_price": "79.9664",
+      "max_price": "83.3900",
+      "min_price": "75.9900",
+      "total_base_cost": 121098.19000000015,
+      "gross_profit_with_uplifts": 4195.190000000001,
+      "avg_units_per_transaction": 1.94,
+      "revenue_per_customer": 808.34,
+      "gross_margin_pct": 3.35
+    },
+    {
+      "product_id": 23611,
+      "product_name": "CAMEL CRUSH MENTHOL BOX 10CT",
+      "lookup_code": "012300193139",
+      "category": "CIGARETTE",
+      "total_revenue": 124137.83000000054,
+      "total_units_sold": 1487.0,
+      "transaction_count": 1033,
+      "unique_customers": 199,
+      "avg_selling_price": "83.4265",
+      "max_price": "86.7900",
+      "min_price": "79.7900",
+      "total_base_cost": 120420.79000000142,
+      "gross_profit_with_uplifts": 3717.040000000032,
+      "avg_units_per_transaction": 1.44,
+      "revenue_per_customer": 623.81,
+      "gross_margin_pct": 2.99
+    },
+    {
+      "product_id": 41696,
+      "product_name": "K-SHOT 12CT - REGULAR",
+      "lookup_code": "820103507127",
+      "category": "NOVELTY ITEMS",
+      "total_revenue": 123926.0,
+      "total_units_sold": 1513.0,
+      "transaction_count": 526,
+      "unique_customers": 90,
+      "avg_selling_price": "82.1482",
+      "max_price": "87.0000",
+      "min_price": "0.0000",
+      "total_base_cost": 117692.99999999999,
+      "gross_profit_with_uplifts": 6233.000000000001,
+      "avg_units_per_transaction": 2.88,
+      "revenue_per_customer": 1376.96,
+      "gross_margin_pct": 5.03
+    },
+    {
+      "product_id": 45736,
+      "product_name": "OPMS 8ML SHOT 50CT - GOLD",
+      "lookup_code": "643375878784",
+      "category": "VITAMINS",
+      "total_revenue": 123285.5,
+      "total_units_sold": 302.0,
+      "transaction_count": 285,
+      "unique_customers": 84,
+      "avg_selling_price": "423.5784",
+      "max_price": "460.0000",
+      "min_price": "0.0000",
+      "total_base_cost": 122833.26000000008,
+      "gross_profit_with_uplifts": 452.24000000000024,
+      "avg_units_per_transaction": 1.06,
+      "revenue_per_customer": 1467.68,
+      "gross_margin_pct": 0.37
+    },
+    {
+      "product_id": 44798,
+      "product_name": "BLK & MLD 1.19 25CT PT SWEET",
+      "lookup_code": "070137514916",
+      "category": "CIGARS",
+      "total_revenue": 118855.16000000083,
+      "total_units_sold": 5284.0,
+      "transaction_count": 1543,
+      "unique_customers": 289,
+      "avg_selling_price": "22.6017",
+      "max_price": "23.4900",
+      "min_price": "20.7000",
+      "total_base_cost": 94027.44919999977,
+      "gross_profit_with_uplifts": 3201.397483999993,
+      "avg_units_per_transaction": 3.42,
+      "revenue_per_customer": 411.26,
+      "gross_margin_pct": 2.69
+    },
+    {
+      "product_id": 24699,
+      "product_name": "CAMEL CRUSH REG BOX 10CT",
+      "lookup_code": "012300197403",
+      "category": "CIGARETTE",
+      "total_revenue": 111427.1200000005,
+      "total_units_sold": 1338.0,
+      "transaction_count": 826,
+      "unique_customers": 173,
+      "avg_selling_price": "83.3192",
+      "max_price": "86.7900",
+      "min_price": "79.7900",
+      "total_base_cost": 107863.27000000078,
+      "gross_profit_with_uplifts": 3563.8500000000154,
+      "avg_units_per_transaction": 1.62,
+      "revenue_per_customer": 644.09,
+      "gross_margin_pct": 3.2
+    },
+    {
+      "product_id": 45745,
+      "product_name": "WONDER VITA PILLS 40CT",
+      "lookup_code": "679523790295",
+      "category": "KRATOM",
+      "total_revenue": 107356.44,
+      "total_units_sold": 1141.0,
+      "transaction_count": 166,
+      "unique_customers": 33,
+      "avg_selling_price": "95.8926",
+      "max_price": "109.9900",
+      "min_price": "87.5000",
+      "total_base_cost": 100000.75,
+      "gross_profit_with_uplifts": 7355.690000000001,
+      "avg_units_per_transaction": 6.87,
+      "revenue_per_customer": 3253.23,
+      "gross_margin_pct": 6.85
+    },
+    {
+      "product_id": 44228,
+      "product_name": "SS 2/$1.19 30/2CT - DIAMOND",
+      "lookup_code": "025900329839",
+      "category": "CIGARS",
+      "total_revenue": 104465.75000000134,
+      "total_units_sold": 4025.0,
+      "transaction_count": 1886,
+      "unique_customers": 279,
+      "avg_selling_price": "25.9868",
+      "max_price": "25.9900",
+      "min_price": "24.9900",
+      "total_base_cost": 80561.76600000034,
+      "gross_profit_with_uplifts": 5374.777819999981,
+      "avg_units_per_transaction": 2.13,
+      "revenue_per_customer": 374.43,
+      "gross_margin_pct": 5.15
+    },
+    {
+      "product_id": 23900,
+      "product_name": "KOOL MENTHOL BOX 10CT",
+      "lookup_code": "090500100171",
+      "category": "CIGARETTE",
+      "total_revenue": 103492.54999999992,
+      "total_units_sold": 1265.0,
+      "transaction_count": 816,
+      "unique_customers": 166,
+      "avg_selling_price": "81.7808",
+      "max_price": "84.4900",
+      "min_price": "77.4900",
+      "total_base_cost": 99923.29000000046,
+      "gross_profit_with_uplifts": 3569.2599999999993,
+      "avg_units_per_transaction": 1.55,
+      "revenue_per_customer": 623.45,
+      "gross_margin_pct": 3.45
+    },
+    {
+      "product_id": 46064,
+      "product_name": "KADO BAR NI40K - ALL FLVRS",
+      "lookup_code": "942411010158",
+      "category": "ELECTRONIC CIG",
+      "total_revenue": 101789.5,
+      "total_units_sold": 2262.0,
+      "transaction_count": 481,
+      "unique_customers": 146,
+      "avg_selling_price": "45.2066",
+      "max_price": "54.0000",
+      "min_price": "41.5000",
+      "total_base_cost": 90620.0,
+      "gross_profit_with_uplifts": 11169.5,
+      "avg_units_per_transaction": 4.7,
+      "revenue_per_customer": 697.19,
+      "gross_margin_pct": 10.97
+    },
+    {
+      "product_id": 24188,
+      "product_name": "CAMEL CRUSH MENTHOL SILVER BOX",
+      "lookup_code": "012300194136",
+      "category": "CIGARETTE",
+      "total_revenue": 98912.96000000056,
+      "total_units_sold": 1184.0,
+      "transaction_count": 830,
+      "unique_customers": 159,
+      "avg_selling_price": "83.5178",
+      "max_price": "86.7900",
+      "min_price": "79.7900",
+      "total_base_cost": 95958.70000000107,
+      "gross_profit_with_uplifts": 2954.2600000000143,
+      "avg_units_per_transaction": 1.43,
+      "revenue_per_customer": 622.09,
+      "gross_margin_pct": 2.99
+    },
+    {
+      "product_id": 26843,
+      "product_name": "MARL SB BLACK 100 BOX 10CT",
+      "lookup_code": "028200195302",
+      "category": "CIGARETTE",
+      "total_revenue": 97181.8099999995,
+      "total_units_sold": 1209.0,
+      "transaction_count": 585,
+      "unique_customers": 116,
+      "avg_selling_price": "80.3057",
+      "max_price": "83.3900",
+      "min_price": "75.9900",
+      "total_base_cost": 90531.22999999991,
+      "gross_profit_with_uplifts": 6650.579999999984,
+      "avg_units_per_transaction": 2.07,
+      "revenue_per_customer": 837.77,
+      "gross_margin_pct": 6.84
+    },
+    {
+      "product_id": 44964,
+      "product_name": "SS LEAF 3/2.49 10CT IRISH CRM",
+      "lookup_code": "025900359553",
+      "category": "CIGARS",
+      "total_revenue": 97130.34000000081,
+      "total_units_sold": 4826.0,
+      "transaction_count": 1714,
+      "unique_customers": 285,
+      "avg_selling_price": "20.1616",
+      "max_price": "20.9900",
+      "min_price": "18.3000",
+      "total_base_cost": 71259.63649999998,
+      "gross_profit_with_uplifts": 9480.987104999927,
+      "avg_units_per_transaction": 2.82,
+      "revenue_per_customer": 340.81,
+      "gross_margin_pct": 9.76
+    },
+    {
+      "product_id": 23906,
+      "product_name": "KOOL MENTHOL 100 BOX 10CT",
+      "lookup_code": "090500100195",
+      "category": "CIGARETTE",
+      "total_revenue": 96489.29999999992,
+      "total_units_sold": 1180.0,
+      "transaction_count": 881,
+      "unique_customers": 175,
+      "avg_selling_price": "81.7178",
+      "max_price": "84.4900",
+      "min_price": "77.4900",
+      "total_base_cost": 93024.26000000075,
+      "gross_profit_with_uplifts": 3465.0399999999927,
+      "avg_units_per_transaction": 1.34,
+      "revenue_per_customer": 551.37,
+      "gross_margin_pct": 3.59
+    },
+    {
+      "product_id": 45588,
+      "product_name": "BLK & MLD 1.39 25CT PT JAZZ",
+      "lookup_code": "070137515296",
+      "category": "CIGARS",
+      "total_revenue": 96411.42000000043,
+      "total_units_sold": 3858.0,
+      "transaction_count": 1187,
+      "unique_customers": 249,
+      "avg_selling_price": "24.9900",
+      "max_price": "24.9900",
+      "min_price": "24.9900",
+      "total_base_cost": 63777.698000000004,
+      "gross_profit_with_uplifts": 17964.851459999794,
+      "avg_units_per_transaction": 3.25,
+      "revenue_per_customer": 387.19,
+      "gross_margin_pct": 18.63
+    },
+    {
+      "product_id": 33099,
+      "product_name": "MARL MENTHOL BLACK BOX 10CT",
+      "lookup_code": "028200195401",
+      "category": "CIGARETTE",
+      "total_revenue": 94295.19999999972,
+      "total_units_sold": 1140.0,
+      "transaction_count": 698,
+      "unique_customers": 135,
+      "avg_selling_price": "82.7140",
+      "max_price": "87.0900",
+      "min_price": "73.9900",
+      "total_base_cost": 85589.23000000007,
+      "gross_profit_with_uplifts": 8705.969999999981,
+      "avg_units_per_transaction": 1.63,
+      "revenue_per_customer": 698.48,
+      "gross_margin_pct": 9.23
+    },
+    {
+      "product_id": 44223,
+      "product_name": "GAME 2/1.29 30/2CT DIAMOND",
+      "lookup_code": "031700237991",
+      "category": "CIGARS",
+      "total_revenue": 92857.91000000102,
+      "total_units_sold": 3325.0,
+      "transaction_count": 1728,
+      "unique_customers": 283,
+      "avg_selling_price": "27.9981",
+      "max_price": "28.9900",
+      "min_price": "26.9900",
+      "total_base_cost": 72103.00219999926,
+      "gross_profit_with_uplifts": 4171.217294000069,
+      "avg_units_per_transaction": 1.92,
+      "revenue_per_customer": 328.12,
+      "gross_margin_pct": 4.49
+    },
+    {
+      "product_id": 12424,
+      "product_name": "GRIZZLY LC WINTERGREEN 5CT",
+      "lookup_code": "428721",
+      "category": "T7 SMOKELESS GA",
+      "total_revenue": 91009.62999999961,
+      "total_units_sold": 3627.0,
+      "transaction_count": 1082,
+      "unique_customers": 198,
+      "avg_selling_price": "25.0843",
+      "max_price": "26.4900",
+      "min_price": "24.4900",
+      "total_base_cost": 86932.25999999959,
+      "gross_profit_with_uplifts": 4077.3700000000026,
+      "avg_units_per_transaction": 3.35,
+      "revenue_per_customer": 459.64,
+      "gross_margin_pct": 4.48
+    },
+    {
+      "product_id": 24355,
+      "product_name": "24/7 GOLD 100 BOX 10CT",
+      "lookup_code": "685141913077",
+      "category": "CIGARETTE",
+      "total_revenue": 89352.53000000035,
+      "total_units_sold": 3171.0,
+      "transaction_count": 778,
+      "unique_customers": 125,
+      "avg_selling_price": "28.5280",
+      "max_price": "29.2900",
+      "min_price": "27.1500",
+      "total_base_cost": 87119.64999999988,
+      "gross_profit_with_uplifts": 2232.87999999999,
+      "avg_units_per_transaction": 4.08,
+      "revenue_per_customer": 714.82,
+      "gross_margin_pct": 2.5
+    }
+  ],
+  "customer_transaction_metrics": {
+    "overall": {
+      "total_active_customers": 674,
+      "total_transactions": 17148,
+      "total_sales_amount": "1263077959.0700",
+      "avg_transaction_value": "3439.6236",
+      "active_days": 363,
+      "total_items_sold": 981824.5,
+      "avg_transactions_per_customer": 25.44,
+      "avg_revenue_per_customer": "1874002.91",
+      "avg_items_per_transaction": 57.26
+    },
+    "frequency_distribution": [
+      {
+        "customer_transactions": 170,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "352962.6800"
+      },
+      {
+        "customer_transactions": 166,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "249832.7800"
+      },
+      {
+        "customer_transactions": 148,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "456123.0000"
+      },
+      {
+        "customer_transactions": 142,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "270931.6100"
+      },
+      {
+        "customer_transactions": 139,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "144150.3000"
+      },
+      {
+        "customer_transactions": 132,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "558533.8600"
+      },
+      {
+        "customer_transactions": 127,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "641409.0700"
+      },
+      {
+        "customer_transactions": 126,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "239040.6000"
+      },
+      {
+        "customer_transactions": 125,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "373042.7800"
+      },
+      {
+        "customer_transactions": 124,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "391145.7600"
+      },
+      {
+        "customer_transactions": 121,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "268608.4200"
+      },
+      {
+        "customer_transactions": 119,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "420788.3800"
+      },
+      {
+        "customer_transactions": 114,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "268335.9500"
+      },
+      {
+        "customer_transactions": 113,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "292230.0200"
+      },
+      {
+        "customer_transactions": 112,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "242685.7500"
+      },
+      {
+        "customer_transactions": 107,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "50383.4700"
+      },
+      {
+        "customer_transactions": 106,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "30568.0000"
+      },
+      {
+        "customer_transactions": 105,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "99096.1300"
+      },
+      {
+        "customer_transactions": 103,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "162575.5100"
+      },
+      {
+        "customer_transactions": 101,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "281844.7100"
+      },
+      {
+        "customer_transactions": 100,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "132299.1700"
+      },
+      {
+        "customer_transactions": 98,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "719681.9400"
+      },
+      {
+        "customer_transactions": 94,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "772828.2500"
+      },
+      {
+        "customer_transactions": 93,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "281762.2000"
+      },
+      {
+        "customer_transactions": 92,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "343021.4700"
+      },
+      {
+        "customer_transactions": 91,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "154382.9300"
+      },
+      {
+        "customer_transactions": 90,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "289700.7400"
+      },
+      {
+        "customer_transactions": 89,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "377334.8800"
+      },
+      {
+        "customer_transactions": 88,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "428917.2300"
+      },
+      {
+        "customer_transactions": 87,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "228108.0800"
+      },
+      {
+        "customer_transactions": 86,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "178179.7500"
+      },
+      {
+        "customer_transactions": 85,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "114991.8500"
+      },
+      {
+        "customer_transactions": 83,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "136238.8300"
+      },
+      {
+        "customer_transactions": 81,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "101562.4100"
+      },
+      {
+        "customer_transactions": 78,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "232867.3300"
+      },
+      {
+        "customer_transactions": 77,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "378064.2000"
+      },
+      {
+        "customer_transactions": 76,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "346556.4700"
+      },
+      {
+        "customer_transactions": 75,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "132096.9400"
+      },
+      {
+        "customer_transactions": 74,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "96523.1900"
+      },
+      {
+        "customer_transactions": 73,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "713894.1700"
+      },
+      {
+        "customer_transactions": 72,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "205550.8700"
+      },
+      {
+        "customer_transactions": 71,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "141520.1300"
+      },
+      {
+        "customer_transactions": 70,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "284206.9900"
+      },
+      {
+        "customer_transactions": 69,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "32542.9000"
+      },
+      {
+        "customer_transactions": 66,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "1416658.9700"
+      },
+      {
+        "customer_transactions": 65,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "116693.1200"
+      },
+      {
+        "customer_transactions": 64,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "88946.5400"
+      },
+      {
+        "customer_transactions": 62,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "216115.9800"
+      },
+      {
+        "customer_transactions": 60,
+        "customer_count": 1,
+        "total_revenue_for_frequency": "95424.2600"
+      },
+      {
+        "customer_transactions": 58,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "275854.9300"
+      },
+      {
+        "customer_transactions": 57,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "475586.9100"
+      },
+      {
+        "customer_transactions": 55,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "323196.5600"
+      },
+      {
+        "customer_transactions": 53,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "79330.8300"
+      },
+      {
+        "customer_transactions": 52,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "269019.1800"
+      },
+      {
+        "customer_transactions": 51,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "43460.2800"
+      },
+      {
+        "customer_transactions": 50,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "698223.5800"
+      },
+      {
+        "customer_transactions": 49,
+        "customer_count": 6,
+        "total_revenue_for_frequency": "1161722.3300"
+      },
+      {
+        "customer_transactions": 48,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "292156.0100"
+      },
+      {
+        "customer_transactions": 47,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "827661.0800"
+      },
+      {
+        "customer_transactions": 46,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "148841.1200"
+      },
+      {
+        "customer_transactions": 45,
+        "customer_count": 9,
+        "total_revenue_for_frequency": "575047.4000"
+      },
+      {
+        "customer_transactions": 44,
+        "customer_count": 6,
+        "total_revenue_for_frequency": "451369.7800"
+      },
+      {
+        "customer_transactions": 43,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "245130.5700"
+      },
+      {
+        "customer_transactions": 42,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "320503.7700"
+      },
+      {
+        "customer_transactions": 41,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "308373.9000"
+      },
+      {
+        "customer_transactions": 40,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "164468.3800"
+      },
+      {
+        "customer_transactions": 39,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "186348.8700"
+      },
+      {
+        "customer_transactions": 38,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "191936.5800"
+      },
+      {
+        "customer_transactions": 37,
+        "customer_count": 2,
+        "total_revenue_for_frequency": "115190.9300"
+      },
+      {
+        "customer_transactions": 36,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "246000.1100"
+      },
+      {
+        "customer_transactions": 35,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "157007.9200"
+      },
+      {
+        "customer_transactions": 34,
+        "customer_count": 6,
+        "total_revenue_for_frequency": "427195.0500"
+      },
+      {
+        "customer_transactions": 33,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "570646.3400"
+      },
+      {
+        "customer_transactions": 32,
+        "customer_count": 14,
+        "total_revenue_for_frequency": "671370.3600"
+      },
+      {
+        "customer_transactions": 31,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "100311.2700"
+      },
+      {
+        "customer_transactions": 30,
+        "customer_count": 8,
+        "total_revenue_for_frequency": "461153.3800"
+      },
+      {
+        "customer_transactions": 29,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "258740.3200"
+      },
+      {
+        "customer_transactions": 28,
+        "customer_count": 4,
+        "total_revenue_for_frequency": "182106.0100"
+      },
+      {
+        "customer_transactions": 27,
+        "customer_count": 10,
+        "total_revenue_for_frequency": "496282.4000"
+      },
+      {
+        "customer_transactions": 26,
+        "customer_count": 9,
+        "total_revenue_for_frequency": "465908.9900"
+      },
+      {
+        "customer_transactions": 25,
+        "customer_count": 11,
+        "total_revenue_for_frequency": "354162.5900"
+      },
+      {
+        "customer_transactions": 24,
+        "customer_count": 7,
+        "total_revenue_for_frequency": "257308.6600"
+      },
+      {
+        "customer_transactions": 23,
+        "customer_count": 3,
+        "total_revenue_for_frequency": "720248.4700"
+      },
+      {
+        "customer_transactions": 22,
+        "customer_count": 8,
+        "total_revenue_for_frequency": "313233.2100"
+      },
+      {
+        "customer_transactions": 21,
+        "customer_count": 7,
+        "total_revenue_for_frequency": "180025.5000"
+      },
+      {
+        "customer_transactions": 20,
+        "customer_count": 11,
+        "total_revenue_for_frequency": "355133.6600"
+      },
+      {
+        "customer_transactions": 19,
+        "customer_count": 5,
+        "total_revenue_for_frequency": "68122.0300"
+      },
+      {
+        "customer_transactions": 18,
+        "customer_count": 7,
+        "total_revenue_for_frequency": "103098.1700"
+      },
+      {
+        "customer_transactions": 17,
+        "customer_count": 8,
+        "total_revenue_for_frequency": "151174.4500"
+      },
+      {
+        "customer_transactions": 16,
+        "customer_count": 16,
+        "total_revenue_for_frequency": "214523.6200"
+      },
+      {
+        "customer_transactions": 15,
+        "customer_count": 11,
+        "total_revenue_for_frequency": "253404.4100"
+      },
+      {
+        "customer_transactions": 14,
+        "customer_count": 6,
+        "total_revenue_for_frequency": "261683.6700"
+      },
+      {
+        "customer_transactions": 13,
+        "customer_count": 8,
+        "total_revenue_for_frequency": "253543.8700"
+      },
+      {
+        "customer_transactions": 12,
+        "customer_count": 13,
+        "total_revenue_for_frequency": "247155.9100"
+      },
+      {
+        "customer_transactions": 11,
+        "customer_count": 13,
+        "total_revenue_for_frequency": "325813.2000"
+      },
+      {
+        "customer_transactions": 10,
+        "customer_count": 12,
+        "total_revenue_for_frequency": "204069.8900"
+      },
+      {
+        "customer_transactions": 9,
+        "customer_count": 12,
+        "total_revenue_for_frequency": "299723.2800"
+      },
+      {
+        "customer_transactions": 8,
+        "customer_count": 18,
+        "total_revenue_for_frequency": "183055.1900"
+      },
+      {
+        "customer_transactions": 7,
+        "customer_count": 17,
+        "total_revenue_for_frequency": "240772.5000"
+      },
+      {
+        "customer_transactions": 6,
+        "customer_count": 23,
+        "total_revenue_for_frequency": "166346.8000"
+      },
+      {
+        "customer_transactions": 5,
+        "customer_count": 18,
+        "total_revenue_for_frequency": "72149.0100"
+      },
+      {
+        "customer_transactions": 4,
+        "customer_count": 28,
+        "total_revenue_for_frequency": "118893.9300"
+      },
+      {
+        "customer_transactions": 3,
+        "customer_count": 32,
+        "total_revenue_for_frequency": "153796.2100"
+      },
+      {
+        "customer_transactions": 2,
+        "customer_count": 58,
+        "total_revenue_for_frequency": "138708.1900"
+      },
+      {
+        "customer_transactions": 1,
+        "customer_count": 88,
+        "total_revenue_for_frequency": "164915.1800"
+      }
+    ]
+  },
+  "basket_analysis": {
+    "category_penetration": [
+      {
+        "category": "CIGARS",
+        "transactions_containing_category": 9331,
+        "basket_penetration_pct": "54.373288269914",
+        "avg_category_items_per_basket": 20,
+        "total_category_units": 163339.0
+      },
+      {
+        "category": "CIGARETTE",
+        "transactions_containing_category": 8820,
+        "basket_penetration_pct": "51.395606316648",
+        "avg_category_items_per_basket": 18,
+        "total_category_units": 202005.0
+      },
+      {
+        "category": "CIGAR GA",
+        "transactions_containing_category": 6208,
+        "basket_penetration_pct": "36.175048074121",
+        "avg_category_items_per_basket": 8,
+        "total_category_units": 40596.0
+      },
+      {
+        "category": "LT-TAX PAID",
+        "transactions_containing_category": 5154,
+        "basket_penetration_pct": "30.033214847619",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 41240.0
+      },
+      {
+        "category": "VITAMINS",
+        "transactions_containing_category": 4713,
+        "basket_penetration_pct": "27.463434531787",
+        "avg_category_items_per_basket": 5,
+        "total_category_units": 26223.0
+      },
+      {
+        "category": "ELECTRONIC CIG",
+        "transactions_containing_category": 4205,
+        "basket_penetration_pct": "24.503234077268",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 41594.0
+      },
+      {
+        "category": "BLUNT WRAP",
+        "transactions_containing_category": 4203,
+        "basket_penetration_pct": "24.491579744770",
+        "avg_category_items_per_basket": 5,
+        "total_category_units": 26052.0
+      },
+      {
+        "category": "LT-TAX-COLLECTED",
+        "transactions_containing_category": 4194,
+        "basket_penetration_pct": "24.439135248528",
+        "avg_category_items_per_basket": 6,
+        "total_category_units": 25555.0
+      },
+      {
+        "category": "DRINKS",
+        "transactions_containing_category": 4090,
+        "basket_penetration_pct": "23.833109958627",
+        "avg_category_items_per_basket": 4,
+        "total_category_units": 34611.0
+      },
+      {
+        "category": "CIG ROLLING PAPER",
+        "transactions_containing_category": 3670,
+        "basket_penetration_pct": "21.385700134024",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 9272.0
+      },
+      {
+        "category": "CANDYS",
+        "transactions_containing_category": 3361,
+        "basket_penetration_pct": "19.585105763067",
+        "avg_category_items_per_basket": 14,
+        "total_category_units": 54084.5
+      },
+      {
+        "category": "MEDICINE",
+        "transactions_containing_category": 3247,
+        "basket_penetration_pct": "18.920808810675",
+        "avg_category_items_per_basket": 5,
+        "total_category_units": 14924.0
+      },
+      {
+        "category": "NOVELTY ITEMS",
+        "transactions_containing_category": 3144,
+        "basket_penetration_pct": "18.320610687022",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 20898.0
+      },
+      {
+        "category": "T7 SMOKELESS GA",
+        "transactions_containing_category": 2986,
+        "basket_penetration_pct": "17.399918419672",
+        "avg_category_items_per_basket": 7,
+        "total_category_units": 22948.0
+      },
+      {
+        "category": "FOOD",
+        "transactions_containing_category": 2973,
+        "basket_penetration_pct": "17.324165258434",
+        "avg_category_items_per_basket": 7,
+        "total_category_units": 34608.0
+      },
+      {
+        "category": "LIGHTERS",
+        "transactions_containing_category": 2781,
+        "basket_penetration_pct": "16.205349338616",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 11488.0
+      },
+      {
+        "category": "HOUSEHOLD GOODS",
+        "transactions_containing_category": 2411,
+        "basket_penetration_pct": "14.049297826466",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 13911.0
+      },
+      {
+        "category": "SHOPPING BAGS",
+        "transactions_containing_category": 2247,
+        "basket_penetration_pct": "13.093642561622",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 11902.0
+      },
+      {
+        "category": "NICOTINE POUCHES",
+        "transactions_containing_category": 2178,
+        "basket_penetration_pct": "12.691568090437",
+        "avg_category_items_per_basket": 6,
+        "total_category_units": 22898.0
+      },
+      {
+        "category": "AUTOMOTIVE",
+        "transactions_containing_category": 1616,
+        "basket_penetration_pct": "9.416700658469",
+        "avg_category_items_per_basket": 4,
+        "total_category_units": 9180.0
+      },
+      {
+        "category": "CONDOMS",
+        "transactions_containing_category": 1614,
+        "basket_penetration_pct": "9.405046325971",
+        "avg_category_items_per_basket": 4,
+        "total_category_units": 4766.0
+      },
+      {
+        "category": "COSMETICS & BEAUTY",
+        "transactions_containing_category": 1522,
+        "basket_penetration_pct": "8.868947031058",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 12498.0
+      },
+      {
+        "category": "ECIG - PODS",
+        "transactions_containing_category": 1497,
+        "basket_penetration_pct": "8.723267874832",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 12236.0
+      },
+      {
+        "category": "MISC",
+        "transactions_containing_category": 1456,
+        "basket_penetration_pct": "8.484354058621",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 6535.0
+      },
+      {
+        "category": "WATER",
+        "transactions_containing_category": 1316,
+        "basket_penetration_pct": "7.668550783753",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 9177.0
+      },
+      {
+        "category": "GUMS/CHICLETS",
+        "transactions_containing_category": 1303,
+        "basket_penetration_pct": "7.592797622516",
+        "avg_category_items_per_basket": 9,
+        "total_category_units": 5341.0
+      },
+      {
+        "category": "AIR FRESHENER",
+        "transactions_containing_category": 1243,
+        "basket_penetration_pct": "7.243167647572",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 29824.0
+      },
+      {
+        "category": "CBD/HEMP",
+        "transactions_containing_category": 1207,
+        "basket_penetration_pct": "7.033389662607",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 6860.0
+      },
+      {
+        "category": "CLEANING PRODUCTS",
+        "transactions_containing_category": 1061,
+        "basket_penetration_pct": "6.182623390245",
+        "avg_category_items_per_basket": 4,
+        "total_category_units": 7942.0
+      },
+      {
+        "category": "CELLUAR ACCESSORIES",
+        "transactions_containing_category": 1039,
+        "basket_penetration_pct": "6.054425732766",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 2615.0
+      },
+      {
+        "category": "STATIONARY",
+        "transactions_containing_category": 985,
+        "basket_penetration_pct": "5.739758755317",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 2334.0
+      },
+      {
+        "category": "LIT CIGARS 003251",
+        "transactions_containing_category": 937,
+        "basket_penetration_pct": "5.460054775362",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 1312.0
+      },
+      {
+        "category": "COOKIES",
+        "transactions_containing_category": 867,
+        "basket_penetration_pct": "5.052153137929",
+        "avg_category_items_per_basket": 6,
+        "total_category_units": 4123.0
+      },
+      {
+        "category": "GLOVES & T SHIRTS",
+        "transactions_containing_category": 839,
+        "basket_penetration_pct": "4.888992482955",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 21704.0
+      },
+      {
+        "category": "ECIG - DISP D8",
+        "transactions_containing_category": 752,
+        "basket_penetration_pct": "4.382029019287",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 4029.0
+      },
+      {
+        "category": "KITCHEN & TOILET",
+        "transactions_containing_category": 742,
+        "basket_penetration_pct": "4.323757356797",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 4739.0
+      },
+      {
+        "category": "KRATOM",
+        "transactions_containing_category": 666,
+        "basket_penetration_pct": "3.880892721869",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 6007.0
+      },
+      {
+        "category": "BATTERY",
+        "transactions_containing_category": 426,
+        "basket_penetration_pct": "2.482372822096",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 2930.0
+      },
+      {
+        "category": "INCENSE",
+        "transactions_containing_category": 393,
+        "basket_penetration_pct": "2.290076335877",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 1861.0
+      },
+      {
+        "category": "HARDWARE",
+        "transactions_containing_category": 352,
+        "basket_penetration_pct": "2.051162519666",
+        "avg_category_items_per_basket": 3,
+        "total_category_units": 1634.0
+      },
+      {
+        "category": "KIDS STUFF",
+        "transactions_containing_category": 163,
+        "basket_penetration_pct": "0.949828098595",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 557.0
+      },
+      {
+        "category": "PLAYING CARDS",
+        "transactions_containing_category": 140,
+        "basket_penetration_pct": "0.815803274867",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 168.0
+      },
+      {
+        "category": "PHONE CARDS",
+        "transactions_containing_category": 126,
+        "basket_penetration_pct": "0.734222947380",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 2700.0
+      },
+      {
+        "category": "CANDLES",
+        "transactions_containing_category": 44,
+        "basket_penetration_pct": "0.256395314958",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 398.0
+      },
+      {
+        "category": "ECIG - PODS D8",
+        "transactions_containing_category": 28,
+        "basket_penetration_pct": "0.163160654973",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 59.0
+      },
+      {
+        "category": "JBR",
+        "transactions_containing_category": 22,
+        "basket_penetration_pct": "0.128197657479",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 1256.0
+      },
+      {
+        "category": "TOYS",
+        "transactions_containing_category": 18,
+        "basket_penetration_pct": "0.104888992482",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 19.0
+      },
+      {
+        "category": "PERFUMES",
+        "transactions_containing_category": 16,
+        "basket_penetration_pct": "0.093234659984",
+        "avg_category_items_per_basket": 2,
+        "total_category_units": 132.0
+      },
+      {
+        "category": "APPAREL & CLOTHING",
+        "transactions_containing_category": 15,
+        "basket_penetration_pct": "0.087407493735",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 30.0
+      },
+      {
+        "category": "CLEAM",
+        "transactions_containing_category": 4,
+        "basket_penetration_pct": "0.023308664996",
+        "avg_category_items_per_basket": 1,
+        "total_category_units": 16.0
+      }
+    ]
+  },
+  "extraction_metadata": {
+    "extraction_timestamp": "2025-09-08 16:47:17",
+    "analysis_period": {
+      "start_date": "2024-09-08",
+      "end_date": "2025-09-08",
+      "total_days": 365
+    },
+    "data_modules_extracted": [
+      "summary_metrics",
+      "monthly_revenue_by_category",
+      "gross_margin_by_category",
+      "top_products_by_revenue",
+      "customer_transaction_metrics",
+      "basket_analysis"
+    ]
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "analysis_date": "2025-09-10T09:11:12.971451",
+  "period": "6 months",
+  "total_annual_savings_opportunity": {
+    "low": 533129.5395199999,
+    "high": 1066259.0790399997
+  },
+  "brand_opportunities": {
+    "Other": {
+      "TotalRevenue": 2058458.8600000006,
+      "TotalCost": 1639432.6172999996,
+      "GrossProfit": 419026.2426999997,
+      "TotalUnits": 68862.0,
+      "PotentialSavingsLow": 163943.26172999997,
+      "PotentialSavingsHigh": 327886.52345999994,
+      "ProductCount": 58,
+      "GPMargin": 20.4
+    },
+    "JUUL Labs": {
+      "TotalRevenue": 446762.9000000005,
+      "TotalCost": 422310.99999999965,
+      "GrossProfit": 24451.89999999999,
+      "TotalUnits": 4538.0,
+      "PotentialSavingsLow": 42231.09999999996,
+      "PotentialSavingsHigh": 84462.19999999992,
+      "ProductCount": 6,
+      "GPMargin": 5.5
+    },
+    "Swedish Match": {
+      "TotalRevenue": 170315.73000000056,
+      "TotalCost": 133023.4212000001,
+      "GrossProfit": 37292.30879999989,
+      "TotalUnits": 6087.0,
+      "PotentialSavingsLow": 13302.34212000001,
+      "PotentialSavingsHigh": 26604.68424000002,
+      "ProductCount": 6,
+      "GPMargin": 21.9
+    },
+    "Geek Bar": {
+      "TotalRevenue": 158483.0,
+      "TotalCost": 143293.86909999995,
+      "GrossProfit": 15189.130899999993,
+      "TotalUnits": 3181.0,
+      "PotentialSavingsLow": 14329.386909999994,
+      "PotentialSavingsHigh": 28658.773819999988,
+      "ProductCount": 2,
+      "GPMargin": 9.6
+    },
+    "OPMS Kratom": {
+      "TotalRevenue": 130160.5,
+      "TotalCost": 126965.0,
+      "GrossProfit": 3195.5,
+      "TotalUnits": 321.0,
+      "PotentialSavingsLow": 12696.5,
+      "PotentialSavingsHigh": 25393.0,
+      "ProductCount": 3,
+      "GPMargin": 2.5
+    },
+    "Viva Zen": {
+      "TotalRevenue": 91597.0,
+      "TotalCost": 87809.75,
+      "GrossProfit": 3787.25,
+      "TotalUnits": 1761.0,
+      "PotentialSavingsLow": 8780.975,
+      "PotentialSavingsHigh": 17561.95,
+      "ProductCount": 2,
+      "GPMargin": 4.1
+    },
+    "Red Bull": {
+      "TotalRevenue": 73454.04000000017,
+      "TotalCost": 65893.20000000013,
+      "GrossProfit": 7560.839999999997,
+      "TotalUnits": 1535.0,
+      "PotentialSavingsLow": 6589.320000000012,
+      "PotentialSavingsHigh": 13178.640000000025,
+      "ProductCount": 2,
+      "GPMargin": 10.3
+    },
+    "BIC Corporation": {
+      "TotalRevenue": 39016.910000000025,
+      "TotalCost": 35860.0,
+      "GrossProfit": 3156.9099999999753,
+      "TotalUnits": 829.0,
+      "PotentialSavingsLow": 3586.0,
+      "PotentialSavingsHigh": 7172.0,
+      "ProductCount": 1,
+      "GPMargin": 8.1
+    },
+    "ITG Brands": {
+      "TotalRevenue": 14272.980000000005,
+      "TotalCost": 11058.84,
+      "GrossProfit": 3214.1400000000003,
+      "TotalUnits": 102.0,
+      "PotentialSavingsLow": 1105.884,
+      "PotentialSavingsHigh": 2211.768,
+      "ProductCount": 1,
+      "GPMargin": 22.5
+    }
+  },
+  "top_products": [
+    {
+      "Description": "JUUL CLASSIC MENTHL 5% 4PK 8CT",
+      "CategoryName": "ECIG - PODS",
+      "TotalRevenue": 203777.90000000026,
+      "TotalUnits": 1993.0,
+      "PotentialSavingsLow": 19380.319999999974,
+      "PotentialSavingsHigh": 38760.63999999995
+    },
+    {
+      "Description": "JUUL VIRG TOBACCO 5% 4PK 8CT",
+      "CategoryName": "ECIG - PODS",
+      "TotalRevenue": 162257.86000000025,
+      "TotalUnits": 1585.0,
+      "PotentialSavingsLow": 15414.119999999988,
+      "PotentialSavingsHigh": 30828.239999999976
+    },
+    {
+      "Description": "GEEK BAR 25000 PUFFS DISP 5CT",
+      "CategoryName": "ELECTRONIC CIG",
+      "TotalRevenue": 103758.0,
+      "TotalUnits": 1959.0,
+      "PotentialSavingsLow": 9547.673629999992,
+      "PotentialSavingsHigh": 19095.347259999984
+    },
+    {
+      "Description": "BLK & MLD 25CT PT REGULAR ",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 89343.93999999943,
+      "TotalUnits": 3186.0,
+      "PotentialSavingsLow": 6547.230000000006,
+      "PotentialSavingsHigh": 13094.460000000012
+    },
+    {
+      "Description": "SS LEAF 3/2.49 10CT ORIGINAL",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 84033.96000000041,
+      "TotalUnits": 4164.0,
+      "PotentialSavingsLow": 6045.949950000009,
+      "PotentialSavingsHigh": 12091.899900000019
+    },
+    {
+      "Description": "SS 2/$1.19 30/2CT - SWEETS",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 81056.88000000053,
+      "TotalUnits": 3121.0,
+      "PotentialSavingsLow": 6257.54350000008,
+      "PotentialSavingsHigh": 12515.08700000016
+    },
+    {
+      "Description": "BLK & MLD 10/5PK PT REGULAR",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 77342.78000000003,
+      "TotalUnits": 1375.0,
+      "PotentialSavingsLow": 5651.249999999945,
+      "PotentialSavingsHigh": 11302.49999999989
+    },
+    {
+      "Description": "WONDER VITA PILLS 10/4CT",
+      "CategoryName": "KRATOM",
+      "TotalRevenue": 77229.5,
+      "TotalUnits": 883.0,
+      "PotentialSavingsLow": 7209.75,
+      "PotentialSavingsHigh": 14419.5
+    },
+    {
+      "Description": "BLK & MLD 1.19 25CT PT SWEET",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 73208.12000000026,
+      "TotalUnits": 3188.0,
+      "PotentialSavingsLow": 5777.553919999991,
+      "PotentialSavingsHigh": 11555.107839999982
+    },
+    {
+      "Description": "RAZ 25000 PUFFS DISP 5CT",
+      "CategoryName": "ELECTRONIC CIG",
+      "TotalRevenue": 71217.5,
+      "TotalUnits": 1432.0,
+      "PotentialSavingsLow": 6542.922600000003,
+      "PotentialSavingsHigh": 13085.845200000005
+    },
+    {
+      "Description": "VIVA ZEN 12CT EXTRA STRENGTH",
+      "CategoryName": "VITAMINS",
+      "TotalRevenue": 70627.53,
+      "TotalUnits": 1534.0,
+      "PotentialSavingsLow": 6772.025000000001,
+      "PotentialSavingsHigh": 13544.050000000001
+    },
+    {
+      "Description": "SS BLK 2/1.49 30/2CT SMOOTH",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 69905.5499999994,
+      "TotalUnits": 2145.0,
+      "PotentialSavingsLow": 5012.880000000004,
+      "PotentialSavingsHigh": 10025.760000000007
+    },
+    {
+      "Description": "WONDER RD VITA PILLS 10/4CT",
+      "CategoryName": "KRATOM",
+      "TotalRevenue": 66965.0,
+      "TotalUnits": 488.0,
+      "PotentialSavingsLow": 6170.25,
+      "PotentialSavingsHigh": 12340.5
+    },
+    {
+      "Description": "SS LEAF 3/2.49 10CT HONEY",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 62540.15000000013,
+      "TotalUnits": 3085.0,
+      "PotentialSavingsLow": 4476.557349999992,
+      "PotentialSavingsHigh": 8953.114699999984
+    },
+    {
+      "Description": "DOZO PERKS TABLETS 10/3CT",
+      "CategoryName": "KRATOM",
+      "TotalRevenue": 61959.990000000005,
+      "TotalUnits": 623.0,
+      "PotentialSavingsLow": 5295.5,
+      "PotentialSavingsHigh": 10591.0
+    },
+    {
+      "Description": "OPMS 8ML SHOT 50CT - BLACK",
+      "CategoryName": "VITAMINS",
+      "TotalRevenue": 61895.5,
+      "TotalUnits": 150.0,
+      "PotentialSavingsLow": 5943.5,
+      "PotentialSavingsHigh": 11887.0
+    },
+    {
+      "Description": "SS LEAF 3/2.49 10CT IRISH CRM",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 58107.88000000022,
+      "TotalUnits": 2872.0,
+      "PotentialSavingsLow": 4255.581999999979,
+      "PotentialSavingsHigh": 8511.163999999959
+    },
+    {
+      "Description": "BLK & MLD 1.39 25CT PT JAZZ",
+      "CategoryName": "CIGARS",
+      "TotalRevenue": 55377.84000000013,
+      "TotalUnits": 2216.0,
+      "PotentialSavingsLow": 3656.4,
+      "PotentialSavingsHigh": 7312.8
+    },
+    {
+      "Description": "GEEK BAR 15000 PUFFS DISP 5CT",
+      "CategoryName": "ELECTRONIC CIG",
+      "TotalRevenue": 54725.0,
+      "TotalUnits": 1222.0,
+      "PotentialSavingsLow": 4781.713280000003,
+      "PotentialSavingsHigh": 9563.426560000005
+    },
+    {
+      "Description": "WONDER VITA PILLS 40CT",
+      "CategoryName": "KRATOM",
+      "TotalRevenue": 51596.0,
+      "TotalUnits": 554.0,
+      "PotentialSavingsLow": 4719.275000000001,
+      "PotentialSavingsHigh": 9438.550000000001
+    }
+  ],
+  "category_summary": {
+    "CIGARS": {
+      "TotalRevenue": 1522826.510000001,
+      "TotalCost": 1149045.1469999996,
+      "PotentialSavingsLow": 114904.51469999997,
+      "PotentialSavingsHigh": 229809.02939999994,
+      "ProductCount": 43
+    },
+    "ECIG - PODS": {
+      "TotalRevenue": 432223.5400000005,
+      "TotalCost": 409797.3999999996,
+      "PotentialSavingsLow": 40979.73999999996,
+      "PotentialSavingsHigh": 81959.47999999992,
+      "ProductCount": 5
+    },
+    "KRATOM": {
+      "TotalRevenue": 382723.49,
+      "TotalCost": 347478.25,
+      "PotentialSavingsLow": 34747.825000000004,
+      "PotentialSavingsHigh": 69495.65000000001,
+      "ProductCount": 9
+    },
+    "ELECTRONIC CIG": {
+      "TotalRevenue": 379089.8,
+      "TotalCost": 333657.1306,
+      "PotentialSavingsLow": 33365.713059999995,
+      "PotentialSavingsHigh": 66731.42611999999,
+      "ProductCount": 10
+    },
+    "VITAMINS": {
+      "TotalRevenue": 263821.5,
+      "TotalCost": 252061.15,
+      "PotentialSavingsLow": 25206.115,
+      "PotentialSavingsHigh": 50412.23,
+      "ProductCount": 7
+    },
+    "DRINKS": {
+      "TotalRevenue": 120943.98000000019,
+      "TotalCost": 102123.74000000014,
+      "PotentialSavingsLow": 10212.374000000014,
+      "PotentialSavingsHigh": 20424.74800000003,
+      "ProductCount": 4
+    },
+    "LIGHTERS": {
+      "TotalRevenue": 39016.910000000025,
+      "TotalCost": 35860.0,
+      "PotentialSavingsLow": 3586.0,
+      "PotentialSavingsHigh": 7172.0,
+      "ProductCount": 1
+    },
+    "CIG ROLLING PAPER": {
+      "TotalRevenue": 21052.980000000072,
+      "TotalCost": 17119.629999999994,
+      "PotentialSavingsLow": 1711.9629999999995,
+      "PotentialSavingsHigh": 3423.925999999999,
+      "ProductCount": 1
+    },
+    "BLUNT WRAP": {
+      "TotalRevenue": 20823.20999999991,
+      "TotalCost": 18505.25,
+      "PotentialSavingsLow": 1850.525,
+      "PotentialSavingsHigh": 3701.05,
+      "ProductCount": 1
+    }
+  }
+}

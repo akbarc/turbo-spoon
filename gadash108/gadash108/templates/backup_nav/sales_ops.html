@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales/Payments/Operations - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            min-height: 100vh;
+            color: #1a202c;
+            display: flex;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: #ffffff;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.125rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #718096;
+            margin-bottom: 0.5rem;
+            padding: 0 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background: #f7fafc;
+            color: #2d3748;
+            transform: translateX(4px);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 2rem;
+            max-width: calc(100% - 260px);
+            overflow-x: auto;
+        }
+        
+        .page-header {
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .page-subtitle {
+            color: #718096;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        /* Date Controls */
+        .date-controls {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .controls-header {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .date-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .date-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #4a5568;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .date-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .date-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .custom-date {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+        .custom-date input {
+            padding: 0.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #4a5568;
+        }
+        
+        .custom-date input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .refresh-btn {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .refresh-btn:hover {
+            background: linear-gradient(135deg, #38a169, #2f855a);
+            transform: translateY(-1px);
+        }
+        
+        /* Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .overview-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+        
+        .overview-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .sales-icon { background: linear-gradient(135deg, #48bb78, #38a169); }
+        .payments-icon { background: linear-gradient(135deg, #4299e1, #3182ce); }
+        .ops-icon { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+        
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f7fafc;
+        }
+        
+        .metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+        
+        /* Data Tables */
+        .data-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+        
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .tab-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            color: #4a5568;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+        
+        .tab-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th {
+            background: #f8fafc;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #4a5568;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .data-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f7fafc;
+            font-size: 0.875rem;
+            color: #2d3748;
+        }
+        
+        .data-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        .amount {
+            text-align: right;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .positive { color: #38a169; }
+        .negative { color: #e53e3e; }
+        
+        /* Loading States */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* No Data State */
+        .no-data {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+        }
+        
+        .no-data i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+            }
+            
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .date-buttons {
+                flex-direction: column;
+            }
+            
+            .custom-date {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Georgia Dashboard</h1>
+                    <div class="subtitle">Sales & Operations</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar-nav">
+            <div class="nav-section-title">Main</div>
+            <a href="/" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="/ai-assistant" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </a>
+            <a href="/customer-ledger" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Customer Ledger</span>
+            </a>
+            <a href="/ar-dashboard" class="nav-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>AR Dashboard</span>
+            </a>
+            <a href="/sales-ops" class="nav-item active">
+                <i class="fas fa-cash-register"></i>
+                <span>Sales & Ops</span>
+            </a>
+            
+            <div class="nav-section-title">Analytics</div>
+            <a href="#" class="nav-item" onclick="window.location.href='/#sales-section'">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Sales Performance</span>
+            </a>
+            <a href="#" class="nav-item" onclick="window.location.href='/#inventory-health-section'">
+                <i class="fas fa-boxes"></i>
+                <span>Inventory Health</span>
+            </a>
+            <a href="#" class="nav-item" onclick="window.location.href='/#cash-flow'">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>Cash Flow</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-cash-register"></i>
+                Sales, Payments & Operations
+            </h1>
+            <p class="page-subtitle">Comprehensive daily operations overview with real-time sales and payment tracking</p>
+        </div>
+
+        <!-- Date Controls -->
+        <div class="date-controls">
+            <div class="controls-header">
+                <i class="fas fa-calendar-alt"></i>
+                Date Selection
+            </div>
+            <div class="date-buttons">
+                <button class="date-btn active" onclick="selectDate('today')">Today</button>
+                <button class="date-btn" onclick="selectDate('yesterday')">Yesterday</button>
+                <button class="date-btn" onclick="selectDate('custom')">Custom Date</button>
+            </div>
+            <div class="custom-date" id="customDateControls" style="display: none;">
+                <input type="date" id="selectedDate" />
+                <button class="refresh-btn" onclick="loadData()">
+                    <i class="fas fa-sync-alt"></i>
+                    Refresh Data
+                </button>
+            </div>
+        </div>
+
+        <!-- Overview Cards -->
+        <div class="overview-grid">
+            <!-- Sales Overview -->
+            <div class="overview-card">
+                <div class="card-header">
+                    <div class="card-icon sales-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="card-title">Sales Overview</h3>
+                </div>
+                <div class="metrics" id="salesMetrics">
+                    <div class="metric">
+                        <span class="metric-label">Total Transactions</span>
+                        <span class="metric-value" id="totalTransactions">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Total Sales</span>
+                        <span class="metric-value amount positive" id="totalSales">$0.00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Units Sold</span>
+                        <span class="metric-value" id="totalUnits">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Avg Transaction</span>
+                        <span class="metric-value amount" id="avgTransaction">$0.00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Unique Customers</span>
+                        <span class="metric-value" id="uniqueCustomers">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payments Overview -->
+            <div class="overview-card">
+                <div class="card-header">
+                    <div class="card-icon payments-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="card-title">Payments Overview</h3>
+                </div>
+                <div class="metrics" id="paymentsMetrics">
+                    <div class="metric">
+                        <span class="metric-label">Total Payments</span>
+                        <span class="metric-value" id="totalPayments">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Payment Amount</span>
+                        <span class="metric-value amount positive" id="totalPaymentAmount">$0.00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Customers Paid</span>
+                        <span class="metric-value" id="customersPaid">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operations Overview -->
+            <div class="overview-card">
+                <div class="card-header">
+                    <div class="card-icon ops-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="card-title">Operations</h3>
+                </div>
+                <div class="metrics" id="operationsMetrics">
+                    <div class="metric">
+                        <span class="metric-label">Active Cashiers</span>
+                        <span class="metric-value" id="activeCashiers">-</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Top Performer</span>
+                        <span class="metric-value" id="topPerformer">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Data Sections -->
+        <!-- Sales Detail -->
+        <div class="data-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-shopping-cart"></i>
+                    Sales Transactions
+                </h2>
+                <div class="tab-buttons">
+                    <button class="tab-btn active" onclick="switchTab('sales', 'overview')">Overview</button>
+                    <button class="tab-btn" onclick="switchTab('sales', 'detail')">Details</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <div id="salesOverview">
+                    <div class="loading" id="salesLoading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading sales data...</p>
+                    </div>
+                </div>
+                <div id="salesDetail" style="display: none;">
+                    <table class="data-table" id="salesTable">
+                        <thead>
+                            <tr>
+                                <th>Transaction #</th>
+                                <th>Time</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Units</th>
+                                <th>Sales Tax</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="salesTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments Detail -->
+        <div class="data-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-credit-card"></i>
+                    Payment Transactions
+                </h2>
+            </div>
+            <div class="table-container">
+                <div id="paymentsData">
+                    <div class="loading" id="paymentsLoading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading payment data...</p>
+                    </div>
+                </div>
+                <table class="data-table" id="paymentsTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Payment ID</th>
+                            <th>Time</th>
+                            <th>Customer</th>
+                            <th>Type</th>
+                            <th>Check #</th>
+                            <th>Comment</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentDate = new Date().toISOString().split('T')[0];
+        let currentDateType = 'today';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+        });
+
+        function initializePage() {
+            const selectedDateInput = document.getElementById('selectedDate');
+            selectedDateInput.value = currentDate;
+            loadData();
+        }
+
+        function selectDate(type) {
+            // Update button states
+            document.querySelectorAll('.date-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            const customControls = document.getElementById('customDateControls');
+            const selectedDateInput = document.getElementById('selectedDate');
+
+            if (type === 'today') {
+                currentDate = new Date().toISOString().split('T')[0];
+                currentDateType = 'today';
+                customControls.style.display = 'none';
+            } else if (type === 'yesterday') {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                currentDate = yesterday.toISOString().split('T')[0];
+                currentDateType = 'yesterday';
+                customControls.style.display = 'none';
+            } else if (type === 'custom') {
+                currentDateType = 'custom';
+                customControls.style.display = 'flex';
+                selectedDateInput.value = currentDate;
+                return; // Don't load data yet, wait for user to select date
+            }
+
+            selectedDateInput.value = currentDate;
+            loadData();
+        }
+
+        function loadData() {
+            if (currentDateType === 'custom') {
+                const selectedDateInput = document.getElementById('selectedDate');
+                currentDate = selectedDateInput.value;
+            }
+
+            if (!currentDate) {
+                alert('Please select a date');
+                return;
+            }
+
+            showLoading();
+            Promise.all([
+                loadOverviewData(),
+                loadSalesData(),
+                loadPaymentsData()
+            ]).then(() => {
+                hideLoading();
+            }).catch(error => {
+                console.error('Error loading data:', error);
+                hideLoading();
+                alert('Error loading data. Please try again.');
+            });
+        }
+
+        function showLoading() {
+            document.getElementById('salesLoading').style.display = 'block';
+            document.getElementById('paymentsLoading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('salesLoading').style.display = 'none';
+            document.getElementById('paymentsLoading').style.display = 'none';
+        }
+
+        async function loadOverviewData() {
+            try {
+                const response = await fetch(`/api/sales-ops/overview?date=${currentDate}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                // Update sales metrics
+                document.getElementById('totalTransactions').textContent = data.sales.total_transactions.toLocaleString();
+                document.getElementById('totalSales').textContent = '$' + data.sales.total_sales.toLocaleString('en-US', {minimumFractionDigits: 2});
+                document.getElementById('totalUnits').textContent = data.sales.total_units.toLocaleString();
+                document.getElementById('avgTransaction').textContent = '$' + data.sales.avg_transaction.toLocaleString('en-US', {minimumFractionDigits: 2});
+                document.getElementById('uniqueCustomers').textContent = data.sales.unique_customers.toLocaleString();
+
+                // Update payments metrics
+                document.getElementById('totalPayments').textContent = data.payments.total_payments.toLocaleString();
+                document.getElementById('totalPaymentAmount').textContent = '$' + data.payments.total_amount.toLocaleString('en-US', {minimumFractionDigits: 2});
+                document.getElementById('customersPaid').textContent = data.payments.customers_paid.toLocaleString();
+
+                // Update operations metrics
+                document.getElementById('activeCashiers').textContent = data.operations.cashier_activity.length.toString();
+                
+                if (data.operations.cashier_activity.length > 0) {
+                    const topCashier = data.operations.cashier_activity[0];
+                    document.getElementById('topPerformer').textContent = `Cashier ${topCashier.cashier_id} ($${topCashier.sales_volume.toLocaleString('en-US', {minimumFractionDigits: 2})})`;
+                } else {
+                    document.getElementById('topPerformer').textContent = 'No activity';
+                }
+
+            } catch (error) {
+                console.error('Error loading overview data:', error);
+            }
+        }
+
+        async function loadSalesData() {
+            try {
+                const response = await fetch(`/api/sales-ops/sales-detail?date=${currentDate}&limit=100`);
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const tbody = document.getElementById('salesTableBody');
+                tbody.innerHTML = '';
+
+                if (data.transactions.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="no-data"><i class="fas fa-inbox"></i><p>No sales transactions found for this date</p></td></tr>';
+                    return;
+                }
+
+                data.transactions.forEach(transaction => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${transaction.transaction_number}</td>
+                        <td>${transaction.time}</td>
+                        <td>${transaction.customer_name}</td>
+                        <td>${transaction.line_items}</td>
+                        <td>${transaction.total_units}</td>
+                        <td class="amount">$${transaction.sales_tax.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                        <td class="amount positive">$${transaction.total.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error loading sales data:', error);
+            }
+        }
+
+        async function loadPaymentsData() {
+            try {
+                const response = await fetch(`/api/sales-ops/payments-detail?date=${currentDate}&limit=100`);
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const tbody = document.getElementById('paymentsTableBody');
+                tbody.innerHTML = '';
+
+                if (data.payments.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" class="no-data"><i class="fas fa-inbox"></i><p>No payment transactions found for this date</p></td></tr>';
+                    document.getElementById('paymentsTable').style.display = 'table';
+                    return;
+                }
+
+                data.payments.forEach(payment => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${payment.payment_id}</td>
+                        <td>${payment.time}</td>
+                        <td>${payment.customer_name}</td>
+                        <td>${payment.type || 'N/A'}</td>
+                        <td>${payment.check_number || 'N/A'}</td>
+                        <td>${payment.comment || ''}</td>
+                        <td class="amount positive">$${payment.amount.toLocaleString('en-US', {minimumFractionDigits: 2})}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+
+                document.getElementById('paymentsTable').style.display = 'table';
+
+            } catch (error) {
+                console.error('Error loading payments data:', error);
+            }
+        }
+
+        function switchTab(section, tab) {
+            if (section === 'sales') {
+                // Update button states
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                event.target.classList.add('active');
+
+                // Show/hide content
+                const overview = document.getElementById('salesOverview');
+                const detail = document.getElementById('salesDetail');
+                
+                if (tab === 'overview') {
+                    overview.style.display = 'block';
+                    detail.style.display = 'none';
+                } else {
+                    overview.style.display = 'none';
+                    detail.style.display = 'block';
+                    document.getElementById('salesTable').style.display = 'table';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

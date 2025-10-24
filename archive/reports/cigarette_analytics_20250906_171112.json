@@ -1,0 +1,117 @@
+{
+  "generated_at": "2025-09-06T17:11:12.838503",
+  "executive_summary": {},
+  "brand_insights": [
+    {
+      "brand": "NEWPORT",
+      "market_share": "46.5%",
+      "units_sold_6mo": 60559,
+      "profit_6mo": "$83,824.55",
+      "avg_margin": "$1.59",
+      "wholesale_mix": "100.0%",
+      "trend": "DOWN",
+      "month_over_month": "-80.0%"
+    },
+    {
+      "brand": "MARLBORO",
+      "market_share": "23.7%",
+      "units_sold_6mo": 30903,
+      "profit_6mo": "$109,194.54",
+      "avg_margin": "$4.39",
+      "wholesale_mix": "100.0%",
+      "trend": "DOWN",
+      "month_over_month": "-75.8%"
+    },
+    {
+      "brand": "24/7",
+      "market_share": "11.0%",
+      "units_sold_6mo": 14300,
+      "profit_6mo": "$21,400.40",
+      "avg_margin": "$1.60",
+      "wholesale_mix": "100.0%",
+      "trend": "DOWN",
+      "month_over_month": "-85.8%"
+    },
+    {
+      "brand": "OTHER",
+      "market_share": "5.6%",
+      "units_sold_6mo": 7297,
+      "profit_6mo": "$23,037.38",
+      "avg_margin": "$3.33",
+      "wholesale_mix": "100.0%",
+      "trend": "DOWN",
+      "month_over_month": "-82.2%"
+    },
+    {
+      "brand": "CAMEL",
+      "market_share": "2.2%",
+      "units_sold_6mo": 2888,
+      "profit_6mo": "$8,205.56",
+      "avg_margin": "$2.99",
+      "wholesale_mix": "100.0%",
+      "trend": "DOWN",
+      "month_over_month": "-80.9%"
+    }
+  ],
+  "operational_insights": [
+    {
+      "type": "Sales Patterns",
+      "peak_day": "Friday",
+      "peak_units": 15240,
+      "low_day": "Saturday",
+      "low_units": 3129,
+      "weekend_vs_weekday": "14.8% of weekday sales"
+    },
+    {
+      "type": "Inventory Risk",
+      "critical_stockouts": 13,
+      "high_risk_items": 23,
+      "avg_days_coverage": 75.63396226415094,
+      "items_below_reorder_point": 56
+    }
+  ],
+  "financial_insights": [
+    {
+      "metric": "Recommended Order Value",
+      "value": "$85,111,622.72"
+    },
+    {
+      "metric": "Items to Order",
+      "value": 71
+    },
+    {
+      "metric": "Total Units",
+      "value": "9,078"
+    },
+    {
+      "metric": "Avg Risk Score",
+      "value": "61.7"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Brand Management",
+      "action": "Review pricing/promotion for declining brands: NEWPORT, MARLBORO, 24/7",
+      "impact": "Potential to recover 10-15% sales volume"
+    },
+    {
+      "priority": "CRITICAL",
+      "category": "Inventory",
+      "action": "Immediate reorder needed for 13 items at critical stock levels",
+      "impact": "Prevent stockouts affecting $1108/week in sales"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Forecasting",
+      "action": "Increase safety stock for 33 high-volatility items",
+      "impact": "Reduce stockout risk by 30-40%"
+    },
+    {
+      "priority": "LOW",
+      "category": "Operations",
+      "action": "Ensure extra staff/inventory for Friday (peak day)",
+      "impact": "Better service for 7169 extra units"
+    }
+  ]
+}

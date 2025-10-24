@@ -1,0 +1,268 @@
+====================================================================================================
+                                   INVENTORY HEALTH ANALYSIS
+====================================================================================================
+Report Generated: 2025-09-06 15:59:26
+====================================================================================================
+
+EXECUTIVE SUMMARY
+----------------------------------------------------------------------------------------------------
+Total SKUs Analyzed: 7,692
+Total Inventory Value: $4,722,351.84
+Dead Stock Value: $1,439,171.68 (4348 items)
+Overstock Value: $1,860,958.94 (1463 items)
+Critical Low Stock Items: 52
+Out of Stock (with demand): 108
+
+====================================================================================================
+🚨 DEAD STOCK - IMMEDIATE ACTION REQUIRED
+====================================================================================================
+Items with no sales in 30-90+ days:
+
+• LGT SOL/LUX CLEAR LIGHTER 50CT                     SKU: 012040801165
+  Stock: 12774 units | Value: $36,405.90 | Last sold: 132 days ago
+
+• LGT BIC MAXI 5PK DISPLAY 12CT                      SKU: 00070330605190
+  Stock: 557 units | Value: $24,396.60 | Last sold: 1222 days ago
+
+• LGT BIC MAXI 5PK 12CT                              SKU: 10070330603155
+  Stock: 449 units | Value: $19,666.20 | Last sold: 194 days ago
+
+• AMAZE KRRATOM 70CAP                                SKU: 1487594837622
+  Stock: 3068 units | Value: $19,175.00 | Last sold: 591 days ago
+
+• CAKE 2G LIVE RESIN SLEPR 5CT                       SKU: 717340433817
+  Stock: 256 units | Value: $17,280.00 | Last sold: 949 days ago
+
+• PIPE FANCY                                         SKU: P25H
+  Stock: 300 units | Value: $15,750.00 | Last sold: nan days ago
+
+• TOB PIPE WP44RM                                    SKU: WP44R
+  Stock: 220 units | Value: $13,750.00 | Last sold: nan days ago
+
+• SPLIFFY LEAF 10CT                                  SKU: 195893773725
+  Stock: 336 units | Value: $13,440.00 | Last sold: 82 days ago
+
+• SMOKE SET W/CASE 11PCS                             SKU: SMKS10
+  Stock: 759 units | Value: $12,895.41 | Last sold: 40 days ago
+
+• LGT BIC MAXI FASHION 4PK 12CT                      SKU: 10070330640297
+  Stock: 294 units | Value: $12,877.20 | Last sold: 191 days ago
+
+• BACKWOODS 1PK 24/1CT DK STOUT                      SKU: 071610302778
+  Stock: 708 units | Value: $12,744.00 | Last sold: 83 days ago
+
+• LGT BIC MINI LCJP 31 3PK 12CT                      SKU: 10070330603018
+  Stock: 568 units | Value: $12,336.96 | Last sold: 1003 days ago
+
+• RAW ORGANIC 1 1/4 1.25 24CT                        SKU: 716165174189
+  Stock: 1011 units | Value: $12,121.89 | Last sold: 40 days ago
+
+• BUGLER GOLD 6.5 OZ 12CT                            SKU: 027200366040
+  Stock: 362 units | Value: $10,679.00 | Last sold: 138 days ago
+
+• GAME LEAF 5/2.99 8/5CT WLD BRY                     SKU: 031700236222
+  Stock: 664 units | Value: $9,296.00 | Last sold: 47 days ago
+
+• GAME LEAF 5/2.99 8/5CT BLK RSP                     SKU: 031700238936
+  Stock: 646 units | Value: $9,044.00 | Last sold: 41 days ago
+
+• HAND SPINNER REG TOY 1CT                           SKU: HAND SPINNER REGULAR 1CT
+  Stock: 9903 units | Value: $8,813.67 | Last sold: 2080 days ago
+
+• STUCKEY'S PECAN 4OZ 6CT                            SKU: 0110091976857108
+  Stock: 366 units | Value: $8,641.26 | Last sold: 614 days ago
+
+• RAZ 25000 PUFFS DISP 5CT                           SKU: RAZ25K
+  Stock: 177 units | Value: $8,451.75 | Last sold: 53 days ago
+
+• PIPE FANCY SILICON JAR 7CT                         SKU: SP1032
+  Stock: 110 units | Value: $7,425.00 | Last sold: 1605 days ago
+
+  ... and 4328 more items
+
+====================================================================================================
+⚠️  CRITICAL LOW STOCK - REORDER IMMEDIATELY
+====================================================================================================
+• NEWPORT MENTHOL BOX 10CT                           SKU: 026100805758
+  Stock: 1092 | Daily velocity: 204.4 | Days remaining: 5.3
+
+• BLUNT POWER AF 1.5OZ 1CT                           SKU: BP
+  Stock: 1773 | Daily velocity: 156.9 | Days remaining: 11.3
+
+• 24/7 RED 100 BOX 10CT                              SKU: 685141913039
+  Stock: 182 | Daily velocity: 20.6 | Days remaining: 8.8
+
+• NEWPORT MENTHOL SOFT 10CT                          SKU: 026100805789
+  Stock: 81 | Daily velocity: 17.0 | Days remaining: 4.8
+
+• 24/7 RED KING BOX 10CT                             SKU: 685141913008
+  Stock: 124 | Daily velocity: 10.1 | Days remaining: 12.2
+
+• MAVERICK MENTHOL 100 BOX 10CT                      SKU: 090500100041
+  Stock: 174 | Daily velocity: 9.9 | Days remaining: 17.7
+
+• ZYN 6MG WINTERGREEN 5CT                            SKU: 609249903426
+  Stock: 18 | Daily velocity: 8.9 | Days remaining: 2.0
+
+• COPENHAGEN LC 5CT                                  SKU: 073100014611
+  Stock: 50 | Daily velocity: 7.9 | Days remaining: 6.4
+
+• MARL SB BLACK 100 BOX 10CT                         SKU: 028200195302
+  Stock: 3 | Daily velocity: 6.4 | Days remaining: 0.5
+
+• COPENHAGEN POUCHES 5CT                             SKU: 073100014772
+  Stock: 15 | Daily velocity: 5.4 | Days remaining: 2.8
+
+• BLUNTVILLE 1.29 25CT PINK DIVA                     SKU: 819721012427
+  Stock: 11 | Daily velocity: 4.6 | Days remaining: 2.4
+
+• ZYN 6MG COFEE 5CT                                  SKU: 609249904423
+  Stock: 2 | Daily velocity: 4.4 | Days remaining: 0.5
+
+• LOOSE LEAF 2/2.99 20CT RUSS CR                     SKU: 810159861540
+  Stock: 3 | Daily velocity: 4.0 | Days remaining: 0.8
+
+• HEAT EIGHTIES TABS JAR 10CT                        SKU: 766679206142
+  Stock: 2 | Daily velocity: 4.0 | Days remaining: 0.5
+
+• 24/7 SILVER 100 BOX 10CT                           SKU: 685141913114
+  Stock: 9 | Daily velocity: 3.6 | Days remaining: 2.5
+
+• AMERICAN SPIRIT YELLOW 10CT                        SKU: 047995855192
+  Stock: 38 | Daily velocity: 3.3 | Days remaining: 11.6
+
+• MARL MENTHOL BLACK BOX 10CT                        SKU: 028200195401
+  Stock: 25 | Daily velocity: 3.0 | Days remaining: 8.3
+
+• MEXICAN COLA/FANTA/SPRITE 24CT                     SKU: MEXICOLA
+  Stock: 8 | Daily velocity: 3.0 | Days remaining: 2.7
+
+• MARL MENTHOL BOX 10CT                              SKU: 028200136107
+  Stock: 23 | Daily velocity: 2.7 | Days remaining: 8.5
+
+• MARL 72 RED BOX 10CT                               SKU: 028200196309
+  Stock: 39 | Daily velocity: 2.6 | Days remaining: 15.2
+
+====================================================================================================
+❌ OUT OF STOCK - LOST SALES
+====================================================================================================
+• BLK & MLD 1.19 25CT PT JAZZ                        SKU: 070137514893
+  Recent demand: 30 units in 7 days | 30-day demand: 30 units
+
+• BLK & MLD 1.19 25CT PT WINE                        SKU: 070137832355
+  Recent demand: 30 units in 7 days | 30-day demand: 30 units
+
+• SCALE DZ3-750 750 x 0.1G 1CT                       SKU: 814859013650
+  Recent demand: 26 units in 7 days | 30-day demand: 44 units
+
+• TETON 6 GREEN 100 BOX 10CT                         SKU: 853272008249
+  Recent demand: 9 units in 7 days | 30-day demand: 40 units
+
+• WR EXTRA 10CT POLARICE                             SKU: 022000159533
+  Recent demand: 7 units in 7 days | 30-day demand: 8 units
+
+• FRE 9MG POUCH 5CT WINTERGRN                        SKU: 840158608334
+  Recent demand: 6 units in 7 days | 30-day demand: 36 units
+
+• TROPICANA 32OZ 12CT                                SKU: T32
+  Recent demand: 6 units in 7 days | 30-day demand: 17 units
+
+• WR EXTRA 10CT PEPPERMINT                           SKU: 022000159526
+  Recent demand: 5 units in 7 days | 30-day demand: 8 units
+
+• DJARUM 10/12PK BALI HAI                            SKU: 751667074346
+  Recent demand: 5 units in 7 days | 30-day demand: 29 units
+
+• U CHOICE DUOBLE ZIP BAGS 22CT                      SKU: 676979912097
+  Recent demand: 4 units in 7 days | 30-day demand: 9 units
+
+• LD BLUE 100 BOX 10CT                               SKU: 076940197032
+  Recent demand: 4 units in 7 days | 30-day demand: 21 units
+
+• NEWPORT MENTHOL BLUE BOX 10CT                      SKU: 026100805833
+  Recent demand: 4 units in 7 days | 30-day demand: 10 units
+
+• CELLTEKK CTD USB TYPE-C 10CT                       SKU: SKU-CTKK-10TCC
+  Recent demand: 4 units in 7 days | 30-day demand: 20 units
+
+• AL CAPONE 10/10CT SWEET FILTER                     SKU: 717519011143
+  Recent demand: 4 units in 7 days | 30-day demand: 30 units
+
+• RICE KRISPIE RAINBOW 12CT                          SKU: 038000264498
+  Recent demand: 3 units in 7 days | 30-day demand: 3 units
+
+====================================================================================================
+📦 OVERSTOCK - CONSIDER PROMOTIONS
+====================================================================================================
+• BLK & MLD 25CT PT JAZZ                             SKU: 070137511212
+  Stock: 1631 | Value: $33,517.05 | Days of supply: 1142
+
+• DISCOUNT                                           SKU: APPROVED
+  Stock: 2304 | Value: $33,154.56 | Days of supply: 4032
+
+• THERMAL LONG SLEEVES CT                            SKU: THERMAL
+  Stock: 7482 | Value: $31,170.01 | Days of supply: 37410
+
+• BLK & MLD 25CT PT MILD/SELECT                      SKU: 070137005384
+  Stock: 1100 | Value: $27,038.00 | Days of supply: 700
+
+• VIVA ZEN 12CT ULTIMATE                             SKU: 628504926123
+  Stock: 292 | Value: $25,842.00 | Days of supply: 409
+
+• WINTER CAP REGULAR 12CT                            SKU: 6868555997886
+  Stock: 2341 | Value: $24,581.20 | Days of supply: 70230
+
+• BUGLER ORIGINAL  0.65OZ 6CT                        SKU: 761073426219
+  Stock: 1293 | Value: $23,661.90 | Days of supply: 1508
+
+• CHORE BOY 36CT                                     SKU: CHORE BOY
+  Stock: 1042 | Value: $19,798.00 | Days of supply: 912
+
+• SS BLK $0.79 20/1CT - SMOOTH                       SKU: 025900247478
+  Stock: 2087 | Value: $18,991.70 | Days of supply: 1623
+
+• BLK & MLD 10/5PK WT JAZZ                           SKU: 070137511168
+  Stock: 363 | Value: $15,714.27 | Days of supply: 847
+
+• PALLET WRAP AMERICAN 4CT                           SKU: STRETCH WRAP 16X1500F SUP
+  Stock: 554 | Value: $15,512.00 | Days of supply: 8310
+
+• JUUL CLASSIC MENTHL 3% 4PK 8CT                     SKU: 10840048202960
+  Stock: 154 | Value: $15,153.60 | Days of supply: 180
+
+• LGT BIC BIG 50CT                                   SKU: 070330639362
+  Stock: 337 | Value: $14,154.00 | Days of supply: 590
+
+• SS MINI 3/1.29 15/3CT GRAPE                        SKU: 025900240684
+  Stock: 1218 | Value: $13,361.46 | Days of supply: 2842
+
+• CLEARANCE KANGVAPE 3500 10CT                       SKU: KANG3500
+  Stock: 263 | Value: $13,150.00 | Days of supply: 368
+
+====================================================================================================
+💡 RECOMMENDATIONS
+====================================================================================================
+1. DEAD STOCK: $1,439,171.68 tied up in non-moving inventory
+   • Run clearance sale or promotions
+   • Bundle with fast-moving items
+   • Consider vendor returns if possible
+
+2. CRITICAL ITEMS: 52 items need immediate reorder
+   • NEWPORT MENTHOL BOX 10CT - Order NOW
+   • BLUNT POWER AF 1.5OZ 1CT - Order NOW
+   • 24/7 RED 100 BOX 10CT - Order NOW
+   • NEWPORT MENTHOL SOFT 10CT - Order NOW
+   • 24/7 RED KING BOX 10CT - Order NOW
+
+3. LOST SALES: Estimated $7,902.29 in lost revenue (7 days)
+   • Set up automatic reorder points
+   • Increase safety stock for high-velocity items
+
+4. OVERSTOCK: $1,860,958.94 in excess inventory
+   • Implement FIFO rotation
+   • Create bundle deals
+   • Adjust reorder quantities
+
+====================================================================================================
+END OF REPORT
+====================================================================================================

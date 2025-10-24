@@ -1,0 +1,17 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: WHOLESALE XPRESS
+# Generated: 2025-09-06 16:56:21
+# Total Items: 1
+# Total Quantity: 68.0
+# Estimated Value: $1,461.32
+# Critical Items: 1
+# Urgent Items: 0
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+CRITICAL,070137514237,BLK & MLD .99 25CT PT SWEETS,CIGAR GA,-24,-3.2,7.5,68,$21.49,$1461.32,DECREASING,$55.48,22

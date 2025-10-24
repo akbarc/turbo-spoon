@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive GP Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        /* Date Filter */
+        .date-filter {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .date-filter select {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            background: white;
+            transition: border-color 0.2s;
+        }
+
+        .date-filter select:hover {
+            border-color: #667eea;
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .metric-value.positive {
+            color: #10b981;
+        }
+
+        .metric-value.warning {
+            color: #f59e0b;
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #374151;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .positive {
+            color: #10b981;
+        }
+
+        .warning {
+            color: #f59e0b;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Progress Bar */
+        .bar-container {
+            background: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 25px;
+        }
+
+        .bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            color: white;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Executive GP Dashboard</h1>
+        <p class="subtitle" id="dateRangeDisplay">Loading...</p>
+
+        <!-- Date Filter -->
+        <div class="date-filter">
+            <label style="font-weight: 600; color: #667eea;">📅 Period:</label>
+            <select id="dateRangeSelect" onchange="handleDateChange()">
+                <option value="today">Today</option>
+                <option value="yesterday">Yesterday</option>
+                <option value="last7">Last 7 Days</option>
+                <option value="last30" selected>Last 30 Days</option>
+                <option value="mtd">Month to Date</option>
+                <option value="qtd">Quarter to Date</option>
+                <option value="ytd">Year to Date</option>
+            </select>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Revenue</div>
+                <div class="metric-value" id="totalRevenue">$0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Gross Profit</div>
+                <div class="metric-value positive" id="grossProfit">$0</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">GP Margin</div>
+                <div class="metric-value" id="gpMargin">0%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Excise Tax</div>
+                <div class="metric-value warning" id="exciseTax">$0</div>
+            </div>
+        </div>
+
+        <!-- Top Categories -->
+        <div class="section">
+            <h2 class="section-title">🏆 Top Categories by Gross Profit</h2>
+            <div id="categoriesTable">
+                <div class="loading"><div class="loading-spinner"></div></div>
+            </div>
+        </div>
+
+        <!-- Excise Tax Breakdown -->
+        <div class="section">
+            <h2 class="section-title">🏷️ Excise Tax Breakdown</h2>
+            <div id="exciseTable">
+                <div class="loading"><div class="loading-spinner"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStartDate = '';
+        let currentEndDate = '';
+
+        function formatCurrency(value) {
+            if (value === null || value === undefined) return '$0';
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        }
+
+        function formatPercent(value) {
+            if (value === null || value === undefined) return '0%';
+            const numValue = typeof value === 'string' ? parseFloat(value) : value;
+            if (isNaN(numValue)) return '0%';
+            return numValue.toFixed(1) + '%';
+        }
+
+        function handleDateChange() {
+            const range = document.getElementById('dateRangeSelect').value;
+            const today = new Date();
+            let startDate, endDate;
+
+            switch(range) {
+                case 'today':
+                    startDate = endDate = today;
+                    break;
+                case 'yesterday':
+                    const yesterday = new Date(today);
+                    yesterday.setDate(yesterday.getDate() - 1);
+                    startDate = endDate = yesterday;
+                    break;
+                case 'last7':
+                    startDate = new Date(today);
+                    startDate.setDate(startDate.getDate() - 7);
+                    endDate = today;
+                    break;
+                case 'last30':
+                    startDate = new Date(today);
+                    startDate.setDate(startDate.getDate() - 30);
+                    endDate = today;
+                    break;
+                case 'mtd':
+                    startDate = new Date(today.getFullYear(), today.getMonth(), 1);
+                    endDate = today;
+                    break;
+                case 'qtd':
+                    const quarter = Math.floor(today.getMonth() / 3);
+                    startDate = new Date(today.getFullYear(), quarter * 3, 1);
+                    endDate = today;
+                    break;
+                case 'ytd':
+                    startDate = new Date(today.getFullYear(), 0, 1);
+                    endDate = today;
+                    break;
+            }
+
+            currentStartDate = startDate.toISOString().split('T')[0];
+            currentEndDate = endDate.toISOString().split('T')[0];
+
+            document.getElementById('dateRangeDisplay').textContent =
+                `${currentStartDate} to ${currentEndDate}`;
+
+            loadAllData();
+        }
+
+        async function loadAllData() {
+            await Promise.all([
+                loadSummary(),
+                loadCategories(),
+                loadExcise()
+            ]);
+        }
+
+        async function loadSummary() {
+            try {
+                const url = `/api/gp/summary?start_date=${currentStartDate}&end_date=${currentEndDate}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                document.getElementById('totalRevenue').textContent = formatCurrency(data.total_revenue);
+                document.getElementById('grossProfit').textContent = formatCurrency(data.total_gross_profit);
+                document.getElementById('gpMargin').textContent = formatPercent(data.gp_margin_percent);
+                document.getElementById('exciseTax').textContent = formatCurrency(data.total_excise_tax);
+            } catch (error) {
+                console.error('Error loading summary:', error);
+            }
+        }
+
+        async function loadCategories() {
+            try {
+                const url = `/api/gp/categories?start_date=${currentStartDate}&end_date=${currentEndDate}`;
+                const response = await fetch(url);
+                const categories = await response.json();
+
+                if (categories.error) {
+                    document.getElementById('categoriesTable').innerHTML =
+                        `<div class="loading">Error loading categories</div>`;
+                    return;
+                }
+
+                const maxGP = Math.max(...categories.slice(0, 10).map(c => c.gross_profit));
+
+                let html = '<table><thead><tr>';
+                html += '<th>Category</th>';
+                html += '<th class="text-right">Revenue</th>';
+                html += '<th class="text-right">GP</th>';
+                html += '<th class="text-right">Margin %</th>';
+                html += '<th>Performance</th>';
+                html += '</tr></thead><tbody>';
+
+                categories.slice(0, 10).forEach(cat => {
+                    const barWidth = (cat.gross_profit / maxGP * 100).toFixed(1);
+                    html += '<tr>';
+                    html += `<td><strong>${cat.CategoryName}</strong></td>`;
+                    html += `<td class="text-right">${formatCurrency(cat.revenue)}</td>`;
+                    html += `<td class="text-right positive">${formatCurrency(cat.gross_profit)}</td>`;
+                    html += `<td class="text-right">${formatPercent(cat.gp_margin_percent)}</td>`;
+                    html += `<td><div class="bar-container"><div class="bar" style="width: ${barWidth}%">${formatPercent(cat.gp_margin_percent)}</div></div></td>`;
+                    html += '</tr>';
+                });
+
+                html += '</tbody></table>';
+                document.getElementById('categoriesTable').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading categories:', error);
+                document.getElementById('categoriesTable').innerHTML =
+                    '<div class="loading">Error loading categories</div>';
+            }
+        }
+
+        async function loadExcise() {
+            try {
+                const url = `/api/gp/excise?start_date=${currentStartDate}&end_date=${currentEndDate}`;
+                const response = await fetch(url);
+                const excise = await response.json();
+
+                if (excise.error) {
+                    document.getElementById('exciseTable').innerHTML =
+                        `<div class="loading">Error loading excise data</div>`;
+                    return;
+                }
+
+                let html = '<table><thead><tr>';
+                html += '<th>Tax Type</th>';
+                html += '<th class="text-right">Tax Amount</th>';
+                html += '<th class="text-right">Revenue</th>';
+                html += '<th class="text-right">Transactions</th>';
+                html += '</tr></thead><tbody>';
+
+                excise.forEach(e => {
+                    html += '<tr>';
+                    html += `<td><strong>${e.ExciseTaxType}</strong></td>`;
+                    html += `<td class="text-right warning">${formatCurrency(e.total_excise_tax)}</td>`;
+                    html += `<td class="text-right">${formatCurrency(e.total_revenue)}</td>`;
+                    html += `<td class="text-right">${e.transaction_count.toLocaleString()}</td>`;
+                    html += '</tr>';
+                });
+
+                html += '</tbody></table>';
+                document.getElementById('exciseTable').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading excise:', error);
+                document.getElementById('exciseTable').innerHTML =
+                    '<div class="loading">Error loading excise data</div>';
+            }
+        }
+
+        // Initial load
+        handleDateChange();
+    </script>
+</body>
+</html>

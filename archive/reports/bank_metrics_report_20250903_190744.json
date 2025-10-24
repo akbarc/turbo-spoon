@@ -1,0 +1,282 @@
+{
+  "generated_at": "2025-09-03 19:07:39",
+  "report_title": "Financial Metrics Report for Banking Review",
+  "company": "Georgia Business",
+  "prepared_for": "Banking/Lending Institution",
+  "sections": {
+    "revenue_stability": {
+      "three_year_history": [
+        {
+          "Year": 2025,
+          "AnnualRevenue": "22772194.0700",
+          "AvgMonthlyRevenue": "2530243.7855",
+          "MonthlyStdDev": 1007833.8817114007,
+          "CoefficientOfVariation": "0.40",
+          "MinMonthlyRevenue": "456130.0700",
+          "MaxMonthlyRevenue": "4095973.0800",
+          "AnnualTransactions": 11677,
+          "AvgMonthlyCustomers": 337,
+          "AvgTransactionValue": "1950.1750"
+        },
+        {
+          "Year": 2024,
+          "AnnualRevenue": "26124288.9800",
+          "AvgMonthlyRevenue": "2177024.0816",
+          "MonthlyStdDev": 123461.12015420411,
+          "CoefficientOfVariation": "0.06",
+          "MinMonthlyRevenue": "1999440.4500",
+          "MaxMonthlyRevenue": "2401176.3300",
+          "AnnualTransactions": 16941,
+          "AvgMonthlyCustomers": 377,
+          "AvgTransactionValue": "1542.0747"
+        },
+        {
+          "Year": 2023,
+          "AnnualRevenue": "34174667.4100",
+          "AvgMonthlyRevenue": "2847888.9508",
+          "MonthlyStdDev": 230686.470533598,
+          "CoefficientOfVariation": "0.08",
+          "MinMonthlyRevenue": "2288203.5500",
+          "MaxMonthlyRevenue": "3229555.8600",
+          "AnnualTransactions": 19987,
+          "AvgMonthlyCustomers": 409,
+          "AvgTransactionValue": "1709.8447"
+        },
+        {
+          "Year": 2022,
+          "AnnualRevenue": "10997944.1900",
+          "AvgMonthlyRevenue": "2749486.0475",
+          "MonthlyStdDev": 48462.380208131544,
+          "CoefficientOfVariation": "0.02",
+          "MinMonthlyRevenue": "2700290.6700",
+          "MaxMonthlyRevenue": "2809438.6600",
+          "AnnualTransactions": 7089,
+          "AvgMonthlyCustomers": 422,
+          "AvgTransactionValue": "1551.4098"
+        }
+      ],
+      "yoy_growth_rate": "-12.8%",
+      "three_year_cagr": "-18.4%",
+      "revenue_predictability": "Variable",
+      "monthly_consistency": 0.4
+    },
+    "customer_diversification": {
+      "active_customers": 676,
+      "largest_customer_percent": 4.32,
+      "top_10_concentration": 20.92,
+      "top_20_concentration": 30.91,
+      "top_50_concentration": 49.15,
+      "herfindahl_index": 83.69142346,
+      "concentration_assessment": "Highly Diversified",
+      "diversification_rating": "Excellent"
+    },
+    "industry_diversification": {
+      "segment_count": 8,
+      "segments": [
+        {
+          "IndustrySegment": "Diversified Retail",
+          "CustomerCount": 340,
+          "SegmentRevenue": "15669890.1400",
+          "TransactionCount": 7898,
+          "AvgTransactionSize": "1984.0326",
+          "RevenuePercent": "50.02"
+        },
+        {
+          "IndustrySegment": "Energy/Gas Stations",
+          "CustomerCount": 143,
+          "SegmentRevenue": "8650010.7500",
+          "TransactionCount": 4609,
+          "AvgTransactionSize": "1876.7651",
+          "RevenuePercent": "27.61"
+        },
+        {
+          "IndustrySegment": "Retail/Convenience",
+          "CustomerCount": 166,
+          "SegmentRevenue": "6704582.1200",
+          "TransactionCount": 4373,
+          "AvgTransactionSize": "1533.1767",
+          "RevenuePercent": "21.40"
+        },
+        {
+          "IndustrySegment": "Tobacco/Vape",
+          "CustomerCount": 16,
+          "SegmentRevenue": "190339.9000",
+          "TransactionCount": 171,
+          "AvgTransactionSize": "1113.0988",
+          "RevenuePercent": "0.61"
+        },
+        {
+          "IndustrySegment": "Beverage/Liquor",
+          "CustomerCount": 5,
+          "SegmentRevenue": "84551.3800",
+          "TransactionCount": 82,
+          "AvgTransactionSize": "1031.1143",
+          "RevenuePercent": "0.27"
+        },
+        {
+          "IndustrySegment": "Direct Consumer",
+          "CustomerCount": 2,
+          "SegmentRevenue": "19120.8800",
+          "TransactionCount": 14,
+          "AvgTransactionSize": "1365.7771",
+          "RevenuePercent": "0.06"
+        },
+        {
+          "IndustrySegment": "Food Service",
+          "CustomerCount": 3,
+          "SegmentRevenue": "10740.8100",
+          "TransactionCount": 22,
+          "AvgTransactionSize": "488.2186",
+          "RevenuePercent": "0.03"
+        },
+        {
+          "IndustrySegment": "Hospitality",
+          "CustomerCount": 1,
+          "SegmentRevenue": "173.9700",
+          "TransactionCount": 1,
+          "AvgTransactionSize": "173.9700",
+          "RevenuePercent": "0.00"
+        }
+      ],
+      "largest_segment_percent": 50.02,
+      "diversification_score": "Moderately Diversified"
+    },
+    "accounts_receivable": {
+      "total_ar": 3549669.71,
+      "accounts_with_balance": 238,
+      "average_balance": 14914.5786,
+      "aging": {
+        "current_0_30_days": 2667536.6,
+        "days_31_60": 126567.79,
+        "days_61_90": 2700.02,
+        "over_90_days": 752865.3
+      },
+      "current_percent": 75.14886786466677,
+      "credit_utilization": 79.99,
+      "days_sales_outstanding": 0.5613434872383748,
+      "quality_assessment": "Good"
+    },
+    "operational_efficiency": {
+      "avg_daily_revenue": 86545.3313,
+      "avg_daily_transactions": 47.0,
+      "avg_daily_customers": 40.0,
+      "avg_ticket_size": 1808.2458,
+      "revenue_per_customer": 2140.8942,
+      "operating_days_12m": 362,
+      "daily_consistency": 43751.04765380892
+    },
+    "growth_momentum": {
+      "quarterly_performance": [
+        {
+          "Year": 2025,
+          "Quarter": 3,
+          "Revenue": "7932695.8000",
+          "UniqueCustomers": 429,
+          "PrevQuarterRevenue": "8247797.8900",
+          "YearAgoRevenue": "6237257.4900",
+          "QoQGrowth": "-3.82",
+          "YoYGrowth": "27.18"
+        },
+        {
+          "Year": 2025,
+          "Quarter": 2,
+          "Revenue": "8247797.8900",
+          "UniqueCustomers": 474,
+          "PrevQuarterRevenue": "6591700.3800",
+          "YearAgoRevenue": "6492056.3600",
+          "QoQGrowth": "25.12",
+          "YoYGrowth": "27.04"
+        },
+        {
+          "Year": 2025,
+          "Quarter": 1,
+          "Revenue": "6591700.3800",
+          "UniqueCustomers": 486,
+          "PrevQuarterRevenue": "6764000.8900",
+          "YearAgoRevenue": "6630974.2400",
+          "QoQGrowth": "-2.55",
+          "YoYGrowth": "-0.59"
+        },
+        {
+          "Year": 2024,
+          "Quarter": 4,
+          "Revenue": "6764000.8900",
+          "UniqueCustomers": 466,
+          "PrevQuarterRevenue": "6237257.4900",
+          "YearAgoRevenue": "8736723.6400",
+          "QoQGrowth": "8.45",
+          "YoYGrowth": "-22.58"
+        }
+      ],
+      "latest_qoq_growth": -3.82,
+      "latest_yoy_growth": 27.18,
+      "new_customers": {
+        "last_3_months": 28,
+        "last_6_months": 62,
+        "last_12_months": 119
+      },
+      "growth_trajectory": "Strong"
+    },
+    "financial_resilience": {
+      "customer_retention_rate": 50.554323725055426,
+      "customers_active_12_months": 267,
+      "avg_customer_lifetime_value": 66796.7734,
+      "avg_customer_active_months": 6.853658536585366,
+      "recurring_revenue_base": "Moderate"
+    }
+  },
+  "executive_summary": {
+    "business_overview": {
+      "company": "Georgia Business",
+      "industry": "Wholesale Distribution",
+      "years_in_operation": "Established Business",
+      "annual_revenue": 22772194.07,
+      "active_customers": 676
+    },
+    "key_strengths": {
+      "revenue_growth": {
+        "yoy_growth": "-12.8%",
+        "three_year_cagr": "-18.4%",
+        "assessment": "Stable"
+      },
+      "customer_diversification": {
+        "total_active_customers": 676,
+        "largest_customer_concentration": "4.3%",
+        "hhi_score": 83.69142346,
+        "assessment": "Highly Diversified"
+      },
+      "industry_diversification": {
+        "segments_served": 8,
+        "largest_segment": "50.0%",
+        "assessment": "Well Diversified Across Multiple Industries"
+      },
+      "operational_stability": {
+        "revenue_predictability": "Variable",
+        "avg_daily_revenue": 86545.3313,
+        "customer_retention": "50.6%"
+      },
+      "accounts_receivable": {
+        "total_ar": 3549669.71,
+        "current_percent": 75.14886786466677,
+        "quality": "Good"
+      }
+    },
+    "credit_worthiness_indicators": {
+      "stable_revenue_base": true,
+      "diversified_customer_base": true,
+      "consistent_growth": false,
+      "strong_ar_quality": true,
+      "established_operations": true
+    },
+    "key_metrics_summary": [
+      "Annual Revenue: $22,772,194",
+      "YoY Growth: -12.8%",
+      "3-Year CAGR: -18.4%",
+      "Active Customers: 676",
+      "Customer Concentration (HHI): 84",
+      "Industry Segments: 8",
+      "Customer Retention Rate: 50.6%",
+      "AR Current (<30 days): 75.1%"
+    ]
+  }
+}

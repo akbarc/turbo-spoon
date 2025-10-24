@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale vs Retail Analysis - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            min-height: 100vh;
+            color: #1a202c;
+            display: flex;
+        }
+        
+        /* Sidebar styles removed - using unified navigation */
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.125rem;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        
+        .nav-section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #718096;
+            margin-bottom: 0.5rem;
+            padding: 0 0.75rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .nav-item:hover {
+            background: #f7fafc;
+            color: #2d3748;
+            transform: translateX(4px);
+        }
+        
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            flex: 1;
+            padding: 2rem;
+            max-width: calc(100% - 260px);
+            overflow-x: auto;
+        }
+        
+        .page-header {
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .page-subtitle {
+            color: #718096;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        /* Simple Tab Navigation */
+        .simple-tabs {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+        
+        .simple-tab-header {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            background: #f8fafc;
+            border-radius: 12px 12px 0 0;
+            padding: 0.5rem;
+            gap: 0.5rem;
+        }
+        
+        .simple-tab-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: none;
+            color: #718096;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .simple-tab-btn:hover {
+            color: #4a5568;
+            background: rgba(0,0,0,0.05);
+        }
+        
+        .simple-tab-btn.active {
+            color: #667eea;
+            background: white;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .simple-tab-content {
+            padding: 2rem;
+        }
+        
+        .simple-tab-panel {
+            display: none;
+        }
+        
+        .simple-tab-panel.active {
+            display: block;
+        }
+        
+        /* Clean Table Styles */
+        .clean-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .clean-table th {
+            background: #667eea;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .clean-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f7fafc;
+            font-size: 0.875rem;
+            color: #2d3748;
+        }
+        
+        .clean-table tr:hover {
+            background: #f8fafc;
+        }
+        
+        .clean-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .amount {
+            text-align: right;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .wholesale-color { color: #48bb78; }
+        .retail-color { color: #4299e1; }
+        .total-color { color: #2d3748; font-weight: 700; }
+        
+        /* Summary Cards */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .card-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: #718096;
+            margin-top: 0.25rem;
+        }
+        
+        /* Loading States */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #718096;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .main-content {
+                margin-left: 0;
+                max-width: 100%;
+            }
+            
+            .simple-tab-header {
+                flex-direction: column;
+            }
+            
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Sidebar -->
+    <!-- Include Unified Navigation -->
+    {% include 'unified_navigation.html' %}
+            </div>
+        </div>
+        
+        <div class="sidebar-nav">
+            <div class="nav-section-title">Main</div>
+            <a href="/" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="/ai-assistant" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>AI Assistant</span>
+            </a>
+            <a href="/customer-ledger" class="nav-item">
+                <i class="fas fa-book"></i>
+                <span>Customer Ledger</span>
+            </a>
+            <a href="/ar-dashboard" class="nav-item">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>AR Dashboard</span>
+            </a>
+            <a href="/sales-ops" class="nav-item">
+                <i class="fas fa-cash-register"></i>
+                <span>Sales & Ops</span>
+            </a>
+            <a href="/suppliers" class="nav-item">
+                <i class="fas fa-truck"></i>
+                <span>Suppliers</span>
+            </a>
+            <a href="/wholesale-retail" class="nav-item active">
+                <i class="fas fa-balance-scale"></i>
+                <span>W/R Analysis</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">
+                <i class="fas fa-balance-scale"></i>
+                Wholesale vs Retail Analysis
+            </h1>
+            <p class="page-subtitle">CORRECTED classification: Company names with "WHOLESALE", "DIST" OR bulk buying patterns (≥40 qty/SKU, ≤5 SKUs) like Murad Ali stores</p>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards" id="summaryCards">
+            <div class="summary-card">
+                <div class="card-title">YTD 2025 Wholesale</div>
+                <div class="card-value wholesale-color" id="ytdWholesale">$0</div>
+                <div class="card-subtitle">Plan B, Andys, Murad Ali</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-title">YTD 2025 Retail</div>
+                <div class="card-value retail-color" id="ytdRetail">$0</div>
+                <div class="card-subtitle">Convenience stores, gas stations</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-title">Total GP</div>
+                <div class="card-value total-color" id="ytdTotalGP">$0</div>
+                <div class="card-subtitle" id="ytdGPPercent">0% margin</div>
+            </div>
+        </div>
+
+        <!-- Simple Tabs -->
+        <div class="simple-tabs">
+            <div class="simple-tab-header">
+                <button class="simple-tab-btn active" onclick="switchTab('ytd')">
+                    <i class="fas fa-chart-line"></i>
+                    YTD Comparison (2021-2025)
+                </button>
+                <button class="simple-tab-btn" onclick="switchTab('monthly')">
+                    <i class="fas fa-calendar-week"></i>
+                    Monthly Breakdown
+                </button>
+                <button class="simple-tab-btn" onclick="switchTab('customers')">
+                    <i class="fas fa-users"></i>
+                    Wholesale Customers
+                </button>
+            </div>
+            
+            <div class="simple-tab-content">
+                <!-- YTD Comparison Panel -->
+                <div class="simple-tab-panel active" id="ytdPanel">
+                    <h3 style="margin-bottom: 1rem; color: #2d3748;">YTD Comparison (Jan 1 - Aug 18)</h3>
+                    <div id="ytdLoading" class="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading YTD comparison...</p>
+                    </div>
+                    <table class="clean-table" id="ytdTable" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Wholesale Sales</th>
+                                <th>Retail Sales</th>
+                                <th>Total Sales</th>
+                                <th>Wholesale GP</th>
+                                <th>Retail GP</th>
+                                <th>Total GP</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ytdTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Monthly Panel -->
+                <div class="simple-tab-panel" id="monthlyPanel">
+                    <h3 style="margin-bottom: 1rem; color: #2d3748;">Monthly Breakdown</h3>
+                    <div style="margin-bottom: 1rem;">
+                        <button class="simple-tab-btn" onclick="loadMonthlyData(2025)" style="margin-right: 0.5rem;">2025</button>
+                        <button class="simple-tab-btn" onclick="loadMonthlyData(2024)">2024</button>
+                    </div>
+                    <div id="monthlyLoading" class="loading" style="display: none;">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading monthly data...</p>
+                    </div>
+                    <table class="clean-table" id="monthlyTable">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Wholesale Sales</th>
+                                <th>Retail Sales</th>
+                                <th>Total Sales</th>
+                                <th>Total GP</th>
+                                <th>GP %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="monthlyTableBody">
+                            <tr><td colspan="6" class="loading">Select a year to view monthly data</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Wholesale Customers Panel -->
+                <div class="simple-tab-panel" id="customersPanel">
+                    <h3 style="margin-bottom: 1rem; color: #2d3748;">Wholesale Customers (Payment Terms & Details)</h3>
+                    <div id="customersLoading" class="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>Loading wholesale customers...</p>
+                    </div>
+                    <table class="clean-table" id="customersTable" style="display: none;">
+                        <thead>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Company</th>
+                                <th>12-Month Sales</th>
+                                <th>AR Balance</th>
+                                <th>Payment Terms</th>
+                                <th>NSF Issues</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadYTDData();
+        });
+
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.simple-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update tab panels
+            document.querySelectorAll('.simple-tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            switch(tabName) {
+                case 'ytd':
+                    document.getElementById('ytdPanel').classList.add('active');
+                    loadYTDData();
+                    break;
+                case 'monthly':
+                    document.getElementById('monthlyPanel').classList.add('active');
+                    break;
+                case 'customers':
+                    document.getElementById('customersPanel').classList.add('active');
+                    loadWholesaleCustomers();
+                    break;
+            }
+        }
+
+        async function loadYTDData() {
+            try {
+                showLoading('ytd');
+                
+                const response = await fetch('/api/wholesale-retail/analysis?period=comparative');
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                // Update summary cards with latest year data
+                if (data.periods && data.periods.length > 0) {
+                    const currentYear = data.periods[0]; // First period should be current year
+                    document.getElementById('ytdWholesale').textContent = '$' + currentYear.wholesale_sales.toLocaleString('en-US', {minimumFractionDigits: 0});
+                    document.getElementById('ytdRetail').textContent = '$' + currentYear.retail_sales.toLocaleString('en-US', {minimumFractionDigits: 0});
+                    document.getElementById('ytdTotalGP').textContent = '$' + currentYear.total_gp.toLocaleString('en-US', {minimumFractionDigits: 0});
+                    
+                    const gpPercent = currentYear.total_sales > 0 ? (currentYear.total_gp / currentYear.total_sales * 100) : 0;
+                    document.getElementById('ytdGPPercent').textContent = gpPercent.toFixed(1) + '% margin';
+                }
+
+                // Populate YTD table
+                const tbody = document.getElementById('ytdTableBody');
+                tbody.innerHTML = '';
+
+                if (data.periods && data.periods.length > 0) {
+                    data.periods.forEach(period => {
+                        const row = document.createElement('tr');
+                        
+                        const wholesaleGPPct = period.wholesale_sales > 0 ? (period.wholesale_gp / period.wholesale_sales * 100) : 0;
+                        const retailGPPct = period.retail_sales > 0 ? (period.retail_gp / period.retail_sales * 100) : 0;
+                        const totalGPPct = period.total_sales > 0 ? (period.total_gp / period.total_sales * 100) : 0;
+                        
+                        row.innerHTML = `
+                            <td><strong>${period.period}</strong></td>
+                            <td class="amount wholesale-color">$${period.wholesale_sales.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount retail-color">$${period.retail_sales.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount total-color">$${period.total_sales.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount wholesale-color">$${period.wholesale_gp.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount retail-color">$${period.retail_gp.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount total-color">$${period.total_gp.toLocaleString('en-US', {minimumFractionDigits: 0})} <small>(${totalGPPct.toFixed(1)}%)</small></td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+
+                hideLoading('ytd');
+
+            } catch (error) {
+                console.error('Error loading YTD data:', error);
+                hideLoading('ytd');
+            }
+        }
+
+        async function loadWholesaleCustomers() {
+            try {
+                showLoading('customers');
+                
+                const response = await fetch('/api/wholesale-retail/wholesale-customers?limit=30');
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const tbody = document.getElementById('customersTableBody');
+                tbody.innerHTML = '';
+
+                if (data.wholesale_customers && data.wholesale_customers.length > 0) {
+                    data.wholesale_customers.forEach(customer => {
+                        const row = document.createElement('tr');
+                        
+                        const nsfWarning = customer.nsf_count > 0 ? 'style="color: #e53e3e; font-weight: bold;"' : '';
+                        const arBalanceColor = customer.account_balance > 10000 ? 'style="color: #e53e3e; font-weight: bold;"' : '';
+                        
+                        row.innerHTML = `
+                            <td><strong>${customer.name}</strong></td>
+                            <td>${customer.company}</td>
+                            <td class="amount wholesale-color">$${customer.sales_12months.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount" ${arBalanceColor}>$${customer.account_balance.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td>${customer.payment_terms}</td>
+                            <td ${nsfWarning}>${customer.nsf_count}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                } else {
+                    tbody.innerHTML = '<tr><td colspan="6" class="loading">No wholesale customers found</td></tr>';
+                }
+
+                hideLoading('customers');
+
+            } catch (error) {
+                console.error('Error loading wholesale customers:', error);
+                hideLoading('customers');
+            }
+        }
+
+        async function loadMonthlyData(year) {
+            const tbody = document.getElementById('monthlyTableBody');
+            tbody.innerHTML = `<tr><td colspan="6" class="loading">Loading monthly data for ${year}...</td></tr>`;
+            
+            try {
+                const response = await fetch(`/api/wholesale-retail/monthly/${year}`);
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                tbody.innerHTML = '';
+
+                if (data.monthly_data && data.monthly_data.length > 0) {
+                    data.monthly_data.forEach(month => {
+                        const row = document.createElement('tr');
+                        
+                        const totalGPPct = month.total_sales > 0 ? (month.total_gp / month.total_sales * 100) : 0;
+                        
+                        row.innerHTML = `
+                            <td><strong>${month.month_name}</strong></td>
+                            <td class="amount wholesale-color">$${month.wholesale_sales.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount retail-color">$${month.retail_sales.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount total-color">$${month.total_sales.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount total-color">$${month.total_gp.toLocaleString('en-US', {minimumFractionDigits: 0})}</td>
+                            <td class="amount">${totalGPPct.toFixed(1)}%</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="6" class="loading">No data available for ${year}</td></tr>`;
+                }
+
+            } catch (error) {
+                console.error(`Error loading monthly ${year} data:`, error);
+                tbody.innerHTML = `<tr><td colspan="6" style="color: #e53e3e; text-align: center;">Error loading ${year} data</td></tr>`;
+            }
+        }
+
+        function showLoading(section) {
+            document.getElementById(section + 'Loading').style.display = 'block';
+            const table = document.getElementById(section + 'Table');
+            if (table) table.style.display = 'none';
+        }
+
+        function hideLoading(section) {
+            document.getElementById(section + 'Loading').style.display = 'none';
+            const table = document.getElementById(section + 'Table');
+            if (table) table.style.display = 'table';
+        }
+    </script>
+</body>
+</html>

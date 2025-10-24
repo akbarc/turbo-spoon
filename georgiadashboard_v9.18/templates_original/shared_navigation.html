@@ -1,0 +1,466 @@
+<!-- Shared Navigation Component for Georgia Dashboard -->
+<!-- Include this in all pages for consistent navigation -->
+
+<style>
+    :root {
+        --nav-primary: #6366f1;
+        --nav-primary-dark: #4f46e5;
+        --nav-secondary: #22d3ee;
+        --nav-success: #10b981;
+        --nav-dark: #1e293b;
+        --nav-light: #f8fafc;
+        --nav-border: #e2e8f0;
+        --nav-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+        --nav-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Modern Expandable Sidebar */
+    .nav-sidebar {
+        width: 70px;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+    }
+
+    .nav-sidebar:hover {
+        width: 240px;
+    }
+
+    /* Logo Section */
+    .nav-logo {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--nav-border);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        min-height: 70px;
+    }
+
+    .nav-logo-icon {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--nav-primary) 0%, var(--nav-secondary) 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.25rem;
+    }
+
+    .nav-logo-text {
+        font-weight: 700;
+        font-size: 1.125rem;
+        color: var(--nav-dark);
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav-sidebar:hover .nav-logo-text {
+        opacity: 1;
+    }
+
+    /* Navigation Items Container */
+    .nav-items {
+        flex: 1;
+        padding: 1rem 0.5rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* Section Headers */
+    .nav-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .nav-section-title {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #94a3b8;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav-sidebar:hover .nav-section-title {
+        opacity: 1;
+    }
+
+    /* Navigation Links */
+    .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0.5rem;
+        border-radius: 10px;
+        color: var(--nav-dark);
+        text-decoration: none;
+        transition: all 0.2s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nav-link:hover {
+        background: var(--nav-light);
+        transform: translateX(2px);
+    }
+
+    .nav-link.active {
+        background: linear-gradient(135deg, var(--nav-primary) 0%, var(--nav-primary-dark) 100%);
+        color: white;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+    .nav-link.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--nav-secondary);
+    }
+
+    .nav-icon {
+        min-width: 24px;
+        width: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+    }
+
+    .nav-text {
+        margin-left: 1rem;
+        font-weight: 500;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav-sidebar:hover .nav-text {
+        opacity: 1;
+    }
+
+    /* Badge for notifications */
+    .nav-badge {
+        margin-left: auto;
+        padding: 0.125rem 0.5rem;
+        background: var(--nav-danger, #ef4444);
+        color: white;
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav-sidebar:hover .nav-badge {
+        opacity: 1;
+    }
+
+    /* User Section at Bottom */
+    .nav-user {
+        padding: 1rem;
+        border-top: 1px solid var(--nav-border);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-user-avatar {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        background: var(--nav-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--nav-primary);
+        font-weight: 600;
+    }
+
+    .nav-user-info {
+        flex: 1;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .nav-sidebar:hover .nav-user-info {
+        opacity: 1;
+    }
+
+    .nav-user-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--nav-dark);
+        white-space: nowrap;
+    }
+
+    .nav-user-role {
+        font-size: 0.75rem;
+        color: #94a3b8;
+        white-space: nowrap;
+    }
+
+    /* Main Content Adjustment */
+    .main-content-wrapper {
+        margin-left: 70px;
+        transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-height: 100vh;
+        background: var(--nav-light);
+    }
+
+    /* Mobile Toggle Button */
+    .nav-mobile-toggle {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1001;
+        width: 40px;
+        height: 40px;
+        background: white;
+        border: 1px solid var(--nav-border);
+        border-radius: 8px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: var(--nav-shadow);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .nav-sidebar {
+            transform: translateX(-100%);
+        }
+        
+        .nav-sidebar.mobile-open {
+            transform: translateX(0);
+            width: 240px;
+        }
+        
+        .main-content-wrapper {
+            margin-left: 0;
+        }
+        
+        .nav-mobile-toggle {
+            display: flex;
+        }
+        
+        /* Overlay for mobile */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .nav-overlay.active {
+            display: block;
+        }
+    }
+
+    /* Scrollbar Styling */
+    .nav-items::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .nav-items::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .nav-items::-webkit-scrollbar-thumb {
+        background: var(--nav-border);
+        border-radius: 2px;
+    }
+
+    .nav-items:hover::-webkit-scrollbar-thumb {
+        background: #cbd5e0;
+    }
+</style>
+
+<!-- Navigation Sidebar -->
+<nav class="nav-sidebar" id="navSidebar">
+    <!-- Logo -->
+    <div class="nav-logo">
+        <div class="nav-logo-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <span class="nav-logo-text">Georgia Dashboard</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div class="nav-items">
+        <!-- Main Section -->
+        <div class="nav-section">
+            <div class="nav-section-title">Main</div>
+            
+            <a href="/" class="nav-link" id="nav-dashboard">
+                <span class="nav-icon"><i class="fas fa-home"></i></span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            
+            <a href="/ai-assistant" class="nav-link" id="nav-ai">
+                <span class="nav-icon"><i class="fas fa-robot"></i></span>
+                <span class="nav-text">AI Assistant</span>
+            </a>
+        </div>
+
+        <!-- Operations Section -->
+        <div class="nav-section">
+            <div class="nav-section-title">Operations</div>
+            
+            <a href="/sales-ops" class="nav-link" id="nav-sales">
+                <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                <span class="nav-text">Sales Operations</span>
+            </a>
+            
+            <a href="/ar-dashboard" class="nav-link" id="nav-ar">
+                <span class="nav-icon"><i class="fas fa-file-invoice-dollar"></i></span>
+                <span class="nav-text">AR Dashboard</span>
+            </a>
+            
+            <a href="/customer-ledger" class="nav-link" id="nav-customers">
+                <span class="nav-icon"><i class="fas fa-users"></i></span>
+                <span class="nav-text">Customers</span>
+            </a>
+            
+            <a href="/suppliers" class="nav-link" id="nav-suppliers">
+                <span class="nav-icon"><i class="fas fa-truck"></i></span>
+                <span class="nav-text">Suppliers</span>
+            </a>
+        </div>
+
+        <!-- Analytics Section -->
+        <div class="nav-section">
+            <div class="nav-section-title">Analytics</div>
+            
+            <a href="/gp-analysis" class="nav-link" id="nav-gp">
+                <span class="nav-icon"><i class="fas fa-percentage"></i></span>
+                <span class="nav-text">GP Analysis</span>
+            </a>
+            
+            <a href="/wholesale-retail" class="nav-link" id="nav-wholesale">
+                <span class="nav-icon"><i class="fas fa-store"></i></span>
+                <span class="nav-text">Wholesale/Retail</span>
+            </a>
+            
+            <a href="/inventory" class="nav-link" id="nav-inventory">
+                <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                <span class="nav-text">Inventory</span>
+            </a>
+        </div>
+
+        <!-- Settings Section -->
+        <div class="nav-section">
+            <div class="nav-section-title">System</div>
+            
+            <a href="/settings" class="nav-link" id="nav-settings">
+                <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                <span class="nav-text">Settings</span>
+            </a>
+            
+            <a href="/api" class="nav-link" id="nav-api">
+                <span class="nav-icon"><i class="fas fa-code"></i></span>
+                <span class="nav-text">API Docs</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- User Section -->
+    <div class="nav-user">
+        <div class="nav-user-avatar">
+            <i class="fas fa-user"></i>
+        </div>
+        <div class="nav-user-info">
+            <div class="nav-user-name">Store Admin</div>
+            <div class="nav-user-role">Administrator</div>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Toggle -->
+<button class="nav-mobile-toggle" onclick="toggleMobileNav()">
+    <i class="fas fa-bars"></i>
+</button>
+
+<!-- Mobile Overlay -->
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+
+<!-- JavaScript for Navigation -->
+<script>
+    // Set active state based on current path
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Special cases for nested routes
+        if (currentPath.startsWith('/ar-')) {
+            document.getElementById('nav-ar')?.classList.add('active');
+        } else if (currentPath.startsWith('/customer')) {
+            document.getElementById('nav-customers')?.classList.add('active');
+        } else if (currentPath === '/') {
+            document.getElementById('nav-dashboard')?.classList.add('active');
+        }
+    });
+
+    // Mobile navigation functions
+    function toggleMobileNav() {
+        const sidebar = document.getElementById('navSidebar');
+        const overlay = document.getElementById('navOverlay');
+        
+        sidebar.classList.toggle('mobile-open');
+        overlay.classList.toggle('active');
+    }
+
+    function closeMobileNav() {
+        const sidebar = document.getElementById('navSidebar');
+        const overlay = document.getElementById('navOverlay');
+        
+        sidebar.classList.remove('mobile-open');
+        overlay.classList.remove('active');
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        // Press 'M' to toggle menu on mobile
+        if (e.key === 'm' && e.ctrlKey) {
+            toggleMobileNav();
+        }
+    });
+</script>

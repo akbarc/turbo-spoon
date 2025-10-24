@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer 360° View - {{ customer_name }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .customer-info {
+            flex: 1;
+        }
+        
+        .customer-name {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .customer-meta {
+            display: flex;
+            gap: 20px;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #5a67d8;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        /* Risk Badge */
+        .risk-badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .risk-low {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .risk-medium {
+            background: #fed7aa;
+            color: #7c2d12;
+        }
+        
+        .risk-high {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        .risk-critical {
+            background: #fc8181;
+            color: white;
+        }
+        
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .kpi-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        
+        .kpi-label {
+            color: #718096;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .kpi-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .kpi-change {
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .kpi-change.positive {
+            color: #48bb78;
+        }
+        
+        .kpi-change.negative {
+            color: #f56565;
+        }
+        
+        /* Tabs */
+        .tabs {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .tab-header {
+            display: flex;
+            background: #f7fafc;
+            overflow-x: auto;
+        }
+        
+        .tab-btn {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            color: #718096;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        
+        .tab-btn:hover {
+            background: #edf2f7;
+        }
+        
+        .tab-btn.active {
+            color: #667eea;
+            background: white;
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #667eea;
+        }
+        
+        .tab-content {
+            padding: 30px;
+            min-height: 500px;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+        
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .chart-card {
+            background: #f7fafc;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .data-table th {
+            background: #f7fafc;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 14px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .data-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #2d3748;
+        }
+        
+        .data-table tr:hover {
+            background: #f7fafc;
+        }
+        
+        /* Recommendations */
+        .recommendation-card {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .recommendation-priority {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .priority-urgent {
+            background: #fc8181;
+            color: white;
+        }
+        
+        .priority-high {
+            background: #f6ad55;
+            color: white;
+        }
+        
+        .priority-medium {
+            background: #4299e1;
+            color: white;
+        }
+        
+        .priority-low {
+            background: #48bb78;
+            color: white;
+        }
+        
+        .recommendation-action {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .recommendation-impact {
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: 12px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #667eea;
+        }
+        
+        .timeline-content {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .timeline-date {
+            color: #718096;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-description {
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #718096;
+        }
+        
+        .spinner {
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .kpi-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-header {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="customer-info">
+                    <div class="customer-name" id="customerName">Loading...</div>
+                    <div class="customer-meta">
+                        <span><i class="fas fa-phone"></i> <span id="customerPhone">-</span></span>
+                        <span><i class="fas fa-envelope"></i> <span id="customerEmail">-</span></span>
+                        <span><i class="fas fa-user-tie"></i> <span id="customerSalesman">-</span></span>
+                        <span><i class="fas fa-calendar"></i> Customer since <span id="customerSince">-</span></span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <span class="risk-badge" id="riskBadge">Assessing...</span>
+                    <button class="btn btn-secondary" onclick="exportReport()">
+                        <i class="fas fa-download"></i> Export Report
+                    </button>
+                    <button class="btn btn-primary" onclick="refreshData()">
+                        <i class="fas fa-sync"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">AR Balance</div>
+                <div class="kpi-value" id="arBalance">$0</div>
+                <div class="kpi-change" id="arChange">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>0% from last month</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Credit Limit</div>
+                <div class="kpi-value" id="creditLimit">$0</div>
+                <div class="kpi-change" id="creditUtilization">
+                    <span>0% utilized</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Avg Days to Pay</div>
+                <div class="kpi-value" id="avgDaysToPay">0</div>
+                <div class="kpi-change" id="paymentTrend">
+                    <span>Stable</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Risk Score</div>
+                <div class="kpi-value" id="riskScore">0</div>
+                <div class="kpi-change" id="riskTrend">
+                    <span>Low Risk</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Lifetime Value</div>
+                <div class="kpi-value" id="lifetimeValue">$0</div>
+                <div class="kpi-change" id="growthRate">
+                    <span>0% growth</span>
+                </div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Payment Score</div>
+                <div class="kpi-value" id="paymentScore">0</div>
+                <div class="kpi-change" id="paymentBehavior">
+                    <span>Good</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab-header">
+                <button class="tab-btn active" onclick="switchTab('overview')">
+                    <i class="fas fa-chart-line"></i> Overview
+                </button>
+                <button class="tab-btn" onclick="switchTab('sales')">
+                    <i class="fas fa-shopping-cart"></i> Sales Analytics
+                </button>
+                <button class="tab-btn" onclick="switchTab('payments')">
+                    <i class="fas fa-credit-card"></i> Payment History
+                </button>
+                <button class="tab-btn" onclick="switchTab('receivables')">
+                    <i class="fas fa-file-invoice-dollar"></i> Receivables
+                </button>
+                <button class="tab-btn" onclick="switchTab('patterns')">
+                    <i class="fas fa-chart-area"></i> Patterns
+                </button>
+                <button class="tab-btn" onclick="switchTab('predictions')">
+                    <i class="fas fa-crystal-ball"></i> Predictions
+                </button>
+                <button class="tab-btn" onclick="switchTab('recommendations')">
+                    <i class="fas fa-lightbulb"></i> Recommendations
+                </button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Overview Tab -->
+                <div class="tab-pane active" id="overview-tab">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">Sales Trend (12 Months)</div>
+                            <canvas id="salesTrendChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">AR Aging</div>
+                            <canvas id="arAgingChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">Recent Activity</h3>
+                    <div class="timeline" id="recentActivity">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            Loading activity...
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sales Analytics Tab -->
+                <div class="tab-pane" id="sales-tab">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">Monthly Revenue</div>
+                            <canvas id="monthlyRevenueChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Product Mix</div>
+                            <canvas id="productMixChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">Top Products</h3>
+                    <table class="data-table" id="topProductsTable">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Purchases</th>
+                                <th>Quantity</th>
+                                <th>Revenue</th>
+                                <th>Last Purchased</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="6" style="text-align: center;">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Payment History Tab -->
+                <div class="tab-pane" id="payments-tab">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">Payment Methods</div>
+                            <canvas id="paymentMethodsChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Payment Timing Distribution</div>
+                            <canvas id="paymentTimingChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">NSF/Returns</h3>
+                    <div id="nsfReturns">
+                        <p style="color: #718096;">No NSF or returned checks</p>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">Recent Payments</h3>
+                    <table class="data-table" id="recentPaymentsTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Check #</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="5" style="text-align: center;">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Receivables Tab -->
+                <div class="tab-pane" id="receivables-tab">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">AR Aging Breakdown</div>
+                            <canvas id="arAgingDetailChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Collection Forecast</div>
+                            <canvas id="collectionForecastChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">Open Invoices</h3>
+                    <table class="data-table" id="openInvoicesTable">
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Date</th>
+                                <th>Original</th>
+                                <th>Balance</th>
+                                <th>Age</th>
+                                <th>Status</th>
+                                <th>Collection Prob.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="7" style="text-align: center;">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Patterns Tab -->
+                <div class="tab-pane" id="patterns-tab">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">Purchase Patterns</div>
+                            <canvas id="purchasePatternsChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Seasonality Index</div>
+                            <canvas id="seasonalityChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">Behavioral Insights</h3>
+                    <div id="behavioralInsights">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            Analyzing patterns...
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Predictions Tab -->
+                <div class="tab-pane" id="predictions-tab">
+                    <div class="chart-grid">
+                        <div class="chart-card">
+                            <div class="chart-title">Revenue Forecast</div>
+                            <canvas id="revenueForecastChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-title">Collection Timeline</div>
+                            <canvas id="collectionTimelineChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin: 30px 0 20px; color: #2d3748;">Predictions</h3>
+                    <div id="predictionsContent">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            Generating predictions...
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recommendations Tab -->
+                <div class="tab-pane" id="recommendations-tab">
+                    <h3 style="margin-bottom: 20px; color: #2d3748;">Actionable Recommendations</h3>
+                    <div id="recommendationsList">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            Generating recommendations...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Get customer ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const customerId = urlParams.get('id');
+        
+        // Global data storage
+        let customerData = {};
+        let charts = {};
+        
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!customerId) {
+                alert('No customer ID provided');
+                return;
+            }
+            loadCustomerData();
+        });
+        
+        async function loadCustomerData() {
+            try {
+                const response = await fetch(`/api/customer/${customerId}/360-view`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    customerData = result.data;
+                    updateUI();
+                    initializeCharts();
+                } else {
+                    console.error('Failed to load customer data:', result.error);
+                }
+            } catch (error) {
+                console.error('Error loading customer data:', error);
+            }
+        }
+        
+        function updateUI() {
+            // Update header
+            const customer = customerData.customer || {};
+            document.getElementById('customerName').textContent = customer.Company || `${customer.FirstName} ${customer.LastName}`;
+            document.getElementById('customerPhone').textContent = customer.PhoneNumber || '-';
+            document.getElementById('customerEmail').textContent = customer.Email || '-';
+            document.getElementById('customerSalesman').textContent = customer.SalesmanName || '-';
+            document.getElementById('customerSince').textContent = formatDate(customer.DateCreated);
+            
+            // Update risk badge
+            const risk = customerData.risk?.risk_assessment || {};
+            updateRiskBadge(risk.risk_level, risk.risk_score);
+            
+            // Update KPIs
+            updateKPIs();
+            
+            // Update tab content
+            updateOverviewTab();
+            updateSalesTab();
+            updatePaymentsTab();
+            updateReceivablesTab();
+            updatePatternsTab();
+            updatePredictionsTab();
+            updateRecommendationsTab();
+        }
+        
+        function updateRiskBadge(level, score) {
+            const badge = document.getElementById('riskBadge');
+            badge.textContent = `${level || 'Unknown'} (${score || 0}/100)`;
+            
+            // Remove all risk classes
+            badge.className = 'risk-badge';
+            
+            // Add appropriate class
+            if (level === 'High Risk' || level === 'Critical') {
+                badge.classList.add('risk-critical');
+            } else if (level === 'Medium Risk') {
+                badge.classList.add('risk-medium');
+            } else if (level === 'Low Risk') {
+                badge.classList.add('risk-low');
+            } else {
+                badge.classList.add('risk-low');
+            }
+        }
+        
+        function updateKPIs() {
+            // AR Balance
+            const receivables = customerData.receivables?.aging_summary || {};
+            document.getElementById('arBalance').textContent = formatCurrency(receivables.total_ar || 0);
+            
+            // Credit Limit
+            const customer = customerData.customer || {};
+            document.getElementById('creditLimit').textContent = formatCurrency(customer.CreditLimit || 0);
+            const utilization = customer.CreditLimit > 0 ? 
+                ((customer.AccountBalance / customer.CreditLimit) * 100).toFixed(1) : 0;
+            document.getElementById('creditUtilization').innerHTML = `<span>${utilization}% utilized</span>`;
+            
+            // Avg Days to Pay
+            const payments = customerData.payments?.summary || {};
+            document.getElementById('avgDaysToPay').textContent = Math.round(payments.avg_days_to_pay || 0);
+            document.getElementById('paymentTrend').innerHTML = `<span>${payments.payment_trend || 'Unknown'}</span>`;
+            
+            // Risk Score
+            const risk = customerData.risk?.risk_assessment || {};
+            document.getElementById('riskScore').textContent = risk.risk_score || 0;
+            document.getElementById('riskTrend').innerHTML = `<span>${risk.risk_level || 'Unknown'}</span>`;
+            
+            // Lifetime Value
+            const sales = customerData.sales?.overview || {};
+            document.getElementById('lifetimeValue').textContent = formatCurrency(sales.total_revenue || 0);
+            const growth = sales.quarterly_growth_rate || 0;
+            document.getElementById('growthRate').innerHTML = 
+                `<span class="${growth > 0 ? 'positive' : 'negative'}">${growth.toFixed(1)}% growth</span>`;
+            
+            // Payment Score
+            document.getElementById('paymentScore').textContent = payments.payment_score || 0;
+            document.getElementById('paymentBehavior').innerHTML = 
+                `<span>${customerData.payments?.behavior_classification || 'Unknown'}</span>`;
+        }
+        
+        function initializeCharts() {
+            // Initialize all charts
+            initSalesTrendChart();
+            initARAgingChart();
+            initMonthlyRevenueChart();
+            initProductMixChart();
+            initPaymentMethodsChart();
+            initPaymentTimingChart();
+            initARAgingDetailChart();
+            initCollectionForecastChart();
+            initPurchasePatternsChart();
+            initSeasonalityChart();
+            initRevenueForecastChart();
+            initCollectionTimelineChart();
+        }
+        
+        function initSalesTrendChart() {
+            const ctx = document.getElementById('salesTrendChart').getContext('2d');
+            const monthlyData = customerData.sales?.monthly_trend || [];
+            
+            charts.salesTrend = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: monthlyData.map(d => `${d.month}/${d.year}`),
+                    datasets: [{
+                        label: 'Revenue',
+                        data: monthlyData.map(d => d.revenue),
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+        
+        function initARAgingChart() {
+            const ctx = document.getElementById('arAgingChart').getContext('2d');
+            const aging = customerData.receivables?.aging_summary || {};
+            
+            charts.arAging = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Current', '31-60', '61-90', '91-120', 'Over 120'],
+                    datasets: [{
+                        data: [
+                            aging.current_ar || 0,
+                            aging.ar_31_60 || 0,
+                            aging.ar_61_90 || 0,
+                            aging.ar_91_120 || 0,
+                            aging.ar_over_120 || 0
+                        ],
+                        backgroundColor: [
+                            '#48bb78',
+                            '#38b2ac',
+                            '#f6ad55',
+                            '#ed8936',
+                            '#f56565'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+        
+        // Tab switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.closest('.tab-btn').classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+        }
+        
+        // Utility functions
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(value || 0);
+        }
+        
+        function formatDate(dateString) {
+            if (!dateString) return '-';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+        
+        function refreshData() {
+            loadCustomerData();
+        }
+        
+        function exportReport() {
+            // TODO: Implement export functionality
+            alert('Export functionality coming soon');
+        }
+        
+        // Additional chart initialization functions
+        function initMonthlyRevenueChart() {
+            // Implementation
+        }
+        
+        function initProductMixChart() {
+            // Implementation
+        }
+        
+        function initPaymentMethodsChart() {
+            // Implementation
+        }
+        
+        function initPaymentTimingChart() {
+            // Implementation
+        }
+        
+        function initARAgingDetailChart() {
+            // Implementation
+        }
+        
+        function initCollectionForecastChart() {
+            // Implementation
+        }
+        
+        function initPurchasePatternsChart() {
+            // Implementation
+        }
+        
+        function initSeasonalityChart() {
+            // Implementation
+        }
+        
+        function initRevenueForecastChart() {
+            // Implementation
+        }
+        
+        function initCollectionTimelineChart() {
+            // Implementation
+        }
+        
+        // Tab update functions
+        function updateOverviewTab() {
+            // Implementation
+        }
+        
+        function updateSalesTab() {
+            // Implementation
+        }
+        
+        function updatePaymentsTab() {
+            // Implementation
+        }
+        
+        function updateReceivablesTab() {
+            // Implementation
+        }
+        
+        function updatePatternsTab() {
+            // Implementation
+        }
+        
+        function updatePredictionsTab() {
+            // Implementation
+        }
+        
+        function updateRecommendationsTab() {
+            const recommendations = customerData.recommendations || [];
+            const container = document.getElementById('recommendationsList');
+            
+            if (recommendations.length === 0) {
+                container.innerHTML = '<p style="color: #718096;">No recommendations at this time.</p>';
+                return;
+            }
+            
+            container.innerHTML = recommendations.map(rec => `
+                <div class="recommendation-card">
+                    <span class="recommendation-priority priority-${rec.priority}">${rec.priority}</span>
+                    <div class="recommendation-action">${rec.action}</div>
+                    <div class="recommendation-impact">${rec.impact}</div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

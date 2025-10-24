@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS System Dashboard - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #1a202c;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header .subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .nav-tab {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            color: #64748b;
+        }
+
+        .nav-tab:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .nav-tab.active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+        }
+
+        .error {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #6b7280;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .back-button:hover {
+            background: #4b5563;
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <h1>
+                <i class="fas fa-cash-register"></i>
+                POS System Dashboard
+            </h1>
+            <div class="subtitle">Generate Receipts, Run Reports, and Search Transactions</div>
+        </div>
+        <a href="/" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Main Dashboard
+        </a>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('receipts')">
+                <i class="fas fa-receipt"></i> Generate Receipts
+            </button>
+            <button class="nav-tab" onclick="switchTab('reports')">
+                <i class="fas fa-chart-bar"></i> Run Reports
+            </button>
+            <button class="nav-tab" onclick="switchTab('search')">
+                <i class="fas fa-search"></i> Search Transactions
+            </button>
+        </div>
+
+        <!-- Generate Receipts Tab -->
+        <div id="receipts-tab" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-receipt"></i> Generate POS Receipts
+                </div>
+                <div class="card-body">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="transaction-number" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Transaction Number:</label>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <input type="number" id="transaction-number" placeholder="Enter transaction number" style="flex: 1; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                            <button onclick="generateReceipt()" style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border: none; border-radius: 6px; cursor: pointer;">
+                                <i class="fas fa-receipt"></i> Generate Receipt
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="receipt-result" style="display: none;">
+                        <div class="card" style="background: #f8fafc;">
+                            <div class="card-header" style="background: #1f2937;">
+                                <i class="fas fa-receipt"></i> Generated Receipt
+                            </div>
+                            <div class="card-body">
+                                <div id="receipt-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="receipt-error" class="error" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Run Reports Tab -->
+        <div id="reports-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar"></i> Run POS Reports
+                </div>
+                <div class="card-body">
+                    <!-- Report Filters -->
+                    <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Report Type:</label>
+                            <select id="report-type" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                                <option value="daily_sales">Daily Sales Summary</option>
+                                <option value="category_sales">Sales by Category</option>
+                                <option value="customer_sales">Sales by Customer</option>
+                                <option value="item_sales">Top Selling Items</option>
+                                <option value="cashier_performance">Cashier Performance</option>
+                                <option value="payment_methods">Payment Methods</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Start Date:</label>
+                            <input type="date" id="report-start-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">End Date:</label>
+                            <input type="date" id="report-end-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                        <button onclick="runReport()" style="background: #10b981; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-play"></i> Run Report
+                        </button>
+                        <button onclick="exportReport('csv')" style="background: #f59e0b; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-file-csv"></i> Export CSV
+                        </button>
+                        <button onclick="exportReport('excel')" style="background: #059669; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                            <i class="fas fa-file-excel"></i> Export Excel
+                        </button>
+                    </div>
+                    
+                    <div id="report-loading" class="loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Running report...
+                    </div>
+                    <div id="report-results" style="display: none;"></div>
+                    <div id="report-error" class="error" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Search Transactions Tab -->
+        <div id="search-tab" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-search"></i> Search Transactions
+                </div>
+                <div class="card-body">
+                    <!-- Search Filters -->
+                    <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Search Term:</label>
+                            <input type="text" id="search-term" placeholder="Customer name, reference, comment..." style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Min Amount:</label>
+                            <input type="number" id="search-min-amount" placeholder="0.00" step="0.01" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Max Amount:</label>
+                            <input type="number" id="search-max-amount" placeholder="999999.99" step="0.01" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Date From:</label>
+                            <input type="date" id="search-start-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Date To:</label>
+                            <input type="date" id="search-end-date" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Customer ID:</label>
+                            <input type="number" id="search-customer-id" placeholder="Customer ID" style="width: 100%; padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                        </div>
+                    </div>
+                    
+                    <button onclick="searchTransactions()" style="background: #3b82f6; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; margin-bottom: 1.5rem;">
+                        <i class="fas fa-search"></i> Search Transactions
+                    </button>
+                    
+                    <div id="search-loading" class="loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i> Searching transactions...
+                    </div>
+                    <div id="search-results" style="display: none;"></div>
+                    <div id="search-error" class="error" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Generate receipt for transaction
+        function generateReceipt() {
+            const transactionNumber = document.getElementById('transaction-number').value;
+            const resultDiv = document.getElementById('receipt-result');
+            const contentDiv = document.getElementById('receipt-content');
+            const errorDiv = document.getElementById('receipt-error');
+            
+            if (!transactionNumber) {
+                errorDiv.innerHTML = 'Please enter a transaction number';
+                errorDiv.style.display = 'block';
+                resultDiv.style.display = 'none';
+                return;
+            }
+            
+            errorDiv.style.display = 'none';
+            resultDiv.style.display = 'none';
+            
+            fetch(`/api/pos/generate-receipt/${transactionNumber}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const transaction = data.data.transaction;
+                        const items = data.data.items;
+                        
+                        let receiptHtml = `
+                            <div style="font-family: 'Courier New', monospace; background: white; padding: 1rem; border: 1px solid #d1d5db; border-radius: 6px;">
+                                <div style="text-align: center; margin-bottom: 1rem; font-weight: bold;">
+                                    GEORGIA WAREHOUSE<br>
+                                    SALES RECEIPT
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <strong>Transaction #:</strong> ${transaction.TransactionNumber}<br>
+                                    <strong>Date:</strong> ${new Date(transaction.Time).toLocaleString()}<br>
+                                    <strong>Customer:</strong> ${transaction.CustomerName || 'Walk-in'}<br>
+                                    ${transaction.ReferenceNumber ? `<strong>Reference:</strong> ${transaction.ReferenceNumber}<br>` : ''}
+                                </div>
+                                <hr style="border: 1px solid #000; margin: 1rem 0;">
+                                <div style="margin-bottom: 1rem;">
+                        `;
+                        
+                        items.forEach(item => {
+                            receiptHtml += `
+                                <div style="margin-bottom: 0.5rem;">
+                                    <strong>${item.Description}</strong><br>
+                                    ${item.Quantity} x $${parseFloat(item.Price).toFixed(2)} = $${parseFloat(item.LineTotal).toFixed(2)}
+                                </div>
+                            `;
+                        });
+                        
+                        receiptHtml += `
+                                </div>
+                                <hr style="border: 1px solid #000; margin: 1rem 0;">
+                                <div style="text-align: right;">
+                                    <strong>Subtotal: $${(parseFloat(transaction.Total) - parseFloat(transaction.SalesTax)).toFixed(2)}</strong><br>
+                                    <strong>Tax: $${parseFloat(transaction.SalesTax).toFixed(2)}</strong><br>
+                                    <strong>Total: $${parseFloat(transaction.Total).toFixed(2)}</strong>
+                                </div>
+                                <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+                                    Thank you for your business!
+                                </div>
+                            </div>
+                        `;
+                        
+                        contentDiv.innerHTML = receiptHtml;
+                        resultDiv.style.display = 'block';
+                    } else {
+                        errorDiv.innerHTML = data.error || 'Failed to generate receipt';
+                        errorDiv.style.display = 'block';
+                    }
+                })
+                .catch(err => {
+                    errorDiv.innerHTML = 'Error generating receipt: ' + err.message;
+                    errorDiv.style.display = 'block';
+                });
+        }
+        
+        // Run POS report
+        function runReport() {
+            const reportType = document.getElementById('report-type').value;
+            const startDate = document.getElementById('report-start-date').value;
+            const endDate = document.getElementById('report-end-date').value;
+            const loading = document.getElementById('report-loading');
+            const results = document.getElementById('report-results');
+            const error = document.getElementById('report-error');
+            
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            error.style.display = 'none';
+            
+            let url = `/api/pos/run-report?type=${reportType}`;
+            if (startDate) url += `&start_date=${startDate}`;
+            if (endDate) url += `&end_date=${endDate}`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    loading.style.display = 'none';
+                    
+                    if (data.success && data.data.length > 0) {
+                        results.innerHTML = renderReportResults(data);
+                        results.style.display = 'block';
+                    } else {
+                        results.innerHTML = '<div class="empty-state"><i class="fas fa-chart-bar"></i><h3>No Data Found</h3><p>No data found for the selected filters.</p></div>';
+                        results.style.display = 'block';
+                    }
+                })
+                .catch(err => {
+                    loading.style.display = 'none';
+                    error.innerHTML = 'Error running report: ' + err.message;
+                    error.style.display = 'block';
+                });
+        }
+        
+        // Render report results
+        function renderReportResults(data) {
+            let html = `
+                <div class="card" style="background: #f8fafc;">
+                    <div class="card-header" style="background: #1f2937;">
+                        <i class="fas fa-chart-line"></i> ${data.report_type.replace('_', ' ').toUpperCase()} REPORT
+                        <span style="float: right; font-size: 0.9rem;">Rows: ${data.row_count}</span>
+                    </div>
+                    <div class="card-body">
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: #e5e7eb;">
+            `;
+            
+            // Generate table headers
+            if (data.data.length > 0) {
+                Object.keys(data.data[0]).forEach(key => {
+                    html += `<th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">${key.replace(/([A-Z])/g, ' $1').trim()}</th>`;
+                });
+            }
+            
+            html += `
+                                    </tr>
+                                </thead>
+                                <tbody>
+            `;
+            
+            // Generate table rows
+            data.data.forEach((row, index) => {
+                html += `<tr style="${index % 2 === 0 ? 'background: white;' : 'background: #f9fafb;'}">`;
+                Object.values(row).forEach(value => {
+                    // Format values
+                    let displayValue = value;
+                    if (typeof value === 'number' && value > 1000) {
+                        displayValue = '$' + value.toFixed(2);
+                    } else if (typeof value === 'string' && value.includes('T')) {
+                        // Date formatting
+                        try {
+                            displayValue = new Date(value).toLocaleDateString();
+                        } catch (e) {
+                            displayValue = value;
+                        }
+                    }
+                    html += `<td style="padding: 0.75rem; border: 1px solid #d1d5db;">${displayValue || 'N/A'}</td>`;
+                });
+                html += '</tr>';
+            });
+            
+            html += `
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return html;
+        }
+        
+        // Export report
+        function exportReport(format) {
+            const reportType = document.getElementById('report-type').value;
+            const startDate = document.getElementById('report-start-date').value;
+            const endDate = document.getElementById('report-end-date').value;
+            
+            let url = `/api/pos/export-report?type=${reportType}&format=${format}`;
+            if (startDate) url += `&start_date=${startDate}`;
+            if (endDate) url += `&end_date=${endDate}`;
+            
+            window.open(url, '_blank');
+        }
+        
+        // Search transactions
+        function searchTransactions() {
+            const searchTerm = document.getElementById('search-term').value;
+            const minAmount = document.getElementById('search-min-amount').value;
+            const maxAmount = document.getElementById('search-max-amount').value;
+            const startDate = document.getElementById('search-start-date').value;
+            const endDate = document.getElementById('search-end-date').value;
+            const customerId = document.getElementById('search-customer-id').value;
+            
+            const loading = document.getElementById('search-loading');
+            const results = document.getElementById('search-results');
+            const error = document.getElementById('search-error');
+            
+            loading.style.display = 'block';
+            results.style.display = 'none';
+            error.style.display = 'none';
+            
+            let url = '/api/pos/search-transactions?';
+            const params = [];
+            
+            if (searchTerm) params.push(`search=${encodeURIComponent(searchTerm)}`);
+            if (minAmount) params.push(`min_amount=${minAmount}`);
+            if (maxAmount) params.push(`max_amount=${maxAmount}`);
+            if (startDate) params.push(`start_date=${startDate}`);
+            if (endDate) params.push(`end_date=${endDate}`);
+            if (customerId) params.push(`customer_id=${customerId}`);
+            
+            url += params.join('&');
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    loading.style.display = 'none';
+                    
+                    if (data.success && data.data.length > 0) {
+                        let html = `
+                            <div class="card" style="background: #f8fafc;">
+                                <div class="card-header" style="background: #1f2937;">
+                                    <i class="fas fa-list"></i> TRANSACTION SEARCH RESULTS
+                                    <span style="float: right; font-size: 0.9rem;">Found: ${data.row_count} transactions</span>
+                                </div>
+                                <div class="card-body">
+                                    <div style="overflow-x: auto;">
+                                        <table style="width: 100%; border-collapse: collapse;">
+                                            <thead>
+                                                <tr style="background: #e5e7eb;">
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Transaction #</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Date</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Customer</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Total</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Tax</th>
+                                                    <th style="padding: 0.75rem; border: 1px solid #d1d5db; font-weight: 600;">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                        `;
+                        
+                        data.data.forEach((transaction, index) => {
+                            html += `
+                                <tr style="${index % 2 === 0 ? 'background: white;' : 'background: #f9fafb;'}">
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">${transaction.TransactionNumber}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">${new Date(transaction.Time).toLocaleDateString()}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">${transaction.CustomerName || 'Walk-in'}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">$${parseFloat(transaction.Total).toFixed(2)}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">$${parseFloat(transaction.SalesTax).toFixed(2)}</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #d1d5db;">
+                                        <button onclick="generateReceiptForTransaction(${transaction.TransactionNumber})" 
+                                                style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                                            <i class="fas fa-receipt"></i> Receipt
+                                        </button>
+                                        <button onclick="viewTransactionDetails(${transaction.TransactionNumber})" 
+                                                style="background: #3b82f6; color: white; padding: 0.25rem 0.5rem; border: none; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-left: 0.25rem;">
+                                            <i class="fas fa-eye"></i> Details
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
+                        });
+                        
+                        html += `
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        results.innerHTML = html;
+                        results.style.display = 'block';
+                    } else {
+                        results.innerHTML = '<div class="empty-state"><i class="fas fa-search"></i><h3>No Transactions Found</h3><p>No transactions match your search criteria.</p></div>';
+                        results.style.display = 'block';
+                    }
+                })
+                .catch(err => {
+                    loading.style.display = 'none';
+                    error.innerHTML = 'Error searching transactions: ' + err.message;
+                    error.style.display = 'block';
+                });
+        }
+        
+        // Generate receipt for specific transaction (from search results)
+        function generateReceiptForTransaction(transactionNumber) {
+            document.getElementById('transaction-number').value = transactionNumber;
+            switchTab('receipts');
+            setTimeout(() => generateReceipt(), 100);
+        }
+        
+        // View transaction details
+        function viewTransactionDetails(transactionNumber) {
+            window.open(`/api/transaction/${transactionNumber}/details`, '_blank');
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default dates
+            const today = new Date().toISOString().split('T')[0];
+            const lastWeek = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            
+            document.getElementById('report-start-date').value = lastWeek;
+            document.getElementById('report-end-date').value = today;
+            document.getElementById('search-start-date').value = lastWeek;
+            document.getElementById('search-end-date').value = today;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: NATIONAL HONEY ALMOND INC
+# Generated: 2025-09-06 16:56:21
+# Total Items: 2
+# Total Quantity: 700.0
+# Estimated Value: $11,375.00
+# Critical Items: 0
+# Urgent Items: 2
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+URGENT,819721012366,BLUNTVILLE 1.29 25CT TRPLE VAN,CIGARS,42,0.9,48.4,436,$16.25,$7085.00,STABLE,$2608.38,1
+URGENT,819721012427,BLUNTVILLE 1.29 25CT PINK DIVA,CIGARS,11,0.4,29.2,264,$16.25,$4290.00,STABLE,$1577.16,1

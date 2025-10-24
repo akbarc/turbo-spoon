@@ -1,0 +1,48 @@
+================================================================================
+5-YEAR HISTORICAL BUSINESS ANALYSIS (2019-2023)
+Generated: 2025-09-03T17:31:56.695218
+================================================================================
+
+YEARLY REVENUE GROWTH
+----------------------------------------
+5-Year Revenue CAGR: 0.00%
+Total Growth: 0.00%
+
+Year-by-Year Performance:
+
+
+CUSTOMER EVOLUTION
+----------------------------------------
+Active Customers by Year:
+
+
+TOP CATEGORY PERFORMANCE
+----------------------------------------
+
+2022 Top Categories:
+  CIGARETTE: $11,252,282
+  CIGARS: $8,458,510
+  ELECTRONIC CIG: $2,754,930
+
+2023 Top Categories:
+  CIGARETTE: $11,758,955
+  CIGARS: $5,903,535
+  ELECTRONIC CIG: $3,191,989
+
+
+PROFITABILITY TRENDS
+----------------------------------------
+Gross Profit Margins by Year:
+  2019: 4.14% margin, $1,007,937 profit
+  2020: 6.53% margin, $1,677,798 profit
+  2021: 7.46% margin, $2,811,830 profit
+  2022: 8.68% margin, $3,108,587 profit
+  2023: 8.84% margin, $3,014,160 profit
+
+
+CUSTOMER RETENTION
+----------------------------------------
+Cohort Retention Rates:
+
+================================================================================
+Full detailed report saved to: historical_analysis_2019_2023_20250903_173320.json

@@ -1,0 +1,20 @@
+# AUTOMATED PURCHASE ORDER
+# Supplier: COSTCO WHOLESALE MORROW
+# Generated: 2025-09-06 16:56:21
+# Total Items: 4
+# Total Quantity: 2,893.0
+# Estimated Value: $80,159.36
+# Critical Items: 0
+# Urgent Items: 4
+#
+# ORDERING LOGIC:
+# - CRITICAL: Out of stock (0 units)
+# - URGENT: Less than 2 weeks of stock
+# - LOW: Less than 4 weeks of stock
+# - Suggested quantity = 6 weeks supply + 50% safety stock
+#
+Priority,SKU,Description,Category,Current Stock,Weeks of Stock,Weekly Movement,Suggested Order Qty,Est. Cost Per Unit,Est. Total Cost,Demand Trend,8-Week Profit,Days Since Last Order
+URGENT,685141913039,24/7 RED 100 BOX 10CT,CIGARETTE,182,1.6,114.0,1026,$27.55,$28266.30,STABLE,$1301.28,3
+URGENT,685141913152,24/7 MENTHOL 100 BOX 10CT,CIGARETTE,159,1.4,113.5,1022,$27.85,$28462.70,STABLE,$1012.27,3
+URGENT,685141913008,24/7 RED KING BOX 10CT,CIGARETTE,124,1.7,71.4,643,$27.72,$17824.86,STABLE,$645.04,3
+URGENT,685141913114,24/7 SILVER 100 BOX 10CT,CIGARETTE,9,0.4,22.4,202,$27.75,$5605.50,INCREASING,$194.56,11

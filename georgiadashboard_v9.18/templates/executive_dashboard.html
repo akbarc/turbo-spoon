@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Business Dashboard - Executive Summary</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .company-info h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #495057;
+            margin: 0;
+        }
+        
+        .company-info .subtitle {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 4px;
+        }
+        
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .filter-select {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+            color: #495057;
+        }
+        
+        .refresh-btn {
+            padding: 8px 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .refresh-btn:hover {
+            background: #0056b3;
+        }
+        
+        /* System Status */
+        .system-status {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .status-online { color: #28a745; }
+        .status-offline { color: #dc3545; }
+        
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .metric-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .metric-icon {
+            width: 40px;
+            height: 40px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: #6c757d;
+        }
+        
+        .metric-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .metric-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 12px;
+        }
+        
+        .metric-details {
+            font-size: 13px;
+            color: #6c757d;
+            line-height: 1.4;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 3px solid #007bff;
+        }
+        
+        .trend-positive { color: #28a745; font-weight: 600; }
+        .trend-negative { color: #dc3545; font-weight: 600; }
+        .trend-neutral { color: #6c757d; font-weight: 500; }
+        
+        /* Navigation Section */
+        .navigation-section {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .nav-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            color: #495057;
+            text-align: center;
+            display: block;
+        }
+        
+        .nav-card:hover {
+            background: #e9ecef;
+            text-decoration: none;
+            color: #495057;
+            border-color: #007bff;
+        }
+        
+        .nav-icon {
+            font-size: 28px;
+            color: #007bff;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .nav-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+        
+        .nav-description {
+            font-size: 13px;
+            color: #6c757d;
+            line-height: 1.4;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header-content { flex-direction: column; text-align: center; }
+            .metrics-grid { grid-template-columns: 1fr; gap: 15px; }
+            .nav-grid { grid-template-columns: 1fr; }
+            .metric-value { font-size: 24px; }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body { background: white; }
+            .refresh-btn { display: none; }
+            .nav-card:hover { background: #f8f9fa; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="company-info">
+                    <h1>Georgia Business Dashboard</h1>
+                    <div class="subtitle">Executive Summary Report • Version 9.18</div>
+                </div>
+                
+                <div class="header-controls">
+                    <select id="timePeriod" class="filter-select" onchange="loadDashboardData()">
+                        <option value="today">Today</option>
+                        <option value="7d">Last 7 Days</option>
+                        <option value="30d" selected>Last 30 Days</option>
+                        <option value="MTD">Month to Date</option>
+                        <option value="YTD">Year to Date</option>
+                        <option value="custom">Custom Range</option>
+                    </select>
+                    
+                    <button class="refresh-btn" onclick="loadDashboardData()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- System Status -->
+        <div class="system-status">
+            <div id="system-status" class="loading">
+                <i class="fas fa-spinner"></i> Checking system status...
+            </div>
+        </div>
+
+        <!-- Key Metrics Grid -->
+        <div class="metrics-grid">
+            <!-- Revenue -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="metric-title">Revenue</div>
+                </div>
+                <div id="revenue-data" class="loading">
+                    Loading revenue data...
+                </div>
+            </div>
+
+            <!-- Transactions -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <div class="metric-title">Transactions</div>
+                </div>
+                <div id="transactions-data" class="loading">
+                    Loading transaction data...
+                </div>
+            </div>
+
+            <!-- Customers -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="metric-title">Customers</div>
+                </div>
+                <div id="customers-data" class="loading">
+                    Loading customer data...
+                </div>
+            </div>
+
+            <!-- AR Balance -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="metric-title">Accounts Receivable</div>
+                </div>
+                <div id="ar-data" class="loading">
+                    Loading AR data...
+                </div>
+            </div>
+
+            <!-- Inventory -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="metric-title">Inventory</div>
+                </div>
+                <div id="inventory-data" class="loading">
+                    Loading inventory data...
+                </div>
+            </div>
+
+            <!-- Gross Profit -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="metric-title">Gross Profit</div>
+                </div>
+                <div id="profit-data" class="loading">
+                    Loading profit data...
+                </div>
+            </div>
+
+            <!-- NSF/Returned Checks -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="metric-title">NSF/Returned Checks</div>
+                </div>
+                <div id="nsf-data" class="loading">
+                    Loading NSF data...
+                </div>
+            </div>
+
+            <!-- Cash Flow -->
+            <div class="metric-card">
+                <div class="metric-header">
+                    <div class="metric-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="metric-title">Cash Flow</div>
+                </div>
+                <div id="cashflow-data" class="loading">
+                    Loading cash flow data...
+                </div>
+            </div>
+        </div>
+
+        <!-- Sales Performance Section -->
+        <div class="navigation-section">
+            <h2 class="section-title">📊 Sales Performance Analysis</h2>
+            <div class="metrics-grid">
+                <!-- Top Products Card -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="metric-title">Top 10 Products</div>
+                    </div>
+                    <div id="top-products-data" class="loading">
+                        Loading top products...
+                    </div>
+                </div>
+
+                <!-- Category Performance Card -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="metric-title">Category Performance</div>
+                    </div>
+                    <div id="category-performance-data" class="loading">
+                        Loading category data...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Health Section -->
+        <div class="navigation-section">
+            <h2 class="section-title">📦 Inventory Health Dashboard</h2>
+            <div class="metrics-grid">
+                <!-- Low Stock Alerts -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="metric-title">Low Stock Alerts</div>
+                    </div>
+                    <div id="low-stock-data" class="loading">
+                        Loading low stock data...
+                    </div>
+                </div>
+
+                <!-- Deadstock Analysis -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="metric-title">Deadstock Analysis</div>
+                    </div>
+                    <div id="deadstock-data" class="loading">
+                        Loading deadstock data...
+                    </div>
+                </div>
+
+                <!-- Velocity Analysis -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="metric-title">Hot Moving Items</div>
+                    </div>
+                    <div id="velocity-data" class="loading">
+                        Loading velocity data...
+                    </div>
+                </div>
+
+                <!-- Category Values -->
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="metric-title">Category Inventory Values</div>
+                    </div>
+                    <div id="category-values-data" class="loading">
+                        Loading category values...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Section -->
+        <div class="navigation-section">
+            <h2 class="section-title">Business Intelligence Modules</h2>
+            <div class="nav-grid">
+                <a href="/ar-dashboard" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="nav-title">AR Management</h3>
+                    <p class="nav-description">Accounts receivable analysis with 7 specialized modules for collections and aging</p>
+                </a>
+
+                <a href="/customer-ledger" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="nav-title">Customer Ledger</h3>
+                    <p class="nav-description">Customer account management with transaction history and export capabilities</p>
+                </a>
+
+                <a href="/ai-assistant" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="nav-title">AI Assistant</h3>
+                    <p class="nav-description">Natural language queries for business intelligence and data analysis</p>
+                </a>
+
+                <a href="/gp-analysis" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3 class="nav-title">Gross Profit Analysis</h3>
+                    <p class="nav-description">Profitability analysis with tobacco uplifts and margin calculations</p>
+                </a>
+
+                <a href="/sales-ops" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-cash-register"></i></div>
+                    <h3 class="nav-title">Sales Operations</h3>
+                    <p class="nav-description">Daily sales performance, operational insights, and transaction analysis</p>
+                </a>
+
+                <a href="/inventory" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-boxes"></i></div>
+                    <h3 class="nav-title">Inventory Management</h3>
+                    <p class="nav-description">Stock levels, velocity analysis, deadstock, and overstock management</p>
+                </a>
+
+                <a href="/suppliers" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-truck"></i></div>
+                    <h3 class="nav-title">Supplier Analysis</h3>
+                    <p class="nav-description">Supplier performance metrics and purchase order analysis</p>
+                </a>
+
+                <a href="/wholesale-retail" class="nav-card">
+                    <div class="nav-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3 class="nav-title">Wholesale vs Retail</h3>
+                    <p class="nav-description">Comparative analysis of wholesale and retail business segments</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Professional dashboard functionality - PRESERVES ALL EXISTING APIs
+        async function loadDashboardData() {
+            try {
+                const period = document.getElementById('timePeriod').value;
+                const response = await fetch('/api/business-overview/executive-summary?period=' + period);
+                const data = await response.json();
+                
+                updateSystemStatus();
+                updateMetrics(data);
+                
+                // Load additional sections
+                loadSalesPerformance(period);
+                loadInventoryHealth();
+                
+            } catch (error) {
+                console.error('Failed to load dashboard data:', error);
+                showError('Unable to load dashboard data. Please check your connection.');
+            }
+        }
+        
+        async function loadSalesPerformance(period) {
+            try {
+                // Load top products
+                const productsResponse = await fetch('/api/business-overview/sales-performance?period=' + period);
+                const productsData = await productsResponse.json();
+                
+                if (productsData.top_products && productsData.top_products.length > 0) {
+                    const topProducts = productsData.top_products.slice(0, 5);
+                    let productsHtml = '<div class="metric-value">Top Performers</div><div class="metric-subtitle">Revenue Leaders</div><div class="metric-details">';
+                    topProducts.forEach((product, index) => {
+                        productsHtml += (index + 1) + '. ' + product.description + ' - $' + product.revenue.toLocaleString() + '<br>';
+                    });
+                    productsHtml += '</div>';
+                    document.getElementById('top-products-data').innerHTML = productsHtml;
+                } else {
+                    document.getElementById('top-products-data').innerHTML = '<div class="metric-value">No Data</div><div class="metric-subtitle">No products found</div>';
+                }
+                
+                // Load category performance
+                if (productsData.category_performance && productsData.category_performance.length > 0) {
+                    const topCategories = productsData.category_performance.slice(0, 5);
+                    let categoriesHtml = '<div class="metric-value">Top Categories</div><div class="metric-subtitle">By Revenue</div><div class="metric-details">';
+                    topCategories.forEach((category, index) => {
+                        categoriesHtml += (index + 1) + '. ' + category.name + ' - $' + category.revenue.toLocaleString() + '<br>';
+                    });
+                    categoriesHtml += '</div>';
+                    document.getElementById('category-performance-data').innerHTML = categoriesHtml;
+                } else {
+                    document.getElementById('category-performance-data').innerHTML = '<div class="metric-value">No Data</div><div class="metric-subtitle">No categories found</div>';
+                }
+                
+            } catch (error) {
+                console.error('Failed to load sales performance:', error);
+                document.getElementById('top-products-data').innerHTML = '<div class="metric-value">Error</div><div class="metric-subtitle">Failed to load</div>';
+                document.getElementById('category-performance-data').innerHTML = '<div class="metric-value">Error</div><div class="metric-subtitle">Failed to load</div>';
+            }
+        }
+        
+        async function loadInventoryHealth() {
+            try {
+                // Load low stock alerts
+                const lowStockResponse = await fetch('/api/inventory-health/low-stock');
+                const lowStockData = await lowStockResponse.json();
+                
+                if (lowStockData.low_stock_items && lowStockData.low_stock_items.length > 0) {
+                    const lowStockCount = lowStockData.low_stock_items.length;
+                    const criticalItems = lowStockData.low_stock_items.slice(0, 3);
+                    let lowStockHtml = '<div class="metric-value" style="color: #dc3545;">' + lowStockCount + '</div><div class="metric-subtitle">Items Low Stock</div><div class="metric-details">';
+                    criticalItems.forEach(item => {
+                        lowStockHtml += item.description + ' (' + item.quantity + ' left)<br>';
+                    });
+                    lowStockHtml += '</div>';
+                    document.getElementById('low-stock-data').innerHTML = lowStockHtml;
+                } else {
+                    document.getElementById('low-stock-data').innerHTML = '<div class="metric-value" style="color: #28a745;">0</div><div class="metric-subtitle">All Stock OK</div><div class="metric-details">No low stock alerts</div>';
+                }
+                
+                // Load deadstock data
+                const deadstockResponse = await fetch('/api/inventory-health/deadstock?days=30');
+                const deadstockData = await deadstockResponse.json();
+                
+                if (deadstockData.total_value_stuck > 0) {
+                    const deadstockValue = deadstockData.total_value_stuck;
+                    const deadstockCount = deadstockData.total_items || 0;
+                    document.getElementById('deadstock-data').innerHTML = 
+                        '<div class="metric-value" style="color: #dc3545;">$' + deadstockValue.toLocaleString() + '</div>' +
+                        '<div class="metric-subtitle">Deadstock Value</div>' +
+                        '<div class="metric-details">' + deadstockCount + ' items not sold in 30+ days</div>';
+                } else {
+                    document.getElementById('deadstock-data').innerHTML = '<div class="metric-value" style="color: #28a745;">$0</div><div class="metric-subtitle">No Deadstock</div><div class="metric-details">Good inventory turnover</div>';
+                }
+                
+                // Load velocity data
+                const velocityResponse = await fetch('/api/inventory-health/velocity?view=hot');
+                const velocityData = await velocityResponse.json();
+                
+                if (velocityData.velocity_items && velocityData.velocity_items.length > 0) {
+                    const hotItems = velocityData.velocity_items.slice(0, 3);
+                    let velocityHtml = '<div class="metric-value">Hot Sellers</div><div class="metric-subtitle">Fast Moving</div><div class="metric-details">';
+                    hotItems.forEach(item => {
+                        velocityHtml += item.description + ' (' + item.daily_velocity.toFixed(1) + '/day)<br>';
+                    });
+                    velocityHtml += '</div>';
+                    document.getElementById('velocity-data').innerHTML = velocityHtml;
+                } else {
+                    document.getElementById('velocity-data').innerHTML = '<div class="metric-value">No Data</div><div class="metric-subtitle">No velocity data</div>';
+                }
+                
+                // Load category values
+                const categoryValuesResponse = await fetch('/api/inventory-health/category-values');
+                const categoryValuesData = await categoryValuesResponse.json();
+                
+                if (categoryValuesData.category_values && categoryValuesData.category_values.length > 0) {
+                    const topValueCategories = categoryValuesData.category_values.slice(0, 3);
+                    let categoryValuesHtml = '<div class="metric-value">Top Categories</div><div class="metric-subtitle">By Inventory Value</div><div class="metric-details">';
+                    topValueCategories.forEach(category => {
+                        categoryValuesHtml += category.category + ' - $' + category.total_value.toLocaleString() + '<br>';
+                    });
+                    categoryValuesHtml += '</div>';
+                    document.getElementById('category-values-data').innerHTML = categoryValuesHtml;
+                } else {
+                    document.getElementById('category-values-data').innerHTML = '<div class="metric-value">No Data</div><div class="metric-subtitle">No category data</div>';
+                }
+                
+            } catch (error) {
+                console.error('Failed to load inventory health:', error);
+                document.getElementById('low-stock-data').innerHTML = '<div class="metric-value">Error</div><div class="metric-subtitle">Failed to load</div>';
+                document.getElementById('deadstock-data').innerHTML = '<div class="metric-value">Error</div><div class="metric-subtitle">Failed to load</div>';
+                document.getElementById('velocity-data').innerHTML = '<div class="metric-value">Error</div><div class="metric-subtitle">Failed to load</div>';
+                document.getElementById('category-values-data').innerHTML = '<div class="metric-value">Error</div><div class="metric-subtitle">Failed to load</div>';
+            }
+        }
+        
+        function updateSystemStatus() {
+            fetch('/api')
+                .then(response => response.json())
+                .then(data => {
+                    const statusEl = document.getElementById('system-status');
+                    if (data.status === 'running') {
+                        statusEl.innerHTML = '<div class="status-indicator status-online"><i class="fas fa-check-circle"></i><span>System Online • Database Connected • AI ' + (data.ai_available ? 'Ready' : 'Disabled') + '</span></div>';
+                    } else {
+                        statusEl.innerHTML = '<div class="status-indicator status-offline"><i class="fas fa-exclamation-triangle"></i><span>System Issues Detected</span></div>';
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('system-status').innerHTML = '<div class="status-indicator status-offline"><i class="fas fa-times-circle"></i><span>Connection Error</span></div>';
+                });
+        }
+        
+        function updateMetrics(data) {
+            // Revenue
+            if (data.revenue) {
+                const revenue = data.revenue.current || 0;
+                const trend = parseFloat(data.revenue.trend) || 0;
+                const trendClass = trend >= 0 ? 'trend-positive' : 'trend-negative';
+                const trendIcon = trend >= 0 ? 'arrow-up' : 'arrow-down';
+                
+                document.getElementById('revenue-data').innerHTML = 
+                    '<div class="metric-value">$' + revenue.toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">Total Revenue</div>' +
+                    '<div class="metric-details">' +
+                    '<span class="' + trendClass + '"><i class="fas fa-' + trendIcon + '"></i> ' + Math.abs(trend).toFixed(1) + '% vs previous period</span>' +
+                    '</div>';
+            }
+            
+            // Transactions
+            if (data.transactions) {
+                const transactions = data.transactions.current || 0;
+                const avgTicket = data.transactions.avg_ticket || 0;
+                const trend = parseFloat(data.transactions.trend) || 0;
+                const trendClass = trend >= 0 ? 'trend-positive' : 'trend-negative';
+                
+                document.getElementById('transactions-data').innerHTML = 
+                    '<div class="metric-value">' + transactions.toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">Total Transactions</div>' +
+                    '<div class="metric-details">' +
+                    '<span class="' + trendClass + '">' + Math.abs(trend).toFixed(1) + '% change</span><br>' +
+                    'Average ticket: $' + avgTicket.toFixed(2) +
+                    '</div>';
+            }
+            
+            // Customers
+            if (data.customers) {
+                const customers = data.customers.current || 0;
+                const avgVisits = data.customers.avg_visits || 0;
+                const trend = parseFloat(data.customers.trend) || 0;
+                const trendClass = trend >= 0 ? 'trend-positive' : 'trend-negative';
+                
+                document.getElementById('customers-data').innerHTML = 
+                    '<div class="metric-value">' + customers.toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">Active Customers</div>' +
+                    '<div class="metric-details">' +
+                    '<span class="' + trendClass + '">' + Math.abs(trend).toFixed(1) + '% change</span><br>' +
+                    'Average visits: ' + avgVisits.toFixed(1) +
+                    '</div>';
+            }
+            
+            // AR Balance
+            if (data.cashflow) {
+                const arBalance = data.cashflow.ar_balance || 0;
+                const customers = data.cashflow.customers_with_balance || 0;
+                const collections = data.cashflow.collections || 0;
+                
+                document.getElementById('ar-data').innerHTML = 
+                    '<div class="metric-value">$' + arBalance.toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">Outstanding Balance</div>' +
+                    '<div class="metric-details">' +
+                    customers.toLocaleString() + ' customers with balance<br>' +
+                    'Collections: $' + collections.toLocaleString() +
+                    '</div>';
+            }
+            
+            // Inventory
+            if (data.inventory) {
+                const totalValue = data.inventory.total_value || 0;
+                const totalSKUs = data.inventory.total_skus || 0;
+                const inStock = data.inventory.in_stock_skus || 0;
+                const turnover = data.inventory.turnover || 0;
+                const stockPercent = totalSKUs > 0 ? ((inStock / totalSKUs) * 100).toFixed(1) : 0;
+                
+                document.getElementById('inventory-data').innerHTML = 
+                    '<div class="metric-value">$' + totalValue.toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">Inventory Value</div>' +
+                    '<div class="metric-details">' +
+                    totalSKUs.toLocaleString() + ' SKUs (' + inStock.toLocaleString() + ' in stock)<br>' +
+                    'Turnover: ' + turnover.toFixed(1) + 'x monthly' +
+                    '</div>';
+            }
+            
+            // Gross Profit
+            if (data.profit) {
+                const profit = data.profit.current || 0;
+                const margin = data.profit.margin || 0;
+                const trend = parseFloat(data.profit.trend) || 0;
+                const trendClass = trend >= 0 ? 'trend-positive' : 'trend-negative';
+                
+                document.getElementById('profit-data').innerHTML = 
+                    '<div class="metric-value">$' + profit.toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">Gross Profit</div>' +
+                    '<div class="metric-details">' +
+                    'Margin: ' + margin.toFixed(1) + '%<br>' +
+                    '<span class="' + trendClass + '">' + Math.abs(trend).toFixed(1) + '% change</span>' +
+                    '</div>';
+            }
+            
+            // NSF Data
+            if (data.cashflow) {
+                const nsfCount = data.cashflow.nsf_count || 0;
+                const nsfFees = data.cashflow.nsf_fees || 0;
+                const returnedCheckCount = data.cashflow.returned_check_count || 0;
+                const returnedCheckAmount = data.cashflow.returned_check_amount || 0;
+                
+                document.getElementById('nsf-data').innerHTML = 
+                    '<div class="metric-value" style="color: ' + (nsfCount > 0 ? '#dc3545' : '#28a745') + ';">' + nsfCount + '</div>' +
+                    '<div class="metric-subtitle">NSF Fees</div>' +
+                    '<div class="metric-details">' +
+                    returnedCheckCount + ' returned checks<br>' +
+                    'Total impact: $' + returnedCheckAmount.toLocaleString() +
+                    '</div>';
+            }
+            
+            // Cash Flow Data
+            if (data.cashflow) {
+                const collections = data.cashflow.collections || 0;
+                const newAR = data.cashflow.new_ar_issued || 0;
+                const netCashFlow = collections - newAR;
+                const nsfImpact = data.cashflow.nsf_impact || 0;
+                
+                document.getElementById('cashflow-data').innerHTML = 
+                    '<div class="metric-value" style="color: ' + (netCashFlow >= 0 ? '#28a745' : '#dc3545') + ';">$' + Math.abs(netCashFlow).toLocaleString() + '</div>' +
+                    '<div class="metric-subtitle">' + (netCashFlow >= 0 ? 'Positive' : 'Negative') + ' Cash Flow</div>' +
+                    '<div class="metric-details">' +
+                    'Collections: $' + collections.toLocaleString() + '<br>' +
+                    'New AR: $' + newAR.toLocaleString() +
+                    '</div>';
+            }
+        }
+        
+        function showError(message) {
+            // Simple error display
+            console.error(message);
+        }
+        
+        // Initialize dashboard on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Georgia Business Dashboard v9.18 - Professional Edition');
+            loadDashboardData();
+            
+            // Auto-refresh every 5 minutes
+            setInterval(loadDashboardData, 5 * 60 * 1000);
+        });
+    </script>
+</body>
+</html>
+

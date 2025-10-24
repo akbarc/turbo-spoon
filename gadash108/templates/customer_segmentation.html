@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation - Georgia Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --info-color: #3498db;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .navbar {
+            box-shadow: 0 2px 4px rgba(0,0,0,.08);
+        }
+
+        .segment-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .segment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .segment-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .metric-label {
+            color: #6c757d;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .risk-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .risk-high { background-color: #e74c3c; }
+        .risk-medium { background-color: #f39c12; }
+        .risk-low { background-color: #27ae60; }
+
+        .action-pill {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 15px;
+            background-color: #e8f4f8;
+            color: #2980b9;
+            font-size: 0.85rem;
+            margin: 2px;
+        }
+
+        .customer-row {
+            transition: background-color 0.2s;
+        }
+
+        .customer-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .tab-content {
+            padding-top: 20px;
+        }
+
+        .filter-section {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .segment-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+
+        .btn-export {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .btn-export:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navigation.html' %}
+
+    <div class="container-fluid">
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col">
+                <h2><i class="fas fa-users-cog"></i> Customer Segmentation Dashboard</h2>
+                <p class="text-muted">Advanced customer analytics with RFM, business metrics, and GP analysis</p>
+            </div>
+            <div class="col-auto">
+                <button class="btn btn-export" onclick="exportSegmentation('csv')">
+                    <i class="fas fa-download"></i> Export CSV
+                </button>
+                <button class="btn btn-secondary" onclick="refreshData()">
+                    <i class="fas fa-sync"></i> Refresh
+                </button>
+            </div>
+        </div>
+
+        <!-- Key Metrics Row -->
+        <div class="row mb-4">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="metric-card">
+                    <div class="metric-label">Total Customers</div>
+                    <div class="metric-value" id="total-customers">0</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="metric-card">
+                    <div class="metric-label">Total Revenue</div>
+                    <div class="metric-value" id="total-revenue">$0</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="metric-card">
+                    <div class="metric-label">Avg GP %</div>
+                    <div class="metric-value" id="avg-gp">0%</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="metric-card">
+                    <div class="metric-label">Wholesale</div>
+                    <div class="metric-value" id="wholesale-count">0</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="metric-card">
+                    <div class="metric-label">At Risk Value</div>
+                    <div class="metric-value text-warning" id="at-risk-value">$0</div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="metric-card">
+                    <div class="metric-label">Total CLV</div>
+                    <div class="metric-value text-success" id="total-clv">$0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="segmentTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab">
+                    <i class="fas fa-chart-pie"></i> Overview
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="rfm-tab" data-bs-toggle="tab" href="#rfm" role="tab">
+                    <i class="fas fa-analytics"></i> RFM Analysis
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="business-tab" data-bs-toggle="tab" href="#business" role="tab">
+                    <i class="fas fa-briefcase"></i> Business Segments
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="customers-tab" data-bs-toggle="tab" href="#customers" role="tab">
+                    <i class="fas fa-list"></i> Customer List
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="actions-tab" data-bs-toggle="tab" href="#actions" role="tab">
+                    <i class="fas fa-tasks"></i> Recommendations
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="segmentTabContent">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <h5>Customer Segments Distribution</h5>
+                            <canvas id="segmentChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <h5>Business Type Distribution</h5>
+                            <canvas id="businessTypeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <h5>Customer Class Distribution</h5>
+                            <canvas id="customerClassChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <h5>Payment Behavior Analysis</h5>
+                            <canvas id="paymentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Segment Cards -->
+                <div class="row mt-4" id="segment-cards">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- RFM Analysis Tab -->
+            <div class="tab-pane fade" id="rfm" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="chart-container">
+                            <h5>Recency Distribution</h5>
+                            <canvas id="recencyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-container">
+                            <h5>Frequency Distribution</h5>
+                            <canvas id="frequencyChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="chart-container">
+                            <h5>Monetary Distribution</h5>
+                            <canvas id="monetaryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h5>Top RFM Scored Customers</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="rfm-table">
+                                <thead>
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Segment</th>
+                                        <th>RFM Score</th>
+                                        <th>Recency</th>
+                                        <th>Frequency</th>
+                                        <th>Monetary</th>
+                                        <th>CLV Est.</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="rfm-tbody">
+                                    <!-- Dynamically populated -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Segments Tab -->
+            <div class="tab-pane fade" id="business" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <h5>Product Mix Analysis</h5>
+                            <canvas id="productMixChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="chart-container">
+                            <h5>GP Performance by Segment</h5>
+                            <canvas id="gpSegmentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h5>Business Metrics by Customer Type</h5>
+                        <div class="stats-grid" id="business-stats">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer List Tab -->
+            <div class="tab-pane fade" id="customers" role="tabpanel">
+                <div class="filter-section">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <select class="form-select" id="segment-filter">
+                                <option value="">All Segments</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" id="business-filter">
+                                <option value="">All Business Types</option>
+                                <option value="wholesale">Wholesale</option>
+                                <option value="retail">Retail</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select" id="sort-filter">
+                                <option value="monetary_desc">Revenue (High to Low)</option>
+                                <option value="monetary_asc">Revenue (Low to High)</option>
+                                <option value="risk_desc">Risk (High to Low)</option>
+                                <option value="gp_desc">GP% (High to Low)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary w-100" onclick="filterCustomers()">
+                                <i class="fas fa-filter"></i> Apply Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover" id="customer-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Company</th>
+                                <th>Segment</th>
+                                <th>Type</th>
+                                <th>Class</th>
+                                <th>Revenue</th>
+                                <th>GP%</th>
+                                <th>Payment</th>
+                                <th>Risk</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customer-tbody">
+                            <!-- Dynamically populated -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recommendations Tab -->
+            <div class="tab-pane fade" id="actions" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h5>Actionable Recommendations</h5>
+                        <div id="recommendations-list">
+                            <!-- Dynamically populated -->
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header bg-warning text-white">
+                                <h6 class="mb-0"><i class="fas fa-exclamation-triangle"></i> At-Risk Customers</h6>
+                            </div>
+                            <div class="card-body">
+                                <div id="at-risk-list">
+                                    <!-- Dynamically populated -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        // Global variables for charts
+        let segmentChart, businessTypeChart, customerClassChart, paymentChart;
+        let recencyChart, frequencyChart, monetaryChart, productMixChart, gpSegmentChart;
+        let segmentationData = {};
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSegmentationData();
+            setInterval(refreshData, 300000); // Auto-refresh every 5 minutes
+        });
+
+        // Load segmentation data
+        async function loadSegmentationData() {
+            showLoading(true);
+            try {
+                // Load overview
+                const overviewResponse = await fetch('/api/segmentation/overview');
+                const overviewData = await overviewResponse.json();
+
+                if (overviewData.success) {
+                    segmentationData = overviewData.data;
+                    updateMetrics(segmentationData.summary);
+                    updateCharts(segmentationData);
+                    populateSegmentCards(segmentationData.segment_distribution);
+                }
+
+                // Load RFM analysis
+                const rfmResponse = await fetch('/api/segmentation/rfm-analysis');
+                const rfmData = await rfmResponse.json();
+
+                if (rfmData.success) {
+                    updateRFMAnalysis(rfmData.data);
+                }
+
+                // Load recommendations
+                const actionsResponse = await fetch('/api/segmentation/actions');
+                const actionsData = await actionsResponse.json();
+
+                if (actionsData.success) {
+                    updateRecommendations(actionsData.data);
+                }
+
+                // Load at-risk customers
+                const atRiskResponse = await fetch('/api/segmentation/at-risk');
+                const atRiskData = await atRiskResponse.json();
+
+                if (atRiskData.success) {
+                    updateAtRiskList(atRiskData.data);
+                }
+
+            } catch (error) {
+                console.error('Error loading segmentation data:', error);
+                showError('Failed to load segmentation data');
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Update key metrics
+        function updateMetrics(summary) {
+            document.getElementById('total-customers').textContent = summary.total_customers.toLocaleString();
+            document.getElementById('total-revenue').textContent = '$' + summary.total_revenue.toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('avg-gp').textContent = summary.avg_gp_percentage.toFixed(1) + '%';
+            document.getElementById('wholesale-count').textContent = summary.wholesale_count.toLocaleString();
+            document.getElementById('total-clv').textContent = '$' + summary.total_clv.toLocaleString(undefined, {maximumFractionDigits: 0});
+        }
+
+        // Update charts
+        function updateCharts(data) {
+            // Segment Distribution Chart
+            const segmentCtx = document.getElementById('segmentChart').getContext('2d');
+            if (segmentChart) segmentChart.destroy();
+
+            const segmentLabels = Object.keys(data.segment_distribution);
+            const segmentCounts = segmentLabels.map(s => data.segment_distribution[s].customer_count);
+            const segmentColors = segmentLabels.map(s => data.segment_colors[s] || '#6c757d');
+
+            segmentChart = new Chart(segmentCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: segmentLabels,
+                    datasets: [{
+                        data: segmentCounts,
+                        backgroundColor: segmentColors
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Business Type Chart
+            const businessCtx = document.getElementById('businessTypeChart').getContext('2d');
+            if (businessTypeChart) businessTypeChart.destroy();
+
+            businessTypeChart = new Chart(businessCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data.business_type_distribution),
+                    datasets: [{
+                        label: 'Revenue',
+                        data: Object.values(data.business_type_distribution).map(v => v[1]),
+                        backgroundColor: '#3498db'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Customer Class Chart
+            const classCtx = document.getElementById('customerClassChart').getContext('2d');
+            if (customerClassChart) customerClassChart.destroy();
+
+            customerClassChart = new Chart(classCtx, {
+                type: 'pie',
+                data: {
+                    labels: Object.keys(data.customer_class_distribution),
+                    datasets: [{
+                        data: Object.values(data.customer_class_distribution).map(v => v[0]),
+                        backgroundColor: ['#27ae60', '#f39c12', '#e74c3c']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Payment Behavior Chart
+            const paymentCtx = document.getElementById('paymentChart').getContext('2d');
+            if (paymentChart) paymentChart.destroy();
+
+            paymentChart = new Chart(paymentCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data.payment_behavior_distribution),
+                    datasets: [{
+                        label: 'Customers',
+                        data: Object.values(data.payment_behavior_distribution).map(v => v[0]),
+                        backgroundColor: '#9b59b6'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y'
+                }
+            });
+        }
+
+        // Update RFM Analysis
+        function updateRFMAnalysis(data) {
+            // Update RFM charts
+            const recencyCtx = document.getElementById('recencyChart').getContext('2d');
+            if (recencyChart) recencyChart.destroy();
+
+            recencyChart = new Chart(recencyCtx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data.distribution.recency),
+                    datasets: [{
+                        label: 'Customers',
+                        data: Object.values(data.distribution.recency),
+                        backgroundColor: '#3498db'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Populate RFM table
+            const tbody = document.getElementById('rfm-tbody');
+            tbody.innerHTML = '';
+
+            data.top_customers.forEach(customer => {
+                const row = `
+                    <tr>
+                        <td>${customer.company_name}</td>
+                        <td><span class="badge bg-primary">${customer.segment}</span></td>
+                        <td>${customer.rfm_score}</td>
+                        <td>${customer.recency} days</td>
+                        <td>${customer.frequency}</td>
+                        <td>$${customer.monetary.toLocaleString()}</td>
+                        <td>$${customer.clv_estimate.toLocaleString()}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Populate segment cards
+        function populateSegmentCards(segments) {
+            const container = document.getElementById('segment-cards');
+            container.innerHTML = '';
+
+            Object.keys(segments).forEach(segment => {
+                const data = segments[segment];
+                const color = segmentationData.segment_colors[segment] || '#6c757d';
+
+                const card = `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="segment-card" onclick="showSegmentDetails('${segment}')">
+                            <div class="card-body">
+                                <span class="segment-badge" style="background-color: ${color}20; color: ${color}">
+                                    ${segment}
+                                </span>
+                                <h4>${data.customer_count} Customers</h4>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <small class="text-muted">Revenue</small>
+                                        <p class="mb-0">$${(data.total_revenue / 1000).toFixed(0)}K</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <small class="text-muted">Avg GP</small>
+                                        <p class="mb-0">${data.avg_gp_pct.toFixed(1)}%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        // Update recommendations
+        function updateRecommendations(recommendations) {
+            const container = document.getElementById('recommendations-list');
+            container.innerHTML = '';
+
+            recommendations.forEach(rec => {
+                const card = `
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6>${rec.segment}</h6>
+                            <p class="mb-2">
+                                <strong>${rec.customer_count}</strong> customers |
+                                <strong>$${(rec.total_value / 1000).toFixed(0)}K</strong> value
+                            </p>
+                            <div class="mb-2">
+                                ${rec.actions.map(a => `<span class="action-pill">${a}</span>`).join('')}
+                            </div>
+                            ${rec.specific_recommendations.map(r => `
+                                <div class="alert alert-info mb-2">
+                                    <strong>${r.action}</strong><br>
+                                    Impact: ${r.impact} | Effort: ${r.effort} | ROI: ${r.expected_roi}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        // Update at-risk list
+        function updateAtRiskList(data) {
+            const container = document.getElementById('at-risk-list');
+            document.getElementById('at-risk-value').textContent = '$' + data.total_at_risk_value.toLocaleString(undefined, {maximumFractionDigits: 0});
+
+            container.innerHTML = '';
+            data.customers.slice(0, 10).forEach(customer => {
+                const item = `
+                    <div class="mb-2 p-2 border-bottom">
+                        <div class="d-flex justify-content-between">
+                            <strong>${customer.company_name}</strong>
+                            <span class="risk-indicator risk-high"></span>
+                        </div>
+                        <small class="text-muted">
+                            Risk: ${customer.risk_score.toFixed(0)} |
+                            Value: $${customer.monetary.toLocaleString()} |
+                            Last: ${customer.last_purchase_days}d ago
+                        </small>
+                        <div class="mt-1">
+                            <small class="text-primary">${customer.recommended_action}</small>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += item;
+            });
+        }
+
+        // Filter customers
+        async function filterCustomers() {
+            const segment = document.getElementById('segment-filter').value;
+            const sort = document.getElementById('sort-filter').value;
+
+            const params = new URLSearchParams();
+            if (segment) params.append('segment', segment);
+            params.append('sort_by', sort);
+
+            try {
+                const response = await fetch(`/api/segmentation/customer-list?${params}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    updateCustomerTable(data.data.customers);
+                }
+            } catch (error) {
+                console.error('Error filtering customers:', error);
+            }
+        }
+
+        // Update customer table
+        function updateCustomerTable(customers) {
+            const tbody = document.getElementById('customer-tbody');
+            tbody.innerHTML = '';
+
+            customers.forEach(customer => {
+                const riskClass = customer.risk_score > 70 ? 'risk-high' :
+                                customer.risk_score > 40 ? 'risk-medium' : 'risk-low';
+
+                const row = `
+                    <tr class="customer-row">
+                        <td>${customer.customer_id}</td>
+                        <td>${customer.company_name}</td>
+                        <td><span class="badge bg-primary">${customer.segment}</span></td>
+                        <td>${customer.business_type}</td>
+                        <td>${customer.customer_class}</td>
+                        <td>$${customer.monetary.toLocaleString()}</td>
+                        <td>${customer.gp_percentage.toFixed(1)}%</td>
+                        <td>${customer.payment_segment}</td>
+                        <td><span class="risk-indicator ${riskClass}"></span> ${customer.risk_score.toFixed(0)}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" onclick="viewCustomerDetails(${customer.customer_id})">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Show segment details
+        async function showSegmentDetails(segment) {
+            try {
+                const response = await fetch(`/api/segmentation/segment-details/${segment}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    // Switch to customers tab and filter
+                    document.getElementById('customers-tab').click();
+                    document.getElementById('segment-filter').value = segment;
+                    filterCustomers();
+                }
+            } catch (error) {
+                console.error('Error loading segment details:', error);
+            }
+        }
+
+        // View customer details
+        function viewCustomerDetails(customerId) {
+            window.location.href = `/customer-ledger?customer_id=${customerId}`;
+        }
+
+        // Export segmentation
+        async function exportSegmentation(format) {
+            try {
+                const response = await fetch(`/api/segmentation/export?format=${format}`);
+
+                if (format === 'csv') {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `customer_segments_${new Date().toISOString().split('T')[0]}.csv`;
+                    a.click();
+                } else {
+                    const data = await response.json();
+                    console.log('Export data:', data);
+                }
+            } catch (error) {
+                console.error('Error exporting data:', error);
+            }
+        }
+
+        // Refresh data
+        function refreshData() {
+            loadSegmentationData();
+        }
+
+        // Show/hide loading
+        function showLoading(show) {
+            document.querySelector('.loading-spinner').style.display = show ? 'block' : 'none';
+        }
+
+        // Show error message
+        function showError(message) {
+            console.error(message);
+            // Could add toast notification here
+        }
+    </script>
+</body>
+</html>

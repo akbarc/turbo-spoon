@@ -1,0 +1,19 @@
+{
+  "timestamp": "2025-09-08T14:51:54.439384",
+  "metrics": {
+    "trailing_12m_revenue": 0,
+    "active_customers": 0,
+    "customer_metrics": {
+      "retention_rate": 0,
+      "avg_new_customers_monthly": 0
+    },
+    "avg_monthly_gross_profit": 0,
+    "ar_metrics": {
+      "total_ar": "3801301.5100",
+      "customers_with_ar": "395",
+      "avg_balance": "2345.0348",
+      "max_balance": "298873.8700",
+      "aging": {}
+    }
+  }
+}

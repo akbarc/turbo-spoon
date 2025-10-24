@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Data files (generated)
+data/exports/
+*.csv
+*.xlsx
+*.xls
+generated_*.txt
+final_*.txt
+complete_*.txt
+
+# Reports (generated)
+*_20[0-9][0-9][0-9][0-9][0-9][0-9]_*.json
+*_20[0-9][0-9][0-9][0-9][0-9][0-9]_*.csv
+*_20[0-9][0-9][0-9][0-9][0-9][0-9]_*.xlsx
+*_20[0-9][0-9][0-9][0-9][0-9][0-9]_*.html
+*_20[0-9][0-9][0-9][0-9][0-9][0-9]_*.txt
+report_*.html
+report_*.json
+
+# Backups
+*.backup
+*.bak
+*_backup.*
+*_old.*
+*.orig
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+.~*
+
+# Test outputs
+test_results/
+coverage/
+htmlcov/
+.coverage
+.coverage.*
+
+# Documentation builds
+docs/_build/
+docs/.doctrees/
+
+# Archive (but keep directory structure)
+# Uncomment if you want to ignore archive contents
+# archive/reports/*
+# archive/scripts/*
+
+# Keep these
+!.gitignore
+!requirements.txt
+!README.md

@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Dashboard - Georgia Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-tab {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            color: #718096;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-tab:hover {
+            background: #edf2f7;
+        }
+
+        .nav-tab.active {
+            background: #4299e1;
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1600px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Summary Cards */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.2s;
+        }
+
+        .summary-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .summary-card .label {
+            color: #718096;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .summary-card .change {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .summary-card .change.positive {
+            color: #48bb78;
+        }
+
+        .summary-card .change.negative {
+            color: #f56565;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-grid.full-width {
+            grid-template-columns: 1fr;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1.25rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 0.75rem;
+            background: #f7fafc;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #4a5568;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.875rem;
+        }
+
+        .data-table tr:hover {
+            background: #f7fafc;
+        }
+
+        .data-table .clickable {
+            cursor: pointer;
+            color: #4299e1;
+        }
+
+        .data-table .clickable:hover {
+            text-decoration: underline;
+        }
+
+        /* Aging Indicators */
+        .aging-current {
+            color: #48bb78;
+            font-weight: 600;
+        }
+
+        .aging-warning {
+            color: #ed8936;
+            font-weight: 600;
+        }
+
+        .aging-overdue {
+            color: #f56565;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3182ce;
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+        }
+
+        .btn-export {
+            background: #9f7aea;
+            color: white;
+        }
+
+        .btn-export:hover {
+            background: #805ad5;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+        }
+
+        .spinner {
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #4299e1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Customer Groups */
+        .group-card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .group-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .group-members {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        .group-metrics {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .group-metric {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .group-metric-label {
+            color: #718096;
+            font-size: 0.75rem;
+        }
+
+        .group-metric-value {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* Charts */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            padding: 1rem;
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #718096;
+        }
+
+        /* Risk Indicators */
+        .risk-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .risk-high {
+            background: #fed7d7;
+            color: #c53030;
+        }
+
+        .risk-medium {
+            background: #feebc8;
+            color: #c05621;
+        }
+
+        .risk-low {
+            background: #c6f6d5;
+            color: #276749;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-size: 0.875rem;
+            color: #4a5568;
+        }
+
+        .filter-input {
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .filter-select {
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1><i class="fas fa-file-invoice-dollar"></i> Accounts Receivable Dashboard</h1>
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('customers')">Customers</button>
+            <button class="nav-tab" onclick="switchTab('groups')">Customer Groups</button>
+            <button class="nav-tab" onclick="switchTab('cashflow')">Cash Flow Forecast</button>
+            <a href="/" class="nav-tab">← Back to Main</a>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Summary Cards -->
+        <div class="summary-grid" id="summaryCards">
+            <div class="summary-card">
+                <div class="label">Total AR Balance</div>
+                <div class="value" id="totalAR">$0</div>
+                <div class="change positive" id="arChange"></div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Current (0-30 days)</div>
+                <div class="value" id="currentAR">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Overdue (31-60 days)</div>
+                <div class="value" id="overdueAR">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">Seriously Overdue (90+ days)</div>
+                <div class="value" id="seriouslyOverdueAR">$0</div>
+            </div>
+            <div class="summary-card">
+                <div class="label">DSO</div>
+                <div class="value" id="dso">0</div>
+                <div class="change" id="dsoChange">days</div>
+            </div>
+            <div class="summary-card" title="Collection Rate = (Payments Received / New Charges) × 100">
+                <div class="label">Collection Rate <i class="fas fa-info-circle" style="font-size: 0.75rem; color: #94a3b8;"></i></div>
+                <div class="value" id="collectionRate">0%</div>
+                <div class="change" id="collectionChange">Last 30 days</div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Customers (default active) -->
+        <div class="tab-content active" id="tab-customers">
+            <div class="content-grid">
+                <!-- Aging Chart -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">AR Aging Distribution</h3>
+                        <button class="btn btn-export" onclick="exportData('aging')">
+                            <i class="fas fa-download"></i> Export
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="agingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cash Flow Forecast -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">7-Day Cash Flow Forecast</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="cashFlowChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top AR Customers -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Top AR Customers</h3>
+                    <button class="btn btn-primary" onclick="switchTab('customers')">View All</button>
+                </div>
+                <div class="card-body">
+                    <table class="data-table" id="topCustomersTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>AR Balance</th>
+                                <th>Days Overdue</th>
+                                <th>Last Payment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- This was moved up as the default tab -->
+            <!-- Enhanced Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-group" style="flex: 1; max-width: 300px;">
+                    <label class="filter-label">Search:</label>
+                    <input type="text" class="filter-input" id="filterSearch" placeholder="Name, phone, or account..." onkeyup="filterCustomersTable()" style="width: 100%;">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Min Balance:</label>
+                    <input type="number" class="filter-input" id="filterMinBalance" value="100" onchange="loadCustomers()">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Max Balance:</label>
+                    <input type="number" class="filter-input" id="filterMaxBalance" placeholder="Any" onchange="loadCustomers()">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Days Overdue:</label>
+                    <select class="filter-select" id="filterDaysOverdue" onchange="loadCustomers()">
+                        <option value="">All</option>
+                        <option value="0">Current (0-30)</option>
+                        <option value="31">Overdue (31+)</option>
+                        <option value="61">Seriously (61+)</option>
+                        <option value="91">Critical (91+)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Sort By:</label>
+                    <select class="filter-select" id="filterSort" onchange="loadCustomers()">
+                        <option value="balance_desc">Balance ↓</option>
+                        <option value="balance_asc">Balance ↑</option>
+                        <option value="days_desc">Days Overdue ↓</option>
+                        <option value="days_asc">Days Overdue ↑</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="loadCustomers()">
+                    <i class="fas fa-sync"></i> Refresh
+                </button>
+                <button class="btn btn-export" onclick="exportData('customers')">
+                    <i class="fas fa-download"></i> Export CSV
+                </button>
+            </div>
+
+            <!-- Customer List -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Customer AR Details</h3>
+                    <div id="customerCount"></div>
+                </div>
+                <div class="card-body">
+                    <table class="data-table" id="customersTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Phone</th>
+                                <th>AR Balance</th>
+                                <th>Credit Limit</th>
+                                <th>Utilization</th>
+                                <th>Oldest Invoice</th>
+                                <th>Days Overdue</th>
+                                <th>Last Payment</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Customer Groups -->
+        <div class="tab-content" id="tab-groups">
+            <div class="content-grid">
+                <!-- Suggested Groups -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Suggested Customer Groups</h3>
+                        <button class="btn btn-primary" onclick="findGroups()">
+                            <i class="fas fa-search"></i> Find Groups
+                        </button>
+                    </div>
+                    <div class="card-body" id="suggestedGroups">
+                        <div class="loading">
+                            <p>Click "Find Groups" to discover related customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Existing Groups -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Existing Groups</h3>
+                        <button class="btn btn-success" onclick="loadSavedGroups()">
+                            <i class="fas fa-sync"></i> Refresh
+                        </button>
+                    </div>
+                    <div class="card-body" id="existingGroups">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content: Cash Flow -->
+        <div class="tab-content" id="tab-cashflow">
+            <div class="content-grid full-width">
+                <!-- Daily Forecast -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">30-Day Cash Flow Forecast</h3>
+                        <div>
+                            <button class="btn btn-primary" onclick="loadCashFlow('daily')">Daily</button>
+                            <button class="btn btn-primary" onclick="loadCashFlow('weekly')">Weekly</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="detailedCashFlowChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Risks -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Payment Risk Analysis</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table" id="risksTable">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>AR Balance</th>
+                                    <th>Days Since Payment</th>
+                                    <th>Risk Score</th>
+                                    <th>Risk Reason</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Detail Modal -->
+    <div class="modal" id="customerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="card-title">Customer AR Detail</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="customerModalBody">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentTab = 'overview';
+        let summaryData = {};
+        let agingChart = null;
+        let cashFlowChart = null;
+        let detailedCashFlowChart = null;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSummary();
+            loadTopCustomers();
+            loadDailyCashFlow();
+            loadSavedGroups();
+            findGroups(); // Auto-load customer groups
+        });
+
+        // Tab switching
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+
+            currentTab = tabName;
+
+            // Load tab-specific data
+            if (tabName === 'customers') {
+                loadCustomers();
+            } else if (tabName === 'cashflow') {
+                loadCashFlow('daily');
+                loadPaymentRisks();
+            }
+        }
+
+        // Load AR summary
+        async function loadSummary() {
+            try {
+                const response = await fetch('/api/ar/summary');
+                const data = await response.json();
+                
+                // Update summary cards
+                if (data.summary) {
+                    document.getElementById('totalAR').textContent = formatCurrency(data.summary.total_ar || 0);
+                }
+                
+                if (data.aging) {
+                    document.getElementById('currentAR').textContent = formatCurrency(data.aging.current_0_30 || 0);
+                    document.getElementById('overdueAR').textContent = formatCurrency(data.aging.days_31_60 || 0);
+                    document.getElementById('seriouslyOverdueAR').textContent = formatCurrency(data.aging.over_90 || 0);
+                    
+                    // Update aging chart
+                    updateAgingChart(data.aging);
+                }
+
+                // Load metrics
+                loadMetrics();
+                
+            } catch (error) {
+                console.error('Error loading summary:', error);
+            }
+        }
+
+        // Load AR metrics
+        async function loadMetrics() {
+            try {
+                const response = await fetch('/api/ar/metrics?period=30');
+                const data = await response.json();
+                
+                document.getElementById('dso').textContent = Math.round(data.dso || 0);
+                
+                if (data.collection_rate) {
+                    document.getElementById('collectionRate').textContent = Math.round(data.collection_rate) + '%';
+                }
+                
+            } catch (error) {
+                console.error('Error loading metrics:', error);
+            }
+        }
+
+        // Load top customers
+        async function loadTopCustomers() {
+            try {
+                const response = await fetch('/api/ar/customers?sort_by=balance_desc');
+                const customers = await response.json();
+                
+                const tbody = document.querySelector('#topCustomersTable tbody');
+                tbody.innerHTML = '';
+                
+                // Show top 10
+                customers.slice(0, 10).forEach(customer => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td class="clickable" onclick="showCustomerDetail(${customer.ID})">${customer.CustomerName}</td>
+                        <td>${formatCurrency(customer.AccountBalance)}</td>
+                        <td class="${getAgingClass(customer.DaysOverdue)}">${customer.DaysOverdue || 0} days</td>
+                        <td>${customer.LastPaymentDate ? formatDate(customer.LastPaymentDate) : 'Never'}</td>
+                        <td>${getStatusBadge(customer.DaysOverdue)}</td>
+                    `;
+                });
+                
+            } catch (error) {
+                console.error('Error loading top customers:', error);
+            }
+        }
+
+        // Filter customers table (client-side search)
+        function filterCustomersTable() {
+            const searchTerm = document.getElementById('filterSearch').value.toLowerCase();
+            const rows = document.querySelectorAll('#customersTable tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+            
+            // Update count
+            const visibleRows = document.querySelectorAll('#customersTable tbody tr:not([style*="display: none"])').length;
+            document.getElementById('customerCount').textContent = `${visibleRows} customers shown`;
+        }
+
+        // Load all customers
+        async function loadCustomers() {
+            try {
+                const minBalance = document.getElementById('filterMinBalance').value || 0;
+                const maxBalance = document.getElementById('filterMaxBalance').value;
+                const daysOverdue = document.getElementById('filterDaysOverdue').value;
+                const sortBy = document.getElementById('filterSort').value;
+                
+                let url = `/api/ar/customers?min_balance=${minBalance}&sort_by=${sortBy}`;
+                if (daysOverdue) {
+                    url += `&days_overdue=${daysOverdue}`;
+                }
+                
+                const response = await fetch(url);
+                const customers = await response.json();
+                
+                document.getElementById('customerCount').textContent = `${customers.length} customers`;
+                
+                const tbody = document.querySelector('#customersTable tbody');
+                tbody.innerHTML = '';
+                
+                customers.forEach(customer => {
+                    const row = tbody.insertRow();
+                    const utilization = customer.CreditLimit > 0 ? 
+                        Math.round((customer.AccountBalance / customer.CreditLimit) * 100) : null;
+                    
+                    row.innerHTML = `
+                        <td class="clickable" onclick="showCustomerDetail(${customer.ID})">${customer.CustomerName}</td>
+                        <td>${customer.PhoneNumber || ''}</td>
+                        <td>${formatCurrency(customer.AccountBalance)}</td>
+                        <td>${formatCurrency(customer.CreditLimit)}</td>
+                        <td>${utilization !== null ? utilization + '%' : 'N/A'}</td>
+                        <td>${customer.OldestInvoiceDate ? formatDate(customer.OldestInvoiceDate) : ''}</td>
+                        <td class="${getAgingClass(customer.DaysOverdue)}">${customer.DaysOverdue || 0}</td>
+                        <td>${customer.LastPaymentDate ? formatDate(customer.LastPaymentDate) : 'Never'}</td>
+                        <td>
+                            <button class="btn btn-primary" onclick="showCustomerDetail(${customer.ID})">View</button>
+                        </td>
+                    `;
+                });
+                
+            } catch (error) {
+                console.error('Error loading customers:', error);
+            }
+        }
+
+        // Show customer detail modal
+        async function showCustomerDetail(customerId) {
+            try {
+                const response = await fetch(`/api/ar/customer/${customerId}`);
+                const data = await response.json();
+                
+                const modal = document.getElementById('customerModal');
+                const body = document.getElementById('customerModalBody');
+                
+                let html = `
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4>${data.customer.CustomerName}</h4>
+                        <p>${data.customer.Address || ''} ${data.customer.City || ''} ${data.customer.State || ''} ${data.customer.Zip || ''}</p>
+                        <p>Phone: ${data.customer.PhoneNumber || 'N/A'}</p>
+                        <p>AR Balance: <strong>${formatCurrency(data.customer.AccountBalance)}</strong></p>
+                        <p>Credit Limit: ${formatCurrency(data.customer.CreditLimit)}</p>
+                    </div>
+                    
+                    <h5>Open Invoices</h5>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Reference</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Balance</th>
+                                <th>Days Old</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (data.open_invoices && data.open_invoices.length > 0) {
+                    data.open_invoices.forEach(invoice => {
+                        html += `
+                            <tr>
+                                <td>${formatDate(invoice.Date)}</td>
+                                <td>${invoice.Reference}</td>
+                                <td>${invoice.Type}</td>
+                                <td>${formatCurrency(invoice.OriginalAmount)}</td>
+                                <td>${formatCurrency(invoice.Balance)}</td>
+                                <td class="${getAgingClass(invoice.DaysOld)}">${invoice.DaysOld}</td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    html += '<tr><td colspan="6">No open invoices</td></tr>';
+                }
+                
+                html += `
+                        </tbody>
+                    </table>
+                    
+                    <div style="margin-top: 1rem;">
+                        <button class="btn btn-export" onclick="exportCustomerDetail(${customerId})">Export Details</button>
+                    </div>
+                `;
+                
+                body.innerHTML = html;
+                modal.classList.add('active');
+                
+            } catch (error) {
+                console.error('Error loading customer detail:', error);
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('customerModal').classList.remove('active');
+        }
+
+        // Show group detail
+        async function showGroupDetail(groupName, customerIds) {
+            try {
+                const response = await fetch('/api/ar/groups/detail', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ customer_ids: customerIds })
+                });
+                const data = await response.json();
+                
+                const modal = document.getElementById('customerModal');
+                const body = document.getElementById('customerModalBody');
+                
+                let html = `
+                    <h3>Customer Group: ${groupName}</h3>
+                    <div style="margin: 1rem 0;">
+                        <strong>Group Metrics:</strong>
+                        <ul>
+                            <li>Total AR: ${formatCurrency(data.metrics.total_ar || 0)}</li>
+                            <li>Total Credit Limit: ${formatCurrency(data.metrics.total_credit_limit || 0)}</li>
+                            <li>Open Invoices: ${data.metrics.open_invoice_count || 0}</li>
+                            <li>Over 90 Days: ${formatCurrency(data.metrics.over_90_balance || 0)}</li>
+                        </ul>
+                    </div>
+                    
+                    <h4>Group Members:</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Phone</th>
+                                <th>AR Balance</th>
+                                <th>Credit Limit</th>
+                                <th>Last Visit</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (data.members && data.members.length > 0) {
+                    data.members.forEach(member => {
+                        html += `
+                            <tr>
+                                <td>${member.CustomerName}</td>
+                                <td>${member.PhoneNumber || ''}</td>
+                                <td>${formatCurrency(member.AccountBalance)}</td>
+                                <td>${formatCurrency(member.CreditLimit)}</td>
+                                <td>${member.LastVisit ? formatDate(member.LastVisit) : 'Never'}</td>
+                                <td><button class="btn btn-primary" onclick="showCustomerDetail(${member.ID})">View</button></td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    html += '<tr><td colspan="6">No members found</td></tr>';
+                }
+                
+                html += '</tbody></table>';
+                
+                body.innerHTML = html;
+                modal.classList.add('active');
+                
+            } catch (error) {
+                console.error('Error loading group detail:', error);
+            }
+        }
+
+        // Find customer groups
+        async function findGroups() {
+            try {
+                const container = document.getElementById('suggestedGroups');
+                container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+                
+                const response = await fetch('/api/ar/groups/find');
+                const groups = await response.json();
+                
+                if (groups.length === 0) {
+                    container.innerHTML = '<p>No customer groups found</p>';
+                    return;
+                }
+                
+                let html = '';
+                groups.forEach(group => {
+                    const memberIds = group.members.map(m => m.id).join(',');
+                    html += `
+                        <div class="group-card" style="cursor: pointer;" onclick="showGroupDetail('${group.suggested_name}', [${memberIds}])">
+                            <div class="group-header">
+                                <span class="group-name">${group.suggested_name}</span>
+                                <span class="risk-badge risk-low">${Math.round(group.avg_match_score * 100)}% match</span>
+                            </div>
+                            <div class="group-members">
+                                ${group.members.map(m => m.name).join(', ')}
+                            </div>
+                            <div class="group-metrics">
+                                <div class="group-metric">
+                                    <span class="group-metric-label">Total AR</span>
+                                    <span class="group-metric-value">${formatCurrency(group.total_ar_balance)}</span>
+                                </div>
+                                <div class="group-metric">
+                                    <span class="group-metric-label">Members</span>
+                                    <span class="group-metric-value">${group.member_count}</span>
+                                </div>
+                                <div class="group-metric">
+                                    <span class="group-metric-label">Credit Limit</span>
+                                    <span class="group-metric-value">${formatCurrency(group.total_credit_limit)}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                
+            } catch (error) {
+                console.error('Error finding groups:', error);
+            }
+        }
+
+        // Load saved groups
+        async function loadSavedGroups() {
+            try {
+                const container = document.getElementById('existingGroups');
+                
+                const response = await fetch('/api/ar/groups/saved');
+                const groups = await response.json();
+                
+                if (groups.length === 0) {
+                    container.innerHTML = '<p>No saved groups</p>';
+                    return;
+                }
+                
+                let html = '';
+                groups.forEach(group => {
+                    html += `
+                        <div class="group-card">
+                            <div class="group-header">
+                                <span class="group-name">${group.group_name}</span>
+                            </div>
+                            <div class="group-members">
+                                ${group.members.join(', ')}
+                            </div>
+                            <div class="group-metrics">
+                                <div class="group-metric">
+                                    <span class="group-metric-label">Total AR</span>
+                                    <span class="group-metric-value">${formatCurrency(group.total_balance)}</span>
+                                </div>
+                                <div class="group-metric">
+                                    <span class="group-metric-label">Members</span>
+                                    <span class="group-metric-value">${group.member_count}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+                
+            } catch (error) {
+                console.error('Error loading saved groups:', error);
+            }
+        }
+
+        // Load cash flow predictions
+        async function loadCashFlow(type) {
+            try {
+                const url = type === 'weekly' ? 
+                    '/api/ar/cashflow/weekly?weeks=4' : 
+                    '/api/ar/cashflow/daily?days=30';
+                    
+                const response = await fetch(url);
+                const predictions = await response.json();
+                
+                updateDetailedCashFlowChart(predictions, type);
+                
+            } catch (error) {
+                console.error('Error loading cash flow:', error);
+            }
+        }
+
+        // Load daily cash flow for overview
+        async function loadDailyCashFlow() {
+            try {
+                const response = await fetch('/api/ar/cashflow/daily?days=7');
+                const predictions = await response.json();
+                
+                updateCashFlowChart(predictions);
+                
+            } catch (error) {
+                console.error('Error loading daily cash flow:', error);
+            }
+        }
+
+        // Load payment risks
+        async function loadPaymentRisks() {
+            try {
+                const response = await fetch('/api/ar/risks');
+                const risks = await response.json();
+                
+                const tbody = document.querySelector('#risksTable tbody');
+                tbody.innerHTML = '';
+                
+                risks.forEach(risk => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td class="clickable" onclick="showCustomerDetail(${risk.customer_id})">${risk.customer_name}</td>
+                        <td>${formatCurrency(risk.ar_balance)}</td>
+                        <td>${risk.days_since_payment || 'N/A'}</td>
+                        <td>${getRiskBadge(risk.risk_score)}</td>
+                        <td>${risk.primary_risk_reason}</td>
+                    `;
+                });
+                
+            } catch (error) {
+                console.error('Error loading payment risks:', error);
+            }
+        }
+
+        // Update aging chart
+        function updateAgingChart(data) {
+            const ctx = document.getElementById('agingChart').getContext('2d');
+            
+            if (agingChart) {
+                agingChart.destroy();
+            }
+            
+            agingChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Current (0-30)', '31-60 Days', '61-90 Days', 'Over 90 Days'],
+                    datasets: [{
+                        data: [
+                            data.current_0_30 || 0,
+                            data.days_31_60 || 0,
+                            data.days_61_90 || 0,
+                            data.over_90 || 0
+                        ],
+                        backgroundColor: [
+                            '#48bb78',
+                            '#ed8936',
+                            '#f56565',
+                            '#9f1239'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update cash flow chart
+        function updateCashFlowChart(predictions) {
+            const ctx = document.getElementById('cashFlowChart').getContext('2d');
+            
+            if (cashFlowChart) {
+                cashFlowChart.destroy();
+            }
+            
+            cashFlowChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: predictions.map(p => p.day_of_week),
+                    datasets: [{
+                        label: 'Expected Collections',
+                        data: predictions.map(p => p.expected),
+                        backgroundColor: '#4299e1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update detailed cash flow chart
+        function updateDetailedCashFlowChart(predictions, type) {
+            const ctx = document.getElementById('detailedCashFlowChart').getContext('2d');
+            
+            if (detailedCashFlowChart) {
+                detailedCashFlowChart.destroy();
+            }
+            
+            const labels = type === 'weekly' ? 
+                predictions.map(p => `Week ${p.week_number}`) :
+                predictions.map(p => new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+            
+            detailedCashFlowChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Expected',
+                        data: predictions.map(p => p.expected),
+                        borderColor: '#4299e1',
+                        backgroundColor: 'rgba(66, 153, 225, 0.1)',
+                        fill: true
+                    }, {
+                        label: 'High Confidence',
+                        data: predictions.map(p => p.high_confidence),
+                        borderColor: '#48bb78',
+                        borderDash: [5, 5],
+                        fill: false
+                    }, {
+                        label: 'Low Confidence',
+                        data: predictions.map(p => p.low_confidence),
+                        borderColor: '#f56565',
+                        borderDash: [5, 5],
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Export data
+        function exportData(type) {
+            window.location.href = `/api/ar/export/${type}`;
+        }
+
+        // Export customer detail
+        function exportCustomerDetail(customerId) {
+            window.location.href = `/api/ar/export/detail?customer_id=${customerId}`;
+        }
+
+        // Utility functions
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(value || 0);
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+
+        function getAgingClass(days) {
+            if (!days || days <= 30) return 'aging-current';
+            if (days <= 60) return 'aging-warning';
+            return 'aging-overdue';
+        }
+
+        function getStatusBadge(days) {
+            if (!days || days <= 30) {
+                return '<span class="risk-badge risk-low">Current</span>';
+            } else if (days <= 60) {
+                return '<span class="risk-badge risk-medium">Overdue</span>';
+            } else {
+                return '<span class="risk-badge risk-high">Seriously Overdue</span>';
+            }
+        }
+
+        function getRiskBadge(score) {
+            if (score >= 3) {
+                return '<span class="risk-badge risk-high">High</span>';
+            } else if (score >= 2) {
+                return '<span class="risk-badge risk-medium">Medium</span>';
+            } else {
+                return '<span class="risk-badge risk-low">Low</span>';
+            }
+        }
+    </script>
+</body>
+</html>

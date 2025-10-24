@@ -1,0 +1,1419 @@
+{
+  "report_date": "2025-09-03T17:34:28.454796",
+  "period": "2019-01-01 to 2023-12-31",
+  "yearly_growth": [
+    {
+      "Year": 2019,
+      "TotalRevenue": "24356399.2600",
+      "UniqueCustomers": 713,
+      "Transactions": 21645,
+      "AvgTransaction": "1125.2667",
+      "PrevYearRevenue": "21639349.8900",
+      "RevenueGrowthPercent": "12.5500",
+      "CustomerGrowthPercent": "13.897763578274"
+    },
+    {
+      "Year": 2020,
+      "TotalRevenue": "25705755.7900",
+      "UniqueCustomers": 801,
+      "Transactions": 23174,
+      "AvgTransaction": "1109.2498",
+      "PrevYearRevenue": "24356399.2600",
+      "RevenueGrowthPercent": "5.5400",
+      "CustomerGrowthPercent": "12.342215988779"
+    },
+    {
+      "Year": 2021,
+      "TotalRevenue": "37713732.9200",
+      "UniqueCustomers": 848,
+      "Transactions": 26067,
+      "AvgTransaction": "1446.7998",
+      "PrevYearRevenue": "25705755.7900",
+      "RevenueGrowthPercent": "46.7100",
+      "CustomerGrowthPercent": "5.867665418227"
+    },
+    {
+      "Year": 2022,
+      "TotalRevenue": "35799077.4200",
+      "UniqueCustomers": 849,
+      "Transactions": 22858,
+      "AvgTransaction": "1566.1509",
+      "PrevYearRevenue": "37713732.9200",
+      "RevenueGrowthPercent": "-5.0700",
+      "CustomerGrowthPercent": "0.117924528301"
+    },
+    {
+      "Year": 2023,
+      "TotalRevenue": "34111797.6000",
+      "UniqueCustomers": 748,
+      "Transactions": 19959,
+      "AvgTransaction": "1709.0935",
+      "PrevYearRevenue": "35799077.4200",
+      "RevenueGrowthPercent": "-4.7100",
+      "CustomerGrowthPercent": "-11.896348645465"
+    }
+  ],
+  "category_growth": [
+    {
+      "Year": 2019,
+      "Category": "CIGAR GA",
+      "Revenue": 501944.95999991876,
+      "PrevYearRevenue": 688747.8999998904,
+      "GrowthPercent": -27.12210665179543,
+      "Transactions": 6505,
+      "UnitsSold": 24820.0
+    },
+    {
+      "Year": 2020,
+      "Category": "CIGAR GA",
+      "Revenue": 715979.2899998267,
+      "PrevYearRevenue": 501944.95999991876,
+      "GrowthPercent": 42.64099593707297,
+      "Transactions": 8633,
+      "UnitsSold": 35765.0
+    },
+    {
+      "Year": 2021,
+      "Category": "CIGAR GA",
+      "Revenue": 1311564.5899997305,
+      "PrevYearRevenue": 715979.2899998267,
+      "GrowthPercent": 83.18471055217923,
+      "Transactions": 9636,
+      "UnitsSold": 59412.0
+    },
+    {
+      "Year": 2022,
+      "Category": "CIGAR GA",
+      "Revenue": 1928533.7799996769,
+      "PrevYearRevenue": 1311564.5899997305,
+      "GrowthPercent": 47.040701975651324,
+      "Transactions": 8612,
+      "UnitsSold": 76234.0
+    },
+    {
+      "Year": 2023,
+      "Category": "CIGAR GA",
+      "Revenue": 1451229.1899997147,
+      "PrevYearRevenue": 1928533.7799996769,
+      "GrowthPercent": -24.749610037945104,
+      "Transactions": 7892,
+      "UnitsSold": 63135.0
+    },
+    {
+      "Year": 2019,
+      "Category": "CIGARETTE",
+      "Revenue": 10315041.420003025,
+      "PrevYearRevenue": 8099772.529997056,
+      "GrowthPercent": 27.34976669779112,
+      "Transactions": 11391,
+      "UnitsSold": 194031.0
+    },
+    {
+      "Year": 2020,
+      "Category": "CIGARETTE",
+      "Revenue": 10942277.540004516,
+      "PrevYearRevenue": 10315041.420003025,
+      "GrowthPercent": 6.080791093917946,
+      "Transactions": 11418,
+      "UnitsSold": 196694.0
+    },
+    {
+      "Year": 2021,
+      "Category": "CIGARETTE",
+      "Revenue": 13875718.740006782,
+      "PrevYearRevenue": 10942277.540004516,
+      "GrowthPercent": 26.808323854679482,
+      "Transactions": 12637,
+      "UnitsSold": 237069.0
+    },
+    {
+      "Year": 2022,
+      "Category": "CIGARETTE",
+      "Revenue": 11252281.780001132,
+      "PrevYearRevenue": 13875718.740006782,
+      "GrowthPercent": -18.906674379624736,
+      "Transactions": 11142,
+      "UnitsSold": 177628.0
+    },
+    {
+      "Year": 2023,
+      "Category": "CIGARETTE",
+      "Revenue": 11758955.380003236,
+      "PrevYearRevenue": 11252281.780001132,
+      "GrowthPercent": 4.502852042886304,
+      "Transactions": 10094,
+      "UnitsSold": 177160.0
+    },
+    {
+      "Year": 2019,
+      "Category": "CIGARS",
+      "Revenue": 6321446.660014327,
+      "PrevYearRevenue": 7866451.440013147,
+      "GrowthPercent": -19.640428619950118,
+      "Transactions": 12991,
+      "UnitsSold": 303610.0
+    },
+    {
+      "Year": 2020,
+      "Category": "CIGARS",
+      "Revenue": 6204106.000021135,
+      "PrevYearRevenue": 6321446.660014327,
+      "GrowthPercent": -1.8562311177189512,
+      "Transactions": 15590,
+      "UnitsSold": 289367.0
+    },
+    {
+      "Year": 2021,
+      "Category": "CIGARS",
+      "Revenue": 8523608.500024352,
+      "PrevYearRevenue": 6204106.000021135,
+      "GrowthPercent": 37.38657108687883,
+      "Transactions": 16624,
+      "UnitsSold": 375350.0
+    },
+    {
+      "Year": 2022,
+      "Category": "CIGARS",
+      "Revenue": 8458509.860019574,
+      "PrevYearRevenue": 8523608.500024352,
+      "GrowthPercent": -0.7637450735166015,
+      "Transactions": 14126,
+      "UnitsSold": 408578.0
+    },
+    {
+      "Year": 2023,
+      "Category": "CIGARS",
+      "Revenue": 5903535.44000969,
+      "PrevYearRevenue": 8458509.860019574,
+      "GrowthPercent": -30.20596372519889,
+      "Transactions": 11895,
+      "UnitsSold": 278330.0
+    },
+    {
+      "Year": 2019,
+      "Category": "DRINKS",
+      "Revenue": 824393.7699998962,
+      "PrevYearRevenue": 719905.0099999215,
+      "GrowthPercent": 14.514242649872102,
+      "Transactions": 5496,
+      "UnitsSold": 43913.0
+    },
+    {
+      "Year": 2020,
+      "Category": "DRINKS",
+      "Revenue": 1004724.969999855,
+      "PrevYearRevenue": 824393.7699998962,
+      "GrowthPercent": 21.874401112951347,
+      "Transactions": 6304,
+      "UnitsSold": 48498.0
+    },
+    {
+      "Year": 2021,
+      "Category": "DRINKS",
+      "Revenue": 1535454.8699996916,
+      "PrevYearRevenue": 1004724.969999855,
+      "GrowthPercent": 52.823401014897954,
+      "Transactions": 7842,
+      "UnitsSold": 72596.0
+    },
+    {
+      "Year": 2022,
+      "Category": "DRINKS",
+      "Revenue": 1288086.229999779,
+      "PrevYearRevenue": 1535454.8699996916,
+      "GrowthPercent": -16.1104468019931,
+      "Transactions": 6310,
+      "UnitsSold": 55465.0
+    },
+    {
+      "Year": 2023,
+      "Category": "DRINKS",
+      "Revenue": 1010039.2999998776,
+      "PrevYearRevenue": 1288086.229999779,
+      "GrowthPercent": -21.586049406020678,
+      "Transactions": 4829,
+      "UnitsSold": 45114.0
+    },
+    {
+      "Year": 2019,
+      "Category": "ECIG - PODS",
+      "Revenue": 555945.3100000005,
+      "PrevYearRevenue": 40432.889999999956,
+      "GrowthPercent": 1274.9828666711708,
+      "Transactions": 1231,
+      "UnitsSold": 57371.0
+    },
+    {
+      "Year": 2020,
+      "Category": "ECIG - PODS",
+      "Revenue": 1395705.8799999934,
+      "PrevYearRevenue": 555945.3100000005,
+      "GrowthPercent": 151.05093161051977,
+      "Transactions": 1513,
+      "UnitsSold": 144023.0
+    },
+    {
+      "Year": 2021,
+      "Category": "ECIG - PODS",
+      "Revenue": 1943443.6004000201,
+      "PrevYearRevenue": 1395705.8799999934,
+      "GrowthPercent": 39.24449472119652,
+      "Transactions": 2199,
+      "UnitsSold": 194600.0
+    },
+    {
+      "Year": 2022,
+      "Category": "ECIG - PODS",
+      "Revenue": 1712831.469999987,
+      "PrevYearRevenue": 1943443.6004000201,
+      "GrowthPercent": -11.866160168093694,
+      "Transactions": 2056,
+      "UnitsSold": 156856.0
+    },
+    {
+      "Year": 2023,
+      "Category": "ECIG - PODS",
+      "Revenue": 1622132.509999969,
+      "PrevYearRevenue": 1712831.469999987,
+      "GrowthPercent": -5.295264688242713,
+      "Transactions": 1999,
+      "UnitsSold": 20361.0
+    },
+    {
+      "Year": 2019,
+      "Category": "ELECTRONIC CIG",
+      "Revenue": 35006.84000000001,
+      "PrevYearRevenue": 30233.500000000062,
+      "GrowthPercent": 15.788248135346352,
+      "Transactions": 379,
+      "UnitsSold": 1575.0
+    },
+    {
+      "Year": 2020,
+      "Category": "ELECTRONIC CIG",
+      "Revenue": 129049.04000000014,
+      "PrevYearRevenue": 35006.84000000001,
+      "GrowthPercent": 268.6395001662535,
+      "Transactions": 968,
+      "UnitsSold": 9455.0
+    },
+    {
+      "Year": 2021,
+      "Category": "ELECTRONIC CIG",
+      "Revenue": 1528104.129999996,
+      "PrevYearRevenue": 129049.04000000014,
+      "GrowthPercent": 1084.126693232274,
+      "Transactions": 4780,
+      "UnitsSold": 29543.0
+    },
+    {
+      "Year": 2022,
+      "Category": "ELECTRONIC CIG",
+      "Revenue": 2754929.800000002,
+      "PrevYearRevenue": 1528104.129999996,
+      "GrowthPercent": 80.2841668911666,
+      "Transactions": 6009,
+      "UnitsSold": 49264.0
+    },
+    {
+      "Year": 2023,
+      "Category": "ELECTRONIC CIG",
+      "Revenue": 3191989.389999996,
+      "PrevYearRevenue": 2754929.800000002,
+      "GrowthPercent": 15.864636187825672,
+      "Transactions": 5699,
+      "UnitsSold": 56335.0
+    },
+    {
+      "Year": 2019,
+      "Category": "LT-TAX PAID",
+      "Revenue": 174648.82999999984,
+      "PrevYearRevenue": 169438.4200000012,
+      "GrowthPercent": 3.0751053981727394,
+      "Transactions": 2702,
+      "UnitsSold": 15185.0
+    },
+    {
+      "Year": 2020,
+      "Category": "LT-TAX PAID",
+      "Revenue": 290995.37999998766,
+      "PrevYearRevenue": 174648.82999999984,
+      "GrowthPercent": 66.61742308836992,
+      "Transactions": 4477,
+      "UnitsSold": 22716.0
+    },
+    {
+      "Year": 2021,
+      "Category": "LT-TAX PAID",
+      "Revenue": 786943.3599999052,
+      "PrevYearRevenue": 290995.37999998766,
+      "GrowthPercent": 170.43156492722963,
+      "Transactions": 5910,
+      "UnitsSold": 36290.0
+    },
+    {
+      "Year": 2022,
+      "Category": "LT-TAX PAID",
+      "Revenue": 1181326.9599998742,
+      "PrevYearRevenue": 786943.3599999052,
+      "GrowthPercent": 50.11588127511699,
+      "Transactions": 6003,
+      "UnitsSold": 46896.0
+    },
+    {
+      "Year": 2023,
+      "Category": "LT-TAX PAID",
+      "Revenue": 1467202.629999838,
+      "PrevYearRevenue": 1181326.9599998742,
+      "GrowthPercent": 24.199538288704954,
+      "Transactions": 6290,
+      "UnitsSold": 52832.0
+    },
+    {
+      "Year": 2019,
+      "Category": "T7 SMOKELESS GA",
+      "Revenue": 375618.12999998947,
+      "PrevYearRevenue": 298378.1699999915,
+      "GrowthPercent": 25.886598875514316,
+      "Transactions": 3848,
+      "UnitsSold": 18203.0
+    },
+    {
+      "Year": 2020,
+      "Category": "T7 SMOKELESS GA",
+      "Revenue": 432367.14999998844,
+      "PrevYearRevenue": 375618.12999998947,
+      "GrowthPercent": 15.108168500812397,
+      "Transactions": 3845,
+      "UnitsSold": 19403.0
+    },
+    {
+      "Year": 2021,
+      "Category": "T7 SMOKELESS GA",
+      "Revenue": 575276.9299999771,
+      "PrevYearRevenue": 432367.14999998844,
+      "GrowthPercent": 33.052876473153084,
+      "Transactions": 4583,
+      "UnitsSold": 23676.0
+    },
+    {
+      "Year": 2022,
+      "Category": "T7 SMOKELESS GA",
+      "Revenue": 708229.3699999603,
+      "PrevYearRevenue": 575276.9299999771,
+      "GrowthPercent": 23.11103280292997,
+      "Transactions": 4369,
+      "UnitsSold": 27555.0
+    },
+    {
+      "Year": 2023,
+      "Category": "T7 SMOKELESS GA",
+      "Revenue": 753966.8699999049,
+      "PrevYearRevenue": 708229.3699999603,
+      "GrowthPercent": 6.458006676558352,
+      "Transactions": 4143,
+      "UnitsSold": 27589.0
+    },
+    {
+      "Year": 2019,
+      "Category": "Uncategorized",
+      "Revenue": 2431362.027600213,
+      "PrevYearRevenue": 1307484.165599655,
+      "GrowthPercent": 85.95728281612581,
+      "Transactions": 10098,
+      "UnitsSold": 293652.5
+    },
+    {
+      "Year": 2020,
+      "Category": "Uncategorized",
+      "Revenue": 1417627.0540767708,
+      "PrevYearRevenue": 2431362.027600213,
+      "GrowthPercent": -41.69411885255164,
+      "Transactions": 9954,
+      "UnitsSold": 165783.3323
+    },
+    {
+      "Year": 2021,
+      "Category": "Uncategorized",
+      "Revenue": 1833675.5743997728,
+      "PrevYearRevenue": 1417627.0540767708,
+      "GrowthPercent": 29.34823507540589,
+      "Transactions": 10882,
+      "UnitsSold": 163157.0
+    },
+    {
+      "Year": 2022,
+      "Category": "Uncategorized",
+      "Revenue": 182173.78479999816,
+      "PrevYearRevenue": 1833675.5743997728,
+      "GrowthPercent": -90.06510271809505,
+      "Transactions": 4440,
+      "UnitsSold": 42501.0
+    },
+    {
+      "Year": 2023,
+      "Category": "Uncategorized",
+      "Revenue": 57556.789999999484,
+      "PrevYearRevenue": 182173.78479999816,
+      "GrowthPercent": -68.40555842697732,
+      "Transactions": 1602,
+      "UnitsSold": 9993.0
+    },
+    {
+      "Year": 2019,
+      "Category": "VITAMINS",
+      "Revenue": 515915.9909999803,
+      "PrevYearRevenue": 210922.9199999969,
+      "GrowthPercent": 144.59930243711204,
+      "Transactions": 2102,
+      "UnitsSold": 34812.0
+    },
+    {
+      "Year": 2020,
+      "Category": "VITAMINS",
+      "Revenue": 112455.80750000801,
+      "PrevYearRevenue": 515915.9909999803,
+      "GrowthPercent": -78.20269007711134,
+      "Transactions": 2069,
+      "UnitsSold": 12258.0
+    },
+    {
+      "Year": 2021,
+      "Category": "VITAMINS",
+      "Revenue": 824161.6799999524,
+      "PrevYearRevenue": 112455.80750000801,
+      "GrowthPercent": 632.8760499984794,
+      "Transactions": 3950,
+      "UnitsSold": 39518.0
+    },
+    {
+      "Year": 2022,
+      "Category": "VITAMINS",
+      "Revenue": 1102638.859999945,
+      "PrevYearRevenue": 824161.6799999524,
+      "GrowthPercent": 33.78914438244794,
+      "Transactions": 5095,
+      "UnitsSold": 31364.0
+    },
+    {
+      "Year": 2023,
+      "Category": "VITAMINS",
+      "Revenue": 1423590.9399999522,
+      "PrevYearRevenue": 1102638.859999945,
+      "GrowthPercent": 29.107633663484645,
+      "Transactions": 5669,
+      "UnitsSold": 35169.0
+    }
+  ],
+  "customer_segments": [
+    {
+      "Year": 2019,
+      "PlatinumCustomers": 126,
+      "GoldCustomers": 90,
+      "SilverCustomers": 114,
+      "BronzeCustomers": 77,
+      "StandardCustomers": 306,
+      "PlatinumRevenue": "18272569.3200",
+      "GoldRevenue": "3212150.0300",
+      "SilverRevenue": "1867892.7200",
+      "BronzeRevenue": "566388.4900",
+      "StandardRevenue": "437398.7000"
+    },
+    {
+      "Year": 2020,
+      "PlatinumCustomers": 143,
+      "GoldCustomers": 97,
+      "SilverCustomers": 132,
+      "BronzeCustomers": 91,
+      "StandardCustomers": 338,
+      "PlatinumRevenue": "18934072.4200",
+      "GoldRevenue": "3552162.4500",
+      "SilverRevenue": "2110732.5000",
+      "BronzeRevenue": "664391.4200",
+      "StandardRevenue": "444397.0000"
+    },
+    {
+      "Year": 2021,
+      "PlatinumCustomers": 218,
+      "GoldCustomers": 126,
+      "SilverCustomers": 131,
+      "BronzeCustomers": 83,
+      "StandardCustomers": 290,
+      "PlatinumRevenue": "29977560.0800",
+      "GoldRevenue": "4507942.2800",
+      "SilverRevenue": "2186723.5600",
+      "BronzeRevenue": "583982.1900",
+      "StandardRevenue": "457524.8100"
+    },
+    {
+      "Year": 2022,
+      "PlatinumCustomers": 205,
+      "GoldCustomers": 123,
+      "SilverCustomers": 151,
+      "BronzeCustomers": 101,
+      "StandardCustomers": 269,
+      "PlatinumRevenue": "27665850.1300",
+      "GoldRevenue": "4516638.4100",
+      "SilverRevenue": "2488090.8700",
+      "BronzeRevenue": "728707.8900",
+      "StandardRevenue": "399790.1200"
+    },
+    {
+      "Year": 2023,
+      "PlatinumCustomers": 199,
+      "GoldCustomers": 122,
+      "SilverCustomers": 108,
+      "BronzeCustomers": 78,
+      "StandardCustomers": 241,
+      "PlatinumRevenue": "26954082.5100",
+      "GoldRevenue": "4322925.4600",
+      "SilverRevenue": "1859417.4600",
+      "BronzeRevenue": "590910.9200",
+      "StandardRevenue": "384461.2500"
+    }
+  ],
+  "seasonality": [],
+  "top_customers": [
+    {
+      "Year": 2019,
+      "CustomerRank": "1",
+      "CustomerName": "METRO ATLANTA WHOLESALES INC",
+      "Revenue": "729311.5800",
+      "Transactions": 107,
+      "AvgTransaction": "6815.9960"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "2",
+      "CustomerName": "PLAN B WHOLESALE",
+      "Revenue": "565122.8400",
+      "Transactions": 631,
+      "AvgTransaction": "895.5987"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "3",
+      "CustomerName": "BUDDHANI III LLC./SHELL FOOD",
+      "Revenue": "439065.1700",
+      "Transactions": 344,
+      "AvgTransaction": "1276.3522"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "4",
+      "CustomerName": "GLOBAL WHOLESALE",
+      "Revenue": "419144.5500",
+      "Transactions": 120,
+      "AvgTransaction": "3492.8712"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "5",
+      "CustomerName": "SMS STAR 5 LLC ",
+      "Revenue": "418394.3500",
+      "Transactions": 76,
+      "AvgTransaction": "5505.1888"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "6",
+      "CustomerName": "CAMPBELLTON SHELL INC.",
+      "Revenue": "355027.9100",
+      "Transactions": 74,
+      "AvgTransaction": "4797.6744"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "7",
+      "CustomerName": "ALL IN ONE WHOLESALE/ARHAN LLC",
+      "Revenue": "353970.9700",
+      "Transactions": 56,
+      "AvgTransaction": "6320.9101"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "8",
+      "CustomerName": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+      "Revenue": "339183.2100",
+      "Transactions": 368,
+      "AvgTransaction": "921.6935"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "9",
+      "CustomerName": "STARCO IMPEX INC",
+      "Revenue": "330239.1000",
+      "Transactions": 13,
+      "AvgTransaction": "25403.0076"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "10",
+      "CustomerName": "YAA INVESTMENT LLC",
+      "Revenue": "320884.5600",
+      "Transactions": 110,
+      "AvgTransaction": "2917.1323"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "11",
+      "CustomerName": "SHIV 3113 LLC",
+      "Revenue": "285765.6300",
+      "Transactions": 78,
+      "AvgTransaction": "3663.6619"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "12",
+      "CustomerName": "A MUSTAFA INC./PHILLIPS  66",
+      "Revenue": "284779.1500",
+      "Transactions": 295,
+      "AvgTransaction": "965.3530"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "13",
+      "CustomerName": "RIVERDALE HWY INC/CITGO RIVERDALE",
+      "Revenue": "281007.4300",
+      "Transactions": 107,
+      "AvgTransaction": "2626.2376"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "14",
+      "CustomerName": "ASR BUSINESS INC",
+      "Revenue": "273559.6300",
+      "Transactions": 84,
+      "AvgTransaction": "3256.6622"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "15",
+      "CustomerName": "SPEEDE STOP / SAGS BLESSINGS INC",
+      "Revenue": "271359.0600",
+      "Transactions": 294,
+      "AvgTransaction": "922.9900"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "16",
+      "CustomerName": "ASHKAN GROUP INC/TEXACO",
+      "Revenue": "264669.1600",
+      "Transactions": 177,
+      "AvgTransaction": "1495.3059"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "17",
+      "CustomerName": "SHAYAAN INVESTMENTS INC",
+      "Revenue": "242023.8500",
+      "Transactions": 110,
+      "AvgTransaction": "2200.2168"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "18",
+      "CustomerName": "",
+      "Revenue": "240646.0800",
+      "Transactions": 295,
+      "AvgTransaction": "815.7494"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "19",
+      "CustomerName": "WHOLESALE EXPRESS",
+      "Revenue": "236257.6400",
+      "Transactions": 21,
+      "AvgTransaction": "11250.3638"
+    },
+    {
+      "Year": 2019,
+      "CustomerRank": "20",
+      "CustomerName": "SPEEDZONE SHELL",
+      "Revenue": "229592.9200",
+      "Transactions": 112,
+      "AvgTransaction": "2049.9367"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "1",
+      "CustomerName": "SHAYAAN INVESTMENTS INC",
+      "Revenue": "503878.2400",
+      "Transactions": 160,
+      "AvgTransaction": "3149.2390"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "2",
+      "CustomerName": "AMS DISTRIBUTION LLC",
+      "Revenue": "467064.7200",
+      "Transactions": 49,
+      "AvgTransaction": "9531.9330"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "3",
+      "CustomerName": "BUDDHANI III LLC./SHELL FOOD",
+      "Revenue": "441175.7800",
+      "Transactions": 296,
+      "AvgTransaction": "1490.4587"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "4",
+      "CustomerName": "ALL IN ONE WHOLESALE/ARHAN LLC",
+      "Revenue": "357436.9500",
+      "Transactions": 60,
+      "AvgTransaction": "5957.2825"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "5",
+      "CustomerName": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+      "Revenue": "335787.7100",
+      "Transactions": 200,
+      "AvgTransaction": "1678.9385"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "6",
+      "CustomerName": "A MUSTAFA INC./PHILLIPS  66",
+      "Revenue": "325594.9400",
+      "Transactions": 273,
+      "AvgTransaction": "1192.6554"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "7",
+      "CustomerName": "YAA INVESTMENT LLC",
+      "Revenue": "324863.3700",
+      "Transactions": 102,
+      "AvgTransaction": "3184.9350"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "8",
+      "CustomerName": "ASHKAN GROUP INC/TEXACO",
+      "Revenue": "324164.4000",
+      "Transactions": 144,
+      "AvgTransaction": "2251.1416"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "9",
+      "CustomerName": "DONNELLY FOOD MART/MAHIMOU LLC",
+      "Revenue": "315650.2400",
+      "Transactions": 164,
+      "AvgTransaction": "1924.6965"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "10",
+      "CustomerName": "",
+      "Revenue": "292346.2900",
+      "Transactions": 377,
+      "AvgTransaction": "775.4543"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "11",
+      "CustomerName": "CAMPBELLTON SHELL INC.",
+      "Revenue": "272136.3400",
+      "Transactions": 89,
+      "AvgTransaction": "3057.7116"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "12",
+      "CustomerName": "SHIV 3113 LLC",
+      "Revenue": "272001.3700",
+      "Transactions": 82,
+      "AvgTransaction": "3317.0898"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "13",
+      "CustomerName": "METRO ATLANTA WHOLESALES INC",
+      "Revenue": "269765.5500",
+      "Transactions": 43,
+      "AvgTransaction": "6273.6174"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "14",
+      "CustomerName": "BAWANI GROCERY LLC",
+      "Revenue": "262410.6800",
+      "Transactions": 121,
+      "AvgTransaction": "2168.6833"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "15",
+      "CustomerName": "MEMOEFI LLC PICK N PAY",
+      "Revenue": "258450.4700",
+      "Transactions": 209,
+      "AvgTransaction": "1236.6051"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "16",
+      "CustomerName": "AYAAN PETROLEUM LLC",
+      "Revenue": "256547.7300",
+      "Transactions": 128,
+      "AvgTransaction": "2004.2791"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "17",
+      "CustomerName": "WHOLESALE EXPRESS",
+      "Revenue": "249095.5700",
+      "Transactions": 29,
+      "AvgTransaction": "8589.5024"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "18",
+      "CustomerName": "OAKLAND FOOD MART",
+      "Revenue": "247613.0500",
+      "Transactions": 116,
+      "AvgTransaction": "2134.5952"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "19",
+      "CustomerName": "PLAN B WHOLESALE",
+      "Revenue": "240695.0500",
+      "Transactions": 228,
+      "AvgTransaction": "1055.6800"
+    },
+    {
+      "Year": 2020,
+      "CustomerRank": "20",
+      "CustomerName": "SHIV TRILOC INC",
+      "Revenue": "236552.3800",
+      "Transactions": 209,
+      "AvgTransaction": "1131.8295"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "1",
+      "CustomerName": "BEN FOODMART INC",
+      "Revenue": "659494.3700",
+      "Transactions": 68,
+      "AvgTransaction": "9698.4466"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "2",
+      "CustomerName": "SHAYAAN INVESTMENTS INC",
+      "Revenue": "536995.7400",
+      "Transactions": 145,
+      "AvgTransaction": "3703.4188"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "3",
+      "CustomerName": "RAUNAK INVESTMENT LLC",
+      "Revenue": "526249.1100",
+      "Transactions": 215,
+      "AvgTransaction": "2447.6702"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "4",
+      "CustomerName": "CHEVRON FOOD MART/ NIKI 3290 INC",
+      "Revenue": "499356.8600",
+      "Transactions": 149,
+      "AvgTransaction": "3351.3883"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "5",
+      "CustomerName": "AMS DISTRIBUTION LLC",
+      "Revenue": "480091.4800",
+      "Transactions": 39,
+      "AvgTransaction": "12310.0379"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "6",
+      "CustomerName": "MID MARKET 2 INC",
+      "Revenue": "462790.4200",
+      "Transactions": 150,
+      "AvgTransaction": "3085.2694"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "7",
+      "CustomerName": "5616 PANOLA LLC / FOOD MART",
+      "Revenue": "427968.6300",
+      "Transactions": 263,
+      "AvgTransaction": "1627.2571"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "8",
+      "CustomerName": "BUDDHANI III LLC./SHELL FOOD",
+      "Revenue": "399734.1900",
+      "Transactions": 350,
+      "AvgTransaction": "1142.0976"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "9",
+      "CustomerName": "YAA INVESTMENT LLC",
+      "Revenue": "388793.7500",
+      "Transactions": 82,
+      "AvgTransaction": "4741.3871"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "10",
+      "CustomerName": "GLOBAL WHOLESALE",
+      "Revenue": "384989.9100",
+      "Transactions": 85,
+      "AvgTransaction": "4529.2930"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "11",
+      "CustomerName": "",
+      "Revenue": "383878.9400",
+      "Transactions": 370,
+      "AvgTransaction": "1037.5106"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "12",
+      "CustomerName": "BOULEVARD CONVENIENCE INC",
+      "Revenue": "367877.8800",
+      "Transactions": 61,
+      "AvgTransaction": "6030.7849"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "13",
+      "CustomerName": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+      "Revenue": "351845.7800",
+      "Transactions": 119,
+      "AvgTransaction": "2956.6872"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "14",
+      "CustomerName": "CANDLER SHELL MART ",
+      "Revenue": "345770.5700",
+      "Transactions": 125,
+      "AvgTransaction": "2766.1645"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "15",
+      "CustomerName": "REX C STORE/REX STORE INC",
+      "Revenue": "336642.5200",
+      "Transactions": 201,
+      "AvgTransaction": "1674.8384"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "16",
+      "CustomerName": "BAWANI GROCERY LLC",
+      "Revenue": "336313.4300",
+      "Transactions": 87,
+      "AvgTransaction": "3865.6716"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "17",
+      "CustomerName": "KK SONS USA INC",
+      "Revenue": "335557.6000",
+      "Transactions": 84,
+      "AvgTransaction": "3994.7333"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "18",
+      "CustomerName": "BEST FOOD MART",
+      "Revenue": "319953.0900",
+      "Transactions": 84,
+      "AvgTransaction": "3808.9653"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "19",
+      "CustomerName": "CAMPBELLTON SHELL INC.",
+      "Revenue": "313476.6100",
+      "Transactions": 48,
+      "AvgTransaction": "6530.7627"
+    },
+    {
+      "Year": 2021,
+      "CustomerRank": "20",
+      "CustomerName": "SOUTHWEST PACKAGE STORE",
+      "Revenue": "297216.2900",
+      "Transactions": 62,
+      "AvgTransaction": "4793.8111"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "1",
+      "CustomerName": "METRO ATLANTA WHOLESALES INC",
+      "Revenue": "762765.0000",
+      "Transactions": 42,
+      "AvgTransaction": "18161.0714"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "2",
+      "CustomerName": "SHAYAAN INVESTMENTS INC",
+      "Revenue": "645414.0300",
+      "Transactions": 143,
+      "AvgTransaction": "4513.3848"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "3",
+      "CustomerName": "BOULEVARD CONVENIENCE INC",
+      "Revenue": "620402.0700",
+      "Transactions": 78,
+      "AvgTransaction": "7953.8726"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "4",
+      "CustomerName": "ANDYS WHOLESALE INC",
+      "Revenue": "595378.7700",
+      "Transactions": 51,
+      "AvgTransaction": "11674.0935"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "5",
+      "CustomerName": "RELIANCE DISTRIBUTIONS",
+      "Revenue": "464922.2400",
+      "Transactions": 22,
+      "AvgTransaction": "21132.8290"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "6",
+      "CustomerName": "WHOLESALE EXPRESS",
+      "Revenue": "442108.7400",
+      "Transactions": 15,
+      "AvgTransaction": "29473.9160"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "7",
+      "CustomerName": "CHEVRON FOOD MART/ NIKI 3290 INC",
+      "Revenue": "433248.6300",
+      "Transactions": 111,
+      "AvgTransaction": "3903.1408"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "8",
+      "CustomerName": "YAA INVESTMENT LLC",
+      "Revenue": "412350.0100",
+      "Transactions": 103,
+      "AvgTransaction": "4003.3981"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "9",
+      "CustomerName": "",
+      "Revenue": "394500.9900",
+      "Transactions": 286,
+      "AvgTransaction": "1379.3740"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "10",
+      "CustomerName": "PLAN B WHOLESALE",
+      "Revenue": "330342.5400",
+      "Transactions": 65,
+      "AvgTransaction": "5082.1929"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "11",
+      "CustomerName": "PANI INVESTMENT LLC",
+      "Revenue": "311581.7600",
+      "Transactions": 87,
+      "AvgTransaction": "3581.3995"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "12",
+      "CustomerName": "BUDDHANI III LLC./SHELL FOOD",
+      "Revenue": "311533.6800",
+      "Transactions": 312,
+      "AvgTransaction": "998.5053"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "13",
+      "CustomerName": "BAWANI GROCERY LLC",
+      "Revenue": "304689.6200",
+      "Transactions": 105,
+      "AvgTransaction": "2901.8059"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "14",
+      "CustomerName": "BEST FOOD MART",
+      "Revenue": "297905.7400",
+      "Transactions": 135,
+      "AvgTransaction": "2206.7091"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "15",
+      "CustomerName": "BANGLADESH 2025 INC/DISCOUNT FOOD MART ",
+      "Revenue": "286850.9100",
+      "Transactions": 117,
+      "AvgTransaction": "2451.7171"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "16",
+      "CustomerName": "CAMPBELLTON SHELL INC.",
+      "Revenue": "263661.3600",
+      "Transactions": 57,
+      "AvgTransaction": "4625.6378"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "17",
+      "CustomerName": "MOORES MILL CAPITAL LLC",
+      "Revenue": "262668.0700",
+      "Transactions": 176,
+      "AvgTransaction": "1492.4322"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "18",
+      "CustomerName": "ARYANA IMPORTERS & WHOLESALERS",
+      "Revenue": "262064.8600",
+      "Transactions": 47,
+      "AvgTransaction": "5575.8480"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "19",
+      "CustomerName": "KK SONS USA INC",
+      "Revenue": "251472.2300",
+      "Transactions": 80,
+      "AvgTransaction": "3143.4028"
+    },
+    {
+      "Year": 2022,
+      "CustomerRank": "20",
+      "CustomerName": "PEACHTREE CHEVRON/BROOKHEAVEN",
+      "Revenue": "247023.8700",
+      "Transactions": 83,
+      "AvgTransaction": "2976.1912"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "1",
+      "CustomerName": "1340 EAST MAIN INC",
+      "Revenue": "689086.9000",
+      "Transactions": 60,
+      "AvgTransaction": "11484.7816"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "2",
+      "CustomerName": "BOULEVARD CONVENIENCE INC",
+      "Revenue": "625869.4700",
+      "Transactions": 126,
+      "AvgTransaction": "4967.2180"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "3",
+      "CustomerName": "SHAYAAN INVESTMENTS INC",
+      "Revenue": "606091.9800",
+      "Transactions": 123,
+      "AvgTransaction": "4927.5770"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "4",
+      "CustomerName": "MAGNET MARKET/4565 BP FOOD MART LLC",
+      "Revenue": "583241.7800",
+      "Transactions": 196,
+      "AvgTransaction": "2975.7233"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "5",
+      "CustomerName": "HIGHTECH 2022 LLC",
+      "Revenue": "500219.3400",
+      "Transactions": 44,
+      "AvgTransaction": "11368.6213"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "6",
+      "CustomerName": "CHEVRON FOOD MART/ NIKI 3290 INC",
+      "Revenue": "459834.9900",
+      "Transactions": 119,
+      "AvgTransaction": "3864.1595"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "7",
+      "CustomerName": "RELIANCE DISTRIBUTIONS",
+      "Revenue": "430605.2600",
+      "Transactions": 20,
+      "AvgTransaction": "21530.2630"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "8",
+      "CustomerName": "N ALI ENTERPRISES INC ",
+      "Revenue": "424664.8900",
+      "Transactions": 7,
+      "AvgTransaction": "60666.4128"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "9",
+      "CustomerName": "ANDYS WHOLESALE INC",
+      "Revenue": "398996.9800",
+      "Transactions": 23,
+      "AvgTransaction": "17347.6947"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "10",
+      "CustomerName": "YAA INVESTMENT LLC",
+      "Revenue": "362838.5400",
+      "Transactions": 87,
+      "AvgTransaction": "4170.5579"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "11",
+      "CustomerName": "FAIRBURN BLESSINGS LLC/SHELL FOOD MART",
+      "Revenue": "359420.6200",
+      "Transactions": 94,
+      "AvgTransaction": "3823.6236"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "12",
+      "CustomerName": "MOORES MILL CAPITAL LLC",
+      "Revenue": "353797.4100",
+      "Transactions": 173,
+      "AvgTransaction": "2045.0717"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "13",
+      "CustomerName": "ARISHA SHELL INC",
+      "Revenue": "323957.4000",
+      "Transactions": 62,
+      "AvgTransaction": "5225.1193"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "14",
+      "CustomerName": "KK SONS USA INC",
+      "Revenue": "309676.8600",
+      "Transactions": 101,
+      "AvgTransaction": "3066.1075"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "15",
+      "CustomerName": "FLAT SHOALS NEIGHBORHOOD STORE,INC",
+      "Revenue": "303435.5200",
+      "Transactions": 96,
+      "AvgTransaction": "3160.7866"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "16",
+      "CustomerName": "CHAPPELL ROAD INC",
+      "Revenue": "285089.2200",
+      "Transactions": 87,
+      "AvgTransaction": "3276.8875"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "17",
+      "CustomerName": "BUDDHANI III LLC./SHELL FOOD",
+      "Revenue": "266698.2700",
+      "Transactions": 339,
+      "AvgTransaction": "786.7205"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "18",
+      "CustomerName": "IGA CLERMONT FOOD MART INC/EXXON FOOD MART",
+      "Revenue": "261751.0900",
+      "Transactions": 60,
+      "AvgTransaction": "4362.5181"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "19",
+      "CustomerName": "157 COMMERCE DRIVE LLC",
+      "Revenue": "239518.9600",
+      "Transactions": 127,
+      "AvgTransaction": "1885.9760"
+    },
+    {
+      "Year": 2023,
+      "CustomerRank": "20",
+      "CustomerName": "ARISHA CHEVRON INC",
+      "Revenue": "235943.5900",
+      "Transactions": 39,
+      "AvgTransaction": "6049.8356"
+    }
+  ],
+  "overall_summary": {
+    "summary": {
+      "StartYear": 2019,
+      "EndYear": 2023,
+      "TotalUniqueCustomers": 1573,
+      "TotalTransactions": 113703,
+      "TotalRevenue": "157686762.9900",
+      "OverallAvgTransaction": "1386.8302",
+      "TotalBusinessDays": 1808,
+      "AvgDailyRevenue": "87216.1299",
+      "BestYear": 2021,
+      "BestMonth": "May"
+    },
+    "top_categories": [
+      {
+        "Category": "CIGARETTE",
+        "Revenue": 58144274.86000517,
+        "PercentOfTotal": "36.87"
+      },
+      {
+        "Category": "CIGARS",
+        "Revenue": 35411206.45972434,
+        "PercentOfTotal": "22.46"
+      },
+      {
+        "Category": "ELECTRONIC CIG",
+        "Revenue": 7639079.200000141,
+        "PercentOfTotal": "4.84"
+      },
+      {
+        "Category": "ECIG - PODS",
+        "Revenue": 7230058.77040041,
+        "PercentOfTotal": "4.59"
+      },
+      {
+        "Category": "Uncategorized",
+        "Revenue": 5922395.230885486,
+        "PercentOfTotal": "3.76"
+      }
+    ]
+  }
+}

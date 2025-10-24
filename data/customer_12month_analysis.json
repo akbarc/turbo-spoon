@@ -1,0 +1,122 @@
+{
+  "analysis_date": "2025-09-09T18:47:52.569825",
+  "total_unique_customers_12m": 674,
+  "total_sales_12m": 31724859.295013666,
+  "segmentation": [
+    {
+      "Segment": "Platinum ($50K+)",
+      "CustomerCount": 171,
+      "SegmentTotalSales": 26207835.40509997,
+      "AvgSalesPerCustomer": 153262.19535146182,
+      "AvgTransactionsPerCustomer": 59,
+      "SortOrder": 1
+    },
+    {
+      "Segment": "Gold ($25K-$50K)",
+      "CustomerCount": 76,
+      "SegmentTotalSales": 2778466.8300000075,
+      "AvgSalesPerCustomer": 36558.77407894747,
+      "AvgTransactionsPerCustomer": 36,
+      "SortOrder": 2
+    },
+    {
+      "Segment": "Silver ($10K-$25K)",
+      "CustomerCount": 106,
+      "SegmentTotalSales": 1817973.5699999994,
+      "AvgSalesPerCustomer": 17150.694056603767,
+      "AvgTransactionsPerCustomer": 22,
+      "SortOrder": 3
+    },
+    {
+      "Segment": "Bronze ($5K-$10K)",
+      "CustomerCount": 79,
+      "SegmentTotalSales": 559538.2299999988,
+      "AvgSalesPerCustomer": 7082.762405063276,
+      "AvgTransactionsPerCustomer": 10,
+      "SortOrder": 4
+    },
+    {
+      "Segment": "Regular ($1K-$5K)",
+      "CustomerCount": 126,
+      "SegmentTotalSales": 317882.8399999998,
+      "AvgSalesPerCustomer": 2522.8796825396807,
+      "AvgTransactionsPerCustomer": 5,
+      "SortOrder": 5
+    },
+    {
+      "Segment": "Small (<$1K)",
+      "CustomerCount": 116,
+      "SegmentTotalSales": 43162.42000000003,
+      "AvgSalesPerCustomer": 372.08982758620715,
+      "AvgTransactionsPerCustomer": 2,
+      "SortOrder": 6
+    }
+  ],
+  "customers_over_1000_balance": 193,
+  "total_balance_over_1000": 3456104.07,
+  "balance_brackets": [
+    {
+      "BalanceBracket": "$10,000+",
+      "CustomerCount": 79,
+      "TotalBalance": "2991588.6000",
+      "SortOrder": 1
+    },
+    {
+      "BalanceBracket": "$5,000-$10,000",
+      "CustomerCount": 37,
+      "TotalBalance": "264628.7000",
+      "SortOrder": 2
+    },
+    {
+      "BalanceBracket": "$2,500-$5,000",
+      "CustomerCount": 37,
+      "TotalBalance": "128288.8300",
+      "SortOrder": 3
+    },
+    {
+      "BalanceBracket": "$1,000-$2,500",
+      "CustomerCount": 41,
+      "TotalBalance": "72597.9400",
+      "SortOrder": 4
+    },
+    {
+      "BalanceBracket": "Under $1,000",
+      "CustomerCount": 43,
+      "TotalBalance": "16436.4400",
+      "SortOrder": 5
+    },
+    {
+      "BalanceBracket": "Zero Balance",
+      "CustomerCount": 1425,
+      "TotalBalance": "-1845.5300",
+      "SortOrder": 6
+    }
+  ],
+  "activity_status": [
+    {
+      "ActivityStatus": "Active (0-3 months)",
+      "CustomerCount": 458,
+      "SortOrder": 1
+    },
+    {
+      "ActivityStatus": "Semi-Active (3-6 months)",
+      "CustomerCount": 102,
+      "SortOrder": 2
+    },
+    {
+      "ActivityStatus": "Inactive (6-12 months)",
+      "CustomerCount": 114,
+      "SortOrder": 3
+    },
+    {
+      "ActivityStatus": "Dormant (>12 months)",
+      "CustomerCount": 1722,
+      "SortOrder": 4
+    },
+    {
+      "ActivityStatus": "Never Purchased",
+      "CustomerCount": 448,
+      "SortOrder": 5
+    }
+  ]
+}

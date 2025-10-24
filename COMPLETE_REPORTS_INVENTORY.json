@@ -1,0 +1,157 @@
+{
+  "total_reports": 12,
+  "unique_report_types": 2,
+  "report_types": {
+    "Labels": [
+      {
+        "id": 3,
+        "description": "CUSTOMER LABLES",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def"
+      },
+      {
+        "id": 5,
+        "description": "Customers Mailing lebals 02021",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def"
+      },
+      {
+        "id": 4,
+        "description": "full list",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def"
+      }
+    ],
+    "RegAnaly": [
+      {
+        "id": 6,
+        "description": "041317",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 7,
+        "description": "041417",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 8,
+        "description": "041517",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 9,
+        "description": "042217",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 10,
+        "description": "042717",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 11,
+        "description": "06 29 19",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 12,
+        "description": "062919",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 1,
+        "description": "test",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      },
+      {
+        "id": 2,
+        "description": "test1",
+        "filename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def"
+      }
+    ]
+  },
+  "excise_reports": [],
+  "all_reports": [
+    {
+      "ID": 3,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def",
+      "Description": "CUSTOMER LABLES",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\nField       = 6: Greater Than or Equal To (>=): February 16, 2013: : OR: 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 5,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def",
+      "Description": "Customers Mailing lebals 02021",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 4,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def",
+      "Description": "full list",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\Labels.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\nField       = 1: Greater Than (>): : : OR: 0\r\nField       = 1: Greater Than or Equal To (>=): : : OR: 0\r\nField       = 1: Contains: : : OR: 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 6,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "041317",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 7,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "041417",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 8,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "041517",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 9,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "042217",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 10,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "042717",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 11,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "06 29 19",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 12,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "062919",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 1,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "test",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 1\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\n",
+      "StoreID": 0
+    },
+    {
+      "ID": 2,
+      "ReportFilename": "C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def",
+      "Description": "test1",
+      "Settings": ";\r\n; Memorized Report of: C:\\Program Files\\Microsoft Retail Management System\\Store Operations\\CrystalReports\\RegAnaly.def\r\n;\r\n\r\nGraphNumber = 0\r\nVisible     = 0\r\nDirection   = 0\r\n\r\nSortOrder   = 0\r\nField       = 8: Equal (=): 1111111: : AND: 1\r\nField       = 10: Equal (=): 1111111: : AND: 1\r\nField       = 16: Equal (=): 1111111: : AND: 1\r\nField       = 22: Equal (=): 1111111: : AND: 1\r\n",
+      "StoreID": 0
+    }
+  ]
+}

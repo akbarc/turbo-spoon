@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - Georgia Dashboard</title>
+    
+    <!-- Icons & Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f9fafb;
+            min-height: 100vh;
+            color: #1f2937;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Page Container - Accounts for sidebar */
+        .page-container {
+            margin-left: 260px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .page-header {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .page-title i {
+            color: #6366f1;
+        }
+
+        .page-subtitle {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-value {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .stat-change.positive {
+            color: #10b981;
+        }
+
+        .stat-change.negative {
+            color: #ef4444;
+        }
+
+        /* Inventory Sections */
+        .inventory-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .section-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid #e5e7eb;
+            background: white;
+            color: #374151;
+        }
+
+        .btn:hover {
+            background: #f3f4f6;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .section-content {
+            padding: 1.5rem;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th {
+            background: #f9fafb;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #6b7280;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 0.875rem;
+        }
+
+        .data-table tr:hover {
+            background: #f9fafb;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            border: none;
+            color: #6b7280;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            background: #f3f4f6;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top-color: #6366f1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-container {
+                margin-left: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Include Unified Navigation -->
+    {% include 'unified_navigation.html' %}
+
+    <!-- Page Container -->
+    <div class="page-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <div class="page-title">
+                    <i class="fas fa-boxes"></i>
+                    Inventory Management
+                </div>
+                <div class="page-subtitle">Monitor stock levels, velocity, and inventory health</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Total Inventory Value</div>
+                    <div class="stat-value" id="totalValue">$0</div>
+                    <div class="stat-change">Loading...</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Total SKUs</div>
+                    <div class="stat-value" id="totalSKUs">0</div>
+                    <div class="stat-change">Active products</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Low Stock Items</div>
+                    <div class="stat-value" id="lowStock">0</div>
+                    <div class="stat-change negative">Requires attention</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Deadstock Value</div>
+                    <div class="stat-value" id="deadstock">$0</div>
+                    <div class="stat-change">30+ days no movement</div>
+                </div>
+            </div>
+
+            <!-- Inventory Tabs Section -->
+            <div class="inventory-section">
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('overview')">Overview</button>
+                    <button class="tab" onclick="switchTab('lowstock')">Low Stock</button>
+                    <button class="tab" onclick="switchTab('deadstock')">Deadstock</button>
+                    <button class="tab" onclick="switchTab('velocity')">Velocity</button>
+                    <button class="tab" onclick="switchTab('categories')">Categories</button>
+                </div>
+
+                <!-- Overview Tab -->
+                <div class="tab-content" id="tab-overview">
+                    <div class="section-content">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Loading inventory data...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Low Stock Tab -->
+                <div class="tab-content" id="tab-lowstock" style="display:none;">
+                    <div class="section-content">
+                        <table class="data-table" id="lowStockTable">
+                            <thead>
+                                <tr>
+                                    <th>Item Code</th>
+                                    <th>Description</th>
+                                    <th>Current Stock</th>
+                                    <th>Avg Daily Sales</th>
+                                    <th>Days Supply</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="6" style="text-align:center;">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Other tabs would be similar -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load inventory data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadInventoryStats();
+            loadLowStock();
+        });
+
+        function loadInventoryStats() {
+            // This would fetch from your API endpoints
+            fetch('/api/inventory-health/category-values')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.total_value) {
+                        document.getElementById('totalValue').textContent = formatCurrency(data.total_value);
+                    }
+                });
+
+            fetch('/api/inventory-health/low-stock')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.items) {
+                        document.getElementById('lowStock').textContent = data.items.length;
+                    }
+                });
+
+            fetch('/api/inventory-health/deadstock?days=30')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.total_deadstock_value) {
+                        document.getElementById('deadstock').textContent = formatCurrency(data.total_deadstock_value);
+                    }
+                });
+        }
+
+        function loadLowStock() {
+            fetch('/api/inventory-health/low-stock')
+                .then(response => response.json())
+                .then(data => {
+                    const tbody = document.querySelector('#lowStockTable tbody');
+                    if (data.items && data.items.length > 0) {
+                        tbody.innerHTML = data.items.map(item => `
+                            <tr>
+                                <td>${item.ItemCode || ''}</td>
+                                <td>${item.ItemDescription || ''}</td>
+                                <td>${item.CurrentQuantity || 0}</td>
+                                <td>${(item.AvgDailySales || 0).toFixed(1)}</td>
+                                <td class="${item.DaysSupply < 3 ? 'negative' : ''}">${(item.DaysSupply || 0).toFixed(1)}</td>
+                                <td><button class="btn btn-primary" onclick="orderItem('${item.ItemCode}')">Order</button></td>
+                            </tr>
+                        `).join('');
+                    } else {
+                        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">No low stock items found</td></tr>';
+                    }
+                });
+        }
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            const selectedContent = document.getElementById(`tab-${tabName}`);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(value);
+        }
+
+        function orderItem(itemCode) {
+            alert(`Order functionality for ${itemCode} would be implemented here`);
+        }
+    </script>
+</body>
+</html>

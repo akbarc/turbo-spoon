@@ -1,0 +1,58 @@
+================================================================================
+WHOLESALE VS RETAIL ANALYSIS REPORT
+Generated: 2025-09-03T17:48:28.627784
+================================================================================
+
+YEARLY WHOLESALE VS RETAIL BREAKDOWN
+----------------------------------------
+Year  | Wholesale Rev  | % of Total | # Orders | # Customers
+------|---------------|------------|----------|------------
+2019 | $    3,199,157 |      13.1% |      174 |          44
+2020 | $    2,318,182 |       9.0% |      134 |          43
+2021 | $    3,159,287 |       8.4% |      222 |          73
+2022 | $    6,004,535 |      16.8% |      307 |          80
+2023 | $    5,792,926 |      17.0% |      329 |          81
+2024 | $    3,221,949 |      12.3% |      180 |          61
+2025 | $    6,313,321 |      27.7% |      337 |          59
+
+
+TOP WHOLESALE CUSTOMERS
+----------------------------------------
+
+
+WHOLESALE ORDER PATTERNS
+----------------------------------------
+Year | Avg SKUs | Avg Units | Units/SKU | Focused Orders | Bulk Orders
+-----|----------|-----------|-----------|----------------|------------
+2019 |     24.0 |      1173 |     272.1 |             47 |          69
+2020 |     35.0 |      1007 |     315.2 |             45 |          52
+2021 |     56.0 |       750 |     219.6 |             63 |          69
+2022 |     65.0 |       932 |     222.1 |             62 |          83
+2023 |     66.0 |       513 |     100.6 |             71 |          42
+2024 |     76.0 |       569 |     130.7 |             50 |          42
+2025 |     40.0 |       338 |      82.7 |            160 |          21
+
+
+CATEGORY WHOLESALE ANALYSIS (2023)
+----------------------------------------
+CIGARETTE................  20.0% wholesale ($ 2,351,376)
+CIGARS...................  14.2% wholesale ($   841,794)
+ECIG - PODS..............  43.2% wholesale ($   702,679)
+LT-TAX PAID..............  42.0% wholesale ($   616,667)
+CIGAR GA.................  19.9% wholesale ($   288,782)
+ELECTRONIC CIG...........   7.2% wholesale ($   231,233)
+VITAMINS.................   9.1% wholesale ($   129,084)
+DRINKS...................  10.8% wholesale ($   109,570)
+LIGHTERS.................  25.9% wholesale ($    73,898)
+T7 SMOKELESS GA..........   9.3% wholesale ($    70,052)
+
+
+KEY INSIGHTS
+----------------------------------------
+• Wholesale share is increasing: 13.1% (2019) → 27.7% (most recent)
+• Overall wholesale represents 14.5% of total revenue
+• 0 customers have wholesale buying patterns
+• 0 customers are primarily wholesale buyers
+
+================================================================================
+Full report saved to: wholesale_retail_analysis_20250903_174911.json
