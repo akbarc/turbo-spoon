@@ -251,15 +251,121 @@ else:
     st.subheader("🏪 Individual Stores")
 
     with st.spinner("Loading store details..."):
-        # Get individual store metrics from overlay
+        # Get individual store metrics
         members = customer_group_manager.get_group_members(group_id)
 
         if not members.empty:
-            st.dataframe(
-                members[['customer_name', 'customer_company']],
-                use_container_width=True,
-                hide_index=True
-            )
+            # Calculate analytics for each store
+            store_analytics = []
+
+            for _, member in members.iterrows():
+                customer_id = member['customer_id']
+
+                # Get 30-day analytics for this store
+                try:
+                    # Sales query
+                    sales_query = f"""
+                        SELECT
+                            COUNT(DISTINCT TransactionNumber) as transaction_count,
+                            ISNULL(SUM(Total), 0) as total_sales,
+                            MAX(Time) as last_purchase
+                        FROM dbo.[Transaction]
+                        WHERE CustomerID = {customer_id}
+                            AND Time >= DATEADD(day, -30, GETDATE())
+                    """
+                    from src.database.sql_server import execute_query
+                    sales_df = execute_query(sales_query)
+
+                    # GP query
+                    gp_query = f"""
+                        SELECT
+                            ISNULL(SUM((te.Price - te.Cost) * te.Quantity), 0) as gross_profit
+                        FROM dbo.TransactionEntry te
+                        INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+                        WHERE t.CustomerID = {customer_id}
+                            AND t.Time >= DATEADD(day, -30, GETDATE())
+                    """
+                    gp_df = execute_query(gp_query)
+
+                    # AR query
+                    ar_query = f"""
+                        SELECT ISNULL(AccountBalance, 0) as ar_balance
+                        FROM dbo.Customer
+                        WHERE ID = {customer_id}
+                    """
+                    ar_df = execute_query(ar_query)
+
+                    # PD Checks from Payment table
+                    pd_query = f"""
+                        SELECT
+                            COUNT(*) as pd_count,
+                            ISNULL(SUM(Amount), 0) as pd_total
+                        FROM dbo.Payment
+                        WHERE CustomerID = {customer_id}
+                            AND (
+                                UPPER(Comment) LIKE '%PD%'
+                                OR UPPER(Comment) LIKE '%POST DATE%'
+                                OR UPPER(Comment) LIKE '%P D%'
+                                OR UPPER(Comment) LIKE '%POSTDATE%'
+                            )
+                            AND Amount > 0
+                    """
+                    pd_df = execute_query(pd_query)
+
+                    total_sales = float(sales_df.iloc[0]['total_sales'] or 0)
+                    gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
+
+                    store_analytics.append({
+                        'customer_name': member['customer_name'],
+                        'company': member.get('customer_company', ''),
+                        'total_sales': total_sales,
+                        'gross_profit': gross_profit,
+                        'gp_percentage': (gross_profit / total_sales * 100) if total_sales > 0 else 0,
+                        'ar_balance': float(ar_df.iloc[0]['ar_balance'] or 0),
+                        'pd_checks_total': float(pd_df.iloc[0]['pd_total'] or 0),
+                        'pd_checks_count': int(pd_df.iloc[0]['pd_count'] or 0),
+                        'transaction_count': int(sales_df.iloc[0]['transaction_count'] or 0),
+                        'last_purchase': sales_df.iloc[0]['last_purchase']
+                    })
+                except Exception as e:
+                    st.error(f"Error loading analytics for {member['customer_name']}: {str(e)}")
+                    continue
+
+            # Sort by sales
+            store_analytics.sort(key=lambda x: x['total_sales'], reverse=True)
+
+            # Display each store with metrics
+            for store in store_analytics:
+                title = f"**{store['customer_name']}**"
+                if store.get('company'):
+                    title += f" ({store['company']})"
+                title += f" - ${store['total_sales']:,.0f}"
+
+                with st.expander(title, expanded=False):
+                    col1, col2, col3, col4, col5 = st.columns(5)
+
+                    with col1:
+                        st.metric("Sales", f"${store['total_sales']:,.0f}")
+
+                    with col2:
+                        st.metric("GP", f"${store['gross_profit']:,.0f}",
+                                 delta=f"{store['gp_percentage']:.1f}%")
+
+                    with col3:
+                        st.metric("AR", f"${store['ar_balance']:,.0f}")
+
+                    with col4:
+                        if store['pd_checks_total'] > 0:
+                            st.metric("PD Checks", f"${store['pd_checks_total']:,.0f}",
+                                     delta=f"{store['pd_checks_count']} checks")
+                        else:
+                            st.metric("PD Checks", "-")
+
+                    with col5:
+                        st.metric("Transactions", f"{store['transaction_count']:,}")
+
+                    if store.get('last_purchase'):
+                        st.caption(f"Last purchase: {store['last_purchase']}")
         else:
             st.info("No store details available")
 
