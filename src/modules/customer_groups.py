@@ -194,11 +194,18 @@ class CustomerGroupManager:
         date_filter = self._build_date_filter(start_date, end_date)
 
         # Get financial metrics
+        # Note: Calculate GP from TransactionEntry since Transaction table doesn't have Cost
         financial_query = f"""
             SELECT
                 COUNT(DISTINCT t.TransactionNumber) as transaction_count,
                 SUM(t.Total) as total_sales,
-                SUM(t.Total - t.Cost) as gross_profit,
+                ISNULL((
+                    SELECT SUM((te.Price - te.Cost) * te.Quantity)
+                    FROM dbo.TransactionEntry te
+                    INNER JOIN dbo.[Transaction] t2 ON te.TransactionNumber = t2.TransactionNumber
+                    WHERE t2.CustomerID IN ({customer_ids_str})
+                        {date_filter.replace('t.Time', 't2.Time')}
+                ), 0) as gross_profit,
                 AVG(t.Total) as avg_transaction_value,
                 MIN(t.Time) as first_purchase,
                 MAX(t.Time) as last_purchase
@@ -394,7 +401,14 @@ class CustomerGroupManager:
                 SELECT
                     COUNT(DISTINCT t.TransactionNumber) as transaction_count,
                     SUM(t.Total) as total_sales,
-                    SUM(t.Total - t.Cost) as gross_profit,
+                    ISNULL((
+                        SELECT SUM((te.Price - te.Cost) * te.Quantity)
+                        FROM dbo.TransactionEntry te
+                        WHERE te.TransactionNumber IN (
+                            SELECT TransactionNumber FROM dbo.[Transaction]
+                            WHERE CustomerID = {customer_id}
+                        )
+                    ), 0) as gross_profit,
                     MAX(t.Time) as last_purchase
                 FROM dbo.[Transaction] t
                 WHERE t.CustomerID = {customer_id}
