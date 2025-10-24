@@ -43,25 +43,53 @@ class OverlayDatabase:
                 )
             """)
 
-            # Customer groups
+            # Customer groups - extended for SOUNDEX auto-grouping
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS customer_groups (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    group_name TEXT NOT NULL UNIQUE,
+                    group_key TEXT NOT NULL UNIQUE,
+                    group_name TEXT NOT NULL,
                     description TEXT,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    group_type TEXT DEFAULT 'manual',
+                    soundex_last TEXT,
+                    soundex_first TEXT,
+                    member_count INTEGER DEFAULT 0,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
             """)
 
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS customer_group_members (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    customer_id TEXT NOT NULL,
+                    customer_id INTEGER NOT NULL,
                     group_id INTEGER NOT NULL,
+                    customer_name TEXT,
+                    customer_company TEXT,
+                    soundex_last TEXT,
+                    soundex_first TEXT,
+                    is_primary BOOLEAN DEFAULT 0,
                     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                     FOREIGN KEY (group_id) REFERENCES customer_groups(id),
                     UNIQUE(customer_id, group_id)
                 )
+            """)
+
+            # Create indexes for performance
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_customer_groups_type
+                ON customer_groups(group_type)
+            """)
+
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_customer_group_members_customer
+                ON customer_group_members(customer_id)
+            """)
+
+            cursor.execute("""
+                CREATE INDEX IF NOT EXISTS idx_customer_group_members_group
+                ON customer_group_members(group_id)
             """)
 
             # Excise tax configuration
@@ -140,19 +168,97 @@ class OverlayDatabase:
         return df.to_dict('records')[0] if not df.empty else None
 
     # Customer group methods
-    def create_customer_group(self, group_name: str, description: Optional[str] = None):
-        """Create a new customer group."""
-        query = "INSERT INTO customer_groups (group_name, description) VALUES (?, ?)"
-        return self.execute_non_query(query, (group_name, description))
+    def upsert_soundex_group(self, group_key: str, group_name: str,
+                            soundex_last: str, soundex_first: str) -> int:
+        """Create or update a SOUNDEX-based customer group."""
+        query = """
+            INSERT INTO customer_groups
+                (group_key, group_name, group_type, soundex_last, soundex_first, updated_at)
+            VALUES (?, ?, 'soundex', ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(group_key) DO UPDATE SET
+                group_name = excluded.group_name,
+                soundex_last = excluded.soundex_last,
+                soundex_first = excluded.soundex_first,
+                updated_at = CURRENT_TIMESTAMP
+        """
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute(query, (group_key, group_name, soundex_last, soundex_first))
+            conn.commit()
+            # Get the group_id
+            cursor.execute("SELECT id FROM customer_groups WHERE group_key = ?", (group_key,))
+            return cursor.fetchone()[0]
 
-    def add_customer_to_group(self, customer_id: str, group_id: int):
-        """Add a customer to a group."""
-        query = "INSERT OR IGNORE INTO customer_group_members (customer_id, group_id) VALUES (?, ?)"
-        return self.execute_non_query(query, (customer_id, group_id))
+    def add_customer_to_soundex_group(self, group_id: int, customer_id: int,
+                                     customer_name: str, customer_company: str,
+                                     soundex_last: str, soundex_first: str,
+                                     is_primary: bool = False):
+        """Add a customer to a SOUNDEX group."""
+        query = """
+            INSERT INTO customer_group_members
+                (customer_id, group_id, customer_name, customer_company,
+                 soundex_last, soundex_first, is_primary, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+            ON CONFLICT(customer_id, group_id) DO UPDATE SET
+                customer_name = excluded.customer_name,
+                customer_company = excluded.customer_company,
+                soundex_last = excluded.soundex_last,
+                soundex_first = excluded.soundex_first,
+                is_primary = excluded.is_primary,
+                updated_at = CURRENT_TIMESTAMP
+        """
+        return self.execute_non_query(query, (customer_id, group_id, customer_name,
+                                               customer_company, soundex_last,
+                                               soundex_first, is_primary))
 
-    def get_customer_groups(self) -> pd.DataFrame:
-        """Get all customer groups."""
-        return self.execute_query("SELECT * FROM customer_groups")
+    def get_soundex_groups(self) -> pd.DataFrame:
+        """Get all SOUNDEX-based customer groups."""
+        query = """
+            SELECT
+                cg.*,
+                COUNT(cgm.id) as actual_member_count
+            FROM customer_groups cg
+            LEFT JOIN customer_group_members cgm ON cg.id = cgm.group_id
+            WHERE cg.group_type = 'soundex'
+            GROUP BY cg.id
+            ORDER BY actual_member_count DESC
+        """
+        return self.execute_query(query)
+
+    def get_group_members(self, group_id: int) -> pd.DataFrame:
+        """Get all members of a customer group."""
+        query = """
+            SELECT * FROM customer_group_members
+            WHERE group_id = ?
+            ORDER BY is_primary DESC, customer_name
+        """
+        return self.execute_query(query, (group_id,))
+
+    def get_customer_group_id(self, customer_id: int) -> Optional[int]:
+        """Get the group_id for a customer."""
+        query = "SELECT group_id FROM customer_group_members WHERE customer_id = ?"
+        df = self.execute_query(query, (customer_id,))
+        return int(df.iloc[0]['group_id']) if not df.empty else None
+
+    def update_group_member_counts(self):
+        """Update member_count for all groups."""
+        query = """
+            UPDATE customer_groups
+            SET member_count = (
+                SELECT COUNT(*) FROM customer_group_members
+                WHERE group_id = customer_groups.id
+            ),
+            updated_at = CURRENT_TIMESTAMP
+        """
+        return self.execute_non_query(query)
+
+    def get_customers_not_in_groups(self) -> list:
+        """Get list of customer IDs that aren't in any group yet."""
+        query = """
+            SELECT customer_id FROM customer_group_members
+        """
+        df = self.execute_query(query)
+        return df['customer_id'].tolist() if not df.empty else []
 
     # Excise tax methods
     def add_excise_tax_rule(self, tax_rate: float, tax_type: str,

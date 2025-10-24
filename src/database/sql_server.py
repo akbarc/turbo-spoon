@@ -97,3 +97,20 @@ class SQLServerConnection:
 
 # Global instance
 db = SQLServerConnection()
+
+
+# Convenience functions for backward compatibility
+def execute_query(query: str, params: Optional[tuple] = None) -> pd.DataFrame:
+    """Execute a SELECT query and return results as a DataFrame."""
+    return db.execute_query(query, params)
+
+
+def execute_non_query(query: str, params: Optional[tuple] = None) -> int:
+    """Execute an INSERT/UPDATE/DELETE query and return rows affected."""
+    return db.execute_non_query(query, params)
+
+
+def test_connection() -> bool:
+    """Test the database connection. Returns True if successful, False otherwise."""
+    success, _ = db.test_connection()
+    return success
