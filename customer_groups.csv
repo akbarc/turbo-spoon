@@ -1,0 +1,16 @@
+# Customer Groups Configuration
+#
+# Format: GroupName,CustomerID
+# Example:
+# ABC Stores,1234
+# ABC Stores,1235
+# ABC Stores,1236
+# XYZ Gas Stations,5678
+# XYZ Gas Stations,5679
+#
+# Instructions:
+# 1. Add one line per customer
+# 2. Group name can be anything you want
+# 3. Customer ID must match the ID from your database
+# 4. Save this file and restart the dashboard to see changes
+
