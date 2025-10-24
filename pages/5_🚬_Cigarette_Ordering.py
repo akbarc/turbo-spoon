@@ -83,23 +83,6 @@ with st.spinner("Loading cigarette inventory data..."):
               AND t.Time <= '{today.strftime('%Y-%m-%d %H:%M:%S')}'
               AND te.ItemID IN (SELECT ID FROM CigaretteItems)
             GROUP BY te.ItemID
-        ),
-        LastCost AS (
-            SELECT
-                re.ItemID,
-                MAX(r.ReceiptNumber) as LastReceiptNumber
-            FROM ReceiptEntry re WITH (NOLOCK)
-            INNER JOIN Receipt r WITH (NOLOCK) ON r.ID = re.ReceiptID
-            WHERE re.ItemID IN (SELECT ID FROM CigaretteItems)
-            GROUP BY re.ItemID
-        ),
-        LastCostDetails AS (
-            SELECT
-                lc.ItemID,
-                re.Cost as LastCost
-            FROM LastCost lc
-            INNER JOIN Receipt r WITH (NOLOCK) ON r.ReceiptNumber = lc.LastReceiptNumber
-            INNER JOIN ReceiptEntry re WITH (NOLOCK) ON re.ReceiptID = r.ID AND re.ItemID = lc.ItemID
         )
         SELECT
             ci.ID,
@@ -114,11 +97,10 @@ with st.spinner("Loading cigarette inventory data..."):
             ISNULL(s30.Units30DaysMurad, 0) as Units30DaysMurad,
             ci.SupplierName as LastSupplier,
             ci.LastReceived,
-            ISNULL(lcd.LastCost, ci.Cost) as LastCost
+            ci.Cost as LastCost
         FROM CigaretteItems ci
         LEFT JOIN Sales7Days s7 ON s7.ItemID = ci.ID
         LEFT JOIN Sales30Days s30 ON s30.ItemID = ci.ID
-        LEFT JOIN LastCostDetails lcd ON lcd.ItemID = ci.ID
         ORDER BY ci.Description
         """
 
