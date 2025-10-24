@@ -6,12 +6,7 @@ from datetime import datetime, timedelta
 import plotly.express as px
 import plotly.graph_objects as go
 
-# Try pyodbc first (in requirements.txt), fall back to pymssql
-try:
-    from src.database.sql_server_pyodbc import test_connection
-except ImportError:
-    from src.database.sql_server import test_connection
-
+from src.database.sql_server import test_connection
 from src.modules.customer_groups import customer_group_manager
 
 # Page configuration

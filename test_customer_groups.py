@@ -11,12 +11,7 @@ print()
 # Test imports
 print("Step 1: Testing imports...")
 try:
-    # Try pyodbc first (in requirements.txt), fall back to pymssql
-    try:
-        from src.database.sql_server_pyodbc import test_connection, execute_query
-    except ImportError:
-        from src.database.sql_server import test_connection, execute_query
-
+    from src.database.sql_server import test_connection, execute_query
     from src.database.overlay_db import overlay_db
     from src.modules.customer_groups import customer_group_manager
     print("✅ All imports successful")

@@ -12,12 +12,7 @@ from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple
 import logging
 
-# Try pyodbc first (in requirements.txt), fall back to pymssql
-try:
-    from src.database.sql_server_pyodbc import db as sql_db
-except ImportError:
-    from src.database.sql_server import db as sql_db
-
+from src.database.sql_server import db as sql_db
 from src.database.overlay_db import overlay_db
 
 
