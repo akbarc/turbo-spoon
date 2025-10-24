@@ -386,11 +386,12 @@ else:
                     """
                     ar_df = execute_query(ar_query)
 
-                    # PD Checks from Payment table
+                    # PD Checks from Payment table - get individual checks with details
                     pd_query = f"""
                         SELECT
-                            COUNT(*) as pd_count,
-                            ISNULL(SUM(Amount), 0) as pd_total
+                            Time as check_date,
+                            Amount,
+                            Comment
                         FROM dbo.Payment
                         WHERE CustomerID = {customer_id}
                             AND (
@@ -400,11 +401,16 @@ else:
                                 OR UPPER(Comment) LIKE '%POSTDATE%'
                             )
                             AND Amount > 0
+                        ORDER BY Time DESC
                     """
-                    pd_df = execute_query(pd_query)
+                    pd_checks_df = execute_query(pd_query)
 
                     total_sales = float(sales_df.iloc[0]['total_sales'] or 0)
                     gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
+
+                    # Calculate PD check totals
+                    pd_checks_total = float(pd_checks_df['Amount'].sum()) if not pd_checks_df.empty else 0
+                    pd_checks_count = len(pd_checks_df)
 
                     store_analytics.append({
                         'customer_name': member['customer_name'],
@@ -413,8 +419,9 @@ else:
                         'gross_profit': gross_profit,
                         'gp_percentage': (gross_profit / total_sales * 100) if total_sales > 0 else 0,
                         'ar_balance': float(ar_df.iloc[0]['ar_balance'] or 0),
-                        'pd_checks_total': float(pd_df.iloc[0]['pd_total'] or 0),
-                        'pd_checks_count': int(pd_df.iloc[0]['pd_count'] or 0),
+                        'pd_checks_total': pd_checks_total,
+                        'pd_checks_count': pd_checks_count,
+                        'pd_checks_details': pd_checks_df,  # Store the full details
                         'transaction_count': int(sales_df.iloc[0]['transaction_count'] or 0),
                         'last_purchase': sales_df.iloc[0]['last_purchase']
                     })
@@ -457,6 +464,19 @@ else:
 
                     if store.get('last_purchase'):
                         st.caption(f"Last purchase: {store['last_purchase']}")
+
+                    # Show individual PD check details if any
+                    if store['pd_checks_count'] > 0 and not store['pd_checks_details'].empty:
+                        st.markdown("---")
+                        st.markdown("**📝 PD Checks Details:**")
+
+                        pd_checks = store['pd_checks_details']
+                        for idx, check in pd_checks.iterrows():
+                            check_date = check['check_date'].strftime('%Y-%m-%d') if pd.notna(check['check_date']) else 'N/A'
+                            amount = check['Amount']
+                            comment = check['Comment'] if pd.notna(check['Comment']) else ''
+
+                            st.text(f"• {check_date} - ${amount:,.2f} - {comment}")
         else:
             st.info("No store details available")
 
