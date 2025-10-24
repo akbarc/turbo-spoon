@@ -28,12 +28,86 @@ st.sidebar.header("⚙️ Controls")
 
 # Time Period Selector
 st.sidebar.subheader("📅 Time Period")
-days = st.sidebar.selectbox(
-    "Days to analyze",
-    [7, 30, 60, 90],
-    index=1,
-    help="Number of days to look back for analytics"
+
+# Helper function to calculate date ranges
+def get_date_range(period_type):
+    """Calculate start and end dates based on period type."""
+    today = datetime.now().date()
+
+    if period_type == "Today":
+        return today, today
+    elif period_type == "Last 7 Days":
+        return today - timedelta(days=7), today
+    elif period_type == "Last 30 Days":
+        return today - timedelta(days=30), today
+    elif period_type == "Last 60 Days":
+        return today - timedelta(days=60), today
+    elif period_type == "Last 90 Days":
+        return today - timedelta(days=90), today
+    elif period_type == "This Month":
+        return today.replace(day=1), today
+    elif period_type == "Last Month":
+        first_of_this_month = today.replace(day=1)
+        last_month_end = first_of_this_month - timedelta(days=1)
+        last_month_start = last_month_end.replace(day=1)
+        return last_month_start, last_month_end
+    elif period_type == "Quarter to Date":
+        # Calculate current quarter start
+        quarter_month = ((today.month - 1) // 3) * 3 + 1
+        quarter_start = today.replace(month=quarter_month, day=1)
+        return quarter_start, today
+    elif period_type == "Year to Date":
+        return today.replace(month=1, day=1), today
+    elif period_type == "Last Year":
+        last_year = today.year - 1
+        return date(last_year, 1, 1), date(last_year, 12, 31)
+    else:  # Custom
+        return None, None
+
+period_options = [
+    "Today",
+    "Last 7 Days",
+    "Last 30 Days",
+    "Last 60 Days",
+    "Last 90 Days",
+    "This Month",
+    "Last Month",
+    "Quarter to Date",
+    "Year to Date",
+    "Last Year",
+    "Custom Range"
+]
+
+selected_period = st.sidebar.selectbox(
+    "Select Period",
+    period_options,
+    index=2,  # Default to "Last 30 Days"
+    help="Choose the time period for analytics"
 )
+
+# Get date range
+if selected_period == "Custom Range":
+    st.sidebar.markdown("**Custom Date Range:**")
+    col1, col2 = st.sidebar.columns(2)
+    with col1:
+        custom_start = st.date_input(
+            "From",
+            value=datetime.now().date() - timedelta(days=30),
+            key="custom_start"
+        )
+    with col2:
+        custom_end = st.date_input(
+            "To",
+            value=datetime.now().date(),
+            key="custom_end"
+        )
+    start_date = custom_start
+    end_date = custom_end
+else:
+    start_date, end_date = get_date_range(selected_period)
+
+# Display the selected date range
+st.sidebar.info(f"📅 {start_date.strftime('%m/%d/%Y')} - {end_date.strftime('%m/%d/%Y')}")
 
 # Sync groups button
 if st.sidebar.button("🔄 Sync Groups", help="Update customer groups from database", use_container_width=True):
@@ -78,14 +152,15 @@ if groups_list.empty:
     st.warning("⚠️ No customer groups found. Click 'Sync Groups' to create groups.")
     st.stop()
 
-# Calculate date range for queries
-end_date = datetime.now().date()
-start_date = end_date - timedelta(days=days)
+# Format date strings for SQL queries
 start_date_str = start_date.strftime('%Y-%m-%d')
 end_date_str = end_date.strftime('%Y-%m-%d')
 
+# Calculate number of days for display
+num_days = (end_date - start_date).days
+
 # Calculate analytics for all groups (fresh, not cached)
-with st.spinner(f"Calculating analytics for last {days} days..."):
+with st.spinner(f"Calculating analytics for {selected_period}..."):
     groups_with_analytics = []
 
     for _, group in groups_list.iterrows():
@@ -240,7 +315,7 @@ st.markdown("---")
 # Main view or drill-down view
 if st.session_state.selected_group_id is None:
     # ===== GROUP LIST VIEW =====
-    st.subheader(f"📊 Customer Groups (Last {days} Days)")
+    st.subheader(f"📊 Customer Groups ({selected_period})")
 
     # Sort options
     sort_col1, sort_col2 = st.columns([3, 1])
@@ -326,7 +401,7 @@ else:
     group_row = group_row.iloc[0]
 
     st.header(f"👥 {group_row['group_name']}")
-    st.caption(f"{int(group_row['member_count'])} stores in this group • Last {days} days")
+    st.caption(f"{int(group_row['member_count'])} stores in this group • {selected_period}")
 
     # Overview metrics
     st.subheader("📈 Overview")
@@ -529,4 +604,4 @@ else:
 
 # Footer
 st.markdown("---")
-st.caption(f"💡 Groups are automatically created using SOUNDEX phonetic matching. Analytics calculated fresh for last {days} days.")
+st.caption(f"💡 Groups are automatically created using SOUNDEX phonetic matching. Analytics calculated fresh for {selected_period}.")
