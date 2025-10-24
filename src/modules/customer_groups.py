@@ -227,37 +227,40 @@ class CustomerGroupManager:
         ar_df = execute_query(ar_query)
 
         # Get post-dated checks
-        # TODO: Need to find correct column for PD check comments in TenderEntry
-        # Temporarily disabled - returning zeros
-        # pd_checks_query = f"""
-        #     SELECT
-        #         COUNT(*) as pd_check_count,
-        #         SUM(te.Amount) as pd_check_total
-        #     FROM dbo.TenderEntry te
-        #     INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
-        #     WHERE t.CustomerID IN ({customer_ids_str})
-        #         AND te.Comment LIKE '%post%date%'
-        #         AND te.Amount > 0
-        # """
-        # pd_checks_df = execute_query(pd_checks_query)
-
-        # Return zeros for now until we find correct column
-        pd_checks_df = pd.DataFrame([{'pd_check_count': 0, 'pd_check_total': 0}])
+        # Column is 'Description' not 'Comment'
+        pd_checks_query = f"""
+            SELECT
+                COUNT(*) as pd_check_count,
+                SUM(te.Amount) as pd_check_total
+            FROM dbo.TenderEntry te
+            INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+            WHERE t.CustomerID IN ({customer_ids_str})
+                AND (
+                    te.Description LIKE '%post%date%'
+                    OR te.Description LIKE '%PD%'
+                )
+                AND te.Amount > 0
+        """
+        pd_checks_df = execute_query(pd_checks_query)
 
         # Get payment velocity (average days to pay)
-        payment_velocity_query = f"""
-            SELECT
-                AVG(DATEDIFF(day, t.Time, te.Time)) as avg_days_to_pay
-            FROM dbo.[Transaction] t
-            INNER JOIN dbo.TenderEntry te ON t.TransactionNumber = te.TransactionNumber
-            WHERE t.CustomerID IN ({customer_ids_str})
-                AND te.TenderID != 0  -- Exclude account payments
-                AND DATEDIFF(day, t.Time, te.Time) >= 0
-                AND DATEDIFF(day, t.Time, te.Time) <= 365
-                {date_filter.replace('t.Time', 'te.Time')}
-        """
+        # TenderEntry doesn't have a Time column - disable for now
+        # TODO: Find correct way to calculate payment velocity
+        # payment_velocity_query = f"""
+        #     SELECT
+        #         AVG(DATEDIFF(day, t.Time, te.Time)) as avg_days_to_pay
+        #     FROM dbo.[Transaction] t
+        #     INNER JOIN dbo.TenderEntry te ON t.TransactionNumber = te.TransactionNumber
+        #     WHERE t.CustomerID IN ({customer_ids_str})
+        #         AND te.TenderID != 0  -- Exclude account payments
+        #         AND DATEDIFF(day, t.Time, te.Time) >= 0
+        #         AND DATEDIFF(day, t.Time, te.Time) <= 365
+        #         {date_filter.replace('t.Time', 'te.Time')}
+        # """
+        # payment_velocity_df = execute_query(payment_velocity_query)
 
-        payment_velocity_df = execute_query(payment_velocity_query)
+        # Return zeros for payment velocity until we find correct calculation
+        payment_velocity_df = pd.DataFrame([{'avg_days_to_pay': 0}])
 
         # Combine results
         result = {
