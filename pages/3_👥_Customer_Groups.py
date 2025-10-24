@@ -1,12 +1,10 @@
-"""Customer Groups Dashboard - Fast cached analytics with SOUNDEX grouping."""
+"""Customer Groups Dashboard - SOUNDEX grouping with fresh analytics."""
 
 import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
-import plotly.express as px
-import plotly.graph_objects as go
 
-from src.database.sql_server import test_connection
+from src.database.sql_server import test_connection, execute_query
 from src.modules.customer_groups import customer_group_manager
 
 # Page configuration
@@ -17,7 +15,7 @@ st.set_page_config(
 )
 
 st.title("👥 Customer Groups")
-st.markdown("**SOUNDEX-based customer grouping** - Last 30 days analytics")
+st.markdown("**SOUNDEX-based customer grouping** - Analytics calculated fresh each time")
 
 # Test database connection
 if not test_connection():
@@ -27,28 +25,24 @@ if not test_connection():
 # Sidebar controls
 st.sidebar.header("⚙️ Controls")
 
-# Sync and refresh buttons
-col1, col2 = st.sidebar.columns(2)
+# Time Period Selector
+st.sidebar.subheader("📅 Time Period")
+days = st.sidebar.selectbox(
+    "Days to analyze",
+    [7, 30, 60, 90],
+    index=1,
+    help="Number of days to look back for analytics"
+)
 
-with col1:
-    if st.button("🔄 Sync Groups", help="Update customer groups from database"):
-        with st.spinner("Syncing customer groups..."):
-            result = customer_group_manager.sync_customer_groups(force_rebuild=False)
-            if result['status'] == 'success':
-                st.success(f"✅ {result['customers_processed']} customers synced")
-                st.rerun()
-            else:
-                st.error(f"❌ Error: {result.get('message', 'Unknown error')}")
-
-with col2:
-    if st.button("📊 Refresh Analytics", help="Recalculate all analytics (may take a minute)"):
-        with st.spinner("Calculating analytics for all groups..."):
-            result = customer_group_manager.calculate_and_cache_all_analytics()
-            if result['status'] == 'success':
-                st.success(f"✅ Calculated {result['groups_processed']} groups")
-                st.rerun()
-            else:
-                st.error(f"❌ Error: {result.get('message', 'Unknown error')}")
+# Sync groups button
+if st.sidebar.button("🔄 Sync Groups", help="Update customer groups from database", use_container_width=True):
+    with st.spinner("Syncing customer groups..."):
+        result = customer_group_manager.sync_customer_groups(force_rebuild=False)
+        if result['status'] == 'success':
+            st.success(f"✅ {result['customers_processed']} customers synced")
+            st.rerun()
+        else:
+            st.error(f"❌ Error: {result.get('message', 'Unknown error')}")
 
 st.sidebar.markdown("---")
 
@@ -69,28 +63,123 @@ search_term = st.sidebar.text_input(
 )
 
 st.sidebar.markdown("---")
-st.sidebar.caption("💡 **Tip**: Analytics are cached for fast loading. Click 'Refresh Analytics' to update.")
+st.sidebar.caption("💡 **Tip**: Analytics are calculated fresh each time you change the date filter.")
 
 # Initialize session state for selected group
 if 'selected_group_id' not in st.session_state:
     st.session_state.selected_group_id = None
 
-# Load groups data from cache (fast!)
+# Load groups list (just names and IDs, no analytics yet)
 with st.spinner("Loading customer groups..."):
-    groups_df = customer_group_manager.get_cached_groups_summary(min_sales=min_sales)
+    groups_list = customer_group_manager.overlay.get_soundex_groups()
+
+if groups_list.empty:
+    st.warning("⚠️ No customer groups found. Click 'Sync Groups' to create groups.")
+    st.stop()
+
+# Calculate date range for queries
+end_date = datetime.now().date()
+start_date = end_date - timedelta(days=days)
+start_date_str = start_date.strftime('%Y-%m-%d')
+end_date_str = end_date.strftime('%Y-%m-%d')
+
+# Calculate analytics for all groups (fresh, not cached)
+with st.spinner(f"Calculating analytics for last {days} days..."):
+    groups_with_analytics = []
+
+    for _, group in groups_list.iterrows():
+        group_id = group['id']
+
+        # Get group members
+        members = customer_group_manager.get_group_members(group_id)
+        if members.empty:
+            continue
+
+        customer_ids = members['customer_id'].tolist()
+        customer_ids_str = ','.join([str(cid) for cid in customer_ids])
+
+        try:
+            # Calculate financial metrics
+            financial_query = f"""
+                SELECT
+                    COUNT(DISTINCT t.TransactionNumber) as transaction_count,
+                    ISNULL(SUM(t.Total), 0) as total_sales
+                FROM dbo.[Transaction] t
+                WHERE t.CustomerID IN ({customer_ids_str})
+                    AND t.Time >= '{start_date_str}'
+                    AND t.Time <= '{end_date_str}'
+            """
+            financial_df = execute_query(financial_query)
+
+            # Calculate GP
+            gp_query = f"""
+                SELECT
+                    ISNULL(SUM((te.Price - te.Cost) * te.Quantity), 0) as gross_profit
+                FROM dbo.TransactionEntry te
+                INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+                WHERE t.CustomerID IN ({customer_ids_str})
+                    AND t.Time >= '{start_date_str}'
+                    AND t.Time <= '{end_date_str}'
+            """
+            gp_df = execute_query(gp_query)
+
+            # Get AR balance (current)
+            ar_query = f"""
+                SELECT
+                    ISNULL(SUM(AccountBalance), 0) as total_ar
+                FROM dbo.Customer
+                WHERE ID IN ({customer_ids_str})
+            """
+            ar_df = execute_query(ar_query)
+
+            # Get PD checks from Payment table
+            pd_query = f"""
+                SELECT
+                    COUNT(*) as pd_count,
+                    ISNULL(SUM(Amount), 0) as pd_total
+                FROM dbo.Payment
+                WHERE CustomerID IN ({customer_ids_str})
+                    AND (
+                        UPPER(Comment) LIKE '%PD%'
+                        OR UPPER(Comment) LIKE '%POST DATE%'
+                        OR UPPER(Comment) LIKE '%P D%'
+                        OR UPPER(Comment) LIKE '%POSTDATE%'
+                    )
+                    AND Amount > 0
+            """
+            pd_df = execute_query(pd_query)
+
+            total_sales = float(financial_df.iloc[0]['total_sales'] or 0)
+            gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
+
+            groups_with_analytics.append({
+                'group_id': group_id,
+                'group_name': group['group_name'],
+                'member_count': len(members),
+                'total_sales': total_sales,
+                'gross_profit': gross_profit,
+                'gp_percentage': (gross_profit / total_sales * 100) if total_sales > 0 else 0,
+                'ar_balance': float(ar_df.iloc[0]['total_ar'] or 0),
+                'pd_checks_amount': float(pd_df.iloc[0]['pd_total'] or 0),
+                'pd_checks_count': int(pd_df.iloc[0]['pd_count'] or 0),
+                'transaction_count': int(financial_df.iloc[0]['transaction_count'] or 0)
+            })
+        except Exception as e:
+            st.error(f"Error calculating analytics for {group['group_name']}: {str(e)}")
+            continue
+
+    groups_df = pd.DataFrame(groups_with_analytics)
+
+# Apply filters
+if not groups_df.empty:
+    groups_df = groups_df[groups_df['total_sales'] >= min_sales]
+
+    if search_term:
+        groups_df = groups_df[groups_df['group_name'].str.contains(search_term, case=False, na=False)]
 
 if groups_df.empty:
-    st.warning("⚠️ No customer groups found. Click 'Sync Groups' then 'Refresh Analytics' to build the cache.")
+    st.warning("No groups match your filters.")
     st.stop()
-
-# Check if cache is empty (no analytics calculated yet)
-if groups_df['total_sales'].isna().all():
-    st.warning("⚠️ Analytics not calculated yet. Click 'Refresh Analytics' to calculate group metrics.")
-    st.stop()
-
-# Apply search filter
-if search_term:
-    groups_df = groups_df[groups_df['group_name'].str.contains(search_term, case=False, na=False)]
 
 # Summary metrics at top
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -136,7 +225,7 @@ st.markdown("---")
 # Main view or drill-down view
 if st.session_state.selected_group_id is None:
     # ===== GROUP LIST VIEW =====
-    st.subheader("📊 Customer Groups (Last 30 Days)")
+    st.subheader(f"📊 Customer Groups (Last {days} Days)")
 
     # Sort options
     sort_col1, sort_col2 = st.columns([3, 1])
@@ -222,7 +311,7 @@ else:
     group_row = group_row.iloc[0]
 
     st.header(f"👥 {group_row['group_name']}")
-    st.caption(f"{int(group_row['member_count'])} stores in this group • Last 30 days")
+    st.caption(f"{int(group_row['member_count'])} stores in this group • Last {days} days")
 
     # Overview metrics
     st.subheader("📈 Overview")
@@ -241,7 +330,8 @@ else:
 
     with col4:
         if group_row['pd_checks_amount'] > 0:
-            st.metric("PD Checks", f"${group_row['pd_checks_amount']:,.0f}")
+            st.metric("PD Checks", f"${group_row['pd_checks_amount']:,.0f}",
+                     delta=f"{group_row['pd_checks_count']} checks")
         else:
             st.metric("PD Checks", "$0")
 
@@ -261,7 +351,7 @@ else:
             for _, member in members.iterrows():
                 customer_id = member['customer_id']
 
-                # Get 30-day analytics for this store
+                # Get analytics for this store
                 try:
                     # Sales query
                     sales_query = f"""
@@ -271,9 +361,9 @@ else:
                             MAX(Time) as last_purchase
                         FROM dbo.[Transaction]
                         WHERE CustomerID = {customer_id}
-                            AND Time >= DATEADD(day, -30, GETDATE())
+                            AND Time >= '{start_date_str}'
+                            AND Time <= '{end_date_str}'
                     """
-                    from src.database.sql_server import execute_query
                     sales_df = execute_query(sales_query)
 
                     # GP query
@@ -283,7 +373,8 @@ else:
                         FROM dbo.TransactionEntry te
                         INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
                         WHERE t.CustomerID = {customer_id}
-                            AND t.Time >= DATEADD(day, -30, GETDATE())
+                            AND t.Time >= '{start_date_str}'
+                            AND t.Time <= '{end_date_str}'
                     """
                     gp_df = execute_query(gp_query)
 
@@ -370,9 +461,8 @@ else:
             st.info("No store details available")
 
     st.markdown("---")
-    st.caption(f"📅 Last updated: {group_row.get('last_updated', 'Unknown')}")
+    st.caption(f"📅 Data for period: {start_date_str} to {end_date_str}")
 
 # Footer
 st.markdown("---")
-st.caption("💡 Groups are automatically created using SOUNDEX phonetic matching. "
-          "Analytics are cached for fast loading (30 day rolling window).")
+st.caption(f"💡 Groups are automatically created using SOUNDEX phonetic matching. Analytics calculated fresh for last {days} days.")

@@ -105,11 +105,15 @@ class CustomerGroupManager:
                 continue
 
             # Use the FIRST customer's name as the group name (primary member)
+            # IMPORTANT: Use customer name first, company name as fallback
             first_customer = group_df.iloc[0]
-            if first_customer['company'] and str(first_customer['company']).strip():
+            customer_name = f"{first_customer['first_name']} {first_customer['last_name']}".strip()
+            if customer_name and customer_name != " ":
+                group_name = customer_name
+            elif first_customer['company'] and str(first_customer['company']).strip():
                 group_name = str(first_customer['company']).strip()
             else:
-                group_name = f"{first_customer['first_name']} {first_customer['last_name']}".strip()
+                group_name = f"Customer {first_customer['id']}"
 
             soundex_last = group_df.iloc[0]['soundex_last']
             soundex_first = group_df.iloc[0]['soundex_first']
