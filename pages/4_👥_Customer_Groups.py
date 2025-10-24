@@ -189,10 +189,10 @@ with tab1:
                                 SELECT
                                     c.ID,
                                     c.FirstName + ' ' + c.LastName as CustomerName,
-                                    c.Company,
+                                    ISNULL(c.Company, '') as Company,
                                     COUNT(DISTINCT t.TransactionNumber) as Transactions,
-                                    SUM(t.Total) as Sales,
-                                    c.AccountBalance as AR
+                                    ISNULL(SUM(t.Total), 0) as Sales,
+                                    ISNULL(c.AccountBalance, 0) as AR
                                 FROM Customer c WITH (NOLOCK)
                                 LEFT JOIN [Transaction] t WITH (NOLOCK) ON t.CustomerID = c.ID
                                     AND t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
@@ -205,6 +205,9 @@ with tab1:
                                 details = db.execute_query(details_query)
 
                                 if not details.empty:
+                                    # Fill any remaining NaN/None values
+                                    details = details.fillna({'Company': '', 'Transactions': 0, 'Sales': 0, 'AR': 0})
+
                                     st.dataframe(
                                         details.style.format({
                                             'Transactions': '{:,}',
@@ -369,8 +372,8 @@ with tab3:
                     SELECT
                         c.ID,
                         c.FirstName + ' ' + c.LastName as Name,
-                        c.Company,
-                        c.AccountBalance as AR
+                        ISNULL(c.Company, '') as Company,
+                        ISNULL(c.AccountBalance, 0) as AR
                     FROM Customer c WITH (NOLOCK)
                     WHERE c.ID IN ({customer_ids_str})
                     """
@@ -378,6 +381,9 @@ with tab3:
                     details = db.execute_query(details_query)
 
                     if not details.empty:
+                        # Fill any remaining NaN/None values
+                        details = details.fillna({'Company': '', 'AR': 0})
+
                         st.dataframe(
                             details.style.format({
                                 'AR': '${:,.2f}'
