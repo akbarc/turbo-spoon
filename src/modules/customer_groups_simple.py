@@ -236,6 +236,104 @@ class SimpleCustomerGroupManager:
             'stores': store_analytics
         }
 
+    def get_group_category_analysis(self, group_name: str, days: int = 30,
+                                    limit: int = 5) -> List[Dict]:
+        """
+        Get category breakdown for a group.
+
+        Args:
+            group_name: Name of the group
+            days: Number of days to look back
+            limit: Number of top categories to return (0 for all)
+
+        Returns:
+            List of dicts with category analysis including % of total category sales
+        """
+        # Load groups from CSV
+        df = self.load_groups_from_csv()
+
+        # Get customers in this group
+        group_customers = df[df['GroupName'] == group_name]
+
+        if group_customers.empty:
+            return []
+
+        customer_ids = group_customers['CustomerID'].tolist()
+        customer_ids_str = ','.join([str(cid) for cid in customer_ids])
+
+        # Calculate date range
+        end_date = datetime.now().date()
+        start_date = end_date - timedelta(days=days)
+        start_date_str = start_date.strftime('%Y-%m-%d')
+        end_date_str = end_date.strftime('%Y-%m-%d')
+
+        # Category sales for this group + total sales per category
+        category_query = f"""
+            WITH GroupSales AS (
+                SELECT
+                    ISNULL(cat.Name, 'Uncategorized') as category_name,
+                    SUM(te.Price * te.Quantity) as group_sales,
+                    SUM((te.Price - te.Cost) * te.Quantity) as group_gp,
+                    COUNT(DISTINCT te.TransactionNumber) as transaction_count
+                FROM dbo.TransactionEntry te
+                INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+                INNER JOIN dbo.Item i ON te.ItemID = i.ID
+                LEFT JOIN dbo.Category cat ON i.CategoryID = cat.ID
+                WHERE t.CustomerID IN ({customer_ids_str})
+                    AND t.Time >= '{start_date_str}'
+                    AND t.Time <= '{end_date_str}'
+                GROUP BY cat.Name
+            ),
+            TotalSales AS (
+                SELECT
+                    ISNULL(cat.Name, 'Uncategorized') as category_name,
+                    SUM(te.Price * te.Quantity) as total_sales
+                FROM dbo.TransactionEntry te
+                INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
+                INNER JOIN dbo.Item i ON te.ItemID = i.ID
+                LEFT JOIN dbo.Category cat ON i.CategoryID = cat.ID
+                WHERE t.Time >= '{start_date_str}'
+                    AND t.Time <= '{end_date_str}'
+                GROUP BY cat.Name
+            )
+            SELECT TOP {limit if limit > 0 else 1000}
+                gs.category_name,
+                gs.group_sales,
+                gs.group_gp,
+                gs.transaction_count,
+                ts.total_sales,
+                CASE
+                    WHEN ts.total_sales > 0 THEN (gs.group_sales / ts.total_sales * 100)
+                    ELSE 0
+                END as pct_of_total_category_sales
+            FROM GroupSales gs
+            LEFT JOIN TotalSales ts ON gs.category_name = ts.category_name
+            ORDER BY gs.group_sales DESC
+        """
+
+        try:
+            categories_df = execute_query(category_query)
+
+            results = []
+            for _, row in categories_df.iterrows():
+                group_sales = float(row['group_sales'] or 0)
+                group_gp = float(row['group_gp'] or 0)
+
+                results.append({
+                    'category_name': row['category_name'],
+                    'group_sales': group_sales,
+                    'group_gp': group_gp,
+                    'gp_percentage': (group_gp / group_sales * 100) if group_sales > 0 else 0,
+                    'transaction_count': int(row['transaction_count'] or 0),
+                    'pct_of_total_category_sales': float(row['pct_of_total_category_sales'] or 0)
+                })
+
+            return results
+
+        except Exception as e:
+            logger.error(f"Error getting category analysis: {str(e)}")
+            return []
+
 
 # Global instance
 simple_customer_group_manager = SimpleCustomerGroupManager()
