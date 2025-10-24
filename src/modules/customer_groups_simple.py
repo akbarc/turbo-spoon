@@ -49,19 +49,39 @@ class SimpleCustomerGroupManager:
                 rows.append(line)
 
         if not rows:
+            logger.warning("CSV file is empty (only comments)")
             return pd.DataFrame(columns=['GroupName', 'CustomerID', 'CustomerName', 'Company'])
 
         # Parse CSV from remaining lines
         from io import StringIO
         csv_data = StringIO('\n'.join(rows))
-        df = pd.read_csv(csv_data)
 
-        # Cache it
-        self.groups_cache = df
-        self.last_loaded = datetime.now()
+        try:
+            df = pd.read_csv(csv_data)
 
-        logger.info(f"Loaded {len(df)} customer-group assignments from CSV")
-        return df
+            # Validate required columns
+            required_cols = ['GroupName', 'CustomerID']
+            missing_cols = [col for col in required_cols if col not in df.columns]
+            if missing_cols:
+                logger.error(f"CSV missing required columns: {missing_cols}")
+                return pd.DataFrame(columns=['GroupName', 'CustomerID', 'CustomerName', 'Company'])
+
+            # Add optional columns if missing
+            if 'CustomerName' not in df.columns:
+                df['CustomerName'] = ''
+            if 'Company' not in df.columns:
+                df['Company'] = ''
+
+            # Cache it
+            self.groups_cache = df
+            self.last_loaded = datetime.now()
+
+            logger.info(f"Loaded {len(df)} customer-group assignments from CSV")
+            return df
+
+        except Exception as e:
+            logger.error(f"Error parsing CSV: {str(e)}")
+            return pd.DataFrame(columns=['GroupName', 'CustomerID', 'CustomerName', 'Company'])
 
     def get_group_summary(self) -> pd.DataFrame:
         """

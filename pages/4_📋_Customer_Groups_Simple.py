@@ -24,24 +24,51 @@ if not test_connection():
     st.error("❌ Cannot connect to database. Please check your connection settings.")
     st.stop()
 
-# Check if CSV exists
+# Check if CSV exists and has data
 import os
 if not os.path.exists('customer_groups.csv'):
-    st.warning("""
-    ⚠️ **CSV file not found!**
+    st.error("""
+    ❌ **CSV file not found!**
 
-    Run this command to export your existing groups to CSV:
-    ```
-    python3 export_groups_to_csv.py
-    ```
-
-    Or create `customer_groups.csv` manually with this format:
+    Create `customer_groups.csv` with this format:
     ```
     GroupName,CustomerID,CustomerName,Company
     ABC Stores,1234,John Smith,ABC Store 1
     ABC Stores,1235,John Smith,ABC Store 2
     XYZ Gas,5678,Jane Doe,XYZ Gas Station
     ```
+    """)
+    st.stop()
+
+# Load to check if empty
+test_df = simple_customer_group_manager.load_groups_from_csv()
+if test_df.empty:
+    st.warning("""
+    ⚠️ **CSV file is empty!**
+
+    Your `customer_groups.csv` file exists but has no customer data.
+
+    **Option 1: Export from database**
+    ```bash
+    python3 export_groups_to_csv.py
+    ```
+
+    **Option 2: Add customers manually**
+
+    Edit `customer_groups.csv` and add customers in this format:
+    ```
+    GroupName,CustomerID,CustomerName,Company
+    ABC Stores,1234,John Smith,ABC Store 1
+    ABC Stores,1235,John Smith,ABC Store 2
+    ```
+
+    Where:
+    - **GroupName**: Any name you want for the group
+    - **CustomerID**: The customer ID from your database
+    - **CustomerName**: Customer's name (optional, but helpful)
+    - **Company**: Company name (optional, but helpful)
+
+    You can add multiple customers to the same group by using the same GroupName.
     """)
     st.stop()
 
