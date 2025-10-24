@@ -387,16 +387,13 @@ with tab1:
                 overall = db.execute_query(overall_query)
 
                 if not overall.empty and overall['TotalTransactions'].iloc[0] and overall['TotalTransactions'].iloc[0] > 0:
-                    # Calculate excise tax for this customer (simplified - no complex joins)
-                    # Using a simpler approach to avoid timeouts
+                    # Calculate excise tax using pre-built VIEWEXCISETAXCOLLECT (much faster!)
                     try:
                         excise_query = f"""
                         SELECT
-                            ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
-                                THEN pue.PriceC * pue.Quantity
-                                ELSE 0 END), 0) as ExciseCollected
-                        FROM PUExciseEntry pue WITH (NOLOCK)
-                        WHERE pue.TransactionNumber IN (
+                            SUM(TOTALEXCISECOLLECT) as ExciseCollected
+                        FROM VIEWEXCISETAXCOLLECT WITH (NOLOCK)
+                        WHERE TRANSACTIONNUMBER IN (
                             SELECT TransactionNumber
                             FROM [Transaction] WITH (NOLOCK)
                             WHERE CustomerID = {customer_id}
@@ -406,7 +403,7 @@ with tab1:
                         """
 
                         excise_result = db.execute_query(excise_query)
-                        excise_collected = excise_result['ExciseCollected'].iloc[0] if not excise_result.empty else 0
+                        excise_collected = excise_result['ExciseCollected'].iloc[0] if not excise_result.empty and pd.notna(excise_result['ExciseCollected'].iloc[0]) else 0
                     except:
                         # If excise calculation fails/times out, skip it
                         excise_collected = 0
@@ -969,24 +966,25 @@ with tab1:
                         prev_avg_basket = prev_overall['AvgTransactionSize'].iloc[0] or 0
                         prev_gross_profit_before = prev_overall['GrossProfitBeforeExcise'].iloc[0] or 0
 
-                        # Get prev excise
-                        prev_excise_query = f"""
-                        SELECT
-                            ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
-                                THEN pue.PriceC * pue.Quantity
-                                ELSE 0 END), 0) as ExciseCollected
-                        FROM [Transaction] t WITH (NOLOCK)
-                        INNER JOIN TransactionEntry te WITH (NOLOCK)
-                            ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
-                        LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
-                            ON t.TransactionNumber = pue.TransactionNumber
-                            AND te.ItemID = pue.ItemID
-                        WHERE t.CustomerID = {customer_id}
-                          AND t.Time >= '{prev_start.strftime('%Y-%m-%d %H:%M:%S')}'
-                          AND t.Time <= '{prev_end.strftime('%Y-%m-%d %H:%M:%S')}'
-                        """
-                        prev_excise_result = db.execute_query(prev_excise_query)
-                        prev_excise = prev_excise_result['ExciseCollected'].iloc[0] if not prev_excise_result.empty else 0
+                        # Get prev excise using optimized view
+                        try:
+                            prev_excise_query = f"""
+                            SELECT
+                                SUM(TOTALEXCISECOLLECT) as ExciseCollected
+                            FROM VIEWEXCISETAXCOLLECT WITH (NOLOCK)
+                            WHERE TRANSACTIONNUMBER IN (
+                                SELECT TransactionNumber
+                                FROM [Transaction] WITH (NOLOCK)
+                                WHERE CustomerID = {customer_id}
+                                  AND Time >= '{prev_start.strftime('%Y-%m-%d %H:%M:%S')}'
+                                  AND Time <= '{prev_end.strftime('%Y-%m-%d %H:%M:%S')}'
+                            )
+                            """
+                            prev_excise_result = db.execute_query(prev_excise_query)
+                            prev_excise = prev_excise_result['ExciseCollected'].iloc[0] if not prev_excise_result.empty and pd.notna(prev_excise_result['ExciseCollected'].iloc[0]) else 0
+                        except:
+                            prev_excise = 0
+
                         prev_gross_profit = prev_gross_profit_before - prev_excise
 
                         # Build comparison table
