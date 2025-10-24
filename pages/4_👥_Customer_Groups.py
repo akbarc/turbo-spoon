@@ -1,12 +1,16 @@
 """Customer Groups Dashboard - SOUNDEX grouping with fresh analytics."""
 
 import streamlit as st
+import sys
+from pathlib import Path
 import pandas as pd
 from datetime import datetime, timedelta, date
 
-from src.database.sql_server import test_connection, execute_query
-from src.modules.customer_groups import customer_group_manager
-from src.modules.pd_check_parser import PDCheckParser
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+from database.sql_server import db
+from modules.customer_groups import customer_group_manager
+from modules.pd_check_parser import PDCheckParser
 
 # Page configuration
 st.set_page_config(
@@ -19,7 +23,7 @@ st.title("👥 Customer Groups")
 st.markdown("**SOUNDEX-based customer grouping** - Analytics calculated fresh each time")
 
 # Test database connection
-if not test_connection():
+if not st.session_state.get('sql_server_connected', False):
     st.error("❌ Cannot connect to database. Please check your connection settings.")
     st.stop()
 
@@ -185,7 +189,7 @@ with st.spinner(f"Calculating analytics for {selected_period}..."):
                     AND t.Time >= '{start_date_str}'
                     AND t.Time <= '{end_date_str}'
             """
-            financial_df = execute_query(financial_query)
+            financial_df = db.execute_query(financial_query)
 
             # Calculate GP
             gp_query = f"""
@@ -197,7 +201,7 @@ with st.spinner(f"Calculating analytics for {selected_period}..."):
                     AND t.Time >= '{start_date_str}'
                     AND t.Time <= '{end_date_str}'
             """
-            gp_df = execute_query(gp_query)
+            gp_df = db.execute_query(gp_query)
 
             # Get AR balance (current)
             ar_query = f"""
@@ -206,7 +210,7 @@ with st.spinner(f"Calculating analytics for {selected_period}..."):
                 FROM dbo.Customer
                 WHERE ID IN ({customer_ids_str})
             """
-            ar_df = execute_query(ar_query)
+            ar_df = db.execute_query(ar_query)
 
             # Get PD checks from Payment table - get all to parse dates
             pd_query = f"""
@@ -224,7 +228,7 @@ with st.spinner(f"Calculating analytics for {selected_period}..."):
                     )
                     AND Amount > 0
             """
-            pd_df = execute_query(pd_query)
+            pd_df = db.execute_query(pd_query)
 
             # Parse and filter PD checks - only count future/active checks
             active_pd_total = 0
@@ -454,7 +458,7 @@ else:
                             AND Time >= '{start_date_str}'
                             AND Time <= '{end_date_str}'
                     """
-                    sales_df = execute_query(sales_query)
+                    sales_df = db.execute_query(sales_query)
 
                     # GP query
                     gp_query = f"""
@@ -466,7 +470,7 @@ else:
                             AND t.Time >= '{start_date_str}'
                             AND t.Time <= '{end_date_str}'
                     """
-                    gp_df = execute_query(gp_query)
+                    gp_df = db.execute_query(gp_query)
 
                     # AR query
                     ar_query = f"""
@@ -474,7 +478,7 @@ else:
                         FROM dbo.Customer
                         WHERE ID = {customer_id}
                     """
-                    ar_df = execute_query(ar_query)
+                    ar_df = db.execute_query(ar_query)
 
                     # PD Checks from Payment table - get individual checks with details
                     pd_query = f"""
@@ -493,7 +497,7 @@ else:
                             AND Amount > 0
                         ORDER BY Time DESC
                     """
-                    pd_checks_raw = execute_query(pd_query)
+                    pd_checks_raw = db.execute_query(pd_query)
 
                     total_sales = float(sales_df.iloc[0]['total_sales'] or 0)
                     gross_profit = float(gp_df.iloc[0]['gross_profit'] or 0)
