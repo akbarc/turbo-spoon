@@ -363,12 +363,13 @@ else:
     stores_sorted = sorted(stores_in_group, key=lambda x: x['total_sales'], reverse=True)
 
     for store in stores_sorted:
-        with st.expander(
-            f"**{store['customer_name']}** "
-            f"{f\"({store['company']})\" if store['company'] and store['company'] != store['customer_name'] else ''} "
-            f"- ${store['total_sales']:,.2f}",
-            expanded=False
-        ):
+        # Build expander title
+        title = f"**{store['customer_name']}**"
+        if store['company'] and store['company'] != store['customer_name']:
+            title += f" ({store['company']})"
+        title += f" - ${store['total_sales']:,.2f}"
+
+        with st.expander(title, expanded=False):
             # Store metrics in columns
             col1, col2, col3, col4, col5, col6 = st.columns(6)
 
