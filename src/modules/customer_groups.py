@@ -221,20 +221,20 @@ class CustomerGroupManager:
 
         ar_df = execute_query(ar_query)
 
-        # Get post-dated checks
-        # Column is 'Description' not 'Comment'
+        # Get post-dated checks from Payment table
         pd_checks_query = f"""
             SELECT
                 COUNT(*) as pd_check_count,
-                SUM(te.Amount) as pd_check_total
-            FROM dbo.TenderEntry te
-            INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
-            WHERE t.CustomerID IN ({customer_ids_str})
+                SUM(Amount) as pd_check_total
+            FROM dbo.Payment
+            WHERE CustomerID IN ({customer_ids_str})
                 AND (
-                    te.Description LIKE '%post%date%'
-                    OR te.Description LIKE '%PD%'
+                    UPPER(Comment) LIKE '%PD%'
+                    OR UPPER(Comment) LIKE '%POST DATE%'
+                    OR UPPER(Comment) LIKE '%P D%'
+                    OR UPPER(Comment) LIKE '%POSTDATE%'
                 )
-                AND te.Amount > 0
+                AND Amount > 0
         """
         pd_checks_df = execute_query(pd_checks_query)
 
@@ -576,16 +576,20 @@ class CustomerGroupManager:
 
                 ar_df = execute_query(ar_query)
 
-                # Get PD checks
+                # Get PD checks from Payment table
                 pd_query = f"""
                     SELECT
                         COUNT(*) as pd_count,
-                        ISNULL(SUM(te.Amount), 0) as pd_total
-                    FROM dbo.TenderEntry te
-                    INNER JOIN dbo.[Transaction] t ON te.TransactionNumber = t.TransactionNumber
-                    WHERE t.CustomerID IN ({customer_ids_str})
-                        AND (te.Description LIKE '%post%date%' OR te.Description LIKE '%PD%')
-                        AND te.Amount > 0
+                        ISNULL(SUM(Amount), 0) as pd_total
+                    FROM dbo.Payment
+                    WHERE CustomerID IN ({customer_ids_str})
+                        AND (
+                            UPPER(Comment) LIKE '%PD%'
+                            OR UPPER(Comment) LIKE '%POST DATE%'
+                            OR UPPER(Comment) LIKE '%P D%'
+                            OR UPPER(Comment) LIKE '%POSTDATE%'
+                        )
+                        AND Amount > 0
                 """
 
                 pd_df = execute_query(pd_query)
