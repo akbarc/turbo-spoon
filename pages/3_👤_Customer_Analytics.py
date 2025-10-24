@@ -32,6 +32,89 @@ tab1, tab2, tab3 = st.tabs(["🔍 Customer Lookup", "📊 Customer Segments", "�
 with tab1:
     st.markdown("---")
 
+    # Section A0: Customer Overview/List
+    st.subheader("📊 All Customers Overview")
+
+    show_all_customers = st.checkbox("Show all customers with stats", value=False, key="show_all_customers")
+
+    if show_all_customers:
+        with st.spinner("Loading all customers..."):
+            try:
+                # Get all customers with basic stats
+                all_customers_query = """
+                SELECT
+                    c.ID as CustomerID,
+                    c.FirstName + ' ' + c.LastName as CustomerName,
+                    c.Company,
+                    c.PhoneNumber,
+                    c.EmailAddress,
+                    c.City,
+                    c.State,
+                    c.AccountOpened,
+                    c.LastVisit,
+                    c.TotalVisits,
+                    c.TotalSales,
+                    c.AccountBalance,
+                    c.CreditLimit,
+                    CASE WHEN c.TaxExempt = 1 THEN 'Yes' ELSE 'No' END as TaxExempt
+                FROM Customer c WITH (NOLOCK)
+                WHERE c.TotalVisits > 0
+                ORDER BY c.TotalSales DESC
+                """
+
+                all_customers = db.execute_query(all_customers_query)
+
+                if not all_customers.empty:
+                    st.success(f"✅ Loaded {len(all_customers)} customers")
+
+                    # Summary metrics
+                    col1, col2, col3, col4 = st.columns(4)
+
+                    with col1:
+                        st.metric("Total Customers", f"{len(all_customers):,}")
+
+                    with col2:
+                        total_sales = all_customers['TotalSales'].sum()
+                        st.metric("Total Lifetime Sales", f"${total_sales:,.2f}")
+
+                    with col3:
+                        avg_sales = all_customers['TotalSales'].mean()
+                        st.metric("Avg Customer Value", f"${avg_sales:,.2f}")
+
+                    with col4:
+                        total_ar = all_customers['AccountBalance'].sum()
+                        st.metric("Total A/R Balance", f"${total_ar:,.2f}")
+
+                    # Display table
+                    st.dataframe(
+                        all_customers.style.format({
+                            'TotalVisits': '{:,}',
+                            'TotalSales': '${:,.2f}',
+                            'AccountBalance': '${:,.2f}',
+                            'CreditLimit': '${:,.2f}',
+                            'AccountOpened': lambda x: x.strftime('%Y-%m-%d') if pd.notna(x) else 'N/A',
+                            'LastVisit': lambda x: x.strftime('%Y-%m-%d') if pd.notna(x) else 'Never'
+                        }).background_gradient(subset=['TotalSales'], cmap='Blues'),
+                        use_container_width=True,
+                        height=500
+                    )
+
+                    # Export button
+                    csv = all_customers.to_csv(index=False).encode('utf-8')
+                    st.download_button(
+                        label="📥 Download All Customers CSV",
+                        data=csv,
+                        file_name=f"all_customers_{datetime.now().strftime('%Y%m%d')}.csv",
+                        mime="text/csv"
+                    )
+                else:
+                    st.warning("⚠️ No customers found")
+
+            except Exception as e:
+                st.error(f"❌ Error loading customers: {str(e)}")
+
+    st.markdown("---")
+
     # Section A: Customer Search
     st.subheader("🔍 Customer Search")
 
@@ -304,25 +387,30 @@ with tab1:
                 overall = db.execute_query(overall_query)
 
                 if not overall.empty and overall['TotalTransactions'].iloc[0] and overall['TotalTransactions'].iloc[0] > 0:
-                    # Calculate excise tax for this customer
-                    excise_query = f"""
-                    SELECT
-                        ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
-                            THEN pue.PriceC * pue.Quantity
-                            ELSE 0 END), 0) as ExciseCollected
-                    FROM [Transaction] t WITH (NOLOCK)
-                    INNER JOIN TransactionEntry te WITH (NOLOCK)
-                        ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
-                    LEFT JOIN PUExciseEntry pue WITH (NOLOCK)
-                        ON t.TransactionNumber = pue.TransactionNumber
-                        AND te.ItemID = pue.ItemID
-                    WHERE t.CustomerID = {customer_id}
-                      AND t.Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
-                      AND t.Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
-                    """
+                    # Calculate excise tax for this customer (simplified - no complex joins)
+                    # Using a simpler approach to avoid timeouts
+                    try:
+                        excise_query = f"""
+                        SELECT
+                            ISNULL(SUM(CASE WHEN pue.SubDescription3 LIKE '%COLL'
+                                THEN pue.PriceC * pue.Quantity
+                                ELSE 0 END), 0) as ExciseCollected
+                        FROM PUExciseEntry pue WITH (NOLOCK)
+                        WHERE pue.TransactionNumber IN (
+                            SELECT TransactionNumber
+                            FROM [Transaction] WITH (NOLOCK)
+                            WHERE CustomerID = {customer_id}
+                              AND Time >= '{start_date.strftime('%Y-%m-%d %H:%M:%S')}'
+                              AND Time <= '{end_date.strftime('%Y-%m-%d %H:%M:%S')}'
+                        )
+                        """
 
-                    excise_result = db.execute_query(excise_query)
-                    excise_collected = excise_result['ExciseCollected'].iloc[0] if not excise_result.empty else 0
+                        excise_result = db.execute_query(excise_query)
+                        excise_collected = excise_result['ExciseCollected'].iloc[0] if not excise_result.empty else 0
+                    except:
+                        # If excise calculation fails/times out, skip it
+                        excise_collected = 0
+                        st.warning("⚠️ Excise tax calculation skipped (query timeout). Profit shown is before excise tax.")
 
                     total_revenue = overall['TotalRevenue'].iloc[0] or 0
                     total_transactions = overall['TotalTransactions'].iloc[0] or 0
@@ -1191,23 +1279,42 @@ with tab2:
                 # Section B: Segment Overview
                 st.markdown("---")
                 st.subheader(f"📊 {segment_name}")
+                st.info(f"Analyzing {len(customer_ids)} customers in this segment...")
 
-                # Overall segment metrics
-                segment_overview_query = f"""
+                # Overall segment metrics - Optimized query without huge IN clause
+                # First get transaction-level metrics
+                segment_trans_query = f"""
                 SELECT
                     COUNT(DISTINCT t.CustomerID) as TotalCustomers,
                     SUM(t.Total) as TotalRevenue,
                     AVG(t.Total) as AvgTransactionSize,
-                    COUNT(DISTINCT t.TransactionNumber) as TotalTransactions,
+                    COUNT(DISTINCT t.TransactionNumber) as TotalTransactions
+                FROM [Transaction] t WITH (NOLOCK)
+                WHERE {customer_filter}
+                """
+
+                # Separate query for items and profit to avoid row multiplication
+                segment_items_query = f"""
+                SELECT
                     SUM(te.Quantity) as ItemsPurchased,
                     SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit
                 FROM [Transaction] t WITH (NOLOCK)
-                LEFT JOIN TransactionEntry te WITH (NOLOCK)
+                INNER JOIN TransactionEntry te WITH (NOLOCK)
                     ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
                 WHERE {customer_filter}
                 """
 
-                segment_overview = db.execute_query(segment_overview_query)
+                segment_trans = db.execute_query(segment_trans_query)
+                segment_items = db.execute_query(segment_items_query)
+
+                # Combine results
+                segment_overview = segment_trans.copy()
+                if not segment_items.empty:
+                    segment_overview['ItemsPurchased'] = segment_items['ItemsPurchased'].iloc[0]
+                    segment_overview['GrossProfit'] = segment_items['GrossProfit'].iloc[0]
+                else:
+                    segment_overview['ItemsPurchased'] = 0
+                    segment_overview['GrossProfit'] = 0
 
                 if not segment_overview.empty and segment_overview['TotalCustomers'].iloc[0]:
                     total_customers = segment_overview['TotalCustomers'].iloc[0] or 0
@@ -1466,40 +1573,83 @@ with tab3:
         if st.button("📊 Compare Customers", type="primary", key="compare_customers"):
             with st.spinner("Comparing customers..."):
                 try:
-                    # Build comparison query
-                    customer_filter = f"t.CustomerID IN ({','.join(map(str, customer_ids_to_compare))})"
+                    # Build comparison query - use CTE to avoid nested aggregate error
+                    customer_filter = f"CustomerID IN ({','.join(map(str, customer_ids_to_compare))})"
 
                     comparison_query = f"""
+                    WITH CustomerMetrics AS (
+                        SELECT
+                            t.CustomerID,
+                            SUM(t.Total) as TotalSpent,
+                            COUNT(DISTINCT t.TransactionNumber) as Transactions,
+                            AVG(t.Total) as AvgBasket
+                        FROM [Transaction] t WITH (NOLOCK)
+                        WHERE t.{customer_filter}
+                        GROUP BY t.CustomerID
+                    ),
+                    CustomerProfit AS (
+                        SELECT
+                            t.CustomerID,
+                            SUM((te.Price - te.Cost) * te.Quantity) as GrossProfit
+                        FROM [Transaction] t WITH (NOLOCK)
+                        INNER JOIN TransactionEntry te WITH (NOLOCK)
+                            ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
+                        WHERE t.{customer_filter}
+                        GROUP BY t.CustomerID
+                    ),
+                    FavoriteStores AS (
+                        SELECT
+                            CustomerID,
+                            StoreID as FavoriteStore
+                        FROM (
+                            SELECT
+                                CustomerID,
+                                StoreID,
+                                ROW_NUMBER() OVER (PARTITION BY CustomerID ORDER BY COUNT(*) DESC) as rn
+                            FROM [Transaction] WITH (NOLOCK)
+                            WHERE {customer_filter}
+                            GROUP BY CustomerID, StoreID
+                        ) ranked
+                        WHERE rn = 1
+                    ),
+                    TopCategories AS (
+                        SELECT
+                            t.CustomerID,
+                            cat.Name as TopCategory
+                        FROM (
+                            SELECT
+                                t.CustomerID,
+                                i.CategoryID,
+                                SUM(te.Price * te.Quantity) as CategoryTotal,
+                                ROW_NUMBER() OVER (PARTITION BY t.CustomerID ORDER BY SUM(te.Price * te.Quantity) DESC) as rn
+                            FROM [Transaction] t WITH (NOLOCK)
+                            INNER JOIN TransactionEntry te WITH (NOLOCK)
+                                ON t.TransactionNumber = te.TransactionNumber AND t.StoreID = te.StoreID
+                            INNER JOIN Item i WITH (NOLOCK)
+                                ON te.ItemID = i.ID
+                            WHERE t.{customer_filter}
+                            GROUP BY t.CustomerID, i.CategoryID
+                        ) ranked
+                        INNER JOIN Category cat WITH (NOLOCK) ON ranked.CategoryID = cat.ID
+                        WHERE ranked.rn = 1
+                    )
                     SELECT
                         c.ID as CustomerID,
                         c.FirstName + ' ' + c.LastName as CustomerName,
                         c.Company,
-                        SUM(t.Total) as TotalSpent,
-                        COUNT(DISTINCT t.TransactionNumber) as Transactions,
-                        AVG(t.Total) as AvgBasket,
-                        SUM((SELECT SUM((te2.Price - te2.Cost) * te2.Quantity)
-                             FROM TransactionEntry te2
-                             WHERE te2.TransactionNumber = t.TransactionNumber
-                               AND te2.StoreID = t.StoreID)) as GrossProfit,
-                        (SELECT TOP 1 t2.StoreID
-                         FROM [Transaction] t2
-                         WHERE t2.CustomerID = c.ID
-                         GROUP BY t2.StoreID
-                         ORDER BY COUNT(*) DESC) as FavoriteStore,
-                        (SELECT TOP 1 cat.Name
-                         FROM [Transaction] t3
-                         INNER JOIN TransactionEntry te3 ON t3.TransactionNumber = te3.TransactionNumber AND t3.StoreID = te3.StoreID
-                         INNER JOIN Item i3 ON te3.ItemID = i3.ID
-                         INNER JOIN Category cat ON i3.CategoryID = cat.ID
-                         WHERE t3.CustomerID = c.ID
-                         GROUP BY cat.Name
-                         ORDER BY SUM(te3.Price * te3.Quantity) DESC) as TopCategory
+                        ISNULL(cm.TotalSpent, 0) as TotalSpent,
+                        ISNULL(cm.Transactions, 0) as Transactions,
+                        ISNULL(cm.AvgBasket, 0) as AvgBasket,
+                        ISNULL(cp.GrossProfit, 0) as GrossProfit,
+                        fs.FavoriteStore,
+                        tc.TopCategory
                     FROM Customer c WITH (NOLOCK)
-                    LEFT JOIN [Transaction] t WITH (NOLOCK)
-                        ON c.ID = t.CustomerID
-                    WHERE {customer_filter}
-                    GROUP BY c.ID, c.FirstName, c.LastName, c.Company
-                    ORDER BY TotalSpent DESC
+                    LEFT JOIN CustomerMetrics cm ON c.ID = cm.CustomerID
+                    LEFT JOIN CustomerProfit cp ON c.ID = cp.CustomerID
+                    LEFT JOIN FavoriteStores fs ON c.ID = fs.CustomerID
+                    LEFT JOIN TopCategories tc ON c.ID = tc.CustomerID
+                    WHERE c.{customer_filter}
+                    ORDER BY ISNULL(cm.TotalSpent, 0) DESC
                     """
 
                     comparison = db.execute_query(comparison_query)
